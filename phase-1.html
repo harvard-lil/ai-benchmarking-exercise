@@ -1,0 +1,121 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Phase 1 · Human Research — AI Benchmarking Exercise</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=IBM+Plex+Mono:wght@400;700&family=Libre+Franklin:ital,wght@0,400;0,600;0,800;1,400&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="css/style.css">
+</head>
+<body>
+<header class="site">
+  <div class="inner">
+    <a class="wordmark" href="index.html">AI Benchmarking Exercise</a>
+    <nav class="site">
+      <a href="index.html">Overview</a>
+      <a href="phase-1.html" aria-current="page">Phase 1</a>
+      <a href="phase-2.html">Phase 2</a>
+      <a href="phase-3.html">Phase 3</a>
+      <a href="rubric.html">Rubric</a>
+    </nav>
+  </div>
+</header>
+
+<main>
+  <p class="eyebrow">Phase 1 · ~50 minutes · no AI</p>
+  <h1>Human research</h1>
+
+  <p class="lede">You'll research the <em>ecosystem around a dataset</em> — what the
+  news, the federal government, and social media are saying about it — and rate its
+  risk against the rubric. You are not trying to become an expert in the dataset
+  itself.</p>
+
+  <h2>1. Pick your dataset</h2>
+  <div class="picker">
+    <div>
+      <label for="dataset-select">Dataset</label>
+      <select id="dataset-select">
+        <option value="nhis">National Health Interview Survey</option>
+        <option value="ahs">American Housing Survey</option>
+        <option value="hifld">Homeland Infrastructure Foundation-Level Data (HIFLD) Open</option>
+        <option value="custom">Another federal dataset (bring your own)</option>
+      </select>
+    </div>
+  </div>
+  <div id="dataset-card"></div>
+
+  <h2>2. Pick your categories</h2>
+  <p>The rubric has six categories. In timed sessions each participant takes one triad
+  of three; if you're working async and have time, you may attempt all six.
+  <span class="flag">TEAM DECISION #4 — triads vs. all six for async is not settled.</span></p>
+  <div class="picker">
+    <div>
+      <label for="triad-select">Categories to assess</label>
+      <select id="triad-select">
+        <option value="a">Triad A — Historical Data Availability · Staffing and Funding · Policy</option>
+        <option value="b">Triad B — Future Data Availability · Data Quality · Statutory Context</option>
+        <option value="all">All six (only if time allows)</option>
+      </select>
+    </div>
+  </div>
+
+  <h2>3. Rules of engagement</h2>
+  <div class="dodont">
+    <section>
+      <h3>Do not</h3>
+      <ul>
+        <li>Look at <a href="https://dataindex.us/collections/">America's Data Index</a>.
+          That's pretty much cheating — it's the comparison point for the very end.</li>
+        <li>Use AI in this phase — chatbots, and to the extent you can, AI-generated
+          search summaries. If an AI Overview is unavoidable, don't rely on it: click
+          through to sources. <span class="flag">TEAM DECISION #6 — exact policy on
+          AI-assisted search is not settled.</span></li>
+        <li>Worry too much about time. Not being able to assess a category in the time
+          you have is itself valuable information — record that and move on.</li>
+      </ul>
+    </section>
+    <section>
+      <h3>Do</h3>
+      <ul>
+        <li>Look anywhere else: social media, government websites, news, trade press,
+          paywalled material.</li>
+        <li>Research the <em>ecosystem</em>: what are the news, the fed, and social
+          media saying about this data and its agency?</li>
+        <li>Do your best to cover all your assigned categories, even if it means moving
+          on before you feel ready.</li>
+        <li>Keep rough notes on <strong>which kinds of sources</strong> you used —
+          the assessment form asks.</li>
+      </ul>
+    </section>
+  </div>
+
+  <h2>4. Your rubric</h2>
+  <p>Assess each of your categories at one of four levels. Full six-category rubric on
+  the <a href="rubric.html">rubric page</a>.</p>
+  <div id="triad-rubric"></div>
+
+  <h2>5. Submit your assessment</h2>
+  <p>When you're done (or out of time), complete the Researcher Assessment Form. For
+  each category, give a risk level and briefly note the evidence behind it —
+  "couldn't assess" is a legitimate answer.</p>
+  <p><a class="btn" data-form="assessment" href="#">Open the Researcher Assessment Form</a>
+  <span class="flag">TODO: form URL — see PLAN.md §7 for the field spec.</span></p>
+
+  <h2>What happens next</h2>
+  <p>If you're participating <strong>asynchronously</strong>, you're done — thank you.
+  Our automated harness (<a href="phase-2.html">Phase 2</a>) assesses the same dataset
+  with no human steering, and we compare. If you're in a <strong>synchronous
+  session</strong>, continue to <a href="phase-3.html">Phase 3</a>.</p>
+</main>
+
+<footer class="site">
+  <div class="inner">
+    A project of the Harvard Law School Library Innovation Lab · Public Data Project.
+  </div>
+</footer>
+
+<script src="js/site.js"></script>
+<script>initPhase1();</script>
+</body>
+</html>

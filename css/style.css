@@ -1,0 +1,243 @@
+/* AI Benchmarking Exercise — draft skin.
+   Intentionally quiet; visual design pass belongs to Jacob.
+   Palette nods to the Public Data Project slide (slate blue + stamp black). */
+
+:root {
+  --paper: #faf9f6;
+  --ink: #16191b;
+  --slate: #7fa0a8;      /* PDP slide blue */
+  --slate-deep: #40616b; /* links, accents */
+  --rule: #d9d5cc;
+  --flag-bg: #fdf3d7;
+  --flag-ink: #6b5410;
+  --gone: #8c1d18;
+  --high: #b3541e;
+  --moderate: #8a6d00;
+  --ok: #2e6b3a;
+  --mono: "IBM Plex Mono", ui-monospace, SFMono-Regular, Menlo, monospace;
+  --sans: "Libre Franklin", system-ui, -apple-system, "Segoe UI", sans-serif;
+}
+
+* { box-sizing: border-box; }
+
+body {
+  margin: 0;
+  background: var(--paper);
+  color: var(--ink);
+  font-family: var(--sans);
+  font-size: 1.02rem;
+  line-height: 1.6;
+}
+
+/* Header / nav */
+header.site {
+  border-bottom: 3px solid var(--ink);
+  background: var(--slate);
+}
+header.site .inner {
+  max-width: 52rem;
+  margin: 0 auto;
+  padding: 1rem 1.25rem;
+  display: flex;
+  flex-wrap: wrap;
+  align-items: baseline;
+  gap: 0.5rem 1.5rem;
+}
+header.site .wordmark {
+  font-family: var(--mono);
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: 0.06em;
+  color: var(--ink);
+  text-decoration: none;
+}
+nav.site a {
+  font-family: var(--mono);
+  font-size: 0.82rem;
+  color: var(--ink);
+  text-decoration: none;
+  margin-right: 1rem;
+}
+nav.site a[aria-current="page"] { border-bottom: 2px solid var(--ink); }
+nav.site a:hover { text-decoration: underline; }
+
+main {
+  max-width: 52rem;
+  margin: 0 auto;
+  padding: 2rem 1.25rem 4rem;
+}
+
+.eyebrow {
+  font-family: var(--mono);
+  font-size: 0.78rem;
+  text-transform: uppercase;
+  letter-spacing: 0.12em;
+  color: var(--slate-deep);
+  margin: 0 0 0.5rem;
+}
+
+h1 {
+  font-size: clamp(1.9rem, 4.5vw, 2.8rem);
+  line-height: 1.12;
+  letter-spacing: -0.01em;
+  margin: 0 0 1rem;
+}
+h2 {
+  font-size: 1.35rem;
+  margin: 2.5rem 0 0.75rem;
+  padding-top: 1rem;
+  border-top: 1px solid var(--rule);
+}
+h3 { font-size: 1.1rem; margin: 1.5rem 0 0.4rem; }
+
+a { color: var(--slate-deep); }
+p.meta { font-size: 0.9rem; color: #555; margin-top: 0; }
+p.hint { font-size: 0.95rem; color: #444; }
+
+.lede { font-size: 1.15rem; max-width: 42rem; }
+
+/* Phase cards on landing */
+.phases { display: grid; gap: 1rem; margin: 1.5rem 0; }
+@media (min-width: 640px) { .phases { grid-template-columns: repeat(3, 1fr); } }
+.phase-card {
+  border: 1.5px solid var(--ink);
+  padding: 1rem;
+  background: #fff;
+}
+.phase-card h3 { margin-top: 0; }
+.badge {
+  display: inline-block;
+  font-family: var(--mono);
+  font-size: 0.7rem;
+  text-transform: uppercase;
+  letter-spacing: 0.08em;
+  padding: 0.15rem 0.45rem;
+  border: 1px solid currentColor;
+  margin-bottom: 0.5rem;
+}
+.badge.async { color: var(--ok); }
+.badge.sync  { color: var(--high); }
+.badge.team  { color: var(--slate-deep); }
+
+/* Buttons */
+.btn, button.copy {
+  display: inline-block;
+  font-family: var(--mono);
+  font-size: 0.9rem;
+  padding: 0.55rem 1rem;
+  background: var(--ink);
+  color: var(--paper);
+  border: none;
+  text-decoration: none;
+  cursor: pointer;
+}
+.btn:hover, button.copy:hover { background: var(--slate-deep); }
+.btn.secondary { background: transparent; color: var(--ink); border: 1.5px solid var(--ink); }
+
+/* Team-decision flags */
+.flag, .flag-block {
+  background: var(--flag-bg);
+  color: var(--flag-ink);
+  font-family: var(--mono);
+  font-size: 0.82rem;
+}
+.flag { padding: 0.05rem 0.35rem; }
+.flag-block { padding: 0.6rem 0.8rem; border-left: 3px solid var(--flag-ink); }
+
+/* Participant asides — "for you, not the bot" (italics in the source doc) */
+aside.participant {
+  border-left: 3px solid var(--slate);
+  background: #f0f3f4;
+  padding: 0.75rem 1rem;
+  font-style: italic;
+  margin: 1rem 0;
+}
+aside.participant .label {
+  display: block;
+  font-family: var(--mono);
+  font-style: normal;
+  font-size: 0.72rem;
+  text-transform: uppercase;
+  letter-spacing: 0.1em;
+  color: var(--slate-deep);
+  margin-bottom: 0.25rem;
+}
+
+/* Do / Don't lists */
+.dodont { display: grid; gap: 1rem; margin: 1rem 0; }
+@media (min-width: 640px) { .dodont { grid-template-columns: 1fr 1fr; } }
+.dodont section { border: 1px solid var(--rule); background: #fff; padding: 1rem; }
+.dodont h3 { margin-top: 0; font-family: var(--mono); font-size: 0.9rem; text-transform: uppercase; }
+.dodont ul { margin: 0; padding-left: 1.1rem; }
+.dodont li { margin-bottom: 0.5rem; }
+
+/* Forms / pickers */
+.picker { display: grid; gap: 1rem; margin: 1rem 0; }
+.picker label { font-family: var(--mono); font-size: 0.82rem; text-transform: uppercase; letter-spacing: 0.06em; display: block; margin-bottom: 0.3rem; }
+select, input[type="text"], textarea {
+  width: 100%;
+  font: inherit;
+  padding: 0.5rem;
+  border: 1.5px solid var(--ink);
+  background: #fff;
+}
+#dataset-card { border: 1px solid var(--rule); background: #fff; padding: 1rem 1.25rem; margin: 1rem 0; }
+#dataset-card h3 { margin-top: 0; }
+#custom-dataset-fields { display: grid; gap: 0.75rem; border: 1px dashed var(--slate-deep); padding: 1rem; }
+
+/* Rubric tables */
+table.rubric { border-collapse: collapse; width: 100%; background: #fff; margin: 0.5rem 0 1.5rem; }
+table.rubric th, table.rubric td {
+  border: 1px solid var(--rule);
+  padding: 0.5rem 0.75rem;
+  text-align: left;
+  vertical-align: top;
+  font-size: 0.95rem;
+}
+th.lvl { font-family: var(--mono); font-size: 0.8rem; white-space: nowrap; width: 9.5rem; }
+.lvl-gone { color: var(--gone); }
+.lvl-high-risk { color: var(--high); }
+.lvl-moderate-risk { color: var(--moderate); }
+.lvl-no-known-issue { color: var(--ok); }
+
+/* Prompt blocks */
+.prompt-block { position: relative; margin: 1rem 0 2rem; }
+.prompt-block pre {
+  background: var(--ink);
+  color: #e8e6df;
+  padding: 1.25rem;
+  overflow-x: auto;
+  font-family: var(--mono);
+  font-size: 0.85rem;
+  line-height: 1.55;
+  white-space: pre-wrap;
+  margin: 0;
+}
+.prompt-block button.copy { position: absolute; top: 0.5rem; right: 0.5rem; background: var(--slate-deep); }
+
+/* Sync-only banner */
+.banner {
+  background: var(--high);
+  color: #fff;
+  font-family: var(--mono);
+  font-size: 0.85rem;
+  padding: 0.6rem 1rem;
+  margin-bottom: 1.5rem;
+}
+
+footer.site {
+  border-top: 1px solid var(--rule);
+  margin-top: 3rem;
+}
+footer.site .inner {
+  max-width: 52rem;
+  margin: 0 auto;
+  padding: 1.25rem;
+  font-size: 0.85rem;
+  color: #555;
+}
+
+:focus-visible { outline: 3px solid var(--slate-deep); outline-offset: 2px; }
+@media (prefers-reduced-motion: reduce) {
+  * { animation: none !important; transition: none !important; }
+}

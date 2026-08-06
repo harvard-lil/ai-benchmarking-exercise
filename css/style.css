@@ -184,6 +184,101 @@ select, input[type="text"], textarea {
 #dataset-card { border: 1px solid var(--rule); background: #fff; padding: 1rem 1.25rem; margin: 1rem 0; }
 #dataset-card h3 { margin-top: 0; }
 #custom-dataset-fields { display: grid; gap: 0.75rem; border: 1px dashed var(--slate-deep); padding: 1rem; }
+/* An ID selector outranks the UA stylesheet's [hidden] { display: none }, so the
+   hidden attribute needs restating here or the fields never actually hide. */
+#custom-dataset-fields[hidden] { display: none; }
+
+/* Phase 1 worksheet — the participant's own rating, saved and carried to Phase 3 */
+.worksheet {
+  display: grid;
+  gap: 0.75rem;
+  border-left: 3px solid var(--slate);
+  background: #fff;
+  padding: 0.9rem 1rem;
+  margin: -0.75rem 0 1.75rem;
+}
+.worksheet-title {
+  grid-column: 1 / -1;
+  margin: 0;
+  font-family: var(--mono);
+  font-size: 0.72rem;
+  text-transform: uppercase;
+  letter-spacing: 0.1em;
+  color: var(--slate-deep);
+}
+@media (min-width: 640px) {
+  .worksheet { grid-template-columns: 14rem 1fr; align-items: start; }
+}
+
+/* Phase 3 carry-over panel — context, never something to paste */
+.carryover {
+  border: 1.5px solid var(--slate-deep);
+  border-left-width: 5px;
+  background: #f0f3f4;
+  padding: 1rem 1.25rem;
+  margin: 1rem 0 1.75rem;
+}
+.carryover.missing { border-color: var(--high); background: #fdf1ea; }
+.carryover .label {
+  margin: 0 0 0.5rem;
+  font-family: var(--mono);
+  font-size: 0.72rem;
+  text-transform: uppercase;
+  letter-spacing: 0.1em;
+  color: var(--slate-deep);
+}
+.carryover.missing .label { color: var(--high); }
+.carryover p { margin: 0 0 0.5rem; }
+.carryover .meta { display: block; font-size: 0.9rem; color: #555; }
+.carryover .cats-intro { margin-top: 0.75rem; font-size: 0.95rem; }
+.carryover ul.cats { margin: 0 0 0.5rem; padding-left: 1.1rem; }
+.carryover ul.cats li { margin-bottom: 0.25rem; }
+.carryover .hint { margin-top: 0.75rem; }
+
+.rating-badge {
+  display: inline-block;
+  font-family: var(--mono);
+  font-size: 0.7rem;
+  text-transform: uppercase;
+  letter-spacing: 0.06em;
+  padding: 0.1rem 0.4rem;
+  border: 1px solid currentColor;
+  vertical-align: 0.1em;
+}
+.rating-badge.none { color: #777; font-style: normal; }
+
+/* Phase 3 "what the AI added" notes */
+.ai-note {
+  border: 1px solid var(--rule);
+  background: #fff;
+  padding: 1rem 1.25rem;
+  margin: 0 0 1rem;
+}
+.ai-note h3 { margin-top: 0; }
+.ai-note .prior {
+  font-size: 0.92rem;
+  color: #444;
+  border-left: 3px solid var(--rule);
+  padding-left: 0.75rem;
+  margin: 0 0 0.75rem;
+}
+.ai-note .prior span {
+  font-family: var(--mono);
+  font-size: 0.72rem;
+  text-transform: uppercase;
+  letter-spacing: 0.08em;
+  color: var(--slate-deep);
+  display: block;
+}
+.ai-note .prior.empty { color: #777; font-style: italic; }
+.ai-note label {
+  font-family: var(--mono);
+  font-size: 0.82rem;
+  text-transform: uppercase;
+  letter-spacing: 0.06em;
+  display: block;
+  margin-bottom: 0.3rem;
+}
 
 /* Rubric tables */
 table.rubric { border-collapse: collapse; width: 100%; background: #fff; margin: 0.5rem 0 1.5rem; }

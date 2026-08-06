@@ -77,32 +77,7 @@
   </aside>
 
   <h2>3. Step One — dataset research</h2>
-  <p>Your dataset and categories carry over from Phase 1 — change them here if needed.</p>
-  <div class="picker">
-    <div>
-      <label for="dataset-select">Dataset</label>
-      <select id="dataset-select">
-        <option value="nhis">National Health Interview Survey</option>
-        <option value="ahs">American Housing Survey</option>
-        <option value="hifld">Homeland Infrastructure Foundation-Level Data (HIFLD) Open</option>
-        <option value="custom">Another federal dataset (bring your own)</option>
-      </select>
-    </div>
-    <div>
-      <label for="triad-select">Categories</label>
-      <select id="triad-select">
-        <option value="a">Triad A — Historical · Staffing and Funding · Policy</option>
-        <option value="b">Triad B — Future · Data Quality · Statutory Context</option>
-        <option value="all">All six</option>
-      </select>
-    </div>
-    <div id="custom-dataset-fields" hidden>
-      <div><label for="c-title">Dataset title</label><input type="text" id="c-title"></div>
-      <div><label for="c-org">Organization / publisher</label><input type="text" id="c-org"></div>
-      <div><label for="c-desc">Description</label><textarea id="c-desc" rows="3"></textarea></div>
-      <div><label for="c-url">URL</label><input type="text" id="c-url"></div>
-    </div>
-  </div>
+  <div id="carryover"></div>
 
   <p>Paste this into your agent:</p>
   <div class="prompt-block">
@@ -128,7 +103,8 @@
   </aside>
 
   <h2>4. Step Two — risk assessment</h2>
-  <p>This prompt includes only the rubric categories you selected above.</p>
+  <p>This prompt includes only the rubric categories you took in Phase 1. Your own
+  ratings are deliberately left out of it — the agent has to reach its own conclusion.</p>
   <div class="prompt-block">
     <button class="copy" data-copy-target="prompt-step-two">Copy</button>
     <pre id="prompt-step-two"></pre>
@@ -157,7 +133,14 @@
     understand what worked.
   </aside>
 
-  <h2>5. Submit</h2>
+  <h2>5. What the AI added</h2>
+  <p>The only thing you need to type in this phase. Your Phase 1 rating and evidence
+  are shown for each category — record just what the agent surfaced that your own
+  research hadn't. Leave a box empty if it added nothing.</p>
+  <div id="ai-notes"></div>
+  <p><button class="btn secondary" type="button" id="copy-ai-notes">Copy notes to clipboard</button></p>
+
+  <h2>6. Submit</h2>
   <ol>
     <li><strong>Your transcript.</strong> Export or share the full conversation.
       <a data-form="transcript" href="#">Submission instructions</a>
@@ -169,7 +152,7 @@
       <span class="flag">TODO: form URL.</span></li>
   </ol>
 
-  <h2>6. Now — compare</h2>
+  <h2>7. Now — compare</h2>
   <p>The embargo is lifted. Visit
   <a href="https://dataindex.us/collections/">America's Data Index</a>, find your
   dataset, and compare your assessment and your agent's against what you find there.</p>

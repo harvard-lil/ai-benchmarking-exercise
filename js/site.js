@@ -87,7 +87,6 @@ const RUBRIC = {
   },
   quality: {
     name: "Data Quality",
-    caveat: "TEAM DECISION #1 — this category may be cut or rescoped. Binoc covers granularity diffing; publication-schedule slippage is not covered. In-person participants found it hard to benchmark.",
     levels: {
       "Gone": "Data collection and publication has been terminated.",
       "High Risk": "Reductions in granularity, timeliness, or frequency.",
@@ -169,123 +168,326 @@ Conclude with a simple summary of risk levels:
 ${summary}`;
 }
 
-/* ---------- Page wiring ---------- */
+/* ---------- Shared state ----------
+   Phase 1 is the single source of truth for dataset, categories, and ratings.
+   Phase 3 reads this and never re-asks. localStorage (not session) so closing
+   the tab between phases doesn't wipe 50 minutes of work. */
+
+const STATE_KEY = "aibench";
 
 function getState() {
   let s = {};
-  try { s = JSON.parse(sessionStorage.getItem("aibench") || "{}"); }
+  try { s = JSON.parse(localStorage.getItem(STATE_KEY) || "{}"); }
   catch (e) { s = {}; }
   return s;
 }
 function setState(patch) {
   const s = Object.assign(getState(), patch);
-  try { sessionStorage.setItem("aibench", JSON.stringify(s)); } catch (e) {}
+  try { localStorage.setItem(STATE_KEY, JSON.stringify(s)); } catch (e) {}
   return s;
 }
 
-function renderDatasetCard(el, key) {
-  const d = DATASETS[key];
-  if (!d || d.custom) {
+/* Has Phase 1 actually been filled in? */
+function hasPhase1(s) {
+  return !!(s.dataset && s.triad);
+}
+
+/* Resolve the chosen dataset, including a bring-your-own one. */
+function datasetFromState(s) {
+  const key = s.dataset || "nhis";
+  if (key !== "custom") return DATASETS[key];
+  const c = s.custom || {};
+  return {
+    title: c.title || "", org: c.org || "",
+    description: c.description || "", url: c.url || "",
+    custom: true
+  };
+}
+
+function categoriesFromState(s) {
+  return TRIADS[s.triad] ? TRIADS[s.triad].categories : TRIADS.a.categories;
+}
+
+/* ---------- Small helpers ---------- */
+
+function esc(v) {
+  return String(v == null ? "" : v)
+    .replace(/&/g, "&amp;").replace(/</g, "&lt;").replace(/>/g, "&gt;")
+    .replace(/"/g, "&quot;");
+}
+function slug(v) {
+  return String(v).toLowerCase().replace(/[^a-z0-9]+/g, "-").replace(/^-|-$/g, "");
+}
+function setValue(id, v) {
+  const el = document.getElementById(id);
+  if (el) el.value = v || "";
+}
+function copyText(btn, text) {
+  navigator.clipboard.writeText(text).then(() => {
+    const prev = btn.textContent;
+    btn.textContent = "Copied";
+    setTimeout(() => { btn.textContent = prev; }, 1500);
+  });
+}
+
+const RATING_OPTIONS = ["", "Gone", "High Risk", "Moderate Risk", "No Known Issue", "Couldn't assess"];
+
+/* ---------- Rendering ---------- */
+
+function renderDatasetCard(el, s) {
+  const d = datasetFromState(s);
+  if (d.custom && !d.title) {
     el.innerHTML =
-      '<p class="hint">Using your own dataset? Have its title, publisher, ' +
-      "description, and URL ready — the Phase 3 prompt builder will ask for them. " +
+      '<p class="hint">Using your own dataset? Fill in its title, publisher, ' +
+      "description, and URL above. Phase 3 builds its prompts straight from these " +
+      'fields, so you won\'t be asked for them again. ' +
       '<span class="flag">TEAM DECISION #3</span> covers how the dataset list grows.</p>';
     return;
   }
+  const link = d.url
+    ? `<a href="${esc(d.url)}" target="_blank" rel="noopener">${esc(d.url)}</a>`
+    : "<em>no URL given</em>";
   el.innerHTML = `
-    <h3>${d.title}</h3>
-    <p class="meta">${d.org} · <a href="${d.url}" target="_blank" rel="noopener">${d.url}</a></p>
-    <p>${d.description}</p>`;
+    <h3>${esc(d.title)}</h3>
+    <p class="meta">${esc(d.org) || "<em>no publisher given</em>"} · ${link}</p>
+    <p>${esc(d.description)}</p>`;
+}
+
+function rubricTable(c) {
+  const rows = Object.entries(c.levels).map(([lvl, txt]) =>
+    `<tr><th class="lvl lvl-${slug(lvl)}">${lvl}</th><td>${txt}</td></tr>`
+  ).join("");
+  return `<table class="rubric"><tbody>${rows}</tbody></table>`;
 }
 
 function renderRubric(el, categoryKeys) {
   el.innerHTML = categoryKeys.map((k) => {
     const c = RUBRIC[k];
     const caveat = c.caveat ? `<p class="flag-block">${c.caveat}</p>` : "";
-    const rows = Object.entries(c.levels).map(([lvl, txt]) => {
-      const cls = lvl.toLowerCase().replace(/\s+/g, "-");
-      return `<tr><th class="lvl lvl-${cls}">${lvl}</th><td>${txt}</td></tr>`;
-    }).join("");
     return `<section class="rubric-cat">
       <h3>${c.name}</h3>${caveat}
-      <table class="rubric"><tbody>${rows}</tbody></table>
+      ${rubricTable(c)}
     </section>`;
   }).join("");
+}
+
+/* Phase 1 worksheet: rubric + the participant's own rating and evidence. */
+function renderWorksheet(el, categoryKeys, s) {
+  const ratings = s.ratings || {};
+  el.innerHTML = categoryKeys.map((k) => {
+    const c = RUBRIC[k];
+    const r = ratings[k] || {};
+    const opts = RATING_OPTIONS.map((o) =>
+      `<option value="${esc(o)}"${r.level === o ? " selected" : ""}>${o || "— choose a level —"}</option>`
+    ).join("");
+    return `<section class="rubric-cat">
+      <h3>${c.name}</h3>
+      ${rubricTable(c)}
+      <div class="worksheet" data-cat="${k}">
+        <p class="worksheet-title">Your assessment</p>
+        <div>
+          <label for="lvl-${k}">Risk level</label>
+          <select id="lvl-${k}" data-field="level">${opts}</select>
+        </div>
+        <div>
+          <label for="ev-${k}">Evidence and notes</label>
+          <textarea id="ev-${k}" data-field="evidence" rows="3"
+            placeholder="What did you find, and where?">${esc(r.evidence)}</textarea>
+        </div>
+      </div>
+    </section>`;
+  }).join("");
+}
+
+/* Plain-text dump of the Phase 1 worksheet, for pasting into the official form. */
+function worksheetText(s) {
+  const d = datasetFromState(s);
+  const lines = [`Dataset: ${d.title || "(not set)"}`, `Publisher: ${d.org || "(not set)"}`, ""];
+  categoriesFromState(s).forEach((k) => {
+    const r = (s.ratings || {})[k] || {};
+    lines.push(`## ${RUBRIC[k].name}`);
+    lines.push(`Risk level: ${r.level || "(not rated)"}`);
+    lines.push(`Evidence: ${r.evidence || "(none recorded)"}`);
+    lines.push("");
+  });
+  return lines.join("\n").trim();
 }
 
 function wireCopyButtons(root) {
   (root || document).querySelectorAll("[data-copy-target]").forEach((btn) => {
     btn.addEventListener("click", () => {
-      const src = document.getElementById(btn.dataset.copyTarget);
-      navigator.clipboard.writeText(src.textContent).then(() => {
-        const prev = btn.textContent;
-        btn.textContent = "Copied";
-        setTimeout(() => { btn.textContent = prev; }, 1500);
-      });
+      copyText(btn, document.getElementById(btn.dataset.copyTarget).textContent);
     });
   });
 }
 
-/* Phase 1 page */
+/* ---------- Phase 1 ---------- */
+
 function initPhase1() {
   const dsSelect = document.getElementById("dataset-select");
   const dsCard = document.getElementById("dataset-card");
+  const customFields = document.getElementById("custom-dataset-fields");
   const triadSelect = document.getElementById("triad-select");
   const rubricEl = document.getElementById("triad-rubric");
-  const state = getState();
 
+  const state = getState();
   if (state.dataset) dsSelect.value = state.dataset;
   if (state.triad) triadSelect.value = state.triad;
+  const c = state.custom || {};
+  setValue("c-title", c.title);
+  setValue("c-org", c.org);
+  setValue("c-desc", c.description);
+  setValue("c-url", c.url);
 
-  function refresh() {
-    setState({ dataset: dsSelect.value, triad: triadSelect.value });
-    renderDatasetCard(dsCard, dsSelect.value);
-    renderRubric(rubricEl, TRIADS[triadSelect.value].categories);
+  function saveCustom() {
+    setState({ custom: {
+      title: document.getElementById("c-title").value,
+      org: document.getElementById("c-org").value,
+      description: document.getElementById("c-desc").value,
+      url: document.getElementById("c-url").value
+    }});
   }
-  dsSelect.addEventListener("change", refresh);
-  triadSelect.addEventListener("change", refresh);
-  refresh();
+
+  function refreshDataset() {
+    customFields.hidden = dsSelect.value !== "custom";
+    setState({ dataset: dsSelect.value });
+    renderDatasetCard(dsCard, getState());
+  }
+
+  function refreshRubric() {
+    setState({ triad: triadSelect.value });
+    renderWorksheet(rubricEl, categoriesFromState(getState()), getState());
+  }
+
+  dsSelect.addEventListener("change", refreshDataset);
+  triadSelect.addEventListener("change", refreshRubric);
+  ["c-title", "c-org", "c-desc", "c-url"].forEach((id) => {
+    const el = document.getElementById(id);
+    if (el) el.addEventListener("input", () => { saveCustom(); refreshDataset(); });
+  });
+
+  /* Delegated — the worksheet is re-rendered whenever the triad changes. */
+  rubricEl.addEventListener("input", (e) => {
+    const field = e.target.dataset && e.target.dataset.field;
+    if (!field) return;
+    const cat = e.target.closest("[data-cat]").dataset.cat;
+    const ratings = Object.assign({}, getState().ratings);
+    ratings[cat] = Object.assign({}, ratings[cat], { [field]: e.target.value });
+    setState({ ratings: ratings });
+  });
+
+  refreshDataset();
+  refreshRubric();
+
+  const copyBtn = document.getElementById("copy-worksheet");
+  if (copyBtn) copyBtn.addEventListener("click", () => copyText(copyBtn, worksheetText(getState())));
 
   document.querySelectorAll("a[data-form='assessment']")
     .forEach((a) => { a.href = FORM_URLS.assessment; });
 }
 
-/* Phase 3 page */
+/* ---------- Phase 3 ---------- */
+
+/* Read-only recap of everything Phase 1 decided. Deliberately rendered
+   outside the dark prompt blocks: this is context for the participant,
+   not text to paste — the same values are already inside the prompts. */
+function renderCarryover(el, s) {
+  if (!hasPhase1(s)) {
+    el.innerHTML = `<div class="carryover missing">
+      <p class="label">Nothing carried over</p>
+      <p>We couldn't find your Phase 1 choices in this browser. The prompts below fall
+      back to defaults. <a href="phase-1.html">Go back to Phase 1</a> to set your dataset
+      and categories — they should not change between phases.</p>
+    </div>`;
+    return;
+  }
+  const d = datasetFromState(s);
+  const ratings = s.ratings || {};
+  const rows = categoriesFromState(s).map((k) => {
+    const r = ratings[k] || {};
+    const badge = r.level
+      ? `<span class="rating-badge lvl-${slug(r.level)}">${esc(r.level)}</span>`
+      : '<span class="rating-badge none">not rated</span>';
+    return `<li>${RUBRIC[k].name} ${badge}</li>`;
+  }).join("");
+  const link = d.url
+    ? ` · <a href="${esc(d.url)}" target="_blank" rel="noopener">${esc(d.url)}</a>`
+    : "";
+
+  el.innerHTML = `<div class="carryover">
+    <p class="label">Carried over from Phase 1</p>
+    <p><strong>${esc(d.title) || "(no dataset title)"}</strong>
+      <span class="meta">${esc(d.org)}${link}</span></p>
+    <p class="cats-intro">Your categories and ratings:</p>
+    <ul class="cats">${rows}</ul>
+    <p class="hint">These are locked to keep your two assessments comparable —
+      <a href="phase-1.html">change them in Phase 1</a> if something is wrong. The
+      dataset details are already built into the prompts below, so there's nothing
+      here you need to copy. Your own ratings are <strong>not</strong> in the prompts:
+      the agent must reach its own conclusion.</p>
+  </div>`;
+}
+
+/* The one thing Phase 3 actually asks the participant to type. */
+function renderAiNotes(el, s) {
+  const ratings = s.ratings || {};
+  const notes = s.aiNotes || {};
+  el.innerHTML = categoriesFromState(s).map((k) => {
+    const r = ratings[k] || {};
+    const badge = r.level
+      ? `<span class="rating-badge lvl-${slug(r.level)}">${esc(r.level)}</span>`
+      : '<span class="rating-badge none">not rated</span>';
+    const prior = r.evidence
+      ? `<p class="prior"><span>Your Phase 1 evidence:</span> ${esc(r.evidence)}</p>`
+      : '<p class="prior empty">No Phase 1 evidence recorded for this category.</p>';
+    return `<section class="ai-note" data-cat="${k}">
+      <h3>${RUBRIC[k].name} ${badge}</h3>
+      ${prior}
+      <label for="ai-${k}">What the agent added that your research hadn't</label>
+      <textarea id="ai-${k}" data-field="note" rows="3"
+        placeholder="New sources, angles, or evidence — or leave blank">${esc(notes[k])}</textarea>
+    </section>`;
+  }).join("");
+}
+
+function aiNotesText(s) {
+  const d = datasetFromState(s);
+  const notes = s.aiNotes || {};
+  const ratings = s.ratings || {};
+  const lines = [`Dataset: ${d.title || "(not set)"}`, ""];
+  categoriesFromState(s).forEach((k) => {
+    const r = ratings[k] || {};
+    lines.push(`## ${RUBRIC[k].name}`);
+    lines.push(`My Phase 1 rating: ${r.level || "(not rated)"}`);
+    lines.push(`What the AI added: ${notes[k] || "(nothing new)"}`);
+    lines.push("");
+  });
+  return lines.join("\n").trim();
+}
+
 function initPhase3() {
   const state = getState();
-  const dsSelect = document.getElementById("dataset-select");
-  const triadSelect = document.getElementById("triad-select");
-  const customFields = document.getElementById("custom-dataset-fields");
-  const p1 = document.getElementById("prompt-step-one");
-  const p2 = document.getElementById("prompt-step-two");
+  const cats = categoriesFromState(state);
+  const dataset = datasetFromState(state);
 
-  if (state.dataset) dsSelect.value = state.dataset;
-  if (state.triad) triadSelect.value = state.triad;
+  renderCarryover(document.getElementById("carryover"), state);
 
-  function currentDataset() {
-    if (dsSelect.value !== "custom") return DATASETS[dsSelect.value];
-    return {
-      title: document.getElementById("c-title").value,
-      org: document.getElementById("c-org").value,
-      description: document.getElementById("c-desc").value,
-      url: document.getElementById("c-url").value
-    };
-  }
+  document.getElementById("prompt-step-one").textContent = stepOnePrompt(dataset);
+  document.getElementById("prompt-step-two").textContent = stepTwoPrompt(cats);
 
-  function refresh() {
-    setState({ dataset: dsSelect.value, triad: triadSelect.value });
-    customFields.hidden = dsSelect.value !== "custom";
-    p1.textContent = stepOnePrompt(currentDataset());
-    p2.textContent = stepTwoPrompt(TRIADS[triadSelect.value].categories);
-  }
-
-  dsSelect.addEventListener("change", refresh);
-  triadSelect.addEventListener("change", refresh);
-  ["c-title", "c-org", "c-desc", "c-url"].forEach((id) => {
-    const el = document.getElementById(id);
-    if (el) el.addEventListener("input", refresh);
+  const notesEl = document.getElementById("ai-notes");
+  renderAiNotes(notesEl, state);
+  notesEl.addEventListener("input", (e) => {
+    if (!e.target.dataset || e.target.dataset.field !== "note") return;
+    const cat = e.target.closest("[data-cat]").dataset.cat;
+    const aiNotes = Object.assign({}, getState().aiNotes);
+    aiNotes[cat] = e.target.value;
+    setState({ aiNotes: aiNotes });
   });
-  refresh();
+
+  const copyBtn = document.getElementById("copy-ai-notes");
+  if (copyBtn) copyBtn.addEventListener("click", () => copyText(copyBtn, aiNotesText(getState())));
+
   wireCopyButtons();
 
   document.querySelectorAll("a[data-form='evaluation']")

@@ -32,6 +32,8 @@
   itself.</p>
 
   <h2>1. Pick your dataset</h2>
+  <p>This choice is locked in for the whole exercise — Phase 3 carries it over
+  automatically and builds its AI prompts from it.</p>
   <div class="picker">
     <div>
       <label for="dataset-select">Dataset</label>
@@ -42,13 +44,18 @@
         <option value="custom">Another federal dataset (bring your own)</option>
       </select>
     </div>
+    <div id="custom-dataset-fields" hidden>
+      <div><label for="c-title">Dataset title</label><input type="text" id="c-title"></div>
+      <div><label for="c-org">Organization / publisher</label><input type="text" id="c-org"></div>
+      <div><label for="c-desc">Description</label><textarea id="c-desc" rows="3"></textarea></div>
+      <div><label for="c-url">URL</label><input type="text" id="c-url"></div>
+    </div>
   </div>
   <div id="dataset-card"></div>
 
   <h2>2. Pick your categories</h2>
   <p>The rubric has six categories. In timed sessions each participant takes one triad
-  of three; if you're working async and have time, you may attempt all six.
-  <span class="flag">TEAM DECISION #4 — triads vs. all six for async is not settled.</span></p>
+  of three; if you're working async and have time, you may attempt all six.</p>
   <div class="picker">
     <div>
       <label for="triad-select">Categories to assess</label>
@@ -69,8 +76,7 @@
           That's pretty much cheating — it's the comparison point for the very end.</li>
         <li>Use AI in this phase — chatbots, and to the extent you can, AI-generated
           search summaries. If an AI Overview is unavoidable, don't rely on it: click
-          through to sources. <span class="flag">TEAM DECISION #6 — exact policy on
-          AI-assisted search is not settled.</span></li>
+          through to sources.</li>
         <li>Worry too much about time. Not being able to assess a category in the time
           you have is itself valuable information — record that and move on.</li>
       </ul>
@@ -90,16 +96,22 @@
     </section>
   </div>
 
-  <h2>4. Your rubric</h2>
-  <p>Assess each of your categories at one of four levels. Full six-category rubric on
-  the <a href="rubric.html">rubric page</a>.</p>
+  <h2>4. Your rubric and worksheet</h2>
+  <p>Assess each of your categories at one of four levels, and record your rating and
+  evidence as you go. Full six-category rubric on the
+  <a href="rubric.html">rubric page</a>.</p>
+  <p class="hint">Everything you type below is saved in this browser and carried into
+  Phase 3 automatically — you won't be asked to re-enter any of it. Nothing is sent
+  anywhere until you submit the form in step 5.</p>
   <div id="triad-rubric"></div>
 
   <h2>5. Submit your assessment</h2>
   <p>When you're done (or out of time), complete the Researcher Assessment Form. For
   each category, give a risk level and briefly note the evidence behind it —
-  "couldn't assess" is a legitimate answer.</p>
+  "couldn't assess" is a legitimate answer. Your worksheet above has everything the
+  form asks for; copy it across.</p>
   <p><a class="btn" data-form="assessment" href="#">Open the Researcher Assessment Form</a>
+  <button class="btn secondary" type="button" id="copy-worksheet">Copy worksheet to clipboard</button>
   <span class="flag">TODO: form URL — see PLAN.md §7 for the field spec.</span></p>
 
   <h2>What happens next</h2>

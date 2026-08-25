@@ -1,59 +1,300 @@
-<!DOCTYPE html>
+<!doctype html>
 <html lang="en">
-<head>
-<meta charset="utf-8">
-<meta name="viewport" content="width=device-width, initial-scale=1">
-<title>Phase 2 · Automated Benchmark — AI Benchmarking Exercise</title>
-<link rel="preconnect" href="https://fonts.googleapis.com">
-<link href="https://fonts.googleapis.com/css2?family=IBM+Plex+Mono:wght@400;700&family=Libre+Franklin:ital,wght@0,400;0,600;0,800;1,400&display=swap" rel="stylesheet">
-<link rel="stylesheet" href="css/style.css">
-</head>
-<body>
-<header class="site">
-  <div class="inner">
-    <a class="wordmark" href="index.html">AI Benchmarking Exercise</a>
-    <nav class="site">
-      <a href="index.html">Overview</a>
-      <a href="phase-1.html">Phase 1</a>
-      <a href="phase-2.html" aria-current="page">Phase 2</a>
-      <a href="phase-3.html">Phase 3</a>
-      <a href="rubric.html">Rubric</a>
-    </nav>
-  </div>
-</header>
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>Phase 2 · Prompting Session — AI Benchmarking Exercise</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link
+      href="https://fonts.googleapis.com/css2?family=IBM+Plex+Mono:wght@400;700&family=Libre+Franklin:ital,wght@0,400;0,600;0,800;1,400&display=swap"
+      rel="stylesheet"
+    />
+    <link rel="stylesheet" href="css/style.css" />
+    <script src="js/data-index.js"></script>
+    <script src="js/site.js"></script>
+    <script>
+      applyTrack();
+    </script>
+  </head>
+  <body>
+    <header class="site">
+      <div class="inner">
+        <a class="wordmark" href="index.html">AI Benchmarking Exercise</a>
+        <nav class="site">
+          <a href="overview.html">Overview</a>
+          <a href="phase-1.html">Phase 1</a>
+          <a href="phase-2.html" aria-current="page">Phase 2</a>
+          <a href="results.html">Results</a>
+          <a href="rubric.html">Rubric</a>
+        </nav>
+      </div>
+    </header>
 
-<main>
-  <p class="eyebrow">Phase 2 · team-run · nothing for you to do</p>
-  <h1>The automated benchmark</h1>
+    <main>
+      <p class="backlink"><a href="phase-1.html">← Back</a></p>
 
-  <p class="lede">There's no work for you in this phase — it has already happened. Ahead
-  of your session, we ran an AI agent on the same assignment you were given: the same
-  dataset metadata, the same rubric, the same output format, with zero human steering.
-  Its assessment is already written and held back for comparison.</p>
+      <p class="eyebrow">Phase 2</p>
+      <h1>The prompting session</h1>
 
-  <h2>How the harness works</h2>
-  <ul>
-    <li><strong>Same inputs.</strong> The agent receives the dataset's title,
-      publisher, description, and URL, plus the risk-assessment prompt and rubric —
-      essentially the Phase 3 prompts with no human in the loop.</li>
-    <li><strong>Agent-agnostic.</strong> The framework is designed so we can point it
-      at different models and agents and compare across them.</li>
-    <li><strong>Reasoning is logged.</strong> The agent records its thinking as it
-      works, so we can study its process, not just its verdicts — the same way the
-      assessment form asks humans which sources they used.</li>
-  </ul>
+      <p class="lede">
+        You will now run the same assessment alongside an AI agent, coaching it
+        without telling it the conclusions to draw.
+      </p>
 
-  <p>That's the whole idea to take away here: <strong>an AI has already assessed your
-  dataset in the background, unprompted and unassisted.</strong> Its answers stay sealed
-  until the debrief so that your assessment and its assessment stay independent.</p>
+      <h2>1. Set up your agent</h2>
+      <ul>
+        <li>
+          <strong>Any agent is allowed</strong> — ChatGPT, Claude, Gemini, or
+          another.
+        </li>
+        <li>
+          <strong>Turn memory off.</strong>
+        </li>
+        <li>
+          <strong>Turn thinking mode on.</strong>
+        </li>
+        <li>
+          <strong>Start a fresh conversation</strong> for this exercise only.
+        </li>
+      </ul>
 
-  <p><a class="btn" href="phase-3.html">Continue to Phase 3</a></p>
-</main>
+      <div class="provider-cards">
+        <div class="provider">
+          <p class="provider-name">ChatGPT</p>
+          <p>
+            Click "Think" in the prompt input field to enable thinking mode. For
+            memory, click Profile > Settings > Personalization, then scroll down
+            to "Memory" and turn off "Enable memory."
+          </p>
+        </div>
+        <div class="provider">
+          <p class="provider-name">Claude</p>
+          <p>
+            Thinking mode is on by default for all Opus models. Ensure effort is
+            set to "high." For memory, click Profile > Settings > Capabilities
+            and turn off "Search and reference chats" and "Generate memory from
+            chat history."
+          </p>
+        </div>
+        <div class="provider">
+          <p class="provider-name">Anything else</p>
+          <p>
+            Look for a reasoning, thinking, or research mode and turn it on. If
+            you can't find one, ask a moderator for help.
+          </p>
+        </div>
+      </div>
 
-<footer class="site">
-  <div class="inner">
-    A project of the Harvard Law School Library Innovation Lab · Public Data Project.
-  </div>
-</footer>
-</body>
+      <h2>2. Ground rules</h2>
+      <div class="dodont">
+        <section>
+          <h3>Do</h3>
+          <ul>
+            <li>Interact like you're training the agent.</li>
+            <li>
+              Stay neutral: ask for changes to its <em>method</em>, not its
+              result.
+            </li>
+            <li>Keep the "I like… / please try…" feedback structure.</li>
+            <li>
+              Deviate small amounts from the prompts if another line of queries
+              renders better results, but note that you did so.
+            </li>
+          </ul>
+        </section>
+        <section>
+          <h3>Do not</h3>
+          <ul>
+            <li>
+              Deviate too far from the prompts as provided — you don't want to
+              turn this into "guess what I'm thinking, AI…"
+            </li>
+            <li>
+              Nudge the bot toward a particular risk level. It will happily
+              change its answer to please you without improving its analysis.
+            </li>
+            <li>
+              Move between agents or try starting new conversations to illicit
+              different responses.
+            </li>
+          </ul>
+        </section>
+      </div>
+
+      <aside class="participant">
+        <span class="label">For you, not the bot</span>
+        Boxes like this one are participant guidance, offering instructions and
+        considerations as you work with the bot. The dark blocks are
+        instructions to be pasted into the agent's chat box.
+      </aside>
+
+      <h2>3. Step One — dataset research</h2>
+      <div id="carryover"></div>
+
+      <p>Paste this into your agent's chat box:</p>
+      <div class="prompt-block">
+        <button class="copy" data-copy-target="prompt-step-one">Copy</button>
+        <pre id="prompt-step-one"></pre>
+      </div>
+
+      <aside class="participant">
+        <span class="label">For you, not the bot</span>
+        Scroll through the resulting report from your unique perspective and
+        expertise. Don't read it word-for-word — scan and evaluate. Is it a good
+        general reference for this dataset? Would you like the bot to expand on
+        any of it? If so, give feedback in this format:
+        <br /><br />
+        <em
+          >I like that this report covers _____.<br />
+          Please revise the report to _____</em
+        >
+        [search particular types of news sources (health sector, foreign papers,
+        conservative press…), consider particular new perspectives, go deeper in
+        particular areas, use information dated January 1, 2024 and later].
+        <br /><br />
+        Remember: the report at this stage is <strong>not</strong> specific to
+        risk. Once you're happy with it, move to Step Two.
+      </aside>
+
+      <h2>4. Step Two — risk assessment</h2>
+      <p>
+        This prompt includes only the rubric categories selected in Phase 1.
+      </p>
+      <div class="prompt-block">
+        <button class="copy" data-copy-target="prompt-step-two">Copy</button>
+        <pre id="prompt-step-two"></pre>
+      </div>
+
+      <aside class="participant">
+        <span class="label">For you, not the bot</span>
+        Scroll through the analysis from your unique perspective and expertise.
+        Did the bot miss important sources, distinctions, or factors? Did it
+        find information but misevaluate it, according to your interpretation of
+        the rubric? Give feedback in this format:
+        <br /><br />
+        <em>I like _____ about this analysis that _____. Please try _____</em>
+        [searching particular new sources, considering a particular part of the
+        rubric, digging deeper into a missed angle, using sources from the last
+        two years…].
+        <em>Does that affect your analysis?</em>
+        <br /><br />
+        Repeat several times — you're trying to find instructions that generate
+        a higher quality result.
+        <br /><br />
+        <strong>A warning:</strong> the bot will easily detect if you're trying
+        to nudge it from "Moderate Risk" to "High Risk," and may change its
+        answer to please you without actually improving the analysis. Be as
+        neutral as you can — ask for changes to its method rather than its
+        result. You can rephrase the follow-up prompts, but consistently tell
+        the bot what you liked or found wanting, because that helps us
+        understand what worked.
+      </aside>
+
+      <h2>5. What the agent added</h2>
+      <p>
+        Your Phase 1 rating and evidence are shown for each category — record
+        where the agent landed, and what it surfaced that your own research
+        hadn't. Leave a box empty if it added nothing.
+      </p>
+      <div id="ai-notes"></div>
+
+      <h2>6. Close out and submit</h2>
+      <p>
+        Paste this in last. It makes the agent identify itself, so we know which
+        model produced the assessment. Keep its answer in your transcript.
+      </p>
+      <div class="prompt-block">
+        <button class="copy" data-copy-target="prompt-session-meta">
+          Copy
+        </button>
+        <pre id="prompt-session-meta"></pre>
+      </div>
+
+      <div class="picker">
+        <div>
+          <label for="share-link">Share link to your conversation</label>
+          <input type="text" id="share-link" placeholder="https://…" />
+          <p class="hint">
+            If your agent can't produce a link, export the transcript instead.
+          </p>
+        </div>
+        <div>
+          <label for="agent-used">Which agent did you use?</label>
+          <input
+            type="text"
+            id="agent-used"
+            placeholder="ChatGPT, Claude, Gemini…"
+          />
+        </div>
+        <div>
+          <label for="p-name">Your name</label><input type="text" id="p-name" />
+        </div>
+        <div>
+          <label for="p-email"
+            >Email <span class="optional">optional</span></label
+          >
+          <input type="text" id="p-email" />
+        </div>
+      </div>
+
+      <p>
+        <button class="btn" type="button" id="submit-session">
+          Submit your session
+        </button>
+        <button class="btn secondary" type="button" id="download-ai-notes">
+          Save a copy
+        </button>
+      </p>
+      <p id="submit-status" class="status"></p>
+
+      <section>
+        <h2>The automated benchmark</h2>
+        <p>
+          Before your session, we ran an agent over the same dataset with the
+          same rubric and output format, and no human steering.
+        </p>
+        <p>
+          You can see how your results compare to the background agent's on the
+          results page.
+        </p>
+      </section>
+
+      <h2>7. Compare</h2>
+      <p>
+        Your results page shows your ratings, the background agent's, and
+        <a href="https://dataindex.us/collections/">America's Data Index</a>'s
+        side by side. Check out the Data Index pages for more information on why
+        the dataset is rated the way it is.
+      </p>
+      <p><a class="btn" href="results.html">Open your results</a></p>
+
+      <aside class="participant">
+        <span class="label">For you, not the bot</span>
+        Nothing to submit. Worth discussing if you're in a room with other
+        people: did the results surprise you? Which category was hardest to
+        assess, for you and for the agent? Where the three disagree, whose
+        evidence convinces you?
+      </aside>
+    </main>
+
+    <footer class="site">
+      <div class="inner">
+        <img
+          class="footer-logo"
+          src="assets/public-data-project.png"
+          width="800"
+          height="136"
+          alt="Harvard Law School Library · Public Data Project"
+        />
+        <p>
+          A project of the Harvard Law School Library Innovation Lab · Public
+          Data Project.
+        </p>
+      </div>
+    </footer>
+
+    <script>
+      initPhase2();
+    </script>
+  </body>
 </html>

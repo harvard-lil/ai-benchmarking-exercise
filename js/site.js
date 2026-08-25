@@ -1,15 +1,28 @@
 /* AI Benchmarking Exercise — shared data + behavior.
-   All editable content (datasets, rubric, prompts, form URLs) lives here.
-   See PLAN.md §5–7. */
+   All editable content (datasets, rubric, prompts, form URLs) lives here. */
 
 const FORM_URLS = {
-  assessment: "#TODO-researcher-assessment-form",
-  evaluation: "#TODO-exercise-evaluation-form",
-  transcript: "#TODO-transcript-submission" // open decision #5
+  evaluation: "",
+  transcript: "",
 };
 
+/* Where Phase 1 assessments are submitted: the /exec URL of the Apps Script web
+   app in tools/apps-script.gs. Empty until that's deployed, in which case the
+   submit button reports it rather than failing silently. */
+const SUBMIT_URL =
+  "https://script.google.com/macros/s/AKfycbyQBMPFalkTvkZfMu6eD0WsI4MUP2NpMFmCZo6Hr62K67ibnq-5lJCgi3I0A5mu_J_-/exec";
+
+/* Datasets offered in the Phase 1 picker.
+   The three marked `featured` carry full metadata and lead the dropdown — use
+   them for facilitated sessions where everyone should start from the same
+   footing. The rest come from the Data Index's checkup list, which gives us a
+   name and sometimes a URL and nothing else; the Step One prompt asks the agent
+   to establish the publisher and history itself, so that's enough to work with.
+   Deliberately absent: the Data Index's own ratings and evidence for these
+   datasets. That's the answer key, and it lives nowhere in this repo. */
 const DATASETS = {
   nhis: {
+    featured: true,
     title: "National Health Interview Survey",
     org: "Centers for Disease Control and Prevention (NCHS)",
     url: "https://www.cdc.gov/nchs/nhis/index.html",
@@ -19,9 +32,10 @@ const DATASETS = {
       "for children and adults. Conducted by CDC's National Center for Health " +
       "Statistics, it is the nation's largest and oldest national health survey, " +
       "collecting data since 1957 from about 27,000 adults each year through " +
-      "confidential, face-to-face interviews."
+      "confidential, face-to-face interviews.",
   },
   ahs: {
+    featured: true,
     title: "American Housing Survey",
     org: "U.S. Census Bureau",
     url: "https://www.census.gov/programs-surveys/ahs.html",
@@ -30,9 +44,10 @@ const DATASETS = {
       "housing in the United States and major metropolitan areas, including the " +
       "physical condition of homes and neighborhoods, the costs of financing and " +
       "maintaining homes, and the characteristics of residents. Planners, policy " +
-      "makers, and community stakeholders use the AHS to assess housing needs."
+      "makers, and community stakeholders use the AHS to assess housing needs.",
   },
   hifld: {
+    featured: true,
     title: "Homeland Infrastructure Foundation-Level Data (HIFLD) Open",
     org: "Department of Homeland Security",
     url: "https://www.dhs.gov/gmo/hifld",
@@ -41,28 +56,359 @@ const DATASETS = {
       "and tools for planners, analysts, and others throughout the homeland " +
       "security enterprise, supporting missions including law enforcement, border " +
       "protection, emergency management, critical infrastructure protection, and " +
-      "national operations and data fusion centers."
+      "national operations and data fusion centers.",
   },
+  /* 44 datasets from the Data Index checkup list (names and URLs only). */
+  marts: {
+    title: "Advance Monthly Sales for Retail and Food Services Survey (MARTS)",
+    org: "",
+    url: "",
+    description: "",
+  },
+  "agricultural-prices": {
+    title: "Agricultural Prices",
+    org: "",
+    url: "",
+    description: "",
+  },
+  acs: {
+    title: "American Community Survey (ACS)",
+    org: "",
+    url: "https://census.gov/programs-surveys/acs",
+    description: "",
+  },
+  atus: {
+    title: "American Time Use Survey (ATUS)",
+    org: "",
+    url: "https://www.bls.gov/tus",
+    description: "",
+  },
+  abs: {
+    title: "Annual Business Survey (ABS)",
+    org: "",
+    url: "",
+    description: "",
+  },
+  aies: {
+    title: "Annual Integrated Economic Survey (AIES)",
+    org: "",
+    url: "",
+    description: "",
+  },
+  bps: {
+    title: "Building Permits Survey (BPS)",
+    org: "",
+    url: "",
+    description: "",
+  },
+  "census-of-agriculture": {
+    title: "Census of Agriculture",
+    org: "",
+    url: "https://nass.usda.gov/AgCensus",
+    description: "",
+  },
+  cfs: {
+    title: "Commodity Flow Survey (CFS)",
+    org: "",
+    url: "",
+    description: "",
+  },
+  "construction-spending": {
+    title: "Construction Spending",
+    org: "",
+    url: "",
+    description: "",
+  },
+  "consumer-credit": {
+    title: "Consumer Credit",
+    org: "",
+    url: "",
+    description: "",
+  },
+  cpi: {
+    title: "Consumer Price Index (CPI)",
+    org: "",
+    url: "https://bls.gov/cpi",
+    description: "",
+  },
+  "crop-production": {
+    title: "Crop Production",
+    org: "",
+    url: "",
+    description: "",
+  },
+  ces: {
+    title: "Current Employment Statistics (CES)",
+    org: "",
+    url: "https://bls.gov/ces",
+    description: "",
+  },
+  "economic-census": {
+    title: "Economic Census",
+    org: "",
+    url: "",
+    description: "",
+  },
+  fevs: {
+    title: "Federal Employment Viewpoint Survey (FEVS)",
+    org: "",
+    url: "https://opm.gov/fevs",
+    description: "",
+  },
+  "grain-stocks": { title: "Grain Stocks", org: "", url: "", description: "" },
+  htops: {
+    title: "Household Trends and Outlook Pulse Survey (HTOPS)",
+    org: "",
+    url: "https://census.gov/programs-surveys/htops.html",
+    description: "",
+  },
+  "housing-vacancies-and-homeownership": {
+    title: "Housing Vacancies and Homeownership",
+    org: "",
+    url: "",
+    description: "",
+  },
+  "industrial-production-and-capacity-utilization": {
+    title: "Industrial Production and Capacity Utilization",
+    org: "",
+    url: "",
+    description: "",
+  },
+  liheap: {
+    title: "Low Income Home Energy Assistance Program (LIHEAP)",
+    org: "",
+    url: "",
+    description: "",
+  },
+  mhs: {
+    title: "Manufactured Housing Survey (MHS)",
+    org: "",
+    url: "",
+    description: "",
+  },
+  m3: {
+    title: "Manufacturers' Shipments, Inventories, and Orders (M3)",
+    org: "",
+    url: "",
+    description: "",
+  },
+  meps: {
+    title: "Medical Expenditure Panel Survey (MEPS)",
+    org: "",
+    url: "https://meps.ahrq.gov/mepsweb",
+    description: "",
+  },
+  mcbs: {
+    title: "Medicare Current Beneficiary Survey (MCBS)",
+    org: "",
+    url: "https://cms.gov/data-research/research/medicare-current-beneficiary-survey",
+    description: "",
+  },
+  "monthly-wholesale-trade": {
+    title: "Monthly Wholesale Trade",
+    org: "",
+    url: "",
+    description: "",
+  },
+  "nass-peanut-prices": {
+    title: "NASS Peanut Prices",
+    org: "",
+    url: "https://usda.library.cornell.edu/concern/publications/5t34sj58c",
+    description: "",
+  },
+  naep: {
+    title: "National Assessment of Educational Progress (NAEP)",
+    org: "",
+    url: "https://nces.ed.gov/nationsreportcard",
+    description: "",
+  },
+  ncs: {
+    title: "National Compensation Survey (NCS)",
+    org: "",
+    url: "",
+    description: "",
+  },
+  ncvs: {
+    title: "National Crime Victimization Survey (NCVS)",
+    org: "",
+    url: "https://bjs.ojp.gov/data-collection/ncvs",
+    description: "",
+  },
+  nsch: {
+    title: "National Survey of Children's Health (NSCH)",
+    org: "",
+    url: "https://census.gov/programs-surveys/nsch.html",
+    description: "",
+  },
+  ppi: {
+    title: "Producer Price Index (PPI)",
+    org: "",
+    url: "",
+    description: "",
+  },
+  qfr: {
+    title: "Quarterly Financial Report (QFR)",
+    org: "",
+    url: "",
+    description: "",
+  },
+  qtax: {
+    title: "Quarterly Summary of State and Local Tax Revenue (QTAX)",
+    org: "",
+    url: "",
+    description: "",
+  },
+  qspp: {
+    title: "Quarterly Survey of Public Pensions (QSPP)",
+    org: "",
+    url: "",
+    description: "",
+  },
+  rhfs: {
+    title: "Rental Housing Finance Survey (RHFS)",
+    org: "",
+    url: "",
+    description: "",
+  },
+  soc: {
+    title: "Survey of Construction (SOC)",
+    org: "",
+    url: "",
+    description: "",
+  },
+  scf: {
+    title: "Survey of Consumer Finances (SCF)",
+    org: "",
+    url: "",
+    description: "",
+  },
+  sipp: {
+    title: "Survey of Income and Program Participation (SIPP)",
+    org: "",
+    url: "https://census.gov/programs-surveys/sipp.html",
+    description: "",
+  },
+  soma: {
+    title: "Survey of Market Absorption of New Multifamily Units (SOMA)",
+    org: "",
+    url: "",
+    description: "",
+  },
+  "u-s-import-and-export-price-indices": {
+    title: "U.S. Import and Export Price Indices",
+    org: "",
+    url: "",
+    description: "",
+  },
+  "us-international-trade-in-goods-and-services": {
+    title: "US International Trade in Goods and Services",
+    org: "",
+    url: "",
+    description: "",
+  },
+  "usaspending-gov": {
+    title: "USAspending.gov",
+    org: "",
+    url: "https://usaspending.gov/",
+    description: "",
+  },
+  wngsr: {
+    title: "Weekly Natural Gas Storage Report (WNGSR)",
+    org: "",
+    url: "",
+    description: "",
+  },
+
   custom: {
-    title: "", org: "", url: "", description: "",
-    custom: true
-  }
+    title: "",
+    org: "",
+    url: "",
+    description: "",
+    custom: true,
+  },
 };
 
 const TRIADS = {
   a: {
-    label: "Triad A — Historical Data Availability · Staffing and Funding · Policy",
-    categories: ["historical", "staffing", "policy"]
+    label:
+      "Triad A — Historical Data Availability · Staffing and Funding · Policy",
+    categories: ["historical", "staffing", "policy"],
   },
   b: {
-    label: "Triad B — Future Data Availability · Data Quality · Statutory Context",
-    categories: ["future", "quality", "statutory"]
+    label:
+      "Triad B — Future Data Availability · Data Quality · Statutory Context",
+    categories: ["future", "quality", "statutory"],
   },
   all: {
     label: "All six categories (only if time allows)",
-    categories: ["historical", "staffing", "policy", "future", "quality", "statutory"]
-  }
+    categories: [
+      "historical",
+      "staffing",
+      "policy",
+      "future",
+      "quality",
+      "statutory",
+    ],
+  },
 };
+
+/* Display order for the full rubric and the solo category picker. */
+const CATEGORY_ORDER = [
+  "historical",
+  "future",
+  "quality",
+  "statutory",
+  "staffing",
+  "policy",
+];
+
+/* ---------- Background agent results ----------
+   The rubric values the background agent reached, keyed by dataset then category.
+   These are the agent's side of the comparison on results.html: hardcoded output
+   from a run we control, not anything a participant types in.
+
+   THESE ARE MOCK VALUES. Flip AGENT_RESULTS_ARE_MOCK to false once the real run
+   replaces them — it drives a placeholder warning on the results page, so the
+   numbers are never read as real while the flag is true. `evidence` is optional;
+   the real run logs its reasoning, so fill it in when it exists. */
+
+const AGENT_RESULTS_ARE_MOCK = true;
+
+const AGENT_RESULTS = {
+  nhis: {
+    historical: { level: "Moderate Risk" },
+    future: { level: "High Risk" },
+    quality: { level: "Moderate Risk" },
+    statutory: { level: "No Known Issue" },
+    staffing: { level: "High Risk" },
+    policy: { level: "Moderate Risk" },
+  },
+  ahs: {
+    historical: { level: "No Known Issue" },
+    future: { level: "Moderate Risk" },
+    quality: { level: "Moderate Risk" },
+    statutory: { level: "Moderate Risk" },
+    staffing: { level: "Moderate Risk" },
+    policy: { level: "No Known Issue" },
+  },
+  hifld: {
+    historical: { level: "High Risk" },
+    future: { level: "High Risk" },
+    quality: { level: "Moderate Risk" },
+    statutory: { level: "High Risk" },
+    staffing: { level: "Moderate Risk" },
+    policy: { level: "High Risk" },
+  },
+};
+
+/* A dataset with no run yet reads as empty rather than as agreement. */
+function agentResult(s, k) {
+  const key = s.dataset || "nhis";
+  return (AGENT_RESULTS[key] || {})[k] || {};
+}
+function hasAgentRun(s) {
+  return !!AGENT_RESULTS[s.dataset || "nhis"];
+}
 
 /* Rubric text. Wording merged from the Assessment Rubric slide and
    AI Prompting 2.0 (which carries the more precise phrasing). */
@@ -70,82 +416,112 @@ const RUBRIC = {
   historical: {
     name: "Historical Data Availability",
     levels: {
-      "Gone": "Data files prior to the current year or cycle are no longer publicly available.",
-      "High Risk": "Some data files prior to the current year or cycle are removed.",
-      "Moderate Risk": "Some data elements that exist in the dataset prior to the current year or cycle are removed.",
-      "No Known Issue": "Data prior to the current year or cycle remain accessible with no known alterations."
-    }
+      Gone: "Data files prior to the current year or cycle are no longer publicly available.",
+      "High Risk":
+        "Some data files prior to the current year or cycle are removed.",
+      "Moderate Risk":
+        "Some data elements that exist in the dataset prior to the current year or cycle are removed.",
+      "No Known Issue":
+        "Data prior to the current year or cycle remain accessible with no known alterations.",
+    },
   },
   future: {
     name: "Future Data Availability",
     levels: {
-      "Gone": "Data collection and publication has been terminated.",
-      "High Risk": "Statutory publication deadline missed and/or collection or publication skipped and/or ICR expired for more than one year.",
-      "Moderate Risk": "Typical or intended publication date missed and/or collection or publication delayed; ICR expired up to one year.",
-      "No Known Issue": "Data published on time or as expected and ICR active or renewed before expiration."
-    }
+      Gone: "Data collection and publication has been terminated.",
+      "High Risk":
+        "Statutory publication deadline missed and/or collection or publication skipped and/or ICR expired for more than one year.",
+      "Moderate Risk":
+        "Typical or intended publication date missed and/or collection or publication delayed; ICR expired up to one year.",
+      "No Known Issue":
+        "Data published on time or as expected and ICR active or renewed before expiration.",
+    },
   },
   quality: {
     name: "Data Quality",
     levels: {
-      "Gone": "Data collection and publication has been terminated.",
+      Gone: "Data collection and publication has been terminated.",
       "High Risk": "Reductions in granularity, timeliness, or frequency.",
-      "Moderate Risk": "Potential or emerging risk to granularity, timeliness, or frequency.",
-      "No Known Issue": "Maintained or improved granularity, timeliness, or frequency."
-    }
+      "Moderate Risk":
+        "Potential or emerging risk to granularity, timeliness, or frequency.",
+      "No Known Issue":
+        "Maintained or improved granularity, timeliness, or frequency.",
+    },
   },
   statutory: {
     name: "Statutory Context",
     levels: {
-      "Gone": "N/A",
-      "High Risk": "Statutory authorization is vague and/or there are alternative data collections that could serve as substitutes and/or no known programmatic use.",
-      "Moderate Risk": "Not explicitly required by statute but required for the implementation of a state or federal program, and there are no alternative data collections that could serve as substitutes.",
-      "No Known Issue": "Statutorily required and/or statutory authorization is explicitly named and it is clear what has to be collected, and there aren't alternative data collections that could serve as substitutes and/or required for implementation of a federal program."
-    }
+      Gone: "N/A",
+      "High Risk":
+        "Statutory authorization is vague and/or there are alternative data collections that could serve as substitutes and/or no known programmatic use.",
+      "Moderate Risk":
+        "Not explicitly required by statute but required for the implementation of a state or federal program, and there are no alternative data collections that could serve as substitutes.",
+      "No Known Issue":
+        "Statutorily required and/or statutory authorization is explicitly named and it is clear what has to be collected, and there aren't alternative data collections that could serve as substitutes and/or required for implementation of a federal program.",
+    },
   },
   staffing: {
     name: "Staffing and Funding",
     levels: {
-      "Gone": "All of the staff in the division or agency are gone and/or all funding has been terminated.",
-      "High Risk": "40% or more of staff lost, and/or 1,000 or more staff lost, and/or budget cut by 20% or more, and/or leadership removed.",
-      "Moderate Risk": "10–39% of staff lost, and/or 500–999 staff lost, and/or budget cut by 10–19%, and/or threatened change in leadership.",
-      "No Known Issue": "Less than 10% of staff lost and less than 10% of budget cut and no known change in leadership."
-    }
+      Gone: "All of the staff in the division or agency are gone and/or all funding has been terminated.",
+      "High Risk":
+        "40% or more of staff lost, and/or 1,000 or more staff lost, and/or budget cut by 20% or more, and/or leadership removed.",
+      "Moderate Risk":
+        "10–39% of staff lost, and/or 500–999 staff lost, and/or budget cut by 10–19%, and/or threatened change in leadership.",
+      "No Known Issue":
+        "Less than 10% of staff lost and less than 10% of budget cut and no known change in leadership.",
+    },
   },
   policy: {
     name: "Policy",
     levels: {
-      "Gone": "Data collection and publication has been terminated.",
-      "High Risk": "Presidential Action-driven information collection request (ICR); negative policy note on site; other significant changes in accordance with Administration priorities.",
-      "Moderate Risk": "Proposed or pending changes; statements by administration officials suggesting a change is being considered or planned.",
-      "No Known Issue": "No notable changes since January 2025 affecting what data is collected and published."
-    }
-  }
+      Gone: "Data collection and publication has been terminated.",
+      "High Risk":
+        "Presidential Action-driven information collection request (ICR); negative policy note on site; other significant changes in accordance with Administration priorities.",
+      "Moderate Risk":
+        "Proposed or pending changes; statements by administration officials suggesting a change is being considered or planned.",
+      "No Known Issue":
+        "No notable changes since January 2025 affecting what data is collected and published.",
+    },
+  },
 };
 
-/* ---------- Prompt templates (Phase 3) ---------- */
+/* ---------- Prompt templates (Phase 2) ---------- */
 
+/* Only the metadata we actually hold goes into the prompt. Most of the picker's
+   datasets are a name and a link, and asking the agent to establish the rest is
+   the first thing this prompt does anyway — an "Organization: FILL IN" line
+   would just be noise the agent has to reason around. */
 function stepOnePrompt(d) {
+  const known = [
+    ["Dataset title", d.title],
+    ["Organization/publisher", d.org],
+    ["Description", d.description],
+    ["URL", d.url],
+  ]
+    .filter(([, v]) => v && String(v).trim())
+    .map(([label, v]) => `${label}: ${v}`)
+    .join("\n");
+
   return `#data research
 I am researching a federal dataset. Find out everything you can about this dataset, such as who publishes it, under what authority or mandate, its history, its typical users, and its benefits to the public. Be sure your research comprehensively covers each of those perspectives, as well as any others that you discover or seem useful. I believe this is accurate information, but please check:
 
-Dataset title: ${d.title || "FILL IN"}
-Organization/publisher: ${d.org || "FILL IN"}
-Description: ${d.description || "FILL IN"}
-URL: ${d.url || "FILL IN"}
+${known || "Dataset title: FILL IN"}
 
 Return a complete report on everything that a preservationist, data librarian, data scientist, or policy activist might want to know about this data.`;
 }
 
 /* Per decision D5, the in-person "Sources for context" URL list is dropped. */
 function stepTwoPrompt(categoryKeys) {
-  const rubricText = categoryKeys.map((k) => {
-    const c = RUBRIC[k];
-    const lines = Object.entries(c.levels)
-      .map(([lvl, txt]) => `- ${lvl}: ${txt}`)
-      .join("\n");
-    return `### ${c.name}\n${lines}`;
-  }).join("\n\n");
+  const rubricText = categoryKeys
+    .map((k) => {
+      const c = RUBRIC[k];
+      const lines = Object.entries(c.levels)
+        .map(([lvl, txt]) => `- ${lvl}: ${txt}`)
+        .join("\n");
+      return `### ${c.name}\n${lines}`;
+    })
+    .join("\n\n");
 
   const summary = categoryKeys
     .map((k) => `${RUBRIC[k].name}: <level>`)
@@ -168,119 +544,305 @@ Conclude with a simple summary of risk levels:
 ${summary}`;
 }
 
+/* Closing prompt. We ask the agent to describe itself rather than asking the
+   participant which model and version they used — self-report from the agent is
+   both more precise and one less thing to remember. */
+function sessionMetaPrompt() {
+  return `Emit a session_metadata YAML block reporting: current date, model identifier, knowledge cutoff, surface, whether memory is enabled, whether custom preferences or styles are active, all tools and MCP servers available, which tools were actually called in this session, and whether attachments were present. Mark any field not directly observable as unknown rather than inferring it.`;
+}
+
 /* ---------- Shared state ----------
    Phase 1 is the single source of truth for dataset, categories, and ratings.
-   Phase 3 reads this and never re-asks. localStorage (not session) so closing
+   Phase 2 reads this and never re-asks. localStorage (not session) so closing
    the tab between phases doesn't wipe 50 minutes of work. */
 
 const STATE_KEY = "aibench";
 
 function getState() {
   let s = {};
-  try { s = JSON.parse(localStorage.getItem(STATE_KEY) || "{}"); }
-  catch (e) { s = {}; }
+  try {
+    s = JSON.parse(localStorage.getItem(STATE_KEY) || "{}");
+  } catch (e) {
+    s = {};
+  }
   return s;
 }
 function setState(patch) {
   const s = Object.assign(getState(), patch);
-  try { localStorage.setItem(STATE_KEY, JSON.stringify(s)); } catch (e) {}
+  try {
+    localStorage.setItem(STATE_KEY, JSON.stringify(s));
+  } catch (e) {}
   return s;
+}
+
+/* ---------- Track: solo vs. group session ----------
+   Chosen on the entry page and stored alongside everything else. Solo runs
+   Phase 1 only; a group session runs Phases 1 and 2. Pages carry both tracks'
+   markup and let CSS hide what doesn't apply, so there's one copy of each page.
+   applyTrack() runs from <head>, before paint, so nothing flashes. */
+
+function activeTrack() {
+  return getState().mode === "solo" ? "solo" : "group";
+}
+function applyTrack() {
+  document.documentElement.setAttribute("data-track", activeTrack());
+}
+function setTrack(t) {
+  setState({ mode: t === "solo" ? "solo" : "group" });
+  applyTrack();
 }
 
 /* Has Phase 1 actually been filled in? */
 function hasPhase1(s) {
-  return !!(s.dataset && s.triad);
+  return !!(s.dataset && categoriesFromState(s).length);
 }
 
 /* Resolve the chosen dataset, including a bring-your-own one. */
 function datasetFromState(s) {
   const key = s.dataset || "nhis";
-  if (key !== "custom") return DATASETS[key];
+  /* A saved key can outlive its entry if the picker list is edited. */
+  if (key !== "custom") return DATASETS[key] || DATASETS.nhis;
   const c = s.custom || {};
   return {
-    title: c.title || "", org: c.org || "",
-    description: c.description || "", url: c.url || "",
-    custom: true
+    title: c.title || "",
+    org: c.org || "",
+    description: c.description || "",
+    url: c.url || "",
+    custom: true,
   };
 }
 
+/* Which rubric categories this participant is assessing. Solo participants pick
+   any or all six; in a guided session the moderator assigns a triad, so the
+   triad select is the starting point rather than a lock. Returns [] when Phase 1
+   hasn't been filled in — callers that must render something use the default. */
 function categoriesFromState(s) {
-  return TRIADS[s.triad] ? TRIADS[s.triad].categories : TRIADS.a.categories;
+  if (Array.isArray(s.cats)) return s.cats.filter((k) => RUBRIC[k]);
+  if (TRIADS[s.triad]) return TRIADS[s.triad].categories;
+  return [];
+}
+function categoriesOrDefault(s) {
+  const c = categoriesFromState(s);
+  return c.length ? c : TRIADS.a.categories;
 }
 
 /* ---------- Small helpers ---------- */
 
 function esc(v) {
   return String(v == null ? "" : v)
-    .replace(/&/g, "&amp;").replace(/</g, "&lt;").replace(/>/g, "&gt;")
+    .replace(/&/g, "&amp;")
+    .replace(/</g, "&lt;")
+    .replace(/>/g, "&gt;")
     .replace(/"/g, "&quot;");
 }
 function slug(v) {
-  return String(v).toLowerCase().replace(/[^a-z0-9]+/g, "-").replace(/^-|-$/g, "");
+  return String(v)
+    .toLowerCase()
+    .replace(/[^a-z0-9]+/g, "-")
+    .replace(/^-|-$/g, "");
 }
 function setValue(id, v) {
   const el = document.getElementById(id);
   if (el) el.value = v || "";
 }
+/* Point every [data-form="…"] link at its form. Links keep their markup href
+   until a real URL is filled in above, so none of them go nowhere. */
+function wireFormLinks(name) {
+  const url = FORM_URLS[name];
+  if (!url) return;
+  document.querySelectorAll(`a[data-form='${name}']`).forEach((a) => {
+    a.href = url;
+  });
+}
+
 function copyText(btn, text) {
   navigator.clipboard.writeText(text).then(() => {
     const prev = btn.textContent;
     btn.textContent = "Copied";
-    setTimeout(() => { btn.textContent = prev; }, 1500);
+    setTimeout(() => {
+      btn.textContent = prev;
+    }, 1500);
   });
 }
 
-const RATING_OPTIONS = ["", "Gone", "High Risk", "Moderate Risk", "No Known Issue", "Couldn't assess"];
+/* Participants download their work as a file and attach it to the submission
+   form, rather than carrying it on the clipboard between tabs. */
+function downloadText(filename, text) {
+  const url = URL.createObjectURL(new Blob([text], { type: "text/markdown" }));
+  const a = document.createElement("a");
+  a.href = url;
+  a.download = filename;
+  document.body.appendChild(a);
+  a.click();
+  a.remove();
+  setTimeout(() => URL.revokeObjectURL(url), 0);
+}
+
+/* Filenames carry the dataset so a facilitator can tell submissions apart. */
+function downloadName(s, kind) {
+  const d = datasetFromState(s);
+  return `${slug(d.title || "dataset")}-${kind}.md`;
+}
+
+function wireDownload(id, kind, build) {
+  const btn = document.getElementById(id);
+  if (!btn) return;
+  btn.addEventListener("click", () => {
+    const s = getState();
+    downloadText(downloadName(s, kind), build(s));
+    const prev = btn.textContent;
+    btn.textContent = "Downloaded";
+    setTimeout(() => {
+      btn.textContent = prev;
+    }, 1500);
+  });
+}
+
+const RATING_OPTIONS = [
+  "",
+  "Gone",
+  "High Risk",
+  "Moderate Risk",
+  "No Known Issue",
+  "Couldn't assess",
+];
 
 /* ---------- Rendering ---------- */
 
+/* The dropdown is built here rather than written into phase-1.html, so adding a
+   dataset stays a one-line edit to DATASETS. Featured ones lead; the long list
+   follows in the order it's declared, which is alphabetical. */
+function renderDatasetOptions(sel) {
+  const group = (label, keys) =>
+    `<optgroup label="${label}">` +
+    keys
+      .map((k) => `<option value="${k}">${esc(DATASETS[k].title)}</option>`)
+      .join("") +
+    "</optgroup>";
+
+  /* Only datasets America's Data Index has assessed are offered — without ground
+     truth there's no comparison to make at the end. */
+  const keys = Object.keys(DATASETS).filter((k) => k !== "custom" && DI[k]);
+  /* A native select always has something selected, so without this placeholder
+     the first dataset is silently chosen for everyone — which both biases the
+     sample and makes "you haven't picked one yet" impossible to detect. */
+  sel.innerHTML =
+    '<option value="">— choose a dataset —</option>' +
+    group(
+      "Featured",
+      keys.filter((k) => DATASETS[k].featured),
+    ) +
+    group(
+      "All datasets",
+      keys.filter((k) => !DATASETS[k].featured),
+    ) +
+    '<option value="custom">Another federal dataset (bring your own)</option>';
+}
+
 function renderDatasetCard(el, s) {
   const d = datasetFromState(s);
-  if (d.custom && !d.title) {
-    el.innerHTML =
-      '<p class="hint">Using your own dataset? Fill in its title, publisher, ' +
-      "description, and URL above. Phase 3 builds its prompts straight from these " +
-      'fields, so you won\'t be asked for them again. ' +
-      '<span class="flag">TEAM DECISION #3</span> covers how the dataset list grows.</p>';
+  /* The bring-your-own guidance lives under the dropdown, next to the decision
+     it explains — so nothing renders here until there's a dataset to show. */
+  if (!s.dataset || (d.custom && !d.title)) {
+    el.innerHTML = "";
+    el.hidden = true;
     return;
   }
+  el.hidden = false;
   const link = d.url
     ? `<a href="${esc(d.url)}" target="_blank" rel="noopener">${esc(d.url)}</a>`
-    : "<em>no URL given</em>";
+    : "";
+  const meta = [esc(d.org), link].filter(Boolean).join(" · ");
+  /* Most of the list is a name and a link. Say so plainly rather than showing
+     empty fields — establishing the publisher and remit is part of the work. */
+  const body = d.description
+    ? `<p>${esc(d.description)}</p>`
+    : '<p class="hint">We hold the name and the link, and nothing more. Working out ' +
+      "who publishes it, under what authority, and who relies on it is part of the " +
+      "research.</p>";
   el.innerHTML = `
     <h3>${esc(d.title)}</h3>
-    <p class="meta">${esc(d.org) || "<em>no publisher given</em>"} · ${link}</p>
-    <p>${esc(d.description)}</p>`;
+    ${meta ? `<p class="meta">${meta}</p>` : ""}
+    ${body}`;
 }
 
 function rubricTable(c) {
-  const rows = Object.entries(c.levels).map(([lvl, txt]) =>
-    `<tr><th class="lvl lvl-${slug(lvl)}">${lvl}</th><td>${txt}</td></tr>`
-  ).join("");
+  const rows = Object.entries(c.levels)
+    .map(
+      ([lvl, txt]) =>
+        `<tr><th class="lvl lvl-${slug(lvl)}">${lvl}</th><td>${txt}</td></tr>`,
+    )
+    .join("");
   return `<table class="rubric"><tbody>${rows}</tbody></table>`;
 }
 
 function renderRubric(el, categoryKeys) {
-  el.innerHTML = categoryKeys.map((k) => {
-    const c = RUBRIC[k];
-    const caveat = c.caveat ? `<p class="flag-block">${c.caveat}</p>` : "";
-    return `<section class="rubric-cat">
+  el.innerHTML = categoryKeys
+    .map((k) => {
+      const c = RUBRIC[k];
+      const caveat = c.caveat ? `<p class="flag-block">${c.caveat}</p>` : "";
+      return `<section class="rubric-cat">
       <h3>${c.name}</h3>${caveat}
       ${rubricTable(c)}
     </section>`;
-  }).join("");
+    })
+    .join("");
+}
+
+/* Category picker, which differs by track. Solo participants choose freely, so
+   they get checkboxes. A guided session has a moderator assigning triads, so
+   they get the triad select plus a note that it's the moderator's call —
+   guidance, not a lock. Both write the same state.cats. */
+function renderCategoryPicker(el, s) {
+  const chosen = categoriesFromState(s);
+  if (activeTrack() === "solo") {
+    const boxes = CATEGORY_ORDER.map(
+      (k) => `
+      <label class="check">
+        <input type="checkbox" data-cat-toggle="${k}"${chosen.includes(k) ? " checked" : ""}>
+        ${RUBRIC[k].name}
+      </label>`,
+    ).join("");
+    el.innerHTML = `
+      <fieldset class="checkset">
+        <legend>Categories to assess</legend>
+        ${boxes}
+        <p class="hint">Take as many as you have time for — one is a real answer,
+        all six is a long sitting. Three is a comfortable hour.</p>
+      </fieldset>`;
+    return;
+  }
+  const opts = Object.entries(TRIADS)
+    .map(
+      ([k, t]) =>
+        `<option value="${k}"${s.triad === k ? " selected" : ""}>${t.label}</option>`,
+    )
+    .join("");
+  el.innerHTML = `
+    <div>
+      <label for="triad-select">Categories to assess</label>
+      <select id="triad-select">${opts}</select>
+    </div>`;
 }
 
 /* Phase 1 worksheet: rubric + the participant's own rating and evidence. */
 function renderWorksheet(el, categoryKeys, s) {
   const ratings = s.ratings || {};
-  el.innerHTML = categoryKeys.map((k) => {
-    const c = RUBRIC[k];
-    const r = ratings[k] || {};
-    const opts = RATING_OPTIONS.map((o) =>
-      `<option value="${esc(o)}"${r.level === o ? " selected" : ""}>${o || "— choose a level —"}</option>`
-    ).join("");
-    return `<section class="rubric-cat">
+  if (!categoryKeys.length) {
+    el.innerHTML =
+      '<p class="hint">Choose at least one category above and its ' +
+      "rubric and worksheet will appear here.</p>";
+    return;
+  }
+  el.innerHTML = categoryKeys
+    .map((k) => {
+      const c = RUBRIC[k];
+      const r = ratings[k] || {};
+      const opts = RATING_OPTIONS.map(
+        (o) =>
+          `<option value="${esc(o)}"${r.level === o ? " selected" : ""}>${o || "— choose a level —"}</option>`,
+      ).join("");
+      return `<section class="rubric-cat">
       <h3>${c.name}</h3>
       ${rubricTable(c)}
       <div class="worksheet" data-cat="${k}">
@@ -290,24 +852,32 @@ function renderWorksheet(el, categoryKeys, s) {
           <select id="lvl-${k}" data-field="level">${opts}</select>
         </div>
         <div>
-          <label for="ev-${k}">Evidence and notes</label>
+          <label for="ev-${k}">Site URLs and Evidence</label>
           <textarea id="ev-${k}" data-field="evidence" rows="3"
             placeholder="What did you find, and where?">${esc(r.evidence)}</textarea>
         </div>
       </div>
     </section>`;
-  }).join("");
+    })
+    .join("");
 }
 
 /* Plain-text dump of the Phase 1 worksheet, for pasting into the official form. */
 function worksheetText(s) {
   const d = datasetFromState(s);
-  const lines = [`Dataset: ${d.title || "(not set)"}`, `Publisher: ${d.org || "(not set)"}`, ""];
-  categoriesFromState(s).forEach((k) => {
+  const lines = [
+    "# Phase 1 worksheet",
+    "",
+    `Dataset: ${d.title || "(not set)"}`,
+    `Publisher: ${d.org || "(not set)"}`,
+    `URL: ${d.url || "(not set)"}`,
+    "",
+  ];
+  categoriesOrDefault(s).forEach((k) => {
     const r = (s.ratings || {})[k] || {};
     lines.push(`## ${RUBRIC[k].name}`);
     lines.push(`Risk level: ${r.level || "(not rated)"}`);
-    lines.push(`Evidence: ${r.evidence || "(none recorded)"}`);
+    lines.push(`Site URLs and evidence: ${r.evidence || "(none recorded)"}`);
     lines.push("");
   });
   return lines.join("\n").trim();
@@ -316,7 +886,10 @@ function worksheetText(s) {
 function wireCopyButtons(root) {
   (root || document).querySelectorAll("[data-copy-target]").forEach((btn) => {
     btn.addEventListener("click", () => {
-      copyText(btn, document.getElementById(btn.dataset.copyTarget).textContent);
+      copyText(
+        btn,
+        document.getElementById(btn.dataset.copyTarget).textContent,
+      );
     });
   });
 }
@@ -327,12 +900,13 @@ function initPhase1() {
   const dsSelect = document.getElementById("dataset-select");
   const dsCard = document.getElementById("dataset-card");
   const customFields = document.getElementById("custom-dataset-fields");
-  const triadSelect = document.getElementById("triad-select");
+  const customHint = document.getElementById("custom-dataset-hint");
+  const catPicker = document.getElementById("category-picker");
   const rubricEl = document.getElementById("triad-rubric");
 
   const state = getState();
-  if (state.dataset) dsSelect.value = state.dataset;
-  if (state.triad) triadSelect.value = state.triad;
+  renderDatasetOptions(dsSelect);
+  if (state.dataset && DATASETS[state.dataset]) dsSelect.value = state.dataset;
   const c = state.custom || {};
   setValue("c-title", c.title);
   setValue("c-org", c.org);
@@ -340,30 +914,62 @@ function initPhase1() {
   setValue("c-url", c.url);
 
   function saveCustom() {
-    setState({ custom: {
-      title: document.getElementById("c-title").value,
-      org: document.getElementById("c-org").value,
-      description: document.getElementById("c-desc").value,
-      url: document.getElementById("c-url").value
-    }});
+    setState({
+      custom: {
+        title: document.getElementById("c-title").value,
+        org: document.getElementById("c-org").value,
+        description: document.getElementById("c-desc").value,
+        url: document.getElementById("c-url").value,
+      },
+    });
   }
 
   function refreshDataset() {
-    customFields.hidden = dsSelect.value !== "custom";
+    const isCustom = dsSelect.value === "custom";
+    customFields.hidden = !isCustom;
+    if (customHint) customHint.hidden = !isCustom;
     setState({ dataset: dsSelect.value });
     renderDatasetCard(dsCard, getState());
+    refreshContinue();
   }
 
   function refreshRubric() {
-    setState({ triad: triadSelect.value });
     renderWorksheet(rubricEl, categoriesFromState(getState()), getState());
   }
 
+  /* The picker is rebuilt only on load; from then on its controls just write
+     state and re-render the worksheet under it. A guided session starts on
+     Triad A so the select and the worksheet agree; solo starts empty, because
+     choosing is the participant's job there. */
+  renderCategoryPicker(catPicker, state);
+  if (activeTrack() !== "solo" && !categoriesFromState(state).length) {
+    setState({ triad: "a", cats: TRIADS.a.categories });
+  }
+  catPicker.addEventListener("change", (e) => {
+    const t = e.target;
+    if (t.id === "triad-select") {
+      setState({ triad: t.value, cats: TRIADS[t.value].categories });
+    } else if (t.dataset && t.dataset.catToggle) {
+      const picked = new Set(categoriesFromState(getState()));
+      if (t.checked) picked.add(t.dataset.catToggle);
+      else picked.delete(t.dataset.catToggle);
+      setState({ cats: CATEGORY_ORDER.filter((k) => picked.has(k)) });
+    } else {
+      return;
+    }
+    refreshRubric();
+    refreshContinue();
+    guardNav();
+  });
+
   dsSelect.addEventListener("change", refreshDataset);
-  triadSelect.addEventListener("change", refreshRubric);
   ["c-title", "c-org", "c-desc", "c-url"].forEach((id) => {
     const el = document.getElementById(id);
-    if (el) el.addEventListener("input", () => { saveCustom(); refreshDataset(); });
+    if (el)
+      el.addEventListener("input", () => {
+        saveCustom();
+        refreshDataset();
+      });
   });
 
   /* Delegated — the worksheet is re-rendered whenever the triad changes. */
@@ -374,19 +980,272 @@ function initPhase1() {
     const ratings = Object.assign({}, getState().ratings);
     ratings[cat] = Object.assign({}, ratings[cat], { [field]: e.target.value });
     setState({ ratings: ratings });
+    refreshContinue();
+    guardNav();
   });
+
+  const refreshContinue = initContinueGate();
 
   refreshDataset();
   refreshRubric();
+  refreshContinue();
+  applyPhase1Lock();
+  guardNav();
 
-  const copyBtn = document.getElementById("copy-worksheet");
-  if (copyBtn) copyBtn.addEventListener("click", () => copyText(copyBtn, worksheetText(getState())));
+  bindField("p-name", "participantName");
+  bindField("p-email", "participantEmail");
 
-  document.querySelectorAll("a[data-form='assessment']")
-    .forEach((a) => { a.href = FORM_URLS.assessment; });
+  wireDownload("download-worksheet", "phase-1-worksheet", worksheetText);
+  /* Solo participants submit here, because Phase 1 is the whole exercise for
+     them. A guided session submits once, at the end of Phase 2, and that one
+     record carries these ratings too. */
+  if (activeTrack() !== "solo") return;
+  initSubmit({
+    button: "submit-assessment",
+    status: "submit-status",
+    stateKey: "phase1SubmittedAt",
+    validate: phase1Problem,
+    payload: phase1Payload,
+    success: "Submitted — thank you.",
+  });
 }
 
-/* ---------- Phase 3 ---------- */
+/* ---------- Submission ----------
+   Phase 1 posts straight to a Google Apps Script web app, which appends one row
+   per rubric category to a Sheet. Both tracks submit; nothing else about the
+   flow differs. Content-Type is text/plain deliberately: it keeps the request
+   "simple" in CORS terms, so the browser skips the preflight that Apps Script
+   has no way to answer. */
+
+/* A stable per-browser id, minted on first submission and reused. It's what
+   joins someone's Phase 1 rows to their Phase 2 rows in the sheet. Never shown
+   to the participant and never echoed back by the endpoint — it exists for
+   grouping, not for them to quote at us. */
+function sessionId() {
+  const s = getState();
+  if (s.sessionId) return s.sessionId;
+  let id;
+  try {
+    id = crypto.randomUUID();
+  } catch (e) {
+    id = "s-" + Math.random().toString(36).slice(2) + Date.now().toString(36);
+  }
+  setState({ sessionId: id });
+  return id;
+}
+
+/* Fields both phases send. */
+function submissionEnvelope(s, form) {
+  const d = datasetFromState(s);
+  return {
+    form: form,
+    sessionId: sessionId(),
+    track: activeTrack(),
+    submittedAt: new Date().toISOString(),
+    participant: {
+      name: s.participantName || "",
+      email: s.participantEmail || "",
+    },
+    dataset: {
+      key: s.dataset || "",
+      title: d.title || "",
+      org: d.org || "",
+      url: d.url || "",
+      custom: !!d.custom,
+    },
+  };
+}
+
+function phase1Payload(s) {
+  const ratings = s.ratings || {};
+  const body = submissionEnvelope(s, "phase-1-assessment");
+  body.categories = categoriesFromState(s).map((k) => ({
+    key: k,
+    name: RUBRIC[k].name,
+    level: (ratings[k] || {}).level || "",
+    evidence: (ratings[k] || {}).evidence || "",
+  }));
+  return body;
+}
+
+/* For a guided session this is the only submission, so it carries the Phase 1
+   assessment as well as the Phase 2 agent notes. */
+function phase2Payload(s) {
+  const ratings = s.ratings || {};
+  const body = submissionEnvelope(s, "phase-2-session");
+  body.shareLink = s.shareLink || "";
+  body.agentUsed = s.agentUsed || "";
+  body.categories = categoriesOrDefault(s).map((k) => {
+    const n = aiNote(s, k);
+    return {
+      key: k,
+      name: RUBRIC[k].name,
+      level: (ratings[k] || {}).level || "",
+      evidence: (ratings[k] || {}).evidence || "",
+      coachedLevel: n.level || "",
+      agentAdded: n.note || "",
+      agentUrls: n.urls || "",
+    };
+  });
+  return body;
+}
+
+/* What has to be true before we'll send anything. */
+function phase1Problem(s) {
+  const ready = phase1ReadyProblem(s);
+  if (ready) return ready;
+  if (!(s.participantName || "").trim())
+    return "Add your name so we can attribute the assessment.";
+  return "";
+}
+
+function phase2Problem(s) {
+  if (!hasPhase1(s))
+    return "We can't find your Phase 1 choices in this browser, so there's nothing to attach this to.";
+  if (!(s.participantName || "").trim())
+    return "We don't have your name from Phase 1 in this browser. Add it there and it will carry over.";
+  return "";
+}
+
+/* ---------- Phase 1 lock ----------
+   Once someone opens Phase 2, their Phase 1 answers are frozen. Phase 2's
+   prompts are generated from the dataset and categories, and the single guided
+   submission carries the ratings, so a late edit would silently desynchronise
+   what the agent was asked from what we record. */
+
+/* Called on every entry to Phase 2, not just the first. Any moderator override
+   is consumed here: the code buys one trip back to fix something, not an open
+   door for the rest of the session. Go forward again and it all re-locks, so
+   going back always costs another conversation with a moderator. */
+function lockPhase1() {
+  setState({ phase1Locked: true, override: false });
+}
+
+var PHASE1_INPUTS = [
+  "#dataset-select",
+  "#custom-dataset-fields input",
+  "#custom-dataset-fields textarea",
+  "#category-picker select",
+  "#category-picker input",
+  "#triad-rubric select",
+  "#triad-rubric textarea",
+].join(", ");
+
+function applyPhase1Lock() {
+  const locked = !!getState().phase1Locked && !overrideActive();
+  const notice = document.getElementById("phase1-lock");
+  if (notice) notice.hidden = !locked;
+  /* Assign rather than only ever setting true, so entering the override code
+     re-opens the fields without a reload. */
+  document.querySelectorAll(PHASE1_INPUTS).forEach((el) => {
+    el.disabled = locked;
+  });
+}
+
+/* What must be filled in before a guided participant can start Phase 2. */
+function phase1ReadyProblem(s) {
+  const d = datasetFromState(s);
+  if (!s.dataset) return "Pick a dataset in section 1 before moving on.";
+  if (d.custom && !(d.title || "").trim())
+    return "Give your own dataset a title in section 1 before moving on.";
+  const cats = categoriesFromState(s);
+  if (!cats.length)
+    return "Pick at least one rubric category in section 2 before moving on.";
+  const unrated = cats.filter((k) => !((s.ratings || {})[k] || {}).level);
+  if (unrated.length)
+    return (
+      "Give every category a risk level in section 4. Still blank: " +
+      unrated.map((k) => RUBRIC[k].name).join(", ") +
+      '. "Couldn\'t assess" is a valid answer.'
+    );
+  return "";
+}
+
+/* The continue link is a link, not a button, so refuse the click rather than
+   pretending it isn't there. */
+function initContinueGate() {
+  const link = document.getElementById("continue-phase-2");
+  const note = document.getElementById("continue-note");
+  if (!link || !note) return function () {};
+
+  link.addEventListener("click", (e) => {
+    const problem = phase1ReadyProblem(getState());
+    if (problem) {
+      e.preventDefault();
+      note.textContent = problem;
+      note.className = "status error";
+    }
+  });
+
+  return function refresh() {
+    const problem = phase1ReadyProblem(getState());
+    link.classList.toggle("disabled", !!problem);
+    link.setAttribute("aria-disabled", problem ? "true" : "false");
+    note.textContent = problem;
+    note.className = problem ? "status error" : "status";
+  };
+}
+
+/* Both phases submit through here. `stateKey` records that this phase has been
+   sent, so coming back to the page says so. Nothing about the stored response
+   is surfaced to the participant. */
+function initSubmit(opts) {
+  const btn = document.getElementById(opts.button);
+  const status = document.getElementById(opts.status);
+  if (!btn || !status) return;
+
+  function say(msg, kind) {
+    status.textContent = msg;
+    status.className = "status" + (kind ? " " + kind : "");
+  }
+
+  if (getState()[opts.stateKey]) {
+    say(
+      "You've already submitted this once. Submitting again records a new response.",
+      "ok",
+    );
+  }
+
+  btn.addEventListener("click", async () => {
+    const s = getState();
+    if (!SUBMIT_URL) {
+      say(
+        "Submission isn't switched on yet. Save a copy of your work and send it to the team.",
+        "error",
+      );
+      return;
+    }
+    const problem = opts.validate(s);
+    if (problem) {
+      say(problem, "error");
+      return;
+    }
+
+    btn.disabled = true;
+    say("Sending\u2026");
+    try {
+      const res = await fetch(SUBMIT_URL, {
+        method: "POST",
+        headers: { "Content-Type": "text/plain;charset=utf-8" },
+        body: JSON.stringify(opts.payload(s)),
+      });
+      const data = await res.json();
+      if (!data || !data.ok)
+        throw new Error((data && data.error) || "rejected");
+      setState({ [opts.stateKey]: new Date().toISOString() });
+      say(opts.success, "ok");
+      guardNav();
+    } catch (err) {
+      say(
+        "That didn't go through. Save a copy of your work and send it to the team, or try again in a moment.",
+        "error",
+      );
+      btn.disabled = false;
+    }
+  });
+}
+
+/* ---------- Phase 2 ---------- */
 
 /* Read-only recap of everything Phase 1 decided. Deliberately rendered
    outside the dark prompt blocks: this is context for the participant,
@@ -403,13 +1262,15 @@ function renderCarryover(el, s) {
   }
   const d = datasetFromState(s);
   const ratings = s.ratings || {};
-  const rows = categoriesFromState(s).map((k) => {
-    const r = ratings[k] || {};
-    const badge = r.level
-      ? `<span class="rating-badge lvl-${slug(r.level)}">${esc(r.level)}</span>`
-      : '<span class="rating-badge none">not rated</span>';
-    return `<li>${RUBRIC[k].name} ${badge}</li>`;
-  }).join("");
+  const rows = categoriesFromState(s)
+    .map((k) => {
+      const r = ratings[k] || {};
+      const badge = r.level
+        ? `<span class="rating-badge lvl-${slug(r.level)}">${esc(r.level)}</span>`
+        : '<span class="rating-badge none">not rated</span>';
+      return `<li>${RUBRIC[k].name} ${badge}</li>`;
+    })
+    .join("");
   const link = d.url
     ? ` · <a href="${esc(d.url)}" target="_blank" rel="noopener">${esc(d.url)}</a>`
     : "";
@@ -420,84 +1281,495 @@ function renderCarryover(el, s) {
       <span class="meta">${esc(d.org)}${link}</span></p>
     <p class="cats-intro">Your categories and ratings:</p>
     <ul class="cats">${rows}</ul>
-    <p class="hint">These are locked to keep your two assessments comparable —
-      <a href="phase-1.html">change them in Phase 1</a> if something is wrong. The
+    <p class="hint">The
       dataset details are already built into the prompts below, so there's nothing
-      here you need to copy. Your own ratings are <strong>not</strong> in the prompts:
-      the agent must reach its own conclusion.</p>
+      here you need to copy. Your own ratings are <strong>not</strong> in the prompts,
+      because the agent has to reach its own conclusion.</p>
   </div>`;
 }
 
-/* The one thing Phase 3 actually asks the participant to type. */
+/* Notes were plain strings before the extra-URLs field was added; anything saved
+   under the old shape reads as the note. */
+function aiNote(s, k) {
+  const n = (s.aiNotes || {})[k];
+  if (typeof n === "string") return { note: n };
+  return n || {};
+}
+
+/* The one thing Phase 2 actually asks the participant to type. Note what the
+   agent contributed, not what it concluded — the rubric values being compared on
+   the results page come from a controlled run, not from transcription. */
 function renderAiNotes(el, s) {
   const ratings = s.ratings || {};
-  const notes = s.aiNotes || {};
-  el.innerHTML = categoriesFromState(s).map((k) => {
-    const r = ratings[k] || {};
-    const badge = r.level
-      ? `<span class="rating-badge lvl-${slug(r.level)}">${esc(r.level)}</span>`
-      : '<span class="rating-badge none">not rated</span>';
-    const prior = r.evidence
-      ? `<p class="prior"><span>Your Phase 1 evidence:</span> ${esc(r.evidence)}</p>`
-      : '<p class="prior empty">No Phase 1 evidence recorded for this category.</p>';
-    return `<section class="ai-note" data-cat="${k}">
+  el.innerHTML = categoriesOrDefault(s)
+    .map((k) => {
+      const r = ratings[k] || {};
+      const n = aiNote(s, k);
+      const badge = r.level
+        ? `<span class="rating-badge lvl-${slug(r.level)}">${esc(r.level)}</span>`
+        : '<span class="rating-badge none">not rated</span>';
+      const prior = r.evidence
+        ? `<p class="prior"><span>Your Phase 1 evidence:</span> ${esc(r.evidence)}</p>`
+        : '<p class="prior empty">No Phase 1 evidence recorded for this category.</p>';
+      const opts = RATING_OPTIONS.map(
+        (o) =>
+          `<option value="${esc(o)}"${n.level === o ? " selected" : ""}>${o || "— choose a level —"}</option>`,
+      ).join("");
+      return `<section class="ai-note" data-cat="${k}">
       <h3>${RUBRIC[k].name} ${badge}</h3>
       ${prior}
+      <label for="ai-lvl-${k}">Where the agent landed on risk level</label>
+      <select id="ai-lvl-${k}" data-field="level">${opts}</select>
       <label for="ai-${k}">What the agent added that your research hadn't</label>
       <textarea id="ai-${k}" data-field="note" rows="3"
-        placeholder="New sources, angles, or evidence — or leave blank">${esc(notes[k])}</textarea>
+        placeholder="New sources, angles, or evidence — or leave blank">${esc(n.note)}</textarea>
+      <label for="ai-url-${k}">Other URLs the agent surfaced</label>
+      <textarea id="ai-url-${k}" data-field="urls" rows="2"
+        placeholder="Sites you hadn't found yourself — one per line">${esc(n.urls)}</textarea>
     </section>`;
-  }).join("");
+    })
+    .join("");
 }
 
 function aiNotesText(s) {
   const d = datasetFromState(s);
-  const notes = s.aiNotes || {};
   const ratings = s.ratings || {};
-  const lines = [`Dataset: ${d.title || "(not set)"}`, ""];
-  categoriesFromState(s).forEach((k) => {
+  const lines = [
+    "# Phase 2 agent session",
+    "",
+    `Dataset: ${d.title || "(not set)"}`,
+    `Agent used: ${s.agentUsed || "(not given)"}`,
+    `Conversation share link: ${s.shareLink || "(none given)"}`,
+    "",
+  ];
+  categoriesOrDefault(s).forEach((k) => {
     const r = ratings[k] || {};
+    const n = aiNote(s, k);
     lines.push(`## ${RUBRIC[k].name}`);
     lines.push(`My Phase 1 rating: ${r.level || "(not rated)"}`);
-    lines.push(`What the AI added: ${notes[k] || "(nothing new)"}`);
+    lines.push(`Where my agent landed: ${n.level || "(not recorded)"}`);
+    lines.push(`What the agent added: ${n.note || "(nothing new)"}`);
+    lines.push(`Other URLs the agent surfaced: ${n.urls || "(none)"}`);
     lines.push("");
   });
   return lines.join("\n").trim();
 }
 
-function initPhase3() {
+function initPhase2() {
+  lockPhase1();
+  guardNav();
   const state = getState();
-  const cats = categoriesFromState(state);
+  const cats = categoriesOrDefault(state);
   const dataset = datasetFromState(state);
 
   renderCarryover(document.getElementById("carryover"), state);
 
-  document.getElementById("prompt-step-one").textContent = stepOnePrompt(dataset);
+  document.getElementById("prompt-step-one").textContent =
+    stepOnePrompt(dataset);
   document.getElementById("prompt-step-two").textContent = stepTwoPrompt(cats);
+  document.getElementById("prompt-session-meta").textContent =
+    sessionMetaPrompt();
 
   const notesEl = document.getElementById("ai-notes");
   renderAiNotes(notesEl, state);
-  notesEl.addEventListener("input", (e) => {
-    if (!e.target.dataset || e.target.dataset.field !== "note") return;
+
+  /* One delegated handler for both the selects and the textareas. */
+  function saveNote(e) {
+    const field = e.target.dataset && e.target.dataset.field;
+    if (!field) return;
     const cat = e.target.closest("[data-cat]").dataset.cat;
     const aiNotes = Object.assign({}, getState().aiNotes);
-    aiNotes[cat] = e.target.value;
+    aiNotes[cat] = Object.assign({}, aiNote(getState(), cat), {
+      [field]: e.target.value,
+    });
     setState({ aiNotes: aiNotes });
+  }
+  notesEl.addEventListener("input", saveNote);
+  notesEl.addEventListener("change", saveNote);
+
+  bindField("share-link", "shareLink");
+  bindField("agent-used", "agentUsed");
+  bindField("p-name", "participantName");
+  bindField("p-email", "participantEmail");
+
+  wireDownload("download-ai-notes", "phase-2-agent-session", aiNotesText);
+  initSubmit({
+    button: "submit-session",
+    status: "submit-status",
+    stateKey: "phase2SubmittedAt",
+    validate: phase2Problem,
+    payload: phase2Payload,
+    success: "Submitted — thank you.",
   });
-
-  const copyBtn = document.getElementById("copy-ai-notes");
-  if (copyBtn) copyBtn.addEventListener("click", () => copyText(copyBtn, aiNotesText(getState())));
-
   wireCopyButtons();
 
-  document.querySelectorAll("a[data-form='evaluation']")
-    .forEach((a) => { a.href = FORM_URLS.evaluation; });
-  document.querySelectorAll("a[data-form='transcript']")
-    .forEach((a) => { a.href = FORM_URLS.transcript; });
+  wireFormLinks("evaluation");
+  wireFormLinks("transcript");
+}
+
+/* Persist a single free-text field straight onto state. */
+function bindField(id, key) {
+  const el = document.getElementById(id);
+  if (!el) return;
+  el.value = getState()[key] || "";
+  el.addEventListener("input", () => setState({ [key]: el.value }));
+}
+
+/* ---------- Navigation guard ----------
+   Someone mid-exercise shouldn't be able to jump ahead, whether by button, nav
+   bar, back-link or the wordmark. Only the rubric stays open throughout: it's
+   reference material and contains no answers.
+
+   This is a guard rail, not security. Anything client-side can be walked around
+   by someone determined, and the ratings live in this browser anyway — the point
+   is to stop honest mistakes and casual skipping, not to withstand attack. */
+
+const OVERRIDE_CODE = "pineapple";
+
+function overrideActive() {
+  return !!getState().override;
+}
+
+function pageName(href) {
+  return (
+    String(href || "")
+      .split(/[?#]/)[0]
+      .split("/")
+      .pop() || "index.html"
+  );
+}
+
+/* Have they committed to a dataset? A guided session is pre-seeded with Triad A,
+   so categories alone don't mean anyone has started — the dataset choice does.
+   Once it's made, wandering back to the entry page would let them switch track
+   and lose the work. */
+function workStarted(s) {
+  return !!s.dataset;
+}
+
+/* Why this destination is closed, or "" if it's open. */
+function navBlock(page, s) {
+  if (overrideActive()) return "";
+  if (page === "rubric.html") return "";
+  if (page === pageName(location.pathname)) return "";
+
+  if (page === "phase-2.html") {
+    return (
+      phase1ReadyProblem(s) ||
+      (hasPhase1(s) ? "" : "Finish Phase 1 before starting Phase 2.")
+    );
+  }
+
+  if (page === "results.html") {
+    if (activeTrack() === "solo") {
+      return s.phase1SubmittedAt
+        ? ""
+        : "Results open once you've submitted your Phase 1 assessment.";
+    }
+    return s.phase2SubmittedAt
+      ? ""
+      : "Results open once you've submitted at the end of Phase 2.";
+  }
+
+  /* The entry page is where the track is chosen, so returning to it mid-exercise
+     would silently switch someone's track and orphan their work. The overview is
+     just context and stays open throughout. */
+  if (page === "index.html") {
+    return workStarted(s)
+      ? "You're part-way through. Going back to the start would change your track and lose your work."
+      : "";
+  }
+
+  return "";
+}
+
+/* The override control, rendered into whatever is asking for it. Class-based
+   rather than id-based because it appears more than once on a page. */
+function renderOverride(host) {
+  if (!host || host.querySelector(".override")) return;
+  const wrap = document.createElement("p");
+  wrap.className = "override";
+  wrap.innerHTML =
+    '<span class="override-label">Moderator code</span>' +
+    '<input type="text" class="override-code" autocomplete="off" aria-label="Moderator override code">' +
+    '<button class="btn secondary override-go" type="button">Unlock</button>' +
+    '<span class="status override-note"></span>';
+  host.appendChild(wrap);
+
+  const input = wrap.querySelector(".override-code");
+  const note = wrap.querySelector(".override-note");
+  const submit = () => {
+    if (input.value.trim().toLowerCase() === OVERRIDE_CODE) {
+      setState({ override: true });
+      note.textContent = "Unlocked until you continue to Phase 2.";
+      note.className = "status ok override-note";
+      guardNav();
+      applyPhase1Lock();
+      const nb = document.getElementById("nav-block");
+      if (nb) nb.hidden = true;
+    } else {
+      note.textContent = "That code isn't right.";
+      note.className = "status error override-note";
+    }
+  };
+  wrap.querySelector(".override-go").addEventListener("click", submit);
+  input.addEventListener("keydown", (e) => {
+    if (e.key === "Enter") submit();
+  });
+}
+
+/* Always available, on every page, tucked into the footer so participants don't
+   trip over it but a moderator can always find it. */
+function initModeratorPanel() {
+  const inner = document.querySelector("footer.site .inner");
+  if (!inner || inner.querySelector("details.mod")) return;
+  const d = document.createElement("details");
+  d.className = "mod";
+  d.innerHTML = "<summary>Moderator override</summary>";
+  inner.appendChild(d);
+  renderOverride(d);
+}
+
+/* The notice is built here rather than repeated in six HTML files. */
+function navBlockNotice() {
+  let el = document.getElementById("nav-block");
+  if (el) return el;
+  const main = document.querySelector("main");
+  if (!main) return null;
+  el = document.createElement("div");
+  el.id = "nav-block";
+  el.className = "callout locked";
+  el.hidden = true;
+  el.innerHTML =
+    '<p class="callout-title">Not yet</p>' +
+    '<p id="nav-block-why"></p>' +
+    '<p class="hint">A moderator can open this from the override at the foot of the page.</p>';
+  main.insertBefore(el, main.firstChild);
+  return el;
+}
+
+function guardNav() {
+  initModeratorPanel();
+  const links = document.querySelectorAll(
+    "nav.site a, a.wordmark, .backlink a, main a.btn[href]",
+  );
+  links.forEach((a) => {
+    /* The wordmark is the site's title as much as a link. It stops navigating
+       mid-exercise, but greying out the masthead reads as a fault, so it just
+       goes quiet instead of announcing itself. */
+    const isWordmark = a.classList.contains("wordmark");
+    const reason = navBlock(pageName(a.getAttribute("href")), getState());
+    a.classList.toggle("blocked", !!reason && !isWordmark);
+    a.classList.toggle("inert", !!reason && isWordmark);
+    a.classList.toggle("disabled", !!reason && a.classList.contains("btn"));
+    a.setAttribute("aria-disabled", reason ? "true" : "false");
+    if (a.dataset.guarded) return;
+    a.dataset.guarded = "1";
+    a.addEventListener("click", (e) => {
+      const why = navBlock(pageName(a.getAttribute("href")), getState());
+      if (!why) return;
+      e.preventDefault();
+      if (isWordmark) return;
+      const notice = navBlockNotice();
+      if (!notice) return;
+      notice.querySelector("#nav-block-why").textContent = why;
+      notice.hidden = false;
+      notice.scrollIntoView({ block: "center" });
+    });
+  });
+}
+
+/* ---------- Entry page ---------- */
+
+function initEntry() {
+  document.querySelectorAll("[data-track-set]").forEach((el) => {
+    el.addEventListener("click", () => setTrack(el.dataset.trackSet));
+  });
 }
 
 /* Rubric reference page */
 function initRubricPage() {
-  renderRubric(document.getElementById("full-rubric"),
-    ["historical", "future", "quality", "statutory", "staffing", "policy"]);
+  guardNav();
+  renderRubric(document.getElementById("full-rubric"), CATEGORY_ORDER);
+}
+
+/* ---------- Results ----------
+   Three sets of rubric values for one dataset: yours from Phase 1, the background
+   agent's from AGENT_RESULTS, and the Data Index's, which the participant records
+   by hand once the embargo lifts. Nothing here is transcribed from a participant's
+   own Phase 2 conversation — those notes are evidence about prompting, not a
+   fourth rubric column. */
+
+/* America's Data Index is the ground truth, loaded from js/data-index.js — never
+   typed in by a participant. Guarded so a page that forgets the script tag
+   degrades to an empty column instead of throwing. */
+const DI = typeof DATA_INDEX !== "undefined" ? DATA_INDEX : {};
+
+function dataIndexEntry(s) {
+  return DI[s.dataset || "nhis"] || null;
+}
+function dataIndexResult(s, k) {
+  const e = dataIndexEntry(s);
+  return (e && e[k]) || {};
+}
+
+/* Downloads are plain text, so the Data Index's anchors become "label (url)". */
+function stripTags(html) {
+  return String(html || "")
+    .replace(/<a[^>]*href="([^"]*)"[^>]*>(.*?)<\/a>/g, "$2 ($1)")
+    .replace(/<[^>]+>/g, "")
+    .trim();
+}
+
+function levelCell(level) {
+  return level
+    ? `<span class="rating-badge lvl-${slug(level)}">${esc(level)}</span>`
+    : '<span class="rating-badge none">—</span>';
+}
+
+function renderComparison(el, s) {
+  const cats = categoriesOrDefault(s);
+  const ratings = s.ratings || {};
+
+  const rows = cats
+    .map((k) => {
+      const mine = ratings[k] || {};
+      const coached = aiNote(s, k);
+      const agent = agentResult(s, k);
+      const idx = dataIndexResult(s, k);
+      return `<tr data-cat="${k}">
+      <th scope="row">${RUBRIC[k].name}</th>
+      <td>${levelCell(mine.level)}</td>
+      <td data-only="group">${levelCell(coached.level)}</td>
+      <td>${levelCell(agent.level)}</td>
+      <td>${levelCell(idx.level)}</td>
+    </tr>`;
+    })
+    .join("");
+
+  const entry = dataIndexEntry(s);
+  const stamp =
+    entry && entry.updated
+      ? `<p class="hint">Data Index values as checked on ${esc(entry.updated)}. Its
+       <a href="https://dataindex.us/collections/">collection page</a> is worth reading
+       for the full picture behind them.</p>`
+      : `<p class="hint">America's Data Index has no entry for this dataset, so its column
+       is empty. <a href="https://dataindex.us/collections/">Browse the collections</a>
+       to see how it treats comparable data.</p>`;
+
+  const notice = !hasAgentRun(s)
+    ? `<div class="callout"><p class="callout-title">No agent run for this dataset</p>
+       <p>The background agent hasn't assessed
+       <strong>${esc(datasetFromState(s).title)}</strong> yet, so its column is empty.
+       Your own ratings and the Data Index's still compare.</p></div>`
+    : AGENT_RESULTS_ARE_MOCK
+      ? `<div class="callout"><p class="callout-title">Placeholder values</p>
+         <p>The background agent's column below is stand-in data while the real run is
+         prepared. Don't read anything into it yet.</p></div>`
+      : "";
+
+  el.innerHTML = `
+    ${notice}
+    ${stamp}
+    <table class="compare-table">
+      <thead>
+        <tr>
+          <th scope="col">Category</th>
+          <th scope="col">You</th>
+          <th scope="col" data-only="group">You + agent</th>
+          <th scope="col">Background agent</th>
+          <th scope="col">Data Index</th>
+        </tr>
+      </thead>
+      <tbody>${rows}</tbody>
+    </table>`;
+}
+
+function comparisonText(s) {
+  const d = datasetFromState(s);
+  const entry = dataIndexEntry(s);
+  const lines = ["# Comparison", "", `Dataset: ${d.title || "(not set)"}`];
+  if (AGENT_RESULTS_ARE_MOCK && hasAgentRun(s)) {
+    lines.push("Note: the background agent's values below are placeholders.");
+  }
+  if (entry && entry.updated) {
+    lines.push(
+      `Data Index values as checked on ${entry.updated}. Its reasoning is on ` +
+        "https://dataindex.us/collections/ — only the levels are reproduced here.",
+    );
+  }
+  lines.push("");
+
+  categoriesOrDefault(s).forEach((k) => {
+    const mine = (s.ratings || {})[k] || {};
+    const coached = aiNote(s, k);
+    const agent = agentResult(s, k);
+    const idx = dataIndexResult(s, k);
+    lines.push(`## ${RUBRIC[k].name}`);
+    lines.push("");
+    lines.push(`You: ${mine.level || "(not rated)"}`);
+    lines.push(`  ${mine.evidence || "(no evidence recorded)"}`);
+    if (activeTrack() === "group") {
+      lines.push(`You + agent: ${coached.level || "(not recorded)"}`);
+      lines.push(`  ${coached.note || "(nothing new)"}`);
+      if (coached.urls)
+        lines.push(`  URLs: ${coached.urls.replace(/\s+/g, " ")}`);
+    }
+    lines.push(`Background agent: ${agent.level || "(no run)"}`);
+    lines.push(`  ${agent.evidence || "(reasoning not yet published)"}`);
+    lines.push(`America's Data Index: ${idx.level || "(no entry)"}`);
+    lines.push("");
+  });
+  return lines.join("\n").trim();
+}
+
+/* Results are the answer key. They open only after this track's single
+   submission has actually been sent. */
+function resultsLocked(s) {
+  if (overrideActive()) return "";
+  if (activeTrack() === "solo") {
+    if (s.phase1SubmittedAt) return "";
+    return (
+      "<p>Submit your Phase 1 assessment first.</p>" +
+      '<p><a class="btn" href="phase-1.html">Back to Phase 1</a></p>'
+    );
+  }
+  if (s.phase2SubmittedAt) return "";
+  return (
+    "<p>Submit your Phase 2 session first.</p>" +
+    '<p><a class="btn" href="phase-2.html">Back to Phase 2</a></p>'
+  );
+}
+
+function initResultsPage() {
+  guardNav();
+  const el = document.getElementById("comparison");
+  const state = getState();
+
+  const locked = resultsLocked(state);
+  if (locked) {
+    el.innerHTML =
+      '<div class="callout locked"><p class="callout-title">Not yet</p>' +
+      "<p>These are the answers. They unlock once your work is in.</p>" +
+      locked +
+      "</div>";
+    document.querySelectorAll("[data-results-only]").forEach((n2) => {
+      n2.hidden = true;
+    });
+    return;
+  }
+
+  if (!hasPhase1(state)) {
+    el.innerHTML = `<div class="carryover missing">
+      <p class="label">Nothing to compare yet</p>
+      <p>We couldn't find your assessment in this browser.
+      <a href="phase-1.html">Start with Phase 1</a>.</p>
+    </div>`;
+    return;
+  }
+
+  /* Read-only by design: every column is either the participant's own saved work
+     or ground truth we ship. There is nothing here to type. */
+  renderComparison(el, state);
+  wireDownload("download-comparison", "comparison", comparisonText);
 }

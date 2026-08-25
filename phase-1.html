@@ -1,133 +1,226 @@
-<!DOCTYPE html>
+<!doctype html>
 <html lang="en">
-<head>
-<meta charset="utf-8">
-<meta name="viewport" content="width=device-width, initial-scale=1">
-<title>Phase 1 · Human Research — AI Benchmarking Exercise</title>
-<link rel="preconnect" href="https://fonts.googleapis.com">
-<link href="https://fonts.googleapis.com/css2?family=IBM+Plex+Mono:wght@400;700&family=Libre+Franklin:ital,wght@0,400;0,600;0,800;1,400&display=swap" rel="stylesheet">
-<link rel="stylesheet" href="css/style.css">
-</head>
-<body>
-<header class="site">
-  <div class="inner">
-    <a class="wordmark" href="index.html">AI Benchmarking Exercise</a>
-    <nav class="site">
-      <a href="index.html">Overview</a>
-      <a href="phase-1.html" aria-current="page">Phase 1</a>
-      <a href="phase-2.html">Phase 2</a>
-      <a href="phase-3.html">Phase 3</a>
-      <a href="rubric.html">Rubric</a>
-    </nav>
-  </div>
-</header>
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>Phase 1 · Human Research — AI Benchmarking Exercise</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link
+      href="https://fonts.googleapis.com/css2?family=IBM+Plex+Mono:wght@400;700&family=Libre+Franklin:ital,wght@0,400;0,600;0,800;1,400&display=swap"
+      rel="stylesheet"
+    />
+    <link rel="stylesheet" href="css/style.css" />
+    <script src="js/data-index.js"></script>
+    <script src="js/site.js"></script>
+    <script>
+      applyTrack();
+    </script>
+  </head>
+  <body>
+    <header class="site">
+      <div class="inner">
+        <a class="wordmark" href="index.html">AI Benchmarking Exercise</a>
+        <nav class="site">
+          <a href="overview.html">Overview</a>
+          <a href="phase-1.html" aria-current="page">Phase 1</a>
+          <a href="phase-2.html" data-only="group">Phase 2</a>
+          <a href="results.html">Results</a>
+          <a href="rubric.html">Rubric</a>
+        </nav>
+      </div>
+    </header>
 
-<main>
-  <p class="eyebrow">Phase 1 · ~50 minutes · no AI</p>
-  <h1>Human research</h1>
+    <main>
+      <p class="backlink"><a href="overview.html">← Back</a></p>
 
-  <p class="lede">You'll research the <em>ecosystem around a dataset</em> — what the
-  news, the federal government, and social media are saying about it — and rate its
-  risk against the rubric. You are not trying to become an expert in the dataset
-  itself.</p>
+      <p class="eyebrow">Phase 1</p>
+      <h1>Human research</h1>
 
-  <h2>1. Pick your dataset</h2>
-  <p>This choice is locked in for the whole exercise — Phase 3 carries it over
-  automatically and builds its AI prompts from it.</p>
-  <div class="picker">
-    <div>
-      <label for="dataset-select">Dataset</label>
-      <select id="dataset-select">
-        <option value="nhis">National Health Interview Survey</option>
-        <option value="ahs">American Housing Survey</option>
-        <option value="hifld">Homeland Infrastructure Foundation-Level Data (HIFLD) Open</option>
-        <option value="custom">Another federal dataset (bring your own)</option>
-      </select>
-    </div>
-    <div id="custom-dataset-fields" hidden>
-      <div><label for="c-title">Dataset title</label><input type="text" id="c-title"></div>
-      <div><label for="c-org">Organization / publisher</label><input type="text" id="c-org"></div>
-      <div><label for="c-desc">Description</label><textarea id="c-desc" rows="3"></textarea></div>
-      <div><label for="c-url">URL</label><input type="text" id="c-url"></div>
-    </div>
-  </div>
-  <div id="dataset-card"></div>
+      <div class="callout locked" id="phase1-lock" hidden>
+        <p class="callout-title">Locked</p>
+        <p>
+          You've moved on to Phase 2, so this page is now read-only. A moderator
+          can reopen it, but continuing to Phase 2 locks it again.
+        </p>
+      </div>
 
-  <h2>2. Pick your categories</h2>
-  <p>The rubric has six categories. In timed sessions each participant takes one triad
-  of three; if you're working async and have time, you may attempt all six.</p>
-  <div class="picker">
-    <div>
-      <label for="triad-select">Categories to assess</label>
-      <select id="triad-select">
-        <option value="a">Triad A — Historical Data Availability · Staffing and Funding · Policy</option>
-        <option value="b">Triad B — Future Data Availability · Data Quality · Statutory Context</option>
-        <option value="all">All six (only if time allows)</option>
-      </select>
-    </div>
-  </div>
+      <div class="callout">
+        <p class="callout-title">Before you start</p>
+        <p>
+          Set aside about <strong>50 minutes</strong>, and do this phase
+          <strong>without AI</strong> — no chatbots, and don't lean on
+          AI-generated search summaries.
+        </p>
+      </div>
 
-  <h2>3. Rules of engagement</h2>
-  <div class="dodont">
-    <section>
-      <h3>Do not</h3>
-      <ul>
-        <li>Look at <a href="https://dataindex.us/collections/">America's Data Index</a>.
-          That's pretty much cheating — it's the comparison point for the very end.</li>
-        <li>Use AI in this phase — chatbots, and to the extent you can, AI-generated
-          search summaries. If an AI Overview is unavoidable, don't rely on it: click
-          through to sources.</li>
-        <li>Worry too much about time. Not being able to assess a category in the time
-          you have is itself valuable information — record that and move on.</li>
-      </ul>
-    </section>
-    <section>
-      <h3>Do</h3>
-      <ul>
-        <li>Look anywhere else: social media, government websites, news, trade press,
-          paywalled material.</li>
-        <li>Research the <em>ecosystem</em>: what are the news, the fed, and social
-          media saying about this data and its agency?</li>
-        <li>Do your best to cover all your assigned categories, even if it means moving
-          on before you feel ready.</li>
-        <li>Keep rough notes on <strong>which kinds of sources</strong> you used —
-          the assessment form asks.</li>
-      </ul>
-    </section>
-  </div>
+      <p class="lede">
+        You'll research the <em>ecosystem around a dataset</em> — what the news,
+        the federal government, and social media are saying about it — and rate
+        its risk against the rubric. You are not trying to become an expert in
+        the dataset itself.
+      </p>
 
-  <h2>4. Your rubric and worksheet</h2>
-  <p>Assess each of your categories at one of four levels, and record your rating and
-  evidence as you go. Full six-category rubric on the
-  <a href="rubric.html">rubric page</a>.</p>
-  <p class="hint">Everything you type below is saved in this browser and carried into
-  Phase 3 automatically — you won't be asked to re-enter any of it. Nothing is sent
-  anywhere until you submit the form in step 5.</p>
-  <div id="triad-rubric"></div>
+      <h2>1. Pick your dataset</h2>
+      <div class="picker">
+        <div>
+          <label for="dataset-select">Dataset</label>
+          <!-- Options are built from DATASETS in js/site.js. -->
+          <select id="dataset-select"></select>
+          <p class="hint" id="custom-dataset-hint" hidden>
+            Fill in the dataset's title, publisher, description, and URL below.
+            Phase 2 builds its prompts straight from these fields, so you won't
+            be asked for them again.
+          </p>
+        </div>
+        <div id="custom-dataset-fields" hidden>
+          <div>
+            <label for="c-title">Dataset title</label
+            ><input type="text" id="c-title" />
+          </div>
+          <div>
+            <label for="c-org">Organization / publisher</label
+            ><input type="text" id="c-org" />
+          </div>
+          <div>
+            <label for="c-desc">Description</label
+            ><textarea id="c-desc" rows="3"></textarea>
+          </div>
+          <div>
+            <label for="c-url">URL</label><input type="text" id="c-url" />
+          </div>
+        </div>
+      </div>
+      <div id="dataset-card"></div>
+      <p data-only="group">
+        The data set you choose (or is assigned to you) will be yours for both
+        phases of this exercise.
+      </p>
+      <p data-only="solo">
+        The data set you choose (or is assigned to you) will be yours for the
+        rest of this exercise.
+      </p>
 
-  <h2>5. Submit your assessment</h2>
-  <p>When you're done (or out of time), complete the Researcher Assessment Form. For
-  each category, give a risk level and briefly note the evidence behind it —
-  "couldn't assess" is a legitimate answer. Your worksheet above has everything the
-  form asks for; copy it across.</p>
-  <p><a class="btn" data-form="assessment" href="#">Open the Researcher Assessment Form</a>
-  <button class="btn secondary" type="button" id="copy-worksheet">Copy worksheet to clipboard</button>
-  <span class="flag">TODO: form URL — see PLAN.md §7 for the field spec.</span></p>
+      <h2>2. Pick your categories</h2>
+      <p>
+        The rubric has six categories. Your moderator will assign a triad for
+        you to assess throughout the exercise.
+      </p>
+      <div class="picker" id="category-picker"></div>
 
-  <h2>What happens next</h2>
-  <p>If you're participating <strong>asynchronously</strong>, you're done — thank you.
-  Our automated harness (<a href="phase-2.html">Phase 2</a>) assesses the same dataset
-  with no human steering, and we compare. If you're in a <strong>synchronous
-  session</strong>, continue to <a href="phase-3.html">Phase 3</a>.</p>
-</main>
+      <h2>3. Rules of engagement</h2>
+      <div class="dodont">
+        <section>
+          <h3>Do</h3>
+          <ul>
+            <li>
+              Look anywhere (other than the data index): government websites,
+              social media, news, trade press, paywalled material.
+            </li>
+            <li>Do your best to cover all your assigned categories.</li>
+            <li>
+              Paste the URLs you used into the evidence box for each category.
+            </li>
+          </ul>
+        </section>
+        <section>
+          <h3>Do not</h3>
+          <ul>
+            <li>Look at the data index.</li>
+            <li>
+              Use AI chatbots or search engines to help you find sources or
+              information for this first phase.
+            </li>
+          </ul>
+        </section>
+      </div>
 
-<footer class="site">
-  <div class="inner">
-    A project of the Harvard Law School Library Innovation Lab · Public Data Project.
-  </div>
-</footer>
+      <h2>4. Your rubric and worksheet</h2>
+      <p>
+        Assess each of your categories at one of four levels, and record your
+        rating and evidence as you go. Full six-category rubric on the
+        <a href="rubric.html">rubric page</a>.
+      </p>
+      <p class="hint">Everything you type below is saved in this browser.</p>
+      <div id="triad-rubric"></div>
 
-<script src="js/site.js"></script>
-<script>initPhase1();</script>
-</body>
+      <section data-only="solo">
+        <h2>5. Submit your assessment</h2>
+        <p>
+          When you're done (or out of time), send us the worksheet above.
+          There's no separate form — everything you typed goes with it.
+          "Couldn't assess" is a legitimate answer for any category.
+        </p>
+
+        <div class="picker">
+          <div>
+            <label for="p-name">Your name</label
+            ><input type="text" id="p-name" />
+          </div>
+          <div>
+            <label for="p-email"
+              >Email <span class="optional">optional</span></label
+            >
+            <input type="text" id="p-email" />
+          </div>
+        </div>
+
+        <p>
+          <button class="btn" type="button" id="submit-assessment">
+            Submit your assessment
+          </button>
+          <button class="btn secondary" type="button" id="download-worksheet">
+            Save a copy
+          </button>
+        </p>
+        <p id="submit-status" class="status"></p>
+      </section>
+
+      <section data-only="solo">
+        <h2>The automated benchmark</h2>
+        <p>
+          Before you started, we ran an agent over the same dataset with the
+          same rubric and output format, and no human steering. It records its
+          reasoning as it works.
+        </p>
+        <p>Its ratings sit next to yours on the results page.</p>
+      </section>
+
+      <h2>What happens next</h2>
+      <p data-only="solo">You're done. Thank you.</p>
+      <p data-only="solo">
+        <a class="btn" href="results.html">Open your results</a>
+      </p>
+      <p data-only="group">
+        You'll now run the same assessment through an agent of your own
+        choosing, coaching its method but never its answers. Everything above is
+        submitted at the end of Phase 2, in one go.
+      </p>
+      <p data-only="group">
+        <a class="btn" href="phase-2.html" id="continue-phase-2"
+          >Continue to Phase 2</a
+        >
+      </p>
+      <p data-only="group" id="continue-note" class="status"></p>
+    </main>
+
+    <footer class="site">
+      <div class="inner">
+        <img
+          class="footer-logo"
+          src="assets/public-data-project.png"
+          width="800"
+          height="136"
+          alt="Harvard Law School Library · Public Data Project"
+        />
+        <p>
+          A project of the Harvard Law School Library Innovation Lab · Public
+          Data Project.
+        </p>
+      </div>
+    </footer>
+
+    <script>
+      initPhase1();
+    </script>
+  </body>
 </html>

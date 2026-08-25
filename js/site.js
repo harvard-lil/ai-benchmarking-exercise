@@ -12,17 +12,16 @@ const FORM_URLS = {
 const SUBMIT_URL =
   "https://script.google.com/macros/s/AKfycbyQBMPFalkTvkZfMu6eD0WsI4MUP2NpMFmCZo6Hr62K67ibnq-5lJCgi3I0A5mu_J_-/exec";
 
-/* Datasets offered in the Phase 1 picker.
-   The three marked `featured` carry full metadata and lead the dropdown — use
-   them for facilitated sessions where everyone should start from the same
-   footing. The rest come from the Data Index's checkup list, which gives us a
-   name and sometimes a URL and nothing else; the Step One prompt asks the agent
-   to establish the publisher and history itself, so that's enough to work with.
+/* Datasets offered in the Phase 1 picker, one flat alphabetical list.
+   Sourced from the Data Index's checkup list; entries still being filled in have
+   a title and sometimes a URL, and the Step One prompt simply omits the fields
+   we don't hold yet. Adding `featured: true` to any entry splits the dropdown
+   into "Featured" and "All datasets" — useful while metadata is uneven, and
+   currently unused.
    Deliberately absent: the Data Index's own ratings and evidence for these
    datasets. That's the answer key, and it lives nowhere in this repo. */
 const DATASETS = {
   nhis: {
-    featured: true,
     title: "National Health Interview Survey",
     org: "Centers for Disease Control and Prevention (NCHS)",
     url: "https://www.cdc.gov/nchs/nhis/index.html",
@@ -35,7 +34,6 @@ const DATASETS = {
       "confidential, face-to-face interviews.",
   },
   ahs: {
-    featured: true,
     title: "American Housing Survey",
     org: "U.S. Census Bureau",
     url: "https://www.census.gov/programs-surveys/ahs.html",
@@ -47,7 +45,6 @@ const DATASETS = {
       "makers, and community stakeholders use the AHS to assess housing needs.",
   },
   hifld: {
-    featured: true,
     title: "Homeland Infrastructure Foundation-Level Data (HIFLD) Open",
     org: "Department of Homeland Security",
     url: "https://www.dhs.gov/gmo/hifld",
@@ -61,262 +58,311 @@ const DATASETS = {
   /* 44 datasets from the Data Index checkup list (names and URLs only). */
   marts: {
     title: "Advance Monthly Sales for Retail and Food Services Survey (MARTS)",
-    org: "",
+    org: "U.S. Census Bureau",
     url: "",
-    description: "",
+    description:
+      "The U.S. Census Bureau conducts the Advance Monthly Sales for Retail and Food Services Survey (MARTS) to produce early national estimates of total and month-to-month change in sales for retail and food service establishments located in the United States. A retail establishment is one that sells merchandise to the general public (final consumers). The estimates from MARTS are released approximately ten business days after the end of the reference month and are revised one month later by estimates from the Monthly Retail Trade and Food Services Survey (MRTS). Estimates are summarized by industry classification based on the North American Industry Classification System (NAICS).",
   },
   "agricultural-prices": {
     title: "Agricultural Prices",
-    org: "",
+    org: "USDA National Agricultural Statistics Service",
     url: "",
-    description: "",
+    description:
+      "The USDA National Agricultural Statistics Service (NASS) monthly Agricultural Prices report provides essential data on prices received by farmers for crops and livestock, alongside prices paid for production inputs. It includes price indexes, feed ratios, and parity prices, which are used to measure the economic health of U.S. agriculture.",
   },
   acs: {
     title: "American Community Survey (ACS)",
-    org: "",
+    org: "U.S. Census Bureau",
     url: "https://census.gov/programs-surveys/acs",
-    description: "",
+    description:
+      "The American Community Survey (ACS) is an ongoing nationwide survey conducted by the Census Bureau that collects vital information about the social, economic, housing, and demographic characteristics of our nation's population. Replacing the long form of the decennial census, the ACS is distributed to approximately 3.5 million addresses annually, providing detailed data throughout the year. Since 2005, it has generated estimates for areas with populations of 65,000 or more and, through 5-year accumulations, for smaller geographic areas such as census tracts and block groups. This data plays a crucial role in informing policy decisions and guiding the distribution of trillions of dollars in federal funds each year.",
   },
   atus: {
     title: "American Time Use Survey (ATUS)",
     org: "",
     url: "https://www.bls.gov/tus",
-    description: "",
+    description:
+      "The American Time Use Survey (ATUS) provides nationally representative estimates of how, where, and with whom Americans spend their time, and is the only federal survey providing data on the full range of nonmarket activities. These activities include work, childcare, housework, watching television, volunteering, and socializing.",
   },
   abs: {
     title: "Annual Business Survey (ABS)",
     org: "",
     url: "",
-    description: "",
+    description:
+      "The Annual Business Survey (ABS) measures business owner demographics, research and development (R&D), innovation, and other topics of interest among businesses in the United States. The Business Enterprise Research and Development (BERD) Survey was integrated into the ABS in 2025. The ABS is a joint statistical project between the National Center for Science and Engineering Statistics (NCSES) within the U.S. National Science Foundation (NSF) and the U.S. Census Bureau.",
   },
   aies: {
     title: "Annual Integrated Economic Survey (AIES)",
     org: "",
     url: "",
-    description: "",
+    description:
+      "The Annual Integrated Economic Survey (AIES) replaced and integrated seven annual business surveys (Annual Retail Trade Survey, Annual Wholesale Survey, Service Annual Survey, Annual Survey of Manufactures, Annual Capital Expenditures Survey, Manufacturer's Unfilled Orders Survey , Report of Organization) into one survey. The AIES provides the most comprehensive national and subnational data on business revenues, expenses, payroll, and employment on an annual basis.",
   },
   bps: {
     title: "Building Permits Survey (BPS)",
     org: "",
     url: "",
-    description: "",
+    description:
+      "The Building Permits Survey (BPS) provides national, state, and local statistics on new privately-owned residential construction. Data are available monthly, year-to-date, and annually at the national, state, CBSA (formerly MSA), county and place levels.",
   },
   "census-of-agriculture": {
     title: "Census of Agriculture",
     org: "",
     url: "https://nass.usda.gov/AgCensus",
-    description: "",
+    description:
+      "The Census of Agriculture, conducted once every five years, looks at land use and ownership, producer characteristics, production practices, income, and expenditures. The Census of Agriculture is a complete count of U.S. farms and ranches and the people who operate them. Even small plots of land - whether rural or urban - count if $1,000 or more of agricultural products were produced and sold, or normally would have been sold, during the census year.",
   },
   cfs: {
     title: "Commodity Flow Survey (CFS)",
-    org: "",
+    org: "Bureau of Transportation Statistics (BTS), U.S. Department of Transportation, and the U.S. Census Bureau",
     url: "",
-    description: "",
+    description:
+      "The Commodity Flow Survey (CFS) is a joint effort by the Bureau of Transportation Statistics (BTS), U.S. Department of Transportation, and the U.S. Census Bureau, U.S. Department of Commerce and is required by law. The survey, conducted every five years, is the primary source of national and state-level data on domestic freight shipments by American businesses. As a shipper-based survey, the CFS collects information on how U.S. establishments transport raw materials and finished goods; the types of commodities shipped by mode of transportation; the value, weight, origin, and destinations of shipments (including exports). The CFS does not include imports or shipments originating in any U.S. territories. Industry coverage includes: Mining, Manufacturing, Wholesale Trade, Select Retail and Services, and some auxiliary establishments (e.g., warehouses) of in-scope, multi-unit, and retail companies.",
   },
   "construction-spending": {
     title: "Construction Spending",
     org: "",
     url: "",
-    description: "",
+    description:
+      "Provides monthly estimates of the total dollar value of construction work done in the U.S. The data is collected through the Value of Construction Put in Place Survey (VIP) and covers construction work done each month on new structures or improvements to existing structures for private and public sectors.",
   },
   "consumer-credit": {
     title: "Consumer Credit",
     org: "",
     url: "",
-    description: "",
+    description:
+      'The G.19 Statistical Release, "Consumer Credit," reports outstanding credit extended to individuals for household, family, and other personal expenditures, excluding loans secured by real estate. Total consumer credit comprises two major types: revolving and nonrevolving. The G.19 also reports selected terms of credit, including interest rates on new car loans, personal loans, and credit card plans at commercial banks. The G.19 also includes series that measure the terms of credit for new motor vehicle loans at finance companies.',
   },
   cpi: {
     title: "Consumer Price Index (CPI)",
     org: "",
     url: "https://bls.gov/cpi",
-    description: "",
+    description:
+      "The Consumer Price Index (CPI) is a measure of the average change over time in the prices paid by urban consumers for a market basket of consumer goods and services. Indexes are available for the U.S. and various geographic areas. Average price data for select utility, automotive fuel, and food items are also available.",
   },
   "crop-production": {
     title: "Crop Production",
     org: "",
     url: "",
-    description: "",
+    description:
+      "The USDA Crop Production report, released monthly by the National Agricultural Statistics Service (NASS), provides official estimates on U.S. agricultural acreage, yield, and production for major field crops, fruits, and nuts.",
   },
   ces: {
     title: "Current Employment Statistics (CES)",
     org: "",
     url: "https://bls.gov/ces",
-    description: "",
+    description:
+      "The Current Employment Statistics (CES) program is a monthly survey conducted by the Bureau of Labor Statistics. The survey provides employment, hours, and earnings estimates based on payroll records of business establishments.",
   },
   "economic-census": {
     title: "Economic Census",
     org: "",
     url: "",
-    description: "",
+    description:
+      "The Economic Census is the official five-year measure of businesses in the United States providing comprehensive statistics at the national, state, and local levels. It serves as the benchmark for current economic activity, such as the Gross Domestic Product and Producer Price Index.",
   },
   fevs: {
     title: "Federal Employment Viewpoint Survey (FEVS)",
     org: "",
     url: "https://opm.gov/fevs",
-    description: "",
+    description:
+      "The Office of Personnel Management Federal Employee Viewpoint Survey (OPM FEVS) is an organizational climate survey and assesses how employees jointly experience the policies, practices, and procedures characteristic of their agency and its leadership. Results from the OPM FEVS offers insights into whether, and to what extent, workplace conditions characterizing successful organizations are present in Federal agencies, information important to successful organizational change and development initiatives.",
   },
-  "grain-stocks": { title: "Grain Stocks", org: "", url: "", description: "" },
+  "grain-stocks": {
+    title: "Grain Stocks",
+    org: "",
+    url: "",
+    description:
+      "Issued four times yearly, contains stocks of all wheat, durum wheat, corn, sorghum, oats, barley, soybeans, flaxseed, canola, rapeseed, rye, sunflower, safflower, mustard seed, by States and U.S. and by position (on-farm or off-farm storage); includes number and capacity of off-farm storage facilities and capacity of on-farm storage facilities. The data is obtained via an off and on-farm stocks survey, the on-farm survey is a probability survey of farm operators, the off-farm stocks survey is enumerates the volume of grain in all known commercial grain storage facilities.",
+  },
   htops: {
     title: "Household Trends and Outlook Pulse Survey (HTOPS)",
     org: "",
     url: "https://census.gov/programs-surveys/htops.html",
-    description: "",
+    description:
+      "The Household Trends and Outlook Pulse Survey (HTOPS) is a national survey panel by the U.S. Census Bureau (Census). The purpose of the panel is to collect information on topics such as food and nutrition, transportation, employment, and education and to gather data that can be used to improve and inform future surveys. The panel will consist of individuals and households living across the U.S. who have agreed to be contacted and invited to participate in surveys.",
   },
   "housing-vacancies-and-homeownership": {
     title: "Housing Vacancies and Homeownership",
     org: "",
     url: "",
-    description: "",
+    description:
+      "The Housing Vacancies and Homeownership provides current information on the rental and homeowner vacancy rates, and characteristics of units available for occupancy. Data is gathered from the Housing Vacancy Survey (HVS) in conjunction with the Current Population Survey (CPS).",
   },
   "industrial-production-and-capacity-utilization": {
     title: "Industrial Production and Capacity Utilization",
     org: "",
     url: "",
-    description: "",
+    description:
+      "The Federal Reserve's monthly G.17 release measures the real output (Industrial Production) and utilization of infrastructure (Capacity Utilization) for U.S. manufacturing, mining, and utilities. It has been designated by the federal government as a Principal Federal Economic Indicator. Utilization rates from the Quarterly Survey of Plant Capacity Utilization (QPC) are a principal source for the measures of capacity and capacity utilization.",
   },
   liheap: {
     title: "Low Income Home Energy Assistance Program (LIHEAP)",
     org: "",
     url: "",
-    description: "",
+    description:
+      "The Low Income Home Energy Assistance Program (LIHEAP), managed by the Administration for Children and Families (ACF), helps keep families safe and healthy through initiatives that assist families with energy costs. The LIHEAP compiles national- and state-level program data reported by grant recipients and tracks information on the funding, usage, and effectiveness of federal block grants that help low-income households cover home heating and cooling costs. It provides comprehensive statistics on home energy assistance, household demographics, and the performance measures of grant recipients.",
   },
   mhs: {
     title: "Manufactured Housing Survey (MHS)",
     org: "",
     url: "",
-    description: "",
+    description:
+      "The Manufactured Housing Survey (MHS) is sponsored by the Department of Housing and Urban Development (HUD) and conducted by the U.S. Census Bureau. The MHS produces monthly regional estimates of the average sales price for new manufactured homes and more detailed annual estimates including selected characteristics of new manufactured homes. In addition, MHS produces monthly estimates of homes shipped by status. The statistics on shipments of new manufactured homes are produced by the Institute for Building Technology and Safety (IBTS). They are rounded in the month of release and unrounded in subsequent months. Both not seasonally adjusted and seasonally adjusted annual rates of shipment estimates of new manufactured homes are released monthly.",
   },
   m3: {
     title: "Manufacturers' Shipments, Inventories, and Orders (M3)",
     org: "",
     url: "",
-    description: "",
+    description:
+      "The Manufacturers' Shipments, Inventories, and Orders (M3) survey provides broad-based, monthly statistical data on economic conditions in the domestic manufacturing sector. The survey measures current industrial activity and provides an indication of future business trends.",
   },
   meps: {
     title: "Medical Expenditure Panel Survey (MEPS)",
     org: "",
     url: "https://meps.ahrq.gov/mepsweb",
-    description: "",
+    description:
+      "The Medical Expenditure Panel Survey, which began in 1996, is a set of large-scale surveys of families and individuals, their medical providers (doctors, hospitals, pharmacies, etc.), and employers across the United States. MEPS collects data on the specific health services that Americans use, how frequently they use them, the cost of these services, and how they are paid for, as well as data on the cost, scope, and breadth of health insurance held by and available to U.S. workers.",
   },
   mcbs: {
     title: "Medicare Current Beneficiary Survey (MCBS)",
     org: "",
     url: "https://cms.gov/data-research/research/medicare-current-beneficiary-survey",
-    description: "",
+    description:
+      "The Medicare Current Beneficiary Survey (MCBS) has collected data since 1991 on Medicare beneficiaries' social and medical risk factors and the relationship between these factors, healthcare utilization, and health outcomes – at a point in time and over time - directly from beneficiaries. These data, linked with Medicare enrollment data and claims, provide information not otherwise available through administrative data on the Medicare program and can be used to evaluate effectiveness of health care policy and policy interventions.",
   },
   "monthly-wholesale-trade": {
     title: "Monthly Wholesale Trade",
     org: "",
     url: "",
-    description: "",
+    description:
+      "The Monthly Wholesale Trade report provides national estimates of monthly sales, inventories, and inventories-to-sales ratios by kind of business for wholesale firms located in the United States (excluding manufacturers' sales branches and offices). Data from this survey provide business leaders and policymakers with an up-to-date picture of the nation's economic condition, and are a key element in estimating the quarterly Gross Domestic Product (GDP).",
   },
   "nass-peanut-prices": {
     title: "NASS Peanut Prices",
     org: "",
     url: "https://usda.library.cornell.edu/concern/publications/5t34sj58c",
-    description: "",
+    description:
+      "This report is published weekly on Friday and includes the U.S. average price and marketings by type of peanut (Runner, Spanish, Valencia, and Virginia). The report also highlights averages and changes in peanut pricing for the week for farmer stock peanuts and runner-type peanuts. Data for this report is obtained from the first buyers of farmer stock peanuts.",
   },
   naep: {
     title: "National Assessment of Educational Progress (NAEP)",
     org: "",
     url: "https://nces.ed.gov/nationsreportcard",
-    description: "",
+    description:
+      "The National Assessment of Educational Progress (NAEP), also known as The Nation's Report Card, is the largest ongoing, nationally representative assessment of education in the United States. Since 1969, NAEP has served as a vital measure of student achievement, providing valuable insights into academic performance and learning experiences across various subjects. Its results offer a comprehensive view of educational progress at the national level, across states, and in 27 urban districts.",
   },
   ncs: {
     title: "National Compensation Survey (NCS)",
     org: "",
     url: "",
-    description: "",
+    description:
+      "The National Compensation Survey (NCS) is conducted by the U.S. Bureau of Labor Statistics to collect data on wages and benefits for America's workforce. Data gathered through the NCS is used to generate the Employment Cost Index (ECI), Employer Costs for Employee Compensation (ECEC), Employee Benefits, and Modeled Wage Estimates (MWE).",
   },
   ncvs: {
     title: "National Crime Victimization Survey (NCVS)",
     org: "",
     url: "https://bjs.ojp.gov/data-collection/ncvs",
-    description: "",
+    description:
+      "The National Crime Victimization Survey (NCVS) is the nation's primary source of information on criminal victimization. Each year, data are obtained from a nationally representative sample of about 240,000 persons in about 150,000 households. Persons are interviewed on the frequency, characteristics, and consequences of criminal victimization in the United States.",
   },
   nsch: {
     title: "National Survey of Children's Health (NSCH)",
     org: "",
     url: "https://census.gov/programs-surveys/nsch.html",
-    description: "",
+    description:
+      "The National Survey of Children's Health is a household survey that produces national and state-level data on the physical and emotional health of children 0 - 17 years old in the United States. The survey collects information related to the health and well-being of children, including access to and use of health care, family interactions, parental health, school and after-school experiences, and neighborhood characteristics.",
   },
   ppi: {
     title: "Producer Price Index (PPI)",
     org: "",
     url: "",
-    description: "",
+    description:
+      "The Producer Price Index (PPI) program measures the average change over time in the selling prices received by domestic producers for their output. The prices included in the PPI are from the first commercial transaction for many products and some services.",
   },
   qfr: {
     title: "Quarterly Financial Report (QFR)",
     org: "",
     url: "",
-    description: "",
+    description:
+      "The Quarterly Financial Report (QFR) program collects and publishes quarterly aggregate statistics on the financial results and position of U.S. corporations. The program currently collects and publishes financial data for the manufacturing, mining, wholesale trade, retail trade, information, and professional and technical services (except legal) sectors. The survey is a principal economic indicator that provides financial data essential to calculation of key U.S. government measures of national economic performance. Several U.S. Census Bureau reports, including Corporate Profits, Retail Trade, and Manufacturing, Mining, and Wholesale Trade, are produced using these data.",
   },
   qtax: {
     title: "Quarterly Summary of State and Local Tax Revenue (QTAX)",
     org: "",
     url: "",
-    description: "",
+    description:
+      "The Quarterly Summary of State and Local Government Tax Revenue provides quarterly estimates of state and local government tax revenue at a national level, as well as detailed tax revenue data for individual states. The U.S. Congress, federal agencies, state and local governments, educational and research organizations, and the general public utilize these data for the following purposes: development of gross domestic product estimates, development of the national income and product accounts, and tax policy research.",
   },
   qspp: {
     title: "Quarterly Survey of Public Pensions (QSPP)",
     org: "",
     url: "",
-    description: "",
+    description:
+      "The Quarterly Summary of Public Pensions is a quarterly panel survey that provides national summary data on the revenues, expenditures, and composition of assets of the largest defined benefit public employee pension systems for state and local governments. Data are collected on the financial holdings and activities of the largest public-employee pension systems. The financial holdings data show assets in various types of securities such as stocks, bonds, federal notes, and mortgages. Revenue data consist of earnings, as well as contributions from governments and employees. Expenditure data consist primarily of payments to beneficiaries and withdrawals.",
   },
   rhfs: {
     title: "Rental Housing Finance Survey (RHFS)",
     org: "",
     url: "",
-    description: "",
+    description:
+      "The Rental Housing Finance Survey (RHFS) provides a current and continuous measure of financial, mortgage, and property characteristics of rental housing properties in the United States. The survey focuses on the financing of rental housing properties, with emphasis on new mortgages, refinanced mortgages, or similar devices such as deeds of trust or land contracts, and the characteristics of debt originations. RHFS included single-family residential and multifamily residential properties with at least one housing unit intended for rent.",
   },
   soc: {
     title: "Survey of Construction (SOC)",
     org: "",
     url: "",
-    description: "",
+    description:
+      "The Survey of Construction (SOC) provides national and regional statistics on starts and completions of new single-family and multifamily housing units and statistics on sales of new single-family houses in the United States. The SOC also provides statistics on characteristics of new privately-owned residential structures in the United States. Data included are various characteristics of new single-family houses completed, new multifamily housing completed, new single-family houses sold, and new contractor-built houses started. The Department of Housing and Urban Development (HUD) partially funds this survey.",
   },
   scf: {
     title: "Survey of Consumer Finances (SCF)",
     org: "",
     url: "",
-    description: "",
+    description:
+      "The Survey of Consumer Finances (SCF) is normally a triennial cross-sectional survey of U.S. families. The survey data include information on families’ balance sheets, pensions, income, and demographic characteristics. Information is also included from related surveys of pension providers and the earlier such surveys conducted by the Federal Reserve Board. No other study for the country collects comparable information. Data from the SCF are widely used, from analysis at the Federal Reserve and other branches of government to scholarly work at the major economic research centers.",
   },
   sipp: {
     title: "Survey of Income and Program Participation (SIPP)",
     org: "",
     url: "https://census.gov/programs-surveys/sipp.html",
-    description: "",
+    description:
+      "The Survey of Income and Program Participation (SIPP) is a nationally representative longitudinal survey that provides comprehensive information on the dynamics of income, employment, household composition, and government program participation. SIPP is also a leading source of data on economic well-being, family dynamics, education, wealth, health insurance, child care, and food security. The survey interviews individuals for several years and provides monthly data about changes in household and family composition and economic circumstances over time.",
   },
   soma: {
     title: "Survey of Market Absorption of New Multifamily Units (SOMA)",
     org: "",
     url: "",
-    description: "",
+    description:
+      "The Survey of Market Absorption of New Multifamily Units (SOMA) collects data for new residential construction. The SOMA reports provide information on amenities, rent/sales price levels, number of units, type of building, and the number of units taken off the market (absorbed). The data are collected at quarterly intervals until 12 months expire or until the units in a building are completely absorbed, which may occur sooner.",
   },
   "u-s-import-and-export-price-indices": {
     title: "U.S. Import and Export Price Indices",
     org: "",
     url: "",
-    description: "",
+    description:
+      "The Department of Labor International Price Program produces Import/Export Price Indexes (MXP) containing data on changes in the prices of nonmilitary goods and services traded between the U.S. and the rest of the world.",
   },
   "us-international-trade-in-goods-and-services": {
     title: "US International Trade in Goods and Services",
     org: "",
     url: "",
-    description: "",
+    description:
+      "The U.S. International Trade in Goods and Services program is a monthly release providing comprehensive data on U.S. trade balance, exports, and imports. It covers physical goods and services, measuring international transactions.",
   },
   "usaspending-gov": {
     title: "USAspending.gov",
     org: "",
     url: "https://usaspending.gov/",
-    description: "",
+    description:
+      "USAspending.gov is the official source for spending data for the U.S. Government. Its mission is to show the American public what the federal government spends every year and how it spends the money. You can follow the money from the Congressional appropriations to the federal agencies and down to local communities and businesses.",
   },
   wngsr: {
     title: "Weekly Natural Gas Storage Report (WNGSR)",
     org: "",
     url: "",
-    description: "",
+    description:
+      "The Weekly Natural Gas Storage Report is the U.S. government’s only Principal Federal Economic Indicator that provides weekly data; other indicators report either monthly or quarterly data. WNGSR reports the underground working natural gas storage level as of the previous Friday, weekly net change, comparisons to historical levels and net changes, and statistical measures for each of five regions in the Lower 48 states.",
   },
 
   custom: {
@@ -713,29 +759,32 @@ const RATING_OPTIONS = [
    dataset stays a one-line edit to DATASETS. Featured ones lead; the long list
    follows in the order it's declared, which is alphabetical. */
 function renderDatasetOptions(sel) {
-  const group = (label, keys) =>
-    `<optgroup label="${label}">` +
+  const byTitle = (a, b) => DATASETS[a].title.localeCompare(DATASETS[b].title);
+  const options = (keys) =>
     keys
+      .sort(byTitle)
       .map((k) => `<option value="${k}">${esc(DATASETS[k].title)}</option>`)
-      .join("") +
-    "</optgroup>";
+      .join("");
+  /* An empty group would render as a stray label, so groups only exist when
+     they hold something. */
+  const group = (label, keys) =>
+    keys.length ? `<optgroup label="${label}">${options(keys)}</optgroup>` : "";
 
   /* Only datasets America's Data Index has assessed are offered — without ground
      truth there's no comparison to make at the end. */
   const keys = Object.keys(DATASETS).filter((k) => k !== "custom" && DI[k]);
-  /* A native select always has something selected, so without this placeholder
-     the first dataset is silently chosen for everyone — which both biases the
-     sample and makes "you haven't picked one yet" impossible to detect. */
+  const featured = keys.filter((k) => DATASETS[k].featured);
+  const rest = keys.filter((k) => !DATASETS[k].featured);
+
+  /* No entry currently sets `featured`, so this is one flat alphabetical list.
+     Setting it on any entry brings the two-group layout back by itself. */
+  const body = featured.length
+    ? group("Featured", featured) + group("All datasets", rest)
+    : options(rest);
+
   sel.innerHTML =
     '<option value="">— choose a dataset —</option>' +
-    group(
-      "Featured",
-      keys.filter((k) => DATASETS[k].featured),
-    ) +
-    group(
-      "All datasets",
-      keys.filter((k) => !DATASETS[k].featured),
-    ) +
+    body +
     '<option value="custom">Another federal dataset (bring your own)</option>';
 }
 
@@ -1694,8 +1743,8 @@ function comparisonText(s) {
   }
   if (entry && entry.updated) {
     lines.push(
-      `Data Index values as checked on ${entry.updated}. Its reasoning is on ` +
-        "https://dataindex.us/collections/ — only the levels are reproduced here.",
+      `Data Index values as checked on ${entry.updated}. More at ` +
+        "https://dataindex.us/collections/",
     );
   }
   lines.push("");
@@ -1718,6 +1767,9 @@ function comparisonText(s) {
     lines.push(`Background agent: ${agent.level || "(no run)"}`);
     lines.push(`  ${agent.evidence || "(reasoning not yet published)"}`);
     lines.push(`America's Data Index: ${idx.level || "(no entry)"}`);
+    lines.push(
+      `  ${stripTags(idx.evidence) || "(no supporting note at this level)"}`,
+    );
     lines.push("");
   });
   return lines.join("\n").trim();

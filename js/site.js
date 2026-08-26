@@ -633,10 +633,9 @@ function activeTrack() {
 function applyTrack() {
   document.documentElement.setAttribute("data-track", activeTrack());
 }
-/* Picking a track on the entry page starts a run. If the last one was already
-   submitted, this is a second run — a different dataset, or the same person
-   switching tracks — so it starts from a clean sheet rather than inheriting the
-   finished one's dataset, ratings and locks. */
+/* Picking a track starts a run. If the previous run was already submitted, this
+   is a second run, so it starts from a clean state rather than inheriting the
+   finished run's dataset, ratings and lock. */
 function setTrack(t) {
   const mode = t === "solo" ? "solo" : "group";
   if (runSubmitted(getState())) resetRun();
@@ -644,18 +643,17 @@ function setTrack(t) {
   applyTrack();
 }
 
-/* Has this run been sent? Solo submits at the end of Phase 1, a guided session
-   once at the end of Phase 2 — either way, that's the run over, and everything
-   we were holding shut can open again. */
+/* Whether this run's single submission has been sent. Solo submits at the end
+   of Phase 1, a guided session at the end of Phase 2. */
 function runSubmitted(s) {
   return activeTrack() === "solo"
     ? !!s.phase1SubmittedAt
     : !!s.phase2SubmittedAt;
 }
 
-/* Wipe the run, keep the person. Name and email are theirs, not the run's, so
-   a second dataset doesn't make them type them again; the session id is
-   deliberately dropped, so the new run groups separately in the sheet. */
+/* Clear the run, keeping name and email so a second dataset doesn't ask for
+   them again. The session id is dropped so the new run groups separately in
+   the sheet. */
 function resetRun() {
   const s = getState();
   const keep = {
@@ -1189,27 +1187,38 @@ function phase2Problem(s) {
 }
 
 /* ---------- Phase 1 lock ----------
-   Once someone legitimately opens Phase 2, their Phase 1 answers are frozen.
-   Phase 2's prompts are generated from the dataset and categories, and the
-   single guided submission carries the ratings, so a late edit would silently
-   desynchronise what the agent was asked from what we record.
+   Opening Phase 2 freezes the Phase 1 answers. Phase 2's prompts are generated
+   from the dataset and categories, and the single guided submission carries the
+   ratings, so a late edit would desynchronise what the agent was asked from
+   what we record.
 
-   It's a nudge, not a cage: the participant can unlock it themselves from the
-   notice on Phase 1, and that choice sticks. Wandering off to the rubric and
-   coming back — or re-opening Phase 2 — must never quietly re-lock it. */
+   The participant can unlock the fields themselves from the notice on Phase 1,
+   and that choice persists: navigating away and back, including re-entering
+   Phase 2, must not re-lock them. */
 
-/* Called on entry to Phase 2. Two conditions, both required: Phase 1 has to be
-   complete (otherwise they landed here by URL or a stale link, and freezing a
-   half-filled page helps nobody), and the lock is only ever set once. */
+/* Called on entry to Phase 2. Requires a complete Phase 1 (a page reached by
+   URL or a stale link shouldn't freeze a half-filled form) and an unsubmitted
+   run. Sets the flag once; subsequent entries are no-ops. */
 function lockPhase1() {
   const s = getState();
   if (s.phase1Locked) return;
+  if (runSubmitted(s)) return;
   if (phase1ReadyProblem(s)) return;
   setState({ phase1Locked: true });
 }
 
-/* The padlock in the corner of the notice. A plain toggle — no code, no
-   moderator — because the lock exists to stop absent-minded edits, not people. */
+/* Whether the lock is in force. The stored flag alone isn't sufficient: it can
+   survive an abandoned run, a Phase 1 that was later emptied out, or an older
+   build that set it more eagerly, leaving a lock notice on a session that never
+   reached Phase 2. The conditions that set it have to still hold. */
+function phase1LockEngaged(s) {
+  if (!s.phase1Locked) return false;
+  if (runSubmitted(s)) return false;
+  if (phase1ReadyProblem(s)) return false;
+  return true;
+}
+
+/* The padlock button in the corner of the notice. */
 function initLockToggle() {
   const btn = document.querySelector("#phase1-lock .lock-toggle");
   if (!btn) return;
@@ -1219,7 +1228,7 @@ function initLockToggle() {
   });
 }
 
-/* The participant's own override, from the lock button on the Phase 1 notice. */
+/* The participant's override, set by the padlock button. */
 function phase1Unlocked() {
   return !!getState().phase1Unlocked;
 }
@@ -1238,7 +1247,7 @@ var PHASE1_INPUTS = [
   "#triad-rubric textarea",
 ].join(", ");
 
-/* Padlock glyphs for the notice's toggle. Same body, different shackle. */
+/* Padlock glyphs for the toggle: same body, closed and open shackle. */
 const LOCK_ICON =
   '<svg viewBox="0 0 24 24" aria-hidden="true" focusable="false">' +
   '<path d="M7 10V7a5 5 0 0 1 10 0v3"/><rect x="4" y="10" width="16" height="10" rx="2"/></svg>';
@@ -1248,14 +1257,17 @@ const UNLOCK_ICON =
 
 function applyPhase1Lock() {
   const s = getState();
-  /* Once the run has been submitted the lock has nothing left to protect, so
-     it lifts on its own and the notice goes away entirely. */
-  const engaged = !!s.phase1Locked && !runSubmitted(s);
+  const engaged = phase1LockEngaged(s);
+  /* Clear a flag that no longer applies, so it can't resurface on the next
+     load. The unlock is cleared with it: the next lock starts locked. */
+  if (s.phase1Locked && !engaged) {
+    setState({ phase1Locked: false, phase1Unlocked: false });
+  }
   const locked = engaged && !phase1Unlocked();
   const notice = document.getElementById("phase1-lock");
 
-  /* The notice stays up once the lock has been engaged, whichever way the
-     toggle is set — otherwise unlocking would remove the only way back. */
+  /* The notice stays up while the lock is engaged, whichever way the toggle is
+     set: unlocking would otherwise remove the only way to re-lock. */
   if (notice) {
     notice.hidden = !engaged;
     notice.classList.toggle("locked", locked);
@@ -1274,7 +1286,7 @@ function applyPhase1Lock() {
         '<span class="lock-toggle-text">' +
         (locked ? "Unlock" : "Lock") +
         "</span>";
-      /* The label is the action, not the state — "Unlock" while locked. */
+      /* The label names the action, not the state: "Unlock" while locked. */
       btn.setAttribute(
         "aria-label",
         locked ? "Unlock Phase 1 answers" : "Lock Phase 1 answers",
@@ -1282,7 +1294,7 @@ function applyPhase1Lock() {
     }
   }
 
-  /* Assign rather than only ever setting true, so the toggle re-opens the
+  /* Assigned rather than only ever set to true, so the toggle re-enables the
      fields without a reload. */
   document.querySelectorAll(PHASE1_INPUTS).forEach((el) => {
     el.disabled = locked;
@@ -1592,9 +1604,9 @@ function workStarted(s) {
 function navBlock(page, s) {
   if (page === "rubric.html") return "";
   if (page === pageName(location.pathname)) return "";
-  /* Submitted means done. Every guard here exists to protect a run in progress,
-     so once the run is in, the whole site opens up — including the entry page,
-     for a second dataset or a swap between tracks. */
+  /* These guards exist to protect a run in progress. Once the submission is in,
+     every page opens, including the entry page, so a participant can start a
+     second dataset or switch tracks. */
   if (runSubmitted(s)) return "";
 
   if (page === "phase-2.html") {

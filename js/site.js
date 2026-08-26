@@ -633,9 +633,40 @@ function activeTrack() {
 function applyTrack() {
   document.documentElement.setAttribute("data-track", activeTrack());
 }
+/* Picking a track on the entry page starts a run. If the last one was already
+   submitted, this is a second run — a different dataset, or the same person
+   switching tracks — so it starts from a clean sheet rather than inheriting the
+   finished one's dataset, ratings and locks. */
 function setTrack(t) {
-  setState({ mode: t === "solo" ? "solo" : "group" });
+  const mode = t === "solo" ? "solo" : "group";
+  if (runSubmitted(getState())) resetRun();
+  setState({ mode: mode });
   applyTrack();
+}
+
+/* Has this run been sent? Solo submits at the end of Phase 1, a guided session
+   once at the end of Phase 2 — either way, that's the run over, and everything
+   we were holding shut can open again. */
+function runSubmitted(s) {
+  return activeTrack() === "solo"
+    ? !!s.phase1SubmittedAt
+    : !!s.phase2SubmittedAt;
+}
+
+/* Wipe the run, keep the person. Name and email are theirs, not the run's, so
+   a second dataset doesn't make them type them again; the session id is
+   deliberately dropped, so the new run groups separately in the sheet. */
+function resetRun() {
+  const s = getState();
+  const keep = {
+    mode: s.mode,
+    participantName: s.participantName || "",
+    participantEmail: s.participantEmail || "",
+  };
+  try {
+    localStorage.setItem(STATE_KEY, JSON.stringify(keep));
+  } catch (e) {}
+  return keep;
 }
 
 /* Has Phase 1 actually been filled in? */
@@ -1038,6 +1069,7 @@ function initPhase1() {
   refreshDataset();
   refreshRubric();
   refreshContinue();
+  initLockToggle();
   applyPhase1Lock();
   guardNav();
 
@@ -1157,17 +1189,43 @@ function phase2Problem(s) {
 }
 
 /* ---------- Phase 1 lock ----------
-   Once someone opens Phase 2, their Phase 1 answers are frozen. Phase 2's
-   prompts are generated from the dataset and categories, and the single guided
-   submission carries the ratings, so a late edit would silently desynchronise
-   what the agent was asked from what we record. */
+   Once someone legitimately opens Phase 2, their Phase 1 answers are frozen.
+   Phase 2's prompts are generated from the dataset and categories, and the
+   single guided submission carries the ratings, so a late edit would silently
+   desynchronise what the agent was asked from what we record.
 
-/* Called on every entry to Phase 2, not just the first. Any moderator override
-   is consumed here: the code buys one trip back to fix something, not an open
-   door for the rest of the session. Go forward again and it all re-locks, so
-   going back always costs another conversation with a moderator. */
+   It's a nudge, not a cage: the participant can unlock it themselves from the
+   notice on Phase 1, and that choice sticks. Wandering off to the rubric and
+   coming back — or re-opening Phase 2 — must never quietly re-lock it. */
+
+/* Called on entry to Phase 2. Two conditions, both required: Phase 1 has to be
+   complete (otherwise they landed here by URL or a stale link, and freezing a
+   half-filled page helps nobody), and the lock is only ever set once. */
 function lockPhase1() {
-  setState({ phase1Locked: true, override: false });
+  const s = getState();
+  if (s.phase1Locked) return;
+  if (phase1ReadyProblem(s)) return;
+  setState({ phase1Locked: true });
+}
+
+/* The padlock in the corner of the notice. A plain toggle — no code, no
+   moderator — because the lock exists to stop absent-minded edits, not people. */
+function initLockToggle() {
+  const btn = document.querySelector("#phase1-lock .lock-toggle");
+  if (!btn) return;
+  btn.addEventListener("click", () => {
+    setPhase1Unlocked(!phase1Unlocked());
+    guardNav();
+  });
+}
+
+/* The participant's own override, from the lock button on the Phase 1 notice. */
+function phase1Unlocked() {
+  return !!getState().phase1Unlocked;
+}
+function setPhase1Unlocked(v) {
+  setState({ phase1Unlocked: !!v });
+  applyPhase1Lock();
 }
 
 var PHASE1_INPUTS = [
@@ -1180,12 +1238,52 @@ var PHASE1_INPUTS = [
   "#triad-rubric textarea",
 ].join(", ");
 
+/* Padlock glyphs for the notice's toggle. Same body, different shackle. */
+const LOCK_ICON =
+  '<svg viewBox="0 0 24 24" aria-hidden="true" focusable="false">' +
+  '<path d="M7 10V7a5 5 0 0 1 10 0v3"/><rect x="4" y="10" width="16" height="10" rx="2"/></svg>';
+const UNLOCK_ICON =
+  '<svg viewBox="0 0 24 24" aria-hidden="true" focusable="false">' +
+  '<path d="M7 10V7a5 5 0 0 1 9.6-2"/><rect x="4" y="10" width="16" height="10" rx="2"/></svg>';
+
 function applyPhase1Lock() {
-  const locked = !!getState().phase1Locked && !overrideActive();
+  const s = getState();
+  /* Once the run has been submitted the lock has nothing left to protect, so
+     it lifts on its own and the notice goes away entirely. */
+  const engaged = !!s.phase1Locked && !runSubmitted(s);
+  const locked = engaged && !phase1Unlocked();
   const notice = document.getElementById("phase1-lock");
-  if (notice) notice.hidden = !locked;
-  /* Assign rather than only ever setting true, so entering the override code
-     re-opens the fields without a reload. */
+
+  /* The notice stays up once the lock has been engaged, whichever way the
+     toggle is set — otherwise unlocking would remove the only way back. */
+  if (notice) {
+    notice.hidden = !engaged;
+    notice.classList.toggle("locked", locked);
+    const title = notice.querySelector(".callout-title");
+    const body = notice.querySelector(".lock-note");
+    const btn = notice.querySelector(".lock-toggle");
+    if (title)
+      title.textContent = locked ? "Results locked" : "Results unlocked";
+    if (body)
+      body.textContent = locked
+        ? "Please don't adjust any results after moving on to Phase 2. Click unlock to override only if necessary."
+        : "These fields are editable again. Click the padlock to lock them back down.";
+    if (btn) {
+      btn.innerHTML =
+        (locked ? LOCK_ICON : UNLOCK_ICON) +
+        '<span class="lock-toggle-text">' +
+        (locked ? "Unlock" : "Lock") +
+        "</span>";
+      /* The label is the action, not the state — "Unlock" while locked. */
+      btn.setAttribute(
+        "aria-label",
+        locked ? "Unlock Phase 1 answers" : "Lock Phase 1 answers",
+      );
+    }
+  }
+
+  /* Assign rather than only ever setting true, so the toggle re-opens the
+     fields without a reload. */
   document.querySelectorAll(PHASE1_INPUTS).forEach((el) => {
     el.disabled = locked;
   });
@@ -1473,12 +1571,6 @@ function bindField(id, key) {
    by someone determined, and the ratings live in this browser anyway — the point
    is to stop honest mistakes and casual skipping, not to withstand attack. */
 
-const OVERRIDE_CODE = "pineapple";
-
-function overrideActive() {
-  return !!getState().override;
-}
-
 function pageName(href) {
   return (
     String(href || "")
@@ -1498,9 +1590,12 @@ function workStarted(s) {
 
 /* Why this destination is closed, or "" if it's open. */
 function navBlock(page, s) {
-  if (overrideActive()) return "";
   if (page === "rubric.html") return "";
   if (page === pageName(location.pathname)) return "";
+  /* Submitted means done. Every guard here exists to protect a run in progress,
+     so once the run is in, the whole site opens up — including the entry page,
+     for a second dataset or a swap between tracks. */
+  if (runSubmitted(s)) return "";
 
   if (page === "phase-2.html") {
     return (
@@ -1532,53 +1627,6 @@ function navBlock(page, s) {
   return "";
 }
 
-/* The override control, rendered into whatever is asking for it. Class-based
-   rather than id-based because it appears more than once on a page. */
-function renderOverride(host) {
-  if (!host || host.querySelector(".override")) return;
-  const wrap = document.createElement("p");
-  wrap.className = "override";
-  wrap.innerHTML =
-    '<span class="override-label">Moderator code</span>' +
-    '<input type="text" class="override-code" autocomplete="off" aria-label="Moderator override code">' +
-    '<button class="btn secondary override-go" type="button">Unlock</button>' +
-    '<span class="status override-note"></span>';
-  host.appendChild(wrap);
-
-  const input = wrap.querySelector(".override-code");
-  const note = wrap.querySelector(".override-note");
-  const submit = () => {
-    if (input.value.trim().toLowerCase() === OVERRIDE_CODE) {
-      setState({ override: true });
-      note.textContent = "Unlocked until you continue to Phase 2.";
-      note.className = "status ok override-note";
-      guardNav();
-      applyPhase1Lock();
-      const nb = document.getElementById("nav-block");
-      if (nb) nb.hidden = true;
-    } else {
-      note.textContent = "That code isn't right.";
-      note.className = "status error override-note";
-    }
-  };
-  wrap.querySelector(".override-go").addEventListener("click", submit);
-  input.addEventListener("keydown", (e) => {
-    if (e.key === "Enter") submit();
-  });
-}
-
-/* Always available, on every page, tucked into the footer so participants don't
-   trip over it but a moderator can always find it. */
-function initModeratorPanel() {
-  const inner = document.querySelector("footer.site .inner");
-  if (!inner || inner.querySelector("details.mod")) return;
-  const d = document.createElement("details");
-  d.className = "mod";
-  d.innerHTML = "<summary>Moderator override</summary>";
-  inner.appendChild(d);
-  renderOverride(d);
-}
-
 /* The notice is built here rather than repeated in six HTML files. */
 function navBlockNotice() {
   let el = document.getElementById("nav-block");
@@ -1591,14 +1639,12 @@ function navBlockNotice() {
   el.hidden = true;
   el.innerHTML =
     '<p class="callout-title">Not yet</p>' +
-    '<p id="nav-block-why"></p>' +
-    '<p class="hint">A moderator can open this from the override at the foot of the page.</p>';
+    '<p id="nav-block-why"></p>';
   main.insertBefore(el, main.firstChild);
   return el;
 }
 
 function guardNav() {
-  initModeratorPanel();
   const links = document.querySelectorAll(
     "nav.site a, a.wordmark, .backlink a, main a.btn[href]",
   );
@@ -1778,7 +1824,6 @@ function comparisonText(s) {
 /* Results are the answer key. They open only after this track's single
    submission has actually been sent. */
 function resultsLocked(s) {
-  if (overrideActive()) return "";
   if (activeTrack() === "solo") {
     if (s.phase1SubmittedAt) return "";
     return (

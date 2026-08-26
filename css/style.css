@@ -166,6 +166,8 @@ main.entry h1 { margin-bottom: 2.25rem; }
   cursor: pointer;
 }
 .btn:hover, button.copy:hover { background: var(--slate-deep); }
+/* Two or more buttons side by side, wrapping on a narrow screen. */
+.btn-row { display: flex; flex-wrap: wrap; gap: 0.75rem; align-items: center; }
 .btn.secondary { background: transparent; color: var(--ink); border: 1.5px solid var(--ink); }
 /* A link that refuses the click, e.g. Continue to Phase 2 before Phase 1 is
    filled in. Kept in the flow so the reason underneath it makes sense. */
@@ -174,14 +176,6 @@ main.entry h1 { margin-bottom: 2.25rem; }
 nav.site a.blocked { opacity: 0.45; cursor: not-allowed; }
 /* The wordmark never dims — it simply stops being a link. */
 a.wordmark.inert { cursor: default; }
-.override { display: flex; flex-wrap: wrap; gap: 0.5rem; align-items: center; margin-top: 0.75rem !important; }
-.override input { width: auto; flex: 0 1 12rem; padding: 0.35rem 0.5rem; }
-.override-label { font-family: var(--mono); font-size: 0.78rem; text-transform: uppercase; letter-spacing: 0.06em; }
-.override .status { margin: 0; }
-/* Footer moderator panel — findable, not shouty. */
-details.mod { flex-basis: 100%; border-top: 1px solid var(--rule); padding-top: 0.75rem; }
-details.mod summary { font-family: var(--mono); font-size: 0.78rem; text-transform: uppercase; letter-spacing: 0.06em; cursor: pointer; color: var(--slate-deep); }
-details.mod .override { margin-top: 0.6rem !important; }
 .btn.disabled:hover { background: var(--ink); }
 /* Locked Phase 1 fields, once Phase 2 has been opened. */
 :disabled { background: #f2f1ed; color: #666; cursor: not-allowed; }
@@ -375,6 +369,7 @@ th.lvl { font-family: var(--mono); font-size: 0.8rem; white-space: nowrap; width
 /* "Before you start" callout. Heavier than an aside on purpose — the 50 minutes
    and the no-AI rule were being read past. */
 .callout {
+  position: relative;
   border: 3px solid var(--ink);
   background: var(--flag-bg);
   padding: 1rem 1.25rem;
@@ -384,6 +379,41 @@ th.lvl { font-family: var(--mono); font-size: 0.8rem; white-space: nowrap; width
    cream "Before you start" note. */
 .callout.locked { background: #fbece9; border-color: var(--gone); }
 .callout.locked .callout-title { color: var(--gone); }
+
+/* The padlock that freezes or re-opens the Phase 1 answers. Sits in the corner
+   of its notice, small enough to read as a control rather than a call to
+   action — most people should walk past it. */
+#phase1-lock .callout-title, #phase1-lock .lock-note { padding-right: 6.5rem; }
+.lock-toggle {
+  position: absolute;
+  top: 0.65rem;
+  right: 0.75rem;
+  display: flex;
+  align-items: center;
+  gap: 0.35rem;
+  padding: 0.3rem 0.5rem;
+  background: transparent;
+  border: 1.5px solid currentColor;
+  color: var(--gone);
+  cursor: pointer;
+}
+.callout:not(.locked) .lock-toggle { color: var(--slate-deep); }
+.lock-toggle:hover { background: rgba(0, 0, 0, 0.06); }
+.lock-toggle svg {
+  width: 15px;
+  height: 15px;
+  fill: none;
+  stroke: currentColor;
+  stroke-width: 2;
+  stroke-linecap: round;
+  stroke-linejoin: round;
+}
+.lock-toggle-text {
+  font-family: var(--mono);
+  font-size: 0.7rem;
+  text-transform: uppercase;
+  letter-spacing: 0.08em;
+}
 .callout p { margin: 0; }
 .callout p + p { margin-top: 0.35rem; }
 .callout-title {

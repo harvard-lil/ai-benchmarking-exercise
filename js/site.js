@@ -557,7 +557,9 @@ ${known || "Dataset title: FILL IN"}
 Return a complete report on everything that a preservationist, data librarian, data scientist, or policy activist might want to know about this data.`;
 }
 
-/* Per decision D5, the in-person "Sources for context" URL list is dropped. */
+/* D5 dropped the in-person "Sources for context" URL list. Two standing
+   references are named again — the Federal Register and the USAJobs tracker —
+   as suggestions rather than a list to work through. */
 function stepTwoPrompt(categoryKeys) {
   const rubricText = categoryKeys
     .map((k) => {
@@ -577,7 +579,7 @@ function stepTwoPrompt(categoryKeys) {
 I would like your help in assessing the likelihood that this data will be changed or removed from its primary location, and that users will no longer be able to access accurate and reliable copies of it, based on the rubric below.
 
 ## Sources for context
-To help assess the rubric categories, perform additional research on the data, the agency, the data's topics and typical users, covering topics such as proposed regulatory or funding changes, recent news, and political commentary.
+To help assess the rubric categories, perform additional research on the data, the agency, the data's topics and typical users, covering topics such as proposed regulatory or funding changes, recent news, and political commentary. Use whatever resources you find useful, including the Federal Register (https://www.federalregister.gov) and the federal staffing tracker at https://usajobs-tracker.abigailhaddad.com.
 
 ## Rubric
 This rubric is divided up into categories. Each category is divided up into risk levels. In your output, please select the appropriate risk level for each category based on your research.

@@ -209,6 +209,42 @@ aside.participant .label {
   color: var(--slate-deep);
   margin-bottom: 0.25rem;
 }
+aside.participant ul { margin: 0.35rem 0 0; padding-left: 1.1rem; }
+aside.participant li { margin-bottom: 0.25rem; }
+aside.participant li:last-child { margin-bottom: 0; }
+
+/* Checklist variant, for guidance that is a sequence of steps rather than
+   something to read. Step numbers come from a counter, so the markup carries
+   none of its own. */
+aside.participant .todo-intro { margin: 0 0 0.6rem; }
+aside.participant ol.todo {
+  list-style: none;
+  counter-reset: todo;
+  margin: 0;
+  padding: 0;
+}
+aside.participant ol.todo li {
+  display: flex;
+  gap: 0.7rem;
+  align-items: flex-start;
+  margin: 0;
+  padding: 0.6rem 0;
+  border-top: 1px solid #dde3e4; /* the aside's own background, a shade down */
+}
+aside.participant ol.todo li::before {
+  counter-increment: todo;
+  content: counter(todo);
+  flex: 0 0 1.45rem;
+  height: 1.45rem;
+  border: 1.5px solid var(--slate);
+  font-family: var(--mono);
+  font-size: 0.78rem;
+  line-height: 1.45rem;
+  text-align: center;
+  color: var(--slate-deep);
+}
+/* Closing reminder or caution under a checklist — not one of the steps. */
+aside.participant .todo-note { margin: 0.9rem 0 0; }
 
 /* Do / Don't lists */
 .dodont { display: grid; gap: 1rem; margin: 1rem 0; }

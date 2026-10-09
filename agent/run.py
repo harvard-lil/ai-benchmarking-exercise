@@ -125,6 +125,20 @@ def catalog_entry(model: str) -> dict:
     except Exception as exc:
         return {"error": f"{type(exc).__name__}: {exc}"[:300]}
 
+def evidence_text(tool_items: list, cap: int = 20_000) -> str:
+    """This turn's searches and fetched pages as plain text, since OpenRouter
+    drops tool items from the conversation. Each page is capped at cap characters."""
+    parts = ["[Sources from this turn]"]
+    for i in tool_items:
+        action = i.get("action") or {}
+        if i["type"] == "openrouter:web_search":
+            urls = "\n".join(f"- {s.get('url')}" for s in action.get("sources") or [])
+            parts.append(f"Search: {action.get('query')}\n{urls}")
+        elif i["type"] == "openrouter:web_fetch":
+            body = i.get("content") or f"(fetch failed: {i.get('error')})"
+            parts.append(f"Fetched {i.get('url')}:\n{body[:cap]}")
+    return "\n\n".join(parts)
+
 def turn(
     model: str, max_tokens: int, messages: list, context: list, prompt: str, session_id: str, upstream: list, effort: str
 ) -> dict:
@@ -160,7 +174,7 @@ def turn(
     searches = sum(i["type"] == "openrouter:web_search" for i in tool_items)
     fetches = sum(i["type"] == "openrouter:web_fetch" for i in tool_items)
     messages.append({"role": "assistant", "content": text})
-    context.extend(items)
+    context.append({"role": "assistant", "content": text + "\n\n" + evidence_text(tool_items)})
 
     usage = response.get("usage") or {}
     if (response.get("incomplete_details") or {}).get("reason") == "max_output_tokens":

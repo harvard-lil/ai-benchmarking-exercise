@@ -365,6 +365,113 @@ const DATASETS = {
       "The Weekly Natural Gas Storage Report is the U.S. government’s only Principal Federal Economic Indicator that provides weekly data; other indicators report either monthly or quarterly data. WNGSR reports the underground working natural gas storage level as of the previous Friday, weekly net change, comparisons to historical levels and net changes, and statistical measures for each of five regions in the Lower 48 states.",
   },
 
+  "noaa-nrdd": {
+    title: "NOAA Research and Development Database (NRDD)",
+    org: "NOAA",
+    url: "https://researchprojects.noaa.gov/",
+    description:
+      "NOAA monitors its research and development portfolio through the NRDD, an online repository that serves as a single access point for R&D project data conducted by NOAA and NOAA-funded external partners.",
+    expert: true,
+  },
+  "arctic-report-card": {
+    title: "Arctic Report Card (ARC)",
+    org: "NOAA",
+    url: "https://arctic.noaa.gov/report-card/",
+    description:
+      "Now in its 20th year, the Arctic Report Card (ARC) 2025 provides a clear view of a region warming far faster than the rest of the planet. Along with reports on the state of the Arctic’s atmosphere, oceans, cryosphere, and tundra, this year’s report highlights major transformations underway—atlantification bringing warmer, saltier waters northward, boreal species expanding northward into Arctic ecosystems, and “rivers rusting” as thawing permafrost mobilizes iron and other metals. Across these changing landscapes, sustained observations and strong research partnerships, including those led by communities and Indigenous organizations, remain essential for understanding and adaptation.",
+    expert: true,
+  },
+  "west-coast-fisheries-participation-survey": {
+    title: "West Coast Fisheries Participation Survey",
+    org: "NOAA",
+    url: "https://www.fisheries.noaa.gov/national/science-data/west-coast-fisheries-participation-survey-results",
+    description:
+      "NOAA survey of West Coast commercial vessel owners on motivations for fishing, the monetary and non-monetary benefits they get from it, and how fishery changes affect them and their communities; results are published wave by wave (2017, 2020, 2023) as charts, tables, and a county-level mapping tool.",
+    expert: true,
+  },
+  "ncrmp-resident-survey": {
+    title:
+      "National Coral Reef Monitoring Program (NCRMP): Resident Coral Reef Survey",
+    org: "NOAA",
+    url: "https://coralreef.noaa.gov/topics/national-coral-reef-monitoring-program/data",
+    description:
+      "NOAA's recurring survey of residents in coral reef jurisdictions measuring how communities use and value reefs, published alongside the program's biological and environmental monitoring data.",
+    expert: true,
+  },
+  ghgrp: {
+    title: "Greenhouse Gas Reporting Program",
+    org: "EPA",
+    url: "https://www.epa.gov/ghgreporting/find-and-use-ghgrp-data",
+    description:
+      "EPA program requiring roughly 8,000 large facilities and fuel suppliers to report greenhouse gas emissions every year.",
+    expert: true,
+  },
+  airtoxscreen: {
+    title: "Air Toxics Screening Assessment",
+    org: "EPA",
+    url: "https://www.epa.gov/AirToxScreen",
+    description:
+      "EPA's national screening estimates of cancer risk from hazardous air pollutants, published since 2002 and annually since 2022.",
+    expert: true,
+  },
+  rmp: {
+    title: "EPA Risk Management Plan Data",
+    org: "EPA",
+    url: "https://www.epa.gov/rmp/accessing-rmp-data",
+    description:
+      "Section 112(r) of the Clean Air Act Amendments requires EPA to publish regulations and guidance for chemical accident prevention at facilities that use certain hazardous substances. These regulations and guidance are contained in the Risk Management Program (RMP) rule. The RMP rule requires facilities that use extremely hazardous substances to develop a Risk Management Plan which: identifies the potential effects of a chemical accident; identifies steps the facility is taking to prevent an accident; and spells out emergency response procedures should an accident occur. These plans provide valuable information to local fire, police, and emergency response personnel to prepare for and respond to chemical emergencies in their community. Making RMPs available to the public also fosters communication and awareness to improve accident prevention and emergency response practices at the local level.",
+    expert: true,
+  },
+  ecotox: {
+    title: "EcoToxicology Knowledgebase",
+    org: "EPA",
+    url: "https://cfpub.epa.gov/ecotox/",
+    description:
+      "The ECOTOXicology Knowledgebase (ECOTOX) is a source for locating single chemical toxicity data for aquatic life, terrestrial plants and wildlife. ECOTOX was created and is maintained by the U.S.EPA's Center for Computational Toxicology and Exposure's (CCTE's) Great Lakes Toxicology Ecology Division (GLTED). ECOTOX integrates three previously independent databases - AQUIRE, PHYTOTOX, and TERRETOX - into a unique system which includes toxicity data derived predominately from the peer-reviewed literature, for aquatic life, terrestrial plants, and terrestrial wildlife, respectively.",
+    expert: true,
+  },
+  eqi: {
+    title: "Environmental Quality Index (EQI)",
+    org: "EPA",
+    url: "https://www.epa.gov/healthresearch/environmental-quality-index-eqi",
+    description:
+      "The Environmental Quality Index (EQI) is an estimate of U.S. county ambient environmental quality across five domains: air, water, land, sociodemographic, and built environment. The EQI helps researchers better understand how health outcomes relate to cumulative environmental exposures that typically are viewed in isolation. Because the air we breathe, the water we drink, the food we eat, and the buildings around us all play a part in our overall wellbeing, researchers can use the EQI to investigate and highlight associations between environmental quality and a given health concern. By expanding research beyond singular routes of exposure and pollutants, the EQI helps provide a clearer picture of the relationship between the environment and health.",
+    expert: true,
+  },
+  iris: {
+    title: "Integrated Risk Information System (IRIS)",
+    org: "EPA",
+    url: "https://www.epa.gov/iris",
+    description:
+      "IRIS values represent the first two steps of the four-step risk assessment process described by the National Research Council and are not necessarily intended for use as regulatory levels. Before relying on IRIS values, users should ensure that the IRIS assessments and information are fit for their intended purpose and that the values are consistent with the most current scientific literature.",
+    expert: true,
+  },
+  "nrcs-snow-water-map": {
+    title: "NRCS Snow and Water Interactive Map",
+    org: "USDA",
+    url: "https://www.nrcs.usda.gov/resources/data-and-reports/snow-and-water-interactive-map",
+    description:
+      "A groundbreaking tool designed to provide farmers, researchers, policymakers, and water management professionals with up-to-the-minute snow survey data and water supply forecasting.",
+    expert: true,
+  },
+  ceds: {
+    title:
+      "A Community Earth-atmosphere Data System (CEDS) for Historical Surface Fluxes",
+    org: "PNW National Laboratory",
+    url: "https://www.pnnl.gov/projects/ceds",
+    description:
+      "A data-driven, open source framework of historical estimates for Earth system models, climate models, atmospheric chemistry and transport models, and energy-system analysis models. The data system produces estimates by country, sector, and fuel with the following characteristics: annual estimates of surface fluxes (not including open burning) from 1750 to the latest full calendar year, updated every year (from 1970 for CH4 and N2O); species: aerosol (BC, OC) and aerosol precursor and reactive compounds (SO2, NOx, NH3, CH4, CO, NMVOC) CO2, and N2O; spatially gridded data (0.5° and 0.1° for recent decades); seasonal cycle (monthly) and speciated NMVOCs by sector; state/province spatial detail for large countries – in progress.",
+    expert: true,
+  },
+  "future-risk-index": {
+    title: "Future Risk Index",
+    org: "FEMA",
+    url: "https://fulton-ring.github.io/nri-future-risk/",
+    description:
+      "On December 12, 2024, FEMA launched a prototype of the Future Risk Index showing projected economic losses due to climate change at the county level, based on different greenhouse gas emission scenarios and environmental hazards (coastal flooding, extreme heat, wildfire, hurricanes, and drought). The Index was the first free, publicly available tool showing how much climate change is likely to cost communities in the United States. The Future Risk Index was designed as a supplement to FEMA’s National Risk Index, which includes criteria on social vulnerability and community resilience. Repository: https://github.com/fulton-ring/nri-future-risk",
+    expert: true,
+  },
+
   custom: {
     title: "",
     org: "",
@@ -629,8 +736,14 @@ function setState(patch) {
    markup and let CSS hide what doesn't apply, so there's one copy of each page.
    applyTrack() runs from <head>, before paint, so nothing flashes. */
 
+const TRACKS = ["solo", "group", "expert"];
+
 function activeTrack() {
-  return getState().mode === "solo" ? "solo" : "group";
+  const m = getState().mode;
+  return TRACKS.includes(m) ? m : "group";
+}
+function isExpert() {
+  return activeTrack() === "expert";
 }
 function applyTrack() {
   document.documentElement.setAttribute("data-track", activeTrack());
@@ -639,7 +752,7 @@ function applyTrack() {
    is a second run, so it starts from a clean state rather than inheriting the
    finished run's dataset, ratings and lock. */
 function setTrack(t) {
-  const mode = t === "solo" ? "solo" : "group";
+  const mode = TRACKS.includes(t) ? t : "group";
   if (runSubmitted(getState())) resetRun();
   setState({ mode: mode });
   applyTrack();
@@ -803,7 +916,10 @@ function renderDatasetOptions(sel) {
 
   /* Only datasets America's Data Index has assessed are offered — without ground
      truth there's no comparison to make at the end. */
-  const keys = Object.keys(DATASETS).filter((k) => k !== "custom" && DI[k]);
+  const expert = isExpert();
+  const keys = Object.keys(DATASETS).filter((k) =>
+    expert ? DATASETS[k].expert : k !== "custom" && DI[k],
+  );
   const featured = keys.filter((k) => DATASETS[k].featured);
   const rest = keys.filter((k) => !DATASETS[k].featured);
 
@@ -816,7 +932,9 @@ function renderDatasetOptions(sel) {
   sel.innerHTML =
     '<option value="">— choose a dataset —</option>' +
     body +
-    '<option value="custom">Another federal dataset (bring your own)</option>';
+    (expert
+      ? ""
+      : '<option value="custom">Another federal dataset (bring your own)</option>');
 }
 
 function renderDatasetCard(el, s) {
@@ -1739,6 +1857,7 @@ function levelCell(level) {
 function renderComparison(el, s) {
   const cats = categoriesOrDefault(s);
   const ratings = s.ratings || {};
+  const expert = isExpert();
 
   const rows = cats
     .map((k) => {
@@ -1751,14 +1870,15 @@ function renderComparison(el, s) {
       <td>${levelCell(mine.level)}</td>
       <td data-only="group">${levelCell(coached.level)}</td>
       <td>${levelCell(agent.level)}</td>
-      <td>${levelCell(idx.level)}</td>
+      ${expert ? "" : `<td>${levelCell(idx.level)}</td>`}
     </tr>`;
     })
     .join("");
 
   const entry = dataIndexEntry(s);
-  const stamp =
-    entry && entry.updated
+  const stamp = expert
+    ? ""
+    : entry && entry.updated
       ? `<p class="hint">Data Index values as checked on ${esc(entry.updated)}. Its
        <a href="https://dataindex.us/collections/">collection page</a> is worth reading
        for the full picture behind them.</p>`
@@ -1770,7 +1890,7 @@ function renderComparison(el, s) {
     ? `<div class="callout"><p class="callout-title">No agent run for this dataset</p>
        <p>The background agent hasn't assessed
        <strong>${esc(datasetFromState(s).title)}</strong> yet, so its column is empty.
-       Your own ratings and the Data Index's still compare.</p></div>`
+       ${expert ? "Your own ratings, with and without your agent, still compare." : "Your own ratings and the Data Index's still compare."}</p></div>`
     : AGENT_RESULTS_ARE_MOCK
       ? `<div class="callout"><p class="callout-title">Placeholder values</p>
          <p>The background agent's column below is stand-in data while the real run is
@@ -1787,7 +1907,7 @@ function renderComparison(el, s) {
           <th scope="col">You</th>
           <th scope="col" data-only="group">You + agent</th>
           <th scope="col">Background agent</th>
-          <th scope="col">Data Index</th>
+          ${expert ? "" : '<th scope="col">Data Index</th>'}
         </tr>
       </thead>
       <tbody>${rows}</tbody>
@@ -1796,12 +1916,13 @@ function renderComparison(el, s) {
 
 function comparisonText(s) {
   const d = datasetFromState(s);
+  const expert = isExpert();
   const entry = dataIndexEntry(s);
   const lines = ["# Comparison", "", `Dataset: ${d.title || "(not set)"}`];
   if (AGENT_RESULTS_ARE_MOCK && hasAgentRun(s)) {
     lines.push("Note: the background agent's values below are placeholders.");
   }
-  if (entry && entry.updated) {
+  if (!expert && entry && entry.updated) {
     lines.push(
       `Data Index values as checked on ${entry.updated}. More at ` +
         "https://dataindex.us/collections/",
@@ -1818,7 +1939,7 @@ function comparisonText(s) {
     lines.push("");
     lines.push(`You: ${mine.level || "(not rated)"}`);
     lines.push(`  ${mine.evidence || "(no evidence recorded)"}`);
-    if (activeTrack() === "group") {
+    if (activeTrack() !== "solo") {
       lines.push(`You + agent: ${coached.level || "(not recorded)"}`);
       lines.push(`  ${coached.note || "(nothing new)"}`);
       if (coached.urls)
@@ -1826,10 +1947,12 @@ function comparisonText(s) {
     }
     lines.push(`Background agent: ${agent.level || "(no run)"}`);
     lines.push(`  ${agent.evidence || "(reasoning not yet published)"}`);
-    lines.push(`America's Data Index: ${idx.level || "(no entry)"}`);
-    lines.push(
-      `  ${stripTags(idx.evidence) || "(no supporting note at this level)"}`,
-    );
+    if (!expert) {
+      lines.push(`America's Data Index: ${idx.level || "(no entry)"}`);
+      lines.push(
+        `  ${stripTags(idx.evidence) || "(no supporting note at this level)"}`,
+      );
+    }
     lines.push("");
   });
   return lines.join("\n").trim();

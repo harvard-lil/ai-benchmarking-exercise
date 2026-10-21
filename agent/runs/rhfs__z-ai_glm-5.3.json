@@ -1,0 +1,1212 @@
+{
+  "dataset": {
+    "key": "rhfs",
+    "title": "Rental Housing Finance Survey (RHFS)"
+  },
+  "model": "z-ai/glm-5.3",
+  "harness": "openrouter tools",
+  "context": "full: each turn's whole output is carried into the next",
+  "search_tool": {
+    "engine": "exa",
+    "max_results": 10,
+    "excluded_domains": [
+      "dataindex.us"
+    ]
+  },
+  "fetch_tool": {
+    "engine": "openrouter",
+    "blocked_domains": [
+      "dataindex.us"
+    ],
+    "max_content_tokens": 10000
+  },
+  "reasoning": "effort high",
+  "catalog": {
+    "fetched_at": "2026-10-09T01:19:40Z",
+    "entry": {
+      "id": "z-ai/glm-5.3",
+      "canonical_slug": "z-ai/glm-5.3-20260816",
+      "hugging_face_id": "zai-org/GLM-5.3",
+      "name": "Z.ai: GLM 5.3",
+      "created": 1787086655,
+      "description": "GLM-5.3 is a large-scale reasoning model from Z.ai, built for complex software engineering and long-horizon agent tasks. It supports text input and output with a 1M-token context window, and improves...",
+      "context_length": 1048576,
+      "architecture": {
+        "modality": "text->text",
+        "input_modalities": [
+          "text"
+        ],
+        "output_modalities": [
+          "text"
+        ],
+        "tokenizer": "Other",
+        "instruct_type": null
+      },
+      "pricing": {
+        "prompt": "0.000000039",
+        "completion": "0.00000339",
+        "input_cache_read": "0.000000038"
+      },
+      "top_provider": {
+        "context_length": 1048576,
+        "max_completion_tokens": 943718,
+        "is_moderated": false
+      },
+      "per_request_limits": null,
+      "supported_parameters": [
+        "frequency_penalty",
+        "include_reasoning",
+        "logit_bias",
+        "logprobs",
+        "max_tokens",
+        "min_p",
+        "parallel_tool_calls",
+        "presence_penalty",
+        "reasoning",
+        "reasoning_effort",
+        "repetition_penalty",
+        "response_format",
+        "seed",
+        "stop",
+        "structured_outputs",
+        "temperature",
+        "tool_choice",
+        "tools",
+        "top_k",
+        "top_logprobs",
+        "top_p"
+      ],
+      "default_parameters": {
+        "temperature": 1,
+        "top_p": 0.95
+      },
+      "supported_voices": null,
+      "knowledge_cutoff": null,
+      "expiration_date": null,
+      "links": {
+        "details": "/api/v1/models/z-ai/glm-5.3-20260816/endpoints"
+      },
+      "benchmarks": {
+        "design_arena": [
+          {
+            "arena": "models",
+            "category": "3d",
+            "elo": 1346,
+            "win_rate": 60.6,
+            "rank": 5
+          },
+          {
+            "arena": "models",
+            "category": "asciiart",
+            "elo": 1211,
+            "win_rate": 46,
+            "rank": 22
+          },
+          {
+            "arena": "models",
+            "category": "codecategories",
+            "elo": 1313,
+            "win_rate": 54.9,
+            "rank": 9
+          },
+          {
+            "arena": "models",
+            "category": "dataviz",
+            "elo": 1269,
+            "win_rate": 52.8,
+            "rank": 23
+          },
+          {
+            "arena": "models",
+            "category": "gamedev",
+            "elo": 1323,
+            "win_rate": 52.9,
+            "rank": 11
+          },
+          {
+            "arena": "models",
+            "category": "svg",
+            "elo": 1295,
+            "win_rate": 56.9,
+            "rank": 8
+          },
+          {
+            "arena": "models",
+            "category": "uicomponent",
+            "elo": 1323,
+            "win_rate": 57.6,
+            "rank": 9
+          },
+          {
+            "arena": "models",
+            "category": "website",
+            "elo": 1305,
+            "win_rate": 54.9,
+            "rank": 12
+          },
+          {
+            "arena": "agents",
+            "category": "htmlslides",
+            "elo": 1189,
+            "win_rate": 39.1,
+            "rank": 9
+          },
+          {
+            "arena": "agents",
+            "category": "mobileapps",
+            "elo": 1191,
+            "win_rate": 52.2,
+            "rank": 17
+          },
+          {
+            "arena": "agents",
+            "category": "python-pptxslides",
+            "elo": 1255,
+            "win_rate": 51.2,
+            "rank": 8
+          }
+        ],
+        "artificial_analysis": {
+          "intelligence_index": 44.8,
+          "coding_index": 74.8,
+          "agentic_index": 53.1
+        }
+      },
+      "reasoning": {
+        "mandatory": true,
+        "default_enabled": true,
+        "supported_efforts": [
+          "max",
+          "high",
+          "low"
+        ],
+        "default_effort": "max"
+      }
+    }
+  },
+  "upstream": [
+    "z-ai"
+  ],
+  "trial": 0,
+  "terminate_reason": "completed",
+  "max_tokens": 32768,
+  "started_at": "2026-10-09T01:19:40Z",
+  "prompts": {
+    "research": "#data research\nI am researching a federal dataset. Find out everything you can about this dataset, such as who publishes it, under what authority or mandate, its history, its typical users, and its benefits to the public. Be sure your research comprehensively covers each of those perspectives, as well as any others that you discover or seem useful. I believe this is accurate information, but please check:\n\nDataset title: Rental Housing Finance Survey (RHFS)\nDescription: The Rental Housing Finance Survey (RHFS) provides a current and continuous measure of financial, mortgage, and property characteristics of rental housing properties in the United States. The survey focuses on the financing of rental housing properties, with emphasis on new mortgages, refinanced mortgages, or similar devices such as deeds of trust or land contracts, and the characteristics of debt originations. RHFS included single-family residential and multifamily residential properties with at least one housing unit intended for rent.\n\nReturn a complete report on everything that a preservationist, data librarian, data scientist, or policy activist might want to know about this data.",
+    "assessment": "# Dataset risk assessment\nI would like your help in assessing the likelihood that this data will be changed or removed from its primary location, and that users will no longer be able to access accurate and reliable copies of it, based on the rubric below.\n\n## Sources for context\nTo help assess the rubric categories, perform additional research on the data, the agency, the data's topics and typical users, covering topics such as proposed regulatory or funding changes, recent news, and political commentary. Use whatever resources you find useful, including the Federal Register (https://www.federalregister.gov) and the federal staffing tracker at https://usajobs-tracker.abigailhaddad.com.\n\n## Rubric\nThis rubric is divided up into categories. Each category is divided up into risk levels. In your output, please select the appropriate risk level for each category based on your research.\n\n### Historical Data Availability\n- Gone: Data files prior to the current year or cycle are no longer publicly available.\n- High Risk: Some data files prior to the current year or cycle are removed.\n- Moderate Risk: Some data elements that exist in the dataset prior to the current year or cycle are removed.\n- No Known Issue: Data prior to the current year or cycle remain accessible with no known alterations.\n\n### Future Data Availability\n- Gone: Data collection and publication has been terminated.\n- High Risk: Statutory publication deadline missed and/or collection or publication skipped and/or ICR expired for more than one year.\n- Moderate Risk: Typical or intended publication date missed and/or collection or publication delayed; ICR expired up to one year.\n- No Known Issue: Data published on time or as expected and ICR active or renewed before expiration.\n\n### Data Quality\n- Gone: Data collection and publication has been terminated.\n- High Risk: Reductions in granularity, timeliness, or frequency.\n- Moderate Risk: Potential or emerging risk to granularity, timeliness, or frequency.\n- No Known Issue: Maintained or improved granularity, timeliness, or frequency.\n\n### Statutory Context\n- Gone: N/A\n- High Risk: Statutory authorization is vague and/or there are alternative data collections that could serve as substitutes and/or no known programmatic use.\n- Moderate Risk: Not explicitly required by statute but required for the implementation of a state or federal program, and there are no alternative data collections that could serve as substitutes.\n- No Known Issue: Statutorily required and/or statutory authorization is explicitly named and it is clear what has to be collected, and there aren't alternative data collections that could serve as substitutes and/or required for implementation of a federal program.\n\n### Staffing and Funding\n- Gone: All of the staff in the division or agency are gone and/or all funding has been terminated.\n- High Risk: 40% or more of staff lost, and/or 1,000 or more staff lost, and/or budget cut by 20% or more, and/or leadership removed.\n- Moderate Risk: 10\u201339% of staff lost, and/or 500\u2013999 staff lost, and/or budget cut by 10\u201319%, and/or threatened change in leadership.\n- No Known Issue: Less than 10% of staff lost and less than 10% of budget cut and no known change in leadership.\n\n### Policy\n- Gone: Data collection and publication has been terminated.\n- High Risk: Presidential Action-driven information collection request (ICR); negative policy note on site; other significant changes in accordance with Administration priorities.\n- Moderate Risk: Proposed or pending changes; statements by administration officials suggesting a change is being considered or planned.\n- No Known Issue: No notable changes since January 2025 affecting what data is collected and published.\n\nFor each category, concisely list the evidence and supporting sources that would support each risk level. Then indicate which risk level you find most appropriate and why.\n\nConclude with a simple summary of risk levels:\nHistorical Data Availability: <level>\nFuture Data Availability: <level>\nData Quality: <level>\nStatutory Context: <level>\nStaffing and Funding: <level>\nPolicy: <level>",
+    "session_metadata": "Emit a session_metadata YAML block reporting: current date, model identifier, knowledge cutoff, surface, whether memory is enabled, whether custom preferences or styles are active, all tools and MCP servers available, which tools were actually called in this session, and whether attachments were present. Mark any field not directly observable as unknown rather than inferring it."
+  },
+  "turns": {
+    "research": {
+      "request": {
+        "model": "z-ai/glm-5.3",
+        "max_output_tokens": 32768,
+        "tools": [
+          {
+            "type": "openrouter:web_search",
+            "parameters": {
+              "engine": "exa",
+              "max_results": 10,
+              "excluded_domains": [
+                "dataindex.us"
+              ]
+            }
+          },
+          {
+            "type": "openrouter:web_fetch",
+            "parameters": {
+              "engine": "openrouter",
+              "blocked_domains": [
+                "dataindex.us"
+              ],
+              "max_content_tokens": 10000
+            }
+          }
+        ],
+        "cache_control": {
+          "type": "ephemeral",
+          "ttl": "1h"
+        },
+        "session_id": "rhfs-z-ai/glm-5.3-t0-2026-10-09T01:19:40Z",
+        "stop_server_tools_when": [
+          {
+            "type": "step_count_is",
+            "step_count": 200
+          }
+        ],
+        "reasoning": {
+          "effort": "high"
+        },
+        "provider": {
+          "order": [
+            "z-ai"
+          ],
+          "allow_fallbacks": false
+        }
+      },
+      "response_meta": {
+        "id": "gen-1791508780-PQBiuBjUmEFtotKOCa19",
+        "object": "response",
+        "created_at": 1791508780,
+        "model": "z-ai/glm-5.3",
+        "status": "completed",
+        "completed_at": 1791508854,
+        "error": null,
+        "incomplete_details": null,
+        "tools": [],
+        "tool_choice": "auto",
+        "parallel_tool_calls": true,
+        "max_output_tokens": 32768,
+        "temperature": 1,
+        "top_p": 1,
+        "presence_penalty": 0,
+        "frequency_penalty": 0,
+        "top_logprobs": 0,
+        "max_tool_calls": null,
+        "metadata": {},
+        "background": false,
+        "previous_response_id": null,
+        "service_tier": "auto",
+        "truncation": "disabled",
+        "store": false,
+        "instructions": null,
+        "text": {
+          "format": {
+            "type": "text"
+          }
+        },
+        "reasoning": {
+          "effort": "high"
+        },
+        "safety_identifier": null,
+        "prompt_cache_key": null,
+        "prompt_cache_options": null,
+        "usage": {
+          "input_tokens": 64319,
+          "input_tokens_details": {
+            "cached_tokens": 43776
+          },
+          "output_tokens": 3795,
+          "output_tokens_details": {
+            "reasoning_tokens": 191
+          },
+          "total_tokens": 68114,
+          "cost": 0.09183996,
+          "cost_details": {
+            "upstream_inference_cost": 0.056839959999999995,
+            "upstream_inference_input_cost": 0.04014196,
+            "upstream_inference_output_cost": 0.016697999999999998
+          },
+          "server_tool_use_details": {
+            "web_search_requests": 7,
+            "tool_calls_requested": 8,
+            "tool_calls_executed": 8
+          }
+        }
+      },
+      "requests": [
+        {
+          "input_tokens": 64319,
+          "input_tokens_details": {
+            "cached_tokens": 43776
+          },
+          "output_tokens": 3795,
+          "output_tokens_details": {
+            "reasoning_tokens": 191
+          },
+          "total_tokens": 68114,
+          "cost": 0.09183996,
+          "cost_details": {
+            "upstream_inference_cost": 0.056839959999999995,
+            "upstream_inference_input_cost": 0.04014196,
+            "upstream_inference_output_cost": 0.016697999999999998
+          },
+          "server_tool_use_details": {
+            "web_search_requests": 7,
+            "tool_calls_requested": 8,
+            "tool_calls_executed": 8
+          }
+        }
+      ],
+      "searches": 7,
+      "fetches": 1,
+      "tool_items": [
+        {
+          "type": "openrouter:web_search",
+          "id": "st_tmp_oj22ftpzkra",
+          "status": "completed",
+          "action": {
+            "type": "search",
+            "query": "Rental Housing Finance Survey RHFS Census Bureau dataset",
+            "sources": [
+              {
+                "type": "url",
+                "url": "https://www.census.gov/data/developers/data-sets/rhfs.html"
+              },
+              {
+                "type": "url",
+                "url": "https://www.census.gov/data/developers/data-sets/rhfs.2024.html"
+              },
+              {
+                "type": "url",
+                "url": "https://www.census.gov/programs-surveys/rhfs/data/puf.html"
+              },
+              {
+                "type": "url",
+                "url": "https://api.census.gov/data/2024/rhfs.html"
+              },
+              {
+                "type": "url",
+                "url": "https://www.huduser.gov/portal/datasets/rhfs/home.html"
+              },
+              {
+                "type": "url",
+                "url": "https://www.census.gov/programs-surveys/rhfs/about.html"
+              },
+              {
+                "type": "url",
+                "url": "https://www.census.gov/data-tools/demo/rhfs/#/"
+              },
+              {
+                "type": "url",
+                "url": "https://www.census.gov/programs-surveys/rhfs/technical-documentation.html"
+              },
+              {
+                "type": "url",
+                "url": "https://catalog.data.gov/dataset/rental-housing-finance-survey"
+              },
+              {
+                "type": "url",
+                "url": "https://catalog.data.gov/dataset/rental-housing-finance-survey-f4400"
+              }
+            ]
+          }
+        },
+        {
+          "type": "openrouter:web_search",
+          "id": "st_tmp_19758p20uop",
+          "status": "completed",
+          "action": {
+            "type": "search",
+            "query": "Rental Housing Finance Survey history mandate HUD Department of Housing and Urban Development authorization",
+            "sources": [
+              {
+                "type": "url",
+                "url": "https://www.census.gov/programs-surveys/rhfs/information.html"
+              },
+              {
+                "type": "url",
+                "url": "https://www.census.gov/programs-surveys/rhfs/about.html"
+              },
+              {
+                "type": "url",
+                "url": "https://www.federalregister.gov/documents/2023/07/14/2023-14950/60-day-notice-of-proposed-information-collection-2024-rental-housing-finance-survey-omb-control-no"
+              },
+              {
+                "type": "url",
+                "url": "https://archives.hud.gov/budget/fy13/research-and-tech-2013.pdf"
+              },
+              {
+                "type": "url",
+                "url": "https://archives.hud.gov/news/2022/pr22-242.cfm"
+              },
+              {
+                "type": "url",
+                "url": "https://www.reginfo.gov/public/do/PRAViewICR?ref_nbr=202310-2528-004"
+              },
+              {
+                "type": "url",
+                "url": "https://www.federalregister.gov/documents/2020/06/04/2020-12079/60-day-notice-of-proposed-information-collection-2021-rental-housing-finance-survey"
+              },
+              {
+                "type": "url",
+                "url": "https://www.federalregister.gov/documents/2026/09/25/2026-19651/60-day-notice-of-proposed-information-collection-2027-rental-housing-finance-survey"
+              },
+              {
+                "type": "url",
+                "url": "https://www.federalregister.gov/documents/2025/09/09/2025-17261/request-for-information-on-the-uses-of-rental-housing-finance-survey-data"
+              },
+              {
+                "type": "url",
+                "url": "https://www.federalregister.gov/documents/2017/10/20/2017-22843/notice-of-proposed-information-collection-for-public-comment-2018-rental-housing-finance-survey"
+              }
+            ]
+          }
+        },
+        {
+          "type": "openrouter:web_search",
+          "id": "st_tmp_8ycohrgj6ow",
+          "status": "completed",
+          "action": {
+            "type": "search",
+            "query": "Rental Housing Finance Survey 2021 findings report key statistics rental property owners mortgages",
+            "sources": [
+              {
+                "type": "url",
+                "url": "https://www.census.gov/newsroom/press-releases/2022/rental-housing-finance-survey.html"
+              },
+              {
+                "type": "url",
+                "url": "https://archives.hud.gov/news/2022/pr22-242.cfm"
+              },
+              {
+                "type": "url",
+                "url": "https://www.census.gov/data/developers/data-sets/rhfs.2021.html"
+              },
+              {
+                "type": "url",
+                "url": "https://www.census.gov/content/dam/Census/library/visualizations/2021/econ/2021-RHFS-Infographic-tagged.pdf"
+              },
+              {
+                "type": "url",
+                "url": "https://www2.census.gov/programs-surveys/rhfs/Information/2021-Abbreviated-Methodology-Final-11-25-22.pdf"
+              },
+              {
+                "type": "url",
+                "url": "https://www.publicnow.com/view/B32E57218F5DAD898B43EAA0993A9C2BE1E05D14"
+              },
+              {
+                "type": "url",
+                "url": "https://www2.census.gov/programs-surveys/rhfs/technical-documentation/glossary/2021/2021-RHFS-Items-Booklet-Final-6-15-21.pdf"
+              },
+              {
+                "type": "url",
+                "url": "https://www2.census.gov/programs-surveys/rhfs/technical-documentation/glossary/2021/2021-RHFS-Glossary-5-24-21.pdf"
+              },
+              {
+                "type": "url",
+                "url": "https://www.alta.org/news-and-publications/news/20221206-Survey-Nearly-Half-of-Rental-Units-are-in-Properties-with-Four-or-Fewer-Units"
+              },
+              {
+                "type": "url",
+                "url": "https://www.researchdatagov.org/product/734"
+              }
+            ]
+          }
+        },
+        {
+          "type": "openrouter:web_search",
+          "id": "st_tmp_pmpp0d1sgq",
+          "status": "completed",
+          "action": {
+            "type": "search",
+            "query": "Rental Housing Finance Survey methodology sample size respondents properties weights",
+            "sources": [
+              {
+                "type": "url",
+                "url": "https://www2.census.gov/programs-surveys/rhfs/Information/2024-Full-Methodology.pdf"
+              },
+              {
+                "type": "url",
+                "url": "https://www.census.gov/programs-surveys/rhfs/technical-documentation/methodology.html"
+              },
+              {
+                "type": "url",
+                "url": "https://www2.census.gov/programs-surveys/rhfs/Information/2024-Abbreviated-Methodology.pdf"
+              },
+              {
+                "type": "url",
+                "url": "https://www2.census.gov/programs-surveys/rhfs/Information/2021-Abbreviated-Methodology-Final-11-25-22.pdf"
+              },
+              {
+                "type": "url",
+                "url": "https://www.census.gov/programs-surveys/rhfs/about.html"
+              },
+              {
+                "type": "url",
+                "url": "https://docslib.org/doc/626324/2021-rhfs-survey-methodology"
+              },
+              {
+                "type": "url",
+                "url": "https://sap.nsf.gov/dataset/doc_census-355/metadata/methodology"
+              },
+              {
+                "type": "url",
+                "url": "https://www2.census.gov/programs-surveys/rhfs/technical-documentation/help-guides/2012/2012_RHFS_Primer.pdf"
+              },
+              {
+                "type": "url",
+                "url": "https://doi.org/10.3886/e222161"
+              },
+              {
+                "type": "url",
+                "url": "https://www2.census.gov/programs-surveys/rhfs/Information/2024-RHFS-Respondent-Questionnaire-Final-6-14-24.pdf"
+              }
+            ]
+          }
+        },
+        {
+          "type": "openrouter:web_fetch",
+          "id": "st_tmp_dyzgomngfnw",
+          "status": "completed",
+          "url": "https://unblock.federalregister.gov/",
+          "content": "<!DOCTYPE html>\n<html>\n  <head>\n    <meta http-equiv=\"content-type\" content=\"text/html; charset=UTF-8\" />\n\n    <title>Federal Register :: Request Access</title>\n\n    <meta name=\"viewport\" content=\"width=device-width,initial-scale=1\">\n    <meta name=\"apple-mobile-web-app-capable\" content=\"yes\">\n    <meta name=\"mobile-web-app-capable\" content=\"yes\">\n    <meta name=\"csrf-param\" content=\"authenticity_token\" />\n<meta name=\"csrf-token\" content=\"B4WBz0g-iGQ9To3BKWzmT2VdAKQI8Hjjfil-NL2P2MqfKCWn98a90TX8qUSRF8qvHeEpHrvqtS0jdhVLfJsaZQ\" />\n    <meta name=\"csp-nonce\" content=\"4Kh3LSduyv1j9WFJfTiUpw==\" />\n\n    <link rel=\"preconnect\" href=\"https://fonts.googleapis.com\">\n<link rel=\"preconnect\" href=\"https://fonts.gstatic.com\" crossorigin>\n\n<link\nhref=\"https://fonts.googleapis.com/css2?family=Roboto:ital,wght@0,400;0,500;0,600;0,700;1,400;1,500;1,700&family=Bitter:ital,wght@0,400;0,500;0,700;1,400;1,500;1,700&display=swap\"\nrel=\"preload\"\nas=\"style\">\n<link\nhref=\"https://fonts.googleapis.com/css2?family=Roboto:ital,wght@0,400;0,500;0,600;0,700;1,400;1,500;1,700&family=Bitter:ital,wght@0,400;0,500;0,700;1,400;1,500;1,700&display=swap\"\nrel=\"stylesheet\">\n\n\n    <link rel=\"stylesheet\" href=\"/assets/application-cafaf2e0.css\" data-turbo-track=\"reload\" />\n    <script type=\"importmap\" data-turbo-track=\"reload\" nonce=\"4Kh3LSduyv1j9WFJfTiUpw==\">{\n  \"imports\": {\n    \"application\": \"/assets/application-cc464116.js\",\n    \"@hotwired/turbo-rails\": \"/assets/turbo.min-86bf8853.js\",\n    \"@hotwired/stimulus\": \"/assets/stimulus.min-7ea3d58b.js\",\n    \"@hotwired/stimulus-loading\": \"/assets/stimulus-loading-25917588.js\",\n    \"controllers/application\": \"/assets/controllers/application-e5a449db.js\",\n    \"controllers/site_feedback_controller\": \"/assets/controllers/site_feedback_controller-a99fc93f.js\",\n    \"controllers/unblock_controller\": \"/assets/controllers/unblock_controller-9520f896.js\"\n  }\n}</script>\n<link rel=\"modulepreload\" href=\"/assets/application-cc464116.js\" nonce=\"4Kh3LSduyv1j9WFJfTiUpw==\">\n<link rel=\"modulepreload\" href=\"/assets/turbo.min-86bf8853.js\" nonce=\"4Kh3LSduyv1j9WFJfTiUpw==\">\n<link rel=\"modulepreload\" href=\"/assets/stimulus.min-7ea3d58b.js\" nonce=\"4Kh3LSduyv1j9WFJfTiUpw==\">\n<link rel=\"modulepreload\" href=\"/assets/stimulus-loading-25917588.js\" nonce=\"4Kh3LSduyv1j9WFJfTiUpw==\">\n<link rel=\"modulepreload\" href=\"/assets/controllers/application-e5a449db.js\" nonce=\"4Kh3LSduyv1j9WFJfTiUpw==\">\n<link rel=\"modulepreload\" href=\"/assets/controllers/site_feedback_controller-a99fc93f.js\" nonce=\"4Kh3LSduyv1j9WFJfTiUpw==\">\n<link rel=\"modulepreload\" href=\"/assets/controllers/unblock_controller-9520f896.js\" nonce=\"4Kh3LSduyv1j9WFJfTiUpw==\">\n<script type=\"module\" nonce=\"4Kh3LSduyv1j9WFJfTiUpw==\">import \"application\"</script>\n\n    <link rel=\"alternate icon\" type=\"image/png\" href=\"/assets/fr-favicon-95da23c0.png\">\n    <link rel=\"icon\" type=\"image/svg+xml\" href=\"/assets/fr-favicon-d1d6c1b7.svg\">\n    <link rel=\"apple-touch-icon\" href=\"/assets/fr-favicon-95da23c0.png\">\n  </head>\n\n  <body>\n    <div class=\"container\">\n      <div class=\"header\" id=\"header_refresh\">\n        <div class=\"header_wrapper\">\n          <div class=\"logo\">\n            <div class=\"hgroup official\">\n              <a href=\"/\" title=\"Federal Register Home - The Daily Journal of the United States Government\">\n                <svg class=\"masthead\">\n                  <use xlink:href=\"/assets/fr-mastheads-9d875438.svg#official-masthead\">\n                    </use>\n                </svg>\n              </a>\n            </div>\n          </div>\n        </div>\n      </div>\n\n      <div id=\"main\">\n        <div class=\"main-title-bar\">\n          <div class=\"bar left-extender\"></div>\n          <div class=\"bar left\"></div>\n          <h1 class=\"\">Request Access</h1>\n          <div class=\"bar right\"></div>\n        </div>\n\n        <div class=\"dialog\">\n\n          <p>\n  Due to aggressive automated scraping of FederalRegister.gov and eCFR.gov,\n  programmatic access to these sites is limited to access to our extensive\n  developer APIs. Please visit\n  <a href=\"https://www.federalregister.gov/developers/documentation/api/v1\">\n    FederalRegister.gov API\n  </a>\n  documentation or\n  <a href=\"https://www.ecfr.gov/developers/documentation/api/v1\">\n    eCFR.gov API\n  </a>\n  documentation to learn more about how to access the API.\n</p>\n\n<p>\n  Your request has been flagged as potentially automated. If you are human user\n  receiving this message, please complete the CAPTCHA (bot test) below and\n  click \"Request Access\". You may occassionally be asked to complete the\n  CAPTCHA again, this is normal and part of our security measures.\n</p>\n\n\n<form action=\"/unblock\"\n      method=\"post\"\n      class=\"unblock-form\"\n      data-controller=\"unblock\"\n      data-action=\"submit->unblock#handleSubmit\">\n  <script src=\"https://www.recaptcha.net/recaptcha/api.js\" async defer ></script>\n<div data-sitekey=\"6LfpbQcUAAAAAMw_vbtM1IRqq7Dvf-AftcZHp_OK\" class=\"g-recaptcha \"></div>\n          <noscript>\n            <div>\n              <div style=\"width: 302px; height: 422px; position: relative;\">\n                <div style=\"width: 302px; height: 422px; position: absolute;\">\n                  <iframe\n                    src=\"https://www.recaptcha.net/recaptcha/api/fallback?k=6LfpbQcUAAAAAMw_vbtM1IRqq7Dvf-AftcZHp_OK\"\n                    name=\"ReCAPTCHA\"\n                    style=\"width: 302px; height: 422px; border-style: none; border: 0; overflow: hidden;\">\n                  </iframe>\n                </div>\n              </div>\n              <div style=\"width: 300px; height: 60px; border-style: none;\n                bottom: 12px; left: 25px; margin: 0px; padding: 0px; right: 25px;\n                background: #f9f9f9; border: 1px solid #c1c1c1; border-radius: 3px;\">\n                <textarea name=\"g-recaptcha-response\"\n                  class=\"g-recaptcha-response\"\n                  style=\"width: 250px; height: 40px; border: 1px solid #c1c1c1;\n                  margin: 10px 25px; padding: 0px; resize: none;\">\n                </textarea>\n              </div>\n            </div>\n          </noscript>\n\n  <button type=\"submit\"\n          class=\"btn btn-disabled btn-large unblock-button\"\n          data-unblock-target=\"button\"\n          disabled>\n    Request Access\n  </button>\n</form>\n\n<p class=\"small-text\">\n  <em>An official website of the United States government.</em>\n</p>\n\n<p class=\"small-text\">\n  If you experiencing issues with the CAPTCHA or want to request a wider IP range,\n  you can use the \"Site Help\" button found in the lower, right of this page\n  to make a request.\n</p>\n\n        </div>\n      </div>\n    </div>\n\n    <div id=\"site-feedback\" data-controller=\"site-feedback\">\n      <div class=\"modal-backdrop\" data-site-feedback-target=\"backdrop\"></div>\n      <div class=\"modal-container\" data-site-feedback-target=\"modal\">\n        <div class=\"modal-content\" data-site-feedback-target=\"modalContent\">\n          <div id=\"feedback-modal-content\">\n  <div class=\"modal-content feedback-modal-content\">\n    <div class=\"modal-header\">\n      <button type=\"button\" class=\"modal-close\" data-site-feedback-target=\"closeButton\" aria-label=\"Close\">\n        <span aria-hidden=\"true\">\u00d7</span>\n      </button>\n      <h3>IP Access Help</h3>\n    </div>\n\n    <div class=\"modal-body\">\n      <div class=\"form-container\">\n        <p class=\"info\">\n          This contact form is only for IP Access help.\n          Please do not provide confidential information or personal data.\n        </p>\n\n        <form data-site-feedback-target=\"form\" data-action=\"submit-&gt;site-feedback#submitForm\" novalidate=\"novalidate\" class=\"simple_form site_feedback\" enctype=\"multipart/form-data\" action=\"/site_feedback\" accept-charset=\"UTF-8\" method=\"post\">\n\n          <div class=\"input string required site_feedback_name\"><label class=\"string required\" for=\"site_feedback_name\"><abbr title=\"required\">*</abbr> Your Name</label><input class=\"string required\" required=\"required\" type=\"text\" name=\"site_feedback[name]\" id=\"site_feedback_name\" /></div>\n\n          <div class=\"input email required site_feedback_email\"><label class=\"email required\" for=\"site_feedback_email\"><abbr title=\"required\">*</abbr> Email</label><input data-site-feedback-target=\"emailField\" class=\"string email required\" required=\"required\" type=\"email\" name=\"site_feedback[email]\" id=\"site_feedback_email\" /></div>\n\n          <div class=\"input text required site_feedback_comment\"><label class=\"text required\" for=\"site_feedback_comment\"><abbr title=\"required\">*</abbr> How can we help you?</label><textarea class=\"text required\" required=\"required\" name=\"site_feedback[comment]\" id=\"site_feedback_comment\">\n</textarea></div>\n\n          <div class=\"slide-left\" aria-hidden=\"true\">\n            <input tabindex=\"-1\" autocomplete=\"off\" placeholder=\"Your website URL\" data-required=\"true\" type=\"text\" name=\"site_feedback[website]\" id=\"site_feedback_website\" />\n          </div>\n\n          <div class=\"input file optional site_feedback_attachment\"><label class=\"file optional\" for=\"site_feedback_attachment\">Upload Attachment</label><input class=\"file optional\" type=\"file\" name=\"site_feedback[attachment]\" id=\"site_feedback_attachment\" /></div>\n\n          <div class=\"input boolean required site_feedback_technical_help\"><input value=\"0\" autocomplete=\"off\" type=\"hidden\" name=\"site_feedback[technical_help]\" /><label class=\"boolean required checkbox\" for=\"site_feedback_technical_help\"><input class=\"boolean required\" required=\"required\" type=\"checkbox\" value=\"1\" name=\"site_feedback[technical_help]\" id=\"site_feedback_technical_help\" /><abbr title=\"required\">*</abbr> I am requesting technical help.</label></div>\n\n          <div class=\"actions\">\n            <input type=\"submit\" name=\"commit\" value=\"Request Help\" class=\"btn btn-primary btn-medium\" data-site-feedback-target=\"submitButton\" data-disable-with=\"Request Help\" />\n          </div>\n</form>      </div>\n\n      <div class=\"loader-container\"\n        data-site-feedback-target=\"loaderContainer\">\n        <div class=\"loader-wrapper\">\n          <img src=\"/assets/orange-loader-275e1783.svg\"\n            alt=\"Loading...\" class=\"loader-image\">\n        </div>\n      </div>\n    </div>\n  </div>\n</div>\n\n        </div>\n      </div>\n\n      <button type=\"button\"\n        class=\"btn btn-secondary btn-medium site-feedback-button\"\n        data-action=\"click->site-feedback#openModal\"\n        aria-label=\"Open site help form\">\n\n        <svg class=\"svg-icon svg-icon-chat \"><use xlink:href=\"/assets/ofr-icons-5f5559c5.svg#chat\"></use></svg>\n        <span class=\"desktop-only\">Site Help</span>\n      </button>\n    </div>\n\n  </body>\n</html>\n",
+          "title": "Federal Register :: Request Access",
+          "httpStatus": 200
+        },
+        {
+          "type": "openrouter:web_search",
+          "id": "st_tmp_usfk7jyqt3j",
+          "status": "completed",
+          "action": {
+            "type": "search",
+            "query": "\"Rental Housing Finance Survey\" researchers analysis Urban Institute Harvard Joint Center uses policy",
+            "sources": [
+              {
+                "type": "url",
+                "url": "https://www.federalregister.gov/documents/2025/09/09/2025-17261/request-for-information-on-the-uses-of-rental-housing-finance-survey-data"
+              },
+              {
+                "type": "url",
+                "url": "https://www.jchs.harvard.edu/sites/default/files/reports/files/Harvard_JCHS_Americas_Rental_Housing_2022.pdf"
+              },
+              {
+                "type": "url",
+                "url": "https://www.urban.org/sites/default/files/publication/25336/412555-Critical-Housing-Finance-Challenges-for-Policy-Makers.PDF"
+              },
+              {
+                "type": "url",
+                "url": "https://www.federalregister.gov/documents/2026/09/25/2026-19651/60-day-notice-of-proposed-information-collection-2027-rental-housing-finance-survey"
+              },
+              {
+                "type": "url",
+                "url": "https://www.urban.org/sites/default/files/publication/25341/412556-Challenges-Facing-Housing-Markets-in-the-Next-Decade-Developing-a-Policy-Relevant-Research-Agenda.PDF"
+              },
+              {
+                "type": "url",
+                "url": "https://www.govinfo.gov/content/pkg/FR-2020-06-04/pdf/2020-12076.pdf"
+              },
+              {
+                "type": "url",
+                "url": "https://doi.org/10.3886/e222161"
+              },
+              {
+                "type": "url",
+                "url": "https://www.census.gov/content/dam/Census/programs-surveys/rhfs/2024-rhfs-infographic.pdf"
+              },
+              {
+                "type": "url",
+                "url": "https://www.jchs.harvard.edu/blog/who-owns-rental-properties-and-is-it-changing"
+              },
+              {
+                "type": "url",
+                "url": "https://www.census.gov/content/dam/Census/library/visualizations/2021/econ/2021-RHFS-Infographic-tagged.pdf"
+              }
+            ]
+          }
+        },
+        {
+          "type": "openrouter:web_search",
+          "id": "st_tmp_xn3gurj3il",
+          "status": "completed",
+          "action": {
+            "type": "search",
+            "query": "2024 Rental Housing Finance Survey release findings highlights press release 2025"
+          }
+        },
+        {
+          "type": "openrouter:web_search",
+          "id": "st_tmp_1bssnsouklh",
+          "status": "completed",
+          "action": {
+            "type": "search",
+            "query": "Rental Housing Finance Survey restricted use data FSRDC research data center access Internal Use File"
+          }
+        }
+      ],
+      "ended": "answered",
+      "seconds": 73.7
+    },
+    "assessment": {
+      "request": {
+        "model": "z-ai/glm-5.3",
+        "max_output_tokens": 32768,
+        "tools": [
+          {
+            "type": "openrouter:web_search",
+            "parameters": {
+              "engine": "exa",
+              "max_results": 10,
+              "excluded_domains": [
+                "dataindex.us"
+              ]
+            }
+          },
+          {
+            "type": "openrouter:web_fetch",
+            "parameters": {
+              "engine": "openrouter",
+              "blocked_domains": [
+                "dataindex.us"
+              ],
+              "max_content_tokens": 10000
+            }
+          }
+        ],
+        "cache_control": {
+          "type": "ephemeral",
+          "ttl": "1h"
+        },
+        "session_id": "rhfs-z-ai/glm-5.3-t0-2026-10-09T01:19:40Z",
+        "stop_server_tools_when": [
+          {
+            "type": "step_count_is",
+            "step_count": 200
+          }
+        ],
+        "reasoning": {
+          "effort": "high"
+        },
+        "provider": {
+          "order": [
+            "z-ai"
+          ],
+          "allow_fallbacks": false
+        }
+      },
+      "response_meta": {
+        "id": "gen-1791508854-jAGMPeLvBeyzdZ9LSvJB",
+        "object": "response",
+        "created_at": 1791508854,
+        "model": "z-ai/glm-5.3",
+        "status": "completed",
+        "completed_at": 1791509021,
+        "error": null,
+        "incomplete_details": null,
+        "tools": [],
+        "tool_choice": "auto",
+        "parallel_tool_calls": true,
+        "max_output_tokens": 32768,
+        "temperature": 1,
+        "top_p": 1,
+        "presence_penalty": 0,
+        "frequency_penalty": 0,
+        "top_logprobs": 0,
+        "max_tool_calls": null,
+        "metadata": {},
+        "background": false,
+        "previous_response_id": null,
+        "service_tier": "auto",
+        "truncation": "disabled",
+        "store": false,
+        "instructions": null,
+        "text": {
+          "format": {
+            "type": "text"
+          }
+        },
+        "reasoning": {
+          "effort": "high"
+        },
+        "safety_identifier": null,
+        "prompt_cache_key": null,
+        "prompt_cache_options": null,
+        "usage": {
+          "input_tokens": 139281,
+          "input_tokens_details": {
+            "cached_tokens": 65664
+          },
+          "output_tokens": 8717,
+          "output_tokens_details": {
+            "reasoning_tokens": 5481
+          },
+          "total_tokens": 147998,
+          "cost": 0.19349124,
+          "cost_details": {
+            "upstream_inference_cost": 0.15849123999999998,
+            "upstream_inference_input_cost": 0.12013644,
+            "upstream_inference_output_cost": 0.038354799999999994
+          },
+          "server_tool_use_details": {
+            "web_search_requests": 7,
+            "tool_calls_requested": 10,
+            "tool_calls_executed": 10
+          }
+        }
+      },
+      "requests": [
+        {
+          "input_tokens": 139281,
+          "input_tokens_details": {
+            "cached_tokens": 65664
+          },
+          "output_tokens": 8717,
+          "output_tokens_details": {
+            "reasoning_tokens": 5481
+          },
+          "total_tokens": 147998,
+          "cost": 0.19349124,
+          "cost_details": {
+            "upstream_inference_cost": 0.15849123999999998,
+            "upstream_inference_input_cost": 0.12013644,
+            "upstream_inference_output_cost": 0.038354799999999994
+          },
+          "server_tool_use_details": {
+            "web_search_requests": 7,
+            "tool_calls_requested": 10,
+            "tool_calls_executed": 10
+          }
+        }
+      ],
+      "searches": 7,
+      "fetches": 3,
+      "tool_items": [
+        {
+          "type": "openrouter:web_search",
+          "id": "st_tmp_apt80aucs17",
+          "status": "completed",
+          "action": {
+            "type": "search",
+            "query": "HUD \"Request for Information\" \"Rental Housing Finance Survey\" 2025 eliminating scope reduce",
+            "sources": [
+              {
+                "type": "url",
+                "url": "https://www.federalregister.gov/documents/2025/09/09/2025-17261/request-for-information-on-the-uses-of-rental-housing-finance-survey-data"
+              },
+              {
+                "type": "url",
+                "url": "https://www.govinfo.gov/content/pkg/FR-2025-09-09/pdf/2025-17254.pdf"
+              },
+              {
+                "type": "url",
+                "url": "https://www.federalregister.gov/documents/2025/12/16/2025-22958/request-for-information-on-the-uses-of-rental-housing-finance-survey-data-extension-of-comment"
+              },
+              {
+                "type": "url",
+                "url": "https://www.govinfo.gov/content/pkg/FR-2025-09-09/pdf/2025-17261.pdf"
+              },
+              {
+                "type": "url",
+                "url": "https://www.nmhc.org/advocacy/comment-letters/2025/real-estate-industry-letter-to-hud-on-rental-housing-finance-survey-data-rfi/"
+              },
+              {
+                "type": "url",
+                "url": "https://federaldataforum.prb.org/discussion/housing-data-users-respond-to-request-for-information-on-rental-housing-finance-survey-rhfs-and-survey-of-market-absorption-soma?hlmlt=VT"
+              },
+              {
+                "type": "url",
+                "url": "https://app.overton.io/ui/opportunities/8305"
+              },
+              {
+                "type": "url",
+                "url": "https://thefederalregister.org/documents/2025-22958/request-for-information-on-the-uses-of-rental-housing-finance-survey-data-extension-of-comment-period"
+              },
+              {
+                "type": "url",
+                "url": "https://federaldataforum.prb.org/discussion/housing-data-users-respond-to-request-for-information-on-rental-housing-finance-survey-rhfs-and-survey-of-market-absorption-soma"
+              },
+              {
+                "type": "url",
+                "url": "https://www.federalregister.gov/index/2025/housing-and-urban-development-department"
+              }
+            ]
+          }
+        },
+        {
+          "type": "openrouter:web_search",
+          "id": "st_tmp_s0vqop2aa7",
+          "status": "completed",
+          "action": {
+            "type": "search",
+            "query": "Census Bureau staff layoffs RIF 2025 cuts survey programs",
+            "sources": [
+              {
+                "type": "url",
+                "url": "https://apnews.com/article/census-bureau-doge-federal-surveys-fe560e377be69e913660a6d90c1ee419"
+              },
+              {
+                "type": "url",
+                "url": "https://www.npr.org/2025/04/17/nx-s1-5349435/us-census-bureau-data-decennial"
+              },
+              {
+                "type": "url",
+                "url": "https://thecensusproject.org/2025/10/14/government-shutdown-rifs-impact-u-s-census-bureau/"
+              },
+              {
+                "type": "url",
+                "url": "https://news.bloomberglaw.com/daily-labor-report/census-bureau-hit-with-layoffs-as-100-get-notices-in-shutdown"
+              },
+              {
+                "type": "url",
+                "url": "https://www.amstat.org/docs/default-source/amstat-documents/the-nations-data-at-risk-2025/census.pdf"
+              },
+              {
+                "type": "url",
+                "url": "https://www.govexec.com/workforce/2025/07/census-has-long-struggled-staffing-shortages-employees-say-trump-making-it-worse/406840/"
+              },
+              {
+                "type": "url",
+                "url": "https://federalnewsnetwork.com/big-data/2025/12/bedrock-federal-data-sets-are-disappearing-as-statistical-agencies-face-upheaval/"
+              },
+              {
+                "type": "url",
+                "url": "https://www.rcrcnet.org/wp-content/uploads/Documents/Advocacy&BW/Federal/Memo_ACG_2025-10-14_Agency-by-Agency_-Reductions-in-Force-RIFs.pdf"
+              },
+              {
+                "type": "url",
+                "url": "https://apnews.com/article/census-bureau-statistical-agencies-data-government-803993ba9d2ab70c2395d2d4bcde3ddd"
+              },
+              {
+                "type": "url",
+                "url": "https://thecensusproject.org/2025/11/04/october-2025-census-project-update/"
+              }
+            ]
+          }
+        },
+        {
+          "type": "openrouter:web_search",
+          "id": "st_tmp_4ys681cox3q",
+          "status": "completed",
+          "action": {
+            "type": "search",
+            "query": "HUD budget cuts 2025 2026 Office of Policy Development and Research staffing reductions",
+            "sources": [
+              {
+                "type": "url",
+                "url": "https://www.hud.gov/sites/dfiles/CFO/documents/2026_CJ_SE_POSE.pdf"
+              },
+              {
+                "type": "url",
+                "url": "https://www.hud.gov/sites/dfiles/CFO/documents/2026_CJ_Program_PDR.pdf"
+              },
+              {
+                "type": "url",
+                "url": "https://www.hud.gov/sites/dfiles/CFO/documents/FY_2026_Congressional_Justification_E-File.pdf"
+              },
+              {
+                "type": "url",
+                "url": "https://www.congress.gov/crs_external_products/R/PDF/R48567/R48567.2.pdf"
+              },
+              {
+                "type": "url",
+                "url": "https://archives.hud.gov/budget/fy25/2025_CJ_S_E_-_PDR.pdf"
+              },
+              {
+                "type": "url",
+                "url": "https://ternercenter.berkeley.edu/blog/implications-of-further-hud-staffing-cuts-on-the-housing-sector/"
+              },
+              {
+                "type": "url",
+                "url": "https://appropriations.house.gov/sites/evo-subsites/republicans-appropriations.house.gov/files/evo-media-document/fy26-thud-bill-summary-full-committee.pdf"
+              },
+              {
+                "type": "url",
+                "url": "https://www.congress.gov/crs_external_products/R/PDF/R48728/R48728.9.pdf"
+              },
+              {
+                "type": "url",
+                "url": "https://nlihc.org/sites/default/files/HoUSed%20House%20FY26%20THUD%20Anaylsis_071625.pdf"
+              },
+              {
+                "type": "url",
+                "url": "https://federalnewsnetwork.com/reorganization/2026/09/hud-circulated-plans-for-a-major-reorganization-then-it-withdrew-them/"
+              }
+            ]
+          }
+        },
+        {
+          "type": "openrouter:web_fetch",
+          "id": "st_tmp_8g1izpouy8e",
+          "status": "completed",
+          "url": "https://usajobs-tracker.abigailhaddad.com",
+          "content": "<!DOCTYPE html>\n<html lang=\"en\">\n<head>\n    <meta charset=\"UTF-8\">\n    <meta name=\"viewport\" content=\"width=device-width, initial-scale=1.0\">\n    <title>USAJobs Listings Tracker</title>\n    \n    <!-- DataTables CSS -->\n    <link rel=\"stylesheet\" href=\"https://cdn.datatables.net/1.13.6/css/dataTables.bootstrap5.min.css\">\n    <link rel=\"stylesheet\" href=\"https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css\">\n    <link rel=\"stylesheet\" href=\"https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.0/font/bootstrap-icons.css\">\n    \n    <style>\n        body {\n            font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;\n            background-color: #f8f9fa;\n            color: #333;\n        }\n        \n        .container {\n            max-width: 1400px;\n            margin: 0 auto;\n            padding: 20px;\n        }\n        \n        h1 {\n            color: #003366;\n            font-weight: 600;\n            margin-bottom: 10px;\n        }\n        \n        .subtitle {\n            color: #999;\n            font-size: 0.9rem;\n            margin-bottom: 20px;\n        }\n        \n        .summary-stats {\n            background: white;\n            padding: 20px;\n            border-radius: 8px;\n            box-shadow: 0 2px 4px rgba(0,0,0,0.1);\n            margin-bottom: 30px;\n        }\n        \n        .stat-box {\n            text-align: center;\n            padding: 15px;\n            border-right: 1px solid #e9ecef;\n        }\n        \n        .stat-box:last-child {\n            border-right: none;\n        }\n        \n        .stat-value {\n            font-size: 2rem;\n            font-weight: 600;\n            color: #003366;\n        }\n        \n        .stat-label {\n            color: #666;\n            font-size: 0.85rem;\n            text-transform: uppercase;\n            line-height: 1.3;\n        }\n        \n        .table-container {\n            background: white;\n            padding: 25px;\n            border-radius: 8px;\n            box-shadow: 0 2px 4px rgba(0,0,0,0.1);\n        }\n        \n        .dataTables_wrapper .dataTables_filter input {\n            border: 1px solid #ddd;\n            border-radius: 4px;\n            padding: 5px 10px;\n            margin-left: 10px;\n        }\n        \n        .dataTables_wrapper .dataTables_length select {\n            border: 1px solid #ddd;\n            border-radius: 4px;\n            padding: 5px;\n        }\n        \n        table.dataTable {\n            border-collapse: collapse !important;\n        }\n        \n        table.dataTable thead th {\n            background-color: #003366;\n            color: white;\n            font-weight: 600;\n            border-bottom: none !important;\n            white-space: nowrap;\n            position: relative;\n            cursor: pointer;\n        }\n        \n        table.dataTable thead th.filtering {\n            background-color: #00508f;\n        }\n        \n        table.dataTable tbody tr:hover {\n            background-color: #f0f8ff;\n        }\n        \n        table.dataTable tbody td {\n            padding: 12px;\n            vertical-align: middle;\n        }\n        \n        .percentage-cell {\n            font-weight: 600;\n        }\n        \n        .high-percentage {\n            color: #388e3c;  /* Green - good (maintained/increased listings) */\n        }\n        \n        .medium-percentage {\n            color: #f57c00;  /* Orange - moderate (some decline) */\n        }\n        \n        .low-percentage {\n            color: #d32f2f;  /* Red - bad (major decline) */\n        }\n        \n        .expiring-soon {\n            background-color: #fff3cd;\n        }\n        \n        .no-year {\n            background-color: #e8f4f8;\n        }\n        \n        /* Column filter styles */\n        .column-filter-container {\n            position: absolute;\n            background: white;\n            border: 1px solid #ddd;\n            border-radius: 4px;\n            box-shadow: 0 4px 6px rgba(0,0,0,0.1);\n            padding: 10px;\n            z-index: 1000;\n            min-width: 200px;\n            max-height: 300px;\n            overflow-y: auto;\n        }\n        \n        .column-filter-container input[type=\"text\"] {\n            width: 100%;\n            padding: 5px;\n            margin-bottom: 10px;\n            border: 1px solid #ddd;\n            border-radius: 3px;\n        }\n        \n        .column-filter-container label {\n            display: block;\n            padding: 3px 0;\n            cursor: pointer;\n        }\n        \n        .column-filter-container label:hover {\n            background-color: #f0f0f0;\n        }\n        \n        .column-filter-container input[type=\"checkbox\"] {\n            margin-right: 8px;\n        }\n        \n        .filter-buttons {\n            margin-top: 10px;\n            text-align: right;\n        }\n        \n        .filter-buttons button {\n            margin-left: 5px;\n            padding: 3px 10px;\n            border: 1px solid #ddd;\n            border-radius: 3px;\n            background: white;\n            cursor: pointer;\n            font-size: 0.85rem;\n        }\n        \n        .filter-buttons button.apply {\n            background: #003366;\n            color: white;\n        }\n        \n        .filter-buttons button:hover {\n            opacity: 0.8;\n        }\n        \n        th.has-filter::after {\n            content: \" \u25bc\";\n            font-size: 0.8em;\n            opacity: 0.5;\n        }\n        \n        /* Bubble chart styles */\n        .treemap-container {\n            background: white;\n            padding: 20px;\n            border-radius: 8px;\n            box-shadow: 0 2px 4px rgba(0,0,0,0.1);\n            margin-bottom: 30px;\n        }\n        \n        .treemap-title {\n            font-size: 1.2rem;\n            font-weight: 600;\n            color: #003366;\n            margin-bottom: 15px;\n        }\n        \n        #bubble-chart {\n            width: 100%;\n            height: 460px;\n            position: relative;\n        }\n        \n        .bubble {\n            cursor: pointer;\n            opacity: 0.8;\n            transition: all 0.3s;\n        }\n        \n        .bubble:hover {\n            opacity: 1;\n            stroke: #003366;\n            stroke-width: 3;\n        }\n        \n        .axis-label {\n            font-size: 14px;\n            font-weight: 600;\n            fill: #333;\n        }\n        \n        .grid line {\n            stroke: #e0e0e0;\n            stroke-opacity: 0.7;\n            shape-rendering: crispEdges;\n        }\n        \n        .grid path {\n            stroke-width: 0;\n        }\n        \n        .quadrant-label {\n            fill: #666;\n            font-size: 12px;\n            font-style: italic;\n            opacity: 0.7;\n        }\n        \n        /* Filter section styles */\n        .filter-section {\n            background: white;\n            padding: 20px;\n            border-radius: 8px;\n            box-shadow: 0 2px 4px rgba(0,0,0,0.1);\n            margin-bottom: 30px;\n        }\n        \n        .filter-section h3 {\n            color: #003366;\n            font-size: 1.3rem;\n            margin-bottom: 15px;\n        }\n        \n        .filter-controls label {\n            font-size: 0.85rem;\n            font-weight: 600;\n            color: #666;\n            margin-bottom: 5px;\n        }\n        \n        .active-filters {\n            margin-top: 15px;\n            min-height: 30px;\n        }\n        \n        .filter-badge {\n            display: inline-block;\n            background: #003366;\n            color: white;\n            padding: 5px 10px;\n            border-radius: 20px;\n            margin-right: 10px;\n            margin-bottom: 5px;\n            font-size: 0.85rem;\n        }\n        \n        .filter-badge .remove-filter {\n            margin-left: 8px;\n            cursor: pointer;\n            font-weight: bold;\n        }\n        \n        .filter-badge .remove-filter:hover {\n            color: #ff6b6b;\n        }\n        \n        /* Multi-select dropdown styles */\n        .filter-dropdown {\n            position: relative;\n        }\n        \n        .filter-dropdown-menu {\n            position: absolute;\n            top: 100%;\n            left: 0;\n            right: 0;\n            z-index: 1000;\n            background: white;\n            border: 1px solid #ddd;\n            border-radius: 4px;\n            box-shadow: 0 4px 6px rgba(0,0,0,0.1);\n            padding: 10px;\n            margin-top: 2px;\n        }\n        \n        .filter-dropdown-menu label {\n            cursor: pointer;\n        }\n        \n        .filter-dropdown-menu label:hover {\n            background-color: #f0f0f0;\n        }\n        \n        .filter-dropdown-menu .filter-search {\n            margin-bottom: 5px;\n        }\n        \n        .filter-dropdown-menu .filter-options label {\n            padding: 3px 8px;\n            margin: 0;\n            display: block;\n        }\n        \n        .filter-dropdown-menu input[type=\"checkbox\"] {\n            margin-right: 8px;\n        }\n        \n        /* Active filters display */\n        .active-filters-display {\n            color: #d32f2f;\n            font-size: 1.1rem;\n            font-weight: 600;\n            margin-bottom: 20px;\n            min-height: 1.5em;\n        }\n        \n        #downloadCSV:hover {\n            background-color: #00508f !important;\n            transform: translateY(-1px);\n            box-shadow: 0 2px 4px rgba(0,0,0,0.2);\n        }\n        \n        /* Skip link for keyboard navigation */\n        .skip-link {\n            position: absolute;\n            top: -40px;\n            left: 0;\n            background: #003366;\n            color: white;\n            padding: 8px;\n            text-decoration: none;\n            z-index: 9999;\n        }\n        \n        .skip-link:focus {\n            top: 0;\n        }\n        \n        /* Improved focus indicators */\n        a:focus,\n        button:focus,\n        input:focus,\n        select:focus,\n        textarea:focus {\n            outline: 3px solid #003366;\n            outline-offset: 2px;\n        }\n        \n        /* Screen reader only content */\n        .sr-only {\n            position: absolute;\n            width: 1px;\n            height: 1px;\n            padding: 0;\n            margin: -1px;\n            overflow: hidden;\n            clip: rect(0, 0, 0, 0);\n            white-space: nowrap;\n            border: 0;\n        }\n        \n    </style>\n</head>\n<body>\n    <!-- Skip to main content link for keyboard navigation -->\n    <a href=\"#main-content\" class=\"skip-link\">Skip to main content</a>\n    \n    <!-- Work in Progress Banner -->\n    <div class=\"alert alert-warning mb-0\" role=\"alert\">\n        <div class=\"container\">\n            <strong>\ud83d\udea7 Active Development:</strong> This is an experimental tool tracking federal job postings.\n            Data source: <a href=\"https://github.com/abigailhaddad/usajobs_historical\" target=\"_blank\" class=\"alert-link\">USAJobs Historical Data</a> | <a class='alert-link' href='/methodology'>Methodology</a>\n        </div>\n    </div>\n\n    <!-- Archive Notice Banner -->\n    <div class=\"alert alert-danger mb-0\" role=\"alert\" style=\"border-radius: 0;\">\n        <div class=\"container\">\n            <strong>\ud83d\udcc1 Archive Notice:</strong> This tracker will be archived on December 31, 2025. Data collection will stop on that date and no further updates will be made.\n        </div>\n    </div>\n\n    <div class=\"container\" id=\"main-content\">\n        <h1>USAJobs Listings Tracker</h1>\n        <p class=\"subtitle\" id=\"dateRangeSubtitle\">Loading date range...</p>\n        <div id=\"activeFiltersDisplay\" class=\"active-filters-display\"></div>\n        \n        <!-- ARIA live region for screen reader announcements -->\n        <div class=\"sr-only\" aria-live=\"polite\" aria-atomic=\"true\" id=\"ariaLiveRegion\"></div>\n        \n        <!-- Important Caveats -->\n        <div class=\"alert alert-info mt-3 mb-3\">\n            <small>\n                <strong>Important Notes:</strong>\n                <ul class=\"mb-0\" style=\"padding-left: 20px;\">\n                    <li>Job listings \u2260 actual hires. One listing may result in multiple hires, one hire, or no hires.</li>\n                    <li>Not all federal positions are posted on USAJobs.</li>\n                    <li>Job listings which include multiple occupation series are counted under the first series listed.</li>\n                    <li>Subagency view and raw job listings are only available after selecting a specific department.</li>\n                </ul>\n            </small>\n        </div>\n        \n        <!-- Data Source Attribution -->\n        <div class=\"text-center text-muted mb-4\">\n            <small>\n                Data source: <a href=\"https://github.com/abigailhaddad/usajobs_historical\" target=\"_blank\" class=\"text-decoration-none\">\n                    USAJobs Historical Data\n                </a>\n                <br>\n                <span id=\"lastUpdated\"></span>\n            </small>\n        </div>\n        \n        <div class=\"summary-stats\">\n            <div class=\"row\">\n                <div class=\"col-md-3 stat-box\">\n                    <div class=\"stat-value\" id=\"total2024\">Loading...</div>\n                    <div class=\"stat-label\" id=\"previousYearLabel\">Previous Year</div>\n                </div>\n                <div class=\"col-md-3 stat-box\">\n                    <div class=\"stat-value\" id=\"total2025\">Loading...</div>\n                    <div class=\"stat-label\" id=\"currentYearLabel\">Current Year</div>\n                </div>\n                <div class=\"col-md-3 stat-box\">\n                    <div class=\"stat-value\" id=\"overallPercentage\">Loading...</div>\n                    <div class=\"stat-label\" id=\"percentageLabel\">Year-over-Year %</div>\n                </div>\n                <div class=\"col-md-3 stat-box\">\n                    <div class=\"stat-value\" id=\"entityCount\">Loading...</div>\n                    <div class=\"stat-label\">Departments</div>\n                </div>\n            </div>\n        </div>\n        \n        <!-- Unified Filter Section -->\n        <div class=\"filter-section\">\n            <h3>Filters & Display Options</h3>\n            <div class=\"filter-controls\">\n                <div class=\"row mb-3\">\n                    <div class=\"col-md-3\">\n                        <label for=\"mainDepartmentFilter\">Department</label>\n                        <select class=\"form-control form-control-sm\" id=\"mainDepartmentFilter\">\n                            <option value=\"\">All Departments</option>\n                        </select>\n                    </div>\n                    <div class=\"col-md-3\">\n                        <label for=\"mainAgencyFilter\">Agency</label>\n                        <select class=\"form-control form-control-sm\" id=\"mainAgencyFilter\">\n                            <option value=\"\">All Agencies</option>\n                        </select>\n                    </div>\n                    <div class=\"col-md-3\">\n                        <label for=\"mainAppointmentFilter\">Appointment Type</label>\n                        <select class=\"form-control form-control-sm\" id=\"mainAppointmentFilter\">\n                            <option value=\"\">All Types</option>\n                        </select>\n                    </div>\n                    <div class=\"col-md-3\">\n                        <label for=\"mainOccupationFilter\">Occupation Series</label>\n                        <select class=\"form-control form-control-sm\" id=\"mainOccupationFilter\">\n                            <option value=\"\">All Occupations</option>\n                        </select>\n                    </div>\n                </div>\n                <div class=\"row mb-3\">\n                    <div class=\"col-md-3\">\n                        <label for=\"aggregationLevel\">View By</label>\n                        <select id=\"aggregationLevel\" class=\"form-control form-control-sm\">\n                            <option value=\"department\" selected>Department</option>\n                            <option value=\"agency\">Agency</option>\n                            <option value=\"subagency\" disabled>Subagency (select a department first)</option>\n                        </select>\n                    </div>\n                    <div class=\"col-md-3\">\n                        <label>&nbsp;</label>\n                        <div class=\"form-check\">\n                            <input class=\"form-check-input\" type=\"checkbox\" id=\"showRawJobs\" disabled>\n                            <label class=\"form-check-label\" for=\"showRawJobs\">\n                                Show Raw Jobs (select a department first)\n                            </label>\n                        </div>\n                    </div>\n                </div>\n            </div>\n        </div>\n        \n        <div class=\"treemap-container\">\n            <h2 class=\"treemap-title\" id=\"bubbleChartTitle\">USAJobs Counts by Department</h2>\n            <p style=\"margin-top: -10px; margin-bottom: 15px; color: #666; font-size: 0.9rem;\">Bubble size = 2024 count</p>\n            <div id=\"bubble-chart\"></div>\n        </div>\n        \n        <div class=\"table-container\">\n            <div class=\"d-flex justify-content-between align-items-center mb-3\">\n                <h3 class=\"m-0\" style=\"color: #003366; font-size: 1.3rem;\">Data Table</h3>\n                <button id=\"downloadCSV\" class=\"btn btn-sm\" style=\"background-color: #003366; color: white; border: none;\">\n                    <i class=\"bi bi-download\"></i> Download Current View as CSV\n                </button>\n            </div>\n            <table id=\"jobsTable\" class=\"table table-striped\">\n                <thead id=\"tableHead\">\n                    <tr id=\"tableHeaders\">\n                        <th>Department</th>\n                        <th>Agency</th>\n                        <th>2024 Listings</th>\n                        <th>2025 Listings</th>\n                        <th>Change</th>\n                        <th>2025 as % of 2024</th>\n                    </tr>\n                </thead>\n                <tbody id=\"tableBody\">\n                </tbody>\n            </table>\n        </div>\n    </div>\n    \n    <!-- jQuery -->\n    <script src=\"https://code.jquery.com/jquery-3.7.0.min.js\"></script>\n    <!-- Bootstrap JS -->\n    <script src=\"https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js\"></script>\n    <!-- DataTables JS -->\n    <script src=\"https://cdn.datatables.net/1.13.6/js/jquery.dataTables.min.js\"></script>\n    <script src=\"https://cdn.datatables.net/1.13.6/js/dataTables.bootstrap5.min.js\"></script>\n    <!-- D3.js for Treemap -->\n    <script src=\"https://d3js.org/d3.v7.min.js\"></script>\n    \n    <script src=\"jobs_app.js\"></script>\n</body>\n</html>",
+          "title": "USAJobs Listings Tracker",
+          "httpStatus": 200
+        },
+        {
+          "type": "openrouter:web_search",
+          "id": "st_tmp_8i3bsjxpin5",
+          "status": "completed",
+          "action": {
+            "type": "search",
+            "query": "2027 Rental Housing Finance Survey 60-day notice proposed information collection September 2026",
+            "sources": [
+              {
+                "type": "url",
+                "url": "https://www.federalregister.gov/documents/2026/09/25/2026-19651/60-day-notice-of-proposed-information-collection-2027-rental-housing-finance-survey"
+              },
+              {
+                "type": "url",
+                "url": "https://www.govinfo.gov/content/pkg/FR-2026-09-25/html/2026-19651.htm"
+              },
+              {
+                "type": "url",
+                "url": "https://www.govinfo.gov/content/pkg/FR-2026-09-25/pdf/2026-19651.pdf"
+              },
+              {
+                "type": "url",
+                "url": "https://thefederalregister.org/pdf/documents/2026-19651.pdf"
+              },
+              {
+                "type": "url",
+                "url": "https://frtracker.app/fr/2026-19651"
+              },
+              {
+                "type": "url",
+                "url": "https://policyrisk.com/federal-register/2026-19651"
+              },
+              {
+                "type": "url",
+                "url": "https://thefederalregister.org/pdf/documents/2026-19650.pdf"
+              },
+              {
+                "type": "url",
+                "url": "https://queenstreetanalytics.org/this-week-in-construction-housing-washington-37-2026/"
+              },
+              {
+                "type": "url",
+                "url": "https://remoterealestate.com/rental-housing-finance-survey-2027-small-landlords/"
+              },
+              {
+                "type": "url",
+                "url": "https://www.federalregister.gov/documents/2025/09/09/2025-17261/request-for-information-on-the-uses-of-rental-housing-finance-survey-data"
+              }
+            ]
+          }
+        },
+        {
+          "type": "openrouter:web_search",
+          "id": "st_tmp_j75yjlizdss",
+          "status": "completed",
+          "action": {
+            "type": "search",
+            "query": "Rental Housing Finance Survey 2024 data release public use file February 2026",
+            "sources": [
+              {
+                "type": "url",
+                "url": "https://www.census.gov/newsroom/press-releases/2026/2024-rhfs-data.html"
+              },
+              {
+                "type": "url",
+                "url": "https://www.census.gov/programs-surveys/rhfs/data/puf/2024.html"
+              },
+              {
+                "type": "url",
+                "url": "https://www.census.gov/data/developers/data-sets/rhfs.2024.html"
+              },
+              {
+                "type": "url",
+                "url": "https://www.census.gov/programs-surveys/rhfs/data/puf/2024/microdata.html"
+              },
+              {
+                "type": "url",
+                "url": "https://www2.census.gov/programs-surveys/rhfs/data/public-use-files/2024/2024-RHFS-PUF-Version-Document.pdf"
+              },
+              {
+                "type": "url",
+                "url": "https://api.census.gov/data/2024/rhfs.html"
+              },
+              {
+                "type": "url",
+                "url": "https://www2.census.gov/programs-surveys/rhfs/Information/2024-RHFS-PUF-Version-Document.pdf"
+              },
+              {
+                "type": "url",
+                "url": "https://www.publicnow.com/view/CC3F33104C75E4F7CB02640576FB453028DFEF68"
+              },
+              {
+                "type": "url",
+                "url": "https://www.census.gov/programs-surveys/rhfs/technical-documentation/rhfs-table-creator-release-notes.html"
+              },
+              {
+                "type": "url",
+                "url": "https://www2.census.gov/programs-surveys/rhfs/data/public-use-files/2024/Codebook-Version-1.pdf"
+              }
+            ]
+          }
+        },
+        {
+          "type": "openrouter:web_search",
+          "id": "st_tmp_e5aztqiiuu",
+          "status": "completed",
+          "action": {
+            "type": "search",
+            "query": "American Housing Survey 2025 cuts funding elimination Census HUD sponsored survey DOGE"
+          }
+        },
+        {
+          "type": "openrouter:web_search",
+          "id": "st_tmp_4fkep12m61",
+          "status": "completed",
+          "action": {
+            "type": "search",
+            "query": "HUD RHFS RFI comments outcome 2026 decision survey of market absorption eliminated"
+          }
+        },
+        {
+          "type": "openrouter:web_fetch",
+          "id": "st_tmp_60dj78vnkt9",
+          "status": "completed",
+          "url": "https://federaldataforum.prb.org/discussion/housing-data-users-respond-to-request-for-information-on-rental-housing-finance-survey-rhfs-and-survey-of-market-absorption-soma",
+          "content": "\r\n\r\n<!DOCTYPE html>\r\n<html lang=\"en\">\r\n<head id=\"Head1\"><meta name=\"viewport\" content=\"width=device-width, initial-scale=1.0\" /><meta http-equiv=\"X-UA-Compatible\" content=\"IE=edge\" /><title>\r\n\tHousing data users: respond to request for information on Rental Housing Finance Survey (RHFS) and Survey of Market Absorption (SOMA) | Federal Data Users\r\n</title><meta name=\"KEYWORDS\" content=\"EMAIL, DISCUSSION, LIST, EMAIL LIST, LISTSERV, LIST SERV, LIST SERVER, FORUM, THREADED DISCUSSION\" /><meta name='audience' content='ALL' /><meta name='rating' content='General' /><meta name='distribution' content='Global, Worldwide' /><meta name='copyright' content='Higher Logic, LLC' /><meta name='content-language' content='EN' /><meta name='referrer' content='strict-origin-when-cross-origin' /><link href='https://federaldataforum.prb.org/discussion/housing-data-users-respond-to-request-for-information-on-rental-housing-finance-survey-rhfs-and-survey-of-market-absorption-soma' rel='canonical' /><link rel='SHORTCUT ICON' href='https://higherlogicdownload.s3.amazonaws.com/FDF/270e54e6-7a40-44fa-851c-3ac34d981869/UploadedImages/FDF_Favicon_Color_100x.png' type='image/png' /><link type='text/css' rel='stylesheet' href='https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600;800'/><link type=\"text/css\" rel=\"stylesheet\" href=\"https://d3uf7shreuzboy.cloudfront.net/WebRoot/stable/Ribbit/Ribbit~main.bundle.ccfdb5f10dea09742bd7.hash.css\"/><link href='https://d2x5ku95bkycr3.cloudfront.net/HigherLogic/Font-Awesome/7.1.0-pro/css/all.min.css' type='text/css' rel='stylesheet' /><link rel=\"stylesheet\" href=\"https://cdnjs.cloudflare.com/ajax/libs/prism/1.24.1/themes/prism.min.css\" integrity=\"sha512-tN7Ec6zAFaVSG3TpNAKtk4DOHNpSwKHxxrsiw4GHKESGPs5njn/0sMCUMl2svV4wo4BK/rCP7juYz+zx+l6oeQ==\" crossorigin=\"anonymous\" referrerpolicy=\"no-referrer\" /><link href='https://d2x5ku95bkycr3.cloudfront.net/HigherLogic/bootstrap/3.4.1/css/bootstrap.min.css' rel='stylesheet' /><link type='text/css' rel='stylesheet' href='https://d3uf7shreuzboy.cloudfront.net/WebRoot/stable/Desktop/Bundles/Desktop_bundle.min.0b49765548e16cc277b0442554ad72d026d15d5d.hash.css'/><link href='https://d2x5ku95bkycr3.cloudfront.net/HigherLogic/jquery/jquery-ui-1.13.3.min.css' type='text/css' rel='stylesheet' /><link href='https://d132x6oi8ychic.cloudfront.net/higherlogic/microsite/generatecss/a3d368e1-de49-4cd2-b97e-1b1654aa612e/a546d312-a1d1-438d-80fd-b71acf134dee/639268897961730000/34' type='text/css' rel='stylesheet' /><link rel=\"stylesheet\" href=\"https://cdnjs.cloudflare.com/ajax/libs/video.js/7.21.6/video-js.min.css\" integrity=\"sha512-kCCb9I/QM9hw+hm+JlN2ounNo2bRFZ4r9guSBv0BYk7RezWV2H8eI1unYnpJrU8+2g773WW1qNG+fSQ0X7M3Tg==\" crossorigin=\"anonymous\" referrerpolicy=\"no-referrer\"><script type='text/javascript' src='https://d2x5ku95bkycr3.cloudfront.net/HigherLogic/JavaScript/promise-fetch-polyfill.js'></script><script type='text/javascript' src='https://d2x5ku95bkycr3.cloudfront.net/HigherLogic/JavaScript/systemjs/3.1.6/system.min.js'></script><script type='systemjs-importmap' src='/HigherLogic/JavaScript/importmapping-cdn.json?639270913516194288'></script><script type='text/javascript' src='https://d2x5ku95bkycr3.cloudfront.net/HigherLogic/jquery/jquery-3.7.1.min.js'></script><script src='https://d2x5ku95bkycr3.cloudfront.net/HigherLogic/jquery/jquery-migrate-3.5.2.min.js'></script><script type='text/javascript' src='https://d2x5ku95bkycr3.cloudfront.net/HigherLogic/jquery/jquery-ui-1.13.3.min.js'></script>\r\n                <script>\r\n                    window.i18nConfig = {\r\n                        initialLanguage: 'en',\r\n                        i18nPaths: {\"i18n/js-en.json\":\"https://d3uf7shreuzboy.cloudfront.net/WebRoot/stable/i18n/js-en.96578052.json\",\"i18n/react-en.json\":\"https://d3uf7shreuzboy.cloudfront.net/WebRoot/stable/i18n/react-en.e12f2922.json\"},\r\n                        languages: [{\"languageCode\":\"en\",\"cultureCode\":\"en-US\",\"displayName\":\"English (United States)\"}]\r\n                    };\r\n                </script><script src='https://d3uf7shreuzboy.cloudfront.net/WebRoot/stable/i18n/index.ea931f70.js'></script><script src='https://d2x5ku95bkycr3.cloudfront.net/HigherLogic/bootstrap/3.4.1/js/bootstrap.min.js'></script><script src='https://d3uf7shreuzboy.cloudfront.net/WebRoot/stable/Ribbit/Ribbit~main.bundle.18570da8280f47461817.hash.js'></script><script type='text/javascript'>var higherlogic_crestApi_origin = 'https://api.connectedcommunity.org'</script><script type='text/javascript' src='/HigherLogic/CORS/easyXDM/easyXDM.Min.js'></script><script src=\"https://cdnjs.cloudflare.com/ajax/libs/prism/1.24.1/prism.min.js\" integrity=\"sha512-axJX7DJduStuBB8ePC8ryGzacZPr3rdLaIDZitiEgWWk2gsXxEFlm4UW0iNzj2h3wp5mOylgHAzBzM4nRSvTZA==\" crossorigin=\"anonymous\" referrerpolicy=\"no-referrer\"></script><script src=\"https://cdnjs.cloudflare.com/ajax/libs/prism/1.24.1/plugins/autoloader/prism-autoloader.min.js\" integrity=\"sha512-xCfKr8zIONbip3Q1XG/u5x40hoJ0/DtP1bxyMEi0GWzUFoUffE+Dfw1Br8j55RRt9qG7bGKsh+4tSb1CvFHPSA==\" crossorigin=\"anonymous\" referrerpolicy=\"no-referrer\"></script><script src=\"https://cdnjs.cloudflare.com/ajax/libs/video.js/7.21.6/video.min.js\" integrity=\"sha512-jp3tLLWBMPcSTiyp0e+aYqnXo9ffLfMbU3c5A2wJYxX97nX4FDN2TUNDR/kx/39G+EkA5XKr0ZJU8K0xSSV/oA==\" crossorigin=\"anonymous\" referrerpolicy=\"no-referrer\"></script><script type='text/javascript' src='https://d3uf7shreuzboy.cloudfront.net/WebRoot/stable/Desktop/Bundles/Desktop_bundle.min.50a2b818d9deeec3450ff42d4b4eed3fd2ca94a8.hash.js'></script><script>window.CDN_PATH = 'https://d3uf7shreuzboy.cloudfront.net'</script><script>var filestackUrl = 'https://static.filestackapi.com/filestack-js/3.51.5/filestack.min.js'; var filestackIntegrity = 'sha512-zQny1fbq1Gi/xHpCzmUI04G5F7fLH5YfWWUEU9BskJ5iL108yH0n0aHbVPGze4pMMBkZjeL5V4F+gkSDlofSAA==';</script><meta name=\"description\" content=\"Hi all, wanted to alert housing data users that HUD put out two nearly identical requests for information on uses of the RHFS and SOMA, with public comments due\" /></head>\r\n<body class=\"bodyBackground ribbit viewthread interior  community-pages\">\r\n\t\r\n\t\r\n    \r\n    \r\n\r\n\t\r\n\t\r\n\r\n\t<div id=\"MembershipWebsiteAlertContainer\" class=\"row\">\r\n\t\r\n\t\t<span id=\"MembershipExpirationReminder_5ce0f267b3294d27b1eb2488949f5ed2\"></span>\r\n\r\n<script>\r\n    (function () {\r\n        var renderBBL = function () {\r\n            window.renderReactDynamic(['WebsiteAlert', 'MembershipExpirationReminder_5ce0f267b3294d27b1eb2488949f5ed2', {\r\n                alertClass: '',\r\n                linkText: '',\r\n                linkUrl: '',\r\n                text: '',\r\n                isInAuxMenu: 'True',\r\n                showLink: false,\r\n                visible: false\r\n            }]);\r\n        };\r\n\r\n        if (window.renderReactDynamic) {\r\n            renderBBL();\r\n        } else {\r\n            window.addEventListener('DOMContentLoaded', renderBBL);\r\n        }\r\n    })()\r\n</script>\r\n\r\n    \r\n</div>\r\n\r\n\t<div id=\"MPOuterMost\" class=\"container  full \">\r\n\t\t<form method=\"post\" action=\"./housing-data-users-respond-to-request-for-information-on-rental-housing-finance-survey-rhfs-and-survey-of-market-absorption-soma\" id=\"MasterPageForm\" class=\"form\">\r\n<input type=\"hidden\" name=\"ScriptManager1_TSM\" id=\"ScriptManager1_TSM\" value=\"\" />\r\n<input type=\"hidden\" name=\"StyleSheetManager1_TSSM\" id=\"StyleSheetManager1_TSSM\" value=\"\" />\r\n<input type=\"hidden\" name=\"__VIEWSTATE\" id=\"__VIEWSTATE\" value=\"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",
+          "title": "Housing data users: respond to request for information on Rental Housing Finance Survey (RHFS) and Survey of Market Absorption (SOMA) | Federal Data Users",
+          "httpStatus": 200
+        },
+        {
+          "type": "openrouter:web_fetch",
+          "id": "st_tmp_vxzk0m3m3ab",
+          "status": "completed",
+          "url": "https://federalnewsnetwork.com/big-data/2025/12/bedrock-federal-data-sets-are-disappearing-as-statistical-agencies-face-upheaval/",
+          "content": "<!DOCTYPE html>\n<html lang=\"en-US\" class=\"no-js\">\n\n<head>\n\n    <link rel=\"preconnect\" href=\"https://fonts.googleapis.com\">\n    <link rel=\"preconnect\" href=\"https://fonts.gstatic.com\" crossorigin>\n    <link href=\"https://fonts.googleapis.com/css2?family=Figtree:ital,wght@0,300..900;1,300..900&display=swap\" rel=\"stylesheet\">\n    <meta http-equiv=\"X-UA-Compatible\" content=\"IE=edge\">\n<meta charset=\"UTF-8\">\n<meta name=\"google-site-verification\" content=\"0z91wmlNFj4Di6OpYC8Mkzz3nKYVMSAaRIVzRWTuOdA\">\n<meta name=\"facebook-domain-verification\" content=\"86mrnf4b0nhmiotz75n2iwex93m449\">\n<meta name=\"viewport\" content=\"width=device-width, initial-scale=1\">\n<meta property=\"fb:pages\" content=\"95135221781\">\n<meta property=\"fb:app_id\" content=\"228478281369433\">\n    <title>\n        \u2018Bedrock\u2019 federal data sets are disappearing, as statistical agencies face upheaval &#x2d; Federal News Network</title>\n        <meta name=\"viewport\" content=\"width=device-width, initial-scale=1\">\n        <meta property=\"fb:pages\" content=\"95135221781\">\n            <meta property=\"fb:app_id\" content=\"228478281369433\" />\n    \n                <script>\n                Site = typeof Site !== 'undefined' ? Site : {};\n                Site.renderedPosts = [];\n            </script>\n            \t\t\t<!-- Begin IndexExchange  -->\n\t\t\t<script async src=\"//js-sec.indexww.com/ht/p/186967-56497137212215.js\"></script>\n\t\t\t<!-- End IndexExchange -->\n\t\t\t<!-- SailThru -->\r\n<meta name=\"sailthru.canonical\" content=\"https://federalnewsnetwork.com/big-data/2025/12/bedrock-federal-data-sets-are-disappearing-as-statistical-agencies-face-upheaval/\" />\r\n<meta name=\"sailthru.date\" content=\"2025-12-10 04:58:06\" />\r\n<meta name=\"sailthru.image.full\" content=\"https://federalnewsnetwork.com/wp-content/uploads/2025/12/Maximus-data-ebook-cover-v2-e1764698965457.png\" />\r\n<meta name=\"sailthru.image.thumb\" content=\"https://federalnewsnetwork.com/wp-content/uploads/2025/12/Maximus-data-ebook-cover-v2-e1764698965457-150x150.png\" />\r\n<meta name='sailthru.tags' content='All News,American Statistical Association,Big Data,Bureau of Labor Statistics,Census Bureau,Department of Government efficiency,Immigration and Customs Enforcement,IRS,Management,Mike Calabria,Nancy Potok,National Center for Education Statistics,Social Security Administration,Technology,Workforce'/>\r\n<!-- /SailThru -->\n<script>setTimeout(function(){ location.reload(); }, 720000);</script>\n\n<!-- The SEO Framework by Sybre Waaijer -->\n<meta name=\"description\" content=\"Most statistical agencies lost 20% to 30% of their staff this year, and the Trump administration is pursuing further workforce cuts at these agencies.\" />\n<link rel=\"canonical\" href=\"https://federalnewsnetwork.com/big-data/2025/12/bedrock-federal-data-sets-are-disappearing-as-statistical-agencies-face-upheaval/\" />\n<!-- / The SEO Framework by Sybre Waaijer | 1.19ms meta | 0.19ms boot -->\n\n<link rel='dns-prefetch' href='//www.google.com' />\n<link rel='dns-prefetch' href='//ajax.aspnetcdn.com' />\n<link rel='dns-prefetch' href='//use.fontawesome.com' />\n<link rel='dns-prefetch' href='//s.w.org' />\n<link rel='stylesheet' id='wp-block-library-css'  href='https://federalnewsnetwork.com/wp-includes/css/dist/block-library/style.min.css?ver=5.9.4' type='text/css' media='all' />\n<style id='global-styles-inline-css' type='text/css'>\nbody{--wp--preset--color--black: #000000;--wp--preset--color--cyan-bluish-gray: #abb8c3;--wp--preset--color--white: #ffffff;--wp--preset--color--pale-pink: #f78da7;--wp--preset--color--vivid-red: #cf2e2e;--wp--preset--color--luminous-vivid-orange: #ff6900;--wp--preset--color--luminous-vivid-amber: #fcb900;--wp--preset--color--light-green-cyan: #7bdcb5;--wp--preset--color--vivid-green-cyan: #00d084;--wp--preset--color--pale-cyan-blue: #8ed1fc;--wp--preset--color--vivid-cyan-blue: #0693e3;--wp--preset--color--vivid-purple: #9b51e0;--wp--preset--gradient--vivid-cyan-blue-to-vivid-purple: linear-gradient(135deg,rgba(6,147,227,1) 0%,rgb(155,81,224) 100%);--wp--preset--gradient--light-green-cyan-to-vivid-green-cyan: linear-gradient(135deg,rgb(122,220,180) 0%,rgb(0,208,130) 100%);--wp--preset--gradient--luminous-vivid-amber-to-luminous-vivid-orange: linear-gradient(135deg,rgba(252,185,0,1) 0%,rgba(255,105,0,1) 100%);--wp--preset--gradient--luminous-vivid-orange-to-vivid-red: linear-gradient(135deg,rgba(255,105,0,1) 0%,rgb(207,46,46) 100%);--wp--preset--gradient--very-light-gray-to-cyan-bluish-gray: linear-gradient(135deg,rgb(238,238,238) 0%,rgb(169,184,195) 100%);--wp--preset--gradient--cool-to-warm-spectrum: linear-gradient(135deg,rgb(74,234,220) 0%,rgb(151,120,209) 20%,rgb(207,42,186) 40%,rgb(238,44,130) 60%,rgb(251,105,98) 80%,rgb(254,248,76) 100%);--wp--preset--gradient--blush-light-purple: linear-gradient(135deg,rgb(255,206,236) 0%,rgb(152,150,240) 100%);--wp--preset--gradient--blush-bordeaux: linear-gradient(135deg,rgb(254,205,165) 0%,rgb(254,45,45) 50%,rgb(107,0,62) 100%);--wp--preset--gradient--luminous-dusk: linear-gradient(135deg,rgb(255,203,112) 0%,rgb(199,81,192) 50%,rgb(65,88,208) 100%);--wp--preset--gradient--pale-ocean: linear-gradient(135deg,rgb(255,245,203) 0%,rgb(182,227,212) 50%,rgb(51,167,181) 100%);--wp--preset--gradient--electric-grass: linear-gradient(135deg,rgb(202,248,128) 0%,rgb(113,206,126) 100%);--wp--preset--gradient--midnight: linear-gradient(135deg,rgb(2,3,129) 0%,rgb(40,116,252) 100%);--wp--preset--duotone--dark-grayscale: url('#wp-duotone-dark-grayscale');--wp--preset--duotone--grayscale: url('#wp-duotone-grayscale');--wp--preset--duotone--purple-yellow: url('#wp-duotone-purple-yellow');--wp--preset--duotone--blue-red: url('#wp-duotone-blue-red');--wp--preset--duotone--midnight: url('#wp-duotone-midnight');--wp--preset--duotone--magenta-yellow: url('#wp-duotone-magenta-yellow');--wp--preset--duotone--purple-green: url('#wp-duotone-purple-green');--wp--preset--duotone--blue-orange: url('#wp-duotone-blue-orange');--wp--preset--font-size--small: 13px;--wp--preset--font-size--medium: 20px;--wp--preset--font-size--large: 36px;--wp--preset--font-size--x-large: 42px;}.has-black-color{color: var(--wp--preset--color--black) !important;}.has-cyan-bluish-gray-color{color: var(--wp--preset--color--cyan-bluish-gray) !important;}.has-white-color{color: var(--wp--preset--color--white) !important;}.has-pale-pink-color{color: var(--wp--preset--color--pale-pink) !important;}.has-vivid-red-color{color: var(--wp--preset--color--vivid-red) !important;}.has-luminous-vivid-orange-color{color: var(--wp--preset--color--luminous-vivid-orange) !important;}.has-luminous-vivid-amber-color{color: var(--wp--preset--color--luminous-vivid-amber) !important;}.has-light-green-cyan-color{color: var(--wp--preset--color--light-green-cyan) !important;}.has-vivid-green-cyan-color{color: var(--wp--preset--color--vivid-green-cyan) !important;}.has-pale-cyan-blue-color{color: var(--wp--preset--color--pale-cyan-blue) !important;}.has-vivid-cyan-blue-color{color: var(--wp--preset--color--vivid-cyan-blue) !important;}.has-vivid-purple-color{color: var(--wp--preset--color--vivid-purple) !important;}.has-black-background-color{background-color: var(--wp--preset--color--black) !important;}.has-cyan-bluish-gray-background-color{background-color: var(--wp--preset--color--cyan-bluish-gray) !important;}.has-white-background-color{background-color: var(--wp--preset--color--white) !important;}.has-pale-pink-background-color{background-color: var(--wp--preset--color--pale-pink) !important;}.has-vivid-red-background-color{background-color: var(--wp--preset--color--vivid-red) !important;}.has-luminous-vivid-orange-background-color{background-color: var(--wp--preset--color--luminous-vivid-orange) !important;}.has-luminous-vivid-amber-background-color{background-color: var(--wp--preset--color--luminous-vivid-amber) !important;}.has-light-green-cyan-background-color{background-color: var(--wp--preset--color--light-green-cyan) !important;}.has-vivid-green-cyan-background-color{background-color: var(--wp--preset--color--vivid-green-cyan) !important;}.has-pale-cyan-blue-background-color{background-color: var(--wp--preset--color--pale-cyan-blue) !important;}.has-vivid-cyan-blue-background-color{background-color: var(--wp--preset--color--vivid-cyan-blue) !important;}.has-vivid-purple-background-color{background-color: var(--wp--preset--color--vivid-purple) !important;}.has-black-border-color{border-color: var(--wp--preset--color--black) !important;}.has-cyan-bluish-gray-border-color{border-color: var(--wp--preset--color--cyan-bluish-gray) !important;}.has-white-border-color{border-color: var(--wp--preset--color--white) !important;}.has-pale-pink-border-color{border-color: var(--wp--preset--color--pale-pink) !important;}.has-vivid-red-border-color{border-color: var(--wp--preset--color--vivid-red) !important;}.has-luminous-vivid-orange-border-color{border-color: var(--wp--preset--color--luminous-vivid-orange) !important;}.has-luminous-vivid-amber-border-color{border-color: var(--wp--preset--color--luminous-vivid-amber) !important;}.has-light-green-cyan-border-color{border-color: var(--wp--preset--color--light-green-cyan) !important;}.has-vivid-green-cyan-border-color{border-color: var(--wp--preset--color--vivid-green-cyan) !important;}.has-pale-cyan-blue-border-color{border-color: var(--wp--preset--color--pale-cyan-blue) !important;}.has-vivid-cyan-blue-border-color{border-color: var(--wp--preset--color--vivid-cyan-blue) !important;}.has-vivid-purple-border-color{border-color: var(--wp--preset--color--vivid-purple) !important;}.has-vivid-cyan-blue-to-vivid-purple-gradient-background{background: var(--wp--preset--gradient--vivid-cyan-blue-to-vivid-purple) !important;}.has-light-green-cyan-to-vivid-green-cyan-gradient-background{background: var(--wp--preset--gradient--light-green-cyan-to-vivid-green-cyan) !important;}.has-luminous-vivid-amber-to-luminous-vivid-orange-gradient-background{background: var(--wp--preset--gradient--luminous-vivid-amber-to-luminous-vivid-orange) !important;}.has-luminous-vivid-orange-to-vivid-red-gradient-background{background: var(--wp--preset--gradient--luminous-vivid-orange-to-vivid-red) !important;}.has-very-light-gray-to-cyan-bluish-gray-gradient-background{background: var(--wp--preset--gradient--very-light-gray-to-cyan-bluish-gray) !important;}.has-cool-to-warm-spectrum-gradient-background{background: var(--wp--preset--gradient--cool-to-warm-spectrum) !important;}.has-blush-light-purple-gradient-background{background: var(--wp--preset--gradient--blush-light-purple) !important;}.has-blush-bordeaux-gradient-background{background: var(--wp--preset--gradient--blush-bordeaux) !important;}.has-luminous-dusk-gradient-background{background: var(--wp--preset--gradient--luminous-dusk) !important;}.has-pale-ocean-gradient-background{background: var(--wp--preset--gradient--pale-ocean) !important;}.has-electric-grass-gradient-background{background: var(--wp--preset--gradient--electric-grass) !important;}.has-midnight-gradient-background{background: var(--wp--preset--gradient--midnight) !important;}.has-small-font-size{font-size: var(--wp--preset--font-size--small) !important;}.has-medium-font-size{font-size: var(--wp--preset--font-size--medium) !important;}.has-large-font-size{font-size: var(--wp--preset--font-size--large) !important;}.has-x-large-font-size{font-size: var(--wp--preset--font-size--x-large) !important;}\n</style>\n<link rel='stylesheet' id='font-awesome-css'  href='https://use.fontawesome.com/releases/v6.4.2/css/all.css?ver=5.9.4' type='text/css' media='all' />\n<link rel='stylesheet' id='animatecss-css'  href='https://federalnewsnetwork.com/wp-content/themes/wfed/assets/vendor/animate.min.css' type='text/css' media='all' />\n<link rel='stylesheet' id='slick-css'  href='https://federalnewsnetwork.com/wp-content/themes/wfed/assets/vendor/slick.js/slick/slick.min.css?ver=1.8.1' type='text/css' media='all' />\n<link rel='stylesheet' id='slick-theme-css'  href='https://federalnewsnetwork.com/wp-content/themes/wfed/assets/vendor/slick.js/slick/slick-theme.min.css?ver=1.8.1' type='text/css' media='all' />\n<link rel='stylesheet' id='site-css-css'  href='https://federalnewsnetwork.com/wp-content/themes/wfed/assets/css/site.min.css?publish=1791396741' type='text/css' media='all' />\n<link rel='stylesheet' id='featured_landing_style-css'  href='https://federalnewsnetwork.com/wp-content/themes/wfed/assets/css/featured_landing_cio.min.css?ver=5.9.4' type='text/css' media='all' />\n\n\t\t<!-- Media Trade Craft  -->\n\t\t<link rel=\"preconnect\" href=\"https://01.cdn.mediatradecraft.com/\" crossorigin=\"\"/>\n\t\t<link rel=\"dns-prefetch\" href=\"https://01.cdn.mediatradecraft.com/\"/>\n\t\t<link rel=\"preconnect\" href=\"https://securepubads.g.doubleclick.net/\" crossorigin=\"\"/>\n\t\t<link rel=\"dns-prefetch\" href=\"https://securepubads.g.doubleclick.net/\"/>\n\t\t<link rel=\"preconnect\" href=\"https://c.amazon-adsystem.com/\" crossorigin=\"\"/>\n\t\t<link rel=\"dns-prefetch\" href=\"https://c.amazon-adsystem.com/\"/>\n\t\t<link rel=\"preconnect\" href=\"https://micro.rubiconproject.com/\" crossorigin=\"\"/>\n\t\t<link rel=\"dns-prefetch\" href=\"https://micro.rubiconproject.com/\"/>\n\t\t\n\t\t<script src=\"https://c.amazon-adsystem.com/aax2/apstag.js\" async=\"true\"></script>\n\t\t<script src=\"https://securepubads.g.doubleclick.net/tag/js/gpt.js\" async=\"true\"></script>\n\t\t<script src=\"https://01.cdn.mediatradecraft.com/federal-news-network/main/main.js?template=article\" async=\"true\"></script>\n\t\t<link href=\"https://01.cdn.mediatradecraft.com/federal-news-network/main/main.css\" media=\"print\" onload=\"this.media='all'\" rel=\"stylesheet\"/>\n\t\t<!-- // Media Trade Craft -->\n\n\t\t<meta name=\"sentry-trace\" content=\"431078a634ab40029db65457aa41fc74-8f49b67b02824b33-0\" />\n<meta name=\"traceparent\" content=\"\" />\n<meta name=\"baggage\" content=\"sentry-trace_id=431078a634ab40029db65457aa41fc74,sentry-sample_rate=0.1,sentry-transaction=%2F%7Bprimary%7D%2F%7Byear%7D%2F%7Bmonthnum%7D%2F%7Bname%7D,sentry-public_key=fc2b7c33fe25162d4212e409bac6c1c4,sentry-org_id=4509877757870080,sentry-release=0.0.1,sentry-environment=fnn-prod,sentry-sampled=false,sentry-sample_rand=0.129829\" />\n\t\t<!-- Google Analytics -->\n        <!-- style>.async-hide { opacity: 0 !important} </style -->\n        <script>(function(a,s,y,n,c,h,i,d,e){s.className+=' '+y;h.start=1*new Date;\n        h.end=i=function(){s.className=s.className.replace(RegExp(' ?'+y),'')};\n        (a[n]=a[n]||[]).hide=h;setTimeout(function(){i();h.end=null},c);h.timeout=c;\n        })(window,document.documentElement,'async-hide','dataLayer',4000,\n        {'GTM-5XPNMPL':true});</script>\n                \n\t\t<script>\n\t\t\t(function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){\n\t\t\t(i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),\n\t\t\tm=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)\n\t\t\t})(window,document,'script','//www.google-analytics.com/analytics.js','ga');\n\n\t\t\tga('create', 'UA-23103174-12', 'auto');\n\t\t                    ga('set', 'dimension1', 'Technology');\n\t\t                 \n                \t\t\tga('set', 'dimension3', 'Jory Heckman');\n\t\t                    ga('require', 'GTM-5XPNMPL');\n                    ga('send', 'pageview');\n\t\t</script>\n\t\t<!-- /Google Analytics -->\n\t\t<script src=\"/advertisement.js\" async></script>\n        <!-- Global site tag (gtag.js) - Google Analytics -->\n        <!-- This is GA4 -->\n        <script async src=\"https://www.googletagmanager.com/gtag/js?id=G-YKMVVP74E9\"></script>\n        <script>\n            window.dataLayer = window.dataLayer || [];\n\t\t\twindow.dataLayer.push({\n\t\t\t\t'author' : 'Jory Heckman',\n\t\t\t\t'mainAuthorID' : '27',\n\t\t\t\t'allAuthorIDs' : ''\n\t\t\t});\n\n            function gtag(){dataLayer.push(arguments);}\n            gtag('js', new Date());\n\n            gtag('config', 'G-YKMVVP74E9');\n        </script>\n        <!-- End GA4 code -->\n\t\t\t\t<!-- Google Tag Manager -->\n\t\t<noscript><iframe src=\"//www.googletagmanager.com/ns.html?id=GTM-TZGJTC\"\n\t\theight=\"0\" width=\"0\" style=\"display:none;visibility:hidden\"></iframe></noscript>\n\t\t<script>(function(w,d,s,l,i){w[l]=w[l]||[];w[l].push({'gtm.start':\n\t\tnew Date().getTime(),event:'gtm.js'});var f=d.getElementsByTagName(s)[0],\n\t\tj=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=\n\t\t'//www.googletagmanager.com/gtm.js?id='+i+dl;f.parentNode.insertBefore(j,f);\n\t\t})(window,document,'script','dataLayer','GTM-TZGJTC');</script>\n\t\t<!-- End Google Tag Manager -->\n\t\t<script type='text/javascript' src='//ajax.aspnetcdn.com/ajax/jquery/jquery-1.11.2.min.js' id='jquery-js'></script>\n\n        <script>\n        // Fallback to loading jQuery from a local path if the CDN is unavailable\n        (window.jQuery || document.write('<scr'+'ipt src=\"https://federalnewsnetwork.com/wp-content/themes/wfed/assets/vendor/jquery/dist/jquery.min.js\"></sc'+'ript>'));\n        </script><script type='text/javascript' id='wfed_alternate_headlines-js-before'>\nvar alternative_headlines_json = \"https://federalnewsnetwork.com/wp-content/uploads/alternative_headlines.txt\";\r\nvar locked_impression_path = \"https://federalnewsnetwork.com/wp-content/uploads/alt-headlines-lock-impression.txt\";\r\n</script>\n<script type='text/javascript' src='https://federalnewsnetwork.com/wp-content/themes/wfed/assets/js/dist/alternative_headlines.min.js?ver=0.5.9' id='wfed_alternate_headlines-js'></script>\n<script type='text/javascript' src='https://federalnewsnetwork.com/wp-includes/js/dist/vendor/lodash.min.js?ver=4.17.19' id='lodash-js'></script>\n<script type='text/javascript' id='lodash-js-after'>\nwindow.lodash = _.noConflict();\n</script>\n<script type='text/javascript' src='https://federalnewsnetwork.com/wp-content/themes/wfed/assets/vendor/modernizr/modernizr-custom.js?ver=1791396741' id='modernizr-js'></script>\n<script type='text/javascript' src='https://federalnewsnetwork.com/wp-content/themes/wfed/assets/vendor/fastclick/lib/fastclick.min.js?ver=1791396741' id='fastclick-js'></script>\n<script type='text/javascript' src='https://federalnewsnetwork.com/wp-content/themes/wfed/assets/vendor/foundation/js/foundation/foundation.min.js?ver=1791396741' id='foundation-core-js'></script>\n<script type='text/javascript' id='site-2017-js-extra'>\n/* <![CDATA[ */\nvar wfed_options = {\"read_more_mobile\":\"\"};\nvar ajax_object = {\"ajaxurl\":\"https:\\/\\/federalnewsnetwork.com\\/wp-admin\\/admin-ajax.php\",\"custom_ajaxurl\":\"https:\\/\\/federalnewsnetwork.com\\/wp-content\\/themes\\/wfed\\/custom-ajax.php\"};\n/* ]]> */\n</script>\n<script type='text/javascript' src='https://federalnewsnetwork.com/wp-content/themes/wfed/assets/js/dist/site.min.js?ver=1791396741' id='site-2017-js'></script>\n<script type='text/javascript' src='https://federalnewsnetwork.com/wp-content/themes/wfed/assets/js/dist/sticky.control.min.js?publish=05-21-2018&#038;ver=5.9.4' id='site-sticky-js'></script>\n<script type='text/javascript' src='https://federalnewsnetwork.com/wp-content/themes/wfed/assets/js/dist/fnn_api.min.js?ver=1791396741' id='fnn-api-js'></script>\n<script type='text/javascript' id='DFPLIGHT-js-extra'>\n/* <![CDATA[ */\nvar DFP_ad_slots = \"[{\\\"name\\\":\\\"fnn_header_banner\\\",\\\"sizes\\\":\\\"[[970, 90], [728, 90], [468, 60], [320, 50]]\\\",\\\"id\\\":\\\"DFP_slot_fnn_header_banner_1\\\",\\\"sizeMapping\\\":{\\\"[990, 200]\\\":\\\"[[970, 90], [728, 90]]\\\",\\\"[768, 200]\\\":\\\"[[728, 90], [468, 60]]\\\",\\\"[500, 200]\\\":\\\"[[468, 60]]\\\",\\\"[0, 0]\\\":\\\"[[320, 50]]\\\"},\\\"extra\\\":false,\\\"outofpage\\\":false,\\\"companion\\\":false,\\\"expandedSize\\\":false,\\\"transition\\\":false,\\\"avoidRender\\\":false},{\\\"name\\\":\\\"fnn_article\\\",\\\"sizes\\\":\\\"[300, 250]\\\",\\\"id\\\":\\\"DFP_slot_fnn_article_1\\\",\\\"sizeMapping\\\":false,\\\"extra\\\":false,\\\"outofpage\\\":false,\\\"companion\\\":false,\\\"expandedSize\\\":false,\\\"transition\\\":false,\\\"avoidRender\\\":false},{\\\"name\\\":\\\"fnn_footer_banner\\\",\\\"sizes\\\":\\\"[[728, 90], [468, 60], [320, 50]]\\\",\\\"id\\\":\\\"DFP_slot_fnn_footer_banner_1\\\",\\\"sizeMapping\\\":{\\\"[981, 200]\\\":\\\"[[728, 90]]\\\",\\\"[768, 200]\\\":\\\"[[728, 90], [468, 60]]\\\",\\\"[0, 0]\\\":\\\"[]\\\"},\\\"extra\\\":false,\\\"outofpage\\\":false,\\\"companion\\\":false,\\\"expandedSize\\\":false,\\\"transition\\\":false,\\\"avoidRender\\\":false},{\\\"name\\\":\\\"fnn_footer_mobile\\\",\\\"sizes\\\":\\\"[320, 50]\\\",\\\"id\\\":\\\"DFP_slot_fnn_footer_mobile_1\\\",\\\"sizeMapping\\\":{\\\"[768, 200]\\\":\\\"[]\\\",\\\"[0, 0]\\\":\\\"[[320,50]]\\\"},\\\"extra\\\":false,\\\"outofpage\\\":false,\\\"companion\\\":false,\\\"expandedSize\\\":false,\\\"transition\\\":false,\\\"avoidRender\\\":false},{\\\"name\\\":\\\"fnn_hover\\\",\\\"sizes\\\":\\\"[1, 1]\\\",\\\"id\\\":\\\"DFP_slot_fnn_hover_1\\\",\\\"sizeMapping\\\":{\\\"[768, 200]\\\":\\\"[1, 1]\\\",\\\"[0, 0]\\\":\\\"[]\\\"},\\\"extra\\\":false,\\\"outofpage\\\":true,\\\"companion\\\":false,\\\"expandedSize\\\":false,\\\"transition\\\":false,\\\"avoidRender\\\":false},{\\\"name\\\":\\\"fnn_in-article_desktop_1\\\",\\\"sizes\\\":\\\"[[620,250], [300, 250]]\\\",\\\"id\\\":\\\"DFP_slot_fnn_in-article_desktop_1_1\\\",\\\"sizeMapping\\\":{\\\"[1025, 200]\\\":\\\"[[620,250], [300, 250]]\\\",\\\"[0, 0]\\\":\\\"[[300, 250]]\\\"},\\\"extra\\\":false,\\\"outofpage\\\":false,\\\"companion\\\":false,\\\"expandedSize\\\":false,\\\"transition\\\":false,\\\"avoidRender\\\":false},{\\\"name\\\":\\\"fnn_in-article_desktop_2\\\",\\\"sizes\\\":\\\"[[620,250], [300, 250]]\\\",\\\"id\\\":\\\"DFP_slot_fnn_in-article_desktop_2_1\\\",\\\"sizeMapping\\\":{\\\"[1025, 200]\\\":\\\"[[620,250], [300, 250]]\\\",\\\"[0, 0]\\\":\\\"[[300, 250]]\\\"},\\\"extra\\\":false,\\\"outofpage\\\":false,\\\"companion\\\":false,\\\"expandedSize\\\":false,\\\"transition\\\":false,\\\"avoidRender\\\":false},{\\\"name\\\":\\\"fnn_in-article_desktop_3\\\",\\\"sizes\\\":\\\"[[620,250], [300, 250]]\\\",\\\"id\\\":\\\"DFP_slot_fnn_in-article_desktop_3_1\\\",\\\"sizeMapping\\\":{\\\"[1025, 200]\\\":\\\"[[620,250], [300, 250]]\\\",\\\"[0, 0]\\\":\\\"[[300, 250]]\\\"},\\\"extra\\\":false,\\\"outofpage\\\":false,\\\"companion\\\":false,\\\"expandedSize\\\":false,\\\"transition\\\":false,\\\"avoidRender\\\":false},{\\\"name\\\":\\\"fnn_in-article_desktop_4\\\",\\\"sizes\\\":\\\"[[620,250], [300, 250]]\\\",\\\"id\\\":\\\"DFP_slot_fnn_in-article_desktop_4_1\\\",\\\"sizeMapping\\\":{\\\"[1025, 200]\\\":\\\"[[620,250], [300, 250]]\\\",\\\"[0, 0]\\\":\\\"[[300, 250]]\\\"},\\\"extra\\\":false,\\\"outofpage\\\":false,\\\"companion\\\":false,\\\"expandedSize\\\":false,\\\"transition\\\":false,\\\"avoidRender\\\":false},{\\\"name\\\":\\\"fnn_in-article_desktop_5\\\",\\\"sizes\\\":\\\"[[620,250], [300, 250]]\\\",\\\"id\\\":\\\"DFP_slot_fnn_in-article_desktop_5_1\\\",\\\"sizeMapping\\\":{\\\"[1025, 200]\\\":\\\"[[620,250], [300, 250]]\\\",\\\"[0, 0]\\\":\\\"[[300, 250]]\\\"},\\\"extra\\\":false,\\\"outofpage\\\":false,\\\"companion\\\":false,\\\"expandedSize\\\":false,\\\"transition\\\":false,\\\"avoidRender\\\":false},{\\\"name\\\":\\\"fnn_in-article_desktop_6\\\",\\\"sizes\\\":\\\"[[620,250], [300, 250]]\\\",\\\"id\\\":\\\"DFP_slot_fnn_in-article_desktop_6_1\\\",\\\"sizeMapping\\\":{\\\"[1025, 200]\\\":\\\"[[620,250], [300, 250]]\\\",\\\"[0, 0]\\\":\\\"[[300, 250]]\\\"},\\\"extra\\\":false,\\\"outofpage\\\":false,\\\"companion\\\":false,\\\"expandedSize\\\":false,\\\"transition\\\":false,\\\"avoidRender\\\":false},{\\\"name\\\":\\\"fnn_in-article_desktop_7\\\",\\\"sizes\\\":\\\"[[620,250], [300, 250]]\\\",\\\"id\\\":\\\"DFP_slot_fnn_in-article_desktop_7_1\\\",\\\"sizeMapping\\\":{\\\"[1025, 200]\\\":\\\"[[620,250], [300, 250]]\\\",\\\"[0, 0]\\\":\\\"[[300, 250]]\\\"},\\\"extra\\\":false,\\\"outofpage\\\":false,\\\"companion\\\":false,\\\"expandedSize\\\":false,\\\"transition\\\":false,\\\"avoidRender\\\":false},{\\\"name\\\":\\\"fnn_in-article_desktop_8\\\",\\\"sizes\\\":\\\"[[620,250], [300, 250]]\\\",\\\"id\\\":\\\"DFP_slot_fnn_in-article_desktop_8_1\\\",\\\"sizeMapping\\\":{\\\"[1025, 200]\\\":\\\"[[620,250], [300, 250]]\\\",\\\"[0, 0]\\\":\\\"[[300, 250]]\\\"},\\\"extra\\\":false,\\\"outofpage\\\":false,\\\"companion\\\":false,\\\"expandedSize\\\":false,\\\"transition\\\":false,\\\"avoidRender\\\":false},{\\\"name\\\":\\\"fnn_in-article_mobile_1\\\",\\\"sizes\\\":\\\"[[300, 250]]\\\",\\\"id\\\":\\\"DFP_slot_fnn_in-article_mobile_1_1\\\",\\\"sizeMapping\\\":{\\\"[1025, 0]\\\":\\\"[]\\\",\\\"[0, 0]\\\":\\\"[[300, 250]]\\\"},\\\"extra\\\":false,\\\"outofpage\\\":false,\\\"companion\\\":false,\\\"expandedSize\\\":false,\\\"transition\\\":false,\\\"avoidRender\\\":false},{\\\"name\\\":\\\"fnn_in-article_mobile_2\\\",\\\"sizes\\\":\\\"[[300, 250]]\\\",\\\"id\\\":\\\"DFP_slot_fnn_in-article_mobile_2_1\\\",\\\"sizeMapping\\\":{\\\"[1025, 0]\\\":\\\"[]\\\",\\\"[0, 0]\\\":\\\"[[300, 250]]\\\"},\\\"extra\\\":false,\\\"outofpage\\\":false,\\\"companion\\\":false,\\\"expandedSize\\\":false,\\\"transition\\\":false,\\\"avoidRender\\\":false},{\\\"name\\\":\\\"fnn_in-article_mobile_3\\\",\\\"sizes\\\":\\\"[[300, 250]]\\\",\\\"id\\\":\\\"DFP_slot_fnn_in-article_mobile_3_1\\\",\\\"sizeMapping\\\":{\\\"[1025, 0]\\\":\\\"[]\\\",\\\"[0, 0]\\\":\\\"[[300, 250]]\\\"},\\\"extra\\\":false,\\\"outofpage\\\":false,\\\"companion\\\":false,\\\"expandedSize\\\":false,\\\"transition\\\":false,\\\"avoidRender\\\":false},{\\\"name\\\":\\\"fnn_in-article_mobile_4\\\",\\\"sizes\\\":\\\"[[300, 250]]\\\",\\\"id\\\":\\\"DFP_slot_fnn_in-article_mobile_4_1\\\",\\\"sizeMapping\\\":{\\\"[1025, 0]\\\":\\\"[]\\\",\\\"[0, 0]\\\":\\\"[[300, 250]]\\\"},\\\"extra\\\":false,\\\"outofpage\\\":false,\\\"companion\\\":false,\\\"expandedSize\\\":false,\\\"transition\\\":false,\\\"avoidRender\\\":false},{\\\"name\\\":\\\"fnn_in-article_mobile_5\\\",\\\"sizes\\\":\\\"[[300, 250]]\\\",\\\"id\\\":\\\"DFP_slot_fnn_in-article_mobile_5_1\\\",\\\"sizeMapping\\\":{\\\"[1025, 0]\\\":\\\"[]\\\",\\\"[0, 0]\\\":\\\"[[300, 250]]\\\"},\\\"extra\\\":false,\\\"outofpage\\\":false,\\\"companion\\\":false,\\\"expandedSize\\\":false,\\\"transition\\\":false,\\\"avoidRender\\\":false},{\\\"name\\\":\\\"fnn_in-article_mobile_6\\\",\\\"sizes\\\":\\\"[[300, 250]]\\\",\\\"id\\\":\\\"DFP_slot_fnn_in-article_mobile_6_1\\\",\\\"sizeMapping\\\":{\\\"[1025, 0]\\\":\\\"[]\\\",\\\"[0, 0]\\\":\\\"[[300, 250]]\\\"},\\\"extra\\\":false,\\\"outofpage\\\":false,\\\"companion\\\":false,\\\"expandedSize\\\":false,\\\"transition\\\":false,\\\"avoidRender\\\":false},{\\\"name\\\":\\\"fnn_in-article_mobile_7\\\",\\\"sizes\\\":\\\"[[300, 250]]\\\",\\\"id\\\":\\\"DFP_slot_fnn_in-article_mobile_7_1\\\",\\\"sizeMapping\\\":{\\\"[1025, 0]\\\":\\\"[]\\\",\\\"[0, 0]\\\":\\\"[[300, 250]]\\\"},\\\"extra\\\":false,\\\"outofpage\\\":false,\\\"companion\\\":false,\\\"expandedSize\\\":false,\\\"transition\\\":false,\\\"avoidRender\\\":false},{\\\"name\\\":\\\"fnn_in-article_mobile_8\\\",\\\"sizes\\\":\\\"[[300, 250]]\\\",\\\"id\\\":\\\"DFP_slot_fnn_in-article_mobile_8_1\\\",\\\"sizeMapping\\\":{\\\"[1025, 0]\\\":\\\"[]\\\",\\\"[0, 0]\\\":\\\"[[300, 250]]\\\"},\\\"extra\\\":false,\\\"outofpage\\\":false,\\\"companion\\\":false,\\\"expandedSize\\\":false,\\\"transition\\\":false,\\\"avoidRender\\\":false},{\\\"name\\\":\\\"fnn_interstitial\\\",\\\"sizes\\\":\\\"[1, 1]\\\",\\\"id\\\":\\\"DFP_slot_fnn_interstitial_1\\\",\\\"sizeMapping\\\":{\\\"[768, 200]\\\":\\\"[1, 1]\\\",\\\"[0, 0]\\\":\\\"[]\\\"},\\\"extra\\\":false,\\\"outofpage\\\":true,\\\"companion\\\":false,\\\"expandedSize\\\":false,\\\"transition\\\":false,\\\"avoidRender\\\":false},{\\\"name\\\":\\\"fnn_mobile_interstitial\\\",\\\"sizes\\\":\\\"[1, 1]\\\",\\\"id\\\":\\\"DFP_slot_fnn_mobile_interstitial_1\\\",\\\"sizeMapping\\\":{\\\"[768, 200]\\\":\\\"[]\\\",\\\"[0, 0]\\\":\\\"[1, 1]\\\"},\\\"extra\\\":false,\\\"outofpage\\\":true,\\\"companion\\\":false,\\\"expandedSize\\\":false,\\\"transition\\\":false,\\\"avoidRender\\\":false},{\\\"name\\\":\\\"fnn_right_mobile\\\",\\\"sizes\\\":\\\"[300, 250]\\\",\\\"id\\\":\\\"DFP_slot_fnn_right_mobile_1\\\",\\\"sizeMapping\\\":{\\\"[768, 200]\\\":\\\"[]\\\",\\\"[0, 0]\\\":\\\"[[300, 250]]\\\"},\\\"extra\\\":false,\\\"outofpage\\\":false,\\\"companion\\\":false,\\\"expandedSize\\\":false,\\\"transition\\\":false,\\\"avoidRender\\\":false},{\\\"name\\\":\\\"fnn_right_mobile\\\",\\\"sizes\\\":\\\"[300, 250]\\\",\\\"id\\\":\\\"DFP_slot_fnn_right_mobile_2\\\",\\\"sizeMapping\\\":{\\\"[768, 200]\\\":\\\"[]\\\",\\\"[0, 0]\\\":\\\"[[300, 250]]\\\"},\\\"extra\\\":false,\\\"outofpage\\\":false,\\\"companion\\\":false,\\\"expandedSize\\\":false,\\\"transition\\\":false,\\\"avoidRender\\\":false},{\\\"name\\\":\\\"fnn_in_grid_1\\\",\\\"sizes\\\":\\\"[[980, 50], [970, 50], [728, 50], [320, 50]]\\\",\\\"id\\\":\\\"DFP_slot_fnn_in_grid_1_1\\\",\\\"sizeMapping\\\":{\\\"[1320, 200]\\\":\\\"[[980, 50], [970, 50]]\\\",\\\"[1000, 200]\\\":\\\"[[980, 50], [728, 50]]\\\",\\\"[0, 0]\\\":\\\"[[320, 50]]\\\"},\\\"extra\\\":false,\\\"outofpage\\\":false,\\\"companion\\\":false,\\\"expandedSize\\\":false,\\\"transition\\\":false,\\\"avoidRender\\\":false},{\\\"name\\\":\\\"fnn_in_grid_2\\\",\\\"sizes\\\":\\\"[[980, 50], [970, 50], [728, 50], [320, 50]]\\\",\\\"id\\\":\\\"DFP_slot_fnn_in_grid_2_1\\\",\\\"sizeMapping\\\":{\\\"[1320, 200]\\\":\\\"[[980, 50], [970, 50]]\\\",\\\"[1000, 200]\\\":\\\"[[980, 50], [728, 50]]\\\",\\\"[0, 0]\\\":\\\"[[320, 50]]\\\"},\\\"extra\\\":false,\\\"outofpage\\\":false,\\\"companion\\\":false,\\\"expandedSize\\\":false,\\\"transition\\\":false,\\\"avoidRender\\\":false}]\";\nvar DFP_custom_targeting = {\"is_front\":\"false\",\"is_archive\":\"false\",\"is_article\":\"true\",\"is_gallery\":\"false\",\"is_causey\":\"false\",\"is_page\":\"false\",\"is_search\":\"false\",\"is_author\":\"false\",\"is_podcast\":\"false\",\"is_dev\":\"false\",\"cme-event\":\"false\",\"disable_all_ads\":\"false\",\"disable_header_ad\":\"false\",\"disable_footer_ad\":\"false\",\"disable_right_rail_ads\":\"false\",\"disable_in_article_ads\":\"false\",\"slug\":\"bedrock-federal-data-sets-are-disappeari\",\"category\":[\"all-news\",\"big-data\",\"management\",\"technology-main\",\"workforce\"],\"tag\":[\"american-statistical-association\",\"bureau-of-labor-statistics\",\"census-bureau\",\"department-of-government-efficiency\",\"immigration-and-customs-enforcement\",\"irs\",\"mike-calabria\",\"nancy-potok\",\"national-center-for-education-statistics\",\"social-security-administration\"],\"source\":\"\",\"author\":[\"jory-heckman\"],\"sponsor\":\"\"};\n/* ]]> */\n</script>\n<script type='text/javascript' src='https://federalnewsnetwork.com/wp-content/plugins/dfp-custom-light/assets/js/dist/dfp-custom-light.min.js?ver=1.0.0' id='DFPLIGHT-js'></script>\n<link rel=\"https://api.w.org/\" href=\"https://federalnewsnetwork.com/wp-json/\" /><link rel=\"alternate\" type=\"application/json\" href=\"https://federalnewsnetwork.com/wp-json/wp/v2/posts/5738995\" /><link rel=\"alternate\" type=\"application/json+oembed\" href=\"https://federalnewsnetwork.com/wp-json/oembed/1.0/embed?url=https%3A%2F%2Ffederalnewsnetwork.com%2Fbig-data%2F2025%2F12%2Fbedrock-federal-data-sets-are-disappearing-as-statistical-agencies-face-upheaval%2F\" />\n<link rel=\"alternate\" type=\"text/xml+oembed\" href=\"https://federalnewsnetwork.com/wp-json/oembed/1.0/embed?url=https%3A%2F%2Ffederalnewsnetwork.com%2Fbig-data%2F2025%2F12%2Fbedrock-federal-data-sets-are-disappearing-as-statistical-agencies-face-upheaval%2F&#038;format=xml\" />\n<!-- Osano Cookies Consent Notice start for federalnewsnetwork.com -->\n\r\t<script src=\"https://cmp.osano.com/Azqe5XTmI42atAm9K/f0f9382e-1316-4418-a401-6e019dde5bab/osano.js\"></script>\n\n\t<!-- Osano Cookies Consent Notice end for federalnewsnetwork.com -->\n\r        <style>\n            body{\n                padding : 0px !important;\n            }\n\t\t\thtml.wp-toolbar{padding-top: 0px !important;}\n        </style>\n            <!--ZOOMINFO HEADER SCRIPT-->\n        <script>\n            (function () {\n                var zi = document.createElement('script');\n                zi.type = 'text/javascript';\n                zi.async = true;\n                zi.referrerPolicy = 'unsafe-url';\n                zi.src = 'https://ws.zoominfo.com/pixel/6245de97bd439e001c04bd1b';\n                var s = document.getElementsByTagName('script')[0];\n                s.parentNode.insertBefore(zi, s);\n            })();</script>\n        <!--ZOOMINFO HEADER SCRIPT END-->\n                <script type=\"application/ld+json\">\n            {\"@context\":\"http:\\/\\/schema.org\",\"@type\":\"NewsArticle\",\"mainEntityOfPage\":{\"@type\":\"WebPage\",\"@id\":\"https:\\/\\/federalnewsnetwork.com\\/big-data\\/2025\\/12\\/bedrock-federal-data-sets-are-disappearing-as-statistical-agencies-face-upheaval\\/\"},\"headline\":\"\\u2018Bedrock\\u2019 federal data sets are disappearing, as statistical agencies face upheaval\",\"url\":\"https:\\/\\/federalnewsnetwork.com\\/big-data\\/2025\\/12\\/bedrock-federal-data-sets-are-disappearing-as-statistical-agencies-face-upheaval\\/\",\"thumbnailUrl\":\"https:\\/\\/federalnewsnetwork.com\\/wp-content\\/uploads\\/2025\\/12\\/Maximus-data-ebook-cover-v2-e1764698965457-150x150.png\",\"image\":{\"@type\":\"ImageObject\",\"url\":\"https:\\/\\/federalnewsnetwork.com\\/wp-content\\/uploads\\/2025\\/12\\/Maximus-data-ebook-cover-v2-960x1254.png\",\"width\":960,\"height\":1254},\"dateCreated\":\"2025-12-10T21:58:06Z\",\"datePublished\":\"2025-12-10T21:58:06Z\",\"dateModified\":\"2026-02-17T21:34:15Z\",\"articleSection\":\"Big Data\",\"author\":[{\"@type\":\"Person\",\"name\":\"Jory Heckman\"}],\"creator\":[\"Jory Heckman\"],\"publisher\":{\"@type\":\"Organization\",\"name\":\"Federal News Network\",\"logo\":{\"@type\":\"ImageObject\",\"url\":\"https:\\/\\/federalnewsnetwork.com\\/wp-content\\/themes\\/wfed\\/assets\\/img\\/icons\\/logo.png\"}},\"keywords\":[\"american statistical association\",\"bureau of labor statistics\",\"census bureau\",\"department of government efficiency\",\"immigration and customs enforcement\",\"irs\",\"mike calabria\",\"nancy potok\",\"national center for education statistics\",\"social security administration\"],\"speakable\":{\"@type\":\"SpeakableSpecification\",\"cssSelector\":[\".schema-title\",\".schema-summary\"]}}\n        </script>\n        <link rel=\"alternate\" type=\"application/rss+xml\" title=\"Federal News Network &raquo; Feed\" href=\"https://federalnewsnetwork.com/feed/\" />\n<link rel=\"apple-touch-icon-precomposed\" sizes=\"57x57\"\n\thref=\"https://federalnewsnetwork.com/wp-content/themes/wfed/assets/img/favicons/apple-touch-icon-57x57.png\" />\n<link rel=\"apple-touch-icon-precomposed\" sizes=\"114x114\"\n\thref=\"https://federalnewsnetwork.com/wp-content/themes/wfed/assets/img/favicons/apple-touch-icon-114x114.png\" />\n<link rel=\"apple-touch-icon-precomposed\" sizes=\"72x72\"\n\thref=\"https://federalnewsnetwork.com/wp-content/themes/wfed/assets/img/favicons/apple-touch-icon-72x72.png\" />\n<link rel=\"apple-touch-icon-precomposed\" sizes=\"144x144\"\n\thref=\"https://federalnewsnetwork.com/wp-content/themes/wfed/assets/img/favicons/apple-touch-icon-144x144.png\" />\n<link rel=\"apple-touch-icon-precomposed\" sizes=\"60x60\"\n\thref=\"https://federalnewsnetwork.com/wp-content/themes/wfed/assets/img/favicons/apple-touch-icon-60x60.png\" />\n<link rel=\"apple-touch-icon-precomposed\" sizes=\"120x120\"\n\thref=\"https://federalnewsnetwork.com/wp-content/themes/wfed/assets/img/favicons/apple-touch-icon-120x120.png\" />\n<link rel=\"apple-touch-icon-precomposed\" sizes=\"76x76\"\n\thref=\"https://federalnewsnetwork.com/wp-content/themes/wfed/assets/img/favicons/apple-touch-icon-76x76.png\" />\n<link rel=\"apple-touch-icon-precomposed\" sizes=\"152x152\"\n\thref=\"https://federalnewsnetwork.com/wp-content/themes/wfed/assets/img/favicons/apple-touch-icon-152x152.png\" />\n<link rel=\"icon\" type=\"image/png\"\n\thref=\"https://federalnewsnetwork.com/wp-content/themes/wfed/assets/img/favicons/favicon-192x192.png\" sizes=\"192x192\" />\n<link rel=\"icon\" type=\"image/png\"\n\thref=\"https://federalnewsnetwork.com/wp-content/themes/wfed/assets/img/favicons/favicon-96x96.png\" sizes=\"96x96\" />\n<link rel=\"icon\" type=\"image/png\"\n\thref=\"https://federalnewsnetwork.com/wp-content/themes/wfed/assets/img/favicons/favicon-32x32.png\" sizes=\"32x32\" />\n<link rel=\"icon\" type=\"image/png\"\n\thref=\"https://federalnewsnetwork.com/wp-content/themes/wfed/assets/img/favicons/favicon-16x16.png\" sizes=\"16x16\" />\n<meta name=\"application-name\" content=\"FederalNewsNetwork.com\" />\n<meta name=\"msapplication-TileColor\" content=\"#FFFFFF\" />\n<meta name=\"msapplication-TileImage\"\n\tcontent=\"https://federalnewsnetwork.com/wp-content/themes/wfed/assets/img/favicons/mstile-144x144.png\" />\n<meta name=\"msapplication-square70x70logo\"\n\tcontent=\"https://federalnewsnetwork.com/wp-content/themes/wfed/assets/img/favicons/mstile-70x70.png\" />\n<meta name=\"msapplication-square150x150logo\"\n\tcontent=\"https://federalnewsnetwork.com/wp-content/themes/wfed/assets/img/favicons/mstile-150x150.png\" />\n<meta name=\"msapplication-wide310x150logo\"\n\tcontent=\"https://federalnewsnetwork.com/wp-content/themes/wfed/assets/img/favicons/mstile-310x150.png\" />\n<meta name=\"msapplication-square310x310logo\"\n\tcontent=\"https://federalnewsnetwork.com/wp-content/themes/wfed/assets/img/favicons/mstile-310x310.png\" />\n<link rel=\"icon\" href=\"https://federalnewsnetwork.com/wp-content/uploads/2017/12/cropped-icon-512x512-1-60x60.png\" sizes=\"32x32\" />\n<link rel=\"icon\" href=\"https://federalnewsnetwork.com/wp-content/uploads/2017/12/cropped-icon-512x512-1-200x200.png\" sizes=\"192x192\" />\n<link rel=\"apple-touch-icon\" href=\"https://federalnewsnetwork.com/wp-content/uploads/2017/12/cropped-icon-512x512-1-200x200.png\" />\n<meta name=\"msapplication-TileImage\" content=\"https://federalnewsnetwork.com/wp-content/uploads/2017/12/cropped-icon-512x512-1-300x300.png\" />\n\n    \n                <script async defer crossorigin=\"anonymous\" src=\"https://connect.facebook.net/en_US/sdk.js#xfbml=1&version=v8.0&appId=228478281369433&autoLogAppEvents=1\" nonce=\"n09D3zOr\"></script>\n    </head>\n\n<body class=\"post-template-default single single-post postid-5738995 single-format-standard \">\n\n    <!-- Audio tracking -->\n    \n    <header class=\"header\">\n        <div class=\"desktop-width\">\n                                <div class=\"ad__h90 ad__align\">\n                        <div id=\"top-banner\" class=\"ad__h90-inner\"></div>\n                    </div>\n                                        <div class=\"header-main\">\n\n                <div class=\"header-main-logo\">\n                    <figure>\n                        <!-- <img src=\"/wp-content/themes/wfed/assets/img/logos/fnn-logo-hor.png\" alt=\"Federal News Network Main logo\" /> -->\n                        <a href=\"https://federalnewsnetwork.com\" title=\"Federal News Network\">\n                            <img src=\"https://federalnewsnetwork.com/wp-content/themes/wfed/assets/img/fnn-logo.svg\" alt=\"Federal News Network\" width=\"240\" height=\"40\" style=\"filter: brightness(0) invert(1);\">\n                        </a>\n                    </figure>\n\n\n                </div>\n                <style>\n                    .mega-menu-content {\n                        display: flex;\n                        justify-content: space-between;\n                        background: #f1f1f1;\n                        padding: 20px;\n                    }\n\n                    .mega-menu-row {\n                        display: flex;\n                        width: 100%;\n                    }\n\n                    .sub-menu-container {\n                        width: 25%;\n                        /* Adjust based on your design */\n                    }\n                </style>\n                <div class=\"header-main-horizontal-nav\">\n                    <nav class=\"mega-menu-2024\">\n    <div class=\"mega-menu-2024-collapse\">\n        <ul class=\"mega-menu-2024-nav\">\n                        <!-- \n                            -->\n            <li>\n                <a href=\"https://federalnewsnetwork.com/category/technology-main/?utm_source=topmenu&utm_medium=web&utm_content=menu_item&utm_campaign=recirculation&utm_term=Technology\" class=\"mega-menu-2024-menu-link\">\n                    Technology                    \n                     \n                        <span class=\"mega-menu-2024-drop-icon\">\n                            <i class=\"fas fa-chevron-down\"></i>\n                        </span>\n                                    </a>\n                 \n                <div class=\"mega-menu-2024-sub-menu\">                   \n                    <div class=\"mega-menu-2024-sub-menu-item\">\n                        <a href=\"https://federalnewsnetwork.com/artificial-intelligence/2026/09/amid-ai-hype-cyber-officials-urge-focus-on-fundamentals/?utm_source=megamenu&utm_medium=web&utm_content=pin&utm_term=technology-main\">                            \n                            <img src=\"https://federalnewsnetwork.com/wp-content/uploads/2024/08/lightbulb-AI-300x200.jpg\" alt=\"Image for Amid AI acceleration, cyber officials urge focus on \u2018fundamentals\u2019\"> \n                            <div class=\"promotional_headline\">Amid AI acceleration, cyber officials urge focus on \u2018fundamentals\u2019</div>       \n                            <div class=\"promotional_cta\">Read now<i class=\"fas fa-arrow-right\"></i></div>             \n                        </a>\n                    </div>\n                                                <div class=\"mega-menu-2024-sub-menu-item\">\n                                <h4><a href='#'>Topics</a></h4><ul>                        <li>\n                                                        <a href=\"https://federalnewsnetwork.com/category/technology-main/artificial-intelligence/?utm_source=megamenu&utm_medium=web&utm_content=menu_item&utm_campaign=recirculation&utm_term=technology\">\n                                                Artificial Intelligence                            </a>\n                        </li>\n                                                <li>\n                                                        <a href=\"https://federalnewsnetwork.com/category/technology-main/big-data/?utm_source=megamenu&utm_medium=web&utm_content=menu_item&utm_campaign=recirculation&utm_term=technology\">\n                                                Big Data            ",
+          "title": "\u2018Bedrock\u2019 federal data sets are disappearing, as statistical agencies face upheaval - Federal News Network",
+          "httpStatus": 200
+        }
+      ],
+      "ended": "answered",
+      "seconds": 167.6
+    },
+    "session_metadata": {
+      "request": {
+        "model": "z-ai/glm-5.3",
+        "max_output_tokens": 32768,
+        "tools": [
+          {
+            "type": "openrouter:web_search",
+            "parameters": {
+              "engine": "exa",
+              "max_results": 10,
+              "excluded_domains": [
+                "dataindex.us"
+              ]
+            }
+          },
+          {
+            "type": "openrouter:web_fetch",
+            "parameters": {
+              "engine": "openrouter",
+              "blocked_domains": [
+                "dataindex.us"
+              ],
+              "max_content_tokens": 10000
+            }
+          }
+        ],
+        "cache_control": {
+          "type": "ephemeral",
+          "ttl": "1h"
+        },
+        "session_id": "rhfs-z-ai/glm-5.3-t0-2026-10-09T01:19:40Z",
+        "stop_server_tools_when": [
+          {
+            "type": "step_count_is",
+            "step_count": 200
+          }
+        ],
+        "reasoning": {
+          "effort": "high"
+        },
+        "provider": {
+          "order": [
+            "z-ai"
+          ],
+          "allow_fallbacks": false
+        }
+      },
+      "response_meta": {
+        "id": "gen-1791509022-HHKBYmR0jdOKxsJYzk92",
+        "object": "response",
+        "created_at": 1791509022,
+        "model": "z-ai/glm-5.3",
+        "status": "completed",
+        "completed_at": 1791509034,
+        "error": null,
+        "incomplete_details": null,
+        "tools": [],
+        "tool_choice": "auto",
+        "parallel_tool_calls": true,
+        "max_output_tokens": 32768,
+        "temperature": 1,
+        "top_p": 1,
+        "presence_penalty": 0,
+        "frequency_penalty": 0,
+        "top_logprobs": 0,
+        "max_tool_calls": null,
+        "metadata": {},
+        "background": false,
+        "previous_response_id": null,
+        "service_tier": "auto",
+        "truncation": "disabled",
+        "store": false,
+        "instructions": null,
+        "text": {
+          "format": {
+            "type": "text"
+          }
+        },
+        "reasoning": {
+          "effort": "high"
+        },
+        "safety_identifier": null,
+        "prompt_cache_key": null,
+        "prompt_cache_options": null,
+        "usage": {
+          "input_tokens": 35987,
+          "input_tokens_details": {
+            "cached_tokens": 9472
+          },
+          "output_tokens": 425,
+          "output_tokens_details": {
+            "reasoning_tokens": 92
+          },
+          "total_tokens": 36412,
+          "cost": 0.04145372,
+          "cost_details": {
+            "upstream_inference_cost": 0.04145372,
+            "upstream_inference_input_cost": 0.03958372,
+            "upstream_inference_output_cost": 0.00187
+          }
+        }
+      },
+      "requests": [
+        {
+          "input_tokens": 35987,
+          "input_tokens_details": {
+            "cached_tokens": 9472
+          },
+          "output_tokens": 425,
+          "output_tokens_details": {
+            "reasoning_tokens": 92
+          },
+          "total_tokens": 36412,
+          "cost": 0.04145372,
+          "cost_details": {
+            "upstream_inference_cost": 0.04145372,
+            "upstream_inference_input_cost": 0.03958372,
+            "upstream_inference_output_cost": 0.00187
+          }
+        }
+      ],
+      "searches": 0,
+      "fetches": 0,
+      "tool_items": [],
+      "ended": "answered",
+      "seconds": 12.8
+    }
+  },
+  "messages": [
+    {
+      "role": "user",
+      "content": "#data research\nI am researching a federal dataset. Find out everything you can about this dataset, such as who publishes it, under what authority or mandate, its history, its typical users, and its benefits to the public. Be sure your research comprehensively covers each of those perspectives, as well as any others that you discover or seem useful. I believe this is accurate information, but please check:\n\nDataset title: Rental Housing Finance Survey (RHFS)\nDescription: The Rental Housing Finance Survey (RHFS) provides a current and continuous measure of financial, mortgage, and property characteristics of rental housing properties in the United States. The survey focuses on the financing of rental housing properties, with emphasis on new mortgages, refinanced mortgages, or similar devices such as deeds of trust or land contracts, and the characteristics of debt originations. RHFS included single-family residential and multifamily residential properties with at least one housing unit intended for rent.\n\nReturn a complete report on everything that a preservationist, data librarian, data scientist, or policy activist might want to know about this data."
+    },
+    {
+      "role": "assistant",
+      "content": "# Rental Housing Finance Survey (RHFS): Comprehensive Dataset Report\n\n## 1. Overview and Description\n\nThe Rental Housing Finance Survey (RHFS) provides a current and continuous measure of the financial, mortgage, and property characteristics of rental housing properties in the United States. Its core focus is the **financing of rental housing properties** \u2014 with emphasis on new mortgages, refinanced mortgages, and similar debt instruments (deeds of trust, land contracts, HELOCs, home equity loans) and the characteristics of debt originations. Since 2015, the survey has covered both **single-family and multifamily residential properties with at least one housing unit intended for rent** (the 2012 inaugural wave covered multifamily properties only).\n\nThe description supplied in your research prompt is accurate and matches the Census Bureau's official characterization nearly verbatim.\n\n**Data collected includes:**\n- Property characteristics: value, purchase price, year built, year acquired, number of buildings/units, amenities, and recent capital improvements and upgrades\n- Rental status and monthly rents\n- Commercial use of space within residential structures\n- Property management status\n- Ownership status and ownership type (individual investors, LLCs, partnerships, trusts, etc.)\n- Benefits received from federal, state, local, and non-governmental programs (e.g., LIHTC, housing vouchers, other subsidies)\n- Mortgage/debt characteristics: number of debts on the property, original and outstanding loan amounts, interest rates, payment frequency, and origination details\n- Rental income and operating expenses (and, beginning with the 2027 wave, new categories including natural-disaster-related costs and eviction data)\n\n## 2. Publishers and Governance\n\nThe RHFS is a **sponsored survey, jointly operated by two federal agencies**:\n\n- **U.S. Department of Housing and Urban Development (HUD)** \u2014 the sponsor and funder. HUD's Office of Policy Development and Research (PD&R) manages the survey, and data are distributed through **HUD USER** (huduser.gov) as well as being cataloged on Data.gov (identifier HUD180).\n- **U.S. Census Bureau** \u2014 the data collection agent. The Census Bureau fielded the survey, processes the data, and publishes summary tables, microdata, methodology, and the Table Creator tool at census.gov/programs-surveys/rhfs.html.\n\n## 3. Legal Authority and Mandate\n\nThe survey rests on explicit statutory authorities and is subject to the Paperwork Reduction Act process:\n\n- **HUD authority:** Title 12, U.S.C., Sections **1701z-1, 1701z-2(g), and 1701z-10a** (sections governing HUD's research, demonstration, and data activities under the Housing and Urban Development Act).\n- **Census Bureau authority:** Title 13, U.S.C., **Section 8** (and Section 8b, which permits collection on behalf of other federal agencies). Title 13, U.S.C., **Section 9** mandates strict confidentiality of all responses; data are additionally protected under the **Federal Cybersecurity Enhancement Act of 2015**.\n- **Paperwork Reduction Act:** Each wave requires OMB clearance under **OMB Control No. 2528-0276**, following the standard 60-day and 30-day Federal Register notice process. Participation is **voluntary**.\n\n## 4. History\n\n- **Deep roots (1960\u20132001):** Rental housing finance data were historically collected through the **decennial Residential Finance Survey (RFS)**, conducted after each census from 1960 through 2000 (the 2001 RFS being the last). Replicating the RFS in 2011 was estimated at over $20 million, prompting a redesign.\n- **Design phase (2007\u20132011):** HUD, Freddie Mac, Fannie Mae, and the Census Bureau began work in 2007 on a scaled-back, rental-only successor. Funding was requested in FY2010\u20132011.\n- **2012 (first RHFS):** Multifamily rental properties only; conducted as an all-personal-visit operation with paper questionnaires. Revised estimates were issued in 2014 (a well-known \"Primer on Revised Estimates\" documents weight corrections for properties spanning multiple strata). A Pittsburgh-area supplemental summary was also produced.\n- **2015:** Single-family rentals added; paper questionnaires eliminated in favor of an internet-based instrument, with mail invitations, telephone follow-up, and in-person follow-up. Sample drawn from the 2013 American Housing Survey (AHS) plus Master Address File extracts (~10,257 properties).\n- **2018:** First wave using a single frame based on a **subset of the 2017 AHS sample** (the redesigned 2015 AHS sample) \u2014 the Census Bureau explicitly warns this makes 2015\u21942018 comparisons difficult.\n- **2021:** Two-phase collection (June\u2013November 2021, reference period calendar year 2020), using the Census Bureau Respondent Portal for self-response. Sample of 11,510; ~6,219 eligible cases. Estimates: **19.3 million rental properties containing 49.5 million rental units**.\n- **2024:** Collected June\u2013November 2024 (reference period 2023) from a subsample of the 2021 AHS. Sample of 11,500 across five building-size strata (1 unit; 2\u20134; 5\u201324; 25\u201349; 50+), yielding **4,425 completed interviews**. 2024 PUF released February 19, 2026.\n- **2027 (planned):** The next wave, per the September 2026 Federal Register notice, will add questions on multi-property owner portfolios, natural-disaster-related maintenance and capital costs, and **evictions and the eviction process**.\n\nThe cadence has been roughly every three years (2012, 2015, 2018, 2021, 2024, planned 2027), with HUD noting the schedule can shift with budget constraints.\n\n## 5. Methodology (Data Scientist's Perspective)\n\n- **Sampling unit:** Buildings with at least one unit rented or vacant-for-rent; the **tabulation unit is the rental property** (and units within properties). The 2024 sample was drawn from rental units identified in the 2021 AHS, stratified by building size, with a stratified systematic sample sorted by region, state, urban/rural, county, and ZIP. Within-stratum rates targeted a 10% CV for national stratum-level estimates; the 25\u201349 unit stratum was selected with certainty.\n- **Weighting:** Final weights = basic weight (SMPWGT = AHS first-stage weight \u00d7 second-stage weight) \u00d7 property adjustment factor (PROP_ADJ, converting unit-level selection to whole-property probability) \u00d7 nonresponse adjustment (NR_ADJ) \u00d7 a rental-unit control factor benchmarked to the **2023 AHS** (PS_ADJ). Successive-multiplication design; ineligible units receive weight 0.\n- **Sample size caution:** With only ~4,400\u20134,500 completed property interviews, estimates are **national-level only**, with sizable margins of error, especially for detailed crosstabs and smaller strata (e.g., 1-unit properties).\n- **Comparability breaks:** The 2015\u21922018 redesign of the AHS-based frame, and frame changes each wave, mean trend analysis requires care. All differences reported in press materials are tested at the 90% confidence level.\n- **Documentation:** Full and abbreviated methodology reports, an items booklet (questionnaire), a glossary, codebooks, and disclosure/variance-estimation guidance are available at census.gov/programs-surveys/rhfs/technical-documentation.html.\n\n## 6. Data Products and Access (Data Librarian's Perspective)\n\n- **Summary tables:** Interactive **RHFS Table Creator** (census.gov/data-tools/demo/rhfs), plus downloadable national summary tables (Excel) for each year.\n- **Public Use Files (PUF):** Property-level microdata with codebooks, in **SAS and CSV formats**, released approximately 18 months after collection ends (fall release of tables; PUF typically December\u2013February).\n- **Census Data API:** Programmatic access at `api.census.gov/data/{year}/rhfs` for 2015, 2018, 2021, and 2024 (free API key required). The API serves aggregate estimates (e.g., total operational expenses per housing unit) rather than raw microdata.\n- **Restricted/Internal Use Files:** More detailed internal-use microdata exist (the codebook documents both PUF and IUF variables; some items like payment amounts are \"Not on PUF\"). Restricted access is possible through the federal research data infrastructure \u2014 ResearchDataGov lists RHFS as an available product, and access is typically via **Federal Statistical Research Data Centers (FSRDCs)**.\n- **Archival/citation:** The survey is cataloged on Data.gov (HUD180) and deposited with ICPSR with a DOI (doi.org/10.3886/e222161), facilitating citation and long-term archival access. Related instruments (1995 Property Owners and Managers Survey, 2001 RFS) provide historical continuity.\n- **Format caveat:** No license restrictions \u2014 as U.S. government works, the data are in the public domain.\n\n## 7. Typical Users and Uses\n\nPer the Federal Register notices and agency documentation, users include:\n\n- **Federal policymakers:** Policy analysts, program managers, budget analysts, and Congressional staff use RHFS results to advise the executive and legislative branches on rental mortgage finance and the suitability of policy initiatives.\n- **HUD itself:** The agency's stated need is that RHFS is \"the only source of information on rental housing finance characteristics\" and is used to \"evaluate, monitor, and design HUD programs,\" and to understand rental loan origination volumes, property characteristics, and operating costs/revenues.\n- **Academic researchers:** Particularly housing economists studying landlord behavior, ownership concentration, mortgage debt, and rental supply. The 2015 RHFS, for example, spurred research on institutional/corporate ownership of single-family rentals.\n- **Think tanks and policy organizations:** The Harvard Joint Center for Housing Studies relies on RHFS heavily in its flagship *America's Rental Housing* reports (ownership structure, debt burdens, small-property share); the Urban Institute, NYU Furman Center, Brookings, and the What Works Collaborative have used or called for expanded RHFS data in housing-finance research agendas.\n- **Industry and finance:** Lenders, GSEs (Fannie Mae and Freddie Mac were partners in the survey's design), and market analysts \u2014 the rental finance market is far more fragmented than the well-documented owner-occupied market served by HMDA and GSE data.\n- **Housing advocates and journalists:** The 2021 release generated wide press coverage (e.g., ALTA, trade media) on the share of small \"mom-and-pop\" landlords and rising leverage.\n\n## 8. Benefits to the Public\n\n- **Only comprehensive national picture of rental property finance:** Unlike owner-occupied mortgages (HMDA, GSE loan-level data), rental housing finance has no equivalent private or public data source \u2014 particularly for multifamily (2+ unit) properties and small landlords, who hold debt with banks, credit unions, and private parties that report nowhere else.\n- **Policy-relevant evidence base:** Guides rental housing policy, especially for populations of concern (seniors, low-income families); informs affordable housing preservation analysis (subsidy receipt, operating costs vs. rents, capital improvement spending).\n- **Benchmarks for the rental economy:** Median rents received, operating expenses ($380/unit/month in 2021), capital improvement spending, ownership type, and leverage benchmarks used by researchers, lenders, and local governments.\n- **Illustrative headline findings (2021 wave):** 19.3M properties/49.5M rental units; ~86% of rental properties contain just one unit; ~70% of rental properties owned by individual investors (38% of units); LLC/partnership ownership concentrated in 150+ unit properties (67%); median monthly rent $1,000 (up from $750 in 2018); median property value $175,000/unit; 41% of properties carried mortgage debt (up from 35% in 2018); 76% of owners made capital improvements in 2020.\n- **Free, public, reproducible data:** Public domain microdata, API, and table tools at no cost to users.\n\n## 9. Preservation and Policy-Activist Notes (Current Developments)\n\n- **September 9, 2025 \u2014 Request for Information (RFI):** HUD issued an RFI on \"Uses of Rental Housing Finance Survey Data,\" stating it is \"evaluating current needs\" and explicitly asking (1) what data the public uses, (2) **what concerns exist about reducing the scope of, or eliminating entirely, the RHFS**, (3) what content is obsolete or missing, (4) whether private-sector sources are comparable, and (5) other concerns. This signals a genuine possibility of scope reduction or discontinuation \u2014 a critical watch item for anyone who values this dataset. Public comments documenting uses and unmet needs are the standard advocacy channel for such RFIs.\n- **Counter-signal:** In September 2026, HUD published a 60-day notice for the **2027 RHFS**, including planned content expansions (multi-property portfolios, disaster costs, evictions), indicating the survey is proceeding \u2014 though budget constraints have historically shifted the schedule.\n- **Comparability and continuity risks:** Each wave's frame depends on the prior AHS sample; the 2012 estimates required revision; national-only geography limits subnational use; the ~3-year cycle and 18-month lag mean data age quickly in fast-moving markets.\n- **Confidentiality/preservation of microdata:** Title 13 confidentiality is robust but means the richest variables live only in restricted-access internal files; the PUF suppresses some detail (e.g., payment amounts).\n\n## 10. Key Links\n\n| Resource | URL |\n|---|---|\n| Census RHFS program page | census.gov/programs-surveys/rhfs.html |\n| About the survey (authority, history) | census.gov/programs-surveys/rhfs/about.html |\n| Technical documentation | census.gov/programs-surveys/rhfs/technical-documentation.html |\n| Methodology (2024) | www2.census.gov/programs-surveys/rhfs/Information/2024-Full-Methodology.pdf |\n| PUF & codebooks | census.gov/programs-surveys/rhfs/data/puf.html |\n| Table Creator | census.gov/data-tools/demo/rhfs |\n| Census API (2024) | api.census.gov/data/2024/rhfs |\n| HUD USER RHFS page | huduser.gov/portal/datasets/rhfs/home.html |\n| Data.gov catalog entry | catalog.data.gov/dataset/rental-housing-finance-survey |\n| ICPSR/DOI archive | doi.org/10.3886/e222161 |\n| 2021 findings press release | archives.hud.gov/news/2022/pr22-242.cfm |\n| 2025 RFI (Federal Register) | federalregister.gov/documents/2025/09/09/2025-17261 |\n| 2027 collection notice (Fed. Reg.) | federalregister.gov/documents/2026/09/25/2026-19651 |\n\n**Bottom line:** The RHFS is a small but uniquely valuable HUD-sponsored, Census Bureau\u2013collected survey \u2014 the only national source on how rental properties are owned, financed, and operated. Your description is accurate. Its main limitations are national-only geography, small sample sizes, frame-driven comparability breaks between waves, and a long production lag; its main current risk is the September 2025 HUD RFI openly contemplating scope reduction or elimination, against which the planned 2027 wave with expanded content (evictions, disaster costs, portfolio ownership) is a partial counterweight."
+    },
+    {
+      "role": "user",
+      "content": "# Dataset risk assessment\nI would like your help in assessing the likelihood that this data will be changed or removed from its primary location, and that users will no longer be able to access accurate and reliable copies of it, based on the rubric below.\n\n## Sources for context\nTo help assess the rubric categories, perform additional research on the data, the agency, the data's topics and typical users, covering topics such as proposed regulatory or funding changes, recent news, and political commentary. Use whatever resources you find useful, including the Federal Register (https://www.federalregister.gov) and the federal staffing tracker at https://usajobs-tracker.abigailhaddad.com.\n\n## Rubric\nThis rubric is divided up into categories. Each category is divided up into risk levels. In your output, please select the appropriate risk level for each category based on your research.\n\n### Historical Data Availability\n- Gone: Data files prior to the current year or cycle are no longer publicly available.\n- High Risk: Some data files prior to the current year or cycle are removed.\n- Moderate Risk: Some data elements that exist in the dataset prior to the current year or cycle are removed.\n- No Known Issue: Data prior to the current year or cycle remain accessible with no known alterations.\n\n### Future Data Availability\n- Gone: Data collection and publication has been terminated.\n- High Risk: Statutory publication deadline missed and/or collection or publication skipped and/or ICR expired for more than one year.\n- Moderate Risk: Typical or intended publication date missed and/or collection or publication delayed; ICR expired up to one year.\n- No Known Issue: Data published on time or as expected and ICR active or renewed before expiration.\n\n### Data Quality\n- Gone: Data collection and publication has been terminated.\n- High Risk: Reductions in granularity, timeliness, or frequency.\n- Moderate Risk: Potential or emerging risk to granularity, timeliness, or frequency.\n- No Known Issue: Maintained or improved granularity, timeliness, or frequency.\n\n### Statutory Context\n- Gone: N/A\n- High Risk: Statutory authorization is vague and/or there are alternative data collections that could serve as substitutes and/or no known programmatic use.\n- Moderate Risk: Not explicitly required by statute but required for the implementation of a state or federal program, and there are no alternative data collections that could serve as substitutes.\n- No Known Issue: Statutorily required and/or statutory authorization is explicitly named and it is clear what has to be collected, and there aren't alternative data collections that could serve as substitutes and/or required for implementation of a federal program.\n\n### Staffing and Funding\n- Gone: All of the staff in the division or agency are gone and/or all funding has been terminated.\n- High Risk: 40% or more of staff lost, and/or 1,000 or more staff lost, and/or budget cut by 20% or more, and/or leadership removed.\n- Moderate Risk: 10\u201339% of staff lost, and/or 500\u2013999 staff lost, and/or budget cut by 10\u201319%, and/or threatened change in leadership.\n- No Known Issue: Less than 10% of staff lost and less than 10% of budget cut and no known change in leadership.\n\n### Policy\n- Gone: Data collection and publication has been terminated.\n- High Risk: Presidential Action-driven information collection request (ICR); negative policy note on site; other significant changes in accordance with Administration priorities.\n- Moderate Risk: Proposed or pending changes; statements by administration officials suggesting a change is being considered or planned.\n- No Known Issue: No notable changes since January 2025 affecting what data is collected and published.\n\nFor each category, concisely list the evidence and supporting sources that would support each risk level. Then indicate which risk level you find most appropriate and why.\n\nConclude with a simple summary of risk levels:\nHistorical Data Availability: <level>\nFuture Data Availability: <level>\nData Quality: <level>\nStatutory Context: <level>\nStaffing and Funding: <level>\nPolicy: <level>"
+    },
+    {
+      "role": "assistant",
+      "content": "I'll research current developments around the RHFS, including the 2025 HUD RFI, staffing and budget changes at HUD and Census, and any policy commentary.The staffing tracker is a JavaScript app without extractable data, but I found strong documentary evidence elsewhere. Let me verify the 2027 collection notice, the 2024 data release status, and any outcomes of the RFI.I hit the search-result cap for this session, but I have strong documentary coverage. Let me fetch two more sources on outcomes for HUD's data-survey reviews before finalizing.# RHFS Dataset Risk Assessment\n\n**Assessment date:** October 2026. Research basis: Federal Register notices (2020\u20132026), Census Bureau and HUD USER program pages, HUD budget documents, CRS appropriation reports, trade/industry comment letters, and news coverage of federal statistical agency upheaval.\n\n---\n\n## 1. Historical Data Availability\n\n**Evidence for each level:**\n- *Gone / High Risk / Moderate Risk:* No evidence found of any removed RHFS files, waves, or data elements. No reports of purge notices, taken-down pages, or altered archives for this survey.\n- *No Known Issue:* All five waves (2012, 2015, 2018, 2021, 2024) remain publicly available. The Census Bureau PUF page (census.gov/programs-surveys/rhfs/data/puf.html) hosts microdata, codebooks, methodology reports, and items booklets for every cycle; the Census Data API serves 2015, 2018, 2021, and 2024 endpoints; the Table Creator was updated Feb. 19, 2026 to include 2024 national results; HUD USER, Data.gov (HUD180), and ICPSR (DOI 10.3886/e222161) all retain copies. The most recent release (2024 PUF, Feb. 19, 2026, Version 1.0) shipped with full documentation and a disclosure-review approval on record.\n\n**Verdict: No Known Issue.** Every prior cycle is intact at the primary location, with redundant archival copies (ICPSR, Data.gov, HUD USER) further insuring against loss.\n\n---\n\n## 2. Future Data Availability\n\n**Evidence for each level:**\n- *No Known Issue signals:* The 2024 wave was published on schedule (collection June\u2013Nov 2024; release Feb. 19, 2026 \u2014 the standard ~18-month lag). OMB Control No. 2528-0276 is active: HUD filed the 2027 RHFS 60-day notice on Sept. 25, 2026 (91 FR 60978) as a \"Revision of a currently approved collection,\" keeping the survey on its normal 3-year cadence (2012\u20132015\u20132018\u20132021\u20132024\u20132027) with 10,000 planned respondents.\n- *Moderate Risk signals:* On Sept. 9, 2025, HUD PD&R issued an RFI explicitly asking the public \"What concerns are there related to reducing the scope of, or eliminating entirely, the RHFS?\" \u2014 with the comment period later extended to Jan. 30, 2026. No published decision on that evaluation has been located. The 2027 collection still requires final OMB approval (comments due Nov. 24, 2026). The sponsoring account (PD&R Research and Technology) took a deep FY2026 cut (see \u00a75), leaving the 2027 wave's funding not fully assured. A near-identical RFI was issued for the Survey of Market Absorption (SOMA), and the Population Reference Bureau's Federal Data Users forum warned both \"may be on the chopping block.\"\n- *Gone/High Risk signals:* None \u2014 collection has not been skipped, no statutory deadline missed, ICR not expired.\n\n**Verdict: Moderate Risk.** Mechanically, the timeline and ICR are in good order (which alone would read \"No Known Issue\"), but an unresolved, formally noticed agency evaluation that explicitly put elimination on the table \u2014 combined with a severe cut to the funding account \u2014 keeps genuine uncertainty about whether the 2027 wave is fielded and published as planned. The Sept. 2026 notice is reassuring but not final.\n\n---\n\n## 3. Data Quality\n\n**Evidence for each level:**\n- *No Known Issue signals:* Content and national granularity were maintained through the 2024 wave; the 2027 proposal *expands* content (multi-property ownership portfolios, natural-disaster-related maintenance and capital-improvement costs, and new eviction/eviction-process data). Disclosure review and version documentation practices continue.\n- *Moderate Risk signals:* Completed property interviews fell from roughly 6,200 (2021) to about 4,425 (2024) on a similar-sized sample (~11,500) \u2014 roughly a 29% drop in completed cases, which inflates margins of error in an already national-only, small-sample survey. The 18-month publication lag persists (noted as a limitation in the NMHC/NAHB/NAR industry comment letter, which also flagged unreliable regional breakdowns). Field capacity is under strain: the Census Bureau's own inspector general found chronic field-representative staffing gaps, compounded by the 2025 hiring freeze and a >3,000-request contract-approval backlog at Commerce.\n- *High Risk signals:* No actual reduction in frequency, timeliness, or published granularity has occurred (frequency remains triennial; release on schedule).\n\n**Verdict: Moderate Risk.** No realized degradation, and planned content is expanding \u2014 but declining completed-sample yields, persistent lag, and strained field operations at the collecting agency constitute a credible, emerging risk to granularity and reliability.\n\n---\n\n## 4. Statutory Context\n\n**Evidence for each level:**\n- *No Known Issue signals:* The survey operates under explicit, named authorities \u2014 12 U.S.C. 1701z-1, 1701z-2(g), and 1701z-10a (HUD research authorities), 13 U.S.C. \u00a78/\u00a78b (Census collection authority), and 44 U.S.C. 3507 (PRA), cited in every ICR notice. There are no alternative data collections: HUD's own notices state RHFS is \"the only source of information on the rental housing finance characteristics of rental properties,\" and the September 2025 industry letter (NMHC, NAHB, NAR, NAAHL, IREM, etc.) confirms private sources (CoStar-type rent data, CMBS datasets) are not nationally representative, comprehensive, or publicly accessible substitutes.\n- *Moderate Risk signals:* The RHFS is not required by name in any statute \u2014 it is a discretionary sponsored survey under general research authority, and it is not strictly required for implementing a specific federal program (unlike AHS-driven income limits or FMRs). Its programmatic use is real but supporting: HUD uses it to \"evaluate, monitor, and design HUD programs.\" That discretionary character is precisely what made it the subject of the 2025 RFI. Notably, the 2027 notice states the survey \"does not duplicate work done in other existent HUD surveys\" \u2014 language responsive to the substitution question.\n- *High Risk signals:* Not met \u2014 statutory authorization is not vague in a disqualifying way, substitutes do not exist, and programmatic use is documented.\n\n**Verdict: Moderate Risk.** Not statutorily mandated, but required for HUD's program-evaluation mission with no substitute data source \u2014 squarely the Moderate definition.\n\n---\n\n## 5. Staffing and Funding\n\n**Evidence for each level:**\n- *High Risk signals (extensive):*\n  - **HUD (sponsor):** Workforce fell from ~8,800 (FY2024) to ~5,800 (late 2025) \u2014 \"almost 35% below historic staffing levels\" per HUD's own reorganization document; ~1,750 positions eliminated in 2025 alone; the FY2026 budget assumes 4,061 program-office FTEs (down 1,598); the House FY26 THUD bill contemplated a 26% HUD staffing cut; PD&R was slated for consolidation in a September 2026 reorganization draft (later withdrawn).\n  - **PD&R Research & Technology account (the line item that funds RHFS):** FY2026 President's Budget of $95M vs. $139M enacted in FY2025 \u2014 a 32% cut; CRS reports the House and Senate FY2026 committee bills proposed reductions of 10% and 33%, with the final enacted level for R&T deeply reduced.\n  - **Census Bureau (collector):** ~15% staff loss in 2025 (1,300\u20131,500 departures via deferred resignation); ~100 RIF notices in October 2025; government-wide hiring freeze; four advisory committees terminated; FY2026 request cut current-survey funding ~14% in purchasing power. Federal News Network (Dec. 2025): \"Most statistical agencies lost 20% to 30% of their staff this year.\"\n- *Moderate Risk signals:* None needed \u2014 the thresholds for High are exceeded on multiple axes simultaneously.\n- *Gone:* Division/agency still functioning; 2027 collection being planned.\n\n**Verdict: High Risk.** Both the sponsoring account (20%+ budget cut, consolidation threat) and the collecting agency (~15% staff loss, RIFs, hiring freeze) exceed the rubric's High thresholds. This is the survey's single largest structural vulnerability.\n\n---\n\n## 6. Policy\n\n**Evidence for each level:**\n- *Moderate Risk signals:* The Sept. 9, 2025 RFI \u2014 signed by PD&R's Principal Deputy Assistant Secretary \u2014 is a formal administration action asking whether the survey should be reduced or \"eliminate[d] entirely,\" and whether private data could substitute; the comment extension (Dec. 16, 2025) shows an active, ongoing evaluation. Context heightens the concern: DOGE terminated five Census-conducted sponsored surveys in May 2025 and said others were being reviewed \"one-by-one\" \u2014 the RHFS is exactly that class of survey (Census-collected, HUD-sponsored). The data-user community read the RFI as placing RHFS \"on the chopping block.\"\n- *High Risk signals (considered but not met):* No presidential-action-driven change to the RHFS ICR itself, no negative policy note on the Census or HUD RHFS pages, and no actual change in what the survey collects or publishes. In fact the opposite: the 2024 data were released on time, the 2027 collection was noticed with *expanded* content, and the industry response was uniformly supportive of continuation (NMHC et al. letter). The 2027 notice's incorporated improvements (eviction, disaster-cost, portfolio questions) suggest the RFI evaluation concluded in favor of continuation, even though no formal decision document was published.\n- *No Known Issue:* Not met \u2014 the RFI and DOGE context are significant post-January 2025 developments, even if they have not (yet) changed the data product.\n\n**Verdict: Moderate Risk.** A formally noticed, administration-initiated review explicitly contemplating elimination is the textbook \"statements by administration officials suggesting a change is being considered / proposed or pending changes.\" However, no adverse change has materialized, and the most recent signals (Feb. 2026 on-time release; Sept. 2027-wave notice with content expansion) point toward survival rather than termination.\n\n---\n\n## Summary of Risk Levels\n\n| Category | Risk Level |\n|---|---|\n| Historical Data Availability | **No Known Issue** |\n| Future Data Availability | **Moderate Risk** |\n| Data Quality | **Moderate Risk** |\n| Statutory Context | **Moderate Risk** |\n| Staffing and Funding | **High Risk** |\n| Policy | **Moderate Risk** |\n\n**Overall assessment:** The RHFS currently sits in a \"watch closely\" state rather than a crisis state. Its historical record is fully intact and redundantly archived; the 2024 cycle shipped on time; and the Sept. 25, 2026 notice for the 2027 wave \u2014 with expanded eviction and disaster-cost content \u2014 is strong evidence that the 2025 elimination review resolved in favor of continuation. The dominant risks are structural: a roughly one-third reduction in HUD's workforce, a 30%+ cut to the PD&R Research & Technology account that funds the survey, and a Census Bureau operating with ~15% fewer staff under a hiring freeze. These pressures make a skipped, delayed, or sample-curtailed 2027 wave the most plausible failure mode \u2014 degrading future availability and quality \u2014 rather than outright termination or the removal of existing data. Key things to monitor: final OMB action on the 2027 ICR (comments due Nov. 24, 2026), the FY2027 enacted R&T appropriation, publication of any formal RFI outcome, and the fate of the parallel SOMA review as a bellwether.\n\n**Principal sources:** Federal Register 2025-17261 (RHFS RFI), 2025-22958 (comment extension), 2026-19651 (2027 RHFS 60-day notice); Census Bureau RHFS pages and Feb. 19, 2026 release (CB26-TPS.12); HUD FY2026 Congressional Justification (R&T account); CRS reports R48567/R48728 (FY2026 THUD appropriations); NMHC-led industry comment letter (Nov. 2025); PRB Federal Data Users forum; Federal News Network (Dec. 2025, Sept. 2026 HUD reorganization); AP News, NPR, Bloomberg Law, GovExec, and The Census Project on Census Bureau staffing/RIFs; American Statistical Association \"The Nation's Data at Risk 2025.\""
+    },
+    {
+      "role": "user",
+      "content": "Emit a session_metadata YAML block reporting: current date, model identifier, knowledge cutoff, surface, whether memory is enabled, whether custom preferences or styles are active, all tools and MCP servers available, which tools were actually called in this session, and whether attachments were present. Mark any field not directly observable as unknown rather than inferring it."
+    },
+    {
+      "role": "assistant",
+      "content": "```yaml\nsession_metadata:\n  current_date: unknown   # no date/datetime tool available; not directly observable. (Note: web sources retrieved in this session include documents dated through September\u2013October 2026, but the actual current date cannot be determined from within the session.)\n  model_identifier: unknown   # not directly observable from within the session\n  knowledge_cutoff: unknown   # not directly observable from within the session\n  surface: unknown   # client/application interface not observable from within the session\n  memory_enabled: unknown   # no memory system is visible or referenced in this session\n  custom_preferences_or_styles_active: unknown   # none are visible in this session; cannot confirm absence\n  tools_available:\n    - name: openrouter_web_search\n      type: builtin_function\n    - name: openrouter_web_fetch\n      type: builtin_function\n  mcp_servers_available: []   # no MCP servers are configured/visible in this session\n  tools_called_in_session:\n    - openrouter_web_search   # called multiple times across turns (topics: RHFS dataset, authority/history, findings, methodology, Federal Register notices, HUD/Census staffing and budget, RFI and 2027 collection)\n    - openrouter_web_fetch    # called for: federalregister.gov (blocked by CAPTCHA), usajobs-tracker.abigailhaddad.com, federaldataforum.prb.org, federalnewsnetwork.com\n  tools_available_but_not_called: []   # both available tools were called at least once\n  attachments_present: false   # all user messages were plain text; no attachments observed\n```"
+    }
+  ]
+}

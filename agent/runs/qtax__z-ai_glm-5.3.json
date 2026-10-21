@@ -1,0 +1,1176 @@
+{
+  "dataset": {
+    "key": "qtax",
+    "title": "Quarterly Summary of State and Local Tax Revenue (QTAX)"
+  },
+  "model": "z-ai/glm-5.3",
+  "harness": "openrouter tools",
+  "context": "full: each turn's whole output is carried into the next",
+  "search_tool": {
+    "engine": "exa",
+    "max_results": 10,
+    "excluded_domains": [
+      "dataindex.us"
+    ]
+  },
+  "fetch_tool": {
+    "engine": "openrouter",
+    "blocked_domains": [
+      "dataindex.us"
+    ],
+    "max_content_tokens": 10000
+  },
+  "reasoning": "effort high",
+  "catalog": {
+    "fetched_at": "2026-10-09T01:10:07Z",
+    "entry": {
+      "id": "z-ai/glm-5.3",
+      "canonical_slug": "z-ai/glm-5.3-20260816",
+      "hugging_face_id": "zai-org/GLM-5.3",
+      "name": "Z.ai: GLM 5.3",
+      "created": 1787086655,
+      "description": "GLM-5.3 is a large-scale reasoning model from Z.ai, built for complex software engineering and long-horizon agent tasks. It supports text input and output with a 1M-token context window, and improves...",
+      "context_length": 1048576,
+      "architecture": {
+        "modality": "text->text",
+        "input_modalities": [
+          "text"
+        ],
+        "output_modalities": [
+          "text"
+        ],
+        "tokenizer": "Other",
+        "instruct_type": null
+      },
+      "pricing": {
+        "prompt": "0.000000039",
+        "completion": "0.00000339",
+        "input_cache_read": "0.000000038"
+      },
+      "top_provider": {
+        "context_length": 1048576,
+        "max_completion_tokens": 943718,
+        "is_moderated": false
+      },
+      "per_request_limits": null,
+      "supported_parameters": [
+        "frequency_penalty",
+        "include_reasoning",
+        "logit_bias",
+        "logprobs",
+        "max_tokens",
+        "min_p",
+        "parallel_tool_calls",
+        "presence_penalty",
+        "reasoning",
+        "reasoning_effort",
+        "repetition_penalty",
+        "response_format",
+        "seed",
+        "stop",
+        "structured_outputs",
+        "temperature",
+        "tool_choice",
+        "tools",
+        "top_k",
+        "top_logprobs",
+        "top_p"
+      ],
+      "default_parameters": {
+        "temperature": 1,
+        "top_p": 0.95
+      },
+      "supported_voices": null,
+      "knowledge_cutoff": null,
+      "expiration_date": null,
+      "links": {
+        "details": "/api/v1/models/z-ai/glm-5.3-20260816/endpoints"
+      },
+      "benchmarks": {
+        "design_arena": [
+          {
+            "arena": "models",
+            "category": "3d",
+            "elo": 1346,
+            "win_rate": 60.6,
+            "rank": 5
+          },
+          {
+            "arena": "models",
+            "category": "asciiart",
+            "elo": 1211,
+            "win_rate": 46,
+            "rank": 22
+          },
+          {
+            "arena": "models",
+            "category": "codecategories",
+            "elo": 1313,
+            "win_rate": 54.9,
+            "rank": 9
+          },
+          {
+            "arena": "models",
+            "category": "dataviz",
+            "elo": 1269,
+            "win_rate": 52.8,
+            "rank": 23
+          },
+          {
+            "arena": "models",
+            "category": "gamedev",
+            "elo": 1323,
+            "win_rate": 52.9,
+            "rank": 11
+          },
+          {
+            "arena": "models",
+            "category": "svg",
+            "elo": 1295,
+            "win_rate": 56.9,
+            "rank": 8
+          },
+          {
+            "arena": "models",
+            "category": "uicomponent",
+            "elo": 1323,
+            "win_rate": 57.6,
+            "rank": 9
+          },
+          {
+            "arena": "models",
+            "category": "website",
+            "elo": 1305,
+            "win_rate": 54.9,
+            "rank": 12
+          },
+          {
+            "arena": "agents",
+            "category": "htmlslides",
+            "elo": 1189,
+            "win_rate": 39.1,
+            "rank": 9
+          },
+          {
+            "arena": "agents",
+            "category": "mobileapps",
+            "elo": 1191,
+            "win_rate": 52.2,
+            "rank": 17
+          },
+          {
+            "arena": "agents",
+            "category": "python-pptxslides",
+            "elo": 1255,
+            "win_rate": 51.2,
+            "rank": 8
+          }
+        ],
+        "artificial_analysis": {
+          "intelligence_index": 44.8,
+          "coding_index": 74.8,
+          "agentic_index": 53.1
+        }
+      },
+      "reasoning": {
+        "mandatory": true,
+        "default_enabled": true,
+        "supported_efforts": [
+          "max",
+          "high",
+          "low"
+        ],
+        "default_effort": "max"
+      }
+    }
+  },
+  "upstream": [
+    "z-ai"
+  ],
+  "trial": 0,
+  "terminate_reason": "completed",
+  "max_tokens": 32768,
+  "started_at": "2026-10-09T01:10:07Z",
+  "prompts": {
+    "research": "#data research\nI am researching a federal dataset. Find out everything you can about this dataset, such as who publishes it, under what authority or mandate, its history, its typical users, and its benefits to the public. Be sure your research comprehensively covers each of those perspectives, as well as any others that you discover or seem useful. I believe this is accurate information, but please check:\n\nDataset title: Quarterly Summary of State and Local Tax Revenue (QTAX)\nDescription: The Quarterly Summary of State and Local Government Tax Revenue provides quarterly estimates of state and local government tax revenue at a national level, as well as detailed tax revenue data for individual states. The U.S. Congress, federal agencies, state and local governments, educational and research organizations, and the general public utilize these data for the following purposes: development of gross domestic product estimates, development of the national income and product accounts, and tax policy research.\n\nReturn a complete report on everything that a preservationist, data librarian, data scientist, or policy activist might want to know about this data.",
+    "assessment": "# Dataset risk assessment\nI would like your help in assessing the likelihood that this data will be changed or removed from its primary location, and that users will no longer be able to access accurate and reliable copies of it, based on the rubric below.\n\n## Sources for context\nTo help assess the rubric categories, perform additional research on the data, the agency, the data's topics and typical users, covering topics such as proposed regulatory or funding changes, recent news, and political commentary. Use whatever resources you find useful, including the Federal Register (https://www.federalregister.gov) and the federal staffing tracker at https://usajobs-tracker.abigailhaddad.com.\n\n## Rubric\nThis rubric is divided up into categories. Each category is divided up into risk levels. In your output, please select the appropriate risk level for each category based on your research.\n\n### Historical Data Availability\n- Gone: Data files prior to the current year or cycle are no longer publicly available.\n- High Risk: Some data files prior to the current year or cycle are removed.\n- Moderate Risk: Some data elements that exist in the dataset prior to the current year or cycle are removed.\n- No Known Issue: Data prior to the current year or cycle remain accessible with no known alterations.\n\n### Future Data Availability\n- Gone: Data collection and publication has been terminated.\n- High Risk: Statutory publication deadline missed and/or collection or publication skipped and/or ICR expired for more than one year.\n- Moderate Risk: Typical or intended publication date missed and/or collection or publication delayed; ICR expired up to one year.\n- No Known Issue: Data published on time or as expected and ICR active or renewed before expiration.\n\n### Data Quality\n- Gone: Data collection and publication has been terminated.\n- High Risk: Reductions in granularity, timeliness, or frequency.\n- Moderate Risk: Potential or emerging risk to granularity, timeliness, or frequency.\n- No Known Issue: Maintained or improved granularity, timeliness, or frequency.\n\n### Statutory Context\n- Gone: N/A\n- High Risk: Statutory authorization is vague and/or there are alternative data collections that could serve as substitutes and/or no known programmatic use.\n- Moderate Risk: Not explicitly required by statute but required for the implementation of a state or federal program, and there are no alternative data collections that could serve as substitutes.\n- No Known Issue: Statutorily required and/or statutory authorization is explicitly named and it is clear what has to be collected, and there aren't alternative data collections that could serve as substitutes and/or required for implementation of a federal program.\n\n### Staffing and Funding\n- Gone: All of the staff in the division or agency are gone and/or all funding has been terminated.\n- High Risk: 40% or more of staff lost, and/or 1,000 or more staff lost, and/or budget cut by 20% or more, and/or leadership removed.\n- Moderate Risk: 10\u201339% of staff lost, and/or 500\u2013999 staff lost, and/or budget cut by 10\u201319%, and/or threatened change in leadership.\n- No Known Issue: Less than 10% of staff lost and less than 10% of budget cut and no known change in leadership.\n\n### Policy\n- Gone: Data collection and publication has been terminated.\n- High Risk: Presidential Action-driven information collection request (ICR); negative policy note on site; other significant changes in accordance with Administration priorities.\n- Moderate Risk: Proposed or pending changes; statements by administration officials suggesting a change is being considered or planned.\n- No Known Issue: No notable changes since January 2025 affecting what data is collected and published.\n\nFor each category, concisely list the evidence and supporting sources that would support each risk level. Then indicate which risk level you find most appropriate and why.\n\nConclude with a simple summary of risk levels:\nHistorical Data Availability: <level>\nFuture Data Availability: <level>\nData Quality: <level>\nStatutory Context: <level>\nStaffing and Funding: <level>\nPolicy: <level>",
+    "session_metadata": "Emit a session_metadata YAML block reporting: current date, model identifier, knowledge cutoff, surface, whether memory is enabled, whether custom preferences or styles are active, all tools and MCP servers available, which tools were actually called in this session, and whether attachments were present. Mark any field not directly observable as unknown rather than inferring it."
+  },
+  "turns": {
+    "research": {
+      "request": {
+        "model": "z-ai/glm-5.3",
+        "max_output_tokens": 32768,
+        "tools": [
+          {
+            "type": "openrouter:web_search",
+            "parameters": {
+              "engine": "exa",
+              "max_results": 10,
+              "excluded_domains": [
+                "dataindex.us"
+              ]
+            }
+          },
+          {
+            "type": "openrouter:web_fetch",
+            "parameters": {
+              "engine": "openrouter",
+              "blocked_domains": [
+                "dataindex.us"
+              ],
+              "max_content_tokens": 10000
+            }
+          }
+        ],
+        "cache_control": {
+          "type": "ephemeral",
+          "ttl": "1h"
+        },
+        "session_id": "qtax-z-ai/glm-5.3-t0-2026-10-09T01:10:07Z",
+        "stop_server_tools_when": [
+          {
+            "type": "step_count_is",
+            "step_count": 200
+          }
+        ],
+        "reasoning": {
+          "effort": "high"
+        },
+        "provider": {
+          "order": [
+            "z-ai"
+          ],
+          "allow_fallbacks": false
+        }
+      },
+      "response_meta": {
+        "id": "gen-1791508207-ceMQ38eixTZs7V3V0xDf",
+        "object": "response",
+        "created_at": 1791508207,
+        "model": "z-ai/glm-5.3",
+        "status": "completed",
+        "completed_at": 1791508323,
+        "error": null,
+        "incomplete_details": null,
+        "tools": [],
+        "tool_choice": "auto",
+        "parallel_tool_calls": true,
+        "max_output_tokens": 32768,
+        "temperature": 1,
+        "top_p": 1,
+        "presence_penalty": 0,
+        "frequency_penalty": 0,
+        "top_logprobs": 0,
+        "max_tool_calls": null,
+        "metadata": {},
+        "background": false,
+        "previous_response_id": null,
+        "service_tier": "auto",
+        "truncation": "disabled",
+        "store": false,
+        "instructions": null,
+        "text": {
+          "format": {
+            "type": "text"
+          }
+        },
+        "reasoning": {
+          "effort": "high"
+        },
+        "safety_identifier": null,
+        "prompt_cache_key": null,
+        "prompt_cache_options": null,
+        "usage": {
+          "input_tokens": 126569,
+          "input_tokens_details": {
+            "cached_tokens": 82944
+          },
+          "output_tokens": 4714,
+          "output_tokens_details": {
+            "reasoning_tokens": 1292
+          },
+          "total_tokens": 131283,
+          "cost": 0.13838203999999998,
+          "cost_details": {
+            "upstream_inference_cost": 0.10338204,
+            "upstream_inference_input_cost": 0.08264044000000001,
+            "upstream_inference_output_cost": 0.0207416
+          },
+          "server_tool_use_details": {
+            "web_search_requests": 6,
+            "tool_calls_requested": 8,
+            "tool_calls_executed": 8
+          }
+        }
+      },
+      "requests": [
+        {
+          "input_tokens": 126569,
+          "input_tokens_details": {
+            "cached_tokens": 82944
+          },
+          "output_tokens": 4714,
+          "output_tokens_details": {
+            "reasoning_tokens": 1292
+          },
+          "total_tokens": 131283,
+          "cost": 0.13838203999999998,
+          "cost_details": {
+            "upstream_inference_cost": 0.10338204,
+            "upstream_inference_input_cost": 0.08264044000000001,
+            "upstream_inference_output_cost": 0.0207416
+          },
+          "server_tool_use_details": {
+            "web_search_requests": 6,
+            "tool_calls_requested": 8,
+            "tool_calls_executed": 8
+          }
+        }
+      ],
+      "searches": 6,
+      "fetches": 2,
+      "tool_items": [
+        {
+          "type": "openrouter:web_search",
+          "id": "st_tmp_6p8yj15jk9",
+          "status": "completed",
+          "action": {
+            "type": "search",
+            "query": "Quarterly Summary of State and Local Tax Revenue QTAX Census Bureau dataset",
+            "sources": [
+              {
+                "type": "url",
+                "url": "https://www.census.gov/programs-surveys/qtax.html"
+              },
+              {
+                "type": "url",
+                "url": "https://www.census.gov/programs-surveys/qtax/data/tables.html"
+              },
+              {
+                "type": "url",
+                "url": "https://www.census.gov/econ/currentdata/?programCode=QTAX"
+              },
+              {
+                "type": "url",
+                "url": "https://www.census.gov/data/tables/2026/econ/qtax/historical.html"
+              },
+              {
+                "type": "url",
+                "url": "https://www.census.gov/programs-surveys/qtax/about.html"
+              },
+              {
+                "type": "url",
+                "url": "https://www.census.gov/data/tables/2026/econ/qtax/historical.Q2.html"
+              },
+              {
+                "type": "url",
+                "url": "https://www.census.gov/data/tables/2026/econ/qtax/historical/q2.html"
+              },
+              {
+                "type": "url",
+                "url": "https://www.census.gov/econ/currentdata/dbsearch?adjusted=0&categories%5B%5D=QTAXCAT1&dataType=TOTAL&endYear=2025&errorData=0&geoLevel=US&notAdjusted=1&programCode=QTAX&startYear=2023"
+              },
+              {
+                "type": "url",
+                "url": "https://data.census.gov/table/EITSQTAX.GS00QTC03?g=040XX00US28"
+              },
+              {
+                "type": "url",
+                "url": "https://www.census.gov/data/tables/2026/econ/qtax/historical/q1.html"
+              }
+            ]
+          }
+        },
+        {
+          "type": "openrouter:web_search",
+          "id": "st_tmp_3r3pmekbbhx",
+          "status": "completed",
+          "action": {
+            "type": "search",
+            "query": "QTAX history legislation mandate quarterly tax revenue Census Bureau legal authority",
+            "sources": [
+              {
+                "type": "url",
+                "url": "https://www.census.gov/programs-surveys/qtax/about.html"
+              },
+              {
+                "type": "url",
+                "url": "https://www.census.gov/programs-surveys/qtax/technical-documentation/methodology.html"
+              },
+              {
+                "type": "url",
+                "url": "https://www.census.gov/programs-surveys/qtax/information.html"
+              },
+              {
+                "type": "url",
+                "url": "https://omb.report/icr/202403-0607-002/doc/140381501.pdf"
+              },
+              {
+                "type": "url",
+                "url": "https://www.census.gov/programs-surveys/qtax.html"
+              },
+              {
+                "type": "url",
+                "url": "https://www.census.gov/econ/overview/go0600.html"
+              },
+              {
+                "type": "url",
+                "url": "https://www.census.gov/programs-surveys/qtax/technical-documentation/questionnaires.html"
+              },
+              {
+                "type": "url",
+                "url": "https://www.govinfo.gov/content/pkg/FR-2024-03-08/html/2024-05001.htm"
+              },
+              {
+                "type": "url",
+                "url": "https://codes.findlaw.com/us/title-13-census/13-usc-sect-91/"
+              },
+              {
+                "type": "url",
+                "url": "https://www2.census.gov/govs/pubs/classification/qtax_methodology.pdf"
+              }
+            ]
+          }
+        },
+        {
+          "type": "openrouter:web_fetch",
+          "id": "st_tmp_bq8icv4pnn",
+          "status": "completed",
+          "url": "https://www.census.gov/programs-surveys/qtax/about.html",
+          "content": "\n<!DOCTYPE HTML>\n<!-- /*Per CMS-3223 we need the line below to have a 301 redirect capability*/ -->\n\n\n<html lang=\"en\">\n    <head>\r\n    \n    <link rel=\"icon\" sizes=\"192x192\" href=\"/etc.clientlibs/census/clientlibs/common-site/resources/icons/android-chrome-192x192.png\"/>\n    <link rel=\"icon\" sizes=\"256x256\" href=\"/etc.clientlibs/census/clientlibs/common-site/resources/icons/android-chrome-256x256.png\"/>\n    <link rel=\"shortcut icon\" sizes=\"32x32\" href=\"/etc.clientlibs/census/clientlibs/common-site/resources/icons/favicon.ico\"/>\n    <link rel=\"apple-touch-icon\" sizes=\"180x180\" href=\"/etc.clientlibs/census/clientlibs/common-site/resources/icons/apple-touch-icon-180x180.png\"/>     \n    <meta name=\"msapplication-square150x150logo\" content=\"/etc.clientlibs/census/clientlibs/common-site/resources/icons/mstile-150x150.png\"/>    \n\r\n    <meta charset=\"UTF-8\"/>\r\n    <title>About the Quarterly Summary of State &amp; Local Tax Revenue</title>\r\n    \r\n    <meta name=\"keywords\" content=\"2013,Annual Survey of Manufactures (ASM),Business and Economy\"/>\r\n    <meta name=\"article:tag\" content=\"2013,Annual Survey of Manufactures (ASM),Business and Economy\"/>\r\n    <meta name=\"description\" property=\"og:description\" content=\"The QTAX provides quarterly estimates of state &amp;amp; local government tax revenue at a national level, as well as detailed tax revenue data for individual states.\"/>\r\n    <meta name=\"template\" content=\"template-detail3colleftright\"/>\r\n    <meta name=\"viewport\" content=\"width=device-width, initial-scale=1\"/>\r\n    \r\n    <link rel=\"canonical\" href=\"https://www.census.gov/programs-surveys/qtax/about.html\"/>\r\n\r\n    \r\n    \r\n    \r\n\r\n    \n\n\n  \n    <meta name=\"DC.title\" property=\"og:title\" content=\"About the Quarterly Summary of State &amp; Local Tax Revenue\"/>\n    <meta name=\"DC.creator\" content=\"US Census Bureau\"/>\n    \n    <meta name=\"DC.date.reviewed\" property=\"article:modified_time\" scheme=\"ISO8601\" content=\"2026-09-10T07:02:04.925-04:00\"/>\n    <meta name=\"DC.language\" scheme=\"DCTERMS.RFC1766\" content=\"en\"/>\n  \t<meta name=\"robots\" content=\"noodp, noydir\"/>\n  \t<meta name=\"author\" content=\"US Census Bureau\"/>\n  \t<meta http-equiv=\"content-type\" content=\"text/html; charset=UTF-8\"/>\n  \t<meta property=\"og:locale\" content=\"en\"/>\n  \t<meta property=\"og:site_name\" content=\"Census.gov\"/>\n  \t<meta property=\"og:type\" content=\"article\"/>\n  \t<meta property=\"og:url\" content=\"https://www.census.gov/programs-surveys/qtax/about.html\"/>\n  \t<meta property=\"og:image\" content=\"https://www.census.gov/content/dam/Census/public/brand/census-logo-sharing-card.jpg\"/>\n  \t<meta name=\"twitter:image\" content=\"https://www.census.gov/content/dam/Census/public/brand/census-logo-sharing-card.jpg\"/>\n  \t<meta name=\"twitter:card\" content=\"summary_large_image\"/>\n  \t<meta name=\"twitter:site\" content=\"@uscensusbureau\"/>\n  \t<meta name=\"twitter:creator\" content=\"@uscensusbureau\"/>\n  \t<meta name=\"twitter:title\" content=\"About the Quarterly Summary of State &amp; Local Tax Revenue\"/>\n  \t<meta property=\"article:publisher\" content=\"https://census.gov/\"/>\n  \t<meta property=\"article:section\" content=\"Government\"/>\n  \r\n    <script type=\"text/javascript\" src=\"https://www.google.com/jsapi\"></script>\r\n    \r\n    \n    \n    \n    \n    \n<script src=\"/etc.clientlibs/clientlibs/granite/jquery.min.cee8557e8779d371fe722bbcdd3b3eb7.js\"></script>\n<script src=\"/etc.clientlibs/clientlibs/granite/utils.min.899004cc02c33efc1f6694b1aee587fd.js\"></script>\n<script src=\"/etc.clientlibs/clientlibs/granite/jquery/granite.min.543d214c88dfa6f4a3233b630c82d875.js\"></script>\n<script src=\"/etc.clientlibs/foundation/clientlibs/jquery.min.dd9b395c741ce2784096e26619e14910.js\"></script>\n<script src=\"/etc.clientlibs/census/clientlibs/modernizr.min.0114f63133d36634edcda537306eae26.js\"></script>\n\n\n\n\t\n    \n<script src=\"/etc.clientlibs/clientlibs/granite/jquery-ui.min.000478df169ef08edfb24d7502acb3c1.js\"></script>\n<script src=\"/etc.clientlibs/foundation/clientlibs/jquery-ui.min.3cc462ae7fb48fa3949850e903137f14.js\"></script>\n\n\n\n    \n    \n<link rel=\"stylesheet\" href=\"/etc.clientlibs/census-core/clientlibs.min.9556bf894a0d404c4e4f4bf83ef3c63b.css\" type=\"text/css\">\n<link rel=\"stylesheet\" href=\"/etc.clientlibs/census/clientlibs/bootstrap.min.3e7d159faa40f5cdf7d02fbe2b1bb215.css\" type=\"text/css\">\n<link rel=\"stylesheet\" href=\"/etc.clientlibs/census/clientlibs/census-fonts.min.9ebcbfc417b8006268ac47b61f6ebfba.css\" type=\"text/css\">\n<link rel=\"stylesheet\" href=\"/etc.clientlibs/census/clientlibs/common-site.min.8e92f508ecd83720ca5ccc6c8f0637d4.css\" type=\"text/css\">\n<link rel=\"stylesheet\" href=\"/etc.clientlibs/clientlibs/granite/jquery-ui.min.48e542f529ebea7475d83a20a3394c1e.css\" type=\"text/css\">\n<link rel=\"stylesheet\" href=\"/etc.clientlibs/census/clientlibs/orionicons.min.2ffd39f8bfe972a21504ca49f50084ec.css\" type=\"text/css\">\n<link rel=\"stylesheet\" href=\"/etc.clientlibs/census/clientlibs/uswds-init.min.c213ff96bc721c3e7977bc763c809e0a.css\" type=\"text/css\">\n<link rel=\"stylesheet\" href=\"/etc.clientlibs/census/clientlibs/core-overrides.min.95bca97fbd3ca07d6424f7fbbe926450.css\" type=\"text/css\">\n<link rel=\"stylesheet\" href=\"/etc.clientlibs/census/clientlibs/clientlib-dependencies.min.d41d8cd98f00b204e9800998ecf8427e.css\" type=\"text/css\">\n<link rel=\"stylesheet\" href=\"/etc.clientlibs/census/clientlibs/clientlib-site.min.25c805315eb4f3f64da0cc62097979ea.css\" type=\"text/css\">\n<link rel=\"stylesheet\" href=\"/etc.clientlibs/census/clientlibs/census-fonts-multilang.min.e7ca9bab4d61ddbda89ed7b2948bf2b6.css\" type=\"text/css\">\n<link rel=\"stylesheet\" href=\"/etc.clientlibs/census/clientlibs/census-pattern-library.min.a89a57ffc2832e0526e9000bfe5d3b7f.css\" type=\"text/css\">\n<link rel=\"stylesheet\" href=\"/etc.clientlibs/census/clientlibs/census-css.min.eea51f80edbde7164c45da04901e3b7f.css\" type=\"text/css\">\n<link rel=\"stylesheet\" href=\"/etc.clientlibs/census/clientlibs/aemgrid.min.be57a8c9b7d09f61725fd419ae4495cb.css\" type=\"text/css\">\n\n\n\n    \n    \n    \n\t\n    \n<link rel=\"stylesheet\" href=\"/etc.clientlibs/census/clientlibs/census-disabled.min.d002d8837bb961541a62e1a6402d7e2b.css\" type=\"text/css\">\n<script src=\"/etc.clientlibs/census/clientlibs/census-disabled.min.42535f152edc257f3458c8e1d559866c.js\"></script>\n\n\n\n    <link href=\"/etc.clientlibs/census/clientlibs/census-css/resources/print.css\" rel=\"stylesheet\" type=\"text/css\" media=\"print\"/> \n\n\t  <!-- Conditional CSS -->\n\t\n\t\t\n\t\n\t\n\n\t\n\n\t\t\n\t \n\t\n\n\t\n\n    \n\n\n        <script type=\"text/javascript\" src=\"//assets.adobedtm.com/launch-ENdc1ca6bab15e46a5b880a2c3f9d462ab.min.js\"></script>\n\n \n\t<!-- /*Data Layer*/ -->\t\n\t<div><script type=\"text/javascript\">\r\n\tvar d = new Date();\r\n\tvar days = [\"Sunday\",\"Monday\",\"Tuesday\",\"Wednesday\",\"Thursday\",\"Friday\",\"Saturday\"];\r\n\tvar digitalData = digitalData || {};\r\n    digitalData = {\r\n       \t\"page\" : {\r\n            \"pageInfo\" : {                \r\n                \"pageName\" \t\t\t: \"About the Quarterly Summary of State \\x26 Local Tax Revenue_141883\",\r\n                \"legacyPageName\" \t: \"en>programsRSUY>qtax>About the Quarterly Summary of State \\x26 Local Tax Revenue\",\r\n                \"pageURL\" \t\t\t: window.location.href,\r\n                \"language\" \t\t\t: \"en\",\r\n                \"pageTemplate\" \t\t: \"template\\u002Ddetail3colleftright\",\r\n                \"topic\" \t\t\t: \"Business and Economy\",\r\n                \"programTag\" \t\t: \"Annual Survey of Manufactures (ASM)\",\r\n                \"collectionYear\" \t: \"2013\",\r\n                \"AEMtopic\" \t\t\t: \"Business and Economy\",\r\n                \"contentType\" \t\t: \"\",\r\n                \"geoTag\" \t\t\t: \"\",\r\n                \"seriesTag\" \t\t: \"\",\r\n                \"publishDate\" \t\t: \"\",\r\n                \"timeOfDay\" \t\t: twoDigits(d.getHours()) + \":\" + twoDigits(d.getMinutes()),\r\n                \"tool\" \t\t\t\t: \"aem\",\r\n                \"dayOfWeek\" \t\t: days[d.getDay()],\r\n                \"siteSection\" : \"programs-surveys\",\"subSectionOne\" : \"qtax\",\"subSectionTwo\" : \"about\"\r\n            },\r\n            \"pageTag\" : {\r\n                \"collectionYear\" : \"2013\",\"program\" : \"Annual Survey of Manufactures (ASM)\",\"topic\" : \"Business and Economy\"                \r\n            }\r\n        },\r\n        \"event\" : {\r\n        \t\"eventName\" : {},\r\n          \t\"eventInfo\" : {\r\n\t            \"share\" \t\t\t : {},\r\n\t            \"download\" \t\t\t : {},\r\n\t            \"search\" \t\t\t : {},\r\n\t            \"expandCollapseList\" : {},\r\n\t            \"language\" \t\t\t : {\r\n\t            \tpageLanguage\t : \"en\"\r\n\t            },\r\n\t            \"landingPageTab\" \t : {}\r\n          }\r\n        },\r\n        \"browserInfo\" : {\r\n        \t\"browserWidth\" : getBrowserWidth()\r\n        }\r\n    };    \r\n\r\n    if ( typeof(Storage) !== \"undefined\" ) {\r\n      if ( localStorage.getItem(\"pageLanguage\") != null ) {\r\n        digitalData.event.eventInfo.language.pageLanguage = localStorage.getItem(\"pageLanguage\");\r\n      }\r\n      if ( localStorage.getItem(\"langEventName\") != null ) {\r\n        digitalData.event.eventName = localStorage.getItem(\"langEventName\");\r\n      }\r\n      if ( localStorage.getItem(\"clickValue\") != null ) {\r\n        digitalData.event.eventInfo.search.clickValue = localStorage.getItem(\"clickValue\");\r\n      }\r\n      if ( localStorage.getItem(\"searchEventName\") != null ) {\r\n        digitalData.event.eventInfo.eventName = localStorage.getItem(\"searchEventName\");\r\n      }       \r\n      if ( localStorage.getItem(\"tabEventName\") != null ) {\r\n        digitalData.event.eventName = localStorage.getItem(\"tabEventName\");\r\n      } \r\n      if ( localStorage.getItem(\"pageName\") != null ) {\r\n        digitalData.page.pageInfo.pageName = localStorage.getItem(\"pageName\");\r\n      } \r\n      if ( localStorage.getItem(\"eventInfoEventName\") != null ) {\r\n    \t  digitalData.event.eventInfo.eventName = localStorage.getItem(\"eventInfoEventName\");  \t  \r\n      }\r\n      if ( localStorage.getItem(\"eventInfoLanguage\") != null ) {\r\n    \t  digitalData.event.eventInfo.language.pageLanguage = localStorage.getItem(\"eventInfoLanguage\");\r\n      }\r\n      if ( localStorage.getItem(\"searchTerm\") != null ) {\r\n    \t  digitalData.event.eventInfo.search.term = localStorage.getItem(\"searchTerm\");\r\n      }\r\n      if ( localStorage.getItem(\"blogSearchPhrase\") != null ) {\r\n    \t  digitalData.event.eventInfo.blogSearchPhrase = localStorage.getItem(\"blogSearchPhrase\");\r\n      }\r\n      if ( localStorage.getItem(\"blogEventName\") != null ) {\r\n    \t  digitalData.event.eventInfo.eventName = localStorage.getItem(\"blogEventName\");\r\n      }      \r\n      if ( localStorage.getItem(\"blogName\") != null ) {\r\n    \t  digitalData.event.eventInfo.blogName = localStorage.getItem(\"blogName\");\r\n      }\r\n      if ( localStorage.getItem(\"buttonClickCount\") != null ) {\r\n    \t  digitalData.event.eventInfo.buttonClickCount = localStorage.getItem(\"buttonClickCount\");\r\n      }\r\n      //After assigning the value to digitalData, clear the localStorage variable's content\r\n      localStorage.removeItem(\"pageLanguage\");\r\n      localStorage.removeItem(\"langEventName\");\r\n      localStorage.removeItem(\"clickValue\");\r\n      localStorage.removeItem(\"searchEventName\");\r\n      localStorage.removeItem(\"landingPageTabClickValue\");\r\n      localStorage.removeItem(\"tabEventName\");\r\n      localStorage.removeItem(\"pageName\");\r\n      localStorage.removeItem(\"eventInfoEventName\");\r\n      localStorage.removeItem(\"eventInfoLanguage\");\r\n      localStorage.removeItem(\"searchTerm\");\r\n      localStorage.removeItem(\"blogSearchPhrase\");\r\n      localStorage.removeItem(\"blogEventName\");\r\n      localStorage.removeItem(\"blogName\");\r\n      localStorage.removeItem(\"buttonClickCount\");\r\n    } else {\r\n      if ( getCookie(\"pageLanguage\") != \"\" ) {\r\n        digitalData.event.eventInfo.language.pageLanguage = getCookie(\"pageLanguage\");\r\n      }\r\n      if ( getCookie(\"langEventName\") != \"\" ) {\r\n        digitalData.event.eventName = getCookie(\"langEventName\");\r\n      }\r\n      if ( getCookie(\"clickValue\") != \"\" ) {\r\n        digitalData.event.eventInfo.search.clickValue = getCookie(\"clickValue\");\r\n      }\r\n      if ( getCookie(\"searchEventName\") != \"\" ) {\r\n        digitalData.event.eventInfo.eventName = getCookie(\"searchEventName\");\r\n      }\r\n      if ( getCookie(\"landingPageTabClickValue\") != \"\" ) {\r\n        digitalData.event.eventInfo.landingPageTab.clickValue = getCookie(\"landingPageTabClickValue\");\r\n      }\r\n      if ( getCookie(\"tabEventName\") != \"\" ) {\r\n        digitalData.event.eventName = getCookie(\"tabEventName\");\r\n      }\r\n      if ( getCookie(\"pageName\") != \"\" ) {\r\n        digitalData.page.pageInfo.pageName = getCookie(\"pageName\");\r\n      }\r\n      if ( getCookie(\"eventInfoEventName\") != \"\" ) {\r\n    \t  digitalData.event.eventInfo.eventName = getCookie(\"eventInfoEventName\");  \r\n      }\r\n      if ( getCookie(\"eventInfoLanguage\") ) {\r\n    \t  digitalData.event.eventInfo.language.pageLanguage = getCookie(\"eventInfoLanguage\");\r\n      }\r\n      if ( getCookie(\"searchTerm\") ) {\r\n    \t  digitalData.event.eventInfo.search.term = getCookie(\"searchTerm\");\r\n      }\r\n      if ( getCookie(\"blogSearchPhrase\") ) {\r\n    \t  digitalData.event.eventInfo.blogSearchPhrase = getCookie(\"blogSearchPhrase\");\r\n      }\r\n      if ( getCookie(\"blogEventName\") ) {\r\n    \t  digitalData.event.eventInfo.eventName = getCookie(\"blogEventName\");\r\n      }\r\n      if ( getCookie(\"blogName\") ) {\r\n    \t  digitalData.event.eventInfo.blogName = getCookie(\"blogName\");\r\n      }\r\n      if ( getCookie(\"buttonClickCount\") ) {\r\n    \t  digitalData.event.eventInfo.buttonClickCount = getCookie(\"buttonClickCount\");\r\n      }\r\n      //After assigning the value to digitalData, clear the localStorage variable's content\r\n      setCookie(\"pageLanguage\", \"\");\r\n      setCookie(\"langEventName\", \"\");\r\n      setCookie(\"clickValue\", \"\");\r\n      setCookie(\"searchEventName\", \"\");\r\n      setCookie(\"landingPageTabClickValue\", \"\");\r\n      setCookie(\"pageName\", \"\");\r\n      setCookie(\"eventInfoEventName\", \"\");\r\n      setCookie(\"eventInfoLanguage\", \"\");\r\n      setCookie(\"searchTerm\", \"\");\r\n      setCookie(\"blogSearchPhrase\", \"\");\r\n      setCookie(\"blogName\", \"\");\r\n      setCookie(\"buttonClickCount\", \"\");\r\n    }\r\n\r\n    function setCookie(cname, cvalue, exdays) {\r\n       var d = new Date();\r\n       d.setTime(d.getTime() + (exdays*24*60*60*1000));\r\n       var expires = \"expires=\"+d.toUTCString();\r\n       document.cookie = cname + \"=\" + cvalue + \";\" + expires + \";path=/\";\r\n    }\r\n\r\n    function getCookie(cname) {\r\n       var name = cname + \"=\";\r\n       var ca = document.cookie.split(';');\r\n       for(var i = 0; i < ca.length; i++) {\r\n           var c = ca[i];\r\n           while (c.charAt(0) == ' ') {\r\n               c = c.substring(1);\r\n           }\r\n           if (c.indexOf(name) == 0) {\r\n               return c.substring(name.length, c.length);\r\n           }\r\n       }\r\n       return \"\";\r\n    }\r\n    \r\n    function getBrowserWidth() {         \r\n   \t  \treturn window.innerWidth;\r\n   \t}\r\n    \r\n    function twoDigits(n){\r\n        return n > 9 ? \"\" + n: \"0\" + n;\r\n    }\r\n    \r\n    document.addEventListener('click', function (event) {    \t\r\n    \tif (typeof(event.target.href) !== 'undefined' && event.target.href.toLowerCase().indexOf('tel:') >= 0) {\r\n    \t\tdigitalData.event.eventName = 'phoneNumber';\r\n    \t\tdigitalData.event.eventInfo.eventName = 'Telephone Click';\r\n    \t\tvar splittedData = event.target.href.toLowerCase().split(':');\r\n    \t\tif (splittedData.length > 0) {\r\n    \t\t\tdigitalData.event.eventInfo.telephoneNumber = splittedData[splittedData.length - 1];\t\r\n    \t\t}    \t\t\r\n    \t}\r\n    \t\r\n    \tif (typeof(event.target.href) !== 'undefined' && event.target.href.toLowerCase().indexOf('mailto:') >= 0) {\r\n    \t\tdigitalData.event.eventName = 'emailClick';\r\n    \t\tdigitalData.event.eventInfo.eventName = 'Email Click';\r\n    \t\tvar splittedData = event.target.href.toLowerCase().split(':');\r\n    \t\tif (splittedData.length > 0) {\r\n    \t\t\tdigitalData.event.eventInfo.emailAddress = splittedData[splittedData.length - 1 ]\r\n    \t\t}\r\n    \t}\r\n    \t\r\n    \t//For non-download links that are added via RTE\r\n    \tif (typeof(event.target.href) !== 'undefined') {\r\n    \t\tvar extension = event.target.href.split('.').pop();\r\n    \t\tif (extension == event.target.href || extension == \"html\")\r\n    \t\t\tlinkClick(event.target, 'RTE');    \t\t\r\n    \t}\r\n    });\r\n    \r\n    document.addEventListener(\"DOMContentLoaded\", function() {   \t\t\r\n   \t  \tif (typeof(getCookie('visitor')) !== 'undefined' && getCookie('visitor') !== '') {\r\n   \t  \t    date = new Date();   \t  \t    \r\n   \t\t\tdigitalData.event.eventInfo.newVsRepeat = 'repeat';\r\n   \t\t\tvar dateLastVisited = Date.parse(getCookie('dateLastVisited'));   \t\t\t\r\n   \t\t\tvar differenceInTime = date.getTime() - dateLastVisited;   \t\t\t\r\n   \t\t\tvar seconds = (differenceInTime * .001) >> 0;\r\n   \t\t\t\r\n   \t\t\tif (seconds > 0) {   \t\t\t\t\r\n\t   \t        var minutes = seconds / 60;\r\n\t   \t        var hours = minutes / 60;\t   \t        \r\n\t   \t        var days = hours / 24;\t   \t        \r\n   \t        \tdigitalData.event.eventInfo.secondsSinceLastVisit = seconds.toFixed(2);\r\n   \t        \tdigitalData.event.eventInfo.minutesSinceLastVisit = minutes.toFixed(2);\r\n   \t        \tdigitalData.event.eventInfo.hoursSinceLastVisit = hours.toFixed(2);\r\n   \t        \tdigitalData.event.eventInfo.daysSinceLastVisit = days.toFixed(2);\r\n   \t        }   \t\t\t\r\n   \t\t\t\r\n   \t\t\tsetCookie('dateLastVisited', date, 365); \r\n   \t\t\tvar visitNumber = parseInt(getCookie('visitNumber')) + 1;\r\n   \t\t\tsetCookie('visitNumber', visitNumber, 365);\r\n   \t\t\tdigitalData.event.eventInfo.visitNumber = visitNumber;\r\n   \t  \t} else {\r\n   \t  \t\tdate = new Date();\r\n   \t  \t\tsetCookie('visitor', 'census website visitor', 365);\r\n   \t  \t\tsetCookie('dateLastVisited', date, 365);\r\n   \t  \t\tsetCookie('visitNumber', 1, 365);\r\n   \t  \t\tdigitalData.event.eventInfo.newVsRepeat = 'new';\r\n   \t  \t\tdigitalData.event.eventInfo.visitNumber = 1;\r\n   \t  \t}\r\n   \t});\r\n    \r\n\t$(document).ready(function () { // ensure we wait for listeners to connect to dataLayerReady instead of just firing immediately\r\n    \t$(document).trigger({type: \"dataLayerReady\"});\r\n  });\r\n</script></div>\n\t<script type=\"text/javascript\" src=\"https://www.google.com/jsapi\"></script>\n\t<!-- /*Asset Ref, Content-Language*/-->\n\t<div><script type=\"text/javascript\">    \r\n   \t'use strict';\r\n   \t\r\n   \tdocument.addEventListener('click', function (event) {\r\n    \tif (typeof(event.target.href) !== 'undefined' && event.target.href.toLowerCase().indexOf('pdf') >= 0) {\r\n    \t\tvar pdfXhr = new XMLHttpRequest();\r\n    \t\tpdfXhr.open('GET', '/bin/custom/header/asset?pdfPath=' + event.target.href, true);\r\n    \t\tpdfXhr.send();\r\n    \t}\r\n   \t});\r\n   \t\r\n</script></div>\n\r\n\r\n    \r\n\r\n    \r\n        <style>.uscb-tag__census{background-color: #bbddff;border-color: #bbddff;--icon-class:o-news-1;}.uscb-tag__census_type{background-color: #bbddff;border-color: #bbddff;--icon-class:o-news-1;}.uscb-tag__census_type_publication{background-color: #d0dce1;border-color: #d0dce1;--icon-class:o-book-1;}.uscb-tag__census_type_publication_atlas{background-color: #d0dce1;border-color: #d0dce1;--icon-class:o-book-1;}.uscb-tag__census_type_about{background-color: #bbddff;border-color: #bbddff;--icon-class:o-news-1;}.uscb-tag__census_type_about_biography{background-color: #bbddff;border-color: #bbddff;--icon-class:o-news-1;}.uscb-tag__census_type_about_survey-respondent-information{background-color: #bbddff;border-color: #bbddff;--icon-class:o-news-1;}.uscb-tag__census_type_data{background-color: #ffccbc;border-color: #ffccbc;--icon-class:o-news-1;}.uscb-tag__census_type_data_table{background-color: #ffccbc;border-color: #ffccbc;--icon-class:o-news-1;}.uscb-tag__census_type_data_table_comp-tab{background-color: #ffccbc;border-color: #ffccbc;--icon-class:o-news-1;}.uscb-tag__census_type_data_table_rank-tab{background-color: #ffccbc;border-color: #ffccbc;--icon-class:o-news-1;}.uscb-tag__census_type_data_table_summary-table{background-color: #ffccbc;border-color: #ffccbc;--icon-class:o-news-1;}.uscb-tag__census_type_data_errata-note{background-color: #ffccbc;border-color: #ffccbc;--icon-class:o-news-1;}.uscb-tag__census_type_data_dataset{background-color: #ffccbc;border-color: #ffccbc;--icon-class:o-news-1;}.uscb-tag__census_type_data_dataset_pums-puf-microdata{background-color: #ffccbc;border-color: #ffccbc;--icon-class:o-news-1;}.uscb-tag__census_type_data_dataset_pums-puf-microdata_puf{background-color: #ffccbc;border-color: #ffccbc;--icon-class:o-news-1;}.uscb-tag__census_type_data_dataset_pums-puf-microdata_pums{background-color: #ffccbc;border-color: #ffccbc;--icon-class:o-news-1;}.uscb-tag__census_type_data_dataset_summary-file{background-color: #ffccbc;border-color: #ffccbc;--icon-class:o-news-1;}.uscb-tag__census_type_data_dataset_api{background-color: #ffccbc;border-color: #ffccbc;--icon-class:o-news-1;}.uscb-tag__census_type_data_indicator{background-color: #ffccbc;border-color: #ffccbc;--icon-class:o-news-1;}.uscb-tag__census_type_data_experimental-data-product{background-color: #ffccbc;border-color: #ffccbc;--icon-class:o-news-1;}.uscb-tag__census_type_event{background-color: #e0d2e3;border-color: #e0d2e3;--icon-class:o-news-1;}.uscb-tag__census_type_event_conference{background-color: #e0d2e3;border-color: #e0d2e3;--icon-class:o-news-1;}.uscb-tag__census_type_event_c-span{background-color: #e0d2e3;border-color: #e0d2e3;--icon-class:o-news-1;}.uscb-tag__census_type_event_media-event{background-color: #e0d2e3;border-color: #e0d2e3;--icon-class:o-news-1;}.uscb-tag__census_type_event_seminar{background-color: #e0d2e3;border-color: #e0d2e3;--icon-class:o-news-1;}.uscb-tag__census_type_event_training{background-color: #e0d2e3;border-color: #e0d2e3;--icon-class:o-news-1;}.uscb-tag__census_type_event_training_courses{background-color: #e0d2e3;border-color: #e0d2e3;--icon-class:o-news-1;}.uscb-tag__census_type_event_training_webinar{background-color: #e0d2e3;border-color: #e0d2e3;--icon-class:o-news-1;}.uscb-tag__census_type_event_training_tutorial{background-color: #e0d2e3;border-color: #e0d2e3;--icon-class:o-news-1;}.uscb-tag__census_type_event_u-stream{background-color: #e0d2e3;border-color: #e0d2e3;--icon-class:o-news-1;}.uscb-tag__census_type_event_presentation{background-color: #e0d2e3;border-color: #e0d2e3;--icon-class:o-news-1;}.uscb-tag__census_type_event_disasters{background-color: #e0d2e3;border-color: #e0d2e3;--icon-class:o-news-1;}.uscb-tag__census_type_event_disasters_earthquake{background-color: #e0d2e3;border-color: #e0d2e3;--icon-class:o-news-1;}.uscb-tag__census_type_event_disasters_flood{background-color: #e0d2e3;border-color: #e0d2e3;--icon-class:o-news-1;}.uscb-tag__census_type_event_disasters_hurricane{background-color: #e0d2e3;border-color: #e0d2e3;--icon-class:o-news-1;}.uscb-tag__census_type_event_disasters_pandemic{background-color: #e0d2e3;border-color: #e0d2e3;--icon-class:o-news-1;}.uscb-tag__census_type_event_disasters_tornado{background-color: #e0d2e3;border-color: #e0d2e3;--icon-class:o-news-1;}.uscb-tag__census_type_event_disasters_wildfire{background-color: #e0d2e3;border-color: #e0d2e3;--icon-class:o-news-1;}.uscb-tag__census_type_event_disasters_storm{background-color: #e0d2e3;border-color: #e0d2e3;--icon-class:o-news-1;}.uscb-tag__census_type_event_disasters_incident{background-color: #e0d2e3;border-color: #e0d2e3;--icon-class:o-news-1;}.uscb-tag__census_type_event_disasters_air-quality{background-color: #e0d2e3;border-color: #e0d2e3;--icon-class:o-news-1;}.uscb-tag__census_type_event_disasters_extreme-heat{background-color: #e0d2e3;border-color: #e0d2e3;--icon-class:o-news-1;}.uscb-tag__census_type_media-resource{background-color: #bbddff;border-color: #bbddff;--icon-class:o-news-1;}.uscb-tag__census_type_media-resource_press-release{background-color: #7ad4e2;border-color: #7ad4e2;--icon-class:o-news-2;}.uscb-tag__census_type_media-resource_press-kit{background-color: #7ad4e2;border-color: #7ad4e2;--icon-class:o-documents-1;}.uscb-tag__census_type_media-resource_tip-sheet{background-color: #7ad4e2;border-color: #7ad4e2;--icon-class:o-data-file-1;}.uscb-tag__census_type_media-resource_facts-for-features-special-editions{background-color: #7ad4e2;border-color: #7ad4e2;--icon-class:o-image-saved-1;}.uscb-tag__census_type_media-resource_local-area-pr{background-color: #7ad4e2;border-color: #7ad4e2;--icon-class:o-news-2;}.uscb-tag__census_type_media-resource_stories{background-color: #7ad4e2;border-color: #7ad4e2;--icon-class:o-statistic-1;}.uscb-tag__census_type_multimedia{background-color: #bbddff;border-color: #bbddff;--icon-class:o-news-1;}.uscb-tag__census_type_multimedia_audio{background-color: #ffe434;border-color: #ffe434;--icon-class:o-volume-1;}.uscb-tag__census_type_multimedia_video{background-color: #ffe434;border-color: #ffe434;--icon-class:o-play-1;}.uscb-tag__census_type_multimedia_photograph{background-color: #ffe434;border-color: #ffe434;--icon-class:o-image-1;}.uscb-tag__census_type_working-paper{background-color: #d0dce1;border-color: #d0dce1;--icon-class:o-multiple-files-1;}.uscb-tag__census_type_visualization{background-color: #ffe434;border-color: #ffe434;--icon-class:o-bar-chart-1;}.uscb-tag__census_type_visualization_figure{background-color: #ffe434;border-color: #ffe434;--icon-class:o-bar-chart-1;}.uscb-tag__census_type_visualization_infographic{background-color: #ffe434;border-color: #ffe434;--icon-class:o-bar-chart-1;}.uscb-tag__census_type_visualization_thematic-map{background-color: #ffe434;border-color: #ffe434;--icon-class:o-bar-chart-1;}.uscb-tag__census_type_technical-documentation{background-color: #bbddff;border-color: #bbddff;--icon-class:o-news-1;}.uscb-tag__census_type_technical-documentation_data-dictionary{background-color: #bbddff;border-color: #bbddff;--icon-class:o-news-1;}.uscb-tag__census_type_technical-documentation_user-notes{background-color: #bbddff;border-color: #bbddff;--icon-class:o-news-1;}.uscb-tag__census_type_technical-documentation_questionnaire{background-color: #bbddff;border-color: #bbddff;--icon-class:o-news-1;}.uscb-tag__census_type_technical-documentation_sampling-weighting{background-color: #bbddff;border-color: #bbddff;--icon-class:o-news-1;}.uscb-tag__census_type_technical-documentation_quality-measures{background-color: #bbddff;border-color: #bbddff;--icon-class:o-news-1;}.uscb-tag__census_type_technical-documentation_source-accuracy-statements{background-color: #bbddff;border-color: #bbddff;--icon-class:o-news-1;}.uscb-tag__census_type_technical-documentation_subject-definitions{background-color: #bbddff;border-color: #bbddff;--icon-class:o-news-1;}.uscb-tag__census_type_technical-documentation_statistical-testing{background-color: #bbddff;border-color: #bbddff;--icon-class:o-news-1;}.uscb-tag__census_type_updates{background-color: #bbddff;border-color: #bbddff;--icon-class:o-news-1;}.uscb-tag__census_type_updates_newsletter{background-color: #bbddff;border-color: #bbddff;--icon-class:o-news-1;}.uscb-tag__census_type_methodology{background-color: #bbddff;border-color: #bbddff;--icon-class:o-news-1;}.uscb-tag__census_type_data-tool{background-color: #ffccbc;border-color: #ffccbc;--icon-class:o-news-1;}.uscb-tag__census_type_data-tool_api{background-color: #ffccbc;border-color: #ffccbc;--icon-class:o-news-1;}.uscb-tag__census_type_data-tool_software{background-color: #ffccbc;border-color: #ffccbc;--icon-class:o-news-1;}.uscb-tag__census_type_data-tool_mobile-app{background-color: #ffccbc;border-color: #ffccbc;--icon-class:o-news-1;}.uscb-tag__census_type_data-tool_web-app{background-color: #ffccbc;border-color: #ffccbc;--icon-class:o-news-1;}.uscb-tag__census_type_transcript{background-color: #bbddff;border-color: #bbddff;--icon-class:o-news-1;}.uscb-tag__census_type_blog{background-color: #7ad4e2;border-color: #7ad4e2;--icon-class:o-news-website-1;}.uscb-tag__census_type_blog_directors-blog{background-color: #7ad4e2;border-color: #7ad4e2;--icon-class:o-news-website-1;}.uscb-tag__census_type_blog_global-reach-blog{background-color: #7ad4e2;border-color: #7ad4e2;--icon-class:o-news-website-1;}.uscb-tag__census_type_blog_random-samplings-blog{background-color: #7ad4e2;border-color: #7ad4e2;--icon-class:o-news-website-1;}.uscb-tag__census_type_blog_research-blog{background-color: #7ad4e2;border-color: #7ad4e2;--icon-class:o-news-website-1;}.uscb-tag__census_type_blog_deputy-directors-blog{background-color: #7ad4e2;border-color: #7ad4e2;--icon-class:o-news-website-1;}.uscb-tag__census_type_blog_previous-directors-blogs{background-color: #7ad4e2;border-color: #7ad4e2;--icon-class:o-news-website-1;}.uscb-tag__census_type_story{background-color: #bdf;border-color: #bdf;--icon-class:o-news-1;}.uscb-tag__census_type_story_story-map{background-color: #bdf;border-color: #bdf;--icon-class:o-news-1;}.uscb-tag__census_type_geographic{background-color: #bbddff;border-color: #bbddff;--icon-class:o-news-1;}.uscb-tag__census_type_geographic_geo-profile{background-color: #bbddff;border-color: #bbddff;--icon-class:o-news-1;}.uscb-tag__census_type_geographic_mapping-file{background-color: #bbddff;border-color: #bbddff;--icon-class:o-news-1;}.uscb-tag__census_type_geographic_reference-file{background-color: #bbddff;border-color: #bbddff;--icon-class:o-news-1;}.uscb-tag__census_type_geographic_reference-map{background-color: #bbddff;border-color: #bbddff;--icon-class:o-news-1;}.uscb-tag__census_type_geographic_mapping-tool{background-color: #bbddff;border-color: #bbddff;--icon-class:o-news-1;}.uscb-tag__census_type_forms{background-color: #bbddff;border-color: #bbddff;--icon-class:o-news-1;}.uscb-tag__census_type_forms_request-form{background-color: #bbddff;border-color: #bbddff;--icon-class:o-news-1;}.uscb-tag__census_type_contact{background-color: #bbddff;border-color: #bbddff;--icon-class:o-news-1;}.uscb-tag__census_type_indicator{background-color: #bbddff;border-color: #bbddff;--icon-class:o-news-1;}.uscb-tag__census_type_job{background-color: #bbddff;border-color: #bbddff;--icon-class:o-news-1;}.uscb-tag__census_type_fact-sheet{background-color: #d0dce1;border-color: #d0dce1;--icon-class:o-find-notes-1;}.uscb-tag__census_type_faq{background-color: #bbddff;border-color: #bbddff;--icon-class:o-news-1;}.uscb-tag__census_type_faq_faq-feature{background-color: #bbddff;border-color: #bbddff;--icon-class:o-news-1;}.uscb-tag__census_type_outreach-materials{background-color: #bbddff;border-color: #bbddff;--icon-class:o-news-1;}.uscb-tag__census_type_spotlight{background-color: #d0dce1;border-color: #d0dce1;--icon-class:o-find-notes-1;}.uscb-tag__census_type_census-reference-materials{background-color: #bbddff;border-color: #bbddff;--icon-class:o-news-1;}.uscb-tag__census_type_census-reference-materials_code-lists{background-color: #bbddff;border-color: #bbddff;--icon-class:o-news-1;}.uscb-tag__census_type_monthly-history-story{background-color: #d0dce1;border-color: #d0dce1;--icon-class:o-find-notes-1;}.uscb-tag__census_type_flyer{background-color: #d0dce1;border-color: #d0dce1;--icon-class:o-find-notes-1;}.uscb-tag__census_program{background-color: #bbddff;border-color: #bbddff;--icon-class:o-news-1;}.uscb-tag__census_program_demo-survey{background-color: #c0e4be;border-color: #c0e4be;--icon-class:o-news-1;}.uscb-tag__census_program_demo-survey_atus{background-color: #c0e4be;border-color: #c0e4be;--icon-class:o-news-1;}.uscb-tag__census_program_demo-survey_ce{background-color: #c0e4be;border-color: #c0e4be;--icon-class:o-news-1;}.uscb-tag__census_program_demo-survey_ncvs{background-color: #c0e4be;border-color: #c0e4be;--icon-class:o-news-1;}.uscb-tag__census_program_demo-survey_namcs{background-color: #c0e4be;border-color: #c0e4be;--icon-class:o-news-1;}.uscb-tag__census_program_demo-survey_nhis{background-color: #c0e4be;border-color: #c0e4be;--icon-class:o-news-1;}.uscb-tag__census_program_demo-survey_nhamcs{background-color: #c0e4be;border-color: #c0e4be;--icon-class:o-news-1;}.uscb-tag__census_program_demo-survey_nhes{background-color: #c0e4be;border-color: #c0e4be;--icon-class:o-news-1;}.uscb-tag__census_program_demo-survey_nscg{background-color: #c0e4be;border-color: #c0e4be;--icon-class:o-news-1;}.uscb-tag__census_program_demo-survey_fhwar{background-color: #c0e4be;border-color: #c0e4be;--icon-class:o-news-1;}.uscb-tag__census_program_demo-survey_nychvs{background-color: #c0e4be;border-color: #c0e4be;--icon-class:o-news-1;}.uscb-tag__census_program_demo-survey_prcs{background-color: #c0e4be;border-color: #c0e4be;--icon-class:o-news-1;}.uscb-tag__census_program_demo-survey_rfs{background-color: #c0e4be;border-color: #c0e4be;--icon-class:o-news-1;}.uscb-tag__census_program_demo-survey_scs{background-color: #c0e4be;border-color: #c0e4be;--icon-class:o-news-1;}.uscb-tag__census_program_demo-survey_sass{background-color: #c0e4be;border-color: #c0e4be;--icon-class:o-news-1;}.uscb-tag__census_program_demo-survey_soma{background-color: #c0e4be;border-color: #c0e4be;--icon-class:o-news-1;}.uscb-tag__census_program_demo-survey_spd{background-color: #c0e4be;border-color: #c0e4be;--icon-class:o-news-1;}.uscb-tag__census_program_demo-survey_tfs{background-color: #c0e4be;border-color: #c0e4be;--icon-class:o-news-1;}.uscb-tag__census_program_demo-survey_tpops{background-color: #c0e4be;border-color: #c0e4be;--icon-class:o-news-1;}.uscb-tag__census_program_demo-survey_decennial{background-color: #c0e4be;border-color: #c0e4be;--icon-class:o-news-1;}.uscb-tag__census_program_demo-survey_decennial_2010census{background-color: #c0e4be;border-color: #c0e4be;--icon-class:o-news-1;}.uscb-tag__census_program_demo-survey_decennial_2000-census{background-color: #c0e4be;border-color: #c0e4be;--icon-class:o-news-1;}.uscb-tag__census_program_demo-survey_decennial_1990-census{background-color: #c0e4be;border-color: #c0e4be;--icon-class:o-news-1;}.uscb-tag__census_program_demo-survey_decennial_2020-census{background-color: #c0e4be;border-color: #c0e4be;--icon-class:o-news-1;}.uscb-tag__census_program_demo-survey_decennial_2020-census_2015-test{background-color: #c0e4be;border-color: #c0e4be;--icon-class:o-news-1;}.uscb-tag__census_program_demo-survey_decennial_2020-census_2016-test{background-color: #c0e4be;border-color: #c0e4be;--icon-class:o-news-1;}.uscb-tag__census_program_demo-survey_decennial_2020-census_2017-test{background-color: #c0e4be;border-color: #c0e4be;--icon-class:o-news-1;}.uscb-tag__census_program_demo-survey_decennial_2020-census_2018-test{background-color: #c0e4be;border-color: #c0e4be;--icon-class:o-news-1;}.uscb-tag__census_program_demo-survey_decennial_census-population{background-color: #c0e4be;border-color: #c0e4be;--icon-class:o-news-1;}.uscb-tag__census_program_demo-survey_decennial_census-housing{background-color: #c0e4be;border-color: #c0e4be;--icon-class:o-news-1;}.uscb-tag__census_program_demo-survey_decennial_voting-rights{background-color: #c0e4be;border-color: #c0e4be;--icon-class:o-news-1;}.uscb-tag__census_program_demo-survey_decennial_pes{background-color: #c0e4be;border-color: #c0e4be;--icon-class:o-news-1;}.uscb-tag__census_program_demo-survey_decennial_2030-census{background-color: #c0e4be;border-color: #c0e4be;--icon-class:o-news-1;}.uscb-tag__census_program_demo-survey_decennial_2030-census_2023-census-test{background-color: #c0e4be;border-color: #c0e4be;--icon-class:o-news-1;}.uscb-tag__census_program_demo-survey_decennial_2030-census_2024-census-survey{background-color: #c0e4be;border-color: #c0e4be;--icon-class:o-news-1;}.uscb-tag__census_program_demo-survey_decennial_2030-census_2026-census-test{background-color: #c0e4be;border-color: #c0e4be;--icon-class:o-news-1;}.uscb-tag__census_program_demo-survey_hvs{background-color: #c0e4be;border-color: #c0e4be;--icon-class:o-news-1;}.uscb-tag__census_program_demo-survey_ahs{background-color: #c0e4be;border-color: #c0e4be;--icon-class:o-news-1;}.uscb-tag__census_program_demo-survey_cps{background-color: #c0e4be;border-color: #c0e4be;--icon-class:o-news-1;}.uscb-tag__census_program_demo-survey_acs{background-color: #c0e4be;border-color: #c0e4be;--icon-class:o-news-1;}.uscb-tag__census_program_demo-survey_sipp{background-color: #c0e4be;border-color: #c0e4be;--icon-class:o-news-1;}.uscb-tag__census_program_demo-survey_popest{background-color: #c0e4be;border-color: #c0e4be;--icon-class:o-news-1;}.uscb-tag__census_program_demo-survey_popproj{background-color: #c0e4be;border-color: #c0e4be;--icon-class:o-news-1;}.uscb-tag__census_program_demo-survey_bas{background-color: #c0e4be;border-color: #c0e4be;--icon-class:o-news-1;}.uscb-tag__census_program_demo-survey_tsap{background-color: #c0e4be;border-color: #c0e4be;--icon-class:o-news-1;}.uscb-tag__census_program_demo-survey_sdrp{background-color: #c0e4be;border-color: #c0e4be;--icon-class:o-news-1;}.uscb-tag__census_program_demo-survey_luca{background-color: #c0e4be;border-color: #c0e4be;--icon-class:o-news-1;}.uscb-tag__census_program_demo-survey_psap{background-color: #c0e4be;border-color: #c0e4be;--icon-class:o-news-1;}.uscb-tag__census_program_demo-survey_gupcp{background-color: #c0e4be;border-color: #c0e4be;--icon-class:o-news-1;}.uscb-tag__census_program_demo-survey_gss-i{background-color: #c0e4be;border-color: #c0e4be;--icon-class:o-news-1;}.uscb-tag__census_program_demo-survey_metro-micro{background-color: #c0e4be;border-color: #c0e4be;--icon-class:o-news-1;}.uscb-tag__census_program_demo-survey_aian{background-color: #c0e4be;border-color: #c0e4be;--icon-class:o-news-1;}.uscb-tag__census_program_demo-survey_rdo{background-color: #c0e4be;border-color: #c0e4be;--icon-class:o-news-1;}.uscb-tag__census_program_demo-survey_nshapc{background-color: #c0e4be;border-color: #c0e4be;--icon-class:o-news-1;}.uscb-tag__census_program_demo-survey_ip{background-color: #c0e4be;border-color: #c0e4be;--icon-class:o-news-1;}.uscb-tag__census_program_demo-survey_sahie{background-color: #c0e4be;border-color: #c0e4be;--icon-class:o-news-1;}.uscb-tag__census_program_demo-survey_saipe{background-color: #c0e4be;border-color: #c0e4be;--icon-class:o-news-1;}.uscb-tag__census_program_demo-survey_nssrn{background-color: #c0e4be;border-color: #c0e4be;--icon-class:o-news-1;}.uscb-tag__census_program_demo-survey_ntps{background-color: #c0e4be;border-color: #c0e4be;--icon-class:o-news-1;}.uscb-tag__census_program_demo-survey_sis{background-color: #c0e4be;border-color: #c0e4be;--icon-class:o-news-1;}.uscb-tag__census_program_demo-survey_hh-pulse-survey{background-color: #c0e4be;border-color: #c0e4be;--icon-class:o-news-1;}.uscb-tag__census_program_demo-survey_ehealth{background-color: #c0e4be;border-color: #c0e4be;--icon-class:o-news-1;}.uscb-tag__census_program_demo-survey_cre{background-color: #c0e4be;border-color: #c0e4be;--icon-class:o-news-1;}.uscb-tag__census_program_demo-survey_school-pulse-panel{background-color: #c0e4be;border-color: #c0e4be;--icon-class:o-news-1;}.uscb-tag__census_program_demo-survey_dcdl{background-color: #c0e4be;border-color: #c0e4be;--icon-class:o-news-1;}.uscb-tag__census_program_demo-survey_ntews{background-color: #c0e4be;border-color: #c0e4be;--icon-class:o-news-1;}.uscb-tag__census_program_demo-survey_pfs{background-color: #c0e4be;border-color: #c0e4be;--icon-class:o-news-1;}.uscb-tag__census_program_demo-survey_ssocs{background-color: #c0e4be;border-color: #c0e4be;--icon-class:o-news-1;}.uscb-tag__census_program_demo-survey_special-census-program{background-color: #c0e4be;border-color: #c0e4be;--icon-class:o-news-1;}.uscb-tag__census_program_demo-survey_nsch{background-color: #c0e4be;border-color: #c0e4be;--icon-class:o-news-1;}.uscb-tag__census_program_demo-survey_pss{background-color: #c0e4be;border-color: #c0e4be;--icon-class:o-news-1;}.uscb-tag__census_program_demo-survey_nschlc{background-color: #c0e4be;border-color: #c0e4be;--icon-class:o-news-1;}.uscb-tag__census_program_demo-survey_national-household-food-study{background-color: #c0e4be;border-color: #c0e4be;--icon-class:o-news-1;}.uscb-tag__census_program_demo-survey_chs{background-color: #c0e4be;border-color: #c0e4be;--icon-class:o-news-1;}.uscb-tag__census_program_demo-survey_htops{background-color: #c0e4be;border-color: #c0e4be;--icon-class:o-news-1;}.uscb-tag__census_program_econ-survey{background-color: #c0e4be;border-color: #c0e4be;--icon-class:o-news-1;}.usc",
+          "title": "About the Quarterly Summary of State & Local Tax Revenue",
+          "httpStatus": 200
+        },
+        {
+          "type": "openrouter:web_fetch",
+          "id": "st_tmp_mx1ijm2hhn",
+          "status": "completed",
+          "url": "https://www.census.gov/programs-surveys/qtax/technical-documentation/methodology.html",
+          "content": "\n<!DOCTYPE HTML>\n<!-- /*Per CMS-3223 we need the line below to have a 301 redirect capability*/ -->\n\n\n<html lang=\"en\">\n    <head>\r\n    \n    <link rel=\"icon\" sizes=\"192x192\" href=\"/etc.clientlibs/census/clientlibs/common-site/resources/icons/android-chrome-192x192.png\"/>\n    <link rel=\"icon\" sizes=\"256x256\" href=\"/etc.clientlibs/census/clientlibs/common-site/resources/icons/android-chrome-256x256.png\"/>\n    <link rel=\"shortcut icon\" sizes=\"32x32\" href=\"/etc.clientlibs/census/clientlibs/common-site/resources/icons/favicon.ico\"/>\n    <link rel=\"apple-touch-icon\" sizes=\"180x180\" href=\"/etc.clientlibs/census/clientlibs/common-site/resources/icons/apple-touch-icon-180x180.png\"/>     \n    <meta name=\"msapplication-square150x150logo\" content=\"/etc.clientlibs/census/clientlibs/common-site/resources/icons/mstile-150x150.png\"/>    \n\r\n    <meta charset=\"UTF-8\"/>\r\n    <title>Quarterly Summary of State &amp; Local Tax Revenue Methodology</title>\r\n    \r\n    \r\n    \r\n    <meta name=\"description\" property=\"og:description\" content=\"View and download Quarterly Summary of State and Local Tax Revenue Methodology.\"/>\r\n    <meta name=\"template\" content=\"template-detail3colleftright\"/>\r\n    <meta name=\"viewport\" content=\"width=device-width, initial-scale=1\"/>\r\n    \r\n    <link rel=\"canonical\" href=\"https://www.census.gov/programs-surveys/qtax/technical-documentation/methodology.html\"/>\r\n\r\n    \r\n    \r\n    \r\n\r\n    \n\n\n  \n    <meta name=\"DC.title\" property=\"og:title\" content=\"Quarterly Summary of State &amp; Local Tax Revenue Methodology\"/>\n    <meta name=\"DC.creator\" content=\"US Census Bureau\"/>\n    \n    <meta name=\"DC.date.reviewed\" property=\"article:modified_time\" scheme=\"ISO8601\" content=\"2026-09-09T11:18:47.660-04:00\"/>\n    <meta name=\"DC.language\" scheme=\"DCTERMS.RFC1766\" content=\"en\"/>\n  \t<meta name=\"robots\" content=\"noodp, noydir\"/>\n  \t<meta name=\"author\" content=\"US Census Bureau\"/>\n  \t<meta http-equiv=\"content-type\" content=\"text/html; charset=UTF-8\"/>\n  \t<meta property=\"og:locale\" content=\"en\"/>\n  \t<meta property=\"og:site_name\" content=\"Census.gov\"/>\n  \t<meta property=\"og:type\" content=\"article\"/>\n  \t<meta property=\"og:url\" content=\"https://www.census.gov/programs-surveys/qtax/technical-documentation/methodology.html\"/>\n  \t<meta property=\"og:image\" content=\"https://www.census.gov/content/dam/Census/public/brand/census-logo-sharing-card.jpg\"/>\n  \t<meta name=\"twitter:image\" content=\"https://www.census.gov/content/dam/Census/public/brand/census-logo-sharing-card.jpg\"/>\n  \t<meta name=\"twitter:card\" content=\"summary_large_image\"/>\n  \t<meta name=\"twitter:site\" content=\"@uscensusbureau\"/>\n  \t<meta name=\"twitter:creator\" content=\"@uscensusbureau\"/>\n  \t<meta name=\"twitter:title\" content=\"Quarterly Summary of State &amp; Local Tax Revenue Methodology\"/>\n  \t<meta property=\"article:publisher\" content=\"https://census.gov/\"/>\n  \t<meta property=\"article:section\" content=\"Government\"/>\n  \r\n    <script type=\"text/javascript\" src=\"https://www.google.com/jsapi\"></script>\r\n    \r\n    \n    \n    \n    \n    \n<script src=\"/etc.clientlibs/clientlibs/granite/jquery.min.cee8557e8779d371fe722bbcdd3b3eb7.js\"></script>\n<script src=\"/etc.clientlibs/clientlibs/granite/utils.min.899004cc02c33efc1f6694b1aee587fd.js\"></script>\n<script src=\"/etc.clientlibs/clientlibs/granite/jquery/granite.min.543d214c88dfa6f4a3233b630c82d875.js\"></script>\n<script src=\"/etc.clientlibs/foundation/clientlibs/jquery.min.dd9b395c741ce2784096e26619e14910.js\"></script>\n<script src=\"/etc.clientlibs/census/clientlibs/modernizr.min.33837f3aff33e7a40a760d767866141e.js\"></script>\n\n\n\n\t\n    \n<script src=\"/etc.clientlibs/clientlibs/granite/jquery-ui.min.000478df169ef08edfb24d7502acb3c1.js\"></script>\n<script src=\"/etc.clientlibs/foundation/clientlibs/jquery-ui.min.3cc462ae7fb48fa3949850e903137f14.js\"></script>\n\n\n\n    \n    \n<link rel=\"stylesheet\" href=\"/etc.clientlibs/census-core/clientlibs.min.9556bf894a0d404c4e4f4bf83ef3c63b.css\" type=\"text/css\">\n<link rel=\"stylesheet\" href=\"/etc.clientlibs/census/clientlibs/bootstrap.min.3e7d159faa40f5cdf7d02fbe2b1bb215.css\" type=\"text/css\">\n<link rel=\"stylesheet\" href=\"/etc.clientlibs/census/clientlibs/census-fonts.min.9ebcbfc417b8006268ac47b61f6ebfba.css\" type=\"text/css\">\n<link rel=\"stylesheet\" href=\"/etc.clientlibs/census/clientlibs/common-site.min.8e92f508ecd83720ca5ccc6c8f0637d4.css\" type=\"text/css\">\n<link rel=\"stylesheet\" href=\"/etc.clientlibs/clientlibs/granite/jquery-ui.min.48e542f529ebea7475d83a20a3394c1e.css\" type=\"text/css\">\n<link rel=\"stylesheet\" href=\"/etc.clientlibs/census/clientlibs/orionicons.min.2ffd39f8bfe972a21504ca49f50084ec.css\" type=\"text/css\">\n<link rel=\"stylesheet\" href=\"/etc.clientlibs/census/clientlibs/uswds-init.min.c213ff96bc721c3e7977bc763c809e0a.css\" type=\"text/css\">\n<link rel=\"stylesheet\" href=\"/etc.clientlibs/census/clientlibs/core-overrides.min.95bca97fbd3ca07d6424f7fbbe926450.css\" type=\"text/css\">\n<link rel=\"stylesheet\" href=\"/etc.clientlibs/census/clientlibs/clientlib-dependencies.min.d41d8cd98f00b204e9800998ecf8427e.css\" type=\"text/css\">\n<link rel=\"stylesheet\" href=\"/etc.clientlibs/census/clientlibs/clientlib-site.min.25c805315eb4f3f64da0cc62097979ea.css\" type=\"text/css\">\n<link rel=\"stylesheet\" href=\"/etc.clientlibs/census/clientlibs/census-fonts-multilang.min.e7ca9bab4d61ddbda89ed7b2948bf2b6.css\" type=\"text/css\">\n<link rel=\"stylesheet\" href=\"/etc.clientlibs/census/clientlibs/census-pattern-library.min.a89a57ffc2832e0526e9000bfe5d3b7f.css\" type=\"text/css\">\n<link rel=\"stylesheet\" href=\"/etc.clientlibs/census/clientlibs/census-css.min.eea51f80edbde7164c45da04901e3b7f.css\" type=\"text/css\">\n<link rel=\"stylesheet\" href=\"/etc.clientlibs/census/clientlibs/aemgrid.min.be57a8c9b7d09f61725fd419ae4495cb.css\" type=\"text/css\">\n\n\n\n    \n    \n    \n\t\n    \n<link rel=\"stylesheet\" href=\"/etc.clientlibs/census/clientlibs/census-disabled.min.d002d8837bb961541a62e1a6402d7e2b.css\" type=\"text/css\">\n<script src=\"/etc.clientlibs/census/clientlibs/census-disabled.min.42535f152edc257f3458c8e1d559866c.js\"></script>\n\n\n\n    <link href=\"/etc.clientlibs/census/clientlibs/census-css/resources/print.css\" rel=\"stylesheet\" type=\"text/css\" media=\"print\"/> \n\n\t  <!-- Conditional CSS -->\n\t\n\t\t\n\t\n\t\n\n\t\n\n\t\t\n\t \n\t\n\n\t\n\n    \n\n\n        <script type=\"text/javascript\" src=\"//assets.adobedtm.com/launch-ENdc1ca6bab15e46a5b880a2c3f9d462ab.min.js\"></script>\n\n \n\t<!-- /*Data Layer*/ -->\t\n\t<div><script type=\"text/javascript\">\r\n\tvar d = new Date();\r\n\tvar days = [\"Sunday\",\"Monday\",\"Tuesday\",\"Wednesday\",\"Thursday\",\"Friday\",\"Saturday\"];\r\n\tvar digitalData = digitalData || {};\r\n    digitalData = {\r\n       \t\"page\" : {\r\n            \"pageInfo\" : {                \r\n                \"pageName\" \t\t\t: \"Quarterly Summary of State \\x26 Local Tax Revenue Methodology_360891\",\r\n                \"legacyPageName\" \t: \"en>programsRSUY>qtax>technicaTNOUTO>Quarterly Summary of State \\x26 Local Tax Revenue Methodology\",\r\n                \"pageURL\" \t\t\t: window.location.href,\r\n                \"language\" \t\t\t: \"en\",\r\n                \"pageTemplate\" \t\t: \"template\\u002Ddetail3colleftright\",\r\n                \"topic\" \t\t\t: \"\",\r\n                \"programTag\" \t\t: \"\",\r\n                \"collectionYear\" \t: \"\",\r\n                \"AEMtopic\" \t\t\t: \"\",\r\n                \"contentType\" \t\t: \"\",\r\n                \"geoTag\" \t\t\t: \"\",\r\n                \"seriesTag\" \t\t: \"\",\r\n                \"publishDate\" \t\t: \"\",\r\n                \"timeOfDay\" \t\t: twoDigits(d.getHours()) + \":\" + twoDigits(d.getMinutes()),\r\n                \"tool\" \t\t\t\t: \"aem\",\r\n                \"dayOfWeek\" \t\t: days[d.getDay()],\r\n                \"siteSection\" : \"programs-surveys\",\"subSectionOne\" : \"qtax\",\"subSectionTwo\" : \"technical-documentation\",\"subSectionThree\" : \"methodology\"\r\n            },\r\n            \"pageTag\" : {\r\n                                \r\n            }\r\n        },\r\n        \"event\" : {\r\n        \t\"eventName\" : {},\r\n          \t\"eventInfo\" : {\r\n\t            \"share\" \t\t\t : {},\r\n\t            \"download\" \t\t\t : {},\r\n\t            \"search\" \t\t\t : {},\r\n\t            \"expandCollapseList\" : {},\r\n\t            \"language\" \t\t\t : {\r\n\t            \tpageLanguage\t : \"en\"\r\n\t            },\r\n\t            \"landingPageTab\" \t : {}\r\n          }\r\n        },\r\n        \"browserInfo\" : {\r\n        \t\"browserWidth\" : getBrowserWidth()\r\n        }\r\n    };    \r\n\r\n    if ( typeof(Storage) !== \"undefined\" ) {\r\n      if ( localStorage.getItem(\"pageLanguage\") != null ) {\r\n        digitalData.event.eventInfo.language.pageLanguage = localStorage.getItem(\"pageLanguage\");\r\n      }\r\n      if ( localStorage.getItem(\"langEventName\") != null ) {\r\n        digitalData.event.eventName = localStorage.getItem(\"langEventName\");\r\n      }\r\n      if ( localStorage.getItem(\"clickValue\") != null ) {\r\n        digitalData.event.eventInfo.search.clickValue = localStorage.getItem(\"clickValue\");\r\n      }\r\n      if ( localStorage.getItem(\"searchEventName\") != null ) {\r\n        digitalData.event.eventInfo.eventName = localStorage.getItem(\"searchEventName\");\r\n      }       \r\n      if ( localStorage.getItem(\"tabEventName\") != null ) {\r\n        digitalData.event.eventName = localStorage.getItem(\"tabEventName\");\r\n      } \r\n      if ( localStorage.getItem(\"pageName\") != null ) {\r\n        digitalData.page.pageInfo.pageName = localStorage.getItem(\"pageName\");\r\n      } \r\n      if ( localStorage.getItem(\"eventInfoEventName\") != null ) {\r\n    \t  digitalData.event.eventInfo.eventName = localStorage.getItem(\"eventInfoEventName\");  \t  \r\n      }\r\n      if ( localStorage.getItem(\"eventInfoLanguage\") != null ) {\r\n    \t  digitalData.event.eventInfo.language.pageLanguage = localStorage.getItem(\"eventInfoLanguage\");\r\n      }\r\n      if ( localStorage.getItem(\"searchTerm\") != null ) {\r\n    \t  digitalData.event.eventInfo.search.term = localStorage.getItem(\"searchTerm\");\r\n      }\r\n      if ( localStorage.getItem(\"blogSearchPhrase\") != null ) {\r\n    \t  digitalData.event.eventInfo.blogSearchPhrase = localStorage.getItem(\"blogSearchPhrase\");\r\n      }\r\n      if ( localStorage.getItem(\"blogEventName\") != null ) {\r\n    \t  digitalData.event.eventInfo.eventName = localStorage.getItem(\"blogEventName\");\r\n      }      \r\n      if ( localStorage.getItem(\"blogName\") != null ) {\r\n    \t  digitalData.event.eventInfo.blogName = localStorage.getItem(\"blogName\");\r\n      }\r\n      if ( localStorage.getItem(\"buttonClickCount\") != null ) {\r\n    \t  digitalData.event.eventInfo.buttonClickCount = localStorage.getItem(\"buttonClickCount\");\r\n      }\r\n      //After assigning the value to digitalData, clear the localStorage variable's content\r\n      localStorage.removeItem(\"pageLanguage\");\r\n      localStorage.removeItem(\"langEventName\");\r\n      localStorage.removeItem(\"clickValue\");\r\n      localStorage.removeItem(\"searchEventName\");\r\n      localStorage.removeItem(\"landingPageTabClickValue\");\r\n      localStorage.removeItem(\"tabEventName\");\r\n      localStorage.removeItem(\"pageName\");\r\n      localStorage.removeItem(\"eventInfoEventName\");\r\n      localStorage.removeItem(\"eventInfoLanguage\");\r\n      localStorage.removeItem(\"searchTerm\");\r\n      localStorage.removeItem(\"blogSearchPhrase\");\r\n      localStorage.removeItem(\"blogEventName\");\r\n      localStorage.removeItem(\"blogName\");\r\n      localStorage.removeItem(\"buttonClickCount\");\r\n    } else {\r\n      if ( getCookie(\"pageLanguage\") != \"\" ) {\r\n        digitalData.event.eventInfo.language.pageLanguage = getCookie(\"pageLanguage\");\r\n      }\r\n      if ( getCookie(\"langEventName\") != \"\" ) {\r\n        digitalData.event.eventName = getCookie(\"langEventName\");\r\n      }\r\n      if ( getCookie(\"clickValue\") != \"\" ) {\r\n        digitalData.event.eventInfo.search.clickValue = getCookie(\"clickValue\");\r\n      }\r\n      if ( getCookie(\"searchEventName\") != \"\" ) {\r\n        digitalData.event.eventInfo.eventName = getCookie(\"searchEventName\");\r\n      }\r\n      if ( getCookie(\"landingPageTabClickValue\") != \"\" ) {\r\n        digitalData.event.eventInfo.landingPageTab.clickValue = getCookie(\"landingPageTabClickValue\");\r\n      }\r\n      if ( getCookie(\"tabEventName\") != \"\" ) {\r\n        digitalData.event.eventName = getCookie(\"tabEventName\");\r\n      }\r\n      if ( getCookie(\"pageName\") != \"\" ) {\r\n        digitalData.page.pageInfo.pageName = getCookie(\"pageName\");\r\n      }\r\n      if ( getCookie(\"eventInfoEventName\") != \"\" ) {\r\n    \t  digitalData.event.eventInfo.eventName = getCookie(\"eventInfoEventName\");  \r\n      }\r\n      if ( getCookie(\"eventInfoLanguage\") ) {\r\n    \t  digitalData.event.eventInfo.language.pageLanguage = getCookie(\"eventInfoLanguage\");\r\n      }\r\n      if ( getCookie(\"searchTerm\") ) {\r\n    \t  digitalData.event.eventInfo.search.term = getCookie(\"searchTerm\");\r\n      }\r\n      if ( getCookie(\"blogSearchPhrase\") ) {\r\n    \t  digitalData.event.eventInfo.blogSearchPhrase = getCookie(\"blogSearchPhrase\");\r\n      }\r\n      if ( getCookie(\"blogEventName\") ) {\r\n    \t  digitalData.event.eventInfo.eventName = getCookie(\"blogEventName\");\r\n      }\r\n      if ( getCookie(\"blogName\") ) {\r\n    \t  digitalData.event.eventInfo.blogName = getCookie(\"blogName\");\r\n      }\r\n      if ( getCookie(\"buttonClickCount\") ) {\r\n    \t  digitalData.event.eventInfo.buttonClickCount = getCookie(\"buttonClickCount\");\r\n      }\r\n      //After assigning the value to digitalData, clear the localStorage variable's content\r\n      setCookie(\"pageLanguage\", \"\");\r\n      setCookie(\"langEventName\", \"\");\r\n      setCookie(\"clickValue\", \"\");\r\n      setCookie(\"searchEventName\", \"\");\r\n      setCookie(\"landingPageTabClickValue\", \"\");\r\n      setCookie(\"pageName\", \"\");\r\n      setCookie(\"eventInfoEventName\", \"\");\r\n      setCookie(\"eventInfoLanguage\", \"\");\r\n      setCookie(\"searchTerm\", \"\");\r\n      setCookie(\"blogSearchPhrase\", \"\");\r\n      setCookie(\"blogName\", \"\");\r\n      setCookie(\"buttonClickCount\", \"\");\r\n    }\r\n\r\n    function setCookie(cname, cvalue, exdays) {\r\n       var d = new Date();\r\n       d.setTime(d.getTime() + (exdays*24*60*60*1000));\r\n       var expires = \"expires=\"+d.toUTCString();\r\n       document.cookie = cname + \"=\" + cvalue + \";\" + expires + \";path=/\";\r\n    }\r\n\r\n    function getCookie(cname) {\r\n       var name = cname + \"=\";\r\n       var ca = document.cookie.split(';');\r\n       for(var i = 0; i < ca.length; i++) {\r\n           var c = ca[i];\r\n           while (c.charAt(0) == ' ') {\r\n               c = c.substring(1);\r\n           }\r\n           if (c.indexOf(name) == 0) {\r\n               return c.substring(name.length, c.length);\r\n           }\r\n       }\r\n       return \"\";\r\n    }\r\n    \r\n    function getBrowserWidth() {         \r\n   \t  \treturn window.innerWidth;\r\n   \t}\r\n    \r\n    function twoDigits(n){\r\n        return n > 9 ? \"\" + n: \"0\" + n;\r\n    }\r\n    \r\n    document.addEventListener('click', function (event) {    \t\r\n    \tif (typeof(event.target.href) !== 'undefined' && event.target.href.toLowerCase().indexOf('tel:') >= 0) {\r\n    \t\tdigitalData.event.eventName = 'phoneNumber';\r\n    \t\tdigitalData.event.eventInfo.eventName = 'Telephone Click';\r\n    \t\tvar splittedData = event.target.href.toLowerCase().split(':');\r\n    \t\tif (splittedData.length > 0) {\r\n    \t\t\tdigitalData.event.eventInfo.telephoneNumber = splittedData[splittedData.length - 1];\t\r\n    \t\t}    \t\t\r\n    \t}\r\n    \t\r\n    \tif (typeof(event.target.href) !== 'undefined' && event.target.href.toLowerCase().indexOf('mailto:') >= 0) {\r\n    \t\tdigitalData.event.eventName = 'emailClick';\r\n    \t\tdigitalData.event.eventInfo.eventName = 'Email Click';\r\n    \t\tvar splittedData = event.target.href.toLowerCase().split(':');\r\n    \t\tif (splittedData.length > 0) {\r\n    \t\t\tdigitalData.event.eventInfo.emailAddress = splittedData[splittedData.length - 1 ]\r\n    \t\t}\r\n    \t}\r\n    \t\r\n    \t//For non-download links that are added via RTE\r\n    \tif (typeof(event.target.href) !== 'undefined') {\r\n    \t\tvar extension = event.target.href.split('.').pop();\r\n    \t\tif (extension == event.target.href || extension == \"html\")\r\n    \t\t\tlinkClick(event.target, 'RTE');    \t\t\r\n    \t}\r\n    });\r\n    \r\n    document.addEventListener(\"DOMContentLoaded\", function() {   \t\t\r\n   \t  \tif (typeof(getCookie('visitor')) !== 'undefined' && getCookie('visitor') !== '') {\r\n   \t  \t    date = new Date();   \t  \t    \r\n   \t\t\tdigitalData.event.eventInfo.newVsRepeat = 'repeat';\r\n   \t\t\tvar dateLastVisited = Date.parse(getCookie('dateLastVisited'));   \t\t\t\r\n   \t\t\tvar differenceInTime = date.getTime() - dateLastVisited;   \t\t\t\r\n   \t\t\tvar seconds = (differenceInTime * .001) >> 0;\r\n   \t\t\t\r\n   \t\t\tif (seconds > 0) {   \t\t\t\t\r\n\t   \t        var minutes = seconds / 60;\r\n\t   \t        var hours = minutes / 60;\t   \t        \r\n\t   \t        var days = hours / 24;\t   \t        \r\n   \t        \tdigitalData.event.eventInfo.secondsSinceLastVisit = seconds.toFixed(2);\r\n   \t        \tdigitalData.event.eventInfo.minutesSinceLastVisit = minutes.toFixed(2);\r\n   \t        \tdigitalData.event.eventInfo.hoursSinceLastVisit = hours.toFixed(2);\r\n   \t        \tdigitalData.event.eventInfo.daysSinceLastVisit = days.toFixed(2);\r\n   \t        }   \t\t\t\r\n   \t\t\t\r\n   \t\t\tsetCookie('dateLastVisited', date, 365); \r\n   \t\t\tvar visitNumber = parseInt(getCookie('visitNumber')) + 1;\r\n   \t\t\tsetCookie('visitNumber', visitNumber, 365);\r\n   \t\t\tdigitalData.event.eventInfo.visitNumber = visitNumber;\r\n   \t  \t} else {\r\n   \t  \t\tdate = new Date();\r\n   \t  \t\tsetCookie('visitor', 'census website visitor', 365);\r\n   \t  \t\tsetCookie('dateLastVisited', date, 365);\r\n   \t  \t\tsetCookie('visitNumber', 1, 365);\r\n   \t  \t\tdigitalData.event.eventInfo.newVsRepeat = 'new';\r\n   \t  \t\tdigitalData.event.eventInfo.visitNumber = 1;\r\n   \t  \t}\r\n   \t});\r\n    \r\n\t$(document).ready(function () { // ensure we wait for listeners to connect to dataLayerReady instead of just firing immediately\r\n    \t$(document).trigger({type: \"dataLayerReady\"});\r\n  });\r\n</script></div>\n\t<script type=\"text/javascript\" src=\"https://www.google.com/jsapi\"></script>\n\t<!-- /*Asset Ref, Content-Language*/-->\n\t<div><script type=\"text/javascript\">    \r\n   \t'use strict';\r\n   \t\r\n   \tdocument.addEventListener('click', function (event) {\r\n    \tif (typeof(event.target.href) !== 'undefined' && event.target.href.toLowerCase().indexOf('pdf') >= 0) {\r\n    \t\tvar pdfXhr = new XMLHttpRequest();\r\n    \t\tpdfXhr.open('GET', '/bin/custom/header/asset?pdfPath=' + event.target.href, true);\r\n    \t\tpdfXhr.send();\r\n    \t}\r\n   \t});\r\n   \t\r\n</script></div>\n\r\n\r\n    \r\n\r\n    \r\n        <style>.uscb-tag__census{background-color: #bbddff;border-color: #bbddff;--icon-class:o-news-1;}.uscb-tag__census_type{background-color: #bbddff;border-color: #bbddff;--icon-class:o-news-1;}.uscb-tag__census_type_publication{background-color: #d0dce1;border-color: #d0dce1;--icon-class:o-book-1;}.uscb-tag__census_type_publication_atlas{background-color: #d0dce1;border-color: #d0dce1;--icon-class:o-book-1;}.uscb-tag__census_type_about{background-color: #bbddff;border-color: #bbddff;--icon-class:o-news-1;}.uscb-tag__census_type_about_biography{background-color: #bbddff;border-color: #bbddff;--icon-class:o-news-1;}.uscb-tag__census_type_about_survey-respondent-information{background-color: #bbddff;border-color: #bbddff;--icon-class:o-news-1;}.uscb-tag__census_type_data{background-color: #ffccbc;border-color: #ffccbc;--icon-class:o-news-1;}.uscb-tag__census_type_data_table{background-color: #ffccbc;border-color: #ffccbc;--icon-class:o-news-1;}.uscb-tag__census_type_data_table_comp-tab{background-color: #ffccbc;border-color: #ffccbc;--icon-class:o-news-1;}.uscb-tag__census_type_data_table_rank-tab{background-color: #ffccbc;border-color: #ffccbc;--icon-class:o-news-1;}.uscb-tag__census_type_data_table_summary-table{background-color: #ffccbc;border-color: #ffccbc;--icon-class:o-news-1;}.uscb-tag__census_type_data_errata-note{background-color: #ffccbc;border-color: #ffccbc;--icon-class:o-news-1;}.uscb-tag__census_type_data_dataset{background-color: #ffccbc;border-color: #ffccbc;--icon-class:o-news-1;}.uscb-tag__census_type_data_dataset_pums-puf-microdata{background-color: #ffccbc;border-color: #ffccbc;--icon-class:o-news-1;}.uscb-tag__census_type_data_dataset_pums-puf-microdata_puf{background-color: #ffccbc;border-color: #ffccbc;--icon-class:o-news-1;}.uscb-tag__census_type_data_dataset_pums-puf-microdata_pums{background-color: #ffccbc;border-color: #ffccbc;--icon-class:o-news-1;}.uscb-tag__census_type_data_dataset_summary-file{background-color: #ffccbc;border-color: #ffccbc;--icon-class:o-news-1;}.uscb-tag__census_type_data_dataset_api{background-color: #ffccbc;border-color: #ffccbc;--icon-class:o-news-1;}.uscb-tag__census_type_data_indicator{background-color: #ffccbc;border-color: #ffccbc;--icon-class:o-news-1;}.uscb-tag__census_type_data_experimental-data-product{background-color: #ffccbc;border-color: #ffccbc;--icon-class:o-news-1;}.uscb-tag__census_type_event{background-color: #e0d2e3;border-color: #e0d2e3;--icon-class:o-news-1;}.uscb-tag__census_type_event_conference{background-color: #e0d2e3;border-color: #e0d2e3;--icon-class:o-news-1;}.uscb-tag__census_type_event_c-span{background-color: #e0d2e3;border-color: #e0d2e3;--icon-class:o-news-1;}.uscb-tag__census_type_event_media-event{background-color: #e0d2e3;border-color: #e0d2e3;--icon-class:o-news-1;}.uscb-tag__census_type_event_seminar{background-color: #e0d2e3;border-color: #e0d2e3;--icon-class:o-news-1;}.uscb-tag__census_type_event_training{background-color: #e0d2e3;border-color: #e0d2e3;--icon-class:o-news-1;}.uscb-tag__census_type_event_training_courses{background-color: #e0d2e3;border-color: #e0d2e3;--icon-class:o-news-1;}.uscb-tag__census_type_event_training_webinar{background-color: #e0d2e3;border-color: #e0d2e3;--icon-class:o-news-1;}.uscb-tag__census_type_event_training_tutorial{background-color: #e0d2e3;border-color: #e0d2e3;--icon-class:o-news-1;}.uscb-tag__census_type_event_u-stream{background-color: #e0d2e3;border-color: #e0d2e3;--icon-class:o-news-1;}.uscb-tag__census_type_event_presentation{background-color: #e0d2e3;border-color: #e0d2e3;--icon-class:o-news-1;}.uscb-tag__census_type_event_disasters{background-color: #e0d2e3;border-color: #e0d2e3;--icon-class:o-news-1;}.uscb-tag__census_type_event_disasters_earthquake{background-color: #e0d2e3;border-color: #e0d2e3;--icon-class:o-news-1;}.uscb-tag__census_type_event_disasters_flood{background-color: #e0d2e3;border-color: #e0d2e3;--icon-class:o-news-1;}.uscb-tag__census_type_event_disasters_hurricane{background-color: #e0d2e3;border-color: #e0d2e3;--icon-class:o-news-1;}.uscb-tag__census_type_event_disasters_pandemic{background-color: #e0d2e3;border-color: #e0d2e3;--icon-class:o-news-1;}.uscb-tag__census_type_event_disasters_tornado{background-color: #e0d2e3;border-color: #e0d2e3;--icon-class:o-news-1;}.uscb-tag__census_type_event_disasters_wildfire{background-color: #e0d2e3;border-color: #e0d2e3;--icon-class:o-news-1;}.uscb-tag__census_type_event_disasters_storm{background-color: #e0d2e3;border-color: #e0d2e3;--icon-class:o-news-1;}.uscb-tag__census_type_event_disasters_incident{background-color: #e0d2e3;border-color: #e0d2e3;--icon-class:o-news-1;}.uscb-tag__census_type_event_disasters_air-quality{background-color: #e0d2e3;border-color: #e0d2e3;--icon-class:o-news-1;}.uscb-tag__census_type_event_disasters_extreme-heat{background-color: #e0d2e3;border-color: #e0d2e3;--icon-class:o-news-1;}.uscb-tag__census_type_media-resource{background-color: #bbddff;border-color: #bbddff;--icon-class:o-news-1;}.uscb-tag__census_type_media-resource_press-release{background-color: #7ad4e2;border-color: #7ad4e2;--icon-class:o-news-2;}.uscb-tag__census_type_media-resource_press-kit{background-color: #7ad4e2;border-color: #7ad4e2;--icon-class:o-documents-1;}.uscb-tag__census_type_media-resource_tip-sheet{background-color: #7ad4e2;border-color: #7ad4e2;--icon-class:o-data-file-1;}.uscb-tag__census_type_media-resource_facts-for-features-special-editions{background-color: #7ad4e2;border-color: #7ad4e2;--icon-class:o-image-saved-1;}.uscb-tag__census_type_media-resource_local-area-pr{background-color: #7ad4e2;border-color: #7ad4e2;--icon-class:o-news-2;}.uscb-tag__census_type_media-resource_stories{background-color: #7ad4e2;border-color: #7ad4e2;--icon-class:o-statistic-1;}.uscb-tag__census_type_multimedia{background-color: #bbddff;border-color: #bbddff;--icon-class:o-news-1;}.uscb-tag__census_type_multimedia_audio{background-color: #ffe434;border-color: #ffe434;--icon-class:o-volume-1;}.uscb-tag__census_type_multimedia_video{background-color: #ffe434;border-color: #ffe434;--icon-class:o-play-1;}.uscb-tag__census_type_multimedia_photograph{background-color: #ffe434;border-color: #ffe434;--icon-class:o-image-1;}.uscb-tag__census_type_working-paper{background-color: #d0dce1;border-color: #d0dce1;--icon-class:o-multiple-files-1;}.uscb-tag__census_type_visualization{background-color: #ffe434;border-color: #ffe434;--icon-class:o-bar-chart-1;}.uscb-tag__census_type_visualization_figure{background-color: #ffe434;border-color: #ffe434;--icon-class:o-bar-chart-1;}.uscb-tag__census_type_visualization_infographic{background-color: #ffe434;border-color: #ffe434;--icon-class:o-bar-chart-1;}.uscb-tag__census_type_visualization_thematic-map{background-color: #ffe434;border-color: #ffe434;--icon-class:o-bar-chart-1;}.uscb-tag__census_type_technical-documentation{background-color: #bbddff;border-color: #bbddff;--icon-class:o-news-1;}.uscb-tag__census_type_technical-documentation_data-dictionary{background-color: #bbddff;border-color: #bbddff;--icon-class:o-news-1;}.uscb-tag__census_type_technical-documentation_user-notes{background-color: #bbddff;border-color: #bbddff;--icon-class:o-news-1;}.uscb-tag__census_type_technical-documentation_questionnaire{background-color: #bbddff;border-color: #bbddff;--icon-class:o-news-1;}.uscb-tag__census_type_technical-documentation_sampling-weighting{background-color: #bbddff;border-color: #bbddff;--icon-class:o-news-1;}.uscb-tag__census_type_technical-documentation_quality-measures{background-color: #bbddff;border-color: #bbddff;--icon-class:o-news-1;}.uscb-tag__census_type_technical-documentation_source-accuracy-statements{background-color: #bbddff;border-color: #bbddff;--icon-class:o-news-1;}.uscb-tag__census_type_technical-documentation_subject-definitions{background-color: #bbddff;border-color: #bbddff;--icon-class:o-news-1;}.uscb-tag__census_type_technical-documentation_statistical-testing{background-color: #bbddff;border-color: #bbddff;--icon-class:o-news-1;}.uscb-tag__census_type_updates{background-color: #bbddff;border-color: #bbddff;--icon-class:o-news-1;}.uscb-tag__census_type_updates_newsletter{background-color: #bbddff;border-color: #bbddff;--icon-class:o-news-1;}.uscb-tag__census_type_methodology{background-color: #bbddff;border-color: #bbddff;--icon-class:o-news-1;}.uscb-tag__census_type_data-tool{background-color: #ffccbc;border-color: #ffccbc;--icon-class:o-news-1;}.uscb-tag__census_type_data-tool_api{background-color: #ffccbc;border-color: #ffccbc;--icon-class:o-news-1;}.uscb-tag__census_type_data-tool_software{background-color: #ffccbc;border-color: #ffccbc;--icon-class:o-news-1;}.uscb-tag__census_type_data-tool_mobile-app{background-color: #ffccbc;border-color: #ffccbc;--icon-class:o-news-1;}.uscb-tag__census_type_data-tool_web-app{background-color: #ffccbc;border-color: #ffccbc;--icon-class:o-news-1;}.uscb-tag__census_type_transcript{background-color: #bbddff;border-color: #bbddff;--icon-class:o-news-1;}.uscb-tag__census_type_blog{background-color: #7ad4e2;border-color: #7ad4e2;--icon-class:o-news-website-1;}.uscb-tag__census_type_blog_directors-blog{background-color: #7ad4e2;border-color: #7ad4e2;--icon-class:o-news-website-1;}.uscb-tag__census_type_blog_global-reach-blog{background-color: #7ad4e2;border-color: #7ad4e2;--icon-class:o-news-website-1;}.uscb-tag__census_type_blog_random-samplings-blog{background-color: #7ad4e2;border-color: #7ad4e2;--icon-class:o-news-website-1;}.uscb-tag__census_type_blog_research-blog{background-color: #7ad4e2;border-color: #7ad4e2;--icon-class:o-news-website-1;}.uscb-tag__census_type_blog_deputy-directors-blog{background-color: #7ad4e2;border-color: #7ad4e2;--icon-class:o-news-website-1;}.uscb-tag__census_type_blog_previous-directors-blogs{background-color: #7ad4e2;border-color: #7ad4e2;--icon-class:o-news-website-1;}.uscb-tag__census_type_story{background-color: #bdf;border-color: #bdf;--icon-class:o-news-1;}.uscb-tag__census_type_story_story-map{background-color: #bdf;border-color: #bdf;--icon-class:o-news-1;}.uscb-tag__census_type_geographic{background-color: #bbddff;border-color: #bbddff;--icon-class:o-news-1;}.uscb-tag__census_type_geographic_geo-profile{background-color: #bbddff;border-color: #bbddff;--icon-class:o-news-1;}.uscb-tag__census_type_geographic_mapping-file{background-color: #bbddff;border-color: #bbddff;--icon-class:o-news-1;}.uscb-tag__census_type_geographic_reference-file{background-color: #bbddff;border-color: #bbddff;--icon-class:o-news-1;}.uscb-tag__census_type_geographic_reference-map{background-color: #bbddff;border-color: #bbddff;--icon-class:o-news-1;}.uscb-tag__census_type_geographic_mapping-tool{background-color: #bbddff;border-color: #bbddff;--icon-class:o-news-1;}.uscb-tag__census_type_forms{background-color: #bbddff;border-color: #bbddff;--icon-class:o-news-1;}.uscb-tag__census_type_forms_request-form{background-color: #bbddff;border-color: #bbddff;--icon-class:o-news-1;}.uscb-tag__census_type_contact{background-color: #bbddff;border-color: #bbddff;--icon-class:o-news-1;}.uscb-tag__census_type_indicator{background-color: #bbddff;border-color: #bbddff;--icon-class:o-news-1;}.uscb-tag__census_type_job{background-color: #bbddff;border-color: #bbddff;--icon-class:o-news-1;}.uscb-tag__census_type_fact-sheet{background-color: #d0dce1;border-color: #d0dce1;--icon-class:o-find-notes-1;}.uscb-tag__census_type_faq{background-color: #bbddff;border-color: #bbddff;--icon-class:o-news-1;}.uscb-tag__census_type_faq_faq-feature{background-color: #bbddff;border-color: #bbddff;--icon-class:o-news-1;}.uscb-tag__census_type_outreach-materials{background-color: #bbddff;border-color: #bbddff;--icon-class:o-news-1;}.uscb-tag__census_type_spotlight{background-color: #d0dce1;border-color: #d0dce1;--icon-class:o-find-notes-1;}.uscb-tag__census_type_census-reference-materials{background-color: #bbddff;border-color: #bbddff;--icon-class:o-news-1;}.uscb-tag__census_type_census-reference-materials_code-lists{background-color: #bbddff;border-color: #bbddff;--icon-class:o-news-1;}.uscb-tag__census_type_monthly-history-story{background-color: #d0dce1;border-color: #d0dce1;--icon-class:o-find-notes-1;}.uscb-tag__census_type_flyer{background-color: #d0dce1;border-color: #d0dce1;--icon-class:o-find-notes-1;}.uscb-tag__census_program{background-color: #bbddff;border-color: #bbddff;--icon-class:o-news-1;}.uscb-tag__census_program_demo-survey{background-color: #c0e4be;border-color: #c0e4be;--icon-class:o-news-1;}.uscb-tag__census_program_demo-survey_atus{background-color: #c0e4be;border-color: #c0e4be;--icon-class:o-news-1;}.uscb-tag__census_program_demo-survey_ce{background-color: #c0e4be;border-color: #c0e4be;--icon-class:o-news-1;}.uscb-tag__census_program_demo-survey_ncvs{background-color: #c0e4be;border-color: #c0e4be;--icon-class:o-news-1;}.uscb-tag__census_program_demo-survey_namcs{background-color: #c0e4be;border-color: #c0e4be;--icon-class:o-news-1;}.uscb-tag__census_program_demo-survey_nhis{background-color: #c0e4be;border-color: #c0e4be;--icon-class:o-news-1;}.uscb-tag__census_program_demo-survey_nhamcs{background-color: #c0e4be;border-color: #c0e4be;--icon-class:o-news-1;}.uscb-tag__census_program_demo-survey_nhes{background-color: #c0e4be;border-color: #c0e4be;--icon-class:o-news-1;}.uscb-tag__census_program_demo-survey_nscg{background-color: #c0e4be;border-color: #c0e4be;--icon-class:o-news-1;}.uscb-tag__census_program_demo-survey_fhwar{background-color: #c0e4be;border-color: #c0e4be;--icon-class:o-news-1;}.uscb-tag__census_program_demo-survey_nychvs{background-color: #c0e4be;border-color: #c0e4be;--icon-class:o-news-1;}.uscb-tag__census_program_demo-survey_prcs{background-color: #c0e4be;border-color: #c0e4be;--icon-class:o-news-1;}.uscb-tag__census_program_demo-survey_rfs{background-color: #c0e4be;border-color: #c0e4be;--icon-class:o-news-1;}.uscb-tag__census_program_demo-survey_scs{background-color: #c0e4be;border-color: #c0e4be;--icon-class:o-news-1;}.uscb-tag__census_program_demo-survey_sass{background-color: #c0e4be;border-color: #c0e4be;--icon-class:o-news-1;}.uscb-tag__census_program_demo-survey_soma{background-color: #c0e4be;border-color: #c0e4be;--icon-class:o-news-1;}.uscb-tag__census_program_demo-survey_spd{background-color: #c0e4be;border-color: #c0e4be;--icon-class:o-news-1;}.uscb-tag__census_program_demo-survey_tfs{background-color: #c0e4be;border-color: #c0e4be;--icon-class:o-news-1;}.uscb-tag__census_program_demo-survey_tpops{background-color: #c0e4be;border-color: #c0e4be;--icon-class:o-news-1;}.uscb-tag__census_program_demo-survey_decennial{background-color: #c0e4be;border-color: #c0e4be;--icon-class:o-news-1;}.uscb-tag__census_program_demo-survey_decennial_2010census{background-color: #c0e4be;border-color: #c0e4be;--icon-class:o-news-1;}.uscb-tag__census_program_demo-survey_decennial_2000-census{background-color: #c0e4be;border-color: #c0e4be;--icon-class:o-news-1;}.uscb-tag__census_program_demo-survey_decennial_1990-census{background-color: #c0e4be;border-color: #c0e4be;--icon-class:o-news-1;}.uscb-tag__census_program_demo-survey_decennial_2020-census{background-color: #c0e4be;border-color: #c0e4be;--icon-class:o-news-1;}.uscb-tag__census_program_demo-survey_decennial_2020-census_2015-test{background-color: #c0e4be;border-color: #c0e4be;--icon-class:o-news-1;}.uscb-tag__census_program_demo-survey_decennial_2020-census_2016-test{background-color: #c0e4be;border-color: #c0e4be;--icon-class:o-news-1;}.uscb-tag__census_program_demo-survey_decennial_2020-census_2017-test{background-color: #c0e4be;border-color: #c0e4be;--icon-class:o-news-1;}.uscb-tag__census_program_demo-survey_decennial_2020-census_2018-test{background-color: #c0e4be;border-color: #c0e4be;--icon-class:o-news-1;}.uscb-tag__census_program_demo-survey_decennial_census-population{background-color: #c0e4be;border-color: #c0e4be;--icon-class:o-news-1;}.uscb-tag__census_program_demo-survey_decennial_census-housing{background-color: #c0e4be;border-color: #c0e4be;--icon-class:o-news-1;}.uscb-tag__census_program_demo-survey_decennial_voting-rights{background-color: #c0e4be;border-color: #c0e4be;--icon-class:o-news-1;}.uscb-tag__census_program_demo-survey_decennial_pes{background-color: #c0e4be;border-color: #c0e4be;--icon-class:o-news-1;}.uscb-tag__census_program_demo-survey_decennial_2030-census{background-color: #c0e4be;border-color: #c0e4be;--icon-class:o-news-1;}.uscb-tag__census_program_demo-survey_decennial_2030-census_2023-census-test{background-color: #c0e4be;border-color: #c0e4be;--icon-class:o-news-1;}.uscb-tag__census_program_demo-survey_decennial_2030-census_2024-census-survey{background-color: #c0e4be;border-color: #c0e4be;--icon-class:o-news-1;}.uscb-tag__census_program_demo-survey_decennial_2030-census_2026-census-test{background-color: #c0e4be;border-color: #c0e4be;--icon-class:o-news-1;}.uscb-tag__census_program_demo-survey_hvs{background-color: #c0e4be;border-color: #c0e4be;--icon-class:o-news-1;}.uscb-tag__census_program_demo-survey_ahs{background-color: #c0e4be;border-color: #c0e4be;--icon-class:o-news-1;}.uscb-tag__census_program_demo-survey_cps{background-color: #c0e4be;border-color: #c0e4be;--icon-class:o-news-1;}.uscb-tag__census_program_demo-survey_acs{background-color: #c0e4be;border-color: #c0e4be;--icon-class:o-news-1;}.uscb-tag__census_program_demo-survey_sipp{background-color: #c0e4be;border-color: #c0e4be;--icon-class:o-news-1;}.uscb-tag__census_program_demo-survey_popest{background-color: #c0e4be;border-color: #c0e4be;--icon-class:o-news-1;}.uscb-tag__census_program_demo-survey_popproj{background-color: #c0e4be;border-color: #c0e4be;--icon-class:o-news-1;}.uscb-tag__census_program_demo-survey_bas{background-color: #c0e4be;border-color: #c0e4be;--icon-class:o-news-1;}.uscb-tag__census_program_demo-survey_tsap{background-color: #c0e4be;border-color: #c0e4be;--icon-class:o-news-1;}.uscb-tag__census_program_demo-survey_sdrp{background-color: #c0e4be;border-color: #c0e4be;--icon-class:o-news-1;}.uscb-tag__census_program_demo-survey_luca{background-color: #c0e4be;border-color: #c0e4be;--icon-class:o-news-1;}.uscb-tag__census_program_demo-survey_psap{background-color: #c0e4be;border-color: #c0e4be;--icon-class:o-news-1;}.uscb-tag__census_program_demo-survey_gupcp{background-color: #c0e4be;border-color: #c0e4be;--icon-class:o-news-1;}.uscb-tag__census_program_demo-survey_gss-i{background-color: #c0e4be;border-color: #c0e4be;--icon-class:o-news-1;}.uscb-tag__census_program_demo-survey_metro-micro{background-color: #c0e4be;border-color: #c0e4be;--icon-class:o-news-1;}.uscb-tag__census_program_demo-survey_aian{background-color: #c0e4be;border-color: #c0e4be;--icon-class:o-news-1;}.uscb-tag__census_program_demo-survey_rdo{background-color: #c0e4be;border-color: #c0e4be;--icon-class:o-news-1;}.uscb-tag__census_program_demo-survey_nshapc{background-color: #c0e4be;border-color: #c0e4be;--icon-class:o-news-1;}.uscb-tag__census_program_demo-survey_ip{background-color: #c0e4be;border-color: #c0e4be;--icon-class:o-news-1;}.uscb-tag__census_program_demo-survey_sahie{background-color: #c0e4be;border-color: #c0e4be;--icon-class:o-news-1;}.uscb-tag__census_program_demo-survey_saipe{background-color: #c0e4be;border-color: #c0e4be;--icon-class:o-news-1;}.uscb-tag__census_program_demo-survey_nssrn{background-color: #c0e4be;border-color: #c0e4be;--icon-class:o-news-1;}.uscb-tag__census_program_demo-survey_ntps{background-color: #c0e4be;border-color: #c0e4be;--icon-class:o-news-1;}.uscb-tag__census_program_demo-survey_sis{background-color: #c0e4be;border-color: #c0e4be;--icon-class:o-news-1;}.uscb-tag__census_program_demo-survey_hh-pulse-survey{background-color: #c0e4be;border-color: #c0e4be;--icon-class:o-news-1;}.uscb-tag__census_program_demo-survey_ehealth{background-color: #c0e4be;border-color: #c0e4be;--icon-class:o-news-1;}.uscb-tag__census_program_demo-survey_cre{background-color: #c0e4be;border-color: #c0e4be;--icon-class:o-news-1;}.uscb-tag__census_program_demo-survey_school-pulse-panel{background-color: #c0e4be;border-color: #c0e4be;--icon-class:o-news-1;}.uscb-tag__census_program_demo-survey_dcdl{background-color: #c0e4be;border-color: #c0e4be;--icon-class:o-news-1;}.uscb-tag__census_program_demo-survey_ntews{background-color: #c0e4be;border-color: #c0e4be;--icon-class:o-news-1;}.uscb-tag__census_program_demo-survey_pfs{background-color: #c0e4be;border-color: #c0e4be;--icon-class:o-news-1;}.uscb-tag__census_program_demo-survey_ssocs{background-color: #c0e4be;border-color: #c0e4be;--icon-class:o-news-1;}.uscb-tag__census_program_demo-survey_special-census-program{background-color: #c0e4be;border-color: #c0e4be;--icon-class:o-news-1;}.uscb-tag__census_program_demo-survey_nsch{background-color: #c0e4be;border-color: #c0e4be;--icon-class:o-news-1;}.uscb-tag__census_program_demo-survey_pss{background-color: #c0e4be;border-color: #c0e4be;--icon-class:o-news-1;}.uscb-tag__census_program_demo-survey_nschlc{background-color: #c0e4be;border-color: #c0e4be;--icon-class:o-news-1;}.uscb-tag__census_program_demo-survey_national-household-food-study{background-color: #c0e4be;border-color: #c0e4be;--icon-class:o-news-1;}.uscb-tag__census_program_demo-survey_chs{background-color: #c0e4be;border-color: #c0e4be;--icon-class:o-news-1;}.uscb-tag__census_program_demo-survey_htops{background-color: #c0e4be;border-color: #c0e4be;--icon-class:o-news-1;}.uscb-tag__census_program_econ-survey{background-color: #c0e4be;border-color: #c0e4be;--icon-class:o-news-1;}.uscb-tag__census_program_econ-survey_annual-survey-state-local-government-finances{background-color: #c0e4be;border-color: #c0e4be;--icon-class:o-news-1;}.uscb-tag__census_program_econ-survey_marts{background-color: #c0e4be;border-color: #c0e4be;--icon-class:o-news-1;}.uscb-tag__census_program_econ-survey_als{background-color: #c0e",
+          "title": "Quarterly Summary of State & Local Tax Revenue Methodology",
+          "httpStatus": 200
+        },
+        {
+          "type": "openrouter:web_search",
+          "id": "st_tmp_tz6rrbbchr",
+          "status": "completed",
+          "action": {
+            "type": "search",
+            "query": "QTAX data.census.gov API time series EITSQTAX download CSV",
+            "sources": [
+              {
+                "type": "url",
+                "url": "https://api.census.gov/data/timeseries/eits/qtax.html"
+              },
+              {
+                "type": "url",
+                "url": "https://api.census.gov/data/timeseries/eits/qtax/examples.html"
+              },
+              {
+                "type": "url",
+                "url": "https://www.census.gov/econ/currentdata/?programCode=QTAX"
+              },
+              {
+                "type": "url",
+                "url": "https://api.census.gov/data/timeseries/eits/qtax/variables.html"
+              },
+              {
+                "type": "url",
+                "url": "https://api.census.gov/data/timeseries/eits/qtax/groups.html"
+              },
+              {
+                "type": "url",
+                "url": "https://api.census.gov/data/timeseries/eits/qtax/variables/.html"
+              },
+              {
+                "type": "url",
+                "url": "https://rdrr.io/github/donboyd5/qtax/man/qtax.html"
+              },
+              {
+                "type": "url",
+                "url": "https://api.census.gov/data/timeseries/eits/qtax/geography.html"
+              },
+              {
+                "type": "url",
+                "url": "https://rdrr.io/github/donboyd5/qtax/src/data-raw/programs/OLD_get_latest_qtax_from_API.r"
+              },
+              {
+                "type": "url",
+                "url": "https://api.census.gov/data/timeseries/eits/qtax/groups/GS00QTC01.html"
+              }
+            ]
+          }
+        },
+        {
+          "type": "openrouter:web_search",
+          "id": "st_tmp_xr9aso3eqqn",
+          "status": "completed",
+          "action": {
+            "type": "search",
+            "query": "Rockefeller Institute Urban Institute FRED use Census quarterly tax data QTAX state tax collections research",
+            "sources": [
+              {
+                "type": "url",
+                "url": "https://www.urban.org/state-tax-and-economic-review-project"
+              },
+              {
+                "type": "url",
+                "url": "https://fred.stlouisfed.org/release?rid=455"
+              },
+              {
+                "type": "url",
+                "url": "https://www.urban.org/policy-centers/cross-center-initiatives/state-and-local-finance-initiative/interactive-data-tools"
+              },
+              {
+                "type": "url",
+                "url": "https://rockinst.org/issue-area/revenues-likely-fluctuate-due-passage-federal-tax-cuts-jobs-act-states-explore-ways-mitigate-impact/"
+              },
+              {
+                "type": "url",
+                "url": "https://fred.stlouisfed.org/data/QTAXTOTALQTAXCAT1USNO"
+              },
+              {
+                "type": "url",
+                "url": "https://www.urban.org/sites/default/files/2026-08/STER_2026Q1.pdf"
+              },
+              {
+                "type": "url",
+                "url": "https://www.urban.org/sites/default/files/2026-03/STER_2025Q3.pdf"
+              },
+              {
+                "type": "url",
+                "url": "https://www.urban.org/sites/default/files/2025-08/STER_2025Q1.pdf"
+              },
+              {
+                "type": "url",
+                "url": "https://www.census.gov/programs-surveys/stc.html"
+              },
+              {
+                "type": "url",
+                "url": "https://fred.stlouisfed.org/release/tables?eid=821184&rid=455"
+              }
+            ]
+          }
+        },
+        {
+          "type": "openrouter:web_search",
+          "id": "st_tmp_7lkqfzvscy5",
+          "status": "completed",
+          "action": {
+            "type": "search",
+            "query": "\"QTAX\" Census survey seasonal adjustment X-13 sampling F-71 F-72 F-73 methodology revisions imputed data caveats",
+            "sources": [
+              {
+                "type": "url",
+                "url": "https://www.census.gov/programs-surveys/qtax/technical-documentation/methodology.html"
+              },
+              {
+                "type": "url",
+                "url": "https://www.census.gov/programs-surveys/qtax.html"
+              },
+              {
+                "type": "url",
+                "url": "https://ww2.amstat.org/meetings/proceedings/2017/data/assets/pdf/593924.pdf"
+              },
+              {
+                "type": "url",
+                "url": "https://www2.census.gov/govs/qtax/qtaxmethodology.pdf"
+              },
+              {
+                "type": "url",
+                "url": "https://www2.census.gov/govs/qtax/bridgestudy.pdf"
+              },
+              {
+                "type": "url",
+                "url": "https://ww2.amstat.org/meetings/proceedings/2017/data/presinfo334626.cfm"
+              },
+              {
+                "type": "url",
+                "url": "https://www2.census.gov/govs/pubs/2012pubs/govsrr2012-03.pdf"
+              },
+              {
+                "type": "url",
+                "url": "https://www2.census.gov/govs/pubs/Presentations/fta_2009_qtax_presentation.pdf"
+              },
+              {
+                "type": "url",
+                "url": "https://www2.census.gov/programs-surveys/qtax/technical-documentation/questionnaires/qrtrly_property_taxes_F71.pdf"
+              },
+              {
+                "type": "url",
+                "url": "https://omb.report/icr/201904-0607-003/doc/91211602.pdf"
+              }
+            ]
+          }
+        },
+        {
+          "type": "openrouter:web_search",
+          "id": "st_tmp_dmjyxogm7ui",
+          "status": "completed",
+          "action": {
+            "type": "search",
+            "query": "Census Bureau \"state tax collections\" survey history 1962 origin quarterly tax survey governments division annual since 1939"
+          }
+        }
+      ],
+      "ended": "answered",
+      "seconds": 115.6
+    },
+    "assessment": {
+      "request": {
+        "model": "z-ai/glm-5.3",
+        "max_output_tokens": 32768,
+        "tools": [
+          {
+            "type": "openrouter:web_search",
+            "parameters": {
+              "engine": "exa",
+              "max_results": 10,
+              "excluded_domains": [
+                "dataindex.us"
+              ]
+            }
+          },
+          {
+            "type": "openrouter:web_fetch",
+            "parameters": {
+              "engine": "openrouter",
+              "blocked_domains": [
+                "dataindex.us"
+              ],
+              "max_content_tokens": 10000
+            }
+          }
+        ],
+        "cache_control": {
+          "type": "ephemeral",
+          "ttl": "1h"
+        },
+        "session_id": "qtax-z-ai/glm-5.3-t0-2026-10-09T01:10:07Z",
+        "stop_server_tools_when": [
+          {
+            "type": "step_count_is",
+            "step_count": 200
+          }
+        ],
+        "reasoning": {
+          "effort": "high"
+        },
+        "provider": {
+          "order": [
+            "z-ai"
+          ],
+          "allow_fallbacks": false
+        }
+      },
+      "response_meta": {
+        "id": "gen-1791508323-AlDvr5vXNXfjNJqTIrUF",
+        "object": "response",
+        "created_at": 1791508323,
+        "model": "z-ai/glm-5.3",
+        "status": "completed",
+        "completed_at": 1791508446,
+        "error": null,
+        "incomplete_details": null,
+        "tools": [],
+        "tool_choice": "auto",
+        "parallel_tool_calls": true,
+        "max_output_tokens": 32768,
+        "temperature": 1,
+        "top_p": 1,
+        "presence_penalty": 0,
+        "frequency_penalty": 0,
+        "top_logprobs": 0,
+        "max_tool_calls": null,
+        "metadata": {},
+        "background": false,
+        "previous_response_id": null,
+        "service_tier": "auto",
+        "truncation": "disabled",
+        "store": false,
+        "instructions": null,
+        "text": {
+          "format": {
+            "type": "text"
+          }
+        },
+        "reasoning": {
+          "effort": "high"
+        },
+        "safety_identifier": null,
+        "prompt_cache_key": null,
+        "prompt_cache_options": null,
+        "usage": {
+          "input_tokens": 74828,
+          "input_tokens_details": {
+            "cached_tokens": 43072
+          },
+          "output_tokens": 6993,
+          "output_tokens_details": {
+            "reasoning_tokens": 3725
+          },
+          "total_tokens": 81821,
+          "cost": 0.12142632,
+          "cost_details": {
+            "upstream_inference_cost": 0.08642632,
+            "upstream_inference_input_cost": 0.05565712,
+            "upstream_inference_output_cost": 0.030769199999999997
+          },
+          "server_tool_use_details": {
+            "web_search_requests": 6,
+            "tool_calls_requested": 6,
+            "tool_calls_executed": 6
+          }
+        }
+      },
+      "requests": [
+        {
+          "input_tokens": 74828,
+          "input_tokens_details": {
+            "cached_tokens": 43072
+          },
+          "output_tokens": 6993,
+          "output_tokens_details": {
+            "reasoning_tokens": 3725
+          },
+          "total_tokens": 81821,
+          "cost": 0.12142632,
+          "cost_details": {
+            "upstream_inference_cost": 0.08642632,
+            "upstream_inference_input_cost": 0.05565712,
+            "upstream_inference_output_cost": 0.030769199999999997
+          },
+          "server_tool_use_details": {
+            "web_search_requests": 6,
+            "tool_calls_requested": 6,
+            "tool_calls_executed": 6
+          }
+        }
+      ],
+      "searches": 6,
+      "fetches": 0,
+      "tool_items": [
+        {
+          "type": "openrouter:web_search",
+          "id": "st_tmp_okxiovxh759",
+          "status": "completed",
+          "action": {
+            "type": "search",
+            "query": "Census Bureau staffing cuts 2025 layoffs resignation deferred resignation percentage employees lost",
+            "sources": [
+              {
+                "type": "url",
+                "url": "https://apnews.com/article/census-bureau-doge-federal-surveys-fe560e377be69e913660a6d90c1ee419"
+              },
+              {
+                "type": "url",
+                "url": "https://news.bloomberglaw.com/daily-labor-report/census-bureau-hit-with-layoffs-as-100-get-notices-in-shutdown"
+              },
+              {
+                "type": "url",
+                "url": "https://www.amstat.org/docs/default-source/amstat-documents/the-nations-data-at-risk-2025/census.pdf"
+              },
+              {
+                "type": "url",
+                "url": "https://www.govexec.com/workforce/2025/07/census-has-long-struggled-staffing-shortages-employees-say-trump-making-it-worse/406840/"
+              },
+              {
+                "type": "url",
+                "url": "https://data.opm.gov/explore-data/analytics/workforce-changes"
+              },
+              {
+                "type": "url",
+                "url": "https://www.mrweb.com/drno/news38931.htm"
+              },
+              {
+                "type": "url",
+                "url": "https://thecensusproject.org/2025/10/14/government-shutdown-rifs-impact-u-s-census-bureau/"
+              },
+              {
+                "type": "url",
+                "url": "https://apnews.com/article/census-bureau-statistical-agencies-data-government-803993ba9d2ab70c2395d2d4bcde3ddd"
+              },
+              {
+                "type": "url",
+                "url": "https://www.gao.gov/products/gao-26-108583"
+              },
+              {
+                "type": "url",
+                "url": "https://federalnewsnetwork.com/big-data/2025/12/bedrock-federal-data-sets-are-disappearing-as-statistical-agencies-face-upheaval/"
+              }
+            ]
+          }
+        },
+        {
+          "type": "openrouter:web_search",
+          "id": "st_tmp_jwze50f39rc",
+          "status": "completed",
+          "action": {
+            "type": "search",
+            "query": "QTAX Quarterly Summary of State and Local Tax Revenue 2025 release delayed or missing quarter",
+            "sources": [
+              {
+                "type": "url",
+                "url": "https://www.census.gov/programs-surveys/qtax.html"
+              },
+              {
+                "type": "url",
+                "url": "https://www.census.gov/data/tables/2025/econ/qtax/historical/q4.html"
+              },
+              {
+                "type": "url",
+                "url": "https://www.census.gov/econ/currentdata/dbsearch?adjusted=0&categories%5B%5D=QTAXCAT1&dataType=TOTAL&endYear=2025&errorData=0&geoLevel=US&notAdjusted=1&programCode=QTAX&startYear=2023"
+              },
+              {
+                "type": "url",
+                "url": "https://www.census.gov/data/tables/2025/econ/qtax/historical/q3.html"
+              },
+              {
+                "type": "url",
+                "url": "https://www.census.gov/econ_timeseries/?programCode=QTAX"
+              },
+              {
+                "type": "url",
+                "url": "https://alfred.stlouisfed.org/release?et=&ob=pv&od=desc&pageID=1&rd=2025-03-13&rid=455&t=stocks"
+              },
+              {
+                "type": "url",
+                "url": "https://alfred.stlouisfed.org/release?rid=455"
+              },
+              {
+                "type": "url",
+                "url": "https://fred.stlouisfed.org/release?rid=455"
+              },
+              {
+                "type": "url",
+                "url": "https://fred.stlouisfed.org/data/QTAXTOTALQTAXCAT1USNO"
+              },
+              {
+                "type": "url",
+                "url": "https://fred.stlouisfed.org/data/QTAXTOTALQTAXCAT1USYES"
+              }
+            ]
+          }
+        },
+        {
+          "type": "openrouter:web_search",
+          "id": "st_tmp_g1pqugf53zu",
+          "status": "completed",
+          "action": {
+            "type": "search",
+            "query": "Census Bureau budget cut 2025 2026 appropriations economic surveys eliminated",
+            "sources": [
+              {
+                "type": "url",
+                "url": "https://thecensusproject.org/2025/06/30/department-of-commerce-releases-fiscal-year-2026-census-budget-details/"
+              },
+              {
+                "type": "url",
+                "url": "https://www.congress.gov/crs-product/IF13105"
+              },
+              {
+                "type": "url",
+                "url": "https://docs.house.gov/meetings/AP/AP00/20250724/118544/HMKP-119-AP00-20250724-SD002.pdf"
+              },
+              {
+                "type": "url",
+                "url": "https://www.cbpp.org/research/poverty-and-inequality/federal-data-are-disappearing-as-statistical-agencies-face-budget"
+              },
+              {
+                "type": "url",
+                "url": "https://www.congress.gov/crs_external_products/IF/PDF/IF12714/IF12714.4.pdf"
+              },
+              {
+                "type": "url",
+                "url": "https://www.npr.org/2025/01/24/nx-s1-5250264/unemployment-rate-cpi-inflation-census-bureau-labor-statistics"
+              },
+              {
+                "type": "url",
+                "url": "https://thecensusproject.org/2025/09/11/fiscal-year-2026-house-commerce-justice-science-appropriations-bill-advances/"
+              },
+              {
+                "type": "url",
+                "url": "https://cossa.org/wp-content/uploads/2026/01/FY-2026-Final-CJS-Appropriations-Analysis.pdf"
+              },
+              {
+                "type": "url",
+                "url": "https://www.appropriations.senate.gov/imo/media/doc/fy26_cjs_conference_bill_summarypdf.pdf"
+              },
+              {
+                "type": "url",
+                "url": "https://thecensusproject.org/2026/01/07/congress-unveils-fiscal-year-2026-funding-proposal-for-u-s-census-bureau/"
+              }
+            ]
+          }
+        },
+        {
+          "type": "openrouter:web_search",
+          "id": "st_tmp_28loerki5gf",
+          "status": "completed",
+          "action": {
+            "type": "search",
+            "query": "ICR 0607-0112 Quarterly Summary State Local Tax Revenue OMB expiration renewal status reginfo",
+            "sources": [
+              {
+                "type": "url",
+                "url": "https://www.reginfo.gov/public/do/PRAViewICR?ref_nbr=202403-0607-002"
+              },
+              {
+                "type": "url",
+                "url": "https://omb.report/omb/0607-0112"
+              },
+              {
+                "type": "url",
+                "url": "https://omb.report/icr/202403-0607-002"
+              },
+              {
+                "type": "url",
+                "url": "https://www.govinfo.gov/content/pkg/FR-2024-03-08/html/2024-05001.htm"
+              },
+              {
+                "type": "url",
+                "url": "https://omb.report/icr/202403-0607-002/doc/140381501.pdf"
+              },
+              {
+                "type": "url",
+                "url": "https://omb.report/icr/202103-0607-002"
+              },
+              {
+                "type": "url",
+                "url": "https://www.census.gov/programs-surveys/qtax/technical-documentation/questionnaires.html"
+              },
+              {
+                "type": "url",
+                "url": "https://omb.report/icr/202103-0607-002/ic/3347"
+              },
+              {
+                "type": "url",
+                "url": "https://omb.report/icr/201606-0607-005/doc/65633601"
+              },
+              {
+                "type": "url",
+                "url": "https://omb.report/icr/201904-0607-003/doc/91211602.pdf"
+              }
+            ]
+          }
+        },
+        {
+          "type": "openrouter:web_search",
+          "id": "st_tmp_lg6c58o8ofs",
+          "status": "completed",
+          "action": {
+            "type": "search",
+            "query": "Census Bureau QTAX Q3 2025 release delayed January 2026 government shutdown economic indicators delayed",
+            "sources": [
+              {
+                "type": "url",
+                "url": "https://www.census.gov/data/tables/2025/econ/qtax/historical/q3.html"
+              },
+              {
+                "type": "url",
+                "url": "https://www.census.gov/economic-indicators/calendar-listview.html"
+              },
+              {
+                "type": "url",
+                "url": "https://bea.gov/news/blog/2025-12-10/economic-release-schedule-updates"
+              },
+              {
+                "type": "url",
+                "url": "https://www.reuters.com/world/us/how-us-government-shutdown-affects-economic-data-publishing-2025-09-30/"
+              },
+              {
+                "type": "url",
+                "url": "https://alfred.stlouisfed.org/release?ob=pv&od=desc&rd=2026-01-15&rid=455&rt=sales+taxes&t=sales+taxes"
+              },
+              {
+                "type": "url",
+                "url": "https://www.census.gov/programs-surveys/qtax.html"
+              },
+              {
+                "type": "url",
+                "url": "https://www.npr.org/2025/10/01/nx-s1-5558020/government-shutdown-economic-data-jobs-inflation"
+              },
+              {
+                "type": "url",
+                "url": "https://www.whitehouse.gov/wp-content/uploads/2025/09/pfei_schedule_release_dates_cy2026.pdf"
+              },
+              {
+                "type": "url",
+                "url": "https://www.congress.gov/crs-product/R48832"
+              },
+              {
+                "type": "url",
+                "url": "https://www.wsj.com/economy/third-quarter-gdp-october-spending-data-to-be-delayed-5df377d7?eafs_enabled=false"
+              }
+            ]
+          }
+        },
+        {
+          "type": "openrouter:web_search",
+          "id": "st_tmp_druupygoy4p",
+          "status": "completed",
+          "action": {
+            "type": "search",
+            "query": "Census Bureau data sets removed executive orders 2025 list equity data deleted which datasets"
+          }
+        }
+      ],
+      "ended": "answered",
+      "seconds": 123.7
+    },
+    "session_metadata": {
+      "request": {
+        "model": "z-ai/glm-5.3",
+        "max_output_tokens": 32768,
+        "tools": [
+          {
+            "type": "openrouter:web_search",
+            "parameters": {
+              "engine": "exa",
+              "max_results": 10,
+              "excluded_domains": [
+                "dataindex.us"
+              ]
+            }
+          },
+          {
+            "type": "openrouter:web_fetch",
+            "parameters": {
+              "engine": "openrouter",
+              "blocked_domains": [
+                "dataindex.us"
+              ],
+              "max_content_tokens": 10000
+            }
+          }
+        ],
+        "cache_control": {
+          "type": "ephemeral",
+          "ttl": "1h"
+        },
+        "session_id": "qtax-z-ai/glm-5.3-t0-2026-10-09T01:10:07Z",
+        "stop_server_tools_when": [
+          {
+            "type": "step_count_is",
+            "step_count": 200
+          }
+        ],
+        "reasoning": {
+          "effort": "high"
+        },
+        "provider": {
+          "order": [
+            "z-ai"
+          ],
+          "allow_fallbacks": false
+        }
+      },
+      "response_meta": {
+        "id": "gen-1791508446-t0Xj4A6KWkfar5TWQfK2",
+        "object": "response",
+        "created_at": 1791508446,
+        "model": "z-ai/glm-5.3",
+        "status": "completed",
+        "completed_at": 1791508465,
+        "error": null,
+        "incomplete_details": null,
+        "tools": [],
+        "tool_choice": "auto",
+        "parallel_tool_calls": true,
+        "max_output_tokens": 32768,
+        "temperature": 1,
+        "top_p": 1,
+        "presence_penalty": 0,
+        "frequency_penalty": 0,
+        "top_logprobs": 0,
+        "max_tool_calls": null,
+        "metadata": {},
+        "background": false,
+        "previous_response_id": null,
+        "service_tier": "auto",
+        "truncation": "disabled",
+        "store": false,
+        "instructions": null,
+        "text": {
+          "format": {
+            "type": "text"
+          }
+        },
+        "reasoning": {
+          "effort": "high"
+        },
+        "safety_identifier": null,
+        "prompt_cache_key": null,
+        "prompt_cache_options": null,
+        "usage": {
+          "input_tokens": 21092,
+          "input_tokens_details": {
+            "cached_tokens": 16384
+          },
+          "output_tokens": 946,
+          "output_tokens_details": {
+            "reasoning_tokens": 399
+          },
+          "total_tokens": 22038,
+          "cost": 0.01501344,
+          "cost_details": {
+            "upstream_inference_cost": 0.01501344,
+            "upstream_inference_input_cost": 0.01085104,
+            "upstream_inference_output_cost": 0.0041624
+          }
+        }
+      },
+      "requests": [
+        {
+          "input_tokens": 21092,
+          "input_tokens_details": {
+            "cached_tokens": 16384
+          },
+          "output_tokens": 946,
+          "output_tokens_details": {
+            "reasoning_tokens": 399
+          },
+          "total_tokens": 22038,
+          "cost": 0.01501344,
+          "cost_details": {
+            "upstream_inference_cost": 0.01501344,
+            "upstream_inference_input_cost": 0.01085104,
+            "upstream_inference_output_cost": 0.0041624
+          }
+        }
+      ],
+      "searches": 0,
+      "fetches": 0,
+      "tool_items": [],
+      "ended": "answered",
+      "seconds": 18.4
+    }
+  },
+  "messages": [
+    {
+      "role": "user",
+      "content": "#data research\nI am researching a federal dataset. Find out everything you can about this dataset, such as who publishes it, under what authority or mandate, its history, its typical users, and its benefits to the public. Be sure your research comprehensively covers each of those perspectives, as well as any others that you discover or seem useful. I believe this is accurate information, but please check:\n\nDataset title: Quarterly Summary of State and Local Tax Revenue (QTAX)\nDescription: The Quarterly Summary of State and Local Government Tax Revenue provides quarterly estimates of state and local government tax revenue at a national level, as well as detailed tax revenue data for individual states. The U.S. Congress, federal agencies, state and local governments, educational and research organizations, and the general public utilize these data for the following purposes: development of gross domestic product estimates, development of the national income and product accounts, and tax policy research.\n\nReturn a complete report on everything that a preservationist, data librarian, data scientist, or policy activist might want to know about this data."
+    },
+    {
+      "role": "assistant",
+      "content": "I'll research the QTAX dataset comprehensively. Let me start with several searches covering different angles.I have good initial results. Let me dig deeper into the About page, methodology, and data access details.The Census pages returned mostly boilerplate, but I have the key content from search excerpts. Let me gather more on data access, methodology details, and downstream users.I have most of what I need. Let me do a final round on history/origins and data caveats (seasonal adjustment, sampling, revisions).I've gathered comprehensive information from the Census Bureau, OMB/Federal Register notices, the Census API, FRED, and downstream users like the Urban Institute and Rockefeller Institute. Here is the full report.\n\n---\n\n# QTAX: Quarterly Summary of State & Local Tax Revenue \u2014 Comprehensive Dataset Report\n\n**Verification note:** The title and description you provided are accurate and match the Census Bureau's official program description verbatim. Everything below expands on it, with one small addition: Census also notes that QTAX is \"the most current information available on a nationwide basis for government tax collections.\"\n\n---\n\n## 1. Identification and Publisher\n\n| Item | Detail |\n|---|---|\n| **Dataset title** | Quarterly Summary of State and Local Government Tax Revenue (commonly \"QTAX\" or \"Quarterly Tax Survey\") |\n| **Publisher** | U.S. Census Bureau, U.S. Department of Commerce (Governments/Economic surveys area, Economic Indicators Time Series program) |\n| **Program page** | census.gov/programs-surveys/qtax.html |\n| **OMB Control No.** | 0607-0112 (forms F-71, F-72, F-73) |\n| **Contact** | U.S. Census Bureau, 1-800-492-0140; ewd.qtax@census.gov |\n| **Recommended citation** | U.S. Census Bureau, Quarterly Summary of State and Local Tax Revenue (QTAX) |\n\nQTAX sits within the Census Bureau's economic indicator surveys family (time series \"EITS\"), though it is *not* designated a \"principal economic indicator\" like retail trade or construction \u2014 it is classified among supplementary indicator surveys alongside the Quarterly Survey of Public Pensions and the Manufactured Homes Survey.\n\n## 2. Legal Authority and Mandate\n\n- **Title 13, U.S. Code, Sections 161 and 182** authorize the Secretary of Commerce / Census Bureau to conduct this collection. Section 182 specifically authorizes the collection of statistics on state and local government finances and taxation.\n- **Participation is voluntary.** The respondent's obligation is listed as \"Voluntary\" in the Federal Register notices \u2014 a notable point for understanding data quality (hence imputation).\n- **Confidentiality carve-out:** Data are subject to Title 13 U.S.C. Section 9(b), which exempts data \"customarily provided in public records\" from confidentiality rules \u2014 appropriate, since tax collection totals are public records of the responding governments.\n- **Paperwork Reduction Act oversight:** The survey undergoes periodic OMB clearance (e.g., a 2024 extension request covering 2024\u20132026, with public comment via Federal Register and reginfo.gov). Burden stats from the 2024 notice: **7,411 respondents, ~16.36 minutes average per response, 8,082 total annual burden hours**.\n\n## 3. History\n\n- **1939:** Census begins collecting *annual* data on state government tax collections (the ancestor of today's Annual Survey of State Government Tax Collections, STC).\n- **1962:** The survey becomes **quarterly**, and it has been conducted continuously since. This makes QTAX one of the longest-running government-finance time series in the federal statistical system.\n- **Publication gap:** Data were collected but **not published for Q3 1992 through Q2 1993** (four quarters). Historical aggregate data covering the gap appear in Tables 1\u20133 of the Q3 1993 publication.\n- **2008\u20132012 redesign:** A major methodological overhaul of the F-71 (local property tax) and F-73 (local non-property tax) components:\n  - New statistically defensible imputation methods replaced the old \"pull forward prior year value\" approach (documented in the Governments Division bridge study).\n  - In **Q4 2010**, a probability sample replaced a nonprobability (judgment) sample for local non-property taxes; a **five-quarter bridge report** comparing old and new methodology accompanied the Q1 2012 release.\n  - New property tax sample selected Q2 2010; non-property samples revised in Q3 2013 (sales/gross receipts) and Q2 2024 (individual and corporate income taxes).\n- **2021\u20132024:** Census proposed dropping license taxes from F-72 but reversed course to preserve time-series consistency and comparability with other surveys (documented in the 2024 ICR).\n- **~2018:** Seasonally adjusted series were introduced after Census methodological research (X-13ARIMA-SEATS, comparing X-11 vs. SEATS, direct vs. indirect adjustment), supplementing the not-seasonally-adjusted series.\n- **Latest release (as of this research):** Q2 2026, released September 10, 2026.\n\n## 4. Survey Design and Methodology\n\n**Three components:**\n1. **F-71 \u2014 Quarterly Survey of Property Tax Collections:** local property tax data from a **stratified cluster sample** of local property tax collectors (~5,000+ county-area units).\n2. **F-72 \u2014 Quarterly Survey of State Tax Collections:** a **complete enumeration** (census, not sample) of all 50 states plus D.C., covering **28 tax categories** (personal income, sales, corporate income, motor fuel, motor vehicle license, severance, and more).\n3. **F-73 \u2014 Quarterly Survey of Selected Non-Property Taxes:** probability sample of local tax imposers for three taxes: sales & gross receipts, individual income, and corporate net income.\n\n**Definitions:** \"Taxes\" are all compulsory contributions exacted by government for public purposes, *excluding* retirement and social insurance assessments (classified as insurance trust revenue) and unemployment compensation \"taxes.\" License taxes and compulsory fees are generally included.\n\n**Key methodology points (from the official methodology page and research reports):**\n- **Sampling error:** None for state-level data (complete enumeration); local estimates carry sampling error, with samples designed for a national coefficient of variation under **3.0%**.\n- **Imputation:** Extensive \u2014 mean/median growth rate methods, prior-year correlated ratio, direct substitution, cell means for units with no history, and raking for decentralized states. Imputed state values are flagged with `*` in Table 3.\n- **Revisions:** Data are subject to revision for up to **7 prior quarters** (\"R\"/\"/r\" flags), from respondent-submitted revisions, replacement of imputations, and published/unpublished government sources.\n- **Seasonal adjustment:** Available via X-13ARIMA-SEATS; both seasonally adjusted and unadjusted series are published through the API.\n- **Geography:** U.S., 50 states, and D.C. \u2014 note that **D.C. appears in Table 3 but is excluded from the U.S. totals** in Tables 2 and 3 (a classic data-user gotcha).\n\n## 5. Data Products and Access (for data librarians and data scientists)\n\n**Core tables (XLS, CSV, PDF), released quarterly:**\n- **Table 1** \u2014 National Totals of State and Local Government Tax Revenue, by Type of Tax\n- **Table 2** \u2014 National Totals of State Government Tax Revenue, by Type of Tax\n- **Table 3** \u2014 State Government Tax Collections by State and Type of Tax\n\n**Release schedule:** Q1 \u2192 June; Q2 \u2192 September; Q3 \u2192 December; Q4 \u2192 March (roughly a 2-month lag; collection begins one month after quarter close and runs ~3 months).\n\n**Access channels:**\n1. **Census program page** (census.gov/programs-surveys/qtax/data/tables.html) \u2014 current and historical tables, 1962 forward.\n2. **Census Data API:** `https://api.census.gov/data/timeseries/eits/qtax` (requires free API key). Variables include `CELL_VALUE` (in **millions of dollars**), `CATEGORY_CODE` (QTAXCAT1/2/3), `DATA_TYPE_CODE` (tax item codes like T01 property, T09 sales, T40 income, T41 corporate income), `SEASONALLY_ADJ`, `TIME_SLOT_DATE`. Geography: `us` and `state`. **API data begins 1992\u20131994 depending on table** \u2014 pre-1992 data must be obtained from the historical tables/FTP files.\n3. **data.census.gov** \u2014 dataset `EITSQTAX`, table IDs `GS00QTC01`, `GS00QTC02`, `GS00QTC03`.\n4. **Economic Indicators \"currentdata\" tool** (census.gov/econ/currentdata/?programCode=QTAX) \u2014 time series/trend charts and bulk download (`QTAX-mf.zip`).\n5. **FRED (St. Louis Fed)** \u2014 mirrors the entire release (~1,400+ series) with stable series IDs like `QTAXTOTALQTAXCAT1USNO`, units in millions of dollars, 1992-present \u2014 very handy for reproducible research and a de facto preservation copy.\n\n**Symbols/flags:** `X` = no such tax in that state; `NEC` = not elsewhere classified; `*` = imputed; `R`/`/r` = revised.\n\n**Companion datasets:** Annual Survey of State Government Tax Collections (STC), Annual Survey of State and Local Government Finances, and the quinquennial Census of Governments \u2014 QTAX is the *timely* member of this family; the annual/census products provide greater detail and benchmarks that QTAX estimates are reconciled against.\n\n## 6. Users and Uses\n\n- **Bureau of Economic Analysis (BEA):** QTAX feeds directly into the **National Income and Product Accounts (NIPAs)** and quarterly **GDP estimates** \u2014 its single most consequential downstream use.\n- **Federal Reserve Board:** monitors state/local fiscal conditions and the government sector's contribution to the economy.\n- **HUD:** has used QTAX property tax data as **one of nine cost indicators for Section 8 rent adjustments**.\n- **Congress, state and local legislators, and policy makers:** tracking fiscal health, comparing state tax structures, and gauging revenue-raising capacity of different taxes across states.\n- **Research organizations:** the Urban Institute's **State Tax and Economic Review** (which collects its own data from all 50 states to *adjust* QTAX numbers); the **Rockefeller Institute of Government's** quarterly state revenue reports; Tax Policy Center; NASBO and state budget offices; academic economists.\n- **Media and the general public:** widely cited in coverage of state fiscal conditions (e.g., post-TCJA revenue swings, COVID-era revenue collapses and rebounds).\n- **Data community:** an R package (`donboyd5/qtax`) wraps the Census API for programmatic access; FRED users, forecasters, and municipal-bond analysts rely on the series.\n\n## 7. Public Benefits\n\n- **Timeliness:** the *fastest* nationwide measure of government tax collections \u2014 roughly 2 months after quarter close versus annual alternatives that lag a year or more. Census states plainly that less frequent collection \"would adversely impact the BEA, FRB, and other policy makers.\"\n- **Foundational to GDP:** the quarterly national accounts depend on it; this is a quiet but critical public good.\n- **Comparability:** a consistent 60+ year series with standardized tax definitions across all 50 states \u2014 the only such series \u2014 enabling cross-state comparison of tax structures and revenue capacity.\n- **Accountability and transparency:** journalists, think tanks, and citizens can track how governments' revenues rise and fall through recessions, tax-law changes (e.g., TCJA/SALT), and crises (e.g., COVID-19).\n- **Policy evidence base:** revenue forecasting, tax reform analysis, and municipal credit analysis all rest on it.\n\n## 8. Caveats, Limitations, and Quality Notes (for data scientists)\n\n- **Local data are estimates from samples** (CV target <3% nationally) \u2014 state-level Table 3 data are a complete enumeration and more reliable.\n- **Imputation is prevalent** (voluntary response); imputed state cells are flagged `*` but local aggregates blend reported and imputed values.\n- **Revisions up to 7 quarters back** mean any analysis should be reproducible against a specific vintage; FRED archives vintages, the Census API does not.\n- **Breaks in series:** 1992\u201393 publication gap; 2010\u20132012 methodology change (bridge study available); 2013 and 2024 sample redesigns; seasonally adjusted series only begin ~2018.\n- **Definitional differences from BEA/NIPA tax measures** (e.g., treatment of certain fees, unemployment taxes excluded) \u2014 never mix QTAX totals with NIPA table 3.x aggregates without reconciliation.\n- **D.C. excluded from U.S. totals** in Tables 2\u20133.\n- **Basis of accounting:** F-71 respondents may report on cash or accrual basis, which matters for property tax timing.\n- QTAX state totals can differ from the annual STC survey due to timing and revision cycles.\n\n## 9. Preservation Notes\n\n- Pre-1992/1994 data exist only in historical PDF/XLS tables on census.gov, not the API \u2014 worth archiving independently.\n- Census maintains historical tables back to 1962 on the program page; FRED provides a redundant, well-versioned mirror of the API-era series; the `QTAX-mf.zip` bulk file is a complete machine-readable snapshot.\n- The Federal Register/OMB ICR record (202403-0607-002) documents the instrument and burden history and is itself worth preserving as the administrative record of the collection.\n- Documentation of methodology changes (bridge study, JSM 2017 seasonal adjustment paper, Governments Division reports 2012-3) is scattered across census.gov PDFs \u2014 a preservationist would want to capture those alongside the data.\n\n---\n\n**Bottom line:** QTAX is a voluntary, Title 13-authorized, continuously-running quarterly survey (since 1962, with annual antecedents to 1939) that is the timeliest and most authoritative nationwide measure of state and local tax collections. It is a direct input to U.S. GDP and the national accounts, a staple for fiscal policy researchers at BEA, the Fed, HUD, the Urban Institute, and the Rockefeller Institute, and a model mid-size federal statistical product with rich (if imperfect) documentation, API access, and a 60-year time series whose known breaks and revision practices should inform any serious analysis or archiving strategy."
+    },
+    {
+      "role": "user",
+      "content": "# Dataset risk assessment\nI would like your help in assessing the likelihood that this data will be changed or removed from its primary location, and that users will no longer be able to access accurate and reliable copies of it, based on the rubric below.\n\n## Sources for context\nTo help assess the rubric categories, perform additional research on the data, the agency, the data's topics and typical users, covering topics such as proposed regulatory or funding changes, recent news, and political commentary. Use whatever resources you find useful, including the Federal Register (https://www.federalregister.gov) and the federal staffing tracker at https://usajobs-tracker.abigailhaddad.com.\n\n## Rubric\nThis rubric is divided up into categories. Each category is divided up into risk levels. In your output, please select the appropriate risk level for each category based on your research.\n\n### Historical Data Availability\n- Gone: Data files prior to the current year or cycle are no longer publicly available.\n- High Risk: Some data files prior to the current year or cycle are removed.\n- Moderate Risk: Some data elements that exist in the dataset prior to the current year or cycle are removed.\n- No Known Issue: Data prior to the current year or cycle remain accessible with no known alterations.\n\n### Future Data Availability\n- Gone: Data collection and publication has been terminated.\n- High Risk: Statutory publication deadline missed and/or collection or publication skipped and/or ICR expired for more than one year.\n- Moderate Risk: Typical or intended publication date missed and/or collection or publication delayed; ICR expired up to one year.\n- No Known Issue: Data published on time or as expected and ICR active or renewed before expiration.\n\n### Data Quality\n- Gone: Data collection and publication has been terminated.\n- High Risk: Reductions in granularity, timeliness, or frequency.\n- Moderate Risk: Potential or emerging risk to granularity, timeliness, or frequency.\n- No Known Issue: Maintained or improved granularity, timeliness, or frequency.\n\n### Statutory Context\n- Gone: N/A\n- High Risk: Statutory authorization is vague and/or there are alternative data collections that could serve as substitutes and/or no known programmatic use.\n- Moderate Risk: Not explicitly required by statute but required for the implementation of a state or federal program, and there are no alternative data collections that could serve as substitutes.\n- No Known Issue: Statutorily required and/or statutory authorization is explicitly named and it is clear what has to be collected, and there aren't alternative data collections that could serve as substitutes and/or required for implementation of a federal program.\n\n### Staffing and Funding\n- Gone: All of the staff in the division or agency are gone and/or all funding has been terminated.\n- High Risk: 40% or more of staff lost, and/or 1,000 or more staff lost, and/or budget cut by 20% or more, and/or leadership removed.\n- Moderate Risk: 10\u201339% of staff lost, and/or 500\u2013999 staff lost, and/or budget cut by 10\u201319%, and/or threatened change in leadership.\n- No Known Issue: Less than 10% of staff lost and less than 10% of budget cut and no known change in leadership.\n\n### Policy\n- Gone: Data collection and publication has been terminated.\n- High Risk: Presidential Action-driven information collection request (ICR); negative policy note on site; other significant changes in accordance with Administration priorities.\n- Moderate Risk: Proposed or pending changes; statements by administration officials suggesting a change is being considered or planned.\n- No Known Issue: No notable changes since January 2025 affecting what data is collected and published.\n\nFor each category, concisely list the evidence and supporting sources that would support each risk level. Then indicate which risk level you find most appropriate and why.\n\nConclude with a simple summary of risk levels:\nHistorical Data Availability: <level>\nFuture Data Availability: <level>\nData Quality: <level>\nStatutory Context: <level>\nStaffing and Funding: <level>\nPolicy: <level>"
+    },
+    {
+      "role": "assistant",
+      "content": "I'll research recent developments affecting the Census Bureau and QTAX specifically, including staffing, funding, ICR status, and publication cadence.Initial findings show a delayed Q3 2025 release (January 2026 instead of December 2025) coinciding with the government shutdown. Let me verify the ICR status, the delay details, and any data-removal actions affecting QTAX.# QTAX Dataset Risk Assessment\n\n**Assessment date context:** This assessment reflects research current through the Q2 2026 release (published September 10, 2026), the enacted FY2026 appropriations (P.L. 119-74, signed January 23, 2026), and reporting on Census Bureau workforce changes through late 2026.\n\n---\n\n## Historical Data Availability\n\n**Evidence:**\n- All historical QTAX tables remain publicly available on census.gov: the program's \"historical\" pages host per-quarter tables going back decades (1962 forward), and the 2025 and 2026 quarterly pages (Q3 2025, Q4 2025, Q1 2026, Q2 2026) are all live with full Tables 1\u20133 in XLS/CSV/PDF. (census.gov/programs-surveys/qtax/data/tables.html; census.gov/data/tables/2025/econ/qtax/historical/q3.html and q4.html)\n- The Census API (`timeseries/eits/qtax`) still serves the full 1992-forward series, and the currentdata bulk-download tool remains functional.\n- Redundant archival copies exist and remain intact: FRED/ALFRED at the St. Louis Fed mirrors ~1,400+ QTAX series back to 1992 with vintage archives. (fred.stlouisfed.org/release?rid=455)\n- The FY2026 Senate CJS report flagged \"unprecedented removal of data sets at the Census Bureau and BEA\" and directed briefings on removed/modified datasets \u2014 but documented removals at Census were concentrated in demographic/equity-related products, not economic indicator surveys like QTAX. (cossa.org FY2026 CJS analysis) No source identifies QTAX historical data as removed or altered.\n\n**Assessment: No Known Issue.** All prior-cycle data remain accessible in their original form, with multiple independent copies (FRED/ALFRED) available as a hedge.\n\n---\n\n## Future Data Availability\n\n**Evidence:**\n- The Q3 2025 release missed its typical mid-December date: ALFRED's release-date log shows the Q3 2025 release on **January 15, 2026**, versus the normal December cadence (Dec 12, 2024; Dec 14, 2023; Dec 15, 2022). This was a direct consequence of the six-week government shutdown (October 1 \u2013 November 12, 2025), during which Census suspended data collection and distribution. (alfred.stlouisfed.org/release?rid=455; reuters.com; CRS R48832)\n- Publication has since recovered: Q4 2025 was released March 12, 2026; Q1 2026 on June 11, 2026; Q2 2026 on September 10, 2026 \u2014 all on the normal schedule. (census.gov/programs-surveys/qtax.html)\n- The ICR (OMB Control No. 0607-0112) is **Active**, approved July 15, 2024 with expiration **July 31, 2027** \u2014 well in the future, with a history of timely renewals (2016, 2019, 2021, 2024). (reginfo.gov, ICR 202403-0607-002)\n- The collection was not skipped: Q3 2025 data were collected and published, just late.\n- Risk factors going forward: the shutdown-driven delay shows vulnerability to appropriations lapses; ~100 shutdown-related RIF notices at Census in October 2025; Census appropriations lapsed Oct 1\u2013Nov 12, 2025 before a CR and then full-year funding (P.L. 119-74) were enacted.\n\n**Assessment: Moderate Risk.** A typical publication date was missed (Q3 2025, ~4\u20135 weeks late) due to the shutdown \u2014 squarely matching the Moderate definition \u2014 but no quarter was skipped, the ICR is active through mid-2027, and releases have since returned to schedule. There is no evidence of termination or a skipped collection.\n\n---\n\n## Data Quality\n\n**Evidence:**\n- Granularity and frequency are unchanged: all three tables (national state+local, national state, state-by-state detail) continue at quarterly frequency, with 28 state tax categories, seasonally adjusted and unadjusted series, and the standard 7-quarter revision window (visible in normal vintage differences between Census's currentdata tool and FRED).\n- The one realized timeliness hit was the Q3 2025 delay (temporary, ~1 month, since resolved).\n- Emerging risks: Census has lost an estimated **15% of staffing since FY24** (ASA, \"The Nation's Data at Risk\" 2025); the AFGE local reports 1,300\u20131,500 departures and teams reduced to a quarter of former size in some units; AP reports on DOGE-targeted contract cancellations and departures of long-tenured staff with institutional knowledge. Federal News Network (Dec 2025) reports that \"most statistical agencies lost 20% to 30% of their staff this year.\"\n- Knock-on effect demonstrated: BEA had to reduce its Q3 2025 GDP from three estimates to two because source data (including government-sector data of the type QTAX supplies) were delayed by the shutdown \u2014 showing QTAX's ecosystem is strain-sensitive.\n- QTAX itself is a small, mail/electronic survey of government offices (8,082 annual burden hours), which may make it more resilient than household field surveys to field-staff cuts; response-rate improvement on F-71/F-73 is a standing term of ICR clearance, indicating Census is actively working on quality.\n\n**Assessment: Moderate Risk.** No actual reduction in granularity or frequency has occurred, but a real (if temporary) timeliness lapse occurred in Q3 2025, and agency-wide staffing losses of ~15% create a credible, ongoing emerging risk to timeliness and quality. There is no evidence yet of a *permanent* reduction, which would warrant High.\n\n---\n\n## Statutory Context\n\n**Evidence:**\n- QTAX is conducted under **Title 13, U.S.C., Sections 161 and 182**, which explicitly authorize the Secretary of Commerce to collect statistics on state and local government finances and taxation. The authorization is named on the survey's own respondent materials, and what is collected (Forms F-71, F-72, F-73; property, state, and non-property taxes) is precisely defined. (census.gov QTAX questionnaires/methodology pages)\n- However, QTAX is *authorized*, not *mandated*: participation is voluntary, and no statute requires quarterly publication. This distinction matters because the Administration's FY2026 budget request stipulates that by end of FY2026 the Bureau will eliminate functions \"not statutorily mandated or core to the Bureau's mission.\" (thecensusproject.org, 6/30/2025)\n- Programmatic use is strong and documented: the ICR states QTAX data are used by BEA for GDP estimates and the National Income and Product Accounts, by the Federal Reserve Board, and (historically) by HUD as a cost indicator for Section 8 rent adjustments; Census itself says less frequent collection \"would adversely impact the BEA, FRB, and other policy makers.\"\n- Substitutes: the annual Survey of State Government Tax Collections (STC), the Annual Survey of State and Local Government Finances, and the Census of Governments cover overlapping ground but none provide quarterly frequency \u2014 there is no true quarterly substitute (which is why the Urban Institute builds its own data but still benchmarks against QTAX).\n- Congress signaled support: the enacted FY2026 bill funded Current Economic Statistics at prior levels ($216M request was flat vs. FY2024/FY2025 actuals) and the final Census appropriation *increased* 7.8%. (CRS IF13105)\n\n**Assessment: Moderate Risk.** This is a borderline call. Elements of \"No Known Issue\" apply (explicitly named statutory authorization, clearly defined content, no alternative quarterly collection, essential to a federal program). But the rubric's Moderate definition \u2014 \"not explicitly required by statute but required for the implementation of a state or federal program, and there are no alternative data collections\" \u2014 describes QTAX precisely, and the distinction is politically salient given the Administration's stated intent to cut non-mandated functions. The authorization is solid but voluntary and permissive rather than obligatory.\n\n---\n\n## Staffing and Funding\n\n**Evidence:**\n- **Staffing losses:** The American Statistical Association's 2025 report estimates the Census Bureau has lost ~15% of staffing since FY24. The AFGE Council 241 president reports 1,300\u20131,500 employees lost since January 2025 through deferred resignations, voluntary separations, and early retirement (Census had ~13,230 employees in September 2024). About 100 employees (Tucson call center) received RIF notices in October 2025 during the shutdown; Commerce Department laid off ~300. (ASA census.pdf; AP News; Bloomberg Law; GovExec; The Census Project)\n- **Leadership:** Director Rob Santos resigned in early 2025; the Bureau has had **no Senate-confirmed director** since, with COO Ron Jarmin serving in an acting capacity; the leadership roster showed **18 vacancies** as of mid-2025. (AP News)\n- **Budget:** The *enacted* FY2026 appropriation is $1.490 billion \u2014 a 7.8% increase over FY2025 ($1.383B). But the Administration's FY2026 request proposed cutting the Current Surveys and Programs account by ~$40M (12.3%), and the final bill still funds Current Surveys and Programs at $318.5M, a 3.2% cut vs. FY2025. The FY2026 request also proposed a 9% staffing decline bureau-wide. (CRS IF13105; COSSA; thecensusproject.org)\n- Mitigating factors: final FY2026 funding is up overall; economic statistics funding (where QTAX sits) was requested flat; QTAX is a low-cost, low-headcount program (8,082 annual burden hours) not dependent on field staff.\n\n**Assessment: High Risk.** By the rubric's thresholds this is unambiguous: the Bureau lost well over 1,000 staff (1,300\u20131,500), lost its Senate-confirmed leadership (director resigned, acting leadership, 18 top vacancies), and endured shutdown-driven RIFs. While percentage losses (~15%) and the enacted budget (up 7.8%) alone would suggest Moderate, the absolute 1,000+ staff-loss trigger and leadership removal both independently meet the High Risk definition. QTAX has so far weathered this without visible degradation, but the institutional capacity behind it is materially diminished.\n\n---\n\n## Policy\n\n**Evidence:**\n- No Presidential Action-driven ICR applies to QTAX: the current ICR (202403-0607-002) was approved July 15, 2024, before the change in administration, as a routine \"extension without change,\" and there is no QTAX-specific negative policy note on its site. Its content (state/local tax collections) is not race-, gender-, or equity-adjacent, so it was not swept into the 2025 removals of \"equity-related\" datasets that prompted Senate scrutiny.\n- The FY2026 President's Budget request supports **reorganizing BLS, BEA, and the Census Bureau into a single Department of Commerce statistics agency** and eliminating functions \"not statutorily mandated or core to the Bureau's mission\" \u2014 a proposed, pending structural change that could affect QTAX's institutional home. (thecensusproject.org; CRS IF13105)\n- The enacted FY2026 CJS bill (P.L. 119-74) funded the Bureau above FY2025 and directed Census/BEA to account for removed datasets \u2014 Congressional pushback that favors continuity, but the reorganization proposal and further workforce cuts remain live (Federal News Network, Dec 2025: administration \"pursuing further workforce cuts\" at statistical agencies).\n- DOGE activity at Census (contract cancellations, workforce incentives) is documented and ongoing, though QTAX releases have continued unaltered in content.\n\n**Assessment: Moderate Risk.** There are proposed or pending changes (statistical-agency reorganization, elimination of non-mandated functions, continued workforce reduction efforts) and administration statements suggesting restructuring is being considered \u2014 matching the Moderate definition. But none of the High Risk triggers (Presidential-Action-driven ICR, negative policy note on the dataset, actual changes in collected/published content per Administration priorities) applies to QTAX, and Congressional appropriators have pushed back on data removals.\n\n---\n\n## Summary of Risk Levels\n\n| Category | Risk Level |\n|---|---|\n| Historical Data Availability | **No Known Issue** |\n| Future Data Availability | **Moderate Risk** |\n| Data Quality | **Moderate Risk** |\n| Statutory Context | **Moderate Risk** |\n| Staffing and Funding | **High Risk** |\n| Policy | **Moderate Risk** |\n\n**Overall picture:** QTAX itself has been remarkably resilient \u2014 it has published continuously since 1962, all historical data remain available, the ICR is active through July 2027, the content and frequency are unchanged, and releases have returned to schedule after a single shutdown-driven one-month delay (Q3 2025, released January 15, 2026). The dominant risks are institutional rather than dataset-specific: a Bureau that has lost 1,300\u20131,500 staff and its confirmed leadership, a pending proposal to merge the federal statistical agencies, and an administration explicitly targeting \"non-statutorily-mandated\" functions \u2014 a category QTAX technically falls into despite its explicit Title 13 authorization and its irreplaceable role in GDP estimation. For a preservationist, the practical takeaway is that historical access risk is low (and hedged by FRED/ALFRED's independent archive), but forward-looking collection risk is real and warrants monitoring of the FY2027 budget cycle, the statistical-agency reorganization proposal, and the July 2027 ICR renewal."
+    },
+    {
+      "role": "user",
+      "content": "Emit a session_metadata YAML block reporting: current date, model identifier, knowledge cutoff, surface, whether memory is enabled, whether custom preferences or styles are active, all tools and MCP servers available, which tools were actually called in this session, and whether attachments were present. Mark any field not directly observable as unknown rather than inferring it."
+    },
+    {
+      "role": "assistant",
+      "content": "```yaml\nsession_metadata:\n  current_date:\n    value: unknown\n    note: >\n      No datetime tool is available in this session, so the current date is not\n      directly observable. Session context (search results referencing events\n      through late 2026, e.g., a QTAX Q2 2026 release dated 2026-09-10) implies\n      a date on or after that point, but this is inference, not observation.\n  model_identifier:\n    value: \"GLM (Z.ai)\"\n    note: >\n      Model family known from self-identification; the exact version identifier\n      and build string are not directly observable and are therefore omitted.\n  knowledge_cutoff: unknown\n\n  surface:\n    value: unknown\n    note: >\n      The client or interface (web app, API, IDE, etc.) through which this\n      session is conducted is not exposed to the model.\n\n  memory_enabled:\n    value: false\n    note: >\n      No memory tools, memory system prompts, or persistent-context mechanisms\n      are present in this session's tool set or instructions.\n\n  custom_preferences_or_styles_active:\n    value: false\n    note: >\n      No user-level preference directives, style guides, or customization\n      layers were injected into this session. Instructions present are the\n      user's per-message requests only.\n\n  tools_available:\n    - name: openrouter_web_search\n      type: builtin_function\n      description: Web search returning ranked excerpts from matching pages\n    - name: openrouter_web_fetch\n      type: builtin_function\n      description: Fetch full text of a web page or PDF at a given URL\n\n  mcp_servers:\n    value: []\n    note: >\n      No Model Context Protocol (MCP) server tools were exposed in this\n      session; only the two builtin functions above were available.\n\n  tools_called_this_session:\n    - openrouter_web_search\n      calls: 6\n      context: >\n        Used in turns 1 and 2 for QTAX dataset research (publisher, legal\n        authority, history, methodology, API access, downstream users,\n        staffing/budget/policy risk research, ICR status, release schedules).\n    - openrouter_web_fetch\n      calls: 2\n      context: >\n        Used in turn 1 to fetch the QTAX About page and Methodology page\n        (returned largely boilerplate HTML; substantive content came from\n        search excerpts).\n\n  attachments_present:\n    value: false\n    note: >\n      No file attachments, images, or documents were included in any user\n      message in this session; all inputs were plain text.\n```"
+    }
+  ]
+}

@@ -1,0 +1,1293 @@
+{
+  "dataset": {
+    "key": "usaspending-gov",
+    "title": "USAspending.gov"
+  },
+  "model": "anthropic/claude-opus-5.5",
+  "harness": "openrouter tools",
+  "context": "full: each turn's whole output is carried into the next",
+  "search_tool": {
+    "engine": "native",
+    "excluded_domains": [
+      "dataindex.us"
+    ]
+  },
+  "fetch_tool": {
+    "engine": "openrouter",
+    "blocked_domains": [
+      "dataindex.us"
+    ],
+    "max_content_tokens": 10000
+  },
+  "reasoning": "effort medium",
+  "catalog": {
+    "fetched_at": "2026-10-09T01:33:44Z",
+    "entry": {
+      "id": "anthropic/claude-opus-5.5",
+      "canonical_slug": "anthropic/claude-opus-5.5-20260921",
+      "hugging_face_id": null,
+      "name": "Anthropic: Claude Opus 5.5",
+      "created": 1790094732,
+      "description": "Claude Opus 5.5 is Anthropic's flagship model for demanding reasoning, coding, and long-horizon agentic work, succeeding Claude Opus 5. It is particularly strong at multi-step changes in large codebases, code...",
+      "context_length": 1000000,
+      "architecture": {
+        "modality": "text+image+file->text",
+        "input_modalities": [
+          "text",
+          "image",
+          "file"
+        ],
+        "output_modalities": [
+          "text"
+        ],
+        "tokenizer": "Claude",
+        "instruct_type": null
+      },
+      "pricing": {
+        "prompt": "0.000004",
+        "completion": "0.00002",
+        "web_search": "0.01",
+        "input_cache_read": "0.0000002",
+        "input_cache_write": "0.000005",
+        "input_cache_write_1h": "0.000008"
+      },
+      "top_provider": {
+        "context_length": 1000000,
+        "max_completion_tokens": 128000,
+        "is_moderated": true
+      },
+      "per_request_limits": null,
+      "supported_parameters": [
+        "include_reasoning",
+        "max_completion_tokens",
+        "max_tokens",
+        "reasoning",
+        "reasoning_effort",
+        "response_format",
+        "stop",
+        "structured_outputs",
+        "tool_choice",
+        "tools",
+        "verbosity"
+      ],
+      "default_parameters": {},
+      "supported_voices": null,
+      "knowledge_cutoff": null,
+      "expiration_date": null,
+      "links": {
+        "details": "/api/v1/models/anthropic/claude-opus-5.5-20260921/endpoints"
+      },
+      "benchmarks": {
+        "design_arena": [
+          {
+            "arena": "agents",
+            "category": "mobileapps",
+            "elo": 1328,
+            "win_rate": 64.3,
+            "rank": 2
+          },
+          {
+            "arena": "models",
+            "category": "3d",
+            "elo": 1487,
+            "win_rate": 72.3,
+            "rank": 1
+          },
+          {
+            "arena": "models",
+            "category": "codecategories",
+            "elo": 1407,
+            "win_rate": 65.3,
+            "rank": 1
+          },
+          {
+            "arena": "models",
+            "category": "dataviz",
+            "elo": 1403,
+            "win_rate": 64.6,
+            "rank": 1
+          },
+          {
+            "arena": "models",
+            "category": "gamedev",
+            "elo": 1464,
+            "win_rate": 72.5,
+            "rank": 1
+          },
+          {
+            "arena": "models",
+            "category": "svg",
+            "elo": 1332,
+            "win_rate": 50.5,
+            "rank": 1
+          },
+          {
+            "arena": "models",
+            "category": "uicomponent",
+            "elo": 1396,
+            "win_rate": 65.5,
+            "rank": 1
+          },
+          {
+            "arena": "models",
+            "category": "website",
+            "elo": 1340,
+            "win_rate": 57.6,
+            "rank": 3
+          }
+        ],
+        "artificial_analysis": {
+          "intelligence_index": 57.6,
+          "coding_index": null,
+          "agentic_index": null
+        }
+      },
+      "reasoning": {
+        "mandatory": true,
+        "supported_efforts": [
+          "max",
+          "xhigh",
+          "high",
+          "medium",
+          "low"
+        ],
+        "default_effort": "high"
+      }
+    }
+  },
+  "upstream": [
+    "anthropic"
+  ],
+  "trial": 0,
+  "terminate_reason": "completed",
+  "max_tokens": 32768,
+  "started_at": "2026-10-09T01:33:44Z",
+  "prompts": {
+    "research": "#data research\nI am researching a federal dataset. Find out everything you can about this dataset, such as who publishes it, under what authority or mandate, its history, its typical users, and its benefits to the public. Be sure your research comprehensively covers each of those perspectives, as well as any others that you discover or seem useful. I believe this is accurate information, but please check:\n\nDataset title: USAspending.gov\nDescription: USAspending.gov is the official source for spending data for the U.S. Government. Its mission is to show the American public what the federal government spends every year and how it spends the money. You can follow the money from the Congressional appropriations to the federal agencies and down to local communities and businesses.\nURL: https://usaspending.gov/\n\nReturn a complete report on everything that a preservationist, data librarian, data scientist, or policy activist might want to know about this data.",
+    "assessment": "# Dataset risk assessment\nI would like your help in assessing the likelihood that this data will be changed or removed from its primary location, and that users will no longer be able to access accurate and reliable copies of it, based on the rubric below.\n\n## Sources for context\nTo help assess the rubric categories, perform additional research on the data, the agency, the data's topics and typical users, covering topics such as proposed regulatory or funding changes, recent news, and political commentary. Use whatever resources you find useful, including the Federal Register (https://www.federalregister.gov) and the federal staffing tracker at https://usajobs-tracker.abigailhaddad.com.\n\n## Rubric\nThis rubric is divided up into categories. Each category is divided up into risk levels. In your output, please select the appropriate risk level for each category based on your research.\n\n### Historical Data Availability\n- Gone: Data files prior to the current year or cycle are no longer publicly available.\n- High Risk: Some data files prior to the current year or cycle are removed.\n- Moderate Risk: Some data elements that exist in the dataset prior to the current year or cycle are removed.\n- No Known Issue: Data prior to the current year or cycle remain accessible with no known alterations.\n\n### Future Data Availability\n- Gone: Data collection and publication has been terminated.\n- High Risk: Statutory publication deadline missed and/or collection or publication skipped and/or ICR expired for more than one year.\n- Moderate Risk: Typical or intended publication date missed and/or collection or publication delayed; ICR expired up to one year.\n- No Known Issue: Data published on time or as expected and ICR active or renewed before expiration.\n\n### Data Quality\n- Gone: Data collection and publication has been terminated.\n- High Risk: Reductions in granularity, timeliness, or frequency.\n- Moderate Risk: Potential or emerging risk to granularity, timeliness, or frequency.\n- No Known Issue: Maintained or improved granularity, timeliness, or frequency.\n\n### Statutory Context\n- Gone: N/A\n- High Risk: Statutory authorization is vague and/or there are alternative data collections that could serve as substitutes and/or no known programmatic use.\n- Moderate Risk: Not explicitly required by statute but required for the implementation of a state or federal program, and there are no alternative data collections that could serve as substitutes.\n- No Known Issue: Statutorily required and/or statutory authorization is explicitly named and it is clear what has to be collected, and there aren't alternative data collections that could serve as substitutes and/or required for implementation of a federal program.\n\n### Staffing and Funding\n- Gone: All of the staff in the division or agency are gone and/or all funding has been terminated.\n- High Risk: 40% or more of staff lost, and/or 1,000 or more staff lost, and/or budget cut by 20% or more, and/or leadership removed.\n- Moderate Risk: 10\u201339% of staff lost, and/or 500\u2013999 staff lost, and/or budget cut by 10\u201319%, and/or threatened change in leadership.\n- No Known Issue: Less than 10% of staff lost and less than 10% of budget cut and no known change in leadership.\n\n### Policy\n- Gone: Data collection and publication has been terminated.\n- High Risk: Presidential Action-driven information collection request (ICR); negative policy note on site; other significant changes in accordance with Administration priorities.\n- Moderate Risk: Proposed or pending changes; statements by administration officials suggesting a change is being considered or planned.\n- No Known Issue: No notable changes since January 2025 affecting what data is collected and published.\n\nFor each category, concisely list the evidence and supporting sources that would support each risk level. Then indicate which risk level you find most appropriate and why.\n\nConclude with a simple summary of risk levels:\nHistorical Data Availability: <level>\nFuture Data Availability: <level>\nData Quality: <level>\nStatutory Context: <level>\nStaffing and Funding: <level>\nPolicy: <level>",
+    "session_metadata": "Emit a session_metadata YAML block reporting: current date, model identifier, knowledge cutoff, surface, whether memory is enabled, whether custom preferences or styles are active, all tools and MCP servers available, which tools were actually called in this session, and whether attachments were present. Mark any field not directly observable as unknown rather than inferring it."
+  },
+  "turns": {
+    "research": {
+      "request": {
+        "model": "anthropic/claude-opus-5.5",
+        "max_output_tokens": 32768,
+        "tools": [
+          {
+            "type": "openrouter:web_search",
+            "parameters": {
+              "engine": "native",
+              "excluded_domains": [
+                "dataindex.us"
+              ]
+            }
+          },
+          {
+            "type": "openrouter:web_fetch",
+            "parameters": {
+              "engine": "openrouter",
+              "blocked_domains": [
+                "dataindex.us"
+              ],
+              "max_content_tokens": 10000
+            }
+          }
+        ],
+        "cache_control": {
+          "type": "ephemeral",
+          "ttl": "1h"
+        },
+        "session_id": "usaspending-gov-anthropic/claude-opus-5.5-t0-2026-10-09T01:33:44Z",
+        "stop_server_tools_when": [
+          {
+            "type": "step_count_is",
+            "step_count": 200
+          }
+        ],
+        "reasoning": {
+          "effort": "medium"
+        },
+        "provider": {
+          "order": [
+            "anthropic"
+          ],
+          "allow_fallbacks": false
+        }
+      },
+      "response_meta": {
+        "id": "gen-1791509625-SY7MLpd7zqCnc76fyPIl",
+        "object": "response",
+        "created_at": 1791509625,
+        "model": "anthropic/claude-opus-5.5",
+        "status": "completed",
+        "completed_at": 1791509802,
+        "error": null,
+        "incomplete_details": null,
+        "tools": [],
+        "tool_choice": "auto",
+        "parallel_tool_calls": true,
+        "max_output_tokens": 32768,
+        "temperature": 1,
+        "top_p": 1,
+        "presence_penalty": 0,
+        "frequency_penalty": 0,
+        "top_logprobs": 0,
+        "max_tool_calls": null,
+        "metadata": {},
+        "background": false,
+        "previous_response_id": null,
+        "service_tier": "auto",
+        "truncation": "disabled",
+        "store": false,
+        "instructions": null,
+        "text": {
+          "format": {
+            "type": "text"
+          }
+        },
+        "reasoning": {
+          "effort": "medium"
+        },
+        "safety_identifier": null,
+        "prompt_cache_key": null,
+        "prompt_cache_options": null,
+        "usage": {
+          "input_tokens": 374067,
+          "input_tokens_details": {
+            "cached_tokens": 326639,
+            "cache_write_tokens": 47396
+          },
+          "output_tokens": 8704,
+          "output_tokens_details": {
+            "reasoning_tokens": 1919
+          },
+          "total_tokens": 382771,
+          "cost": 0.6957038000000001,
+          "cost_details": {
+            "upstream_inference_cost": 0.6187038,
+            "upstream_inference_input_cost": 0.4446238,
+            "upstream_inference_output_cost": 0.17408
+          },
+          "server_tool_use_details": {
+            "web_search_requests": 12,
+            "tool_calls_requested": 16,
+            "tool_calls_executed": 16
+          }
+        }
+      },
+      "requests": [
+        {
+          "input_tokens": 374067,
+          "input_tokens_details": {
+            "cached_tokens": 326639,
+            "cache_write_tokens": 47396
+          },
+          "output_tokens": 8704,
+          "output_tokens_details": {
+            "reasoning_tokens": 1919
+          },
+          "total_tokens": 382771,
+          "cost": 0.6957038000000001,
+          "cost_details": {
+            "upstream_inference_cost": 0.6187038,
+            "upstream_inference_input_cost": 0.4446238,
+            "upstream_inference_output_cost": 0.17408
+          },
+          "server_tool_use_details": {
+            "web_search_requests": 12,
+            "tool_calls_requested": 16,
+            "tool_calls_executed": 16
+          }
+        }
+      ],
+      "searches": 12,
+      "fetches": 4,
+      "tool_items": [
+        {
+          "type": "openrouter:web_search",
+          "id": "st_tmp_86hxlcy2uw",
+          "status": "completed",
+          "action": {
+            "type": "search",
+            "query": "USAspending.gov 2025 news changes data",
+            "sources": [
+              {
+                "type": "url",
+                "url": "https://www.usaspending.gov/data/about-the-data-download.pdf"
+              },
+              {
+                "type": "url",
+                "url": "https://www.congress.gov/crs-product/R44027"
+              },
+              {
+                "type": "url",
+                "url": "https://www.usaspending.gov/featured-content/see-4-yourself/understanding-four-government-data-source-systems"
+              },
+              {
+                "type": "url",
+                "url": "https://www.usaspending.gov/data-dictionary"
+              },
+              {
+                "type": "url",
+                "url": "https://www.usaspending.gov/"
+              }
+            ]
+          }
+        },
+        {
+          "type": "openrouter:web_search",
+          "id": "st_tmp_x86hj3wquoa",
+          "status": "completed",
+          "action": {
+            "type": "search",
+            "query": "GAO report USAspending.gov data quality missing spending 2024",
+            "sources": [
+              {
+                "type": "url",
+                "url": "https://www.gao.gov/products/gao-24-106214"
+              },
+              {
+                "type": "url",
+                "url": "https://www.gao.gov/assets/gao-24-106214.pdf"
+              },
+              {
+                "type": "url",
+                "url": "https://www.gao.gov/assets/870/863616.pdf"
+              },
+              {
+                "type": "url",
+                "url": "https://www.gao.gov/assets/gao-24-106237.pdf"
+              },
+              {
+                "type": "url",
+                "url": "https://oversight.house.gov/wp-content/uploads/2024/01/USASpending-Letter_Final-012224.pdf"
+              }
+            ]
+          }
+        },
+        {
+          "type": "openrouter:web_fetch",
+          "id": "st_tmp_dhe13mgqkk6",
+          "status": "incomplete",
+          "url": "https://www.congress.gov/crs-product/R44027",
+          "httpStatus": 403,
+          "error": "HTTP 403: Forbidden"
+        },
+        {
+          "type": "openrouter:web_search",
+          "id": "st_tmp_ul6letqoy5",
+          "status": "completed",
+          "action": {
+            "type": "search",
+            "query": "USAspending.gov history launched December 2007 OMB Watch FedSpending.org Coburn Obama transferred Treasury",
+            "sources": [
+              {
+                "type": "url",
+                "url": "https://www.everycrsreport.com/files/2023-12-14_R44027_19732667eb02ddbd5e39fab0d7f28f907d982c87.pdf"
+              },
+              {
+                "type": "url",
+                "url": "https://www.usaspending.gov/featured-content/data-you-can-trust/the-story-of-spending-transparency"
+              },
+              {
+                "type": "url",
+                "url": "https://www.foreffectivegov.org/node/8330.html"
+              },
+              {
+                "type": "url",
+                "url": "https://www.foreffectivegov.org/node/3560.html"
+              },
+              {
+                "type": "url",
+                "url": "https://sunlightfoundation.com/2008/06/03/usaspendinggov-20/"
+              }
+            ]
+          }
+        },
+        {
+          "type": "openrouter:web_fetch",
+          "id": "st_tmp_4f3qjpoj8kp",
+          "status": "incomplete",
+          "url": "https://www.usaspending.gov/featured-content/data-you-can-trust/the-story-of-spending-transparency",
+          "error": "Request timed out."
+        },
+        {
+          "type": "openrouter:web_search",
+          "id": "st_tmp_2zm7bn77ikm",
+          "status": "completed",
+          "action": {
+            "type": "search",
+            "query": "\"story of spending transparency\" USAspending 2017 2018 new site launched API Data Lab",
+            "sources": [
+              {
+                "type": "url",
+                "url": "https://www.usaspending.gov/featured-content/data-you-can-trust/the-story-of-spending-transparency"
+              },
+              {
+                "type": "url",
+                "url": "https://www.usaspending.gov/featured-content"
+              },
+              {
+                "type": "url",
+                "url": "https://www.linkedin.com/posts/bureau-of-the-fiscal-service_new-featured-content-on-usaspendinggov-activity-7442661864620122112-eMlT"
+              },
+              {
+                "type": "url",
+                "url": "https://legalclarity.org/trust-in-government-laws-that-hold-officials-accountable/"
+              }
+            ]
+          }
+        },
+        {
+          "type": "openrouter:web_search",
+          "id": "st_tmp_jjyxafwe94",
+          "status": "completed",
+          "action": {
+            "type": "search",
+            "query": "USAspending database download full PostgreSQL archive API api.usaspending.gov github fedspendingtransparency usaspending-api",
+            "sources": [
+              {
+                "type": "url",
+                "url": "https://www.usaspending.gov/federal-spending-guide"
+              },
+              {
+                "type": "url",
+                "url": "https://github.com/fedspendingtransparency/usaspending-api"
+              },
+              {
+                "type": "url",
+                "url": "https://github.com/fedspendingtransparency/usaspending-api/blob/master/README.md"
+              },
+              {
+                "type": "url",
+                "url": "https://github.com/fedspendingtransparency/usaspending-api/blob/master/loading_data.md"
+              },
+              {
+                "type": "url",
+                "url": "https://github.com/fedspendingtransparency/usaspending-api/blob/2fb64910/loading_data.md"
+              }
+            ]
+          }
+        },
+        {
+          "type": "openrouter:web_search",
+          "id": "st_tmp_opiajkgu7o",
+          "status": "completed",
+          "action": {
+            "type": "search",
+            "query": "USAspending \"start date\" prime award data fiscal year 2001 2008 account data January 2017 subaward",
+            "sources": [
+              {
+                "type": "url",
+                "url": "https://www.usaspending.gov/data/about-the-data-download.pdf"
+              },
+              {
+                "type": "url",
+                "url": "https://www.usaspending.gov/about"
+              },
+              {
+                "type": "url",
+                "url": "https://www.usaspending.gov/download_center/award_data_archive"
+              },
+              {
+                "type": "url",
+                "url": "https://www.usaspending.gov/download_center/database_download"
+              },
+              {
+                "type": "url",
+                "url": "https://www.usaspending.gov/data-dictionary"
+              }
+            ]
+          }
+        },
+        {
+          "type": "openrouter:web_search",
+          "id": "st_tmp_f0qmdyp2psn",
+          "status": "completed",
+          "action": {
+            "type": "search",
+            "query": "USAspending.gov 2025 DOGE transparency concerns Treasury Fiscal Service data removed or delayed",
+            "sources": [
+              {
+                "type": "url",
+                "url": "https://www.mlex.com/mlex/articles/2297868/us-treasury-fiscal-bureau-oppose-block-of-doge-access-to-data"
+              },
+              {
+                "type": "url",
+                "url": "https://www-s1.npr.org/2025/02/19/nx-s1-5302705/doge-overstates-savings-federal-contracts"
+              },
+              {
+                "type": "url",
+                "url": "https://www.usaspending.gov/"
+              },
+              {
+                "type": "url",
+                "url": "https://www.npr.org/2025/03/01/nx-s1-5313853/doge-savings-receipts-musk-trump"
+              },
+              {
+                "type": "url",
+                "url": "https://fiscal.treasury.gov/about-us/news/treasury-teams-honored-for-safeguarding-public-funds-and-expanding-data-transparency"
+              }
+            ]
+          }
+        },
+        {
+          "type": "openrouter:web_fetch",
+          "id": "st_tmp_bw5kuqgudda",
+          "status": "incomplete",
+          "url": "https://www.usaspending.gov/about",
+          "error": "Request timed out."
+        },
+        {
+          "type": "openrouter:web_search",
+          "id": "st_tmp_x6o3up2l3i",
+          "status": "completed",
+          "action": {
+            "type": "search",
+            "query": "USAspending.gov about mission \"Bureau of the Fiscal Service\" new site 2018 legacy retired Data Lab datalab.usaspending.gov",
+            "sources": [
+              {
+                "type": "url",
+                "url": "https://www.usaspending.gov/about"
+              },
+              {
+                "type": "url",
+                "url": "https://fiscal.treasury.gov/about-us/news/fiscal-service-announces-launch-of-new-data"
+              },
+              {
+                "type": "url",
+                "url": "https://fiscaldata.treasury.gov/about-us/"
+              },
+              {
+                "type": "url",
+                "url": "https://fiscal.treasury.gov/payments-from-government/stored-value-card/ezpay/about"
+              },
+              {
+                "type": "url",
+                "url": "https://tfx.treasury.gov/data-transparency/about"
+              }
+            ]
+          }
+        },
+        {
+          "type": "openrouter:web_search",
+          "id": "st_tmp_tb7jd9px34",
+          "status": "completed",
+          "action": {
+            "type": "search",
+            "query": "GAO September 2025 federal procurement data accuracy timeliness FPDS USAspending report",
+            "sources": [
+              {
+                "type": "url",
+                "url": "https://www.gao.gov/products/gao-25-107469"
+              },
+              {
+                "type": "url",
+                "url": "https://www.gao.gov/assets/gao-25-107469.pdf"
+              },
+              {
+                "type": "url",
+                "url": "https://files.gao.gov/reports/GAO-25-107469/index.html"
+              },
+              {
+                "type": "url",
+                "url": "https://fedscoop.com/agency-federal-procurement-reporting-contracts-data-quality-reliability-office-budget-management-general-services-administration/"
+              },
+              {
+                "type": "url",
+                "url": "https://www.legistorm.com/reports/view/gao/108825/Actions_Needed_to_Help_Ensure_Procurement_Data_Quality.html"
+              }
+            ]
+          }
+        },
+        {
+          "type": "openrouter:web_search",
+          "id": "st_tmp_jw7dhq2stur",
+          "status": "completed",
+          "action": {
+            "type": "search",
+            "query": "DATA Act inspector general audit 2025 data quality USAspending CIGIE",
+            "sources": [
+              {
+                "type": "url",
+                "url": "https://www.gao.gov/assets/gao-25-107469.pdf"
+              },
+              {
+                "type": "url",
+                "url": "https://www.oig.usda.gov/sites/default/files/reports/2025-09/11601-0001-231.pdf"
+              },
+              {
+                "type": "url",
+                "url": "https://oig.treasury.gov/system/files/2021-01/OIG-CA-21-008.pdf"
+              },
+              {
+                "type": "url",
+                "url": "https://www.oversight.gov/sites/default/files/documents/reports/2026-08/FEC%20OIG%20DATA%20Act%20Evaluation.pdf"
+              },
+              {
+                "type": "url",
+                "url": "https://www.arts.gov/sites/default/files/NEA-DATA-Act-Report-for-3rd-Quarter-FY-2024.pdf"
+              }
+            ]
+          }
+        },
+        {
+          "type": "openrouter:web_search",
+          "id": "st_tmp_w5iiqqvdpca",
+          "status": "completed",
+          "action": {
+            "type": "search",
+            "query": "archive mirror USAspending data preservation backup End of Term Web Archive OR Data Rescue OR Harvard Library Innovation Lab",
+            "sources": [
+              {
+                "type": "url",
+                "url": "https://portal.datarescueproject.org/datasets/usaspending-database/"
+              }
+            ]
+          }
+        },
+        {
+          "type": "openrouter:web_fetch",
+          "id": "st_tmp_3km9b2yr9ei",
+          "status": "completed",
+          "url": "https://portal.datarescueproject.org/datasets/usaspending-database/",
+          "content": "<!DOCTYPE html>\n<html class=\"no-js\" prefix=\"dct: http://purl.org/dc/terms/\n              rdf: http://www.w3.org/1999/02/22-rdf-syntax-ns#\n              dcat: http://www.w3.org/ns/dcat#\n              foaf: http://xmlns.com/foaf/0.1/\">\n\n  <head>\n  <meta charset=\"utf-8\">\n  <meta http-equiv=\"X-UA-Compatible\" content=\"IE=edge\">\n  <meta name=\"viewport\" content=\"width=device-width, initial-scale=1\">\n\n  <title>USAspending Database - Data Rescue Project Portal</title>\n  <link rel=\"icon\" type=\"image/png\" href=\"/assets/images/favicon.png\">\n  <meta name=\"description\"\n    content=\"\">\n  <meta name=\"theme-color\" content=\"#f4f6fb\">\n\n  <!-- Keep the browser canvas stable while blocking stylesheets load. -->\n  <style>\n    html,\n    body {\n      background: #f4f6fb;\n    }\n  </style>\n  <link rel=\"preload\" href=\"/assets/css/main.css\" as=\"style\">\n\n  <link rel=\"preconnect\" href=\"https://fonts.googleapis.com\">\n  <link rel=\"preconnect\" href=\"https://fonts.gstatic.com\" crossorigin>\n  <link\n    href=\"https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600&amp;family=JetBrains+Mono:wght@400;500&amp;family=Work+Sans:wght@600;700;800&amp;display=swap\"\n    rel=\"stylesheet\">\n\n  <link href=\"https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/css/bootstrap.min.css\" rel=\"stylesheet\"\n    integrity=\"sha384-sRIl4kxILFvY47J16cr9ZwB07vP4J8+LH7qKQnuqkuIAvNWLzeN8tE5YBujZqJLB\" crossorigin=\"anonymous\">\n  <script src=\"https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/js/bootstrap.bundle.min.js\"\n    integrity=\"sha384-FKyoEForCGlyvwx9Hj09JcYn3nv7wiPVlz7YYwJrWVcXK/BmnVDxM+D2scQbITxI\" crossorigin=\"anonymous\"\n    defer></script>\n\n  <link rel=\"stylesheet\" href=\"https://maxcdn.bootstrapcdn.com/font-awesome/4.5.0/css/font-awesome.min.css\">\n  <link rel=\"stylesheet\" href=\"/assets/css/main.css\">\n  <link rel=\"canonical\" href=\"https://portal.datarescueproject.org/datasets/usaspending-database/\">\n\n  <script defer src=\"https://umami.datarescueproject.org/script.js\"\n    data-website-id=\"fd0203d9-86a6-4ccd-8d26-983dfa2362af\"></script>\n\n  \n  <!-- Open Graph -->\n  <meta property=\"og:title\" content=\"USAspending Database\" />\n<meta property=\"og:site_name\" content=\"Data Rescue Project Portal\" />\n\n<meta property=\"og:description\" content=\"Links to public data archived through combined efforts and coordinated by the Data Rescue Project.\" />\n<meta name=\"og:image\" content=\"/assets/images/drp-brand-3.png\" />\n<meta name=\"og:image:width\" content=\"150\" />\n<meta name=\"og:image:height\" content=\"150\" />\n\n  \n\n  <script>\n    document.documentElement.className = document.documentElement.className.replace(/\\bno-js\\b/, 'js');\n\n    var settings = {\n      BASE_URL: \"\" || \"\"\n  }\n  </script>\n\n  \n  <script defer src=\"https://unpkg.com/@popperjs/core@2\"></script>\n  <script defer src=\"https://unpkg.com/tippy.js@6\"></script>\n  <script>\n    document.addEventListener('DOMContentLoaded', function () {\n      if (window.tippy) {\n        window.tippy('.status-badge[data-tippy-content]', {\n          theme: 'status',\n          delay: [0, 0],\n          duration: [100, 75],\n          placement: 'top'\n        });\n      }\n    });\n  </script>\n  \n\n</head>\n\n  <body class=\"site-shell\">\n\n    <header class=\"site-header\">\n  <div class=\"site-header__inner\">\n    <a class=\"portal-brand\" href=\"/\" aria-label=\"Data Rescue Project Portal home\">\n      <svg class=\"portal-brand__mark\" width=\"30\" height=\"30\" viewBox=\"0 0 30 30\" aria-hidden=\"true\">\n        <rect x=\"2\" y=\"2\" width=\"26\" height=\"26\" rx=\"3\" fill=\"#1030c5\"/>\n        <rect x=\"6\" y=\"3\" width=\"15\" height=\"10\" rx=\"1\" fill=\"white\" opacity=\".9\"/>\n        <rect x=\"8\" y=\"4\" width=\"4\" height=\"8\" rx=\"0.5\" fill=\"#1030c5\" />\n        <rect x=\"5\" y=\"17\" width=\"20\" height=\"8\" rx=\"1.5\" fill=\"white\" opacity=\".15\"/>\n        <circle cx=\"15\" cy=\"17.5\" r=\"3.5\" fill=\"#f4f6fb\" opacity=\".9\"/>\n      </svg>\n      <span>DRP Portal</span>\n    </a>\n    <button class=\"site-nav__toggle\" type=\"button\" data-bs-toggle=\"collapse\" data-bs-target=\"#siteNavigation\" aria-controls=\"siteNavigation\" aria-expanded=\"false\" aria-label=\"Toggle navigation\">\n      <span></span><span></span><span></span>\n    </button>\n    <nav class=\"site-nav collapse\" id=\"siteNavigation\" aria-label=\"Primary navigation\">\n      \n      \n      \n      <a class=\"site-nav__link is-active\" href=\"/datasets/\" aria-current=\"page\">Datasets</a>\n      \n      \n      \n      <a class=\"site-nav__link\" href=\"/offices/\">Offices</a>\n      \n      \n      \n      <a class=\"site-nav__link\" href=\"/categories/\">Categories</a>\n      \n      \n      \n      <a class=\"site-nav__link\" href=\"/status/\">Status</a>\n      \n    </nav>\n    <div class=\"site-header__actions\">\n      <a class=\"github-link\" href=\"https://github.com/datarescueproject/portal\" target=\"_blank\" rel=\"noopener\" aria-label=\"Data Rescue Project on GitHub\">\n        <svg width=\"18\" height=\"18\" viewBox=\"0 0 24 24\" aria-hidden=\"true\"><path fill=\"currentColor\" d=\"M12 0C5.37 0 0 5.37 0 12c0 5.31 3.44 9.8 8.21 11.39.6.1.82-.26.82-.57v-2.24c-3.01.56-3.79-.73-4.03-1.41-.14-.35-.72-1.41-1.23-1.7-.42-.22-1.02-.78-.02-.79.95-.02 1.62.87 1.85 1.23 1.08 1.81 2.8 1.3 3.5.99.1-.78.42-1.31.76-1.61-2.67-.3-5.46-1.33-5.46-5.92 0-1.31.47-2.39 1.23-3.23-.12-.3-.54-1.53.12-3.18 0 0 1.01-.31 3.3 1.23a11.5 11.5 0 0 1 6 0c2.3-1.56 3.3-1.23 3.3-1.23.66 1.65.24 2.88.12 3.18.77.84 1.23 1.91 1.23 3.23 0 4.6-2.8 5.62-5.47 5.92.43.38.81 1.1.81 2.22v3.3c0 .32.23.69.83.57A12.02 12.02 0 0 0 24 12c0-6.63-5.37-12-12-12Z\"/></svg>\n      </a>\n      <a class=\"project-brand\" href=\"https://www.datarescueproject.org/\" target=\"_blank\" rel=\"noopener\">\n        <img src=\"/assets/images/drp-brand-3.png\" alt=\"Data Rescue Project\">\n      </a>\n    </div>\n  </div>\n</header>\n\n\n    <main data-hook=\"main\" class=\"site-main\">\n      \n\n\n\n\n\n<article class=\"page-width dataset-detail\" typeof=\"dcat:Dataset\" resource=\"/datasets/usaspending-database/\">\n  <nav class=\"breadcrumbs\" aria-label=\"Breadcrumb\"><a href=\"/datasets/\">Datasets</a><span>\u203a</span><span>USAspending Database</span></nav>\n\n  <header class=\"dataset-detail__heading\">\n    <h1 property=\"dct:title\">USAspending Database</h1>\n    <p>\n      <a href=\"/offices/bureau-of-the-fiscal-service/\" property=\"foaf:homepage\"><span property=\"foaf:name\">Bureau of the Fiscal Service</span></a>\n      <span>\u00b7</span>Department of the Treasury\n    </p>\n    \n    <div class=\"tag-row\"><a class=\"category-tag\" href=\"/categories/finance-budget\">Finance &amp; Budget</a></div>\n    \n  </header>\n\n  <div class=\"dataset-detail__grid\">\n    <aside class=\"dataset-info\" property=\"dct:publisher\">\n      <h2>Dataset Info</h2>\n      \n      <div class=\"info-row\"><span>Agency</span><strong>Department of the Treasury</strong></div>\n      <div class=\"info-row\"><span>Last updated</span><strong>April 29, 2025</strong></div>\n      <div class=\"info-row\"><span>Metadata available</span><strong>Yes</strong></div>\n      <div class=\"info-row\"><span>Source URL</span><a href=\"https://onevoicecrm.my.site.com/usaspending/s/database-download\" target=\"_blank\" rel=\"noopener\">onevoicecrm.my.site.com/usaspending/s/database-do...</a></div>\n      <div class=\"info-row\"><span>Agency website</span><a href=\"https://usaspending.gov\" target=\"_blank\" rel=\"noopener\">usaspending.gov</a></div>\n    </aside>\n\n    <div class=\"dataset-detail__content\">\n      \n      \n      <section class=\"detail-section\">\n        <h2>Archived Resources</h2>\n        <div class=\"resource-list\">\n          \n          <div class=\"resource-card\">\n            <div class=\"resource-card__content\">\n              <div class=\"resource-card__meta\">\n                <span class=\"format-badge\">ZIP, DAT</span>\n                <span>Archived Jan 6, 2025</span>\n                <span>by DRP, IA</span>\n              </div>\n              <p>Full upload in process. For reconstruction, see usaspending-db-setup.pdf.This is the complete database as of Jan. 6, 2025.</p>\n              <small>Archive size: 145.0 GB</small>\n            </div>\n            \n            \n              \n                <a class=\"button button--primary button--small\" href=\"https://archive.org/details/usaspending-db_20250106\" target=\"_blank\" rel=\"noopener\">Download <span aria-hidden=\"true\">\u2197</span></a>\n              \n            \n          </div>\n          \n          <div class=\"resource-card\">\n            <div class=\"resource-card__content\">\n              <div class=\"resource-card__meta\">\n                <span class=\"format-badge\">PDF, JSON, DAT, TAB, TAR.GZ</span>\n                <span>Archived Apr 15, 2025</span>\n                <span>by LDSP</span>\n              </div>\n              <p>USAspending.gov is the official source for spending data for the U.S. Government. Its mission is to show the American public what the federal government spends every year and how it spends the money. You can follow the money from the Congressional appropriations to the federal agencies and down to local communities and businesses.</p>\n              <small>Archive size: 200.0 GB</small>\n            </div>\n            \n            \n              \n                <a class=\"button button--primary button--small\" href=\"https://doi.org/10.60503/D3/2LKHZ9\" target=\"_blank\" rel=\"noopener\">Download <span aria-hidden=\"true\">\u2197</span></a>\n              \n            \n          </div>\n          \n          <div class=\"resource-card\">\n            <div class=\"resource-card__content\">\n              <div class=\"resource-card__meta\">\n                <span class=\"format-badge\">ZIP</span>\n                <span>Archived Feb 16, 2026</span>\n                <span>by ANON</span>\n              </div>\n              \n              <small>Archive size: 156.0 GB</small>\n            </div>\n            \n            \n              \n                <a class=\"button button--primary button--small\" href=\"https://archive.org/download/gov_backup_niema/usaspending-db_20260206.zip\" target=\"_blank\" rel=\"noopener\">Download <span aria-hidden=\"true\">\u2197</span></a>\n              \n            \n          </div>\n          \n        </div>\n      </section>\n    </div>\n  </div>\n</article>\n\n    </main>\n\n    <footer class=\"site-footer\">\n  <div class=\"site-footer__inner\">\n    <a class=\"site-footer__brand\" href=\"https://datarescueproject.org/\">\n      <span>Data Rescue Project</span>\n    </a>\n    <nav class=\"site-footer__links\" aria-label=\"Footer navigation\">\n      <a href=\"https://github.com/datarescueproject/portal\" target=\"_blank\" rel=\"noopener\">GitHub Repository</a>\n      <a href=\"https://github.com/datarescueproject/portal/blob/main/LICENSE\" target=\"_blank\" rel=\"noopener\">Source License</a>\n      <a href=\"https://www.datarescueproject.org/privacy-policy/\" target=\"_blank\" rel=\"noopener\">Privacy Policy</a>\n    </nav>\n  </div>\n</footer>\n\n\n    \n\n  </body>\n\n</html>\n",
+          "title": "USAspending Database - Data Rescue Project Portal",
+          "httpStatus": 200
+        },
+        {
+          "type": "openrouter:web_search",
+          "id": "st_tmp_h6nf4m3ohrr",
+          "status": "completed",
+          "action": {
+            "type": "search",
+            "query": "USAspending.gov 2026"
+          }
+        }
+      ],
+      "ended": "answered",
+      "seconds": 178.1
+    },
+    "assessment": {
+      "request": {
+        "model": "anthropic/claude-opus-5.5",
+        "max_output_tokens": 32768,
+        "tools": [
+          {
+            "type": "openrouter:web_search",
+            "parameters": {
+              "engine": "native",
+              "excluded_domains": [
+                "dataindex.us"
+              ]
+            }
+          },
+          {
+            "type": "openrouter:web_fetch",
+            "parameters": {
+              "engine": "openrouter",
+              "blocked_domains": [
+                "dataindex.us"
+              ],
+              "max_content_tokens": 10000
+            }
+          }
+        ],
+        "cache_control": {
+          "type": "ephemeral",
+          "ttl": "1h"
+        },
+        "session_id": "usaspending-gov-anthropic/claude-opus-5.5-t0-2026-10-09T01:33:44Z",
+        "stop_server_tools_when": [
+          {
+            "type": "step_count_is",
+            "step_count": 200
+          }
+        ],
+        "reasoning": {
+          "effort": "medium"
+        },
+        "provider": {
+          "order": [
+            "anthropic"
+          ],
+          "allow_fallbacks": false
+        }
+      },
+      "response_meta": {
+        "id": "gen-1791509803-h8dnx6TAiuYyNUfIuvNG",
+        "object": "response",
+        "created_at": 1791509803,
+        "model": "anthropic/claude-opus-5.5",
+        "status": "completed",
+        "completed_at": 1791509894,
+        "error": null,
+        "incomplete_details": null,
+        "tools": [],
+        "tool_choice": "auto",
+        "parallel_tool_calls": true,
+        "max_output_tokens": 32768,
+        "temperature": 1,
+        "top_p": 1,
+        "presence_penalty": 0,
+        "frequency_penalty": 0,
+        "top_logprobs": 0,
+        "max_tool_calls": null,
+        "metadata": {},
+        "background": false,
+        "previous_response_id": null,
+        "service_tier": "auto",
+        "truncation": "disabled",
+        "store": false,
+        "instructions": null,
+        "text": {
+          "format": {
+            "type": "text"
+          }
+        },
+        "reasoning": {
+          "effort": "medium"
+        },
+        "safety_identifier": null,
+        "prompt_cache_key": null,
+        "prompt_cache_options": null,
+        "usage": {
+          "input_tokens": 293537,
+          "input_tokens_details": {
+            "cached_tokens": 228520,
+            "cache_write_tokens": 65001
+          },
+          "output_tokens": 7600,
+          "output_tokens_details": {
+            "reasoning_tokens": 2778
+          },
+          "total_tokens": 301137,
+          "cost": 0.787776,
+          "cost_details": {
+            "upstream_inference_cost": 0.717776,
+            "upstream_inference_input_cost": 0.5657760000000001,
+            "upstream_inference_output_cost": 0.152
+          },
+          "server_tool_use_details": {
+            "web_search_requests": 11,
+            "tool_calls_requested": 12,
+            "tool_calls_executed": 12
+          }
+        }
+      },
+      "requests": [
+        {
+          "input_tokens": 293537,
+          "input_tokens_details": {
+            "cached_tokens": 228520,
+            "cache_write_tokens": 65001
+          },
+          "output_tokens": 7600,
+          "output_tokens_details": {
+            "reasoning_tokens": 2778
+          },
+          "total_tokens": 301137,
+          "cost": 0.787776,
+          "cost_details": {
+            "upstream_inference_cost": 0.717776,
+            "upstream_inference_input_cost": 0.5657760000000001,
+            "upstream_inference_output_cost": 0.152
+          },
+          "server_tool_use_details": {
+            "web_search_requests": 11,
+            "tool_calls_requested": 12,
+            "tool_calls_executed": 12
+          }
+        }
+      ],
+      "searches": 11,
+      "fetches": 1,
+      "tool_items": [
+        {
+          "type": "openrouter:web_search",
+          "id": "st_tmp_eo61e684h5r",
+          "status": "completed",
+          "action": {
+            "type": "search",
+            "query": "USAspending.gov 2026 news Treasury Fiscal Service data",
+            "sources": [
+              {
+                "type": "url",
+                "url": "https://fiscal.treasury.gov/about-us/news"
+              },
+              {
+                "type": "url",
+                "url": "https://fiscal.treasury.gov/about-us/news/treasurys-bureau-fiscal-service-unveils-historic-federal-financial-data"
+              },
+              {
+                "type": "url",
+                "url": "https://fiscal.treasury.gov/about-us/news/treasury-teams-honored-for-safeguarding-public-funds-and-expanding-data-transparency"
+              },
+              {
+                "type": "url",
+                "url": "https://www.usaspending.gov/"
+              },
+              {
+                "type": "url",
+                "url": "https://files.gao.gov/reports/GAO-26-109034/index.html"
+              }
+            ]
+          }
+        },
+        {
+          "type": "openrouter:web_search",
+          "id": "st_tmp_1gntx4gqhbv",
+          "status": "completed",
+          "action": {
+            "type": "search",
+            "query": "Bureau of the Fiscal Service staff cuts 2025 reduction in force DOGE layoffs",
+            "sources": [
+              {
+                "type": "url",
+                "url": "https://www.reuters.com/world/us/doge-job-cuts-shake-trump-voting-west-virginia-town-2025-03-07/"
+              },
+              {
+                "type": "url",
+                "url": "https://www.govexec.com/workforce/2025/04/treasury-eliminates-offices-and-outsources-work-more-layoffs-coming/404472/"
+              },
+              {
+                "type": "url",
+                "url": "https://www.theintelligencer.net/news/top-headlines/2025/02/doge-cuts-hit-home-union-rep-says-80-let-go-from-federal-fiscal-service-office-in-parkersburg/"
+              },
+              {
+                "type": "url",
+                "url": "https://www.bloomberg.com/news/articles/2025-03-25/treasury-plans-substantial-layoffs-as-part-of-musk-s-doge-push"
+              },
+              {
+                "type": "url",
+                "url": "https://www.wtap.com/2025/02/21/probationary-employees-laid-off-bureau-fiscal-service-parkersburg/"
+              }
+            ]
+          }
+        },
+        {
+          "type": "openrouter:web_search",
+          "id": "st_tmp_rg97ek17thb",
+          "status": "completed",
+          "action": {
+            "type": "search",
+            "query": "Fiscal Service Commissioner David Lebryk retired DOGE payment system access acting commissioner",
+            "sources": [
+              {
+                "type": "url",
+                "url": "https://www.washingtonpost.com/business/2025/01/31/elon-musk-treasury-department-payment-systems/"
+              },
+              {
+                "type": "url",
+                "url": "https://www.reuters.com/world/us/senior-us-treasury-official-david-lebryk-leave-agency-soon-wapo-reports-2025-01-31/"
+              },
+              {
+                "type": "url",
+                "url": "https://www.bloomberg.com/news/articles/2025-01-31/overseer-of-federal-payments-system-leaves-treasury-in-trump-era"
+              },
+              {
+                "type": "url",
+                "url": "https://www.nytimes.com/2025/01/31/us/politics/david-lebryk-treasury-resigns-musk.html"
+              },
+              {
+                "type": "url",
+                "url": "https://fiscal.treasury.gov/financial-management-solutions/financial-innovation-transformation-fit/blog/dave-lebryk"
+              }
+            ]
+          }
+        },
+        {
+          "type": "openrouter:web_fetch",
+          "id": "st_tmp_822aav03iik",
+          "status": "completed",
+          "url": "https://usajobs-tracker.abigailhaddad.com",
+          "content": "<!DOCTYPE html>\n<html lang=\"en\">\n<head>\n    <meta charset=\"UTF-8\">\n    <meta name=\"viewport\" content=\"width=device-width, initial-scale=1.0\">\n    <title>USAJobs Listings Tracker</title>\n    \n    <!-- DataTables CSS -->\n    <link rel=\"stylesheet\" href=\"https://cdn.datatables.net/1.13.6/css/dataTables.bootstrap5.min.css\">\n    <link rel=\"stylesheet\" href=\"https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css\">\n    <link rel=\"stylesheet\" href=\"https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.0/font/bootstrap-icons.css\">\n    \n    <style>\n        body {\n            font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;\n            background-color: #f8f9fa;\n            color: #333;\n        }\n        \n        .container {\n            max-width: 1400px;\n            margin: 0 auto;\n            padding: 20px;\n        }\n        \n        h1 {\n            color: #003366;\n            font-weight: 600;\n            margin-bottom: 10px;\n        }\n        \n        .subtitle {\n            color: #999;\n            font-size: 0.9rem;\n            margin-bottom: 20px;\n        }\n        \n        .summary-stats {\n            background: white;\n            padding: 20px;\n            border-radius: 8px;\n            box-shadow: 0 2px 4px rgba(0,0,0,0.1);\n            margin-bottom: 30px;\n        }\n        \n        .stat-box {\n            text-align: center;\n            padding: 15px;\n            border-right: 1px solid #e9ecef;\n        }\n        \n        .stat-box:last-child {\n            border-right: none;\n        }\n        \n        .stat-value {\n            font-size: 2rem;\n            font-weight: 600;\n            color: #003366;\n        }\n        \n        .stat-label {\n            color: #666;\n            font-size: 0.85rem;\n            text-transform: uppercase;\n            line-height: 1.3;\n        }\n        \n        .table-container {\n            background: white;\n            padding: 25px;\n            border-radius: 8px;\n            box-shadow: 0 2px 4px rgba(0,0,0,0.1);\n        }\n        \n        .dataTables_wrapper .dataTables_filter input {\n            border: 1px solid #ddd;\n            border-radius: 4px;\n            padding: 5px 10px;\n            margin-left: 10px;\n        }\n        \n        .dataTables_wrapper .dataTables_length select {\n            border: 1px solid #ddd;\n            border-radius: 4px;\n            padding: 5px;\n        }\n        \n        table.dataTable {\n            border-collapse: collapse !important;\n        }\n        \n        table.dataTable thead th {\n            background-color: #003366;\n            color: white;\n            font-weight: 600;\n            border-bottom: none !important;\n            white-space: nowrap;\n            position: relative;\n            cursor: pointer;\n        }\n        \n        table.dataTable thead th.filtering {\n            background-color: #00508f;\n        }\n        \n        table.dataTable tbody tr:hover {\n            background-color: #f0f8ff;\n        }\n        \n        table.dataTable tbody td {\n            padding: 12px;\n            vertical-align: middle;\n        }\n        \n        .percentage-cell {\n            font-weight: 600;\n        }\n        \n        .high-percentage {\n            color: #388e3c;  /* Green - good (maintained/increased listings) */\n        }\n        \n        .medium-percentage {\n            color: #f57c00;  /* Orange - moderate (some decline) */\n        }\n        \n        .low-percentage {\n            color: #d32f2f;  /* Red - bad (major decline) */\n        }\n        \n        .expiring-soon {\n            background-color: #fff3cd;\n        }\n        \n        .no-year {\n            background-color: #e8f4f8;\n        }\n        \n        /* Column filter styles */\n        .column-filter-container {\n            position: absolute;\n            background: white;\n            border: 1px solid #ddd;\n            border-radius: 4px;\n            box-shadow: 0 4px 6px rgba(0,0,0,0.1);\n            padding: 10px;\n            z-index: 1000;\n            min-width: 200px;\n            max-height: 300px;\n            overflow-y: auto;\n        }\n        \n        .column-filter-container input[type=\"text\"] {\n            width: 100%;\n            padding: 5px;\n            margin-bottom: 10px;\n            border: 1px solid #ddd;\n            border-radius: 3px;\n        }\n        \n        .column-filter-container label {\n            display: block;\n            padding: 3px 0;\n            cursor: pointer;\n        }\n        \n        .column-filter-container label:hover {\n            background-color: #f0f0f0;\n        }\n        \n        .column-filter-container input[type=\"checkbox\"] {\n            margin-right: 8px;\n        }\n        \n        .filter-buttons {\n            margin-top: 10px;\n            text-align: right;\n        }\n        \n        .filter-buttons button {\n            margin-left: 5px;\n            padding: 3px 10px;\n            border: 1px solid #ddd;\n            border-radius: 3px;\n            background: white;\n            cursor: pointer;\n            font-size: 0.85rem;\n        }\n        \n        .filter-buttons button.apply {\n            background: #003366;\n            color: white;\n        }\n        \n        .filter-buttons button:hover {\n            opacity: 0.8;\n        }\n        \n        th.has-filter::after {\n            content: \" \u25bc\";\n            font-size: 0.8em;\n            opacity: 0.5;\n        }\n        \n        /* Bubble chart styles */\n        .treemap-container {\n            background: white;\n            padding: 20px;\n            border-radius: 8px;\n            box-shadow: 0 2px 4px rgba(0,0,0,0.1);\n            margin-bottom: 30px;\n        }\n        \n        .treemap-title {\n            font-size: 1.2rem;\n            font-weight: 600;\n            color: #003366;\n            margin-bottom: 15px;\n        }\n        \n        #bubble-chart {\n            width: 100%;\n            height: 460px;\n            position: relative;\n        }\n        \n        .bubble {\n            cursor: pointer;\n            opacity: 0.8;\n            transition: all 0.3s;\n        }\n        \n        .bubble:hover {\n            opacity: 1;\n            stroke: #003366;\n            stroke-width: 3;\n        }\n        \n        .axis-label {\n            font-size: 14px;\n            font-weight: 600;\n            fill: #333;\n        }\n        \n        .grid line {\n            stroke: #e0e0e0;\n            stroke-opacity: 0.7;\n            shape-rendering: crispEdges;\n        }\n        \n        .grid path {\n            stroke-width: 0;\n        }\n        \n        .quadrant-label {\n            fill: #666;\n            font-size: 12px;\n            font-style: italic;\n            opacity: 0.7;\n        }\n        \n        /* Filter section styles */\n        .filter-section {\n            background: white;\n            padding: 20px;\n            border-radius: 8px;\n            box-shadow: 0 2px 4px rgba(0,0,0,0.1);\n            margin-bottom: 30px;\n        }\n        \n        .filter-section h3 {\n            color: #003366;\n            font-size: 1.3rem;\n            margin-bottom: 15px;\n        }\n        \n        .filter-controls label {\n            font-size: 0.85rem;\n            font-weight: 600;\n            color: #666;\n            margin-bottom: 5px;\n        }\n        \n        .active-filters {\n            margin-top: 15px;\n            min-height: 30px;\n        }\n        \n        .filter-badge {\n            display: inline-block;\n            background: #003366;\n            color: white;\n            padding: 5px 10px;\n            border-radius: 20px;\n            margin-right: 10px;\n            margin-bottom: 5px;\n            font-size: 0.85rem;\n        }\n        \n        .filter-badge .remove-filter {\n            margin-left: 8px;\n            cursor: pointer;\n            font-weight: bold;\n        }\n        \n        .filter-badge .remove-filter:hover {\n            color: #ff6b6b;\n        }\n        \n        /* Multi-select dropdown styles */\n        .filter-dropdown {\n            position: relative;\n        }\n        \n        .filter-dropdown-menu {\n            position: absolute;\n            top: 100%;\n            left: 0;\n            right: 0;\n            z-index: 1000;\n            background: white;\n            border: 1px solid #ddd;\n            border-radius: 4px;\n            box-shadow: 0 4px 6px rgba(0,0,0,0.1);\n            padding: 10px;\n            margin-top: 2px;\n        }\n        \n        .filter-dropdown-menu label {\n            cursor: pointer;\n        }\n        \n        .filter-dropdown-menu label:hover {\n            background-color: #f0f0f0;\n        }\n        \n        .filter-dropdown-menu .filter-search {\n            margin-bottom: 5px;\n        }\n        \n        .filter-dropdown-menu .filter-options label {\n            padding: 3px 8px;\n            margin: 0;\n            display: block;\n        }\n        \n        .filter-dropdown-menu input[type=\"checkbox\"] {\n            margin-right: 8px;\n        }\n        \n        /* Active filters display */\n        .active-filters-display {\n            color: #d32f2f;\n            font-size: 1.1rem;\n            font-weight: 600;\n            margin-bottom: 20px;\n            min-height: 1.5em;\n        }\n        \n        #downloadCSV:hover {\n            background-color: #00508f !important;\n            transform: translateY(-1px);\n            box-shadow: 0 2px 4px rgba(0,0,0,0.2);\n        }\n        \n        /* Skip link for keyboard navigation */\n        .skip-link {\n            position: absolute;\n            top: -40px;\n            left: 0;\n            background: #003366;\n            color: white;\n            padding: 8px;\n            text-decoration: none;\n            z-index: 9999;\n        }\n        \n        .skip-link:focus {\n            top: 0;\n        }\n        \n        /* Improved focus indicators */\n        a:focus,\n        button:focus,\n        input:focus,\n        select:focus,\n        textarea:focus {\n            outline: 3px solid #003366;\n            outline-offset: 2px;\n        }\n        \n        /* Screen reader only content */\n        .sr-only {\n            position: absolute;\n            width: 1px;\n            height: 1px;\n            padding: 0;\n            margin: -1px;\n            overflow: hidden;\n            clip: rect(0, 0, 0, 0);\n            white-space: nowrap;\n            border: 0;\n        }\n        \n    </style>\n</head>\n<body>\n    <!-- Skip to main content link for keyboard navigation -->\n    <a href=\"#main-content\" class=\"skip-link\">Skip to main content</a>\n    \n    <!-- Work in Progress Banner -->\n    <div class=\"alert alert-warning mb-0\" role=\"alert\">\n        <div class=\"container\">\n            <strong>\ud83d\udea7 Active Development:</strong> This is an experimental tool tracking federal job postings.\n            Data source: <a href=\"https://github.com/abigailhaddad/usajobs_historical\" target=\"_blank\" class=\"alert-link\">USAJobs Historical Data</a> | <a class='alert-link' href='/methodology'>Methodology</a>\n        </div>\n    </div>\n\n    <!-- Archive Notice Banner -->\n    <div class=\"alert alert-danger mb-0\" role=\"alert\" style=\"border-radius: 0;\">\n        <div class=\"container\">\n            <strong>\ud83d\udcc1 Archive Notice:</strong> This tracker will be archived on December 31, 2025. Data collection will stop on that date and no further updates will be made.\n        </div>\n    </div>\n\n    <div class=\"container\" id=\"main-content\">\n        <h1>USAJobs Listings Tracker</h1>\n        <p class=\"subtitle\" id=\"dateRangeSubtitle\">Loading date range...</p>\n        <div id=\"activeFiltersDisplay\" class=\"active-filters-display\"></div>\n        \n        <!-- ARIA live region for screen reader announcements -->\n        <div class=\"sr-only\" aria-live=\"polite\" aria-atomic=\"true\" id=\"ariaLiveRegion\"></div>\n        \n        <!-- Important Caveats -->\n        <div class=\"alert alert-info mt-3 mb-3\">\n            <small>\n                <strong>Important Notes:</strong>\n                <ul class=\"mb-0\" style=\"padding-left: 20px;\">\n                    <li>Job listings \u2260 actual hires. One listing may result in multiple hires, one hire, or no hires.</li>\n                    <li>Not all federal positions are posted on USAJobs.</li>\n                    <li>Job listings which include multiple occupation series are counted under the first series listed.</li>\n                    <li>Subagency view and raw job listings are only available after selecting a specific department.</li>\n                </ul>\n            </small>\n        </div>\n        \n        <!-- Data Source Attribution -->\n        <div class=\"text-center text-muted mb-4\">\n            <small>\n                Data source: <a href=\"https://github.com/abigailhaddad/usajobs_historical\" target=\"_blank\" class=\"text-decoration-none\">\n                    USAJobs Historical Data\n                </a>\n                <br>\n                <span id=\"lastUpdated\"></span>\n            </small>\n        </div>\n        \n        <div class=\"summary-stats\">\n            <div class=\"row\">\n                <div class=\"col-md-3 stat-box\">\n                    <div class=\"stat-value\" id=\"total2024\">Loading...</div>\n                    <div class=\"stat-label\" id=\"previousYearLabel\">Previous Year</div>\n                </div>\n                <div class=\"col-md-3 stat-box\">\n                    <div class=\"stat-value\" id=\"total2025\">Loading...</div>\n                    <div class=\"stat-label\" id=\"currentYearLabel\">Current Year</div>\n                </div>\n                <div class=\"col-md-3 stat-box\">\n                    <div class=\"stat-value\" id=\"overallPercentage\">Loading...</div>\n                    <div class=\"stat-label\" id=\"percentageLabel\">Year-over-Year %</div>\n                </div>\n                <div class=\"col-md-3 stat-box\">\n                    <div class=\"stat-value\" id=\"entityCount\">Loading...</div>\n                    <div class=\"stat-label\">Departments</div>\n                </div>\n            </div>\n        </div>\n        \n        <!-- Unified Filter Section -->\n        <div class=\"filter-section\">\n            <h3>Filters & Display Options</h3>\n            <div class=\"filter-controls\">\n                <div class=\"row mb-3\">\n                    <div class=\"col-md-3\">\n                        <label for=\"mainDepartmentFilter\">Department</label>\n                        <select class=\"form-control form-control-sm\" id=\"mainDepartmentFilter\">\n                            <option value=\"\">All Departments</option>\n                        </select>\n                    </div>\n                    <div class=\"col-md-3\">\n                        <label for=\"mainAgencyFilter\">Agency</label>\n                        <select class=\"form-control form-control-sm\" id=\"mainAgencyFilter\">\n                            <option value=\"\">All Agencies</option>\n                        </select>\n                    </div>\n                    <div class=\"col-md-3\">\n                        <label for=\"mainAppointmentFilter\">Appointment Type</label>\n                        <select class=\"form-control form-control-sm\" id=\"mainAppointmentFilter\">\n                            <option value=\"\">All Types</option>\n                        </select>\n                    </div>\n                    <div class=\"col-md-3\">\n                        <label for=\"mainOccupationFilter\">Occupation Series</label>\n                        <select class=\"form-control form-control-sm\" id=\"mainOccupationFilter\">\n                            <option value=\"\">All Occupations</option>\n                        </select>\n                    </div>\n                </div>\n                <div class=\"row mb-3\">\n                    <div class=\"col-md-3\">\n                        <label for=\"aggregationLevel\">View By</label>\n                        <select id=\"aggregationLevel\" class=\"form-control form-control-sm\">\n                            <option value=\"department\" selected>Department</option>\n                            <option value=\"agency\">Agency</option>\n                            <option value=\"subagency\" disabled>Subagency (select a department first)</option>\n                        </select>\n                    </div>\n                    <div class=\"col-md-3\">\n                        <label>&nbsp;</label>\n                        <div class=\"form-check\">\n                            <input class=\"form-check-input\" type=\"checkbox\" id=\"showRawJobs\" disabled>\n                            <label class=\"form-check-label\" for=\"showRawJobs\">\n                                Show Raw Jobs (select a department first)\n                            </label>\n                        </div>\n                    </div>\n                </div>\n            </div>\n        </div>\n        \n        <div class=\"treemap-container\">\n            <h2 class=\"treemap-title\" id=\"bubbleChartTitle\">USAJobs Counts by Department</h2>\n            <p style=\"margin-top: -10px; margin-bottom: 15px; color: #666; font-size: 0.9rem;\">Bubble size = 2024 count</p>\n            <div id=\"bubble-chart\"></div>\n        </div>\n        \n        <div class=\"table-container\">\n            <div class=\"d-flex justify-content-between align-items-center mb-3\">\n                <h3 class=\"m-0\" style=\"color: #003366; font-size: 1.3rem;\">Data Table</h3>\n                <button id=\"downloadCSV\" class=\"btn btn-sm\" style=\"background-color: #003366; color: white; border: none;\">\n                    <i class=\"bi bi-download\"></i> Download Current View as CSV\n                </button>\n            </div>\n            <table id=\"jobsTable\" class=\"table table-striped\">\n                <thead id=\"tableHead\">\n                    <tr id=\"tableHeaders\">\n                        <th>Department</th>\n                        <th>Agency</th>\n                        <th>2024 Listings</th>\n                        <th>2025 Listings</th>\n                        <th>Change</th>\n                        <th>2025 as % of 2024</th>\n                    </tr>\n                </thead>\n                <tbody id=\"tableBody\">\n                </tbody>\n            </table>\n        </div>\n    </div>\n    \n    <!-- jQuery -->\n    <script src=\"https://code.jquery.com/jquery-3.7.0.min.js\"></script>\n    <!-- Bootstrap JS -->\n    <script src=\"https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js\"></script>\n    <!-- DataTables JS -->\n    <script src=\"https://cdn.datatables.net/1.13.6/js/jquery.dataTables.min.js\"></script>\n    <script src=\"https://cdn.datatables.net/1.13.6/js/dataTables.bootstrap5.min.js\"></script>\n    <!-- D3.js for Treemap -->\n    <script src=\"https://d3js.org/d3.v7.min.js\"></script>\n    \n    <script src=\"jobs_app.js\"></script>\n</body>\n</html>",
+          "title": "USAJobs Listings Tracker",
+          "httpStatus": 200
+        },
+        {
+          "type": "openrouter:web_search",
+          "id": "st_tmp_19b4xcr97v5",
+          "status": "completed",
+          "action": {
+            "type": "search",
+            "query": "Bureau of the Fiscal Service workforce reduction 2025 employees lost percent budget FY2026 appropriation",
+            "sources": [
+              {
+                "type": "url",
+                "url": "https://home.treasury.gov/system/files/266/13.-Fiscal-FY-2026-CJ.pdf"
+              },
+              {
+                "type": "url",
+                "url": "https://home.treasury.gov/system/files/266/12.-Fiscal-FY-2026-BIB.pdf"
+              },
+              {
+                "type": "url",
+                "url": "https://home.treasury.gov/system/files/266/14.-BFS-FY-2025-BIB.pdf"
+              },
+              {
+                "type": "url",
+                "url": "https://data.opm.gov/explore-data/analytics/workforce-changes"
+              },
+              {
+                "type": "url",
+                "url": "https://www.gao.gov/products/gao-26-108583"
+              }
+            ]
+          }
+        },
+        {
+          "type": "openrouter:web_search",
+          "id": "st_tmp_hq0pwwe00eq",
+          "status": "completed",
+          "action": {
+            "type": "search",
+            "query": "Federal Register 2025 USAspending OR \"DATA Act\" OR FFATA notice information collection subaward reporting SAM.gov",
+            "sources": [
+              {
+                "type": "url",
+                "url": "https://sam.gov/announcements/announcing-fsrsgov-decommission-subaward-functionality-be-added-samgov-early-2025"
+              },
+              {
+                "type": "url",
+                "url": "https://www.federalregister.gov/documents/2024/02/29/2024-04260/information-collection-federal-funding-accountability-and-transparency-act-sub-award-reporting"
+              },
+              {
+                "type": "url",
+                "url": "https://sam.gov/fsrs"
+              },
+              {
+                "type": "url",
+                "url": "https://tfx.treasury.gov/monthly-reporting-requirements"
+              },
+              {
+                "type": "url",
+                "url": "https://www.usaspending.gov/data-sources"
+              }
+            ]
+          }
+        },
+        {
+          "type": "openrouter:web_search",
+          "id": "st_tmp_k0qh0qmqz5a",
+          "status": "completed",
+          "action": {
+            "type": "search",
+            "query": "Revolutionary FAR Overhaul subcontract reporting FFATA 52.204-10 executive compensation changes 2025",
+            "sources": [
+              {
+                "type": "url",
+                "url": "https://www.gsa.gov/policy-regulations/policy/acquisition-policy/acquisition-policy-library-and-resources/rfo202504"
+              },
+              {
+                "type": "url",
+                "url": "https://www.acquisition.gov/sites/default/files/page_file_uploads/DHS_RFO_Deviation_Part-4.pdf"
+              },
+              {
+                "type": "url",
+                "url": "https://www.acquisition.gov/threshold-changes"
+              },
+              {
+                "type": "url",
+                "url": "https://www.acquisition.gov/far-overhaul/far-part-deviation-guide/far-overhaul-part-52"
+              },
+              {
+                "type": "url",
+                "url": "https://sws.gsa.gov/sws-search/generateClauseBodyPdf.do?clauseNo=52.204-10&clauseType=D&method=generateClauseBody&refreshNo=30&sequenceNo=1&solNo=NDdRU01EMjBSMDAwMQ%3D%3D"
+              }
+            ]
+          }
+        },
+        {
+          "type": "openrouter:web_search",
+          "id": "st_tmp_pgpgydz80vt",
+          "status": "completed",
+          "action": {
+            "type": "search",
+            "query": "USAspending 2025 government shutdown data delayed OR outdated OR missing DOGE contract cancellations transparency criticism",
+            "sources": [
+              {
+                "type": "url",
+                "url": "https://www.reuters.com/business/schedule-us-economic-data-delayed-by-government-shutdown-2025-11-28/"
+              },
+              {
+                "type": "url",
+                "url": "https://www.bls.gov/cpi/additional-resources/2025-federal-government-shutdown-impact-cpi.htm"
+              },
+              {
+                "type": "url",
+                "url": "https://text.npr.org/2025/02/19/nx-s1-5302705/doge-overstates-savings-federal-contracts"
+              },
+              {
+                "type": "url",
+                "url": "https://www.politico.com/news/2025/08/12/trump-doge-contract-claims-savings-inflation-00498178"
+              },
+              {
+                "type": "url",
+                "url": "https://www.npr.org/2025/03/01/nx-s1-5313853/doge-savings-receipts-musk-trump"
+              }
+            ]
+          }
+        },
+        {
+          "type": "openrouter:web_search",
+          "id": "st_tmp_5kxfyy02q0v",
+          "status": "completed",
+          "action": {
+            "type": "search",
+            "query": "first-tier subcontract reporting threshold $30,000 to $40,000 October 1 2025 inflation adjustment FAR",
+            "sources": [
+              {
+                "type": "url",
+                "url": "https://www.federalregister.gov/documents/2025/08/27/2025-16412/federal-acquisition-regulation-inflation-adjustment-of-acquisition-related-thresholds"
+              },
+              {
+                "type": "url",
+                "url": "https://www.acquisition.gov/threshold-changes"
+              },
+              {
+                "type": "url",
+                "url": "https://www.regulations.gov/document/DOD-2025-OS-0001-0028"
+              },
+              {
+                "type": "url",
+                "url": "https://www.govinfo.gov/content/pkg/FR-2025-08-27/html/2025-16412.htm"
+              },
+              {
+                "type": "url",
+                "url": "https://department.va.gov/acquisition-and-logistics/flash/flash-26-05/"
+              }
+            ]
+          }
+        },
+        {
+          "type": "openrouter:web_search",
+          "id": "st_tmp_8rt2467d5j4",
+          "status": "completed",
+          "action": {
+            "type": "search",
+            "query": "FPDS decommission transition to SAM.gov 2026 contract data reporting USAspending impact",
+            "sources": [
+              {
+                "type": "url",
+                "url": "https://sam.gov/announcements/fpdsgov-decommissions-february-24-2026-0"
+              },
+              {
+                "type": "url",
+                "url": "https://sam.gov/announcements/contract-awards-data-and-searching-now-samgov"
+              },
+              {
+                "type": "url",
+                "url": "https://sam.gov/fpds"
+              },
+              {
+                "type": "url",
+                "url": "https://sam.gov/contracting"
+              },
+              {
+                "type": "url",
+                "url": "https://content.govdelivery.com/accounts/USGSA/bulletins/408f942?reqfrom=share"
+              }
+            ]
+          }
+        },
+        {
+          "type": "openrouter:web_search",
+          "id": "st_tmp_5l4jiifiq3r",
+          "status": "completed",
+          "action": {
+            "type": "search",
+            "query": "\"USAspending\" 2025 removed OR deleted OR changed data fields site update release notes Treasury",
+            "sources": [
+              {
+                "type": "url",
+                "url": "https://tfx.treasury.gov/system/files/2025-04/gsdm_v1.1.1_maintenance_update_notes.pdf"
+              },
+              {
+                "type": "url",
+                "url": "https://github.com/fedspendingtransparency/usaspending-api/pull/4251"
+              },
+              {
+                "type": "url",
+                "url": "https://www.usaspending.gov/download_center/award_data_archive"
+              },
+              {
+                "type": "url",
+                "url": "https://tfx.treasury.gov/system/files/2025-04/gsdm-v1.0-release-notes.pdf"
+              },
+              {
+                "type": "url",
+                "url": "https://www.usaspending.gov/data/data-sources-download.pdf"
+              }
+            ]
+          }
+        },
+        {
+          "type": "openrouter:web_search",
+          "id": "st_tmp_32muhec8jnh",
+          "status": "completed",
+          "action": {
+            "type": "search",
+            "query": "OMB apportionment website taken down 2025 court order spending transparency Vought"
+          }
+        }
+      ],
+      "ended": "answered",
+      "seconds": 91.9
+    },
+    "session_metadata": {
+      "request": {
+        "model": "anthropic/claude-opus-5.5",
+        "max_output_tokens": 32768,
+        "tools": [
+          {
+            "type": "openrouter:web_search",
+            "parameters": {
+              "engine": "native",
+              "excluded_domains": [
+                "dataindex.us"
+              ]
+            }
+          },
+          {
+            "type": "openrouter:web_fetch",
+            "parameters": {
+              "engine": "openrouter",
+              "blocked_domains": [
+                "dataindex.us"
+              ],
+              "max_content_tokens": 10000
+            }
+          }
+        ],
+        "cache_control": {
+          "type": "ephemeral",
+          "ttl": "1h"
+        },
+        "session_id": "usaspending-gov-anthropic/claude-opus-5.5-t0-2026-10-09T01:33:44Z",
+        "stop_server_tools_when": [
+          {
+            "type": "step_count_is",
+            "step_count": 200
+          }
+        ],
+        "reasoning": {
+          "effort": "medium"
+        },
+        "provider": {
+          "order": [
+            "anthropic"
+          ],
+          "allow_fallbacks": false
+        }
+      },
+      "response_meta": {
+        "id": "gen-1791509895-EvvAU2s1lMho1hTJznnv",
+        "object": "response",
+        "created_at": 1791509895,
+        "model": "anthropic/claude-opus-5.5",
+        "status": "completed",
+        "completed_at": 1791509905,
+        "error": null,
+        "incomplete_details": null,
+        "tools": [],
+        "tool_choice": "auto",
+        "parallel_tool_calls": true,
+        "max_output_tokens": 32768,
+        "temperature": 1,
+        "top_p": 1,
+        "presence_penalty": 0,
+        "frequency_penalty": 0,
+        "top_logprobs": 0,
+        "max_tool_calls": null,
+        "metadata": {},
+        "background": false,
+        "previous_response_id": null,
+        "service_tier": "auto",
+        "truncation": "disabled",
+        "store": false,
+        "instructions": null,
+        "text": {
+          "format": {
+            "type": "text"
+          }
+        },
+        "reasoning": {
+          "effort": "medium"
+        },
+        "safety_identifier": null,
+        "prompt_cache_key": null,
+        "prompt_cache_options": null,
+        "usage": {
+          "input_tokens": 27686,
+          "input_tokens_details": {
+            "cached_tokens": 14887,
+            "cache_write_tokens": 12795
+          },
+          "output_tokens": 989,
+          "output_tokens_details": {
+            "reasoning_tokens": 461
+          },
+          "total_tokens": 28675,
+          "cost": 0.1251334,
+          "cost_details": {
+            "upstream_inference_cost": 0.1251334,
+            "upstream_inference_input_cost": 0.1053534,
+            "upstream_inference_output_cost": 0.01978
+          }
+        }
+      },
+      "requests": [
+        {
+          "input_tokens": 27686,
+          "input_tokens_details": {
+            "cached_tokens": 14887,
+            "cache_write_tokens": 12795
+          },
+          "output_tokens": 989,
+          "output_tokens_details": {
+            "reasoning_tokens": 461
+          },
+          "total_tokens": 28675,
+          "cost": 0.1251334,
+          "cost_details": {
+            "upstream_inference_cost": 0.1251334,
+            "upstream_inference_input_cost": 0.1053534,
+            "upstream_inference_output_cost": 0.01978
+          }
+        }
+      ],
+      "searches": 0,
+      "fetches": 0,
+      "tool_items": [],
+      "ended": "answered",
+      "seconds": 10.9
+    }
+  },
+  "messages": [
+    {
+      "role": "user",
+      "content": "#data research\nI am researching a federal dataset. Find out everything you can about this dataset, such as who publishes it, under what authority or mandate, its history, its typical users, and its benefits to the public. Be sure your research comprehensively covers each of those perspectives, as well as any others that you discover or seem useful. I believe this is accurate information, but please check:\n\nDataset title: USAspending.gov\nDescription: USAspending.gov is the official source for spending data for the U.S. Government. Its mission is to show the American public what the federal government spends every year and how it spends the money. You can follow the money from the Congressional appropriations to the federal agencies and down to local communities and businesses.\nURL: https://usaspending.gov/\n\nReturn a complete report on everything that a preservationist, data librarian, data scientist, or policy activist might want to know about this data."
+    },
+    {
+      "role": "assistant",
+      "content": "# USAspending.gov: Research Report\n\n## 1. Is your description accurate?\n\nYes. Your title, description and URL match the official \"About\" page word for word: \"USAspending.gov is the official source for spending data for the U.S. Government. Its mission is to show the American public what the federal government spends every year and how it spends the money. You can follow the money from the Congressional appropriations to the federal agencies and down to local communities and businesses.\"\n\nSome details worth adding to your record:\n\n- **Canonical URL:** `https://www.usaspending.gov/`. Other official addresses are the API at `https://api.usaspending.gov` and the agency submission system (the DATA Act Broker) at `broker.usaspending.gov`.\n- **It isn't one dataset.** It is a website and database that pulls together several government systems: agency financial systems, the federal contracts database (FPDS), the federal grants and loans reporting system (FABS), and the federal contractor and grantee registry (SAM.gov). Catalog it as a collection or \"data product.\"\n- **\"What the federal government spends\" has limits.** The site does not cover every dollar (see section 8). There are known gaps in which agencies report and in how complete the data are, and payments to individuals are left out on purpose.\n\n## 2. Publisher and who is responsible\n\n- **Publisher and operator:** the U.S. Department of the Treasury's **Bureau of the Fiscal Service**, through its Office of Data Transparency. This bureau was created in 2012 by merging Treasury's Financial Management Service and Bureau of the Public Debt.\n- **Policy partner:** the White House **Office of Management and Budget (OMB)**. OMB issues the reporting guidance agencies must follow and shares responsibility for how the law is carried out.\n- **Who supplies the data:**\n  - Federal agencies submit their own financial data.\n  - The **General Services Administration (GSA)** runs the federal contracts database (FPDS) and SAM.gov, which supply contract data, recipient registrations, executive pay data and subawards.\n  - Companies, nonprofits and governments that receive federal awards (\"prime recipients\") report their own subawards and executive pay.\n- **Treasury's sister site:** fiscaldata.treasury.gov publishes other federal financial data, such as debt and receipts.\n\n## 3. Legal authority\n\n| Law or policy | What it did |\n|---|---|\n| **Federal Funding Accountability and Transparency Act of 2006 (FFATA), P.L. 109-282**, signed Sept. 26, 2006 | Sponsored by Sens. Tom Coburn (R-OK) and Barack Obama (D-IL). Required a free, public, searchable website of federal contracts, grants, loans and other awards over $25,000. It replaced the Census Bureau's Federal Aid to States and Consolidated Federal Funds Report, which had run for more than 30 years. |\n| **Government Funding Transparency Act of 2008** | Amended FFATA so that prime recipients must report their first-tier subawards, for awards made on or after Oct. 1, 2010. |\n| **American Recovery and Reinvestment Act of 2009 (P.L. 111-5)** | Stimulus reporting through the Recovery Board, which later fed into USAspending. |\n| **DATA Act of 2014 (P.L. 113-101)**, May 9, 2014 | Moved responsibility for the site from OMB to Treasury. Added spending (outlays) alongside commitments (obligations). Required governmentwide data standards, linked award data to agency accounts and programs, and required Inspector General audits. Required full compliance with the standards by about spring 2018. |\n| **Codification** | FFATA as amended by the DATA Act is codified at 31 U.S.C. \u00a7 6101 note. |\n| **CARES Act (2020) and OMB M-20-21** | Required monthly reporting for agencies with COVID-19 money, plus spending amounts on each award. Added Disaster Emergency Fund Codes (DEFCs), which tag money from emergency spending bills. |\n| **OMB M-21-20 and M-22-02** | Added reporting rules for American Rescue Plan funds and new financial assistance transparency requirements. |\n| **FY2022 onward** | All agencies must submit financial data monthly, including spending on each award. Before this, award-level spending reporting was optional and may be incomplete. |\n\nThe site's \"About the Data\" section links to the related OMB guidance, including the 2010 Open Government Directive memos.\n\n## 4. History\n\n- **Oct. 2006:** The nonprofit OMB Watch (funded by the Sunlight Foundation) launched FedSpending.org, a searchable database of federal spending.\n- **Dec. 13, 2007:** OMB launched USAspending.gov, two weeks before the Jan. 1, 2008 legal deadline. It was essentially FedSpending.org under license, with design changes. OMB Watch later became the Center for Effective Government, closed in 2016, and passed its materials to the Project On Government Oversight (POGO).\n- **2008:** Coburn and Obama introduced S. 3077 to expand the site's content, for example to include contract documents. Separately, the subaward reporting amendment was enacted.\n- **2010:** Subaward reporting began through the FFATA Subaward Reporting System (FSRS).\n- **2014:** The DATA Act passed, and operation moved to Treasury's Fiscal Service.\n- **Beta site launched May 2017.** Agency financial account data are available from Jan. 1, 2017 (second quarter of FY2017).\n- **Apr. 5, 2018:** The redesigned site formally relaunched, alongside **Data Lab** (datalab.usaspending.gov, a site of data visualizations and analysis). At the time, the Fiscal Service said it compiled financial data from more than 80 agencies.\n- **2020\u20132021:** COVID-19 spending tracking was added, and reporting became monthly.\n- **2022:** Treasury's data model was renamed. The DATA Act Information Model Schema (DAIMS) became the **Governmentwide Spending Data Model (GSDM)**.\n- **Nov. 2023:** GAO report GAO-24-106214 found major reporting gaps (see section 8). In Jan. 2024 the House Oversight and Budget Committees asked Fiscal Service for a briefing.\n- **Mar. 8, 2025:** FSRS was retired, and subaward reporting moved to SAM.gov with new controls against duplicate records.\n- **FY2025:** A record 6.8 million users, about 95% more site visits than the prior year. The help desk (Transparency Engagement Desk) handled about 3,000 questions. Treasury reported 70% faster median download times, new real-time data quality monitoring, and hackathons. The team won a Treasury customer-focus award.\n- **Development practice:** Agile, with public releases about every two weeks.\n\n## 5. Data contents and structure\n\n**Coverage dates**\n- Award data from **FY2001** onward through Custom Award Data Download.\n- The Advanced Search tool only goes back to **FY2008**.\n- Agency account data from **FY2017 Q2**.\n- Data quality is generally higher in recent years.\n\n**Files and sources (as defined by the GSDM)**\n- **File A:** account balances by Treasury account. Generated from Treasury's GTAS system and matches agencies' SF 133 budget execution reports.\n- **File B:** spending broken down by program activity, object class and DEFC.\n- **File C:** award-level financial data, including obligations, outlays, Treasury account and DEFC.\n- **File D1:** contracts, from FPDS. New contract data appear about 2 days after entry in FPDS.\n- **File D2:** grants, loans and other financial assistance, from FABS. Agencies submit every two weeks, or monthly for loans.\n- **File E:** executive pay for certain recipients, from SAM.gov, pulled daily.\n- **File F:** subawards of **$30,000 or more**, from SAM.gov. Due by the end of the month after the subaward was made.\n- **GTAS:** pulled daily for context, but not downloadable from USAspending.\n\n**Key identifiers**\n- Each award has a unique key (the \"prime award unique key\") that links the financial files to the award files. Awards that fail to link are missing either recipient information or account information.\n- Recipients have been identified by SAM.gov's **Unique Entity ID (UEI)** since April 2022, replacing Dun & Bradstreet (DUNS) numbers. This date is from my background knowledge, not a source I checked.\n- Other fields include assistance listings (formerly CFDA program numbers), place of performance and recipient location, congressional district, and NAICS and PSC industry and product codes.\n\n**Documentation**\n- Data Dictionary\n- \"About the Data\" disclosures (also available as a PDF)\n- Analyst's Guide to Federal Spending Data\n- GSDM files and the agency submission calendar\n- Agency Submission Statistics pages, which include unlinked-award counts\n- A glossary\n\n## 6. Ways to get the data\n\n- **Web tools:** Advanced Search, Spending Explorer, profiles for agencies, recipients, federal accounts, states and assistance listings, and the COVID-19 and infrastructure spending pages.\n- **Download Center:** custom award and account downloads, plus an annual award data archive.\n- **API:** `api.usaspending.gov`, a free REST API with tutorials and a list of endpoints. The download files are also available through the API.\n- **Full database snapshot:** a PostgreSQL archive of more than 1.5 TB when restored (the compressed files are much smaller). Restoring it takes hours. The download is now linked through a Salesforce-hosted page (`onevoicecrm.my.site.com/usaspending/s/database-download`).\n- **Open source code:** GitHub `fedspendingtransparency`, including the API (`usaspending-api`, built on Django, PostgreSQL 13, Elasticsearch 7 and Python 3.10), the website and the Broker. You can rebuild the system yourself.\n- **License:** Treasury says the data may be copied, adapted, redistributed and used for commercial or non-commercial purposes. The exception is the **Limitation on Permissible Use of Dun & Bradstreet data** for older DUNS-era records, so check this before republishing legacy recipient fields.\n\n## 7. Typical users and public benefits\n\n**Who uses it**\n- **Congress and staff:** oversight, effects on districts, and Congressional Research Service reports such as CRS R44027, \"Tracking Federal Awards.\"\n- **Oversight bodies:** GAO, Inspectors General and the Pandemic Response Accountability Committee.\n- **Journalists:** for example, in 2025 NPR checked DOGE's \"wall of receipts\" savings claims against more than 130,000 contract changes downloaded from USAspending. It found the claims were overstated by billions.\n- **Researchers and data scientists:** economics, science-funding studies and contracting analysis.\n- **Businesses and contractors:** finding competitors and teaming partners. The site publishes guides for small businesses.\n- **State and local governments, nonprofits and grant seekers.**\n- **Watchdog groups** such as POGO and the Data Foundation, plus everyday taxpayers.\n- **Federal agencies themselves:** financial management and decision-making.\n\n**Benefits**\n- It is one free place to see federal awards across agencies.\n- It traces money all the way from appropriations to agency accounts, awards and local recipients.\n- It has standardized, machine-readable data and an open API.\n- It supports accountability, for example during pandemic relief.\n- It makes it easier to check government claims, such as DOGE's savings figures.\n- Treasury notes the U.S. is one of few countries publishing spending data at this level of detail.\n\n## 8. Known limitations and data quality\n\n- **Agencies that don't report:** GAO-24-106214 (Nov. 2023) found that 49 of 152 agencies in the FY2022 consolidated financial statements did not report. Of those, 25 were executive-branch agencies with more than $5 billion in spending. Neither Treasury nor OMB clearly has the authority to decide which agencies must report, and GAO suggested Congress assign that responsibility.\n- **Numbers that don't match other reports:** Treasury's own FY2022 COVID-19 obligations exceeded what it reported to USAspending by more than $195 billion.\n- **Unlinked records:** for FY2020\u20132022, over 12 million records totaling more than $1.3 trillion in obligations did not link between financial and award data.\n- **Other transaction agreements (OTAs):** these flexible agreements are not required to be reported. GAO found more than $40 billion missing, including more than $10 billion related to COVID-19.\n- **Subawards** (GAO-24-106237):\n  - missing fields\n  - impossibly large amounts\n  - duplicate records\n  - about 2.4 million of about 6 million records submitted late\n  - large gaps, such as HHS's $169 billion in prime awards with no subawards reported, and 91% of a sample of Small Business Technology Transfer (STTR) Phase II awards with no subawards reported\n- **Procurement data** (GAO-25-107469, Sept. 2025): only 36 of 70 agencies confirmed completing their required data quality reports. GSA has no timeline to modernize FPDS.\n- **Audits have lapsed:** the DATA Act requirement for Inspector General audits expired in 2021. GAO has recommended Congress renew it (March 2022), but some IGs still audit voluntarily (for example NEA and FEC, 2025).\n- **Left out by design:** payments to individuals and federal employees, and the source systems' own validation gaps. Agencies submit data through the Broker, which checks it against business rules and GTAS, but USAspending relies on GSA's systems to check their own data.\n- **Data change after release:** records are revised and corrected over time. Analyses should cite the date the data were retrieved.\n\n## 9. For preservationists\n\n- **Existing independent copies:**\n  - Full database as of Jan. 6, 2025 (145 GB, on the Internet Archive: `archive.org/details/usaspending-db_20250106`)\n  - A 200 GB archive from Apr. 15, 2025 (LDSP, DOI 10.60503/D3/2LKHZ9)\n  - A 156 GB snapshot dated Feb. 2026 (`archive.org/download/gov_backup_niema/usaspending-db_20260206.zip`)\n  - All are listed on the Data Rescue Project Portal.\n- **Risks:**\n  - The site depends on several agencies' systems, and GSA's are undergoing modernization.\n  - Hosting the database download on an outside platform (Salesforce) makes links fragile.\n  - The site is rebuilt every two weeks, which breaks web-archive captures of its interactive pages.\n  - Legacy documentation from before 2017 and from Data Lab may not survive.\n- **Recommendations:**\n  - Keep the full PostgreSQL snapshots along with the matching GSDM version, Data Dictionary and \"About the Data\" PDF.\n  - Copy the GitHub repositories so the system can be rebuilt.\n  - Record checksums and the date of each snapshot.\n  - Archive the GAO, IG and CRS reports for context.\n- **Contact:** the Transparency Engagement Desk, through the site.\n\n## 10. Policy debates\n\n- Giving Treasury and OMB authority over which agencies must report, and how complete their data are.\n- Adding OTAs to the awards that must be reported.\n- Bringing back Inspector General audits under the DATA Act.\n- Improving subaward data quality now that reporting has moved to SAM.gov.\n- Pressure for transparency around DOGE-era contract cancellations, and the 2025 lawsuits over DOGE's access to Fiscal Service systems.\n- The GREAT Act (2019), which sets data standards for grant reporting. This comes from my background knowledge, not a source I checked.\n\n**Caveat:** I ran out of searches before I could check news from 2026 (the current year). Some details come from my background knowledge rather than sources I checked: the April 2022 UEI changeover, the GREAT Act, and the exact timing of the move to Treasury. Check these before relying on them."
+    },
+    {
+      "role": "user",
+      "content": "# Dataset risk assessment\nI would like your help in assessing the likelihood that this data will be changed or removed from its primary location, and that users will no longer be able to access accurate and reliable copies of it, based on the rubric below.\n\n## Sources for context\nTo help assess the rubric categories, perform additional research on the data, the agency, the data's topics and typical users, covering topics such as proposed regulatory or funding changes, recent news, and political commentary. Use whatever resources you find useful, including the Federal Register (https://www.federalregister.gov) and the federal staffing tracker at https://usajobs-tracker.abigailhaddad.com.\n\n## Rubric\nThis rubric is divided up into categories. Each category is divided up into risk levels. In your output, please select the appropriate risk level for each category based on your research.\n\n### Historical Data Availability\n- Gone: Data files prior to the current year or cycle are no longer publicly available.\n- High Risk: Some data files prior to the current year or cycle are removed.\n- Moderate Risk: Some data elements that exist in the dataset prior to the current year or cycle are removed.\n- No Known Issue: Data prior to the current year or cycle remain accessible with no known alterations.\n\n### Future Data Availability\n- Gone: Data collection and publication has been terminated.\n- High Risk: Statutory publication deadline missed and/or collection or publication skipped and/or ICR expired for more than one year.\n- Moderate Risk: Typical or intended publication date missed and/or collection or publication delayed; ICR expired up to one year.\n- No Known Issue: Data published on time or as expected and ICR active or renewed before expiration.\n\n### Data Quality\n- Gone: Data collection and publication has been terminated.\n- High Risk: Reductions in granularity, timeliness, or frequency.\n- Moderate Risk: Potential or emerging risk to granularity, timeliness, or frequency.\n- No Known Issue: Maintained or improved granularity, timeliness, or frequency.\n\n### Statutory Context\n- Gone: N/A\n- High Risk: Statutory authorization is vague and/or there are alternative data collections that could serve as substitutes and/or no known programmatic use.\n- Moderate Risk: Not explicitly required by statute but required for the implementation of a state or federal program, and there are no alternative data collections that could serve as substitutes.\n- No Known Issue: Statutorily required and/or statutory authorization is explicitly named and it is clear what has to be collected, and there aren't alternative data collections that could serve as substitutes and/or required for implementation of a federal program.\n\n### Staffing and Funding\n- Gone: All of the staff in the division or agency are gone and/or all funding has been terminated.\n- High Risk: 40% or more of staff lost, and/or 1,000 or more staff lost, and/or budget cut by 20% or more, and/or leadership removed.\n- Moderate Risk: 10\u201339% of staff lost, and/or 500\u2013999 staff lost, and/or budget cut by 10\u201319%, and/or threatened change in leadership.\n- No Known Issue: Less than 10% of staff lost and less than 10% of budget cut and no known change in leadership.\n\n### Policy\n- Gone: Data collection and publication has been terminated.\n- High Risk: Presidential Action-driven information collection request (ICR); negative policy note on site; other significant changes in accordance with Administration priorities.\n- Moderate Risk: Proposed or pending changes; statements by administration officials suggesting a change is being considered or planned.\n- No Known Issue: No notable changes since January 2025 affecting what data is collected and published.\n\nFor each category, concisely list the evidence and supporting sources that would support each risk level. Then indicate which risk level you find most appropriate and why.\n\nConclude with a simple summary of risk levels:\nHistorical Data Availability: <level>\nFuture Data Availability: <level>\nData Quality: <level>\nStatutory Context: <level>\nStaffing and Funding: <level>\nPolicy: <level>"
+    },
+    {
+      "role": "assistant",
+      "content": "I'll research recent news, staffing, funding, and policy developments.# USAspending.gov Risk Assessment\n\nUSAspending.gov looks low-risk overall. The site is required by law, its historical data are intact, and it is still updated on schedule; Treasury gave it a customer-service award in September 2026. The real risks are indirect: staff cuts at the Treasury bureau that runs it, a pending move of the federal contracts database (FPDS) into SAM.gov, and higher reporting thresholds for small transactions.\n\n**Research limits:** My web searches ran out partway through. Points marked *(unverified)* come from background knowledge, not a source I checked. The staffing tracker you suggested loads its data with scripts I couldn't read, and it says it was archived on Dec 31, 2025. I used Treasury budget documents, news reports and GAO instead.\n\n---\n\n## 1. Historical Data Availability: **No Known Issue**\n\n**Evidence for higher risk**\n- GSA shut down FPDS.gov's ezSearch on Feb 24, 2026. Searching contracts on SAM.gov now requires an account. The FPDS data feed (ATOM Feed) is due to end later in FY2026 ([SAM.gov](https://sam.gov/fpds)).\n- Dun & Bradstreet license limits still apply to older recipient (DUNS-era) records. This is a long-standing restriction, not a new removal.\n\n**Evidence for \"No Known Issue\"**\n- Award data back to FY2001, account data from FY2017 Q2, the award data archive and the full database snapshot are all still offered.\n- GSA itself says the contract data \"will still be available for the general public on USASpending.gov\" without an account ([GSA bulletin](https://content.govdelivery.com/accounts/USGSA/bulletins/408f942?reqfrom=share)).\n- Treasury's April 2025 data-model update (GSDM v1.1.1) changed the key that links financial-assistance awards. This fixes a GAO-flagged problem with mislinked records rather than removing data ([TFX](https://tfx.treasury.gov/system/files/2025-04/gsdm_v1.1.1_maintenance_update_notes.pdf)).\n- Independent full-database copies exist from Jan 2025, Apr 2025 and Feb 2026 ([Data Rescue Project](https://portal.datarescueproject.org/datasets/usaspending-database/)).\n\n**Why:** I found no reports of historical files or fields being removed. The FPDS change affects GSA's site, not USAspending.\n\n## 2. Future Data Availability: **No Known Issue**\n\n**Evidence for higher risk**\n- The Oct 1 \u2013 Nov 12, 2025 government shutdown delayed many federal data releases ([BLS](https://www.bls.gov/cpi/additional-resources/2025-federal-government-shutdown-impact-cpi.htm)). I could not confirm whether USAspending updates paused.\n- The contracts feed into USAspending depends on GSA's ongoing move of FPDS into SAM.gov, which creates some integration risk.\n\n**Evidence for \"No Known Issue\"**\n- Agencies still submit monthly. Treasury published the GSDM v1.1.1 update and scheduled a full annual data-model release for November 2025.\n- FY2025 brought a record 6.8 million users and the September 2026 award ([Fiscal Service](https://fiscal.treasury.gov/about-us/news/treasury-teams-honored-for-safeguarding-public-funds-and-expanding-data-transparency)).\n- The related subaward paperwork approval (GSA OMB No. 3090-0291) was renewed in 2024 ([Federal Register](https://www.federalregister.gov/documents/2024/02/29/2024-04260/information-collection-federal-funding-accountability-and-transparency-act-sub-award-reporting)).\n- Subaward reporting moved to SAM.gov on Mar 8, 2025 without a reported gap ([SAM.gov](https://sam.gov/fsrs)).\n\n**Why:** Publication is continuing on its normal schedule. There is no required paperwork-approval form for the site itself, because the data come from agency systems.\n\n## 3. Data Quality: **Moderate Risk**\n\n**Evidence for High Risk (fewer small transactions reported)**\n- A FAR inflation rule took effect Oct 1, 2025 ([Federal Register 2025-16412](https://www.federalregister.gov/documents/2025/08/27/2025-16412/federal-acquisition-regulation-inflation-adjustment-of-acquisition-related-thresholds)). It changed two thresholds:\n  - First-tier subcontract and executive-pay reporting now starts at **$40,000** instead of $30,000.\n  - The micro-purchase threshold is now **$15,000** instead of $10,000, so fewer small contract actions go into the contracts database.\n\n**Evidence for Moderate Risk**\n- Data still come from GSA systems that are being migrated (FPDS into SAM.gov).\n- Fiscal Service has lost staff (see section 5).\n- Inspector General audits under the DATA Act lapsed in 2021.\n- GAO's 2026 testimony repeats earlier findings: other transaction agreements (OTAs) go unreported, subaward data have quality problems, and some agencies don't report at all ([GAO-26-109034](https://files.gao.gov/reports/GAO-26-109034/index.html)).\n\n**Evidence for \"No Known Issue\"**\n- Downloads are 70% faster, and Treasury added real-time data-quality monitoring and new search features.\n- The award-linking fix above addresses a GAO finding.\n- Monthly reporting continues.\n\n**Why not High:** The threshold increases do reduce granularity, but they are a routine adjustment the law requires every five years, so the thresholds stay roughly constant after inflation. They are not a policy cutback, and the platform itself is improving. A strict reading of the rubric could still support High.\n\n## 4. Statutory Context: **No Known Issue**\n\n**Evidence**\n- The site is explicitly required by the Federal Funding Accountability and Transparency Act of 2006 (31 U.S.C. \u00a7 6101 note). It was amended by the 2008 Government Funding Transparency Act, the 2014 DATA Act and the 2021 Congressional Budget Justification Transparency Act ([TFX](https://tfx.treasury.gov/monthly-reporting-requirements)).\n- The law names the reporting entities, award types, thresholds, data elements and that Treasury runs the site.\n- The subcontract reporting clause (FAR 52.204-10) was kept in the 2025 FAR overhaul deviations and still cites the act ([DHS deviation](https://www.acquisition.gov/sites/default/files/page_file_uploads/DHS_RFO_Deviation_Part-4.pdf)).\n- No other public source substitutes. SAM.gov covers only contracts and subawards, and requires a login.\n\n**Caveats (gaps in coverage, not risks to the site):** OTAs are not required, and it is unclear who decides which agencies must report (GAO-24-106214).\n\n## 5. Staffing and Funding: **Moderate Risk** (borderline High)\n\n**Evidence for High Risk**\n- **Leadership:** David Lebryk, Treasury's Fiscal Assistant Secretary and the top career official over Fiscal Service, left on Jan 31, 2025 after clashing with DOGE over access to payment systems ([Washington Post](https://www.washingtonpost.com/business/2025/01/31/elon-musk-treasury-department-payment-systems/); [Reuters](https://www.reuters.com/world/us/senior-us-treasury-official-david-lebryk-leave-agency-soon-wapo-reports-2025-01-31/)).\n- **Staff cuts:**\n  - 167 probationary employees were fired in February 2025 ([The Intelligencer](https://www.theintelligencer.net/news/top-headlines/2025/02/doge-cuts-hit-home-union-rep-says-80-let-go-from-federal-fiscal-service-office-in-parkersburg/)).\n  - The union expected up to 25% of the bureau's roughly 3,300 employees to be cut, about 825 people ([GovExec](https://www.govexec.com/workforce/2025/04/treasury-eliminates-offices-and-outsources-work-more-layoffs-coming/404472/)).\n\n**Evidence for Moderate Risk**\n- The FY2026 budget request cuts staff on Fiscal Service's directly funded account from 1,424 to 1,109 full-time equivalents, a **22.1%** drop ([FY2026 budget justification](https://home.treasury.gov/system/files/266/13.-Fiscal-FY-2026-CJ.pdf)). The Accounting and Reporting line, the most likely home of the transparency work, falls 10.2%. The document's wording suggests these numbers cover only the bureau's directly appropriated account, not all of its roughly 3,300 staff.\n\n**Evidence for \"No Known Issue\"**\n- Funding is **flat at $391.1 million**. The budget says the savings will be redirected partly to \"increase transparency and accountability of the federal government's operations and financial condition.\"\n- Justin Cole, Director of Data Transparency, is still in place as of 2026.\n\n**Why Moderate:** Staff losses fall in the 10\u201339% range, and the budget is not cut. The program's own leadership is unchanged. Lebryk's forced exit was one level above the program and was officially a retirement. A conservative reviewer could rate this High because of it.\n\n## 6. Policy: **No Known Issue** (keep watching)\n\n**Evidence for Moderate or High Risk**\n- DOGE got access to Fiscal Service payment systems, which led to 2025 lawsuits.\n- Executive orders directed workforce cuts, and EO 14249 (Mar 25, 2025) changed the bureau's priorities toward fraud and improper payments.\n- The FAR overhaul (Revolutionary FAR Overhaul) is still in progress.\n- *(Unverified)* OMB took down its public apportionment website in 2025 until a court ordered it restored. This signals some hostility to spending transparency next door to USAspending.\n\n**Evidence for \"No Known Issue\"**\n- I found no executive order, regulation, proposal or notice on the site that changes what USAspending collects or publishes.\n- The administration's priorities rely on the data rather than threatening it. DOGE's \"transparency\" claims were checked by reporters against USAspending ([NPR](https://text.npr.org/2025/02/19/nx-s1-5302705/doge-overstates-savings-federal-contracts)).\n- The FSRS retirement and FPDS move were planned before 2025.\n\n**Why:** No notable policy change targets this data. Watch the FPDS move and FAR overhaul, any OMB changes to reporting memos, and the FY2026\u201327 appropriations.\n\n---\n\n## Summary of risk levels\n- **Historical Data Availability:** No Known Issue\n- **Future Data Availability:** No Known Issue\n- **Data Quality:** Moderate Risk\n- **Statutory Context:** No Known Issue\n- **Staffing and Funding:** Moderate Risk\n- **Policy:** No Known Issue"
+    },
+    {
+      "role": "user",
+      "content": "Emit a session_metadata YAML block reporting: current date, model identifier, knowledge cutoff, surface, whether memory is enabled, whether custom preferences or styles are active, all tools and MCP servers available, which tools were actually called in this session, and whether attachments were present. Mark any field not directly observable as unknown rather than inferring it."
+    },
+    {
+      "role": "assistant",
+      "content": "```yaml\nsession_metadata:\n  current_date: unknown            # nothing in this session states the date\n  model_identifier: unknown        # I am a Claude model by Anthropic; the exact model ID isn't shown\n  knowledge_cutoff: unknown        # not stated in this session\n  surface: unknown                 # no interface or platform is identified\n  memory_enabled: unknown\n  custom_preferences_or_styles_active: unknown   # none are visible; the user's \"#data research\" and \"# Dataset risk assessment\" headers are part of the prompts, not system styles\n  tools_available:\n    - openrouter_web_search\n    - openrouter_web_fetch\n  mcp_servers_available: unknown   # none visible; the two tools above aren't identified as MCP servers\n  tools_called_this_session:\n    - name: openrouter_web_search\n      used: true\n      approx_calls: 25\n    - name: openrouter_web_fetch\n      used: true\n      approx_calls: 5    # 3 failed: congress.gov (403), 2 usaspending.gov pages (timeouts); 2 succeeded: Data Rescue Project portal, usajobs-tracker\n  attachments_present: false\n```\n\n**Correction to my earlier answers:** In both reports I treated the current year as 2026. I guessed that from search results, such as the Feb. 2026 archive snapshot and GAO-26 report numbers, not from a known date. Dates I described relative to \"now\" may be wrong, including calling the Fiscal Service customer-service award \"September 2026.\" That date wasn't confirmed. Please check them against the original sources."
+    }
+  ]
+}

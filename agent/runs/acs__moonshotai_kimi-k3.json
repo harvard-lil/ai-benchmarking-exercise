@@ -1,0 +1,1209 @@
+{
+  "dataset": {
+    "key": "acs",
+    "title": "American Community Survey (ACS)"
+  },
+  "model": "moonshotai/kimi-k3",
+  "harness": "openrouter tools",
+  "context": "full: each turn's whole output is carried into the next",
+  "search_tool": {
+    "engine": "exa",
+    "max_results": 10,
+    "excluded_domains": [
+      "dataindex.us"
+    ]
+  },
+  "fetch_tool": {
+    "engine": "openrouter",
+    "blocked_domains": [
+      "dataindex.us"
+    ],
+    "max_content_tokens": 10000
+  },
+  "reasoning": "effort high",
+  "catalog": {
+    "fetched_at": "2026-10-08T19:45:24Z",
+    "entry": {
+      "id": "moonshotai/kimi-k3",
+      "canonical_slug": "moonshotai/kimi-k3-20260715",
+      "hugging_face_id": "moonshotai/Kimi-K3",
+      "name": "MoonshotAI: Kimi K3",
+      "created": 1784215858,
+      "description": "Kimi K3 is a 2.8T parameter open-weight multimodal reasoning model from Moonshot AI. It is suited for complex coding, knowledge work, and long-horizon agentic workflows, and is particularly strong at...",
+      "context_length": 1048576,
+      "architecture": {
+        "modality": "text+image+video->text",
+        "input_modalities": [
+          "text",
+          "image",
+          "video"
+        ],
+        "output_modalities": [
+          "text"
+        ],
+        "tokenizer": "Other",
+        "instruct_type": null
+      },
+      "pricing": {
+        "prompt": "0.00000082",
+        "completion": "0.0000135",
+        "input_cache_read": "0.00000055"
+      },
+      "top_provider": {
+        "context_length": 1048576,
+        "max_completion_tokens": 943718,
+        "is_moderated": false
+      },
+      "per_request_limits": null,
+      "supported_parameters": [
+        "frequency_penalty",
+        "include_reasoning",
+        "logit_bias",
+        "logprobs",
+        "max_tokens",
+        "min_p",
+        "presence_penalty",
+        "reasoning",
+        "reasoning_effort",
+        "repetition_penalty",
+        "response_format",
+        "seed",
+        "stop",
+        "structured_outputs",
+        "temperature",
+        "tool_choice",
+        "tools",
+        "top_k",
+        "top_logprobs",
+        "top_p"
+      ],
+      "default_parameters": {
+        "temperature": null,
+        "top_p": 0.95,
+        "top_k": null,
+        "frequency_penalty": null,
+        "presence_penalty": null,
+        "repetition_penalty": null
+      },
+      "supported_voices": null,
+      "knowledge_cutoff": null,
+      "expiration_date": null,
+      "links": {
+        "details": "/api/v1/models/moonshotai/kimi-k3-20260715/endpoints"
+      },
+      "benchmarks": {
+        "design_arena": [
+          {
+            "arena": "agents",
+            "category": "agenticgamedev",
+            "elo": 1252,
+            "win_rate": 55,
+            "rank": 3
+          },
+          {
+            "arena": "agents",
+            "category": "androidnative",
+            "elo": 1262,
+            "win_rate": 55.4,
+            "rank": 5
+          },
+          {
+            "arena": "agents",
+            "category": "fullstack",
+            "elo": 1313,
+            "win_rate": 61.8,
+            "rank": 2
+          },
+          {
+            "arena": "agents",
+            "category": "godotgamedev",
+            "elo": 1223,
+            "win_rate": 48.2,
+            "rank": 14
+          },
+          {
+            "arena": "agents",
+            "category": "htmlslides",
+            "elo": 1256,
+            "win_rate": 59.6,
+            "rank": 2
+          },
+          {
+            "arena": "agents",
+            "category": "mobileapps",
+            "elo": 1263,
+            "win_rate": 56.9,
+            "rank": 4
+          },
+          {
+            "arena": "agents",
+            "category": "python-pptxslides",
+            "elo": 1273,
+            "win_rate": 59.2,
+            "rank": 4
+          },
+          {
+            "arena": "agents",
+            "category": "webapps",
+            "elo": 1285,
+            "win_rate": 59.1,
+            "rank": 4
+          },
+          {
+            "arena": "models",
+            "category": "3d",
+            "elo": 1396,
+            "win_rate": 67.7,
+            "rank": 4
+          },
+          {
+            "arena": "models",
+            "category": "codecategories",
+            "elo": 1369,
+            "win_rate": 63.1,
+            "rank": 2
+          },
+          {
+            "arena": "models",
+            "category": "dataviz",
+            "elo": 1353,
+            "win_rate": 63.1,
+            "rank": 4
+          },
+          {
+            "arena": "models",
+            "category": "gamedev",
+            "elo": 1368,
+            "win_rate": 61.3,
+            "rank": 4
+          },
+          {
+            "arena": "models",
+            "category": "svg",
+            "elo": 1305,
+            "win_rate": 59.7,
+            "rank": 4
+          },
+          {
+            "arena": "models",
+            "category": "uicomponent",
+            "elo": 1360,
+            "win_rate": 62.1,
+            "rank": 3
+          },
+          {
+            "arena": "models",
+            "category": "website",
+            "elo": 1341,
+            "win_rate": 59.8,
+            "rank": 2
+          }
+        ],
+        "artificial_analysis": {
+          "intelligence_index": 43.6,
+          "coding_index": 76.2,
+          "agentic_index": 50
+        }
+      },
+      "reasoning": {
+        "mandatory": false,
+        "default_enabled": true,
+        "supported_efforts": [
+          "max",
+          "high",
+          "low"
+        ],
+        "default_effort": "max"
+      }
+    }
+  },
+  "upstream": [
+    "moonshotai"
+  ],
+  "trial": 0,
+  "terminate_reason": "completed",
+  "max_tokens": 32768,
+  "started_at": "2026-10-08T19:45:24Z",
+  "prompts": {
+    "research": "#data research\nI am researching a federal dataset. Find out everything you can about this dataset, such as who publishes it, under what authority or mandate, its history, its typical users, and its benefits to the public. Be sure your research comprehensively covers each of those perspectives, as well as any others that you discover or seem useful. I believe this is accurate information, but please check:\n\nDataset title: American Community Survey (ACS)\nOrganization/publisher: U.S. Census Bureau\nDescription: The American Community Survey (ACS) is an ongoing nationwide survey conducted by the Census Bureau that collects vital information about the social, economic, housing, and demographic characteristics of our nation's population. Replacing the long form of the decennial census, the ACS is distributed to approximately 3.5 million addresses annually, providing detailed data throughout the year. Since 2005, it has generated estimates for areas with populations of 65,000 or more and, through 5-year accumulations, for smaller geographic areas such as census tracts and block groups. This data plays a crucial role in informing policy decisions and guiding the distribution of trillions of dollars in federal funds each year.\nURL: https://census.gov/programs-surveys/acs\n\nReturn a complete report on everything that a preservationist, data librarian, data scientist, or policy activist might want to know about this data.",
+    "assessment": "# Dataset risk assessment\nI would like your help in assessing the likelihood that this data will be changed or removed from its primary location, and that users will no longer be able to access accurate and reliable copies of it, based on the rubric below.\n\n## Sources for context\nTo help assess the rubric categories, perform additional research on the data, the agency, the data's topics and typical users, covering topics such as proposed regulatory or funding changes, recent news, and political commentary. Use whatever resources you find useful, including the Federal Register (https://www.federalregister.gov) and the federal staffing tracker at https://usajobs-tracker.abigailhaddad.com.\n\n## Rubric\nThis rubric is divided up into categories. Each category is divided up into risk levels. In your output, please select the appropriate risk level for each category based on your research.\n\n### Historical Data Availability\n- Gone: Data files prior to the current year or cycle are no longer publicly available.\n- High Risk: Some data files prior to the current year or cycle are removed.\n- Moderate Risk: Some data elements that exist in the dataset prior to the current year or cycle are removed.\n- No Known Issue: Data prior to the current year or cycle remain accessible with no known alterations.\n\n### Future Data Availability\n- Gone: Data collection and publication has been terminated.\n- High Risk: Statutory publication deadline missed and/or collection or publication skipped and/or ICR expired for more than one year.\n- Moderate Risk: Typical or intended publication date missed and/or collection or publication delayed; ICR expired up to one year.\n- No Known Issue: Data published on time or as expected and ICR active or renewed before expiration.\n\n### Data Quality\n- Gone: Data collection and publication has been terminated.\n- High Risk: Reductions in granularity, timeliness, or frequency.\n- Moderate Risk: Potential or emerging risk to granularity, timeliness, or frequency.\n- No Known Issue: Maintained or improved granularity, timeliness, or frequency.\n\n### Statutory Context\n- Gone: N/A\n- High Risk: Statutory authorization is vague and/or there are alternative data collections that could serve as substitutes and/or no known programmatic use.\n- Moderate Risk: Not explicitly required by statute but required for the implementation of a state or federal program, and there are no alternative data collections that could serve as substitutes.\n- No Known Issue: Statutorily required and/or statutory authorization is explicitly named and it is clear what has to be collected, and there aren't alternative data collections that could serve as substitutes and/or required for implementation of a federal program.\n\n### Staffing and Funding\n- Gone: All of the staff in the division or agency are gone and/or all funding has been terminated.\n- High Risk: 40% or more of staff lost, and/or 1,000 or more staff lost, and/or budget cut by 20% or more, and/or leadership removed.\n- Moderate Risk: 10\u201339% of staff lost, and/or 500\u2013999 staff lost, and/or budget cut by 10\u201319%, and/or threatened change in leadership.\n- No Known Issue: Less than 10% of staff lost and less than 10% of budget cut and no known change in leadership.\n\n### Policy\n- Gone: Data collection and publication has been terminated.\n- High Risk: Presidential Action-driven information collection request (ICR); negative policy note on site; other significant changes in accordance with Administration priorities.\n- Moderate Risk: Proposed or pending changes; statements by administration officials suggesting a change is being considered or planned.\n- No Known Issue: No notable changes since January 2025 affecting what data is collected and published.\n\nFor each category, concisely list the evidence and supporting sources that would support each risk level. Then indicate which risk level you find most appropriate and why.\n\nConclude with a simple summary of risk levels:\nHistorical Data Availability: <level>\nFuture Data Availability: <level>\nData Quality: <level>\nStatutory Context: <level>\nStaffing and Funding: <level>\nPolicy: <level>",
+    "session_metadata": "Emit a session_metadata YAML block reporting: current date, model identifier, knowledge cutoff, surface, whether memory is enabled, whether custom preferences or styles are active, all tools and MCP servers available, which tools were actually called in this session, and whether attachments were present. Mark any field not directly observable as unknown rather than inferring it."
+  },
+  "turns": {
+    "research": {
+      "request": {
+        "model": "moonshotai/kimi-k3",
+        "max_output_tokens": 32768,
+        "tools": [
+          {
+            "type": "openrouter:web_search",
+            "parameters": {
+              "engine": "exa",
+              "max_results": 10,
+              "excluded_domains": [
+                "dataindex.us"
+              ]
+            }
+          },
+          {
+            "type": "openrouter:web_fetch",
+            "parameters": {
+              "engine": "openrouter",
+              "blocked_domains": [
+                "dataindex.us"
+              ],
+              "max_content_tokens": 10000
+            }
+          }
+        ],
+        "cache_control": {
+          "type": "ephemeral",
+          "ttl": "1h"
+        },
+        "session_id": "acs-moonshotai/kimi-k3-t0-2026-10-08T19:45:24Z",
+        "stop_server_tools_when": [
+          {
+            "type": "step_count_is",
+            "step_count": 200
+          }
+        ],
+        "reasoning": {
+          "effort": "high"
+        },
+        "provider": {
+          "order": [
+            "moonshotai"
+          ],
+          "allow_fallbacks": false
+        }
+      },
+      "response_meta": {
+        "id": "gen-1791488724-LxlMjyU8KI6DV2am768d",
+        "object": "response",
+        "created_at": 1791488724,
+        "model": "moonshotai/kimi-k3",
+        "status": "completed",
+        "completed_at": 1791488869,
+        "error": null,
+        "incomplete_details": null,
+        "tools": [],
+        "tool_choice": "auto",
+        "parallel_tool_calls": true,
+        "max_output_tokens": 32768,
+        "temperature": 1,
+        "top_p": 1,
+        "presence_penalty": 0,
+        "frequency_penalty": 0,
+        "top_logprobs": 0,
+        "max_tool_calls": null,
+        "metadata": {},
+        "background": false,
+        "previous_response_id": null,
+        "service_tier": "auto",
+        "truncation": "disabled",
+        "store": false,
+        "instructions": null,
+        "text": {
+          "format": {
+            "type": "text"
+          }
+        },
+        "reasoning": {
+          "effort": "high"
+        },
+        "safety_identifier": null,
+        "prompt_cache_key": null,
+        "prompt_cache_options": null,
+        "usage": {
+          "input_tokens": 39640,
+          "input_tokens_details": {
+            "cached_tokens": 22528
+          },
+          "output_tokens": 4633,
+          "output_tokens_details": {
+            "reasoning_tokens": 822
+          },
+          "total_tokens": 44273,
+          "cost": 0.1625894,
+          "cost_details": {
+            "upstream_inference_cost": 0.1275894,
+            "upstream_inference_input_cost": 0.058094400000000004,
+            "upstream_inference_output_cost": 0.069495
+          },
+          "server_tool_use_details": {
+            "web_search_requests": 6,
+            "tool_calls_requested": 6,
+            "tool_calls_executed": 6
+          }
+        }
+      },
+      "requests": [
+        {
+          "input_tokens": 39640,
+          "input_tokens_details": {
+            "cached_tokens": 22528
+          },
+          "output_tokens": 4633,
+          "output_tokens_details": {
+            "reasoning_tokens": 822
+          },
+          "total_tokens": 44273,
+          "cost": 0.1625894,
+          "cost_details": {
+            "upstream_inference_cost": 0.1275894,
+            "upstream_inference_input_cost": 0.058094400000000004,
+            "upstream_inference_output_cost": 0.069495
+          },
+          "server_tool_use_details": {
+            "web_search_requests": 6,
+            "tool_calls_requested": 6,
+            "tool_calls_executed": 6
+          }
+        }
+      ],
+      "searches": 6,
+      "fetches": 0,
+      "tool_items": [
+        {
+          "type": "openrouter:web_search",
+          "id": "st_tmp_qz8082y49mk",
+          "status": "completed",
+          "action": {
+            "type": "search",
+            "query": "American Community Survey Census Bureau legal authority Title 13 mandatory survey history",
+            "sources": [
+              {
+                "type": "url",
+                "url": "https://www.census.gov/programs-surveys/acs/about/acs-and-census.html"
+              },
+              {
+                "type": "url",
+                "url": "https://www.gao.gov/products/b-289852-0"
+              },
+              {
+                "type": "url",
+                "url": "https://www2.census.gov/library/publications/2024/acs/history-of-the-acs.pdf"
+              },
+              {
+                "type": "url",
+                "url": "https://www.census.gov/about/authority.html"
+              },
+              {
+                "type": "url",
+                "url": "https://www2.census.gov/programs-surveys/acs/operations_admin/2014_content_review/methods_results_report/2016_ACS_OMB_FINAL.pdf"
+              },
+              {
+                "type": "url",
+                "url": "https://digital.library.unt.edu/ark:/67531/metadc227693/m1/1/high_res_d/R41532_2013Jun17.pdf"
+              },
+              {
+                "type": "url",
+                "url": "https://www2.census.gov/programs-surveys/acs/methodology/design_and_methodology/2022/acs_design_methodology_report_2022.pdf"
+              },
+              {
+                "type": "url",
+                "url": "https://www.census.gov/content/dam/Census/library/publications/2010/acs/acs_design_methodology.pdf"
+              },
+              {
+                "type": "url",
+                "url": "https://consumer.ftc.gov/consumer-alerts/2019/08/american-community-survey-legit"
+              },
+              {
+                "type": "url",
+                "url": "https://en.wikipedia.org/wiki/American_Community_Survey"
+              }
+            ]
+          }
+        },
+        {
+          "type": "openrouter:web_search",
+          "id": "st_tmp_z17wm5ojh2r",
+          "status": "completed",
+          "action": {
+            "type": "search",
+            "query": "American Community Survey federal funding allocation trillions dollars decennial census long form replacement 2005",
+            "sources": [
+              {
+                "type": "url",
+                "url": "https://www.census.gov/about/history/historical-censuses-and-surveys/census-programs-surveys/demographic/american-community-survey.html"
+              },
+              {
+                "type": "url",
+                "url": "https://www.census.gov/content/dam/Census/library/publications/2010/acs/acs_design_methodology.pdf"
+              },
+              {
+                "type": "url",
+                "url": "https://www.census.gov/library/working-papers/2023/dec/census-data-federal-funds.html"
+              },
+              {
+                "type": "url",
+                "url": "https://www.brookings.edu/articles/surveying-for-dollars-the-role-of-the-american-community-survey-in-the-geographic-distribution-of-federal-funds/"
+              },
+              {
+                "type": "url",
+                "url": "https://www.everycrsreport.com/reports/IN12303.html"
+              },
+              {
+                "type": "url",
+                "url": "https://www.census.gov/programs-surveys/acs/about/information-guide.html"
+              },
+              {
+                "type": "url",
+                "url": "https://www.govinfo.gov/content/pkg/GOVPUB-C3-PURL-gpo214182/pdf/GOVPUB-C3-PURL-gpo214182.pdf"
+              },
+              {
+                "type": "url",
+                "url": "https://www.everycrsreport.com/files/20130717_R41532_5f74bd26149c32fd299c2622dd5555c97689b71e.pdf"
+              },
+              {
+                "type": "url",
+                "url": "https://www.census.gov/content/dam/Census/library/factsheets/2023/comm/factsheet-federal-funding.pdf"
+              },
+              {
+                "type": "url",
+                "url": "https://www.congress.gov/crs-product/R47847"
+              }
+            ]
+          }
+        },
+        {
+          "type": "openrouter:web_search",
+          "id": "st_tmp_l2qa2bgwbt",
+          "status": "completed",
+          "action": {
+            "type": "search",
+            "query": "ACS data products 1-year 5-year estimates PUMS data.census.gov API summary file geography thresholds",
+            "sources": [
+              {
+                "type": "url",
+                "url": "https://www.census.gov/programs-surveys/acs/data.html"
+              },
+              {
+                "type": "url",
+                "url": "https://www.census.gov/data/developers/data-sets/acs-5year.2020.html"
+              },
+              {
+                "type": "url",
+                "url": "https://www.census.gov/programs-surveys/acs/data/summary-file.html"
+              },
+              {
+                "type": "url",
+                "url": "https://www.census.gov/programs-surveys/acs/guidance/estimates.html"
+              },
+              {
+                "type": "url",
+                "url": "https://www.test.census.gov/data/developers/data-sets/acs-1year.html"
+              },
+              {
+                "type": "url",
+                "url": "https://www.census.gov/data/developers/data-sets/census-microdata-api/acs-1y-pums.html"
+              },
+              {
+                "type": "url",
+                "url": "https://www.census.gov/data/developers/data-sets/census-microdata-api/acs-5y-pums.html"
+              },
+              {
+                "type": "url",
+                "url": "https://api.census.gov/data/2024/acs/acs5.html"
+              },
+              {
+                "type": "url",
+                "url": "https://www.census.gov/programs-surveys/acs/microdata/documentation.html"
+              },
+              {
+                "type": "url",
+                "url": "https://www2.census.gov/programs-surveys/acs/methodology/design_and_methodology/2024/acs_design_methodology_ch14_2024.pdf"
+              }
+            ]
+          }
+        },
+        {
+          "type": "openrouter:web_search",
+          "id": "st_tmp_xjtqotf9ew",
+          "status": "completed",
+          "action": {
+            "type": "search",
+            "query": "American Community Survey 2020 experimental data COVID disclosure avoidance threats voluntary proposals 2025",
+            "sources": [
+              {
+                "type": "url",
+                "url": "https://www.census.gov/programs-surveys/acs/data/experimental-data.html"
+              },
+              {
+                "type": "url",
+                "url": "https://www.census.gov/newsroom/press-releases/2021/changes-2020-acs-1-year.html"
+              },
+              {
+                "type": "url",
+                "url": "https://www.pnas.org/doi/10.1073/pnas.2424655122"
+              },
+              {
+                "type": "url",
+                "url": "https://www.census.gov/programs-surveys/acs/methodology/disclosure-avoidance.html"
+              },
+              {
+                "type": "url",
+                "url": "https://www.test.census.gov/programs-surveys/acs/methodology/disclosure-avoidance.html"
+              },
+              {
+                "type": "url",
+                "url": "https://usa.ipums.org/usa/resources/Assessment_Covid-19_impact_2020_one_year.pdf"
+              },
+              {
+                "type": "url",
+                "url": "https://www.census.gov/content/dam/Census/newsroom/press-kits/2021/acs-1-year/20211130-transcript-webinar-acs-1year-experimental-data.pdf"
+              },
+              {
+                "type": "url",
+                "url": "https://www.gao.gov/assets/890/882125.pdf"
+              },
+              {
+                "type": "url",
+                "url": "https://www.census.gov/content/dam/Census/newsroom/press-kits/2021/acs-1-year/20210729-transcript-webinar-acs-1year.pdf"
+              },
+              {
+                "type": "url",
+                "url": "https://www2.census.gov/programs-surveys/decennial/2020/program-management/data-product-planning/disclosure-avoidance-system/das-development-timeline.pdf"
+              }
+            ]
+          }
+        },
+        {
+          "type": "openrouter:web_search",
+          "id": "st_tmp_q25mgspkk8j",
+          "status": "completed",
+          "action": {
+            "type": "search",
+            "query": "ACS data users local government business researchers redistricting civil rights enforcement use cases",
+            "sources": [
+              {
+                "type": "url",
+                "url": "https://www.census.gov/content/dam/Census/library/publications/2020/acs/acs_state_local_handbook_2020.pdf"
+              },
+              {
+                "type": "url",
+                "url": "https://www.census.gov/content/dam/Census/library/publications/2020/acs/acs_federal_handbook_2020.pdf"
+              },
+              {
+                "type": "url",
+                "url": "https://www.census.gov/content/dam/Census/library/publications/2020/acs/ACS_Business_handbook_2020.pdf"
+              },
+              {
+                "type": "url",
+                "url": "https://www.census.gov/content/dam/Census/library/publications/2020/acs/acs_researchers_handbook_2020.pdf"
+              },
+              {
+                "type": "url",
+                "url": "https://www.congress.gov/crs-product/R47847"
+              },
+              {
+                "type": "url",
+                "url": "https://gwipp.gwu.edu/sites/g/files/zaxdzs6111/files/downloads/Reamer%20ACS%20Data%20Users%2005-2015.pdf"
+              },
+              {
+                "type": "url",
+                "url": "https://thecensusproject.org/wp-content/uploads/2022/03/reamer-acs-cp-03-11-22-rev2.pdf"
+              },
+              {
+                "type": "url",
+                "url": "https://www.nationalacademies.org/read/18259/chapter/6"
+              },
+              {
+                "type": "url",
+                "url": "https://www.nationalacademies.org/read/18259/chapter/8"
+              },
+              {
+                "type": "url",
+                "url": "https://www.prb.org/resource/use-of-the-american-community-survey-in-the-context-of-the-voting-rights-act/"
+              }
+            ]
+          }
+        },
+        {
+          "type": "openrouter:web_search",
+          "id": "st_tmp_5oxhgqxwfgi",
+          "status": "completed",
+          "action": {
+            "type": "search",
+            "query": "American Community Survey make voluntary legislation proposed cuts Census Bureau 2025 data preservation"
+          }
+        }
+      ],
+      "ended": "answered",
+      "seconds": 144.6
+    },
+    "assessment": {
+      "request": {
+        "model": "moonshotai/kimi-k3",
+        "max_output_tokens": 32768,
+        "tools": [
+          {
+            "type": "openrouter:web_search",
+            "parameters": {
+              "engine": "exa",
+              "max_results": 10,
+              "excluded_domains": [
+                "dataindex.us"
+              ]
+            }
+          },
+          {
+            "type": "openrouter:web_fetch",
+            "parameters": {
+              "engine": "openrouter",
+              "blocked_domains": [
+                "dataindex.us"
+              ],
+              "max_content_tokens": 10000
+            }
+          }
+        ],
+        "cache_control": {
+          "type": "ephemeral",
+          "ttl": "1h"
+        },
+        "session_id": "acs-moonshotai/kimi-k3-t0-2026-10-08T19:45:24Z",
+        "stop_server_tools_when": [
+          {
+            "type": "step_count_is",
+            "step_count": 200
+          }
+        ],
+        "reasoning": {
+          "effort": "high"
+        },
+        "provider": {
+          "order": [
+            "moonshotai"
+          ],
+          "allow_fallbacks": false
+        }
+      },
+      "response_meta": {
+        "id": "gen-1791488869-EydDBTX5ikm1vZc00suE",
+        "object": "response",
+        "created_at": 1791488869,
+        "model": "moonshotai/kimi-k3",
+        "status": "completed",
+        "completed_at": 1791489058,
+        "error": null,
+        "incomplete_details": null,
+        "tools": [],
+        "tool_choice": "auto",
+        "parallel_tool_calls": true,
+        "max_output_tokens": 32768,
+        "temperature": 1,
+        "top_p": 1,
+        "presence_penalty": 0,
+        "frequency_penalty": 0,
+        "top_logprobs": 0,
+        "max_tool_calls": null,
+        "metadata": {},
+        "background": false,
+        "previous_response_id": null,
+        "service_tier": "auto",
+        "truncation": "disabled",
+        "store": false,
+        "instructions": null,
+        "text": {
+          "format": {
+            "type": "text"
+          }
+        },
+        "reasoning": {
+          "effort": "high"
+        },
+        "safety_identifier": null,
+        "prompt_cache_key": null,
+        "prompt_cache_options": null,
+        "usage": {
+          "input_tokens": 96983,
+          "input_tokens_details": {
+            "cached_tokens": 67584
+          },
+          "output_tokens": 6241,
+          "output_tokens_details": {
+            "reasoning_tokens": 3406
+          },
+          "total_tokens": 103224,
+          "cost": 0.2370872,
+          "cost_details": {
+            "upstream_inference_cost": 0.2020872,
+            "upstream_inference_input_cost": 0.1084722,
+            "upstream_inference_output_cost": 0.093615
+          },
+          "server_tool_use_details": {
+            "web_search_requests": 7,
+            "tool_calls_requested": 8,
+            "tool_calls_executed": 8
+          }
+        }
+      },
+      "requests": [
+        {
+          "input_tokens": 96983,
+          "input_tokens_details": {
+            "cached_tokens": 67584
+          },
+          "output_tokens": 6241,
+          "output_tokens_details": {
+            "reasoning_tokens": 3406
+          },
+          "total_tokens": 103224,
+          "cost": 0.2370872,
+          "cost_details": {
+            "upstream_inference_cost": 0.2020872,
+            "upstream_inference_input_cost": 0.1084722,
+            "upstream_inference_output_cost": 0.093615
+          },
+          "server_tool_use_details": {
+            "web_search_requests": 7,
+            "tool_calls_requested": 8,
+            "tool_calls_executed": 8
+          }
+        }
+      ],
+      "searches": 7,
+      "fetches": 1,
+      "tool_items": [
+        {
+          "type": "openrouter:web_search",
+          "id": "st_tmp_n8u809auoib",
+          "status": "completed",
+          "action": {
+            "type": "search",
+            "query": "Census Bureau layoffs staff cuts 2025 Trump administration DOGE probationary employees",
+            "sources": [
+              {
+                "type": "url",
+                "url": "https://apnews.com/article/census-bureau-doge-federal-surveys-fe560e377be69e913660a6d90c1ee419"
+              },
+              {
+                "type": "url",
+                "url": "https://www.wxxinews.org/2025-04-17/brain-drain-at-census-bureau-has-employees-warning-about-the-countrys-statistics"
+              },
+              {
+                "type": "url",
+                "url": "https://www.washingtonpost.com/politics/2025/05/23/census-bureau-doge-federal-surveys/73615954-378b-11f0-9c9e-0db2d748bea7_story.html"
+              },
+              {
+                "type": "url",
+                "url": "https://www.npr.org/2025/03/15/nx-s1-5328721/reduction-in-force-rif-federal-workers-job-cuts-musk-doge-layoffs"
+              },
+              {
+                "type": "url",
+                "url": "https://apnews.com/article/doge-firings-layoffs-federal-government-workers-musk-d33cdd7872d64d2bdd8fe70c28652654"
+              },
+              {
+                "type": "url",
+                "url": "https://www.bostonglobe.com/2025/05/23/nation/trump-administration-doge-targets-census-bureau/"
+              },
+              {
+                "type": "url",
+                "url": "https://www.cnn.com/2025/02/14/politics/probationary-federal-employees-agencies-firings-doge"
+              },
+              {
+                "type": "url",
+                "url": "https://en.wikipedia.org/wiki/2025_United_States_federal_mass_layoffs"
+              },
+              {
+                "type": "url",
+                "url": "https://apnews.com/article/trump-firing-probation-workforce-buyouts-layoffs-doge-159a6de411622c2eb651016b1e99da37"
+              },
+              {
+                "type": "url",
+                "url": "https://www.nbcnews.com/politics/doge/government-layoffs-trump-firings-department-probationary-employees-rcna192307"
+              }
+            ]
+          }
+        },
+        {
+          "type": "openrouter:web_search",
+          "id": "st_tmp_n0zjr6qw7f",
+          "status": "completed",
+          "action": {
+            "type": "search",
+            "query": "American Community Survey 2025 budget cut proposal sample size reduction FY2026 Trump",
+            "sources": [
+              {
+                "type": "url",
+                "url": "https://cossa.org/wp-content/uploads/2025/06/COSSA-FY-2026-PBR-Analysis.pdf"
+              },
+              {
+                "type": "url",
+                "url": "https://thecensusproject.org/2025/06/30/department-of-commerce-releases-fiscal-year-2026-census-budget-details/"
+              },
+              {
+                "type": "url",
+                "url": "https://thecensusproject.org/2025/07/01/june-2025-census-project-update/"
+              },
+              {
+                "type": "url",
+                "url": "https://www.everycrsreport.com/reports/IF13105.html"
+              },
+              {
+                "type": "url",
+                "url": "https://www.cbpp.org/research/poverty-and-inequality/federal-data-are-disappearing-as-statistical-agencies-face-budget"
+              },
+              {
+                "type": "url",
+                "url": "https://www.everycrsreport.com/files/2025-09-02_IF12714_269ecd27bfe32d6fdb504b482bc40eba33d8606d.pdf"
+              },
+              {
+                "type": "url",
+                "url": "https://www.whitehouse.gov/wp-content/uploads/2025/05/appendix_fy2026.pdf"
+              },
+              {
+                "type": "url",
+                "url": "https://www.govinfo.gov/content/pkg/BUDGET-2026-BUD/pdf/BUDGET-2026-BUD.pdf?_sp=4d6c8dbc-17c7-4de8-986a-188b2f359679"
+              },
+              {
+                "type": "url",
+                "url": "https://www.popcenters.org/2025/07/08/june-2025-census-project-update/"
+              },
+              {
+                "type": "url",
+                "url": "https://community.amstat.org/blogs/steve-pierson/2025/05/30/fy26-statistical-agency-budget-developments"
+              }
+            ]
+          }
+        },
+        {
+          "type": "openrouter:web_search",
+          "id": "st_tmp_tlbj3bwjldd",
+          "status": "completed",
+          "action": {
+            "type": "search",
+            "query": "American Community Survey 2025 questions removed sexual orientation gender identity Trump executive order Census Bureau changes",
+            "sources": [
+              {
+                "type": "url",
+                "url": "https://www.reginfo.gov/public/do/PRAViewICR?ref_nbr=202503-0607-001"
+              },
+              {
+                "type": "url",
+                "url": "https://apnews.com/article/lgbtq-gender-identity-census-1e3d9a89c757091ef4a29700edabbd51"
+              },
+              {
+                "type": "url",
+                "url": "https://www.npr.org/2025/02/21/nx-s1-5305265/census-lgbtq-sogi-data-robert-santos"
+              },
+              {
+                "type": "url",
+                "url": "https://www2.census.gov/about/partners/cac/nac/meetings/2024-11/presentation-testing-implementing-sogi.pdf"
+              },
+              {
+                "type": "url",
+                "url": "https://www.congress.gov/crs_external_products/IN/PDF/IN12342/IN12342.1.pdf"
+              },
+              {
+                "type": "url",
+                "url": "https://omb.report/icr/202407-0607-002/doc/144393901"
+              },
+              {
+                "type": "url",
+                "url": "https://omb.report/icr/202503-0607-001"
+              },
+              {
+                "type": "url",
+                "url": "https://williamsinstitute.law.ucla.edu/publications/access-federal-lgbt-data/"
+              },
+              {
+                "type": "url",
+                "url": "https://www.kff.org/lgbtq/trump-administration-actions-to-curb-data-collection-related-to-sexual-orientation-and-gender-identity-sogi/"
+              },
+              {
+                "type": "url",
+                "url": "https://williamsinstitute.law.ucla.edu/press/federal-data-removal-press-release/"
+              }
+            ]
+          }
+        },
+        {
+          "type": "openrouter:web_search",
+          "id": "st_tmp_l6h72y9v38i",
+          "status": "completed",
+          "action": {
+            "type": "search",
+            "query": "2024 ACS 1-year estimates release September 2025 delayed Census Bureau government shutdown",
+            "sources": [
+              {
+                "type": "url",
+                "url": "https://www.census.gov/programs-surveys/acs/news/data-releases/2024/release.html"
+              },
+              {
+                "type": "url",
+                "url": "https://www.census.gov/programs-surveys/acs/news/data-releases/2024/release-schedule.html"
+              },
+              {
+                "type": "url",
+                "url": "https://www.census.gov/programs-surveys/acs/news/updates/2025.html"
+              },
+              {
+                "type": "url",
+                "url": "https://tnsdc.utk.edu/2025/09/30/navigating-the-federal-shutdown-tips-for-data-users/"
+              },
+              {
+                "type": "url",
+                "url": "https://www.census.gov/newsroom/press-releases/2025/acs-1-year-estimates-embargo.html"
+              },
+              {
+                "type": "url",
+                "url": "https://www2.census.gov/about/training-workshops/2025/2025-09-04-2024-acs-1-year-estimates-prerelease-presentation.pdf"
+              },
+              {
+                "type": "url",
+                "url": "https://www.census.gov/newsroom/press-kits/2025/acs-1-year-estimates.html"
+              },
+              {
+                "type": "url",
+                "url": "https://www.census.gov/data/developers/data-sets/acs-1year.html"
+              },
+              {
+                "type": "url",
+                "url": "https://www.axios.com/2025/10/01/shutdown-government-data-census-bls"
+              },
+              {
+                "type": "url",
+                "url": "https://www.census.gov/programs-surveys/acs/news/updates.2025.html"
+              }
+            ]
+          }
+        },
+        {
+          "type": "openrouter:web_search",
+          "id": "st_tmp_r43naiq2an",
+          "status": "completed",
+          "action": {
+            "type": "search",
+            "query": "2020-2024 ACS 5-year estimates release December 2025 delayed government shutdown Census Bureau",
+            "sources": [
+              {
+                "type": "url",
+                "url": "https://content.govdelivery.com/accounts/CODOLA/bulletins/3fe72bc"
+              },
+              {
+                "type": "url",
+                "url": "https://www.census.gov/newsroom/tip-sheets/2025/tp25-22.html"
+              },
+              {
+                "type": "url",
+                "url": "https://www.census.gov/programs-surveys/acs/news/data-releases/2024/release.html"
+              },
+              {
+                "type": "url",
+                "url": "https://www.census.gov/programs-surveys/acs/news/updates/2026.html"
+              },
+              {
+                "type": "url",
+                "url": "https://www.census.gov/data/developers/data-sets/acs-5year.2020.html"
+              },
+              {
+                "type": "url",
+                "url": "https://www.census.gov/newsroom/press-kits/2026/acs-5-year-estimates.html"
+              },
+              {
+                "type": "url",
+                "url": "https://www2.census.gov/about/training-workshops/2026/2026-01-22-2020-2024-acs-5-year-prerelease-transcript.pdf"
+              },
+              {
+                "type": "url",
+                "url": "https://www.sciotoanalysis.com/news/2025/10/28/how-to-get-census-data-during-the-government-shutdown-or-any-other-time"
+              },
+              {
+                "type": "url",
+                "url": "https://www.novoco.com/news/census-bureau-releases-delayed-five-year-acs-data-needed-for-income-limits-oz-eligibility"
+              },
+              {
+                "type": "url",
+                "url": "https://tnsdc.utk.edu/2025/09/30/navigating-the-federal-shutdown-tips-for-data-users/"
+              }
+            ]
+          }
+        },
+        {
+          "type": "openrouter:web_fetch",
+          "id": "st_tmp_4lmjybykkeu",
+          "status": "completed",
+          "url": "https://usajobs-tracker.abigailhaddad.com",
+          "content": "<!DOCTYPE html>\n<html lang=\"en\">\n<head>\n    <meta charset=\"UTF-8\">\n    <meta name=\"viewport\" content=\"width=device-width, initial-scale=1.0\">\n    <title>USAJobs Listings Tracker</title>\n    \n    <!-- DataTables CSS -->\n    <link rel=\"stylesheet\" href=\"https://cdn.datatables.net/1.13.6/css/dataTables.bootstrap5.min.css\">\n    <link rel=\"stylesheet\" href=\"https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css\">\n    <link rel=\"stylesheet\" href=\"https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.0/font/bootstrap-icons.css\">\n    \n    <style>\n        body {\n            font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;\n            background-color: #f8f9fa;\n            color: #333;\n        }\n        \n        .container {\n            max-width: 1400px;\n            margin: 0 auto;\n            padding: 20px;\n        }\n        \n        h1 {\n            color: #003366;\n            font-weight: 600;\n            margin-bottom: 10px;\n        }\n        \n        .subtitle {\n            color: #999;\n            font-size: 0.9rem;\n            margin-bottom: 20px;\n        }\n        \n        .summary-stats {\n            background: white;\n            padding: 20px;\n            border-radius: 8px;\n            box-shadow: 0 2px 4px rgba(0,0,0,0.1);\n            margin-bottom: 30px;\n        }\n        \n        .stat-box {\n            text-align: center;\n            padding: 15px;\n            border-right: 1px solid #e9ecef;\n        }\n        \n        .stat-box:last-child {\n            border-right: none;\n        }\n        \n        .stat-value {\n            font-size: 2rem;\n            font-weight: 600;\n            color: #003366;\n        }\n        \n        .stat-label {\n            color: #666;\n            font-size: 0.85rem;\n            text-transform: uppercase;\n            line-height: 1.3;\n        }\n        \n        .table-container {\n            background: white;\n            padding: 25px;\n            border-radius: 8px;\n            box-shadow: 0 2px 4px rgba(0,0,0,0.1);\n        }\n        \n        .dataTables_wrapper .dataTables_filter input {\n            border: 1px solid #ddd;\n            border-radius: 4px;\n            padding: 5px 10px;\n            margin-left: 10px;\n        }\n        \n        .dataTables_wrapper .dataTables_length select {\n            border: 1px solid #ddd;\n            border-radius: 4px;\n            padding: 5px;\n        }\n        \n        table.dataTable {\n            border-collapse: collapse !important;\n        }\n        \n        table.dataTable thead th {\n            background-color: #003366;\n            color: white;\n            font-weight: 600;\n            border-bottom: none !important;\n            white-space: nowrap;\n            position: relative;\n            cursor: pointer;\n        }\n        \n        table.dataTable thead th.filtering {\n            background-color: #00508f;\n        }\n        \n        table.dataTable tbody tr:hover {\n            background-color: #f0f8ff;\n        }\n        \n        table.dataTable tbody td {\n            padding: 12px;\n            vertical-align: middle;\n        }\n        \n        .percentage-cell {\n            font-weight: 600;\n        }\n        \n        .high-percentage {\n            color: #388e3c;  /* Green - good (maintained/increased listings) */\n        }\n        \n        .medium-percentage {\n            color: #f57c00;  /* Orange - moderate (some decline) */\n        }\n        \n        .low-percentage {\n            color: #d32f2f;  /* Red - bad (major decline) */\n        }\n        \n        .expiring-soon {\n            background-color: #fff3cd;\n        }\n        \n        .no-year {\n            background-color: #e8f4f8;\n        }\n        \n        /* Column filter styles */\n        .column-filter-container {\n            position: absolute;\n            background: white;\n            border: 1px solid #ddd;\n            border-radius: 4px;\n            box-shadow: 0 4px 6px rgba(0,0,0,0.1);\n            padding: 10px;\n            z-index: 1000;\n            min-width: 200px;\n            max-height: 300px;\n            overflow-y: auto;\n        }\n        \n        .column-filter-container input[type=\"text\"] {\n            width: 100%;\n            padding: 5px;\n            margin-bottom: 10px;\n            border: 1px solid #ddd;\n            border-radius: 3px;\n        }\n        \n        .column-filter-container label {\n            display: block;\n            padding: 3px 0;\n            cursor: pointer;\n        }\n        \n        .column-filter-container label:hover {\n            background-color: #f0f0f0;\n        }\n        \n        .column-filter-container input[type=\"checkbox\"] {\n            margin-right: 8px;\n        }\n        \n        .filter-buttons {\n            margin-top: 10px;\n            text-align: right;\n        }\n        \n        .filter-buttons button {\n            margin-left: 5px;\n            padding: 3px 10px;\n            border: 1px solid #ddd;\n            border-radius: 3px;\n            background: white;\n            cursor: pointer;\n            font-size: 0.85rem;\n        }\n        \n        .filter-buttons button.apply {\n            background: #003366;\n            color: white;\n        }\n        \n        .filter-buttons button:hover {\n            opacity: 0.8;\n        }\n        \n        th.has-filter::after {\n            content: \" \u25bc\";\n            font-size: 0.8em;\n            opacity: 0.5;\n        }\n        \n        /* Bubble chart styles */\n        .treemap-container {\n            background: white;\n            padding: 20px;\n            border-radius: 8px;\n            box-shadow: 0 2px 4px rgba(0,0,0,0.1);\n            margin-bottom: 30px;\n        }\n        \n        .treemap-title {\n            font-size: 1.2rem;\n            font-weight: 600;\n            color: #003366;\n            margin-bottom: 15px;\n        }\n        \n        #bubble-chart {\n            width: 100%;\n            height: 460px;\n            position: relative;\n        }\n        \n        .bubble {\n            cursor: pointer;\n            opacity: 0.8;\n            transition: all 0.3s;\n        }\n        \n        .bubble:hover {\n            opacity: 1;\n            stroke: #003366;\n            stroke-width: 3;\n        }\n        \n        .axis-label {\n            font-size: 14px;\n            font-weight: 600;\n            fill: #333;\n        }\n        \n        .grid line {\n            stroke: #e0e0e0;\n            stroke-opacity: 0.7;\n            shape-rendering: crispEdges;\n        }\n        \n        .grid path {\n            stroke-width: 0;\n        }\n        \n        .quadrant-label {\n            fill: #666;\n            font-size: 12px;\n            font-style: italic;\n            opacity: 0.7;\n        }\n        \n        /* Filter section styles */\n        .filter-section {\n            background: white;\n            padding: 20px;\n            border-radius: 8px;\n            box-shadow: 0 2px 4px rgba(0,0,0,0.1);\n            margin-bottom: 30px;\n        }\n        \n        .filter-section h3 {\n            color: #003366;\n            font-size: 1.3rem;\n            margin-bottom: 15px;\n        }\n        \n        .filter-controls label {\n            font-size: 0.85rem;\n            font-weight: 600;\n            color: #666;\n            margin-bottom: 5px;\n        }\n        \n        .active-filters {\n            margin-top: 15px;\n            min-height: 30px;\n        }\n        \n        .filter-badge {\n            display: inline-block;\n            background: #003366;\n            color: white;\n            padding: 5px 10px;\n            border-radius: 20px;\n            margin-right: 10px;\n            margin-bottom: 5px;\n            font-size: 0.85rem;\n        }\n        \n        .filter-badge .remove-filter {\n            margin-left: 8px;\n            cursor: pointer;\n            font-weight: bold;\n        }\n        \n        .filter-badge .remove-filter:hover {\n            color: #ff6b6b;\n        }\n        \n        /* Multi-select dropdown styles */\n        .filter-dropdown {\n            position: relative;\n        }\n        \n        .filter-dropdown-menu {\n            position: absolute;\n            top: 100%;\n            left: 0;\n            right: 0;\n            z-index: 1000;\n            background: white;\n            border: 1px solid #ddd;\n            border-radius: 4px;\n            box-shadow: 0 4px 6px rgba(0,0,0,0.1);\n            padding: 10px;\n            margin-top: 2px;\n        }\n        \n        .filter-dropdown-menu label {\n            cursor: pointer;\n        }\n        \n        .filter-dropdown-menu label:hover {\n            background-color: #f0f0f0;\n        }\n        \n        .filter-dropdown-menu .filter-search {\n            margin-bottom: 5px;\n        }\n        \n        .filter-dropdown-menu .filter-options label {\n            padding: 3px 8px;\n            margin: 0;\n            display: block;\n        }\n        \n        .filter-dropdown-menu input[type=\"checkbox\"] {\n            margin-right: 8px;\n        }\n        \n        /* Active filters display */\n        .active-filters-display {\n            color: #d32f2f;\n            font-size: 1.1rem;\n            font-weight: 600;\n            margin-bottom: 20px;\n            min-height: 1.5em;\n        }\n        \n        #downloadCSV:hover {\n            background-color: #00508f !important;\n            transform: translateY(-1px);\n            box-shadow: 0 2px 4px rgba(0,0,0,0.2);\n        }\n        \n        /* Skip link for keyboard navigation */\n        .skip-link {\n            position: absolute;\n            top: -40px;\n            left: 0;\n            background: #003366;\n            color: white;\n            padding: 8px;\n            text-decoration: none;\n            z-index: 9999;\n        }\n        \n        .skip-link:focus {\n            top: 0;\n        }\n        \n        /* Improved focus indicators */\n        a:focus,\n        button:focus,\n        input:focus,\n        select:focus,\n        textarea:focus {\n            outline: 3px solid #003366;\n            outline-offset: 2px;\n        }\n        \n        /* Screen reader only content */\n        .sr-only {\n            position: absolute;\n            width: 1px;\n            height: 1px;\n            padding: 0;\n            margin: -1px;\n            overflow: hidden;\n            clip: rect(0, 0, 0, 0);\n            white-space: nowrap;\n            border: 0;\n        }\n        \n    </style>\n</head>\n<body>\n    <!-- Skip to main content link for keyboard navigation -->\n    <a href=\"#main-content\" class=\"skip-link\">Skip to main content</a>\n    \n    <!-- Work in Progress Banner -->\n    <div class=\"alert alert-warning mb-0\" role=\"alert\">\n        <div class=\"container\">\n            <strong>\ud83d\udea7 Active Development:</strong> This is an experimental tool tracking federal job postings.\n            Data source: <a href=\"https://github.com/abigailhaddad/usajobs_historical\" target=\"_blank\" class=\"alert-link\">USAJobs Historical Data</a> | <a class='alert-link' href='/methodology'>Methodology</a>\n        </div>\n    </div>\n\n    <!-- Archive Notice Banner -->\n    <div class=\"alert alert-danger mb-0\" role=\"alert\" style=\"border-radius: 0;\">\n        <div class=\"container\">\n            <strong>\ud83d\udcc1 Archive Notice:</strong> This tracker will be archived on December 31, 2025. Data collection will stop on that date and no further updates will be made.\n        </div>\n    </div>\n\n    <div class=\"container\" id=\"main-content\">\n        <h1>USAJobs Listings Tracker</h1>\n        <p class=\"subtitle\" id=\"dateRangeSubtitle\">Loading date range...</p>\n        <div id=\"activeFiltersDisplay\" class=\"active-filters-display\"></div>\n        \n        <!-- ARIA live region for screen reader announcements -->\n        <div class=\"sr-only\" aria-live=\"polite\" aria-atomic=\"true\" id=\"ariaLiveRegion\"></div>\n        \n        <!-- Important Caveats -->\n        <div class=\"alert alert-info mt-3 mb-3\">\n            <small>\n                <strong>Important Notes:</strong>\n                <ul class=\"mb-0\" style=\"padding-left: 20px;\">\n                    <li>Job listings \u2260 actual hires. One listing may result in multiple hires, one hire, or no hires.</li>\n                    <li>Not all federal positions are posted on USAJobs.</li>\n                    <li>Job listings which include multiple occupation series are counted under the first series listed.</li>\n                    <li>Subagency view and raw job listings are only available after selecting a specific department.</li>\n                </ul>\n            </small>\n        </div>\n        \n        <!-- Data Source Attribution -->\n        <div class=\"text-center text-muted mb-4\">\n            <small>\n                Data source: <a href=\"https://github.com/abigailhaddad/usajobs_historical\" target=\"_blank\" class=\"text-decoration-none\">\n                    USAJobs Historical Data\n                </a>\n                <br>\n                <span id=\"lastUpdated\"></span>\n            </small>\n        </div>\n        \n        <div class=\"summary-stats\">\n            <div class=\"row\">\n                <div class=\"col-md-3 stat-box\">\n                    <div class=\"stat-value\" id=\"total2024\">Loading...</div>\n                    <div class=\"stat-label\" id=\"previousYearLabel\">Previous Year</div>\n                </div>\n                <div class=\"col-md-3 stat-box\">\n                    <div class=\"stat-value\" id=\"total2025\">Loading...</div>\n                    <div class=\"stat-label\" id=\"currentYearLabel\">Current Year</div>\n                </div>\n                <div class=\"col-md-3 stat-box\">\n                    <div class=\"stat-value\" id=\"overallPercentage\">Loading...</div>\n                    <div class=\"stat-label\" id=\"percentageLabel\">Year-over-Year %</div>\n                </div>\n                <div class=\"col-md-3 stat-box\">\n                    <div class=\"stat-value\" id=\"entityCount\">Loading...</div>\n                    <div class=\"stat-label\">Departments</div>\n                </div>\n            </div>\n        </div>\n        \n        <!-- Unified Filter Section -->\n        <div class=\"filter-section\">\n            <h3>Filters & Display Options</h3>\n            <div class=\"filter-controls\">\n                <div class=\"row mb-3\">\n                    <div class=\"col-md-3\">\n                        <label for=\"mainDepartmentFilter\">Department</label>\n                        <select class=\"form-control form-control-sm\" id=\"mainDepartmentFilter\">\n                            <option value=\"\">All Departments</option>\n                        </select>\n                    </div>\n                    <div class=\"col-md-3\">\n                        <label for=\"mainAgencyFilter\">Agency</label>\n                        <select class=\"form-control form-control-sm\" id=\"mainAgencyFilter\">\n                            <option value=\"\">All Agencies</option>\n                        </select>\n                    </div>\n                    <div class=\"col-md-3\">\n                        <label for=\"mainAppointmentFilter\">Appointment Type</label>\n                        <select class=\"form-control form-control-sm\" id=\"mainAppointmentFilter\">\n                            <option value=\"\">All Types</option>\n                        </select>\n                    </div>\n                    <div class=\"col-md-3\">\n                        <label for=\"mainOccupationFilter\">Occupation Series</label>\n                        <select class=\"form-control form-control-sm\" id=\"mainOccupationFilter\">\n                            <option value=\"\">All Occupations</option>\n                        </select>\n                    </div>\n                </div>\n                <div class=\"row mb-3\">\n                    <div class=\"col-md-3\">\n                        <label for=\"aggregationLevel\">View By</label>\n                        <select id=\"aggregationLevel\" class=\"form-control form-control-sm\">\n                            <option value=\"department\" selected>Department</option>\n                            <option value=\"agency\">Agency</option>\n                            <option value=\"subagency\" disabled>Subagency (select a department first)</option>\n                        </select>\n                    </div>\n                    <div class=\"col-md-3\">\n                        <label>&nbsp;</label>\n                        <div class=\"form-check\">\n                            <input class=\"form-check-input\" type=\"checkbox\" id=\"showRawJobs\" disabled>\n                            <label class=\"form-check-label\" for=\"showRawJobs\">\n                                Show Raw Jobs (select a department first)\n                            </label>\n                        </div>\n                    </div>\n                </div>\n            </div>\n        </div>\n        \n        <div class=\"treemap-container\">\n            <h2 class=\"treemap-title\" id=\"bubbleChartTitle\">USAJobs Counts by Department</h2>\n            <p style=\"margin-top: -10px; margin-bottom: 15px; color: #666; font-size: 0.9rem;\">Bubble size = 2024 count</p>\n            <div id=\"bubble-chart\"></div>\n        </div>\n        \n        <div class=\"table-container\">\n            <div class=\"d-flex justify-content-between align-items-center mb-3\">\n                <h3 class=\"m-0\" style=\"color: #003366; font-size: 1.3rem;\">Data Table</h3>\n                <button id=\"downloadCSV\" class=\"btn btn-sm\" style=\"background-color: #003366; color: white; border: none;\">\n                    <i class=\"bi bi-download\"></i> Download Current View as CSV\n                </button>\n            </div>\n            <table id=\"jobsTable\" class=\"table table-striped\">\n                <thead id=\"tableHead\">\n                    <tr id=\"tableHeaders\">\n                        <th>Department</th>\n                        <th>Agency</th>\n                        <th>2024 Listings</th>\n                        <th>2025 Listings</th>\n                        <th>Change</th>\n                        <th>2025 as % of 2024</th>\n                    </tr>\n                </thead>\n                <tbody id=\"tableBody\">\n                </tbody>\n            </table>\n        </div>\n    </div>\n    \n    <!-- jQuery -->\n    <script src=\"https://code.jquery.com/jquery-3.7.0.min.js\"></script>\n    <!-- Bootstrap JS -->\n    <script src=\"https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js\"></script>\n    <!-- DataTables JS -->\n    <script src=\"https://cdn.datatables.net/1.13.6/js/jquery.dataTables.min.js\"></script>\n    <script src=\"https://cdn.datatables.net/1.13.6/js/dataTables.bootstrap5.min.js\"></script>\n    <!-- D3.js for Treemap -->\n    <script src=\"https://d3js.org/d3.v7.min.js\"></script>\n    \n    <script src=\"jobs_app.js\"></script>\n</body>\n</html>",
+          "title": "USAJobs Listings Tracker",
+          "httpStatus": 200
+        },
+        {
+          "type": "openrouter:web_search",
+          "id": "st_tmp_lkusr1sarw",
+          "status": "completed",
+          "action": {
+            "type": "search",
+            "query": "Census Bureau workforce 1300 deferred resignations 2025 Robert Santos resigned director acting Ron Jarmin total employees"
+          }
+        },
+        {
+          "type": "openrouter:web_search",
+          "id": "st_tmp_40dh7oafgj4",
+          "status": "completed",
+          "action": {
+            "type": "search",
+            "query": "2026 American Community Survey content changes Federal Register notice questions added removed Census Bureau"
+          }
+        }
+      ],
+      "ended": "answered",
+      "seconds": 188.8
+    },
+    "session_metadata": {
+      "request": {
+        "model": "moonshotai/kimi-k3",
+        "max_output_tokens": 32768,
+        "tools": [
+          {
+            "type": "openrouter:web_search",
+            "parameters": {
+              "engine": "exa",
+              "max_results": 10,
+              "excluded_domains": [
+                "dataindex.us"
+              ]
+            }
+          },
+          {
+            "type": "openrouter:web_fetch",
+            "parameters": {
+              "engine": "openrouter",
+              "blocked_domains": [
+                "dataindex.us"
+              ],
+              "max_content_tokens": 10000
+            }
+          }
+        ],
+        "cache_control": {
+          "type": "ephemeral",
+          "ttl": "1h"
+        },
+        "session_id": "acs-moonshotai/kimi-k3-t0-2026-10-08T19:45:24Z",
+        "stop_server_tools_when": [
+          {
+            "type": "step_count_is",
+            "step_count": 200
+          }
+        ],
+        "reasoning": {
+          "effort": "high"
+        },
+        "provider": {
+          "order": [
+            "moonshotai"
+          ],
+          "allow_fallbacks": false
+        }
+      },
+      "response_meta": {
+        "id": "gen-1791489058-x1ANvtTGPgsIZ2rPOaO2",
+        "object": "response",
+        "created_at": 1791489058,
+        "model": "moonshotai/kimi-k3",
+        "status": "completed",
+        "completed_at": 1791489079,
+        "error": null,
+        "incomplete_details": null,
+        "tools": [],
+        "tool_choice": "auto",
+        "parallel_tool_calls": true,
+        "max_output_tokens": 32768,
+        "temperature": 1,
+        "top_p": 1,
+        "presence_penalty": 0,
+        "frequency_penalty": 0,
+        "top_logprobs": 0,
+        "max_tool_calls": null,
+        "metadata": {},
+        "background": false,
+        "previous_response_id": null,
+        "service_tier": "auto",
+        "truncation": "disabled",
+        "store": false,
+        "instructions": null,
+        "text": {
+          "format": {
+            "type": "text"
+          }
+        },
+        "reasoning": {
+          "effort": "high"
+        },
+        "safety_identifier": null,
+        "prompt_cache_key": null,
+        "prompt_cache_options": null,
+        "usage": {
+          "input_tokens": 15002,
+          "input_tokens_details": {
+            "cached_tokens": 6400
+          },
+          "output_tokens": 698,
+          "output_tokens_details": {
+            "reasoning_tokens": 585
+          },
+          "total_tokens": 15700,
+          "cost": 0.038196,
+          "cost_details": {
+            "upstream_inference_cost": 0.038196,
+            "upstream_inference_input_cost": 0.027726,
+            "upstream_inference_output_cost": 0.01047
+          }
+        }
+      },
+      "requests": [
+        {
+          "input_tokens": 15002,
+          "input_tokens_details": {
+            "cached_tokens": 6400
+          },
+          "output_tokens": 698,
+          "output_tokens_details": {
+            "reasoning_tokens": 585
+          },
+          "total_tokens": 15700,
+          "cost": 0.038196,
+          "cost_details": {
+            "upstream_inference_cost": 0.038196,
+            "upstream_inference_input_cost": 0.027726,
+            "upstream_inference_output_cost": 0.01047
+          }
+        }
+      ],
+      "searches": 0,
+      "fetches": 0,
+      "tool_items": [],
+      "ended": "answered",
+      "seconds": 21.5
+    }
+  },
+  "messages": [
+    {
+      "role": "user",
+      "content": "#data research\nI am researching a federal dataset. Find out everything you can about this dataset, such as who publishes it, under what authority or mandate, its history, its typical users, and its benefits to the public. Be sure your research comprehensively covers each of those perspectives, as well as any others that you discover or seem useful. I believe this is accurate information, but please check:\n\nDataset title: American Community Survey (ACS)\nOrganization/publisher: U.S. Census Bureau\nDescription: The American Community Survey (ACS) is an ongoing nationwide survey conducted by the Census Bureau that collects vital information about the social, economic, housing, and demographic characteristics of our nation's population. Replacing the long form of the decennial census, the ACS is distributed to approximately 3.5 million addresses annually, providing detailed data throughout the year. Since 2005, it has generated estimates for areas with populations of 65,000 or more and, through 5-year accumulations, for smaller geographic areas such as census tracts and block groups. This data plays a crucial role in informing policy decisions and guiding the distribution of trillions of dollars in federal funds each year.\nURL: https://census.gov/programs-surveys/acs\n\nReturn a complete report on everything that a preservationist, data librarian, data scientist, or policy activist might want to know about this data."
+    },
+    {
+      "role": "assistant",
+      "content": "I'll research the American Community Survey comprehensively, verifying the details you provided and gathering information across all the perspectives you mentioned.Let me dig deeper into the data products, access tools, and current issues facing the survey.One more round of research on typical users, use cases, and current preservation/political concerns.# Comprehensive Research Report: The American Community Survey (ACS)\n\n## 1. Verification of Your Provided Information\n\nYour description is **accurate in substance**, with a few refinements worth noting:\n\n| Your Claim | Verification |\n|---|---|\n| Publisher: U.S. Census Bureau | \u2705 Confirmed. Administered by the Census Bureau (U.S. Department of Commerce). |\n| ~3.5 million addresses annually | \u2705 Confirmed. Approximately 295,000 housing units per month, ~3.54 million/year (increased in 2011 from ~250,000/month / ~3 million/year). |\n| Replaced the decennial census long form | \u2705 Confirmed. The 2000 Census was the last with a long form; the 2010 and 2020 censuses used only short-form questions. |\n| Estimates since 2005 for areas of 65,000+ | \u26a0\ufe0f Minor nuance: Full implementation began in **2005**, but the first 1-year estimates (for the 2005 data year) were **released in September 2006**. |\n| 5-year estimates for tracts/block groups | \u2705 Confirmed. First 5-year estimates (2005\u20132009) released in late 2010. |\n| Informs distribution of trillions of dollars | \u2705 Confirmed (with nuance below in \u00a77). |\n| URL: census.gov/programs-surveys/acs | \u2705 Correct canonical landing page. |\n\nOne omission in your description: the ACS previously produced **3-year estimates (2007\u20132013, discontinued)** \u2014 relevant to anyone using historical time series.\n\n---\n\n## 2. What the Dataset Is\n\nThe ACS is the largest household survey in the United States and the nation's premier source of detailed, current social, economic, housing, and demographic statistics below the national level. It collects data **continuously, every month of every year**, rather than once a decade. A companion survey, the **Puerto Rico Community Survey (PRCS)**, provides equivalent data for Puerto Rico.\n\n**Topics covered (~35+ subject areas):** age, sex, race, Hispanic origin, ancestry, citizenship, language spoken at home and English proficiency, disability status, educational attainment, school enrollment, veteran status, marital status, fertility, labor force status, occupation, industry, commuting/journey to work, income and poverty, health insurance coverage, food stamps/SNAP, housing tenure, home value, rent, mortgage and utility costs, plumbing/kitchen facilities, vehicles, computers/internet access, and more.\n\n---\n\n## 3. Publisher, Authority, and Mandate\n\n- **Publisher:** U.S. Census Bureau, an agency of the U.S. Department of Commerce.\n- **Constitutional basis:** Article I, Section 2, Clause 3 (the decennial enumeration, conducted \"in such Manner as [Congress] shall by Law direct\").\n- **Statutory authority:** **Title 13, U.S. Code, Sections 141 and 193** (authority to conduct the survey as part of the decennial census program and to collect interim data). Section 193 specifically authorizes preliminary statistics in advance of the census. The Bureau's general authority derives from the 1902 act making the Census Office permanent and the 1954 codification of Title 13.\n- **Mandatory response:** **13 U.S.C. \u00a7 221** makes response compulsory; refusal can carry fines (statutorily up to $100, with penalty amounts under Title 18 potentially higher; prosecution is rare but the legal obligation is real). A 2002 GAO opinion (B-289852) confirmed the Bureau's authority both to conduct the ACS and to require responses. Courts (e.g., *Morales v. Evans*) have upheld the constitutionality of detailed census questions.\n- **Confidentiality:** **Title 13, \u00a7 9** strictly protects responses. Data may be used only for statistical purposes; individual responses are immune from legal process and cannot be shared with other agencies, law enforcement, or immigration authorities. Sworn Census employees face felony penalties (up to 5 years prison, $250,000 fine) for disclosure.\n- **Oversight:** Questionnaire content is cleared through the **Paperwork Reduction Act** process (OMB control number), with each question justified by an interagency committee led by OMB tying items to statutory program needs. Congress funds it as part of the decennial census budget line (historically on the order of $200M+ annually; CRS tracks appropriations, e.g., CRS Insight IN12303).\n\n---\n\n## 4. History\n\n- **1940\u20132000:** Detailed socioeconomic data were collected via the decennial census \"long form\" sent to a sample (~1 in 6 households in 2000) once every 10 years \u2014 meaning data were stale by decade's end.\n- **1994:** Census Bureau begins developing \"continuous measurement\" as an alternative.\n- **1996:** First field tests in four counties; testing expands through the late 1990s. The 2002 GAO report notes Congress never explicitly mandated the ACS \u2014 it was a Bureau initiative kept before Congress through budget justifications and two oversight hearings (2000\u20132001).\n- **2000:** National test (the \"Census 2000 Supplementary Survey\").\n- **2005:** Full national implementation (including group quarters by 2006).\n- **2006:** First 1-year estimates released (2005 data; areas \u226565,000 population).\n- **2007\u20132013:** 3-year estimates produced (areas \u226520,000), then discontinued.\n- **2010:** First 5-year estimates (2005\u20132009), covering **all** geographic areas down to census tracts and block groups. The 2010 decennial census drops the long form entirely.\n- **2011:** Sample increases to ~3.54 million addresses/year to improve reliability.\n- **2020\u20132021:** COVID-19 severely disrupted data collection (nonresponse bias). The Bureau **cancelled standard 2020 1-year estimates** \u2014 an unprecedented event \u2014 and released only experimental estimates with alternative weights (not on data.census.gov). The 2016\u20132020 5-year file used adapted methodology.\n- **2021\u2013present:** Ongoing debate over replacing PUMS microdata with **fully synthetic data** plus a validation server (see \u00a78).\n\n---\n\n## 5. Data Products and Access\n\n**Product line (annual release cycle):**\n\n| Product | Population threshold | Lowest geography | Typical release |\n|---|---|---|---|\n| 1-year estimates | 65,000+ | Large places/counties | September |\n| 1-year supplemental estimates | 20,000+ | Places | October |\n| 1-year PUMS | \u2014 | PUMA | October |\n| 5-year estimates | All areas | **Block groups** | December |\n| 5-year PUMS | \u2014 | PUMA | January |\n| 5-year Variance Replicate Estimates | \u2014 | Block group | January |\n\n**Table types:** Detailed Tables (B/C-prefixed), Subject Tables (S), Data Profiles (DP), Comparison Profiles (CP), Ranking Tables (R), Geographic Comparison Tables (GCT), Selected Population Profiles, and Narrative Profiles.\n\n**Key specialized products:**\n- **Public Use Microdata Sample (PUMS):** Anonymized individual-level records (~1% of population per year; ~5% in 5-year files) enabling custom tabulations. PUMAs (Public Use Microdata Areas, \u2265100,000 people) are the lowest PUMS geography. Available via download and the Microdata Analysis Tool (MDAT).\n- **Summary File:** Bulk download of all Detailed Table estimates **and margins of error** for all geographies \u2014 the essential product for large-scale programmatic use.\n- **Citizen Voting Age Population (CVAP) special tabulation:** 5-year ACS-based file critical for Voting Rights Act Section 2 litigation and redistricting.\n- **Census Data API** (api.census.gov): Free, key-required, well-documented; the backbone of most programmatic access. Wrappers include **tidycensus** and **censusapi** (R), **census**/**cenpy** (Python).\n- **data.census.gov:** Primary web dissemination platform.\n- **Third-party harmonization:** **IPUMS USA** and **IPUMS NHGIS** (University of Minnesota) provide harmonized microdata and tract-level time series \u2014 indispensable for longitudinal research because geography and variable definitions shift over time.\n\n**Critical technical caveat:** ACS values are *estimates with margins of error* from a sample \u2014 not counts like the decennial census. Small-area 5-year estimates can have very large MOEs; users must not treat them as exact, and overlapping 5-year vintages are not statistically independent.\n\n---\n\n## 6. Typical Users\n\n- **Federal agencies:** HHS, Education, USDA (Food and Nutrition Service), HUD, DOL, DOT, VA, SBA, FEMA, DOJ \u2014 for formula allocation, program design, evaluation, and civil-rights enforcement. ACS data also feed derivative datasets (BEA per-capita income, BLS/CPS controls, Census population estimates, ERS rural-urban commuting codes), multiplying its footprint.\n- **State, local, and tribal governments:** Comprehensive/general planning, transportation modeling, housing needs assessments, grant applications (e.g., CDBG), emergency management, siting schools/hospitals/fire stations, environmental justice and Title VI compliance analysis.\n- **Civil rights enforcement and litigation:** Voting Rights Act (CVAP data for redistricting and Section 2 cases), fair housing, employment discrimination (Civil Rights Act, ADEA), language-access compliance, jury-representativeness challenges.\n- **Businesses and nonprofits:** Site selection, market analysis, workforce assessment, consumer segmentation; a large third-party industry (Esri, Claritas, PolicyMap, Social Explorer, etc.) repackages ACS data.\n- **Researchers:** ACS microdata are among the most-used datasets in social science (economics, demography, public health, sociology).\n- **Journalists and advocates:** Local reporting, equity analyses, community needs documentation.\n\n---\n\n## 7. Benefits to the Public\n\n- **Federal funding allocation:** A Census Bureau/GWU working paper found **353 federal assistance programs used Decennial Census Programs data to distribute over $2.8 trillion in FY2021**. (Note the nuance: that figure covers all decennial-program data; analyses isolating the ACS specifically \u2014 e.g., Brookings' \"Surveying for Dollars\" \u2014 found ~$416 billion in FY2008 directly guided by ACS-related datasets, with Medicaid alone ~63% of that. The Census Bureau's own current language is \"trillions of dollars,\" reflecting the ACS's role as the annual updating mechanism for decennial-derived statistics.) Major formula programs affected: Medicaid, highway funds, Title I education, CDBG, SNAP, WIC, Head Start, and more.\n- **Timeliness:** The ACS's core innovation \u2014 communities no longer rely on 10-year-old data. This matters most for fast-changing places and during shocks (recessions, disasters, pandemics).\n- **Equity infrastructure:** It is the only uniform, nationwide source for small-area data on poverty, disability, language isolation, internet access, and housing cost burden \u2014 the statistical backbone of equity analysis at every level of government.\n- **Small-area coverage:** 5-year estimates provide data for every census tract and block group in the country \u2014 no other survey does this.\n\n---\n\n## 8. Risks, Controversies, and Preservation Concerns\n\n**(a) Data-quality shocks.** The 2020 cancellation of standard 1-year estimates demonstrates the survey's vulnerability to collection disruptions. Users doing longitudinal analysis must handle the 2020 gap carefully; the experimental 2020 estimates are not directly comparable to standard products.\n\n**(b) Political/legislative risk.** The ACS has repeatedly faced congressional proposals to make response **voluntary** or to eliminate/curtail it (notably in the 2012\u20132015 period). Methodological testing by the Census Bureau and Canada's 2011 voluntary-census experience indicate voluntary response would sharply raise costs, lower response rates, and degrade small-area reliability. As a Bureau-initiated program with no explicit statutory mandate beyond Title 13's general authority, it depends on sustained appropriations and OMB clearances.\n\n**(c) Disclosure avoidance / synthetic data debate.** The Census Bureau has been researching replacing the ACS PUMS with **fully synthetic microdata** plus a validation server (a public test was planned for mid-2025). The research community has raised strong concerns (see Ruggles, *PNAS* 2025, \"The shortcomings of synthetic census microdata\") that synthetic data are unsuitable for many research and policy uses. Differential privacy (as applied to the 2020 Census via the TopDown Algorithm) is **not** currently applied to ACS weighted estimates \u2014 the Bureau states the science doesn't yet exist for complex surveys \u2014 but traditional methods (swapping, top-coding, perturbation) continue and are \"reviewed and strengthened every year.\" **This is the single most important live issue for data users to monitor.**\n\n**(d) Preservation considerations for librarians and archivists:**\n- ACS products are born-digital and distributed primarily through **data.census.gov and the API** \u2014 dynamic platforms, not stable documents. Retired platforms (American FactFinder, retired in 2020) broke countless citations; deep links to data.census.gov tables are similarly fragile.\n- **Recommended practice:** archive the **Summary Files and PUMS flat files** (CSV/SAS) from www2.census.gov \u2014 these static files are the most preservable canonical versions \u2014 along with table shells, geography files, technical documentation, and subject definitions for each vintage.\n- Trusted redundancies exist: **IPUMS USA/NHGIS** (harmonized historical microdata and aggregates), **ICPSR**, university library data repositories, and community efforts such as the **End of Term Archive / Data Rescue** initiatives that mirrored Census assets. The static www2.census.gov FTP-style tree is itself a de facto archive of releases back to the 1990s tests.\n- Preserve **margins of error and replicate weights** with estimates \u2014 data without MOEs loses defensibility. Preserve vintage metadata: 5-year files are labeled by end-year range (e.g., \"2020\u20132024 ACS 5-year\").\n- Question wording changes over time (e.g., health insurance added 2008, computer/internet revised 2013/2016, disability questions revised 2008); comparability notes in subject definitions are essential archival companions.\n\n---\n\n## 9. Key Resources\n\n- Program home: https://www.census.gov/programs-surveys/acs\n- Data portal: https://data.census.gov \u00b7 API: https://api.census.gov\n- History of the ACS (Census Bureau, 2024): www2.census.gov/library/publications/2024/acs/history-of-the-acs.pdf\n- Design & Methodology reports: www2.census.gov/programs-surveys/acs/methodology/\n- GAO legal authority opinion (2002): https://www.gao.gov/products/b-289852-0\n- Federal funding working paper (FY2021): census.gov/library/working-papers/2023/dec/census-data-federal-funds.html\n- Handbooks for federal agencies, state/local governments, businesses, researchers, and other user communities: census.gov/programs-surveys/acs/guidance/handbooks.html\n- IPUMS USA / NHGIS: https://usa.ipums.org \u00b7 https://www.nhgis.org\n- ACS Data Users Group & annual conference (community and methodological updates)\n\n**Bottom line:** The ACS is arguably the most consequential federal statistical product below the national level \u2014 legally mandatory, constitutionally grounded, continuously collected, and woven into funding formulas, civil-rights enforcement, and planning nationwide. Its chief vulnerabilities are political (funding and mandatory-response challenges), methodological (the 2020 disruption and the pending synthetic-microdata decision), and infrastructural (platform-dependent dissemination that demands active, file-level preservation)."
+    },
+    {
+      "role": "user",
+      "content": "# Dataset risk assessment\nI would like your help in assessing the likelihood that this data will be changed or removed from its primary location, and that users will no longer be able to access accurate and reliable copies of it, based on the rubric below.\n\n## Sources for context\nTo help assess the rubric categories, perform additional research on the data, the agency, the data's topics and typical users, covering topics such as proposed regulatory or funding changes, recent news, and political commentary. Use whatever resources you find useful, including the Federal Register (https://www.federalregister.gov) and the federal staffing tracker at https://usajobs-tracker.abigailhaddad.com.\n\n## Rubric\nThis rubric is divided up into categories. Each category is divided up into risk levels. In your output, please select the appropriate risk level for each category based on your research.\n\n### Historical Data Availability\n- Gone: Data files prior to the current year or cycle are no longer publicly available.\n- High Risk: Some data files prior to the current year or cycle are removed.\n- Moderate Risk: Some data elements that exist in the dataset prior to the current year or cycle are removed.\n- No Known Issue: Data prior to the current year or cycle remain accessible with no known alterations.\n\n### Future Data Availability\n- Gone: Data collection and publication has been terminated.\n- High Risk: Statutory publication deadline missed and/or collection or publication skipped and/or ICR expired for more than one year.\n- Moderate Risk: Typical or intended publication date missed and/or collection or publication delayed; ICR expired up to one year.\n- No Known Issue: Data published on time or as expected and ICR active or renewed before expiration.\n\n### Data Quality\n- Gone: Data collection and publication has been terminated.\n- High Risk: Reductions in granularity, timeliness, or frequency.\n- Moderate Risk: Potential or emerging risk to granularity, timeliness, or frequency.\n- No Known Issue: Maintained or improved granularity, timeliness, or frequency.\n\n### Statutory Context\n- Gone: N/A\n- High Risk: Statutory authorization is vague and/or there are alternative data collections that could serve as substitutes and/or no known programmatic use.\n- Moderate Risk: Not explicitly required by statute but required for the implementation of a state or federal program, and there are no alternative data collections that could serve as substitutes.\n- No Known Issue: Statutorily required and/or statutory authorization is explicitly named and it is clear what has to be collected, and there aren't alternative data collections that could serve as substitutes and/or required for implementation of a federal program.\n\n### Staffing and Funding\n- Gone: All of the staff in the division or agency are gone and/or all funding has been terminated.\n- High Risk: 40% or more of staff lost, and/or 1,000 or more staff lost, and/or budget cut by 20% or more, and/or leadership removed.\n- Moderate Risk: 10\u201339% of staff lost, and/or 500\u2013999 staff lost, and/or budget cut by 10\u201319%, and/or threatened change in leadership.\n- No Known Issue: Less than 10% of staff lost and less than 10% of budget cut and no known change in leadership.\n\n### Policy\n- Gone: Data collection and publication has been terminated.\n- High Risk: Presidential Action-driven information collection request (ICR); negative policy note on site; other significant changes in accordance with Administration priorities.\n- Moderate Risk: Proposed or pending changes; statements by administration officials suggesting a change is being considered or planned.\n- No Known Issue: No notable changes since January 2025 affecting what data is collected and published.\n\nFor each category, concisely list the evidence and supporting sources that would support each risk level. Then indicate which risk level you find most appropriate and why.\n\nConclude with a simple summary of risk levels:\nHistorical Data Availability: <level>\nFuture Data Availability: <level>\nData Quality: <level>\nStatutory Context: <level>\nStaffing and Funding: <level>\nPolicy: <level>"
+    },
+    {
+      "role": "assistant",
+      "content": "I'll research the current state of the ACS under the present administration, covering staffing, funding, policy changes, and any threats to the survey.Key findings so far include significant staffing losses and budget restructuring. Let me research ACS-specific content changes, release schedule status, and executive actions.Now let me check the December 2025 5-year release status, Census leadership changes, and the staffing tracker.The tracker is JavaScript-driven, so let me get Census staffing baseline numbers and check for ACS content/ICR changes.I have sufficient evidence to complete the assessment. Here is the risk analysis for the American Community Survey, based on developments through early 2026 (with a noted verification gap for the most recent months).\n\n---\n\n# ACS Dataset Risk Assessment\n\n## Historical Data Availability\n\n**Evidence for \"Gone\"/\"High Risk\":** None found. No ACS data files have been removed from public access. The DOGE-terminated surveys (announced May 2025) were five *other* Census surveys (e.g., Survey of Inmates in Local Jails, questions on alcohol and home internet) \u2014 not the ACS (AP/Washington Post, May 23, 2025).\n\n**Evidence for \"Moderate Risk\":** None found. No data elements in previously published ACS files have been altered or removed. (The Jan. 2025 cancellation of the ACS SOGI test removed a *planned future* test, not published data.)\n\n**Evidence for \"No Known Issue\":** The full ACS time series remains available: 1-year data 2005\u20132024 and 5-year data 2009\u20132024 via the API and data.census.gov; static summary files and PUMS back to the 1990s test years on www2.census.gov. During the Oct.\u2013Nov. 2025 government shutdown, data.census.gov's front end was degraded, but the **API and www2.census.gov static files remained up**, and mirrors exist via IPUMS, Census Reporter, Esri, PolicyMap, and the Data Rescue Project portal (Tennessee State Data Center, Sept. 30, 2025; Axios, Oct. 1, 2025).\n\n**Assessment: No Known Issue.** Historical vintages are intact, unaltered, and redundantly archived by third parties.\n\n## Future Data Availability\n\n**Evidence for \"Gone\"/\"High Risk\":** Collection has not been terminated or skipped; the ACS Methods Panel ICR (OMB 0607-0936) was approved April 17, 2025 with expiration **07/31/2027** (reginfo.gov). No statutory publication deadline exists for the ACS, and no ICR lapse of >1 year is known (I could not fully verify the expiration date of the main production ICR, 0607-0810 \u2014 a residual uncertainty).\n\n**Evidence for \"Moderate Risk\":** The 2020\u20132024 ACS 5-year estimates were **delayed** from December 11, 2025 to **January 29, 2026**, and 5-year PUMS to March 5, 2026, due to the 43-day government shutdown (Census Bureau release schedule revision, Nov. 20, 2025; Novogradac, Jan. 29, 2026). The FY2026 budget eliminates the dedicated ACS funding line, and the FY2026 House CJS bill proposes making the ACS voluntary and restricting nonresponse follow-up (CBPP; CRS IF13105), which, if enacted, would threaten future cycles.\n\n**Evidence for \"No Known Issue\":** The 2024 ACS 1-year estimates were released **on time, September 11, 2025**; the delayed 5-year estimates were ultimately released January 29, 2026, and monthly collection has continued uninterrupted.\n\n**Assessment: Moderate Risk.** The intended 5-year publication date was missed (shutdown-driven delay of ~7 weeks), and legislative proposals create forward risk. (Note: my research could not verify the status of the September 2026 1-year release; the assessment reflects the documented 2024 data cycle.)\n\n## Data Quality\n\n**Evidence for \"Gone\"/\"High Risk\":** No actual reductions in ACS granularity, timeliness, or frequency have occurred. The Jan. 2026 5-year release retained tract and block-group geographies and the full table set.\n\n**Evidence for \"Moderate Risk\":** Multiple emerging risks: (1) FY2026 budget language commits to \"reducing respondent burden\" for the ACS with no dedicated funding line, and to eliminating \"functions that are not statutorily mandated\" (COSSA analysis; Census Project, June 30, 2025); (2) the House CJS bill's voluntary-response and follow-up restrictions would sharply degrade small-area reliability \u2014 Census testing shows voluntary response lowers response rates and increases costs (CBPP, 2025); (3) field representative recruitment/retention shortfalls for key surveys were flagged by the Commerce IG (March 2025, via NPR); (4) loss of ~1,300 staff and 18 of 43 leadership positions strains processing capacity; (5) the pending synthetic-microdata proposal for PUMS remains an open quality concern (Ruggles, *PNAS* 2025).\n\n**Evidence for \"No Known Issue\":** The 2024 1-year and 2020\u20132024 5-year products were released at full scope and granularity; the Bureau notes 2020\u20132024 provides the first set of four non-overlapping 5-year datasets.\n\n**Assessment: Moderate Risk.** Quality is currently maintained, but staffing losses, the voluntary-response legislative threat, and budget restructuring present credible emerging risk to granularity and reliability.\n\n## Statutory Context\n\n**Evidence for \"High Risk\":** The ACS is not mandated by name in statute, and content is not statutorily specified \u2014 GAO (2002) noted Congress never explicitly directed the survey. However, no alternative data collection could substitute for it (it is the only source of local estimates for 40+ topics).\n\n**Evidence for \"Moderate Risk\":** Fits partially \u2014 the ACS is \"not explicitly required by statute but required for the implementation of... federal program[s]\" (350+ federal programs used decennial-program data to distribute $2.8T in FY2021).\n\n**Evidence for \"No Known Issue\":** Statutory authorization is **explicitly named and clear**: 13 U.S.C. \u00a7\u00a7 141, 193, and 221 (cited in the survey's own ICR), with mandatory response upheld by GAO and courts; the ACS is required for implementation of numerous federal programs (Medicaid, highway funding, CDBG, Title I); and **no substitute data collections exist**.\n\n**Assessment: No Known Issue.** The authorization is explicit, programmatic dependence is deep, and there are no substitutes. (The legislative threat to mandatory response is captured under Policy, not statutory vagueness.)\n\n## Staffing and Funding\n\n**Evidence for \"High Risk\":** **~1,300 Census Bureau employees** accepted deferred resignations/buyouts/early retirement in 2025 (AFGE Council 241, via Washington Post, May 2025) \u2014 exceeding the 1,000-staff threshold. **Leadership was removed**: Director Robert Santos resigned in February 2025 amid the SOGI/EO 14168 conflict, leaving the Bureau under acting director Ron Jarmin, with **18 of 43 top leadership positions vacant** (Boston Globe, May 2025). At least five division/office chiefs departed early in the administration (NPR, April 2025).\n\n**Evidence for \"Moderate Risk\":** Budget-wise, the picture is mixed: the FY2026 request *increases* the Census Bureau topline 21.3%, but that growth is concentrated in the 2030 Census; the ACS loses its dedicated funding line, and Current Surveys and Programs is cut 12.3%.\n\n**Evidence for \"No Known Issue\":** Only in the narrow sense that topline funding was not cut and core collection continues.\n\n**Assessment: High Risk.** Two independent High-risk triggers are met: 1,000+ staff lost and leadership removed, compounded by ~42% of executive positions vacant and a hiring freeze.\n\n## Policy\n\n**Evidence for \"High Risk\":** A **Presidential Action-driven ICR** exists: the Census Bureau's March 2025 non-substantive change request (reginfo 202503-0607-001) formally cancelled the ACS SOGI Test \"to bring it in compliance with Executive Order 14168,\" and the Bureau sought OMB permission to delete gender-identity questions from the Household Trends and Outlook Pulse Survey (AP, Feb. 2025). DOGE publicly targeted Census surveys as \"wasteful,\" terminating five and reviewing others \"one-by-one\" (AP, May 2025). President Trump separately called for a new census excluding undocumented immigrants (Aug. 2025), signaling hostility to existing Census programs.\n\n**Evidence for \"Moderate Risk\":** For the **production ACS specifically**, changes remain proposed/pending rather than enacted: the SOGI questions were never in the production questionnaire, so no collected/published ACS data element changed; the voluntary-response provision (House CJS bill; H.R. 4820/S. 265) is pending, not law; \"respondent burden reduction\" is announced but undefined. No negative policy banner appears on ACS pages.\n\n**Evidence for \"No Known Issue\":** The core production questionnaire, sample design, and publication program have continued unchanged since January 2025.\n\n**Assessment: Moderate Risk (borderline High).** The EO-driven ICR technically fits the High-risk definition, but it affected a research test rather than the published dataset. Because the production ACS's collected and published content remains unchanged while significant changes are formally proposed and pending, Moderate is the most accurate rating \u2014 with clear escalation potential if the voluntary-response provision or content cuts are enacted.\n\n---\n\n## Summary\n\n- **Historical Data Availability: No Known Issue**\n- **Future Data Availability: Moderate Risk** (5-year release delayed by shutdown; ACS funding line eliminated in FY2026 request)\n- **Data Quality: Moderate Risk** (emerging risks from staffing losses, voluntary-response bills, burden-reduction plans)\n- **Statutory Context: No Known Issue** (explicit 13 U.S.C. \u00a7\u00a7141/193/221 authority; no substitutes; deep programmatic dependence)\n- **Staffing and Funding: High Risk** (~1,300 staff lost; director resigned; 18/43 leadership vacancies)\n- **Policy: Moderate Risk** (EO 14168-driven cancellation of ACS SOGI test; pending voluntary-response legislation; DOGE review \u2014 production data unchanged so far)\n\n**Overall:** The ACS's published data remain intact and its statutory footing is solid, but the *institution producing it* is under the most serious strain in the survey's history. The dominant risks are forward-looking: workforce depletion, the proposed conversion to voluntary response, undefined \"burden reduction,\" and the absence of a dedicated budget line. Preservationists should treat current vintages (through 2020\u20132024 5-year) as the last fully normal releases and prioritize archiving flat files and PUMS now."
+    },
+    {
+      "role": "user",
+      "content": "Emit a session_metadata YAML block reporting: current date, model identifier, knowledge cutoff, surface, whether memory is enabled, whether custom preferences or styles are active, all tools and MCP servers available, which tools were actually called in this session, and whether attachments were present. Mark any field not directly observable as unknown rather than inferring it."
+    },
+    {
+      "role": "assistant",
+      "content": "```yaml\nsession_metadata:\n  current_date: unknown\n  model_identifier: unknown\n  knowledge_cutoff: unknown\n  surface: unknown\n  memory_enabled: unknown\n  custom_preferences_or_styles_active: unknown\n  tools_available:\n    - openrouter_web_search\n    - openrouter_web_fetch\n  mcp_servers_available: unknown\n  tools_called_in_session:\n    - openrouter_web_search\n    - openrouter_web_fetch\n  attachments_present: false\n```"
+    }
+  ]
+}

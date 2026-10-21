@@ -1,0 +1,1047 @@
+{
+  "dataset": {
+    "key": "scf",
+    "title": "Survey of Consumer Finances (SCF)"
+  },
+  "model": "anthropic/claude-opus-5.5",
+  "harness": "openrouter tools",
+  "context": "full: each turn's whole output is carried into the next",
+  "search_tool": {
+    "engine": "native",
+    "excluded_domains": [
+      "dataindex.us"
+    ]
+  },
+  "fetch_tool": {
+    "engine": "openrouter",
+    "blocked_domains": [
+      "dataindex.us"
+    ],
+    "max_content_tokens": 10000
+  },
+  "reasoning": "effort medium",
+  "catalog": {
+    "fetched_at": "2026-10-09T01:13:04Z",
+    "entry": {
+      "id": "anthropic/claude-opus-5.5",
+      "canonical_slug": "anthropic/claude-opus-5.5-20260921",
+      "hugging_face_id": null,
+      "name": "Anthropic: Claude Opus 5.5",
+      "created": 1790094732,
+      "description": "Claude Opus 5.5 is Anthropic's flagship model for demanding reasoning, coding, and long-horizon agentic work, succeeding Claude Opus 5. It is particularly strong at multi-step changes in large codebases, code...",
+      "context_length": 1000000,
+      "architecture": {
+        "modality": "text+image+file->text",
+        "input_modalities": [
+          "text",
+          "image",
+          "file"
+        ],
+        "output_modalities": [
+          "text"
+        ],
+        "tokenizer": "Claude",
+        "instruct_type": null
+      },
+      "pricing": {
+        "prompt": "0.000004",
+        "completion": "0.00002",
+        "web_search": "0.01",
+        "input_cache_read": "0.0000002",
+        "input_cache_write": "0.000005",
+        "input_cache_write_1h": "0.000008"
+      },
+      "top_provider": {
+        "context_length": 1000000,
+        "max_completion_tokens": 128000,
+        "is_moderated": true
+      },
+      "per_request_limits": null,
+      "supported_parameters": [
+        "include_reasoning",
+        "max_completion_tokens",
+        "max_tokens",
+        "reasoning",
+        "reasoning_effort",
+        "response_format",
+        "stop",
+        "structured_outputs",
+        "tool_choice",
+        "tools",
+        "verbosity"
+      ],
+      "default_parameters": {},
+      "supported_voices": null,
+      "knowledge_cutoff": null,
+      "expiration_date": null,
+      "links": {
+        "details": "/api/v1/models/anthropic/claude-opus-5.5-20260921/endpoints"
+      },
+      "benchmarks": {
+        "design_arena": [
+          {
+            "arena": "agents",
+            "category": "mobileapps",
+            "elo": 1328,
+            "win_rate": 64.3,
+            "rank": 2
+          },
+          {
+            "arena": "models",
+            "category": "3d",
+            "elo": 1487,
+            "win_rate": 72.3,
+            "rank": 1
+          },
+          {
+            "arena": "models",
+            "category": "codecategories",
+            "elo": 1407,
+            "win_rate": 65.3,
+            "rank": 1
+          },
+          {
+            "arena": "models",
+            "category": "dataviz",
+            "elo": 1403,
+            "win_rate": 64.6,
+            "rank": 1
+          },
+          {
+            "arena": "models",
+            "category": "gamedev",
+            "elo": 1464,
+            "win_rate": 72.5,
+            "rank": 1
+          },
+          {
+            "arena": "models",
+            "category": "svg",
+            "elo": 1332,
+            "win_rate": 50.5,
+            "rank": 1
+          },
+          {
+            "arena": "models",
+            "category": "uicomponent",
+            "elo": 1396,
+            "win_rate": 65.5,
+            "rank": 1
+          },
+          {
+            "arena": "models",
+            "category": "website",
+            "elo": 1340,
+            "win_rate": 57.6,
+            "rank": 3
+          }
+        ],
+        "artificial_analysis": {
+          "intelligence_index": 57.6,
+          "coding_index": null,
+          "agentic_index": null
+        }
+      },
+      "reasoning": {
+        "mandatory": true,
+        "supported_efforts": [
+          "max",
+          "xhigh",
+          "high",
+          "medium",
+          "low"
+        ],
+        "default_effort": "high"
+      }
+    }
+  },
+  "upstream": [
+    "anthropic"
+  ],
+  "trial": 0,
+  "terminate_reason": "completed",
+  "max_tokens": 32768,
+  "started_at": "2026-10-09T01:13:04Z",
+  "prompts": {
+    "research": "#data research\nI am researching a federal dataset. Find out everything you can about this dataset, such as who publishes it, under what authority or mandate, its history, its typical users, and its benefits to the public. Be sure your research comprehensively covers each of those perspectives, as well as any others that you discover or seem useful. I believe this is accurate information, but please check:\n\nDataset title: Survey of Consumer Finances (SCF)\nDescription: The Survey of Consumer Finances (SCF) is normally a triennial cross-sectional survey of U.S. families. The survey data include information on families\u2019 balance sheets, pensions, income, and demographic characteristics. Information is also included from related surveys of pension providers and the earlier such surveys conducted by the Federal Reserve Board. No other study for the country collects comparable information. Data from the SCF are widely used, from analysis at the Federal Reserve and other branches of government to scholarly work at the major economic research centers.\n\nReturn a complete report on everything that a preservationist, data librarian, data scientist, or policy activist might want to know about this data.",
+    "assessment": "# Dataset risk assessment\nI would like your help in assessing the likelihood that this data will be changed or removed from its primary location, and that users will no longer be able to access accurate and reliable copies of it, based on the rubric below.\n\n## Sources for context\nTo help assess the rubric categories, perform additional research on the data, the agency, the data's topics and typical users, covering topics such as proposed regulatory or funding changes, recent news, and political commentary. Use whatever resources you find useful, including the Federal Register (https://www.federalregister.gov) and the federal staffing tracker at https://usajobs-tracker.abigailhaddad.com.\n\n## Rubric\nThis rubric is divided up into categories. Each category is divided up into risk levels. In your output, please select the appropriate risk level for each category based on your research.\n\n### Historical Data Availability\n- Gone: Data files prior to the current year or cycle are no longer publicly available.\n- High Risk: Some data files prior to the current year or cycle are removed.\n- Moderate Risk: Some data elements that exist in the dataset prior to the current year or cycle are removed.\n- No Known Issue: Data prior to the current year or cycle remain accessible with no known alterations.\n\n### Future Data Availability\n- Gone: Data collection and publication has been terminated.\n- High Risk: Statutory publication deadline missed and/or collection or publication skipped and/or ICR expired for more than one year.\n- Moderate Risk: Typical or intended publication date missed and/or collection or publication delayed; ICR expired up to one year.\n- No Known Issue: Data published on time or as expected and ICR active or renewed before expiration.\n\n### Data Quality\n- Gone: Data collection and publication has been terminated.\n- High Risk: Reductions in granularity, timeliness, or frequency.\n- Moderate Risk: Potential or emerging risk to granularity, timeliness, or frequency.\n- No Known Issue: Maintained or improved granularity, timeliness, or frequency.\n\n### Statutory Context\n- Gone: N/A\n- High Risk: Statutory authorization is vague and/or there are alternative data collections that could serve as substitutes and/or no known programmatic use.\n- Moderate Risk: Not explicitly required by statute but required for the implementation of a state or federal program, and there are no alternative data collections that could serve as substitutes.\n- No Known Issue: Statutorily required and/or statutory authorization is explicitly named and it is clear what has to be collected, and there aren't alternative data collections that could serve as substitutes and/or required for implementation of a federal program.\n\n### Staffing and Funding\n- Gone: All of the staff in the division or agency are gone and/or all funding has been terminated.\n- High Risk: 40% or more of staff lost, and/or 1,000 or more staff lost, and/or budget cut by 20% or more, and/or leadership removed.\n- Moderate Risk: 10\u201339% of staff lost, and/or 500\u2013999 staff lost, and/or budget cut by 10\u201319%, and/or threatened change in leadership.\n- No Known Issue: Less than 10% of staff lost and less than 10% of budget cut and no known change in leadership.\n\n### Policy\n- Gone: Data collection and publication has been terminated.\n- High Risk: Presidential Action-driven information collection request (ICR); negative policy note on site; other significant changes in accordance with Administration priorities.\n- Moderate Risk: Proposed or pending changes; statements by administration officials suggesting a change is being considered or planned.\n- No Known Issue: No notable changes since January 2025 affecting what data is collected and published.\n\nFor each category, concisely list the evidence and supporting sources that would support each risk level. Then indicate which risk level you find most appropriate and why.\n\nConclude with a simple summary of risk levels:\nHistorical Data Availability: <level>\nFuture Data Availability: <level>\nData Quality: <level>\nStatutory Context: <level>\nStaffing and Funding: <level>\nPolicy: <level>",
+    "session_metadata": "Emit a session_metadata YAML block reporting: current date, model identifier, knowledge cutoff, surface, whether memory is enabled, whether custom preferences or styles are active, all tools and MCP servers available, which tools were actually called in this session, and whether attachments were present. Mark any field not directly observable as unknown rather than inferring it."
+  },
+  "turns": {
+    "research": {
+      "request": {
+        "model": "anthropic/claude-opus-5.5",
+        "max_output_tokens": 32768,
+        "tools": [
+          {
+            "type": "openrouter:web_search",
+            "parameters": {
+              "engine": "native",
+              "excluded_domains": [
+                "dataindex.us"
+              ]
+            }
+          },
+          {
+            "type": "openrouter:web_fetch",
+            "parameters": {
+              "engine": "openrouter",
+              "blocked_domains": [
+                "dataindex.us"
+              ],
+              "max_content_tokens": 10000
+            }
+          }
+        ],
+        "cache_control": {
+          "type": "ephemeral",
+          "ttl": "1h"
+        },
+        "session_id": "scf-anthropic/claude-opus-5.5-t0-2026-10-09T01:13:04Z",
+        "stop_server_tools_when": [
+          {
+            "type": "step_count_is",
+            "step_count": 200
+          }
+        ],
+        "reasoning": {
+          "effort": "medium"
+        },
+        "provider": {
+          "order": [
+            "anthropic"
+          ],
+          "allow_fallbacks": false
+        }
+      },
+      "response_meta": {
+        "id": "gen-1791508384-zXGYPCmrED6Sxj3PUGcz",
+        "object": "response",
+        "created_at": 1791508384,
+        "model": "anthropic/claude-opus-5.5",
+        "status": "completed",
+        "completed_at": 1791508484,
+        "error": null,
+        "incomplete_details": null,
+        "tools": [],
+        "tool_choice": "auto",
+        "parallel_tool_calls": true,
+        "max_output_tokens": 32768,
+        "temperature": 1,
+        "top_p": 1,
+        "presence_penalty": 0,
+        "frequency_penalty": 0,
+        "top_logprobs": 0,
+        "max_tool_calls": null,
+        "metadata": {},
+        "background": false,
+        "previous_response_id": null,
+        "service_tier": "auto",
+        "truncation": "disabled",
+        "store": false,
+        "instructions": null,
+        "text": {
+          "format": {
+            "type": "text"
+          }
+        },
+        "reasoning": {
+          "effort": "medium"
+        },
+        "safety_identifier": null,
+        "prompt_cache_key": null,
+        "prompt_cache_options": null,
+        "usage": {
+          "input_tokens": 166787,
+          "input_tokens_details": {
+            "cached_tokens": 122252,
+            "cache_write_tokens": 44521
+          },
+          "output_tokens": 7866,
+          "output_tokens_details": {
+            "reasoning_tokens": 2216
+          },
+          "total_tokens": 174653,
+          "cost": 0.5799943999999999,
+          "cost_details": {
+            "upstream_inference_cost": 0.5379944000000001,
+            "upstream_inference_input_cost": 0.38067439999999997,
+            "upstream_inference_output_cost": 0.15732
+          },
+          "server_tool_use_details": {
+            "web_search_requests": 6,
+            "tool_calls_requested": 7,
+            "tool_calls_executed": 7
+          }
+        }
+      },
+      "requests": [
+        {
+          "input_tokens": 166787,
+          "input_tokens_details": {
+            "cached_tokens": 122252,
+            "cache_write_tokens": 44521
+          },
+          "output_tokens": 7866,
+          "output_tokens_details": {
+            "reasoning_tokens": 2216
+          },
+          "total_tokens": 174653,
+          "cost": 0.5799943999999999,
+          "cost_details": {
+            "upstream_inference_cost": 0.5379944000000001,
+            "upstream_inference_input_cost": 0.38067439999999997,
+            "upstream_inference_output_cost": 0.15732
+          },
+          "server_tool_use_details": {
+            "web_search_requests": 6,
+            "tool_calls_requested": 7,
+            "tool_calls_executed": 7
+          }
+        }
+      ],
+      "searches": 6,
+      "fetches": 1,
+      "tool_items": [
+        {
+          "type": "openrouter:web_search",
+          "id": "st_tmp_a236jed4qc",
+          "status": "completed",
+          "action": {
+            "type": "search",
+            "query": "Survey of Consumer Finances FR 3059 OMB 7100-0287 legal authority supporting statement",
+            "sources": [
+              {
+                "type": "url",
+                "url": "https://omb.report/icr/202408-7100-005/doc/original/145779901.pdf"
+              },
+              {
+                "type": "url",
+                "url": "https://omb.report/icr/201410-7100-008/doc/original/54231801.pdf"
+              },
+              {
+                "type": "url",
+                "url": "https://omb.report/icr/202408-7100-005/doc/original/145780001.pdf"
+              },
+              {
+                "type": "url",
+                "url": "https://www.federalreserve.gov/reportforms/formsreview/FR3059%20OMB%20SS.pdf"
+              },
+              {
+                "type": "url",
+                "url": "https://omb.report/omb/7100-0287"
+              }
+            ]
+          }
+        },
+        {
+          "type": "openrouter:web_search",
+          "id": "st_tmp_ukjm449haej",
+          "status": "completed",
+          "action": {
+            "type": "search",
+            "query": "2025 Survey of Consumer Finances NORC fieldwork results release",
+            "sources": [
+              {
+                "type": "url",
+                "url": "https://www.federalreserve.gov/newsevents/pressreleases/other20250228a.htm"
+              },
+              {
+                "type": "url",
+                "url": "https://omb.report/icr/202408-7100-005/doc/original/145779901.pdf"
+              },
+              {
+                "type": "url",
+                "url": "https://www.norc.org/contact/study-participants/scf.html"
+              },
+              {
+                "type": "url",
+                "url": "https://www.norc.org/research/projects/survey-of-consumer-finances.html"
+              },
+              {
+                "type": "url",
+                "url": "https://fraser.stlouisfed.org/files/docs/historical/frsbog/pr/frsbog_pr_other20250228a.pdf"
+              }
+            ]
+          }
+        },
+        {
+          "type": "openrouter:web_fetch",
+          "id": "st_tmp_jo8rdqn6n5s",
+          "status": "completed",
+          "url": "https://www.federalreserve.gov/econres/scfindex.htm",
+          "content": "<!doctype html>\r\n<html lang=\"en\" class=\"no-js\">\r\n    <head>\r\n        <meta charset=\"utf-8\">\r\n        <meta http-equiv=\"X-UA-Compatible\" content=\"IE=edge\"/>\r\n        <meta name=\"viewport\" content=\"width=device-width, initial-scale=1.0, minimum-scale=1.0 maximum-scale=1.6, user-scalable=1\"/>\r\n        <meta name=\"keywords\" content=\"Board of Governors of the Federal Reserve System, Federal Reserve Board of Governors, Federal Reserve Board, Federal Reserve\" />\r\n        <meta name=\"description\" content=\"The Federal Reserve Board of Governors in Washington DC.\" />\r\n        <meta property=\"og:type\" content=\"article\" /> \r\n        <meta property=\"og:title\" content=\"Survey of Consumer Finances (SCF)\"/>    \r\n        <meta property=\"og:image\" content=\"https://www.federalreserve.gov/images/social-media/social-default-image-opengraph.jpg\" />\r\n        <meta property=\"og:image:alt\" content=\"Board of Governors of the Federal Reserve System\" />\r\n        <meta property=\"og:description\" content=\"The Federal Reserve Board of Governors in Washington DC.\"/>\r\n        <meta property=\"og:url\" content=\"https://www.federalreserve.gov/econres/scfindex.htm\" />\r\n        <meta name=\"twitter:card\" content=\"summary\" />    \r\n        <meta name=\"twitter:title\" content=\"Survey of Consumer Finances (SCF)\" />\r\n        <meta name=\"twitter:image\" content=\"https://www.federalreserve.gov/images/social-media/social-default-image-twitter.jpg\" />\r\n        <meta name=\"twitter:image:alt\" content=\"Board of Governors of the Federal Reserve System\" />\r\n        <meta name=\"twitter:description\" content=\"The Federal Reserve Board of Governors in Washington DC.\" />\r\n        \r\n        <title>Federal Reserve Board - Survey of Consumer Finances (SCF)</title>\r\n        \r\n        <link href=\"/css/bootstrap.css\" rel=\"stylesheet\" type=\"text/css\">\r\n        <link href=\"/css/bluesteel-theme.css\" rel=\"stylesheet\" type=\"text/css\">\r\n        <link rel=\"stylesheet\" href=\"/assets/main.css\">\r\n        <script src=\"/assets/main.js\" defer type=\"module\"></script>\r\n        <script src=\"/js/modernizr-latest.js\" type=\"text/javascript\"></script>\r\n        <link href=\"/css/icons.data.svg.css\" rel=\"stylesheet\">           \r\n        <script src=\"/js/angular.min.js\" type=\"text/javascript\"></script>\r\n        <script src=\"/js/app.js\" type=\"text/javascript\"></script>\r\n        \r\n        <!-- For Linear Gradients in IE9 or greater -->\r\n        <!--[if gte IE 9]>\r\n            <style type=\"text/css\">\r\n              .gradient {\r\n                 filter: none;\r\n              }\r\n            </style>\r\n        <![endif]-->\r\n\r\n \r\n    <script data-cfasync=\"false\" nonce=\"a76e99cc-8402-441d-b7f3-27c41f803e83\">try{(function(w,d){!function(kP,kQ,kR,kS){if(kP.zaraz)console.error(\"zaraz is loaded twice\");else{kP[kR]=kP[kR]||{};kP[kR].executed=[];kP.zaraz={deferred:[],listeners:[]};kP.zaraz._v=\"20\";kP.zaraz._n=\"a76e99cc-8402-441d-b7f3-27c41f803e83\";kP.zaraz.q=[];kP.zaraz._f=function(kT){return async function(){var kU=Array.prototype.slice.call(arguments);kP.zaraz.q.push({m:kT,a:kU})}};for(const kV of[\"track\",\"set\",\"debug\"])kP.zaraz[kV]=kP.zaraz._f(kV);kP.zaraz.init=()=>{var kW=kQ.getElementsByTagName(kS)[0],kX=kQ.createElement(kS),kY=kQ.getElementsByTagName(\"title\")[0];kY&&(kP[kR].t=kQ.getElementsByTagName(\"title\")[0].text);kP[kR].x=Math.random();kP[kR].w=kP.screen.width;kP[kR].h=kP.screen.height;kP[kR].j=kP.innerHeight;kP[kR].e=kP.innerWidth;kP[kR].l=kP.location.href;kP[kR].r=kQ.referrer;kP[kR].k=kP.screen.colorDepth;kP[kR].n=kQ.characterSet;kP[kR].o=(new Date).getTimezoneOffset();kP[kR].q=[];for(;kP.zaraz.q.length;){const lb=kP.zaraz.q.shift();kP[kR].q.push(lb)}kX.defer=!0;for(const lc of[localStorage,sessionStorage])Object.keys(lc||{}).filter(le=>le.startsWith(\"_zaraz_\")).forEach(ld=>{try{kP[kR][\"z_\"+ld.slice(7)]=JSON.parse(lc.getItem(ld))}catch{kP[kR][\"z_\"+ld.slice(7)]=lc.getItem(ld)}});kX.referrerPolicy=\"origin\";kX.src=\"/cdn-cgi/zaraz/s.js?z=\"+btoa(encodeURIComponent(JSON.stringify(kP[kR])));kW.parentNode.insertBefore(kX,kW)};[\"complete\",\"interactive\"].includes(kQ.readyState)?zaraz.init():kP.addEventListener(\"DOMContentLoaded\",zaraz.init)}}(w,d,\"zarazData\",\"script\");window.zaraz._p=async kH=>new Promise(kI=>{if(kH){kH.e&&kH.e.forEach(kJ=>{try{const kK=d.querySelector(\"script[nonce]\"),kL=kK?.nonce||kK?.getAttribute(\"nonce\"),kM=d.createElement(\"script\");kL&&(kM.nonce=kL);kM.innerHTML=kJ;kM.onload=()=>{d.head.removeChild(kM)};d.head.appendChild(kM)}catch(kN){console.error(`Error executing script: ${kJ}\\n`,kN)}});Promise.allSettled((kH.f||[]).map(kO=>fetch(kO[0],kO[1])))}kI()});zaraz._p({\"e\":[\"(function(w,d){})(window,document)\"]});})(window,document)}catch(e){throw fetch(\"/cdn-cgi/zaraz/t\"),e;};</script></head>\r\n    <body data-ng-app=\"pubwebApp\">\r\n        <a href=\"#content\" class=\"globalskip\">Skip to main content</a>\r\n<nav class=\"nav-primary-mobile\" id=\"nav-primary-mobile\"></nav>\r\n<div id='top-banner' data-hydrate='true'><link rel=\"preload\" as=\"image\" href=\"/images/icon-us-flag.svg\"/><link rel=\"preload\" as=\"image\" href=\"/images/expand_more.svg\"/><link rel=\"preload\" as=\"image\" href=\"https://designsystem.digital.gov/assets/img/icon-dot-gov.svg\"/><link rel=\"preload\" as=\"image\" href=\"https://designsystem.digital.gov/assets/img/icon-https.svg\"/><div class=\"custom-banner\"><div class=\"custom-banner__header\"><div class=\"custom-banner__left\"><img class=\"custom-banner__flag\" src=\"/images/icon-us-flag.svg\" width=\"20\" height=\"20\" alt=\"US Flag\"/><p class=\"custom-banner__text\">An official website of the United States Government</p></div><button type=\"button\" class=\"custom-banner__button\"><span class=\"custom-banner__button-text\">Here&#x27;s how you know</span><img id=\"banner-caret-_R_0_\" class=\"custom-banner__caret \" src=\"/images/expand_more.svg\" alt=\"Expand More\"/></button></div><div class=\"custom-banner__content \" id=\"banner-content-_R_0_\"><div class=\"custom-banner__info\"><div class=\"info-block\"><img src=\"https://designsystem.digital.gov/assets/img/icon-dot-gov.svg\" alt=\".gov icon\"/><p><strong>Official websites use .gov</strong><br/>A <strong>.gov</strong> website belongs to an official government organization in the United States.</p></div><div class=\"info-block\"><img src=\"https://designsystem.digital.gov/assets/img/icon-https.svg\" alt=\"HTTPS icon\"/><p><strong>Secure .gov websites use HTTPS</strong><br/>A <strong>lock</strong> (<span class=\"icon-lock\"><svg xmlns=\"http://www.w3.org/2000/svg\" width=\"52\" height=\"64\" viewBox=\"0 0 52 64\" role=\"img\" aria-labelledby=\"banner-lock-description-_R_0_\" focusable=\"false\"><title id=\"banner-lock-title-_R_0_\">Lock</title><desc id=\"banner-lock-description-_R_0_\">Locked padlock icon</desc><path fill=\"#000000\" fill-rule=\"evenodd\" d=\"M26 0c10.493 0 19 8.507 19 19v9h3a4 4 0 0 1 4 4v28a4 4 0 0 1-4 4H4a4 4 0 0 1-4-4V32a4 4 0 0 1 4-4h3v-9C7 8.507 15.507 0 26 0zm0 8c-5.979 0-10.843 4.77-10.996 10.712L15 19v9h22v-9c0-6.075-4.925-11-11-11z\"></path></svg></span>) or <strong>https://</strong> means you&#x27;ve safely connected to the .gov website. Share sensitive information only on official, secure websites.</p></div></div></div></div></div><div class=\"t1_nav navbar navbar-default navbar-fixed-top\" role=\"navigation\">\r\n    <div class=\"t1_container clearfix\">\r\n        <a id=\"logo\" class=\"btn btn-default icon-FRB_logo-bw visible-xs-table-cell t1__btnlogo\" href=\"/default.htm\" role=\"button\"><span class=\"sr-only\">Back to Home</span></a>\r\n        <a href=\"/default.htm\" id=\"banner\" class=\"visible-xs-table-cell t1__banner\" title=\"Link to Home Page\" role=\"button\">Board of Governors of the Federal Reserve System</a>\r\n        <ul class=\"nav navbar-nav visible-md visible-lg t1_toplinks\">\r\n            <li class=\"navbar-text navbar-text__social\">\r\n                <span class=\"navbar-link\" tabindex=\"0\">Stay Connected</span>\r\n            <ul class=\"nav navbar-nav t1_social social_ten\">\r\n              <li class=\"social__item\">\r\n                <a\r\n                  data-icon=\"facebook\"\r\n                  href=\"https://www.facebook.com/federalreserve\"\r\n                  class=\"noIcon\"\r\n                >\r\n                  <div class=\"icon-facebook-color icon icon__sm\"></div>\r\n                  <span class=\"sr-only\"\r\n                    >Federal Reserve Facebook Page</span\r\n                  ></a\r\n                >\r\n              </li>\r\n              <li class=\"social__item\">\r\n                <a\r\n                  data-icon=\"instagram\"\r\n                  href=\"https://www.instagram.com/federalreserveboard/\"\r\n                  class=\"noIcon\"\r\n                >\r\n                  <div class=\"icon-instagram icon icon__sm\"></div>\r\n                  <span class=\"sr-only\"\r\n                    >Federal Reserve Instagram Page</span\r\n                  ></a\r\n                >\r\n              </li>\r\n\r\n              <li class=\"social__item\">\r\n                <a\r\n                  data-icon=\"youtube\"\r\n                  href=\"https://www.youtube.com/federalreserve\"\r\n                  class=\"noIcon\"\r\n                >\r\n                  <div class=\"icon-youtube-color icon icon__sm\"></div>\r\n                  <span class=\"sr-only\"\r\n                    >Federal Reserve YouTube Page</span\r\n                  ></a\r\n                >\r\n              </li>\r\n\r\n              <li class=\"social__item\">\r\n                <a\r\n                  data-icon=\"flickr\"\r\n                  href=\"https://www.flickr.com/photos/federalreserve/\"\r\n                  class=\"noIcon\"\r\n                >\r\n                  <div class=\"icon-flickr-color icon icon__sm\"></div>\r\n                  <span class=\"sr-only\"\r\n                    >Federal Reserve Flickr Page</span\r\n                  ></a\r\n                >\r\n              </li>\r\n\r\n              <li class=\"social__item\">\r\n                <a\r\n                  data-icon=\"linkedin\"\r\n                  href=\"https://www.linkedin.com/company/federal-reserve-board\"\r\n                  class=\"noIcon\"\r\n                >\r\n                  <div class=\"icon-linkedin-color icon icon__sm\"></div>\r\n                  <span class=\"sr-only\">Federal Reserve LinkedIn Page</span></a\r\n                >\r\n              </li>\r\n              <li class=\"social__item\">\r\n                <a data-icon=\"threads\" href=\"https://www.threads.net/@federalreserveboard\" class=\"noIcon\">\r\n                  <div class=\"icon-threads icon icon__sm\"></div>\r\n                  <span class=\"sr-only\">Federal Reserve Threads Page</span></a\r\n                >\r\n              </li>\r\n              <li class=\"social__item\">\r\n                <a\r\n                  data-icon=\"twitter\"\r\n                  href=\"https://x.com/federalreserve\"\r\n                  class=\"noIcon\"\r\n                >\r\n                  <div class=\"icon-social-x icon icon__sm\"></div>\r\n                  <span class=\"sr-only\"\r\n                    >Federal Reserve X Page</span\r\n                  ></a\r\n                >\r\n              </li>\r\n              <li class=\"social__item\">\r\n                <a\r\n                  data-icon=\"bluesky\"\r\n                  href=\"https://bsky.app/profile/federalreserve.gov\"\r\n                  class=\"noIcon\"\r\n                >\r\n                  <div class=\"icon-bluesky icon icon__sm\"></div>\r\n                  <span class=\"sr-only\"\r\n                    >Federal Reserve Bluesky Page</span\r\n                  ></a\r\n                >\r\n              </li>\r\n              <li class=\"social__item\">\r\n                <a data-icon=\"rss\" href=\"/feeds/feeds.htm\" class=\"noIcon\">\r\n                  <div class=\"icon-rss-color icon icon__sm\"></div>\r\n                  <span class=\"sr-only\">Subscribe to RSS</span></a\r\n                >\r\n              </li>\r\n\r\n              <li class=\"social__item\">\r\n                <a data-icon=\"email\" href=\"/subscribe.htm\" class=\"noIcon\">\r\n                  <div class=\"icon-email-color icon icon__sm\"></div>\r\n                  <span class=\"sr-only\">Subscribe to Email</span></a\r\n                >\r\n              </li>\r\n                </ul>\r\n            </li>\r\n\r\n            <li class=\"navbar-text\">\r\n                <a class=\"navbar-link\" href=\"/recentpostings.htm\">Recent Postings</a>\r\n            </li>\r\n\r\n            <li class=\"navbar-text\">\r\n                <a class=\"navbar-link\" href=\"/newsevents/calendar.htm\">Calendar</a>\r\n            </li>\r\n\r\n            <li class=\"navbar-text\">\r\n                <a class=\"navbar-link\" href=\"/publications.htm\">Publications</a>\r\n            </li>\r\n\r\n            <li class=\"navbar-text\">\r\n                <a class=\"navbar-link\" href=\"/sitemap.htm\">Site Map</a>\r\n            </li>\r\n\r\n            <li class=\"navbar-text\">\r\n                <a class=\"navbar-link\" href=\"/azindex.htm\">A-Z index</a>\r\n            </li>\r\n\r\n            <li class=\"navbar-text\">\r\n                <a class=\"navbar-link\" href=\"/careers.htm\">Careers</a>\r\n            </li>\r\n\r\n            <li class=\"navbar-text\">\r\n                <a class=\"navbar-link\" href=\"/faqs.htm\">FAQs</a>\r\n            </li>\r\n\r\n            <li class=\"navbar-text\">\r\n                <a class=\"navbar-link\" href=\"/videos.htm\">Videos</a>\r\n            </li>\r\n\r\n            <li class=\"navbar-text\">\r\n                <a class=\"navbar-link\" href=\"/aboutthefed/contact-us-topics.htm\">Contact</a>\r\n            </li>\r\n        </ul>\r\n        <form class=\"nav navbar-form hidden-xs nav__search\" role=\"search\" action=\"//www.fedsearch.org/board_public/search\"  method=\"get\">\r\n            <div class=\"form-group input-group input-group-sm\">\r\n                <label for=\"t1search\" class=\"sr-only\">Search</label>\r\n                <input id=\"t1search\" class=\"nav__input form-control\" name=\"text\" placeholder=\"Search\" type=\"text\" />\r\n                <span class=\"input-group-btn\">\r\n                    <button type=\"submit\" class=\"nav__button btn btn-default\" id=\"headerTopLinksSearchFormSubmit\" name=\"Search\">\r\n                        <span class=\"sr-only\">Submit Search Button</span>\r\n                        <span class=\"icon-magnifying-glass icon icon__xs icon--right\"></span>\r\n                    </button>\r\n                </span>\r\n            </div>\r\n            <div class=\"nav__advanced\">\r\n                <a class=\"noIcon\" href=\"//www.fedsearch.org/board_public/\">Advanced</a>\r\n            </div>\r\n        </form>\r\n        <div class=\"btn-group visible-xs-table-cell visible-sm-table-cell t1__dropdown\">\r\n            <span class=\"icon icon__md icon--right dropdown-toggle icon-options-nav\" data-toggle=\"dropdown\">\r\n                <span class=\"sr-only\">Toggle Dropdown Menu</span>\r\n            </span>\r\n        </div>\r\n    </div>\r\n</div>\r\n<header class=\"jumbotron hidden-xs\">\r\n    <a class=\"jumbotron__link\" href=\"/default.htm\" title=\"Link to Home Page\">\r\n        <div class=\"container-fluid\">\r\n            <h1 class=\"jumbotron__heading\">Board of Governors of the Federal Reserve System\r\n            </h1>\r\n            <p class=\"jumbotron__content\">\r\n                <em>The Federal Reserve, the central bank of the United States, provides\r\n          the nation with a safe, flexible, and stable monetary and financial\r\n          system.</em>\r\n            </p>\r\n        </div>\r\n    </a>\r\n</header>\r\n<div class=\"t2__offcanvas visible-xs-block\">\r\n    <div class=\"navbar-header\">\r\n        <button type=\"button\" class=\"offcanvas__toggle icon-offcanvas-nav\" data-toggle=\"offcanvas\" data-target=\"#offcanvasT2Menu\" data-canvas=\"body\">\r\n            <span class=\"sr-only\">Main Menu Toggle Button</span>\r\n        </button>\r\n        <span class=\"navbar-brand offcanvas__title\">Sections</span>\r\n        <button type=\"button\" class=\"offcanvas__search icon-search-nav\" data-toggle=\"collapse\" data-target=\"#navbar-collapse\">\r\n            <span class=\"sr-only\">Search Toggle Button</span>\r\n        </button>\r\n    </div>\r\n    <div class=\"navbar-collapse collapse mobile-form\" id=\"navbar-collapse\">\r\n        <form method=\"get\" class=\"navbar-form\" role=\"search\" action=\"//www.fedsearch.org/board_public/search\">\r\n            <div class=\"form-group input-group mobileSearch\">\r\n                <label class=\"sr-only\" for=\"t2search\">Search</label>\r\n                <input id=\"t2search\" name=\"text\" class=\"form-control\" placeholder=\"Search\" type=\"text\" />\r\n                <span class=\"input-group-btn\">\r\n                    <span class=\"sr-only\">Search Submit Button</span>\r\n                    <button type=\"submit\" class=\"btn btn-default\">Submit</button>\r\n                </span>\r\n            </div>\r\n        </form>\r\n    </div>\r\n</div>\r\n<nav class=\"nav-primary navbar hidden-xs nav-nine\" id=\"nav-primary\" role=\"navigation\">\r\n    <ul class=\"nav navbar-nav\" role=\"menubar\">\r\n        <li role=\"menuitem\" class=\"dropdown nav-about dropdown--3Col\">\r\n            <a href=\"/aboutthefed.htm\" class=\"sr-only-focusable\" aria-haspopup=\"true\" id=\"aboutMenu\">About<br />the Fed</a>\r\n            <ul aria-labelledby=\"aboutMenu\" role=\"menu\" class=\"dropdown-menu sub-nav-group navmenu-nav\">\r\n                <li>\r\n                    <div class=\"row\">\r\n                        <ul class=\"col-sm-4 list-unstyled\">\r\n                            <li>\r\n                                <a class=\"sr-only-focusable\" href=\"/aboutthefed/fedexplained/who-we-are.htm\">Structure of the Federal Reserve System</a>\r\n                            </li>\r\n\r\n                            <li>\r\n                                <a class=\"sr-only-focusable\" href=\"/aboutthefed/the-fed-explained.htm\">The Fed Explained</a>\r\n                            </li>\r\n\r\n                            <li>\r\n                                <a class=\"sr-only-focusable\" href=\"/aboutthefed/bios/board/default.htm\">Board Members</a>\r\n                            </li>\r\n\r\n                            <li>\r\n                                <a class=\"sr-only-focusable\" href=\"/aboutthefed/advisorydefault.htm\">Advisory Councils</a>\r\n                            </li>\r\n\r\n                            <li>\r\n                                <a class=\"sr-only-focusable\" href=\"/aboutthefed/federal-reserve-system.htm\">Federal Reserve Banks</a>\r\n                            </li>\r\n                            <li>\r\n                                <a class=\"sr-only-focusable\" href=\"/aboutthefed/directors/about.htm\">Federal Reserve Bank and Branch Directors</a>\r\n                            </li>\r\n\r\n                            <li>\r\n                                <a class=\"sr-only-focusable\" href=\"/aboutthefed/fract.htm\">Federal Reserve Act</a>\r\n                            </li>\r\n\r\n                            <li>\r\n                                <a class=\"sr-only-focusable\" href=\"/aboutthefed/currency.htm\">Currency</a>\r\n                            </li>\r\n                        </ul>\r\n                        <ul class=\"col-sm-4 list-unstyled\">\r\n                            <li>\r\n                                <a class=\"sr-only-focusable\" href=\"/aboutthefed/boardmeetings/meetingdates.htm\">Board Meetings</a>\r\n                            </li>\r\n\r\n                            <li>\r\n                                <a class=\"sr-only-focusable\" href=\"/aboutthefed/boardvotes.htm\">Board Votes</a>\r\n                            </li>\r\n\r\n                            \r\n\r\n                            <li>\r\n                                <a class=\"sr-only-focusable\" href=\"/careers.htm\">Careers</a>\r\n                            </li>\r\n\r\n                            <li>\r\n                                <a class=\"sr-only-focusable\" href=\"/aboutthefed/procurement/tips.htm\">Do Business with the Board</a>\r\n                            </li>\r\n\r\n                            <li>\r\n                                <a class=\"sr-only-focusable\" href=\"/aboutthefed/k8.htm\">Holidays Observed - K.8</a>\r\n                            </li>\r\n                            <li>\r\n                                <a class=\"sr-only-focusable\" href=\"/aboutthefed/ethics-values.htm\">Ethics & Values</a>\r\n                            </li>\r\n                        </ul>\r\n                        <ul class=\"col-sm-4 list-unstyled\">\r\n                            <li>\r\n                                <a class=\"sr-only-focusable\" href=\"/aboutthefed/contact-us-topics.htm\">Contact</a>\r\n                            </li>\r\n\r\n                            <li>\r\n                                <a class=\"sr-only-focusable\" href=\"/foia/about_foia.htm\">Requesting Information (FOIA)</a>\r\n                            </li>\r\n\r\n                            <li>\r\n                                <a class=\"sr-only-focusable\" href=\"/faqs.htm\">FAQs</a>\r\n                            </li>\r\n\r\n                            <li>\r\n                                <a class=\"sr-only-focusable\" href=\"/aboutthefed/educational-tools/default.htm\">Economic Education</a>\r\n                            </li>\r\n\r\n                            <li>\r\n                                <a class=\"sr-only-focusable\" href=\"/aboutthefed/fed-financial-statements.htm\">Fed Financial Statements</a>\r\n                            </li>\r\n\r\n                            <li>\r\n                                <a class=\"sr-only-focusable\" href=\"/aboutthefed/financial-innovation.htm\">Financial Innovation</a>\r\n                            </li>\r\n                        </ul>\r\n                    </div>\r\n                </li>\r\n            </ul>\r\n        </li>\r\n\r\n        <li role=\"menuitem\" class=\"dropdown nav-news dropdown--1Col\">\r\n            <a href=\"/newsevents.htm\" class=\"sr-only-focusable\" aria-haspopup=\"true\" id=\"newsMenu\">News<br />& Events</a>\r\n            <ul aria-labelledby=\"newsMenu\" role=\"menu\" class=\"dropdown-menu sub-nav-group navmenu-nav\">\r\n                <li>\r\n                    <a class=\"sr-only-focusable\" href=\"/newsevents/pressreleases.htm\">Press Releases</a>\r\n                </li>\r\n                <li>\r\n                    <a class=\"sr-only-focusable\" href=\"/newsevents/speeches-testimony.htm\">Speeches & Testimony</a>\r\n                </li>\r\n                <li>\r\n                    <a class=\"sr-only-focusable\" href=\"/newsevents/calendar.htm\">Calendar</a>\r\n                </li>\r\n                <li>\r\n                    <a class=\"sr-only-focusable\" href=\"/videos.htm\">Videos</a>\r\n                </li>\r\n                <li>\r\n                    <a class=\"sr-only-focusable\" href=\"/photogallery.htm\">Photo Gallery</a>\r\n                </li>\r\n                <li>\r\n                    <a class=\"sr-only-focusable\" href=\"/conferences.htm\">Conferences</a>\r\n                </li>\r\n            </ul>\r\n        </li>\r\n\r\n        <li role=\"menuitem\" class=\"dropdown nav-monetary dropdown--2Col\">\r\n            <a href=\"/monetarypolicy.htm\" class=\"sr-only-focusable\" aria-haspopup=\"true\" id=\"monetaryMenu\">Monetary<br />Policy</a>\r\n            <ul aria-labelledby=\"monetaryMenu\" role=\"menu\" class=\"dropdown-menu sub-nav-group navmenu-nav\">\r\n                <li>\r\n                    <div class=\"row\">\r\n                        <ul class=\"col-sm-6 list-unstyled\">\r\n                            <li class=\"nav__header\">\r\n                                <p>\r\n                                    <strong>Federal Open Market Committee</strong>\r\n                                </p>\r\n                            </li>\r\n\r\n                            <li>\r\n                                <a class=\"sr-only-focusable\" href=\"/monetarypolicy/fomc.htm\">About the FOMC</a>\r\n                            </li>\r\n\r\n                            <li>\r\n                                <a class=\"sr-only-focusable\" href=\"/monetarypolicy/fomccalendars.htm\">Meeting calendars and information</a>\r\n                            </li>\r\n\r\n                            <li>\r\n                                <a class=\"sr-only-focusable\" href=\"/monetarypolicy/fomc_historical.htm\">Transcripts and other historical materials</a>\r\n                            </li>\r\n\r\n                            <li>\r\n                                <a class=\"sr-only-focusable\" href=\"/monetarypolicy/fomc_projectionsfaqs.htm\">FAQs</a>\r\n                            </li>\r\n\r\n                            <li class=\"nav__header\">\r\n                                <p>\r\n                                    <strong>Monetary Policy Principles and Practice</strong>\r\n                                </p>\r\n                            </li>\r\n\r\n                            <li>\r\n                                <a class=\"sr-only-focusable\" href=\"/monetarypolicy/monetary-policy-principles-and-practice.htm\">Notes</a>\r\n                            </li>\r\n                        </ul>\r\n                        <ul class=\"col-sm-6 list-unstyled\">\r\n                            <li class=\"nav__header\">\r\n                                <p>\r\n                                    <strong>Policy Implementation</strong>\r\n                                </p>\r\n                            </li>\r\n\r\n                            <li>\r\n                                <a class=\"sr-only-focusable\" href=\"/monetarypolicy/policy-normalization.htm\">Policy Normalization</a>\r\n                            </li>\r\n\r\n                            <li>\r\n                                <a class=\"sr-only-focusable\" href=\"/monetarypolicy/policytools.htm\">Policy Tools</a>\r\n                            </li>\r\n\r\n                            <li class=\"nav__header\">\r\n                                <p>\r\n                                    <strong>Reports</strong>\r\n                                </p>\r\n                            </li>\r\n\r\n                            <li>\r\n                                <a class=\"sr-only-focusable\" href=\"/monetarypolicy/publications/mpr_default.htm\">Monetary Policy Report</a>\r\n                            </li>\r\n\r\n                            <li>\r\n                                <a class=\"sr-only-focusable\" href=\"/monetarypolicy/publications/beige-book-default.htm\">Beige Book</a>\r\n                            </li>\r\n\r\n                            <li>\r\n                                <a class=\"sr-only-focusable\" href=\"/monetarypolicy/publications/balance-sheet-developments-report.htm\">Federal Reserve Balance Sheet Developments</a>\r\n                            </li>\r\n\r\n                            <li class=\"nav__header\">\r\n                                <p>\r\n                                    <strong>Review of Monetary Policy Strategy, Tools, and Communications</strong>\r\n                                </p>\r\n                            </li>\r\n\r\n                            <li>\r\n                                <a class=\"sr-only-focusable\" href=\"/monetarypolicy/review-of-monetary-policy-strategy-tools-and-communications-2025.htm\">Overview</a>\r\n                            </li>\r\n                        </ul>\r\n                    </div>\r\n                </li>\r\n            </ul>\r\n        </li>\r\n\r\n        <li role=\"menuitem\" class=\"dropdown nav-supervision dropdown--fw\">\r\n    <a href=\"/supervisionreg.htm\" class=\"sr-only-focusable\" id=\"supervisionMenu\"\r\n        aria-haspopup=\"true\">Supervision<br />& Regulation</a>\r\n    <ul aria-labelledby=\"supervisionMenu\" role=\"menu\" class=\"dropdown-menu sub-nav-group navmenu-nav\">\r\n        <li>\r\n            <div class=\"row\">\r\n                <ul class=\"col-sm-3 col-nav list-unstyled\">\r\n                    <li class=\"nav__header\">\r\n                        <p>\r\n                            <strong>Supervision</strong>\r\n                        </p>\r\n                    </li>\r\n\r\n                    <li>\r\n                        <a class=\"sr-only-focusable\" href=\"/supervisionreg/community-banks.htm\">\r\n                            Community Banks</a>\r\n                    </li>\r\n                    <li>\r\n                        <a class=\"sr-only-focusable\" href=\"/supervisionreg/regional-and-small-foreign-banks.htm\">\r\n                            Regional Banks and Foreign Banks with U.S. Assets < $100 Billion</a>\r\n                    </li>\r\n                    <li>\r\n                        <a class=\"sr-only-focusable\" href=\"/supervisionreg/large-banks-and-large-foreign-banks.htm\">\r\n                            Large Banks and Large Foreign Banks</a>\r\n                    </li>\r\n                    <li>\r\n                        <a class=\"sr-only-focusable\" href=\"/supervisionreg/global-systemically-important-banks.htm\">\r\n                            Global Systemically Important Banks</a>\r\n                    </li>\r\n\r\n                    <li>\r\n                        <a class=\"sr-only-focusable\" href=\"/supervisionreg/financial-market-utility-supervision.htm\">Financial Market\r\n                            Utilities</a>\r\n                    </li>\r\n\r\n                    <li>\r\n                        <a class=\"sr-only-focusable\" href=\"/supervisionreg/consumer-compliance.htm\">Consumer\r\n                            Compliance</a>\r\n                    </li>\r\n\r\n                    <li>\r\n                        <a class=\"sr-only-focusable\" href=\"/supervisionreg/resources-for-supervised-institutions.htm\">\r\n                            Resources for Supervised Institutions</a>\r\n                    </li>\r\n\r\n                    \r\n\r\n                    <li class=\"nav__header\">\r\n                        <p>\r\n                            <strong>Reports</strong>\r\n                        </p>\r\n                    </li>\r\n\r\n                    <li>\r\n                        <a class=\"sr-only-focusable\" href=\"/publications/supervision-and-regulation-report.htm\">Federal Reserve\r\n                            Supervision and Regulation Report</a>\r\n                    </li>\r\n                </ul>\r\n                <ul class=\"col-sm-3 list-unstyled col-nav\">\r\n                    <li class=\"nav__header\">\r\n                        <p>\r\n                            <strong>Reporting Forms</strong>\r\n                        </p>\r\n                    </li>\r\n                    <li>\r\n                        <a class=\"sr-only-focusable\" href=\"/apps/reportingforms/recentupdates\">Recent Reporting Form Updates</a>\r\n                    </li>\r\n\r\n                    <li>\r\n                        <a class=\"sr-only-focusable\" href=\"/apps/reportingforms/home/review\">Information Collections\r\n                            Under Review</a>\r\n                    </li>\r\n\r\n                    <li>\r\n                        <a class=\"sr-only-focusable\" href='/apps/ReportingForms/?reportTypesIdsJson=[\"1\"]'>Financial\r\n                            Statements</a>\r\n                    </li>\r\n                    <li>\r\n                        <a class=\"sr-only-focusable\" href='/apps/ReportingForms/?reportTypesIdsJson=[\"7\"]'>Securities Exchange Act of 1934</a>\r\n                    </li>\r\n\r\n                    <li>\r\n                        <a class=\"sr-only-focusable\"\r\n                            href='/apps/ReportingForms/?reportTypesIdsJson=[\"2\"]'>Applications/Structure Change</a>\r\n                    </li>\r\n\r\n                    <li>\r\n                        <a class=\"sr-only-focusable\" href='/apps/ReportingForms/?reportTypesIdsJson=[\"3\"]'>FFIEC</a>\r\n                    </li>\r\n\r\n                    <li>\r\n                        <a class=\"sr-only-focusable\" href='/apps/ReportingForms/?reportTypesIdsJson=[\"8\"]'>Municipal and\r\n                            Government Securities</a>\r\n                    </li>\r\n                    <li>\r\n                        <a class=\"sr-only-focusable\" href='/apps/ReportingForms/?reportTypesIdsJson=[\"9\"]'>Activities Monitoring</a>\r\n                    </li>\r\n                    <li>\r\n                        <a class=\"sr-only-focusable\" href='/apps/mdrm/'>Micro Data Reference Manual</a>\r\n                    </li>\r\n\r\n                     \r\n\r\n                </ul>\r\n\r\n\r\n\r\n\r\n                <ul class=\"col-sm-3 list-unstyled col-nav\">\r\n\r\n<li class=\"nav__header\">\r\n                        <p>\r\n                            <strong>Legal Developments</strong>\r\n                        </p>\r\n                    </li>\r\n\r\n                    <li>\r\n                        <a class=\"sr-only-focusable\" href=\"/supervisionreg/legal-developments.htm\">Enforcement Actions and\r\n                            Legal Developments</a>\r\n                    </li>\r\n\r\n\r\n                     <li class=\"nav__header\">\r\n                        <p>\r\n                            <strong>Mergers, Acquisitions, and Other Applications</strong>\r\n                        </p>\r\n                    </li>\r\n\r\n                    <li>\r\n                        <a class=\"sr-only-focusable\" href=\"/supervisionreg/application-process.htm\">Process</a>\r\n                    </li>\r\n                    <li>\r\n                        <a class=\"sr-only-focusable\" href=\"/supervisionreg/afi/afi.htm\">Filing\r\n                            Information</a>\r\n                    </li>\r\n\r\n                    <li>\r\n                        <a class=\"sr-only-focusable\" href=\"/supervisionreg/board-and-reserve-bank-actions.htm\">Board and Reserve\r\n                            Bank Actions</a>\r\n                    </li>\r\n\r\n                \r\n                    \r\n                    \r\n                    \r\n                </ul>\r\n\r\n                <ul class=\"col-sm-3 list-unstyled col-nav\">\r\n\r\n<li class=\"nav__header\">\r\n                        <p>\r\n                            <strong>Supervision and Regulation Letters</strong>\r\n                        </p>\r\n                    </li>\r\n\r\n                    <li>\r\n                        <a class=\"sr-only-focusable\" href=\"/supervisionreg/srletters/srletters.htm\">By Year</a>\r\n                    </li>\r\n\r\n                    <li>\r\n                        <a class=\"sr-only-focusable\" href=\"/supervisionreg/topics/topics.htm\">By Topic</a>\r\n                    </li>\r\n\r\n\r\n                    <li class=\"nav__header\">\r\n                        <p>\r\n                            <strong>Regulatory and Policy Resources</strong>\r\n                        </p>\r\n                    </li>\r\n\r\n                    <li>\r\n                        <a class=\"sr-only-focusable\" href=\"/aboutthefed/fract.htm\">Federal Reserve Act</a>\r\n                    </li>\r\n\r\n                    <li>\r\n                        <a class=\"sr-only-focusable\" href=\"/frrs/regulations/bank-holding-company-act-of-1956.htm\">Bank Holding Company Act</a>\r\n                    </li>\r\n                    <li>\r\n                        <a class=\"sr-only-focusable\" href=\"/supervisionreg/reglisting.htm\">Regulations</a>\r\n                    </li>\r\n\r\n                    <li>\r\n                        <a class=\"sr-only-focusable\" href=\"/publications/supmanual.htm\">Supervision Manuals</a>\r\n                    </li>\r\n\r\n                    <li>\r\n                        <a class=\"sr-only-focusable\" href=\"/frrs/federal-reserve-regulatory-service.htm\">Federal Reserve Regulatory Service</a>\r\n                    </li>\r\n\r\n                    <li>\r\n                        <a class=\"sr-only-focusable\" href=\"/supervisionreg/disaster-preparedness-and-recovery-resources.htm\">Disaster Preparedness and Recovery Resources\r\n     </a>\r\n                    </li>\r\n\r\n\r\n                    \r\n                </ul>\r\n                <ul class=\"col-sm-3 list-unstyled col-nav\">\r\n                    <li class=\"nav__header\">\r\n                        <p>\r\n                            <strong>Banking and Data Structure</strong>\r\n                        </p>\r\n                    </li>\r\n\r\n                    \r\n\r\n                    <li>\r\n                        <a class=\"sr-only-focusable\" href=\"/apps/reportforms/insider.aspx\">Beneficial Ownership\r\n                            Reports</a>\r\n                    </li>\r\n\r\n                    <li>\r\n                        <a class=\"sr-only-focusable\" href=\"/releases/lbr/\">U.S. Domestically Chartered Commercial Banks</a>\r\n                    </li>\r\n                    <li>\r\n                        <a class=\"sr-only-focusable\" href=\"/supervisionreg/minority-depository-institutions.htm\">Minority Depository\r\n                            Institutions</a>\r\n                    </li>\r\n\r\n                    <li>\r\n                        <a class=\"sr-only-focusable\" href=\"/releases/iba/\">U.S. Offices of Foreign Entities</a>\r\n                    </li>\r\n\r\n                    <li>\r\n                        <a class=\"sr-only-focusable\" href=\"/supervisionreg/fhc.htm\">Financial Holding\r\n                            Companies</a>\r\n                    </li>\r\n\r\n                    <li>\r\n                        <a class=\"sr-only-focusable\" href=\"/supervisionreg/isb-default.htm\">Interstate\r\n                            Branching</a>\r\n                    </li>\r\n\r\n                    <li>\r\n                        <a class=\"sr-only-focusable\" href=\"/supervisionreg/suds.htm\">Securities\r\n                            Underwriting and Dealing Subsidiaries</a>\r\n                    </li>\r\n                    <li>\r\n                        <a class=\"sr-only-focusable\" href=\"/supervisionreg/state-member-banks-supervised-federal-reserve.htm\">State Member Banks Supervised by the Federal Reserve</a>\r\n                    </li>\r\n\r\n                    \r\n                </ul>\r\n            </div>\r\n        </li>\r\n    </ul>\r\n</li>\r\n\r\n\r\n\r\n\r\n\r\n\r\n        <li role=\"menuitem\" class=\"dropdown nav-stability dropdown--2Col\">\r\n            <a href=\"/financial-stability.htm\" class=\"sr-only-focusable\" aria-haspopup=\"true\" id=\"stabilityMenu\">Financial<br />Stability</a>\r\n            <ul aria-labelledby=\"stabilityMenu\" role=\"menu\" class=\"dropdown-menu sub-nav-group navmenu-nav\">\r\n                <div class=\"row\">\r\n                    <ul class=\"col-sm-6 list-unstyled\">\r\n                        <li class=\"nav__header\">\r\n                            <p>\r\n                                <strong>Financial Stability Assessments </strong>\r\n                            </p>\r\n                        </li>\r\n                        <li>\r\n                            <a class=\"sr-only-focusable\" href=\"/financial-stability/what-is-financial-stability.htm\">About Financial Stability</a>\r\n                        </li>\r\n                        <li>\r\n                            <a class=\"sr-only-focusable\" href=\"/financial-stability/types-of-financial-system-vulnerabilities-and-risks.htm\">Types of Financial System Vulnerabilities & Risks</a>\r\n                        </li>\r\n                        <li>\r\n                            <a class=\"sr-only-focusable\" href=\"/financial-stability/monitoring-risk-across-the-financial-system.htm\">Monitoring Risk Across the Financial System</a>\r\n                        </li>\r\n                        <li>\r\n                            <a class=\"sr-only-focusable\" href=\"/financial-stability/proactive-monitoring-of-markets-and-institutions.htm\">Proactive Monitoring of Markets & Institutions</a>\r\n                        </li>\r\n                        <li>\r\n                            <a class=\"sr-only-focusable\" href=\"/financial-stability/financial-stability-and-stress-testing.htm\">Financial Stability & Stress Testing</a>\r\n                        </li>\r\n                    </ul>\r\n                    <ul class=\"col-sm-6 list-unstyled\">\r\n                        <li class=\"nav__header\">\r\n                            <p>\r\n                                <strong>Financial Stability Coordination & Actions</strong>\r\n                            </p>\r\n                        </li>\r\n                        <li>\r\n                            <a class=\"sr-only-focusable\" href=\"/financial-stability/responding-to-financial-system-emergencies.htm\">Responding to Financial System Emergencies</a>\r\n                        </li>\r\n                        <li>\r\n                            <a class=\"sr-only-focusable\" href=\"/financial-stability/cooperation-on-financial-stability.htm\">Cooperation on Financial Stability</a>\r\n                        </li>\r\n                        <li class=\"nav__header\">\r\n                            <p>\r\n                                <strong>Reports</strong>\r\n                            </p>\r\n                        </li>\r\n\r\n                        <li>\r\n                            <a class=\"sr-only-focusable\" href=\"/publications/financial-stability-report.htm\">Financial Stability Report</a>\r\n                        </li>\r\n                    </ul>\r\n                </div>\r\n            </ul>\r\n        </li>\r\n        <li ",
+          "title": "Federal Reserve Board - Survey of Consumer Finances (SCF)",
+          "httpStatus": 200
+        },
+        {
+          "type": "openrouter:web_search",
+          "id": "st_tmp_lvcubpdfatf",
+          "status": "completed",
+          "action": {
+            "type": "search",
+            "query": "Changes in U.S. Family Finances from 2019 to 2022 Survey of Consumer Finances median net worth 4,595 families",
+            "sources": [
+              {
+                "type": "url",
+                "url": "https://www.federalreserve.gov/publications/files/scf23.pdf"
+              },
+              {
+                "type": "url",
+                "url": "https://www.federalreserve.gov/publications/october-2023-changes-in-us-family-finances-from-2019-to-2022-accessible-version.htm"
+              },
+              {
+                "type": "url",
+                "url": "https://www.federalreserve.gov/publications/changes-in-us-family-finances-from-2019-to-2022.htm"
+              },
+              {
+                "type": "url",
+                "url": "https://papers.ssrn.com/sol3/papers.cfm?abstract_id=4685067"
+              },
+              {
+                "type": "url",
+                "url": "https://www.federalreserve.gov/econres/scfindex.htm"
+              }
+            ]
+          }
+        },
+        {
+          "type": "openrouter:web_search",
+          "id": "st_tmp_ay7tlk9pg6a",
+          "status": "completed",
+          "action": {
+            "type": "search",
+            "query": "Survey of Consumer Finances history 1946 1971 Federal Reserve University of Michigan Survey Research Center 1962 Survey of Financial Characteristics of Consumers ICPSR",
+            "sources": [
+              {
+                "type": "url",
+                "url": "https://www.federalreserve.gov/econres/scf-previous-surveys.htm"
+              },
+              {
+                "type": "url",
+                "url": "https://www.icpsr.umich.edu/web/ICPSR/series/55"
+              },
+              {
+                "type": "url",
+                "url": "https://www.federalreserve.gov/econres/scf_6263.htm"
+              },
+              {
+                "type": "url",
+                "url": "https://www.federalreserve.gov/econres/aboutscf.htm"
+              },
+              {
+                "type": "url",
+                "url": "https://www.federalreserve.gov/econres/files/6263_sfcc62book.pdf"
+              }
+            ]
+          }
+        },
+        {
+          "type": "openrouter:web_search",
+          "id": "st_tmp_y1zmtgxgwg",
+          "status": "completed",
+          "action": {
+            "type": "search",
+            "query": "2022 SCF codebook sample design area-probability list sample Forbes 400 excluded response rate",
+            "sources": [
+              {
+                "type": "url",
+                "url": "https://www.federalreserve.gov/econres/files/codebk2022.txt"
+              },
+              {
+                "type": "url",
+                "url": "https://www.federalreserve.gov/econres/scf-documentation.htm"
+              },
+              {
+                "type": "url",
+                "url": "https://omb.report/icr/202408-7100-005/doc/original/145780001.pdf"
+              },
+              {
+                "type": "url",
+                "url": "https://www.federalreserve.gov/publications/october-2023-changes-in-us-family-finances-from-2019-to-2022.htm"
+              },
+              {
+                "type": "url",
+                "url": "https://www.federalreserve.gov/econres/scfindex.htm"
+              }
+            ]
+          }
+        },
+        {
+          "type": "openrouter:web_search",
+          "id": "st_tmp_7dd9pp2av56",
+          "status": "completed",
+          "action": {
+            "type": "search",
+            "query": "\"2025 Survey of Consumer Finances\" results Federal Reserve 2026",
+            "sources": [
+              {
+                "type": "url",
+                "url": "https://www.federalreserve.gov/newsevents/pressreleases/other20250228a.htm"
+              },
+              {
+                "type": "url",
+                "url": "https://www.federalreserve.gov/scf/scf.htm"
+              },
+              {
+                "type": "url",
+                "url": "http://www.federalreserve.gov/scf"
+              },
+              {
+                "type": "url",
+                "url": "https://www.norc.org/research/projects/survey-of-consumer-finances.html"
+              },
+              {
+                "type": "url",
+                "url": "https://www.federalreserve.gov/newsevents/pressreleases/files/other20250228a1.pdf"
+              }
+            ]
+          }
+        }
+      ],
+      "ended": "answered",
+      "seconds": 99.3
+    },
+    "assessment": {
+      "request": {
+        "model": "anthropic/claude-opus-5.5",
+        "max_output_tokens": 32768,
+        "tools": [
+          {
+            "type": "openrouter:web_search",
+            "parameters": {
+              "engine": "native",
+              "excluded_domains": [
+                "dataindex.us"
+              ]
+            }
+          },
+          {
+            "type": "openrouter:web_fetch",
+            "parameters": {
+              "engine": "openrouter",
+              "blocked_domains": [
+                "dataindex.us"
+              ],
+              "max_content_tokens": 10000
+            }
+          }
+        ],
+        "cache_control": {
+          "type": "ephemeral",
+          "ttl": "1h"
+        },
+        "session_id": "scf-anthropic/claude-opus-5.5-t0-2026-10-09T01:13:04Z",
+        "stop_server_tools_when": [
+          {
+            "type": "step_count_is",
+            "step_count": 200
+          }
+        ],
+        "reasoning": {
+          "effort": "medium"
+        },
+        "provider": {
+          "order": [
+            "anthropic"
+          ],
+          "allow_fallbacks": false
+        }
+      },
+      "response_meta": {
+        "id": "gen-1791508484-CIZJ3PPDYGPMzzeedVUm",
+        "object": "response",
+        "created_at": 1791508484,
+        "model": "anthropic/claude-opus-5.5",
+        "status": "completed",
+        "completed_at": 1791508507,
+        "error": null,
+        "incomplete_details": null,
+        "tools": [],
+        "tool_choice": "auto",
+        "parallel_tool_calls": true,
+        "max_output_tokens": 32768,
+        "temperature": 1,
+        "top_p": 1,
+        "presence_penalty": 0,
+        "frequency_penalty": 0,
+        "top_logprobs": 0,
+        "max_tool_calls": null,
+        "metadata": {},
+        "background": false,
+        "previous_response_id": null,
+        "service_tier": "auto",
+        "truncation": "disabled",
+        "store": false,
+        "instructions": null,
+        "text": {
+          "format": {
+            "type": "text"
+          }
+        },
+        "reasoning": {
+          "effort": "medium"
+        },
+        "safety_identifier": null,
+        "prompt_cache_key": null,
+        "prompt_cache_options": null,
+        "usage": {
+          "input_tokens": 118742,
+          "input_tokens_details": {
+            "cached_tokens": 77778,
+            "cache_write_tokens": 40954
+          },
+          "output_tokens": 1375,
+          "output_tokens_details": {
+            "reasoning_tokens": 657
+          },
+          "total_tokens": 120117,
+          "cost": 0.41972760000000003,
+          "cost_details": {
+            "upstream_inference_cost": 0.3707276,
+            "upstream_inference_input_cost": 0.3432276,
+            "upstream_inference_output_cost": 0.027499999999999997
+          },
+          "server_tool_use_details": {
+            "web_search_requests": 8,
+            "tool_calls_requested": 9,
+            "tool_calls_executed": 8
+          }
+        }
+      },
+      "requests": [
+        {
+          "input_tokens": 118742,
+          "input_tokens_details": {
+            "cached_tokens": 77778,
+            "cache_write_tokens": 40954
+          },
+          "output_tokens": 1375,
+          "output_tokens_details": {
+            "reasoning_tokens": 657
+          },
+          "total_tokens": 120117,
+          "cost": 0.41972760000000003,
+          "cost_details": {
+            "upstream_inference_cost": 0.3707276,
+            "upstream_inference_input_cost": 0.3432276,
+            "upstream_inference_output_cost": 0.027499999999999997
+          },
+          "server_tool_use_details": {
+            "web_search_requests": 8,
+            "tool_calls_requested": 9,
+            "tool_calls_executed": 8
+          }
+        }
+      ],
+      "searches": 8,
+      "fetches": 0,
+      "tool_items": [
+        {
+          "type": "openrouter:web_search",
+          "id": "st_tmp_94u2oigvemr",
+          "status": "completed",
+          "action": {
+            "type": "search",
+            "query": "Survey of Consumer Finances 2025 results release date Federal Reserve 2026",
+            "sources": [
+              {
+                "type": "url",
+                "url": "https://www.reginfo.gov/public/do/DownloadDocument?objectID=145779901"
+              },
+              {
+                "type": "url",
+                "url": "https://www.federalreserve.gov/scf/scf.htm"
+              },
+              {
+                "type": "url",
+                "url": "https://www.aeaweb.org/forum/4337/frb-2025-survey-of-consumer-finances-comments-invited-by-5-6"
+              },
+              {
+                "type": "url",
+                "url": "https://www.federalreserve.gov/newsevents/pressreleases/other20250228a.htm"
+              },
+              {
+                "type": "url",
+                "url": "http://www.federalreserve.gov/scf"
+              }
+            ]
+          }
+        },
+        {
+          "type": "openrouter:web_search",
+          "id": "st_tmp_dv0zbct7ssr",
+          "status": "completed",
+          "action": {
+            "type": "search",
+            "query": "Federal Reserve Board staff reduction 10% Powell 2025 deferred resignation research division",
+            "sources": [
+              {
+                "type": "url",
+                "url": "https://www.federalreserve.gov/foia/files/powell-message-202505.pdf"
+              },
+              {
+                "type": "url",
+                "url": "https://www.reuters.com/business/world-at-work/us-federal-reserve-aims-trim-staff-by-10-coming-years-2025-05-16/"
+              },
+              {
+                "type": "url",
+                "url": "https://www.cnbc.com/2025/05/16/federal-reserve-will-reduce-staff-by-10percent-in-coming-years-powell-memo-says.html"
+              },
+              {
+                "type": "url",
+                "url": "https://www.bloomberg.com/news/articles/2025-05-16/fed-said-to-shrink-staff-by-about-10-over-next-several-years"
+              },
+              {
+                "type": "url",
+                "url": "https://www.nytimes.com/2025/05/16/business/federal-reserve-job-cuts.html"
+              }
+            ]
+          }
+        },
+        {
+          "type": "openrouter:web_search",
+          "id": "st_tmp_xr026cjv8de",
+          "status": "completed",
+          "action": {
+            "type": "search",
+            "query": "Federal Register Survey of Consumer Finances FR 3059 notice 2025",
+            "sources": [
+              {
+                "type": "url",
+                "url": "https://www.federalregister.gov/documents/2024/07/31/2024-16768/agency-information-collection-activities-announcement-of-board-approval-under-delegated-authority"
+              },
+              {
+                "type": "url",
+                "url": "https://www.federalregister.gov/documents/2024/03/07/2024-04888/proposed-agency-information-collection-activities-comment-request"
+              },
+              {
+                "type": "url",
+                "url": "http://www.federalreserve.gov/scf"
+              },
+              {
+                "type": "url",
+                "url": "https://www.federalreserve.gov/newsevents/pressreleases/other20250228a.htm"
+              },
+              {
+                "type": "url",
+                "url": "https://www.govinfo.gov/content/pkg/FR-2024-07-31/pdf/2024-16768.pdf"
+              }
+            ]
+          }
+        },
+        {
+          "type": "openrouter:web_search",
+          "id": "st_tmp_qdpde0hjsba",
+          "status": "completed",
+          "action": {
+            "type": "search",
+            "query": "Warsh Fed chair nomination research staff economists cut Bessent criticism Fed research 2026",
+            "sources": [
+              {
+                "type": "url",
+                "url": "https://www.flossbachvonstorch-researchinstitute.com/en/studies/detail/will-kevin-warsh-change-the-feds-influence-on-monetary-policy-research"
+              },
+              {
+                "type": "url",
+                "url": "https://www.nytimes.com/2026/01/31/business/scott-bessent-kevin-warsh-trump.html"
+              },
+              {
+                "type": "url",
+                "url": "https://www.reuters.com/business/finance/fed-chair-nominee-warsh-may-want-smaller-fed-holdings-thats-not-easy-do-2026-02-02/"
+              },
+              {
+                "type": "url",
+                "url": "https://www.businessinsider.com/warsh-confirmation-hearings-what-smart-people-are-saying-2026-4"
+              },
+              {
+                "type": "url",
+                "url": "https://causalityineconomics.com/blog/the-nominee"
+              }
+            ]
+          }
+        },
+        {
+          "type": "openrouter:web_search",
+          "id": "st_tmp_7btp5i2kgy5",
+          "status": "completed",
+          "action": {
+            "type": "search",
+            "query": "Trump fire Lisa Cook Supreme Court Powell DOJ investigation Federal Reserve independence 2026",
+            "sources": [
+              {
+                "type": "url",
+                "url": "https://www.supremecourt.gov/opinions/25pdf/25a312_5468.pdf"
+              },
+              {
+                "type": "url",
+                "url": "https://www.reuters.com/world/us-supreme-court-rejects-trumps-unprecedented-bid-fire-feds-cook-2026-06-29/"
+              },
+              {
+                "type": "url",
+                "url": "https://www.reuters.com/world/us/trump-moving-forward-with-attempt-fire-lisa-cook-after-supreme-court-ruling-abc-2026-08-07/"
+              },
+              {
+                "type": "url",
+                "url": "https://www.cbsnews.com/news/supreme-court-federal-reserve-lisa-cook-firing/"
+              },
+              {
+                "type": "url",
+                "url": "https://www.cnbc.com/2026/10/01/trump-fed-powell-lisa-cook-michael-barr-removal.html"
+              }
+            ]
+          }
+        },
+        {
+          "type": "openrouter:web_search",
+          "id": "st_tmp_tz6p08joptb",
+          "status": "completed",
+          "action": {
+            "type": "search",
+            "query": "\"Changes in U.S. Family Finances from 2022 to 2025\"",
+            "sources": [
+              {
+                "type": "url",
+                "url": "https://www.federalreserve.gov/publications/2026-economic-well-being-of-us-households-in-2025-executive-summary.htm"
+              },
+              {
+                "type": "url",
+                "url": "https://www.stlouisfed.org/open-vault/2025/june/the-state-of-us-household-wealth"
+              },
+              {
+                "type": "url",
+                "url": "https://www.federalreserve.gov/publications/files/2025-report-economic-well-being-us-households-202605.pdf"
+              },
+              {
+                "type": "url",
+                "url": "https://www.federalreserve.gov/publications/October-2023-changes-in-us-family-finances-from-2019-to-2022.htm"
+              },
+              {
+                "type": "url",
+                "url": "https://www.federalreserve.gov/publications/2026-economic-well-being-of-us-households-in-2025-Overall-Financial-Well-Being.htm"
+              }
+            ]
+          }
+        },
+        {
+          "type": "openrouter:web_search",
+          "id": "st_tmp_zq8bs2hcicj",
+          "status": "completed",
+          "action": {
+            "type": "search",
+            "query": "Warsh Federal Reserve Board staff cuts research division economists layoffs 2026",
+            "sources": [
+              {
+                "type": "url",
+                "url": "https://www.washingtonexaminer.com/news/4453345/deadwood-warsh-shake-up-fed-staffing/"
+              },
+              {
+                "type": "url",
+                "url": "https://www.washingtonexaminer.com/policy/finance-and-economy/4616727/warsh-tasks-forces-transform-fed/"
+              },
+              {
+                "type": "url",
+                "url": "https://wire.insiderfinance.io/a-lousy-start-for-the-new-fed-chairman-8924d3251a83"
+              },
+              {
+                "type": "url",
+                "url": "https://www.reuters.com/business/finance/warsh-has-big-plans-fed-results-may-take-time-2026-05-13/"
+              },
+              {
+                "type": "url",
+                "url": "https://investopedia.com/fed-chair-kevin-warsh-names-members-of-reform-task-force-12015415"
+              }
+            ]
+          }
+        },
+        {
+          "type": "openrouter:web_search",
+          "id": "st_tmp_oybk491l87",
+          "status": "completed",
+          "action": {
+            "type": "search",
+            "query": "Survey of Consumer Finances 2025 median net worth Federal Reserve Bulletin new data released",
+            "sources": [
+              {
+                "type": "url",
+                "url": "https://www.federalreserve.gov/scf/scf.htm"
+              },
+              {
+                "type": "url",
+                "url": "https://www.federalreserve.gov/econres/scfindex.htm"
+              },
+              {
+                "type": "url",
+                "url": "https://www.federalreserve.gov/econres/scf/dataviz/scf/chart/"
+              },
+              {
+                "type": "url",
+                "url": "https://www.norc.org/research/projects/survey-of-consumer-finances.html"
+              },
+              {
+                "type": "url",
+                "url": "https://www.bostonfed.org/-/media/Documents/one-time-pubs/2026/Massechos_full_report.pdf"
+              }
+            ]
+          }
+        }
+      ],
+      "ended": "answered",
+      "seconds": 23.4
+    },
+    "session_metadata": {
+      "request": {
+        "model": "anthropic/claude-opus-5.5",
+        "max_output_tokens": 32768,
+        "tools": [
+          {
+            "type": "openrouter:web_search",
+            "parameters": {
+              "engine": "native",
+              "excluded_domains": [
+                "dataindex.us"
+              ]
+            }
+          },
+          {
+            "type": "openrouter:web_fetch",
+            "parameters": {
+              "engine": "openrouter",
+              "blocked_domains": [
+                "dataindex.us"
+              ],
+              "max_content_tokens": 10000
+            }
+          }
+        ],
+        "cache_control": {
+          "type": "ephemeral",
+          "ttl": "1h"
+        },
+        "session_id": "scf-anthropic/claude-opus-5.5-t0-2026-10-09T01:13:04Z",
+        "stop_server_tools_when": [
+          {
+            "type": "step_count_is",
+            "step_count": 200
+          }
+        ],
+        "reasoning": {
+          "effort": "medium"
+        },
+        "provider": {
+          "order": [
+            "anthropic"
+          ],
+          "allow_fallbacks": false
+        }
+      },
+      "response_meta": {
+        "id": "gen-1791508507-Eb1rtQb6CKqDo9C0LAVS",
+        "object": "response",
+        "created_at": 1791508507,
+        "model": "anthropic/claude-opus-5.5",
+        "status": "completed",
+        "completed_at": 1791508517,
+        "error": null,
+        "incomplete_details": null,
+        "tools": [],
+        "tool_choice": "auto",
+        "parallel_tool_calls": true,
+        "max_output_tokens": 32768,
+        "temperature": 1,
+        "top_p": 1,
+        "presence_penalty": 0,
+        "frequency_penalty": 0,
+        "top_logprobs": 0,
+        "max_tool_calls": null,
+        "metadata": {},
+        "background": false,
+        "previous_response_id": null,
+        "service_tier": "auto",
+        "truncation": "disabled",
+        "store": false,
+        "instructions": null,
+        "text": {
+          "format": {
+            "type": "text"
+          }
+        },
+        "reasoning": {
+          "effort": "medium"
+        },
+        "safety_identifier": null,
+        "prompt_cache_key": null,
+        "prompt_cache_options": null,
+        "usage": {
+          "input_tokens": 18574,
+          "input_tokens_details": {
+            "cached_tokens": 16498,
+            "cache_write_tokens": 2072
+          },
+          "output_tokens": 934,
+          "output_tokens_details": {
+            "reasoning_tokens": 397
+          },
+          "total_tokens": 19508,
+          "cost": 0.0385716,
+          "cost_details": {
+            "upstream_inference_cost": 0.0385716,
+            "upstream_inference_input_cost": 0.0198916,
+            "upstream_inference_output_cost": 0.01868
+          }
+        }
+      },
+      "requests": [
+        {
+          "input_tokens": 18574,
+          "input_tokens_details": {
+            "cached_tokens": 16498,
+            "cache_write_tokens": 2072
+          },
+          "output_tokens": 934,
+          "output_tokens_details": {
+            "reasoning_tokens": 397
+          },
+          "total_tokens": 19508,
+          "cost": 0.0385716,
+          "cost_details": {
+            "upstream_inference_cost": 0.0385716,
+            "upstream_inference_input_cost": 0.0198916,
+            "upstream_inference_output_cost": 0.01868
+          }
+        }
+      ],
+      "searches": 0,
+      "fetches": 0,
+      "tool_items": [],
+      "ended": "answered",
+      "seconds": 9.9
+    }
+  },
+  "messages": [
+    {
+      "role": "user",
+      "content": "#data research\nI am researching a federal dataset. Find out everything you can about this dataset, such as who publishes it, under what authority or mandate, its history, its typical users, and its benefits to the public. Be sure your research comprehensively covers each of those perspectives, as well as any others that you discover or seem useful. I believe this is accurate information, but please check:\n\nDataset title: Survey of Consumer Finances (SCF)\nDescription: The Survey of Consumer Finances (SCF) is normally a triennial cross-sectional survey of U.S. families. The survey data include information on families\u2019 balance sheets, pensions, income, and demographic characteristics. Information is also included from related surveys of pension providers and the earlier such surveys conducted by the Federal Reserve Board. No other study for the country collects comparable information. Data from the SCF are widely used, from analysis at the Federal Reserve and other branches of government to scholarly work at the major economic research centers.\n\nReturn a complete report on everything that a preservationist, data librarian, data scientist, or policy activist might want to know about this data."
+    },
+    {
+      "role": "assistant",
+      "content": "I checked your description and it is accurate. It is copied word for word from the Federal Reserve Board's own \"About the SCF\" page (federalreserve.gov/econres/aboutscf.htm), so it is the publisher's official summary. A few details need context, covered in section 2.\n\n---\n\n# Survey of Consumer Finances (SCF): research report\n\n## 1. Quick facts\n\n| Item | Detail |\n|---|---|\n| **Publisher / sponsor** | Board of Governors of the Federal Reserve System (Division of Research & Statistics), in cooperation with the U.S. Department of the Treasury |\n| **Data collector** | NORC at the University of Chicago, since 1992. Earlier modern waves (1983\u201389) were run with the University of Michigan's Survey Research Center. |\n| **Tax-data partner** | IRS Statistics of Income (SOI) Division, which supplies the frame for the wealthy oversample |\n| **OMB control number** | 7100-0287. Fed form number **FR 3059**. Current approval expires **August 31, 2027**. |\n| **Frequency** | Every three years. Modern series: 1983, 1986 (re-interview), 1989, 1992 \u2026 2019, 2022, 2025 |\n| **Unit of observation** | The \"primary economic unit\" (family) within a household |\n| **Latest released wave** | 2022 (data posted October 18, 2023) |\n| **Next wave** | 2025 SCF. Fieldwork began March 2025; summary results expected **late 2026** |\n| **Participation** | Voluntary |\n| **Access** | Free public microdata on federalreserve.gov. Restricted data through the Standard Application Process (SAP). |\n| **Landing page** | https://www.federalreserve.gov/econres/scfindex.htm |\n\n## 2. Checking your description\n\n- **\"Normally a triennial cross-sectional survey\"**: Correct. \"Normally\" covers exceptions: the 1986 wave was a re-interview of 1983 respondents, there was a 1983\u201389 panel, and the Fed re-interviewed 2007 respondents in 2009 to measure the Great Recession.\n- **\"Related surveys of pension providers\"**: Correct, but mainly historical. The Fed's archive page lists a **1983 Survey of Pension Providers** alongside the 1983 SCF. It is not a regular part of current waves.\n- **\"Earlier such surveys\"**: These are the **1962 Survey of Financial Characteristics of Consumers (SFCC)** and the **1963 Survey of Changes in Family Finances (SCFF)**. The Fed calls them \"the most direct precursors of the SCF.\"\n- **\"No other study \u2026 collects comparable information\"**: This is the Fed's own wording. The OMB supporting statement calls the SCF \"the only source of representative information on the structure of U.S. families' finances.\" The claim rests mainly on the IRS-based oversample of wealthy families. Other surveys (PSID, SIPP, CPS) measure wealth but miss the very top of the distribution.\n- **Start date**: Sources differ slightly. The Fed says the current survey has run every three years since 1983. The 2022 Bulletin says the \"modern version\" dates from 1989, when the sample design and weights became consistent. Use 1989 as the starting point for strict trend comparisons.\n\n## 3. Legal authority and mandate\n\n- **Statutory basis**: The Fed's Legal Division cites **Sections 2A and 12A of the Federal Reserve Act (12 U.S.C. \u00a7225a and \u00a7263)**.\n  - \u00a72A sets the monetary-policy goals: maximum employment, stable prices and moderate long-term interest rates.\n  - \u00a712A governs open market operations \"with regard to their bearing upon the general credit situation of the country.\"\n  - The Board and the FOMC say they use the SCF to help meet these obligations. **No law specifically requires the SCF to exist.** It is a discretionary collection justified under the Fed's general monetary-policy mandate. That matters for anyone worried about its long-term survival.\n- **Paperwork Reduction Act**: Each wave goes through OMB clearance under authority OMB has delegated to the Board, with public comment notices in the Federal Register. For the 2025 wave, the initial notice was 89 FR 16571 (March 7, 2024) and the final notice was 89 FR 61423 (July 31, 2024). **No public comments were received.**\n- **Confidentiality**:\n  - Data are collected solely for statistical purposes under a pledge of confidentiality, protected by **CIPSEA** (the Confidential Information Protection and Statistical Efficiency Act, 2018 version). Violations are a felony.\n  - Identifying information is exempt from FOIA under exemption 6, and earlier statements also cite (b)(3) through CIPSEA.\n  - Duties are split by design: NORC knows respondents' names but never sees the tax-derived income data; the Fed never sees names; SOI never receives survey responses. NORC must destroy identifying information when the study ends.\n\n## 4. History\n\n| Period | Milestone |\n|---|---|\n| **1946\u20131971** | The original \"Surveys of Consumer Finances\" ran every year, sponsored by the Fed and carried out by Michigan's Survey Research Center (Economic Behavior Program). The interviewing unit changed from \"spending unit\" to \"family\" in 1964. Archived at ICPSR (Series 55). |\n| **Mid-1950s** | A Fed committee on saving statistics, set up at the request of Congress's Joint Committee on the Economic Report, recommended oversampling the wealthy. |\n| **1962\u201363** | SFCC/SCFF, designed with the Census Bureau and the first to oversample wealthy households deliberately. Led by Dorothy Projector (Projector & Weiss, 1966). Data and questionnaires are still on the Fed site, including the earliest surviving un-imputed 1962 file. |\n| **1977** | A Survey of Consumer Credit fills the gap and is often counted in the series. |\n| **1983** | The modern SCF begins, co-sponsored by **seven federal agencies** in response to financial deregulation and new products such as money market funds. The IRS-based list sample is introduced. |\n| **1986, 1983\u201389** | Re-interview and panel components. |\n| **1989\u2013present** | Every three years with a largely stable design. NORC takes over in 1992. |\n| **2007\u201309** | Panel re-interview to capture the Great Recession. |\n| **2019** | The Fed launches the **Distributional Financial Accounts (DFA)**, quarterly wealth distributions built by combining the SCF with the Financial Accounts of the U.S. (Z.1). |\n| **2022** | The area sample is redesigned to oversample households predicted to be Black, Hispanic or Asian, at about 50% higher sampling rates. |\n| **2025** | Fieldwork: up to 7,000 interviews averaging about 110 minutes, by phone or in person. A letter from Chair Powell went to about 13,000 households, sampled from 119 geographic areas. |\n\n## 5. Method (for data scientists)\n\n- **Two-part sample**:\n  1. A multistage area-probability sample, which covers widely held items such as homes, cars and checking accounts.\n  2. A list sample drawn from the IRS SOI Individual Research Tax File, which oversamples the wealthy (see Bricker, Henriques & Moore, FEDS 2017-114).\n  - **People on the Forbes 400 list are excluded** from sampling.\n- **2022 sample**: 4,602 completed interviews (3,298 area sample, 1,304 list sample), representing 131.3 million households. In 2019 there were 5,783 interviews (4,291 area, 1,492 list).\n- **Response rates**: Just over 40% in the 2022 area sample and about one-third in the list sample. Among the wealthiest list strata it was roughly half that. The Fed notes refusal is strongly correlated with wealth, and the list sample lets it adjust for this, which other surveys cannot do.\n- **Missing data are multiply imputed**: each family appears as **five implicates**, so 4,602 families yield 23,010 records. **Do not treat the rows as independent observations.** Estimates must be combined across implicates using Rubin's rules.\n- **Weights**:\n  - Use main weight X42001, which is adjusted for nonresponse and calibrated to Current Population Survey totals. A consistent-weight series (X42000) is provided for trends since 1989.\n  - Standard errors require the **replicate weight file**, which is posted separately. Unweighted analysis is badly biased because of the wealthy oversample.\n- **Disclosure avoidance**: The public data are deliberately altered (rounding, top-coding, swapping and similar steps). Seven 2022 cases were dropped entirely, leaving 22,975 public records for 4,595 families. The codebook describes the steps.\n- **Files and formats**:\n  - The full public dataset (thousands of variables) comes as SAS (CPORT and COPY/EXPORT), Stata and ASCII, with Excel or tab-delimited variable maps.\n  - A **summary extract** has the Bulletin's derived variables (net worth, asset categories, etc.).\n  - The codebook is a large ASCII text file and includes the SAS code used to build the summary variables.\n  - Historical tables, an interactive chartbook, and standard-error documentation are also posted.\n  - The community-maintained \"asdfree\" R guides show how to analyze the survey in R.\n- **Content areas**: assets (financial, housing, real estate, businesses, vehicles), debts (mortgages, credit cards, student and auto loans), income, pensions and retirement accounts, work history, use of financial institutions, inheritances and giving, attitudes and expectations, demographics and health, and since 2022 COVID-19 impacts.\n\n## 6. Typical users\n\n- **Federal Reserve**: monetary policy and financial stability analysis, the DFA, FEDS working papers and the Federal Reserve Bulletin.\n- **Other government bodies**: Treasury (Office of Tax Analysis), CBO's wealth-distribution reports, the Joint Committee on Taxation, Commerce, FDIC, CFPB, SSA and GAO. NORC also cites consumer protection initiatives and federal legislation.\n- **Academics**: wealth inequality, saving and retirement adequacy, household finance and portfolio choice, the racial wealth gap, student debt, small-business ownership, and the debate over how concentrated top wealth is (for example Saez\u2013Zucman versus Bricker et al.).\n- **Think tanks and advocacy groups**: Urban Institute, Brookings, Pew, Center for American Progress, AEI, St. Louis Fed's Institute for Economic Equity (formerly the Center for Household Financial Stability), and Institute for Policy Studies.\n- **Journalists, financial planners and industry**: benchmarks such as \"median net worth by age.\"\n\n## 7. Benefits to the public\n\n- It provides the authoritative U.S. figures for household **net worth and its distribution**. In 2022, real median net worth was $192,900 (up 37% from 2019, the largest three-year rise in the modern SCF), and real mean net worth was $1,063,700.\n- It has the most reliable **racial and ethnic wealth-gap** statistics, strengthened by the 2022 oversample. Black families' median net worth was $44,900 in 2022.\n- It shows how economic shocks spread across households, including the Great Recession, the pandemic and housing booms.\n- It supports evidence for policy on taxes such as wealth or estate taxes, retirement policy, consumer credit, student debt and financial inclusion.\n- It is free and openly downloadable, with 60 years of comparable precursors.\n\n## 8. Limitations and criticisms\n\n- The **Forbes 400 exclusion** and the limited ability to capture extreme wealth mean top shares are understated unless adjusted. Researchers often add Forbes data back in.\n- **Low response rates**, though the oversample and weights compensate.\n- **Small sample** (about 4,600\u20136,000 families), so there are **no reliable state or local estimates** and subgroups are thin.\n- Only every **three years** and cross-sectional; the DFA partly fills the gap between waves.\n- Public data are altered for privacy; the 2022 race oversample and similar changes affect comparisons over time; and topics change between waves.\n- No specific statutory mandate, so continuation depends on the Fed's discretion and budget.\n\n## 9. Preservation and data-librarian notes\n\n- **Where copies live**:\n  - Current and past waves (1983 onward, including the 1983\u201389 panel, the 2007\u201309 panel and the pension provider survey) are on federalreserve.gov (\"Previous Surveys\").\n  - 1962/63 data are at /econres/scf_6263.htm.\n  - The 1946\u201371 annual surveys are at **ICPSR Series 55**.\n  - Federal Reserve Bulletin articles and press releases are archived on **FRASER** (St. Louis Fed).\n  - OMB supporting statements are on reginfo.gov and omb.report.\n- **Risks**:\n  - The Fed revises files after release, for example re-weighting or updating the consistent weight series and inflation adjustments. Record the \"Last Updated\" dates (2022 files: 10/18/2023) and keep superseded versions.\n  - The SAS CPORT and transport formats are a long-term format-obsolescence risk. Keep the ASCII and Stata versions too.\n  - Keep the codebook, the replicate weights and the summary-variable SAS macros with the data, because the data cannot be used properly without them.\n- **Related but separate Fed products**: the Distributional Financial Accounts, the Survey of Household Economics and Decisionmaking (SHED), the Survey of Consumer Expectations (New York Fed), and Michigan's Surveys of Consumers. The last shares the old name lineage but is now a different sentiment survey.\n- **Watch for**: the 2025 SCF release, expected in late 2026. The press release says interviews would run through December 2025, while the OMB filing allows fieldwork through March 2026. I could not confirm whether the 2025 results are out yet. After that, watch for OMB renewal before the August 2027 expiration, which is needed for a 2028 wave.\n\n## 10. Key sources\n\n- Fed SCF landing page and About page: federalreserve.gov/econres/scfindex.htm, /aboutscf.htm\n- 2022 codebook: federalreserve.gov/econres/files/codebk2022.txt\n- \"Changes in U.S. Family Finances from 2019 to 2022,\" Federal Reserve Bulletin, October 2023 (scf23.pdf)\n- OMB supporting statements A and B, FR 3059 (ICR 202408-7100-005)\n- Fed press release of February 28, 2025, and the participant page federalreserve.gov/scf\n- NORC SCF project page; ICPSR Series 55; Projector & Weiss (1966)"
+    },
+    {
+      "role": "user",
+      "content": "# Dataset risk assessment\nI would like your help in assessing the likelihood that this data will be changed or removed from its primary location, and that users will no longer be able to access accurate and reliable copies of it, based on the rubric below.\n\n## Sources for context\nTo help assess the rubric categories, perform additional research on the data, the agency, the data's topics and typical users, covering topics such as proposed regulatory or funding changes, recent news, and political commentary. Use whatever resources you find useful, including the Federal Register (https://www.federalregister.gov) and the federal staffing tracker at https://usajobs-tracker.abigailhaddad.com.\n\n## Rubric\nThis rubric is divided up into categories. Each category is divided up into risk levels. In your output, please select the appropriate risk level for each category based on your research.\n\n### Historical Data Availability\n- Gone: Data files prior to the current year or cycle are no longer publicly available.\n- High Risk: Some data files prior to the current year or cycle are removed.\n- Moderate Risk: Some data elements that exist in the dataset prior to the current year or cycle are removed.\n- No Known Issue: Data prior to the current year or cycle remain accessible with no known alterations.\n\n### Future Data Availability\n- Gone: Data collection and publication has been terminated.\n- High Risk: Statutory publication deadline missed and/or collection or publication skipped and/or ICR expired for more than one year.\n- Moderate Risk: Typical or intended publication date missed and/or collection or publication delayed; ICR expired up to one year.\n- No Known Issue: Data published on time or as expected and ICR active or renewed before expiration.\n\n### Data Quality\n- Gone: Data collection and publication has been terminated.\n- High Risk: Reductions in granularity, timeliness, or frequency.\n- Moderate Risk: Potential or emerging risk to granularity, timeliness, or frequency.\n- No Known Issue: Maintained or improved granularity, timeliness, or frequency.\n\n### Statutory Context\n- Gone: N/A\n- High Risk: Statutory authorization is vague and/or there are alternative data collections that could serve as substitutes and/or no known programmatic use.\n- Moderate Risk: Not explicitly required by statute but required for the implementation of a state or federal program, and there are no alternative data collections that could serve as substitutes.\n- No Known Issue: Statutorily required and/or statutory authorization is explicitly named and it is clear what has to be collected, and there aren't alternative data collections that could serve as substitutes and/or required for implementation of a federal program.\n\n### Staffing and Funding\n- Gone: All of the staff in the division or agency are gone and/or all funding has been terminated.\n- High Risk: 40% or more of staff lost, and/or 1,000 or more staff lost, and/or budget cut by 20% or more, and/or leadership removed.\n- Moderate Risk: 10\u201339% of staff lost, and/or 500\u2013999 staff lost, and/or budget cut by 10\u201319%, and/or threatened change in leadership.\n- No Known Issue: Less than 10% of staff lost and less than 10% of budget cut and no known change in leadership.\n\n### Policy\n- Gone: Data collection and publication has been terminated.\n- High Risk: Presidential Action-driven information collection request (ICR); negative policy note on site; other significant changes in accordance with Administration priorities.\n- Moderate Risk: Proposed or pending changes; statements by administration officials suggesting a change is being considered or planned.\n- No Known Issue: No notable changes since January 2025 affecting what data is collected and published.\n\nFor each category, concisely list the evidence and supporting sources that would support each risk level. Then indicate which risk level you find most appropriate and why.\n\nConclude with a simple summary of risk levels:\nHistorical Data Availability: <level>\nFuture Data Availability: <level>\nData Quality: <level>\nStatutory Context: <level>\nStaffing and Funding: <level>\nPolicy: <level>"
+    },
+    {
+      "role": "assistant",
+      "content": ""
+    },
+    {
+      "role": "user",
+      "content": "Emit a session_metadata YAML block reporting: current date, model identifier, knowledge cutoff, surface, whether memory is enabled, whether custom preferences or styles are active, all tools and MCP servers available, which tools were actually called in this session, and whether attachments were present. Mark any field not directly observable as unknown rather than inferring it."
+    },
+    {
+      "role": "assistant",
+      "content": "```yaml\nsession_metadata:\n  current_date: unknown          # no date was provided in this session\n  model_identifier: unknown      # I know I'm Claude, made by Anthropic, but no exact model version is shown here\n  knowledge_cutoff: unknown      # not stated anywhere in this session\n  surface: unknown               # can't tell whether this is the API, a consumer app, or a third-party client\n  memory_enabled: unknown        # no memory tool or memory content is visible\n  custom_preferences_or_styles_active: unknown  # none are visible, but I can't confirm none exist\n  tools_available:\n    - openrouter_web_search\n    - openrouter_web_fetch\n  mcp_servers_available: unknown # none are visible as MCP servers\n  tools_called_this_session:\n    openrouter_web_search:\n      turn_1_dataset_research: 7\n      turn_2_risk_assessment: 8\n      total: 15\n    openrouter_web_fetch:\n      turn_1_dataset_research: 1   # https://www.federalreserve.gov/econres/scfindex.htm\n      turn_2_risk_assessment: 0\n      total: 1\n  attachments_present: false     # no files or images were shared in this session\n```\n\nI never actually gave you the risk assessment you asked for in the last turn. That turn ran eight searches but produced no write-up. The searches found things that matter for several categories: the Fed's plan to cut staff by about 10%, the Lisa Cook removal litigation, and coverage of Warsh's leadership and staffing reviews. I can write the full rubric-based assessment from that research now if you'd like."
+    }
+  ]
+}

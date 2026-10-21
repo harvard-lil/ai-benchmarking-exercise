@@ -1,0 +1,1245 @@
+{
+  "dataset": {
+    "key": "soc",
+    "title": "Survey of Construction (SOC)"
+  },
+  "model": "anthropic/claude-opus-5.5",
+  "harness": "openrouter tools",
+  "context": "full: each turn's whole output is carried into the next",
+  "search_tool": {
+    "engine": "native",
+    "excluded_domains": [
+      "dataindex.us"
+    ]
+  },
+  "fetch_tool": {
+    "engine": "openrouter",
+    "blocked_domains": [
+      "dataindex.us"
+    ],
+    "max_content_tokens": 10000
+  },
+  "reasoning": "effort medium",
+  "catalog": {
+    "fetched_at": "2026-10-09T01:09:34Z",
+    "entry": {
+      "id": "anthropic/claude-opus-5.5",
+      "canonical_slug": "anthropic/claude-opus-5.5-20260921",
+      "hugging_face_id": null,
+      "name": "Anthropic: Claude Opus 5.5",
+      "created": 1790094732,
+      "description": "Claude Opus 5.5 is Anthropic's flagship model for demanding reasoning, coding, and long-horizon agentic work, succeeding Claude Opus 5. It is particularly strong at multi-step changes in large codebases, code...",
+      "context_length": 1000000,
+      "architecture": {
+        "modality": "text+image+file->text",
+        "input_modalities": [
+          "text",
+          "image",
+          "file"
+        ],
+        "output_modalities": [
+          "text"
+        ],
+        "tokenizer": "Claude",
+        "instruct_type": null
+      },
+      "pricing": {
+        "prompt": "0.000004",
+        "completion": "0.00002",
+        "web_search": "0.01",
+        "input_cache_read": "0.0000002",
+        "input_cache_write": "0.000005",
+        "input_cache_write_1h": "0.000008"
+      },
+      "top_provider": {
+        "context_length": 1000000,
+        "max_completion_tokens": 128000,
+        "is_moderated": true
+      },
+      "per_request_limits": null,
+      "supported_parameters": [
+        "include_reasoning",
+        "max_completion_tokens",
+        "max_tokens",
+        "reasoning",
+        "reasoning_effort",
+        "response_format",
+        "stop",
+        "structured_outputs",
+        "tool_choice",
+        "tools",
+        "verbosity"
+      ],
+      "default_parameters": {},
+      "supported_voices": null,
+      "knowledge_cutoff": null,
+      "expiration_date": null,
+      "links": {
+        "details": "/api/v1/models/anthropic/claude-opus-5.5-20260921/endpoints"
+      },
+      "benchmarks": {
+        "design_arena": [
+          {
+            "arena": "agents",
+            "category": "mobileapps",
+            "elo": 1328,
+            "win_rate": 64.3,
+            "rank": 2
+          },
+          {
+            "arena": "models",
+            "category": "3d",
+            "elo": 1487,
+            "win_rate": 72.3,
+            "rank": 1
+          },
+          {
+            "arena": "models",
+            "category": "codecategories",
+            "elo": 1407,
+            "win_rate": 65.3,
+            "rank": 1
+          },
+          {
+            "arena": "models",
+            "category": "dataviz",
+            "elo": 1403,
+            "win_rate": 64.6,
+            "rank": 1
+          },
+          {
+            "arena": "models",
+            "category": "gamedev",
+            "elo": 1464,
+            "win_rate": 72.5,
+            "rank": 1
+          },
+          {
+            "arena": "models",
+            "category": "svg",
+            "elo": 1332,
+            "win_rate": 50.5,
+            "rank": 1
+          },
+          {
+            "arena": "models",
+            "category": "uicomponent",
+            "elo": 1396,
+            "win_rate": 65.5,
+            "rank": 1
+          },
+          {
+            "arena": "models",
+            "category": "website",
+            "elo": 1340,
+            "win_rate": 57.6,
+            "rank": 3
+          }
+        ],
+        "artificial_analysis": {
+          "intelligence_index": 57.6,
+          "coding_index": null,
+          "agentic_index": null
+        }
+      },
+      "reasoning": {
+        "mandatory": true,
+        "supported_efforts": [
+          "max",
+          "xhigh",
+          "high",
+          "medium",
+          "low"
+        ],
+        "default_effort": "high"
+      }
+    }
+  },
+  "upstream": [
+    "anthropic"
+  ],
+  "trial": 0,
+  "terminate_reason": "completed",
+  "max_tokens": 32768,
+  "started_at": "2026-10-09T01:09:33Z",
+  "prompts": {
+    "research": "#data research\nI am researching a federal dataset. Find out everything you can about this dataset, such as who publishes it, under what authority or mandate, its history, its typical users, and its benefits to the public. Be sure your research comprehensively covers each of those perspectives, as well as any others that you discover or seem useful. I believe this is accurate information, but please check:\n\nDataset title: Survey of Construction (SOC)\nDescription: The Survey of Construction (SOC) provides national and regional statistics on starts and completions of new single-family and multifamily housing units and statistics on sales of new single-family houses in the United States. The SOC also provides statistics on characteristics of new privately-owned residential structures in the United States. Data included are various characteristics of new single-family houses completed, new multifamily housing completed, new single-family houses sold, and new contractor-built houses started. The Department of Housing and Urban Development (HUD) partially funds this survey.\n\nReturn a complete report on everything that a preservationist, data librarian, data scientist, or policy activist might want to know about this data.",
+    "assessment": "# Dataset risk assessment\nI would like your help in assessing the likelihood that this data will be changed or removed from its primary location, and that users will no longer be able to access accurate and reliable copies of it, based on the rubric below.\n\n## Sources for context\nTo help assess the rubric categories, perform additional research on the data, the agency, the data's topics and typical users, covering topics such as proposed regulatory or funding changes, recent news, and political commentary. Use whatever resources you find useful, including the Federal Register (https://www.federalregister.gov) and the federal staffing tracker at https://usajobs-tracker.abigailhaddad.com.\n\n## Rubric\nThis rubric is divided up into categories. Each category is divided up into risk levels. In your output, please select the appropriate risk level for each category based on your research.\n\n### Historical Data Availability\n- Gone: Data files prior to the current year or cycle are no longer publicly available.\n- High Risk: Some data files prior to the current year or cycle are removed.\n- Moderate Risk: Some data elements that exist in the dataset prior to the current year or cycle are removed.\n- No Known Issue: Data prior to the current year or cycle remain accessible with no known alterations.\n\n### Future Data Availability\n- Gone: Data collection and publication has been terminated.\n- High Risk: Statutory publication deadline missed and/or collection or publication skipped and/or ICR expired for more than one year.\n- Moderate Risk: Typical or intended publication date missed and/or collection or publication delayed; ICR expired up to one year.\n- No Known Issue: Data published on time or as expected and ICR active or renewed before expiration.\n\n### Data Quality\n- Gone: Data collection and publication has been terminated.\n- High Risk: Reductions in granularity, timeliness, or frequency.\n- Moderate Risk: Potential or emerging risk to granularity, timeliness, or frequency.\n- No Known Issue: Maintained or improved granularity, timeliness, or frequency.\n\n### Statutory Context\n- Gone: N/A\n- High Risk: Statutory authorization is vague and/or there are alternative data collections that could serve as substitutes and/or no known programmatic use.\n- Moderate Risk: Not explicitly required by statute but required for the implementation of a state or federal program, and there are no alternative data collections that could serve as substitutes.\n- No Known Issue: Statutorily required and/or statutory authorization is explicitly named and it is clear what has to be collected, and there aren't alternative data collections that could serve as substitutes and/or required for implementation of a federal program.\n\n### Staffing and Funding\n- Gone: All of the staff in the division or agency are gone and/or all funding has been terminated.\n- High Risk: 40% or more of staff lost, and/or 1,000 or more staff lost, and/or budget cut by 20% or more, and/or leadership removed.\n- Moderate Risk: 10\u201339% of staff lost, and/or 500\u2013999 staff lost, and/or budget cut by 10\u201319%, and/or threatened change in leadership.\n- No Known Issue: Less than 10% of staff lost and less than 10% of budget cut and no known change in leadership.\n\n### Policy\n- Gone: Data collection and publication has been terminated.\n- High Risk: Presidential Action-driven information collection request (ICR); negative policy note on site; other significant changes in accordance with Administration priorities.\n- Moderate Risk: Proposed or pending changes; statements by administration officials suggesting a change is being considered or planned.\n- No Known Issue: No notable changes since January 2025 affecting what data is collected and published.\n\nFor each category, concisely list the evidence and supporting sources that would support each risk level. Then indicate which risk level you find most appropriate and why.\n\nConclude with a simple summary of risk levels:\nHistorical Data Availability: <level>\nFuture Data Availability: <level>\nData Quality: <level>\nStatutory Context: <level>\nStaffing and Funding: <level>\nPolicy: <level>",
+    "session_metadata": "Emit a session_metadata YAML block reporting: current date, model identifier, knowledge cutoff, surface, whether memory is enabled, whether custom preferences or styles are active, all tools and MCP servers available, which tools were actually called in this session, and whether attachments were present. Mark any field not directly observable as unknown rather than inferring it."
+  },
+  "turns": {
+    "research": {
+      "request": {
+        "model": "anthropic/claude-opus-5.5",
+        "max_output_tokens": 32768,
+        "tools": [
+          {
+            "type": "openrouter:web_search",
+            "parameters": {
+              "engine": "native",
+              "excluded_domains": [
+                "dataindex.us"
+              ]
+            }
+          },
+          {
+            "type": "openrouter:web_fetch",
+            "parameters": {
+              "engine": "openrouter",
+              "blocked_domains": [
+                "dataindex.us"
+              ],
+              "max_content_tokens": 10000
+            }
+          }
+        ],
+        "cache_control": {
+          "type": "ephemeral",
+          "ttl": "1h"
+        },
+        "session_id": "soc-anthropic/claude-opus-5.5-t0-2026-10-09T01:09:33Z",
+        "stop_server_tools_when": [
+          {
+            "type": "step_count_is",
+            "step_count": 200
+          }
+        ],
+        "reasoning": {
+          "effort": "medium"
+        },
+        "provider": {
+          "order": [
+            "anthropic"
+          ],
+          "allow_fallbacks": false
+        }
+      },
+      "response_meta": {
+        "id": "gen-1791508174-9Ps3DverxdOfpCtPFshW",
+        "object": "response",
+        "created_at": 1791508174,
+        "model": "anthropic/claude-opus-5.5",
+        "status": "completed",
+        "completed_at": 1791508279,
+        "error": null,
+        "incomplete_details": null,
+        "tools": [],
+        "tool_choice": "auto",
+        "parallel_tool_calls": true,
+        "max_output_tokens": 32768,
+        "temperature": 1,
+        "top_p": 1,
+        "presence_penalty": 0,
+        "frequency_penalty": 0,
+        "top_logprobs": 0,
+        "max_tool_calls": null,
+        "metadata": {},
+        "background": false,
+        "previous_response_id": null,
+        "service_tier": "auto",
+        "truncation": "disabled",
+        "store": false,
+        "instructions": null,
+        "text": {
+          "format": {
+            "type": "text"
+          }
+        },
+        "reasoning": {
+          "effort": "medium"
+        },
+        "safety_identifier": null,
+        "prompt_cache_key": null,
+        "prompt_cache_options": null,
+        "usage": {
+          "input_tokens": 191458,
+          "input_tokens_details": {
+            "cached_tokens": 142836,
+            "cache_write_tokens": 48606
+          },
+          "output_tokens": 8727,
+          "output_tokens_details": {
+            "reasoning_tokens": 2971
+          },
+          "total_tokens": 200185,
+          "cost": 0.6550192,
+          "cost_details": {
+            "upstream_inference_cost": 0.5920192,
+            "upstream_inference_input_cost": 0.4174792,
+            "upstream_inference_output_cost": 0.17454
+          },
+          "server_tool_use_details": {
+            "web_search_requests": 9,
+            "tool_calls_requested": 11,
+            "tool_calls_executed": 11
+          }
+        }
+      },
+      "requests": [
+        {
+          "input_tokens": 191458,
+          "input_tokens_details": {
+            "cached_tokens": 142836,
+            "cache_write_tokens": 48606
+          },
+          "output_tokens": 8727,
+          "output_tokens_details": {
+            "reasoning_tokens": 2971
+          },
+          "total_tokens": 200185,
+          "cost": 0.6550192,
+          "cost_details": {
+            "upstream_inference_cost": 0.5920192,
+            "upstream_inference_input_cost": 0.4174792,
+            "upstream_inference_output_cost": 0.17454
+          },
+          "server_tool_use_details": {
+            "web_search_requests": 9,
+            "tool_calls_requested": 11,
+            "tool_calls_executed": 11
+          }
+        }
+      ],
+      "searches": 9,
+      "fetches": 2,
+      "tool_items": [
+        {
+          "type": "openrouter:web_search",
+          "id": "st_tmp_w2ijmsz7u3p",
+          "status": "completed",
+          "action": {
+            "type": "search",
+            "query": "Census Bureau Survey of Construction methodology history 1959 HUD funded",
+            "sources": [
+              {
+                "type": "url",
+                "url": "http://census.gov/construction/soc/about.html"
+              },
+              {
+                "type": "url",
+                "url": "http://www.asasrms.org/Proceedings/y2003/Files/JSM2003-000443.pdf"
+              },
+              {
+                "type": "url",
+                "url": "https://www.datalumos.org/datalumos/project/228781/version/V1/view"
+              },
+              {
+                "type": "url",
+                "url": "http://www.asasrms.org/Proceedings/papers/1999_040.pdf"
+              },
+              {
+                "type": "url",
+                "url": "https://www.huduser.gov/portal/pdredge/pdr-edge-housingat250-article-021926.html"
+              }
+            ]
+          }
+        },
+        {
+          "type": "openrouter:web_search",
+          "id": "st_tmp_fz7zqggd51m",
+          "status": "completed",
+          "action": {
+            "type": "search",
+            "query": "Survey of Construction public use microdata files Census",
+            "sources": [
+              {
+                "type": "url",
+                "url": "https://www2.census.gov/programs-surveys/soc/guidance/socmicro_info.pdf"
+              },
+              {
+                "type": "url",
+                "url": "https://www.census.gov/construction/chars/microdata.html"
+              },
+              {
+                "type": "url",
+                "url": "https://www.census.gov/construction/soc/methodology.html"
+              },
+              {
+                "type": "url",
+                "url": "https://www.huduser.gov/portal/datasets/soc/home.html"
+              },
+              {
+                "type": "url",
+                "url": "https://www.census.gov/construction/nrc/data.html"
+              }
+            ]
+          }
+        },
+        {
+          "type": "openrouter:web_search",
+          "id": "st_tmp_yjf19imokq",
+          "status": "completed",
+          "action": {
+            "type": "search",
+            "query": "Census housing starts new home sales release delayed shutdown 2026 New Residential Construction schedule change",
+            "sources": [
+              {
+                "type": "url",
+                "url": "https://www.census.gov/construction/bps/schedule.html"
+              },
+              {
+                "type": "url",
+                "url": "https://www.census.gov/economic-indicators/calendar-listview.html"
+              },
+              {
+                "type": "url",
+                "url": "https://www.census.gov/economic-indicators/econcards/assets/pdf/censusreleaseglance_2026.pdf"
+              },
+              {
+                "type": "url",
+                "url": "https://www.census.gov/construction/soc/schedule.html"
+              },
+              {
+                "type": "url",
+                "url": "https://www.census.gov/construction/nrs/current/index.html"
+              }
+            ]
+          }
+        },
+        {
+          "type": "openrouter:web_search",
+          "id": "st_tmp_r1p0k29kq6",
+          "status": "completed",
+          "action": {
+            "type": "search",
+            "query": "Survey of Construction OMB control number 0607-0110 SOC-QI information collection Federal Register",
+            "sources": [
+              {
+                "type": "url",
+                "url": "https://www.federalregister.gov/documents/2020/11/18/2020-25407/agency-information-collection-activities-submission-to-the-office-of-management-and-budget-omb-for"
+              },
+              {
+                "type": "url",
+                "url": "https://www.federalregister.gov/documents/2026/07/20/2026-14512/agency-information-collection-activities-submission-to-the-office-of-management-and-budget-omb-for"
+              },
+              {
+                "type": "url",
+                "url": "https://www.federalregister.gov/documents/2023/12/18/2023-27729/agency-information-collection-activities-submission-to-the-office-of-management-and-budget-omb-for"
+              },
+              {
+                "type": "url",
+                "url": "https://www.federalregister.gov/documents/2023/08/03/2023-16584/agency-information-collection-activities-submission-to-the-office-of-management-and-budget-omb-for"
+              },
+              {
+                "type": "url",
+                "url": "https://www.federalregister.gov/documents/2020/09/03/2020-19477/agency-information-collection-activities-submission-to-the-office-of-management-and-budget-omb-for"
+              }
+            ]
+          }
+        },
+        {
+          "type": "openrouter:web_fetch",
+          "id": "st_tmp_0rit74mw21ei",
+          "status": "completed",
+          "url": "https://unblock.federalregister.gov/",
+          "content": "<!DOCTYPE html>\n<html>\n  <head>\n    <meta http-equiv=\"content-type\" content=\"text/html; charset=UTF-8\" />\n\n    <title>Federal Register :: Request Access</title>\n\n    <meta name=\"viewport\" content=\"width=device-width,initial-scale=1\">\n    <meta name=\"apple-mobile-web-app-capable\" content=\"yes\">\n    <meta name=\"mobile-web-app-capable\" content=\"yes\">\n    <meta name=\"csrf-param\" content=\"authenticity_token\" />\n<meta name=\"csrf-token\" content=\"dyxVLWgzoq_1JjAko4g7Co3m75OuRtWzVTreNeu28tOxMdVBFSjmbtP-yZLiyX0dOksaWngZFZKa--ZZSKNePQ\" />\n    <meta name=\"csp-nonce\" content=\"uHCKU8I62puLJIxyXYqghg==\" />\n\n    <link rel=\"preconnect\" href=\"https://fonts.googleapis.com\">\n<link rel=\"preconnect\" href=\"https://fonts.gstatic.com\" crossorigin>\n\n<link\nhref=\"https://fonts.googleapis.com/css2?family=Roboto:ital,wght@0,400;0,500;0,600;0,700;1,400;1,500;1,700&family=Bitter:ital,wght@0,400;0,500;0,700;1,400;1,500;1,700&display=swap\"\nrel=\"preload\"\nas=\"style\">\n<link\nhref=\"https://fonts.googleapis.com/css2?family=Roboto:ital,wght@0,400;0,500;0,600;0,700;1,400;1,500;1,700&family=Bitter:ital,wght@0,400;0,500;0,700;1,400;1,500;1,700&display=swap\"\nrel=\"stylesheet\">\n\n\n    <link rel=\"stylesheet\" href=\"/assets/application-cafaf2e0.css\" data-turbo-track=\"reload\" />\n    <script type=\"importmap\" data-turbo-track=\"reload\" nonce=\"uHCKU8I62puLJIxyXYqghg==\">{\n  \"imports\": {\n    \"application\": \"/assets/application-cc464116.js\",\n    \"@hotwired/turbo-rails\": \"/assets/turbo.min-86bf8853.js\",\n    \"@hotwired/stimulus\": \"/assets/stimulus.min-7ea3d58b.js\",\n    \"@hotwired/stimulus-loading\": \"/assets/stimulus-loading-25917588.js\",\n    \"controllers/application\": \"/assets/controllers/application-e5a449db.js\",\n    \"controllers/site_feedback_controller\": \"/assets/controllers/site_feedback_controller-a99fc93f.js\",\n    \"controllers/unblock_controller\": \"/assets/controllers/unblock_controller-9520f896.js\"\n  }\n}</script>\n<link rel=\"modulepreload\" href=\"/assets/application-cc464116.js\" nonce=\"uHCKU8I62puLJIxyXYqghg==\">\n<link rel=\"modulepreload\" href=\"/assets/turbo.min-86bf8853.js\" nonce=\"uHCKU8I62puLJIxyXYqghg==\">\n<link rel=\"modulepreload\" href=\"/assets/stimulus.min-7ea3d58b.js\" nonce=\"uHCKU8I62puLJIxyXYqghg==\">\n<link rel=\"modulepreload\" href=\"/assets/stimulus-loading-25917588.js\" nonce=\"uHCKU8I62puLJIxyXYqghg==\">\n<link rel=\"modulepreload\" href=\"/assets/controllers/application-e5a449db.js\" nonce=\"uHCKU8I62puLJIxyXYqghg==\">\n<link rel=\"modulepreload\" href=\"/assets/controllers/site_feedback_controller-a99fc93f.js\" nonce=\"uHCKU8I62puLJIxyXYqghg==\">\n<link rel=\"modulepreload\" href=\"/assets/controllers/unblock_controller-9520f896.js\" nonce=\"uHCKU8I62puLJIxyXYqghg==\">\n<script type=\"module\" nonce=\"uHCKU8I62puLJIxyXYqghg==\">import \"application\"</script>\n\n    <link rel=\"alternate icon\" type=\"image/png\" href=\"/assets/fr-favicon-95da23c0.png\">\n    <link rel=\"icon\" type=\"image/svg+xml\" href=\"/assets/fr-favicon-d1d6c1b7.svg\">\n    <link rel=\"apple-touch-icon\" href=\"/assets/fr-favicon-95da23c0.png\">\n  </head>\n\n  <body>\n    <div class=\"container\">\n      <div class=\"header\" id=\"header_refresh\">\n        <div class=\"header_wrapper\">\n          <div class=\"logo\">\n            <div class=\"hgroup official\">\n              <a href=\"/\" title=\"Federal Register Home - The Daily Journal of the United States Government\">\n                <svg class=\"masthead\">\n                  <use xlink:href=\"/assets/fr-mastheads-9d875438.svg#official-masthead\">\n                    </use>\n                </svg>\n              </a>\n            </div>\n          </div>\n        </div>\n      </div>\n\n      <div id=\"main\">\n        <div class=\"main-title-bar\">\n          <div class=\"bar left-extender\"></div>\n          <div class=\"bar left\"></div>\n          <h1 class=\"\">Request Access</h1>\n          <div class=\"bar right\"></div>\n        </div>\n\n        <div class=\"dialog\">\n\n          <p>\n  Due to aggressive automated scraping of FederalRegister.gov and eCFR.gov,\n  programmatic access to these sites is limited to access to our extensive\n  developer APIs. Please visit\n  <a href=\"https://www.federalregister.gov/developers/documentation/api/v1\">\n    FederalRegister.gov API\n  </a>\n  documentation or\n  <a href=\"https://www.ecfr.gov/developers/documentation/api/v1\">\n    eCFR.gov API\n  </a>\n  documentation to learn more about how to access the API.\n</p>\n\n<p>\n  Your request has been flagged as potentially automated. If you are human user\n  receiving this message, please complete the CAPTCHA (bot test) below and\n  click \"Request Access\". You may occassionally be asked to complete the\n  CAPTCHA again, this is normal and part of our security measures.\n</p>\n\n\n<form action=\"/unblock\"\n      method=\"post\"\n      class=\"unblock-form\"\n      data-controller=\"unblock\"\n      data-action=\"submit->unblock#handleSubmit\">\n  <script src=\"https://www.recaptcha.net/recaptcha/api.js\" async defer ></script>\n<div data-sitekey=\"6LfpbQcUAAAAAMw_vbtM1IRqq7Dvf-AftcZHp_OK\" class=\"g-recaptcha \"></div>\n          <noscript>\n            <div>\n              <div style=\"width: 302px; height: 422px; position: relative;\">\n                <div style=\"width: 302px; height: 422px; position: absolute;\">\n                  <iframe\n                    src=\"https://www.recaptcha.net/recaptcha/api/fallback?k=6LfpbQcUAAAAAMw_vbtM1IRqq7Dvf-AftcZHp_OK\"\n                    name=\"ReCAPTCHA\"\n                    style=\"width: 302px; height: 422px; border-style: none; border: 0; overflow: hidden;\">\n                  </iframe>\n                </div>\n              </div>\n              <div style=\"width: 300px; height: 60px; border-style: none;\n                bottom: 12px; left: 25px; margin: 0px; padding: 0px; right: 25px;\n                background: #f9f9f9; border: 1px solid #c1c1c1; border-radius: 3px;\">\n                <textarea name=\"g-recaptcha-response\"\n                  class=\"g-recaptcha-response\"\n                  style=\"width: 250px; height: 40px; border: 1px solid #c1c1c1;\n                  margin: 10px 25px; padding: 0px; resize: none;\">\n                </textarea>\n              </div>\n            </div>\n          </noscript>\n\n  <button type=\"submit\"\n          class=\"btn btn-disabled btn-large unblock-button\"\n          data-unblock-target=\"button\"\n          disabled>\n    Request Access\n  </button>\n</form>\n\n<p class=\"small-text\">\n  <em>An official website of the United States government.</em>\n</p>\n\n<p class=\"small-text\">\n  If you experiencing issues with the CAPTCHA or want to request a wider IP range,\n  you can use the \"Site Help\" button found in the lower, right of this page\n  to make a request.\n</p>\n\n        </div>\n      </div>\n    </div>\n\n    <div id=\"site-feedback\" data-controller=\"site-feedback\">\n      <div class=\"modal-backdrop\" data-site-feedback-target=\"backdrop\"></div>\n      <div class=\"modal-container\" data-site-feedback-target=\"modal\">\n        <div class=\"modal-content\" data-site-feedback-target=\"modalContent\">\n          <div id=\"feedback-modal-content\">\n  <div class=\"modal-content feedback-modal-content\">\n    <div class=\"modal-header\">\n      <button type=\"button\" class=\"modal-close\" data-site-feedback-target=\"closeButton\" aria-label=\"Close\">\n        <span aria-hidden=\"true\">\u00d7</span>\n      </button>\n      <h3>IP Access Help</h3>\n    </div>\n\n    <div class=\"modal-body\">\n      <div class=\"form-container\">\n        <p class=\"info\">\n          This contact form is only for IP Access help.\n          Please do not provide confidential information or personal data.\n        </p>\n\n        <form data-site-feedback-target=\"form\" data-action=\"submit-&gt;site-feedback#submitForm\" novalidate=\"novalidate\" class=\"simple_form site_feedback\" enctype=\"multipart/form-data\" action=\"/site_feedback\" accept-charset=\"UTF-8\" method=\"post\">\n\n          <div class=\"input string required site_feedback_name\"><label class=\"string required\" for=\"site_feedback_name\"><abbr title=\"required\">*</abbr> Your Name</label><input class=\"string required\" required=\"required\" type=\"text\" name=\"site_feedback[name]\" id=\"site_feedback_name\" /></div>\n\n          <div class=\"input email required site_feedback_email\"><label class=\"email required\" for=\"site_feedback_email\"><abbr title=\"required\">*</abbr> Email</label><input data-site-feedback-target=\"emailField\" class=\"string email required\" required=\"required\" type=\"email\" name=\"site_feedback[email]\" id=\"site_feedback_email\" /></div>\n\n          <div class=\"input text required site_feedback_comment\"><label class=\"text required\" for=\"site_feedback_comment\"><abbr title=\"required\">*</abbr> How can we help you?</label><textarea class=\"text required\" required=\"required\" name=\"site_feedback[comment]\" id=\"site_feedback_comment\">\n</textarea></div>\n\n          <div class=\"slide-left\" aria-hidden=\"true\">\n            <input tabindex=\"-1\" autocomplete=\"off\" placeholder=\"Your website URL\" data-required=\"true\" type=\"text\" name=\"site_feedback[website]\" id=\"site_feedback_website\" />\n          </div>\n\n          <div class=\"input file optional site_feedback_attachment\"><label class=\"file optional\" for=\"site_feedback_attachment\">Upload Attachment</label><input class=\"file optional\" type=\"file\" name=\"site_feedback[attachment]\" id=\"site_feedback_attachment\" /></div>\n\n          <div class=\"input boolean required site_feedback_technical_help\"><input value=\"0\" autocomplete=\"off\" type=\"hidden\" name=\"site_feedback[technical_help]\" /><label class=\"boolean required checkbox\" for=\"site_feedback_technical_help\"><input class=\"boolean required\" required=\"required\" type=\"checkbox\" value=\"1\" name=\"site_feedback[technical_help]\" id=\"site_feedback_technical_help\" /><abbr title=\"required\">*</abbr> I am requesting technical help.</label></div>\n\n          <div class=\"actions\">\n            <input type=\"submit\" name=\"commit\" value=\"Request Help\" class=\"btn btn-primary btn-medium\" data-site-feedback-target=\"submitButton\" data-disable-with=\"Request Help\" />\n          </div>\n</form>      </div>\n\n      <div class=\"loader-container\"\n        data-site-feedback-target=\"loaderContainer\">\n        <div class=\"loader-wrapper\">\n          <img src=\"/assets/orange-loader-275e1783.svg\"\n            alt=\"Loading...\" class=\"loader-image\">\n        </div>\n      </div>\n    </div>\n  </div>\n</div>\n\n        </div>\n      </div>\n\n      <button type=\"button\"\n        class=\"btn btn-secondary btn-medium site-feedback-button\"\n        data-action=\"click->site-feedback#openModal\"\n        aria-label=\"Open site help form\">\n\n        <svg class=\"svg-icon svg-icon-chat \"><use xlink:href=\"/assets/ofr-icons-5f5559c5.svg#chat\"></use></svg>\n        <span class=\"desktop-only\">Site Help</span>\n      </button>\n    </div>\n\n  </body>\n</html>\n",
+          "title": "Federal Register :: Request Access",
+          "httpStatus": 200
+        },
+        {
+          "type": "openrouter:web_search",
+          "id": "st_tmp_klfwzmmn8t",
+          "status": "completed",
+          "action": {
+            "type": "search",
+            "query": "housing starts new home sales data delayed government shutdown October 2025 Census Bureau combined release",
+            "sources": [
+              {
+                "type": "url",
+                "url": "https://www.census.gov/economic-indicators/calendar-listview.html"
+              },
+              {
+                "type": "url",
+                "url": "https://www.census.gov/construction/nrs/pdf/newressales_202510.pdf"
+              },
+              {
+                "type": "url",
+                "url": "https://www.census.gov/construction/nrc/pdf/newresconst_202510.pdf"
+              },
+              {
+                "type": "url",
+                "url": "https://www.hud.gov/news/hud-no-25-123b"
+              },
+              {
+                "type": "url",
+                "url": "https://www.rismedia.com/2026/01/13/delayed-new-home-sales-data-october-2025/"
+              }
+            ]
+          }
+        },
+        {
+          "type": "openrouter:web_search",
+          "id": "st_tmp_9cunxa9jtzt",
+          "status": "completed",
+          "action": {
+            "type": "search",
+            "query": "Characteristics of New Housing annual report Census HUD 2025 released June 2026 square footage",
+            "sources": [
+              {
+                "type": "url",
+                "url": "https://www.census.gov/construction/chars/highlights.html"
+              },
+              {
+                "type": "url",
+                "url": "https://www.census.gov/construction/chars/current.html"
+              },
+              {
+                "type": "url",
+                "url": "https://www.census.gov/construction/chars/"
+              },
+              {
+                "type": "url",
+                "url": "https://pioneerinstitute.org/wp-content/uploads/2026/07/House-Call-July-2026-final.pdf"
+              },
+              {
+                "type": "url",
+                "url": "https://dwellingsignal.com/data/the-latest-census-data-puts-new-home-size-in-context/"
+              }
+            ]
+          }
+        },
+        {
+          "type": "openrouter:web_fetch",
+          "id": "st_tmp_tezx6w7o7k",
+          "status": "incomplete",
+          "url": "https://www.datalumos.org/datalumos/project/228781/version/V1/view",
+          "httpStatus": 403,
+          "error": "HTTP 403: Forbidden"
+        },
+        {
+          "type": "openrouter:web_search",
+          "id": "st_tmp_jze9vrh54f",
+          "status": "completed",
+          "action": {
+            "type": "search",
+            "query": "history housing starts statistics Bureau of Labor Statistics transferred to Census Bureau 1959 new housing units started series",
+            "sources": [
+              {
+                "type": "url",
+                "url": "https://fraser.stlouisfed.org/files/docs/publications/bls/bls_1260_1959.pdf"
+              },
+              {
+                "type": "url",
+                "url": "https://www.census.gov/construction/nrc/data/series.html"
+              },
+              {
+                "type": "url",
+                "url": "https://fred.stlouisfed.org/series/M0201BUSM176NNBR"
+              },
+              {
+                "type": "url",
+                "url": "https://data.nber.org/databases/macrohistory/data/02/a02201a.db"
+              },
+              {
+                "type": "url",
+                "url": "https://exa.ai/library/publication/p2hfnqh1bb6"
+              }
+            ]
+          }
+        },
+        {
+          "type": "openrouter:web_search",
+          "id": "st_tmp_elm42hutn6i",
+          "status": "completed",
+          "action": {
+            "type": "search",
+            "query": "constant quality price index new single-family houses Survey of Construction BEA residential investment deflator",
+            "sources": [
+              {
+                "type": "url",
+                "url": "https://www.census.gov/construction/cpi/historical_data/index.html"
+              },
+              {
+                "type": "url",
+                "url": "https://www.census.gov/construction/cpi/pdf/descpi_uc.pdf"
+              },
+              {
+                "type": "url",
+                "url": "https://www.census.gov/construction/cpi/pdf/price_uc_1996.pdf"
+              },
+              {
+                "type": "url",
+                "url": "https://www.census.gov/construction/nrs/pdf/price_uc.pdf"
+              },
+              {
+                "type": "url",
+                "url": "https://www.census.gov/construction/cpi/pdf/descpi_sold.pdf"
+              }
+            ]
+          }
+        },
+        {
+          "type": "openrouter:web_search",
+          "id": "st_tmp_fjrfyccjmwp",
+          "status": "completed",
+          "action": {
+            "type": "search",
+            "query": "Census API economic indicators time series resconst ressales endpoint",
+            "sources": [
+              {
+                "type": "url",
+                "url": "https://api.census.gov/data/timeseries/eits/ressales.html"
+              },
+              {
+                "type": "url",
+                "url": "https://api.census.gov/data/timeseries/eits/resconst.html"
+              },
+              {
+                "type": "url",
+                "url": "https://api.census.gov/data/timeseries/eits/ressales/examples.html"
+              },
+              {
+                "type": "url",
+                "url": "https://www.census.gov/data/developers/data-sets/economic-indicators.html"
+              },
+              {
+                "type": "url",
+                "url": "https://api.census.gov/data/timeseries/eits/resconst/variables.html"
+              }
+            ]
+          }
+        }
+      ],
+      "ended": "answered",
+      "seconds": 105.6
+    },
+    "assessment": {
+      "request": {
+        "model": "anthropic/claude-opus-5.5",
+        "max_output_tokens": 32768,
+        "tools": [
+          {
+            "type": "openrouter:web_search",
+            "parameters": {
+              "engine": "native",
+              "excluded_domains": [
+                "dataindex.us"
+              ]
+            }
+          },
+          {
+            "type": "openrouter:web_fetch",
+            "parameters": {
+              "engine": "openrouter",
+              "blocked_domains": [
+                "dataindex.us"
+              ],
+              "max_content_tokens": 10000
+            }
+          }
+        ],
+        "cache_control": {
+          "type": "ephemeral",
+          "ttl": "1h"
+        },
+        "session_id": "soc-anthropic/claude-opus-5.5-t0-2026-10-09T01:09:33Z",
+        "stop_server_tools_when": [
+          {
+            "type": "step_count_is",
+            "step_count": 200
+          }
+        ],
+        "reasoning": {
+          "effort": "medium"
+        },
+        "provider": {
+          "order": [
+            "anthropic"
+          ],
+          "allow_fallbacks": false
+        }
+      },
+      "response_meta": {
+        "id": "gen-1791508279-ZEai5P0mzT1TI57LSGSU",
+        "object": "response",
+        "created_at": 1791508279,
+        "model": "anthropic/claude-opus-5.5",
+        "status": "completed",
+        "completed_at": 1791508368,
+        "error": null,
+        "incomplete_details": null,
+        "tools": [],
+        "tool_choice": "auto",
+        "parallel_tool_calls": true,
+        "max_output_tokens": 32768,
+        "temperature": 1,
+        "top_p": 1,
+        "presence_penalty": 0,
+        "frequency_penalty": 0,
+        "top_logprobs": 0,
+        "max_tool_calls": null,
+        "metadata": {},
+        "background": false,
+        "previous_response_id": null,
+        "service_tier": "auto",
+        "truncation": "disabled",
+        "store": false,
+        "instructions": null,
+        "text": {
+          "format": {
+            "type": "text"
+          }
+        },
+        "reasoning": {
+          "effort": "medium"
+        },
+        "safety_identifier": null,
+        "prompt_cache_key": null,
+        "prompt_cache_options": null,
+        "usage": {
+          "input_tokens": 478263,
+          "input_tokens_details": {
+            "cached_tokens": 394029,
+            "cache_write_tokens": 84214
+          },
+          "output_tokens": 7270,
+          "output_tokens_details": {
+            "reasoning_tokens": 2409
+          },
+          "total_tokens": 485533,
+          "cost": 0.9679978,
+          "cost_details": {
+            "upstream_inference_cost": 0.8979978,
+            "upstream_inference_input_cost": 0.7525978,
+            "upstream_inference_output_cost": 0.1454
+          },
+          "server_tool_use_details": {
+            "web_search_requests": 11,
+            "tool_calls_requested": 14,
+            "tool_calls_executed": 14
+          }
+        }
+      },
+      "requests": [
+        {
+          "input_tokens": 478263,
+          "input_tokens_details": {
+            "cached_tokens": 394029,
+            "cache_write_tokens": 84214
+          },
+          "output_tokens": 7270,
+          "output_tokens_details": {
+            "reasoning_tokens": 2409
+          },
+          "total_tokens": 485533,
+          "cost": 0.9679978,
+          "cost_details": {
+            "upstream_inference_cost": 0.8979978,
+            "upstream_inference_input_cost": 0.7525978,
+            "upstream_inference_output_cost": 0.1454
+          },
+          "server_tool_use_details": {
+            "web_search_requests": 11,
+            "tool_calls_requested": 14,
+            "tool_calls_executed": 14
+          }
+        }
+      ],
+      "searches": 11,
+      "fetches": 3,
+      "tool_items": [
+        {
+          "type": "openrouter:web_search",
+          "id": "st_tmp_v2vu5thahzf",
+          "status": "completed",
+          "action": {
+            "type": "search",
+            "query": "Census Bureau staff cuts 2026 budget economic indicators surveys reduced",
+            "sources": [
+              {
+                "type": "url",
+                "url": "https://www.congress.gov/crs_external_products/IF/PDF/IF12714/IF12714.4.pdf"
+              },
+              {
+                "type": "url",
+                "url": "https://www.c2er.org/2025/06/proposed-federal-budget-signals-cuts-to-core-economic-data-capacity/"
+              },
+              {
+                "type": "url",
+                "url": "https://thecensusproject.org/2025/06/30/department-of-commerce-releases-fiscal-year-2026-census-budget-details/"
+              },
+              {
+                "type": "url",
+                "url": "https://www.npr.org/2025/01/24/nx-s1-5250264/unemployment-rate-cpi-inflation-census-bureau-labor-statistics"
+              },
+              {
+                "type": "url",
+                "url": "https://www.bloomberg.com/news/articles/2026-07-28/us-statistical-agencies-face-risks-with-lean-staff-asa-says"
+              }
+            ]
+          }
+        },
+        {
+          "type": "openrouter:web_search",
+          "id": "st_tmp_12hitvqvf7of",
+          "status": "completed",
+          "action": {
+            "type": "search",
+            "query": "HUD Office of Policy Development and Research staff cuts 2025 2026 PD&R reduction",
+            "sources": [
+              {
+                "type": "url",
+                "url": "https://www.hud.gov/sites/dfiles/CFO/documents/FY_2026_Congressional_Justification_E-File.pdf"
+              },
+              {
+                "type": "url",
+                "url": "https://archives.hud.gov/budget/fy25/2025_CJ_S_E_-_PDR.pdf"
+              },
+              {
+                "type": "url",
+                "url": "https://www.everycrsreport.com/files/2025-06-12_R48567_20191e75aea067c34564f02452601270763b1559.pdf"
+              },
+              {
+                "type": "url",
+                "url": "https://www.hud.gov/lapseplan"
+              },
+              {
+                "type": "url",
+                "url": "https://www.hud.gov/sites/dfiles/CFO/documents/2026_CJ_Program_PDR.pdf"
+              }
+            ]
+          }
+        },
+        {
+          "type": "openrouter:web_search",
+          "id": "st_tmp_mtgm7glhjs",
+          "status": "completed",
+          "action": {
+            "type": "search",
+            "query": "Census Bureau director 2026 leadership Jarmin acting director departure",
+            "sources": [
+              {
+                "type": "url",
+                "url": "https://www.npr.org/2025/09/19/nx-s1-5288846/trump-census-bureau-director-george-cook"
+              },
+              {
+                "type": "url",
+                "url": "https://apnews.com/article/us-census-bureau-commerce-trump-e87407373e9cfe507374664a6d86f643"
+              },
+              {
+                "type": "url",
+                "url": "https://thecensusproject.org/2025/09/24/census-bureau-announces-george-cook-as-acting-director/"
+              },
+              {
+                "type": "url",
+                "url": "https://datafoundation.org/news/blogs/893/893-Accuracy-Access-and-Confidentiality-Census-Leadership-Addresses-the-Disclosure-Avoidance-Order"
+              },
+              {
+                "type": "url",
+                "url": "https://en.wikipedia.org/wiki/Ron_S._Jarmin"
+              }
+            ]
+          }
+        },
+        {
+          "type": "openrouter:web_fetch",
+          "id": "st_tmp_dao3higywj4",
+          "status": "incomplete",
+          "url": "https://www.hud.gov/sites/dfiles/CFO/documents/2026_CJ_Program_PDR.pdf",
+          "httpStatus": 200,
+          "error": "PDF content cannot be processed by the OpenRouter engine. Use engine: \"native\" (Anthropic models only) or engine: \"firecrawl\" for PDF support."
+        },
+        {
+          "type": "openrouter:web_search",
+          "id": "st_tmp_4vboksjnjr3",
+          "status": "completed",
+          "action": {
+            "type": "search",
+            "query": "Commerce Disclosure Avoidance Order DAO-216-26 Census Bureau public use microdata economic surveys",
+            "sources": [
+              {
+                "type": "url",
+                "url": "https://www.census.gov/newsroom/blogs/director/2026/08/understanding-the-new-disclosure-avoidance-policy.html"
+              },
+              {
+                "type": "url",
+                "url": "https://datafoundation.org/news/data-policy/886/886-DAO-216-26-Fact-Sheet"
+              },
+              {
+                "type": "url",
+                "url": "https://www.census.gov/topics/business-economy/disclosure.html"
+              },
+              {
+                "type": "url",
+                "url": "https://datafoundation.org/pages/Understanding-DAO-216-26"
+              },
+              {
+                "type": "url",
+                "url": "https://apdu.org/apdu-in-action/data-privacy-resources/explaining-administrative-order-disclosure-avoidance-for-statistical-products/"
+              }
+            ]
+          }
+        },
+        {
+          "type": "openrouter:web_search",
+          "id": "st_tmp_b4ktvalzwp",
+          "status": "completed",
+          "action": {
+            "type": "search",
+            "query": "American Statistical Association 2026 report statistical agencies headcount Census Bureau lost percent staff",
+            "sources": [
+              {
+                "type": "url",
+                "url": "https://www.amstat.org/news-listing/2026/07/28/new-update-documents-continued-staffing--leadership-strains-at-federal-statistical-agencies"
+              },
+              {
+                "type": "url",
+                "url": "https://www.amstat.org/docs/default-source/amstat-documents/FedStatHealth_MidYearUpdate.pdf"
+              },
+              {
+                "type": "url",
+                "url": "https://www.amstat.org/docs/default-source/amstat-documents/FedStatHealth_MidYearUpdate.pdf?v=1"
+              },
+              {
+                "type": "url",
+                "url": "https://www.amstat.org/docs/default-source/amstat-documents/the-nations-data-at-risk-2025/census.pdf"
+              },
+              {
+                "type": "url",
+                "url": "https://www.amstat.org/policy-and-advocacy/assessing-the-health-of-the-principal-federal-statistical-agencies"
+              }
+            ]
+          }
+        },
+        {
+          "type": "openrouter:web_fetch",
+          "id": "st_tmp_90pgufvlwyk",
+          "status": "completed",
+          "url": "https://usajobs-tracker.abigailhaddad.com",
+          "content": "<!DOCTYPE html>\n<html lang=\"en\">\n<head>\n    <meta charset=\"UTF-8\">\n    <meta name=\"viewport\" content=\"width=device-width, initial-scale=1.0\">\n    <title>USAJobs Listings Tracker</title>\n    \n    <!-- DataTables CSS -->\n    <link rel=\"stylesheet\" href=\"https://cdn.datatables.net/1.13.6/css/dataTables.bootstrap5.min.css\">\n    <link rel=\"stylesheet\" href=\"https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css\">\n    <link rel=\"stylesheet\" href=\"https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.0/font/bootstrap-icons.css\">\n    \n    <style>\n        body {\n            font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;\n            background-color: #f8f9fa;\n            color: #333;\n        }\n        \n        .container {\n            max-width: 1400px;\n            margin: 0 auto;\n            padding: 20px;\n        }\n        \n        h1 {\n            color: #003366;\n            font-weight: 600;\n            margin-bottom: 10px;\n        }\n        \n        .subtitle {\n            color: #999;\n            font-size: 0.9rem;\n            margin-bottom: 20px;\n        }\n        \n        .summary-stats {\n            background: white;\n            padding: 20px;\n            border-radius: 8px;\n            box-shadow: 0 2px 4px rgba(0,0,0,0.1);\n            margin-bottom: 30px;\n        }\n        \n        .stat-box {\n            text-align: center;\n            padding: 15px;\n            border-right: 1px solid #e9ecef;\n        }\n        \n        .stat-box:last-child {\n            border-right: none;\n        }\n        \n        .stat-value {\n            font-size: 2rem;\n            font-weight: 600;\n            color: #003366;\n        }\n        \n        .stat-label {\n            color: #666;\n            font-size: 0.85rem;\n            text-transform: uppercase;\n            line-height: 1.3;\n        }\n        \n        .table-container {\n            background: white;\n            padding: 25px;\n            border-radius: 8px;\n            box-shadow: 0 2px 4px rgba(0,0,0,0.1);\n        }\n        \n        .dataTables_wrapper .dataTables_filter input {\n            border: 1px solid #ddd;\n            border-radius: 4px;\n            padding: 5px 10px;\n            margin-left: 10px;\n        }\n        \n        .dataTables_wrapper .dataTables_length select {\n            border: 1px solid #ddd;\n            border-radius: 4px;\n            padding: 5px;\n        }\n        \n        table.dataTable {\n            border-collapse: collapse !important;\n        }\n        \n        table.dataTable thead th {\n            background-color: #003366;\n            color: white;\n            font-weight: 600;\n            border-bottom: none !important;\n            white-space: nowrap;\n            position: relative;\n            cursor: pointer;\n        }\n        \n        table.dataTable thead th.filtering {\n            background-color: #00508f;\n        }\n        \n        table.dataTable tbody tr:hover {\n            background-color: #f0f8ff;\n        }\n        \n        table.dataTable tbody td {\n            padding: 12px;\n            vertical-align: middle;\n        }\n        \n        .percentage-cell {\n            font-weight: 600;\n        }\n        \n        .high-percentage {\n            color: #388e3c;  /* Green - good (maintained/increased listings) */\n        }\n        \n        .medium-percentage {\n            color: #f57c00;  /* Orange - moderate (some decline) */\n        }\n        \n        .low-percentage {\n            color: #d32f2f;  /* Red - bad (major decline) */\n        }\n        \n        .expiring-soon {\n            background-color: #fff3cd;\n        }\n        \n        .no-year {\n            background-color: #e8f4f8;\n        }\n        \n        /* Column filter styles */\n        .column-filter-container {\n            position: absolute;\n            background: white;\n            border: 1px solid #ddd;\n            border-radius: 4px;\n            box-shadow: 0 4px 6px rgba(0,0,0,0.1);\n            padding: 10px;\n            z-index: 1000;\n            min-width: 200px;\n            max-height: 300px;\n            overflow-y: auto;\n        }\n        \n        .column-filter-container input[type=\"text\"] {\n            width: 100%;\n            padding: 5px;\n            margin-bottom: 10px;\n            border: 1px solid #ddd;\n            border-radius: 3px;\n        }\n        \n        .column-filter-container label {\n            display: block;\n            padding: 3px 0;\n            cursor: pointer;\n        }\n        \n        .column-filter-container label:hover {\n            background-color: #f0f0f0;\n        }\n        \n        .column-filter-container input[type=\"checkbox\"] {\n            margin-right: 8px;\n        }\n        \n        .filter-buttons {\n            margin-top: 10px;\n            text-align: right;\n        }\n        \n        .filter-buttons button {\n            margin-left: 5px;\n            padding: 3px 10px;\n            border: 1px solid #ddd;\n            border-radius: 3px;\n            background: white;\n            cursor: pointer;\n            font-size: 0.85rem;\n        }\n        \n        .filter-buttons button.apply {\n            background: #003366;\n            color: white;\n        }\n        \n        .filter-buttons button:hover {\n            opacity: 0.8;\n        }\n        \n        th.has-filter::after {\n            content: \" \u25bc\";\n            font-size: 0.8em;\n            opacity: 0.5;\n        }\n        \n        /* Bubble chart styles */\n        .treemap-container {\n            background: white;\n            padding: 20px;\n            border-radius: 8px;\n            box-shadow: 0 2px 4px rgba(0,0,0,0.1);\n            margin-bottom: 30px;\n        }\n        \n        .treemap-title {\n            font-size: 1.2rem;\n            font-weight: 600;\n            color: #003366;\n            margin-bottom: 15px;\n        }\n        \n        #bubble-chart {\n            width: 100%;\n            height: 460px;\n            position: relative;\n        }\n        \n        .bubble {\n            cursor: pointer;\n            opacity: 0.8;\n            transition: all 0.3s;\n        }\n        \n        .bubble:hover {\n            opacity: 1;\n            stroke: #003366;\n            stroke-width: 3;\n        }\n        \n        .axis-label {\n            font-size: 14px;\n            font-weight: 600;\n            fill: #333;\n        }\n        \n        .grid line {\n            stroke: #e0e0e0;\n            stroke-opacity: 0.7;\n            shape-rendering: crispEdges;\n        }\n        \n        .grid path {\n            stroke-width: 0;\n        }\n        \n        .quadrant-label {\n            fill: #666;\n            font-size: 12px;\n            font-style: italic;\n            opacity: 0.7;\n        }\n        \n        /* Filter section styles */\n        .filter-section {\n            background: white;\n            padding: 20px;\n            border-radius: 8px;\n            box-shadow: 0 2px 4px rgba(0,0,0,0.1);\n            margin-bottom: 30px;\n        }\n        \n        .filter-section h3 {\n            color: #003366;\n            font-size: 1.3rem;\n            margin-bottom: 15px;\n        }\n        \n        .filter-controls label {\n            font-size: 0.85rem;\n            font-weight: 600;\n            color: #666;\n            margin-bottom: 5px;\n        }\n        \n        .active-filters {\n            margin-top: 15px;\n            min-height: 30px;\n        }\n        \n        .filter-badge {\n            display: inline-block;\n            background: #003366;\n            color: white;\n            padding: 5px 10px;\n            border-radius: 20px;\n            margin-right: 10px;\n            margin-bottom: 5px;\n            font-size: 0.85rem;\n        }\n        \n        .filter-badge .remove-filter {\n            margin-left: 8px;\n            cursor: pointer;\n            font-weight: bold;\n        }\n        \n        .filter-badge .remove-filter:hover {\n            color: #ff6b6b;\n        }\n        \n        /* Multi-select dropdown styles */\n        .filter-dropdown {\n            position: relative;\n        }\n        \n        .filter-dropdown-menu {\n            position: absolute;\n            top: 100%;\n            left: 0;\n            right: 0;\n            z-index: 1000;\n            background: white;\n            border: 1px solid #ddd;\n            border-radius: 4px;\n            box-shadow: 0 4px 6px rgba(0,0,0,0.1);\n            padding: 10px;\n            margin-top: 2px;\n        }\n        \n        .filter-dropdown-menu label {\n            cursor: pointer;\n        }\n        \n        .filter-dropdown-menu label:hover {\n            background-color: #f0f0f0;\n        }\n        \n        .filter-dropdown-menu .filter-search {\n            margin-bottom: 5px;\n        }\n        \n        .filter-dropdown-menu .filter-options label {\n            padding: 3px 8px;\n            margin: 0;\n            display: block;\n        }\n        \n        .filter-dropdown-menu input[type=\"checkbox\"] {\n            margin-right: 8px;\n        }\n        \n        /* Active filters display */\n        .active-filters-display {\n            color: #d32f2f;\n            font-size: 1.1rem;\n            font-weight: 600;\n            margin-bottom: 20px;\n            min-height: 1.5em;\n        }\n        \n        #downloadCSV:hover {\n            background-color: #00508f !important;\n            transform: translateY(-1px);\n            box-shadow: 0 2px 4px rgba(0,0,0,0.2);\n        }\n        \n        /* Skip link for keyboard navigation */\n        .skip-link {\n            position: absolute;\n            top: -40px;\n            left: 0;\n            background: #003366;\n            color: white;\n            padding: 8px;\n            text-decoration: none;\n            z-index: 9999;\n        }\n        \n        .skip-link:focus {\n            top: 0;\n        }\n        \n        /* Improved focus indicators */\n        a:focus,\n        button:focus,\n        input:focus,\n        select:focus,\n        textarea:focus {\n            outline: 3px solid #003366;\n            outline-offset: 2px;\n        }\n        \n        /* Screen reader only content */\n        .sr-only {\n            position: absolute;\n            width: 1px;\n            height: 1px;\n            padding: 0;\n            margin: -1px;\n            overflow: hidden;\n            clip: rect(0, 0, 0, 0);\n            white-space: nowrap;\n            border: 0;\n        }\n        \n    </style>\n</head>\n<body>\n    <!-- Skip to main content link for keyboard navigation -->\n    <a href=\"#main-content\" class=\"skip-link\">Skip to main content</a>\n    \n    <!-- Work in Progress Banner -->\n    <div class=\"alert alert-warning mb-0\" role=\"alert\">\n        <div class=\"container\">\n            <strong>\ud83d\udea7 Active Development:</strong> This is an experimental tool tracking federal job postings.\n            Data source: <a href=\"https://github.com/abigailhaddad/usajobs_historical\" target=\"_blank\" class=\"alert-link\">USAJobs Historical Data</a> | <a class='alert-link' href='/methodology'>Methodology</a>\n        </div>\n    </div>\n\n    <!-- Archive Notice Banner -->\n    <div class=\"alert alert-danger mb-0\" role=\"alert\" style=\"border-radius: 0;\">\n        <div class=\"container\">\n            <strong>\ud83d\udcc1 Archive Notice:</strong> This tracker will be archived on December 31, 2025. Data collection will stop on that date and no further updates will be made.\n        </div>\n    </div>\n\n    <div class=\"container\" id=\"main-content\">\n        <h1>USAJobs Listings Tracker</h1>\n        <p class=\"subtitle\" id=\"dateRangeSubtitle\">Loading date range...</p>\n        <div id=\"activeFiltersDisplay\" class=\"active-filters-display\"></div>\n        \n        <!-- ARIA live region for screen reader announcements -->\n        <div class=\"sr-only\" aria-live=\"polite\" aria-atomic=\"true\" id=\"ariaLiveRegion\"></div>\n        \n        <!-- Important Caveats -->\n        <div class=\"alert alert-info mt-3 mb-3\">\n            <small>\n                <strong>Important Notes:</strong>\n                <ul class=\"mb-0\" style=\"padding-left: 20px;\">\n                    <li>Job listings \u2260 actual hires. One listing may result in multiple hires, one hire, or no hires.</li>\n                    <li>Not all federal positions are posted on USAJobs.</li>\n                    <li>Job listings which include multiple occupation series are counted under the first series listed.</li>\n                    <li>Subagency view and raw job listings are only available after selecting a specific department.</li>\n                </ul>\n            </small>\n        </div>\n        \n        <!-- Data Source Attribution -->\n        <div class=\"text-center text-muted mb-4\">\n            <small>\n                Data source: <a href=\"https://github.com/abigailhaddad/usajobs_historical\" target=\"_blank\" class=\"text-decoration-none\">\n                    USAJobs Historical Data\n                </a>\n                <br>\n                <span id=\"lastUpdated\"></span>\n            </small>\n        </div>\n        \n        <div class=\"summary-stats\">\n            <div class=\"row\">\n                <div class=\"col-md-3 stat-box\">\n                    <div class=\"stat-value\" id=\"total2024\">Loading...</div>\n                    <div class=\"stat-label\" id=\"previousYearLabel\">Previous Year</div>\n                </div>\n                <div class=\"col-md-3 stat-box\">\n                    <div class=\"stat-value\" id=\"total2025\">Loading...</div>\n                    <div class=\"stat-label\" id=\"currentYearLabel\">Current Year</div>\n                </div>\n                <div class=\"col-md-3 stat-box\">\n                    <div class=\"stat-value\" id=\"overallPercentage\">Loading...</div>\n                    <div class=\"stat-label\" id=\"percentageLabel\">Year-over-Year %</div>\n                </div>\n                <div class=\"col-md-3 stat-box\">\n                    <div class=\"stat-value\" id=\"entityCount\">Loading...</div>\n                    <div class=\"stat-label\">Departments</div>\n                </div>\n            </div>\n        </div>\n        \n        <!-- Unified Filter Section -->\n        <div class=\"filter-section\">\n            <h3>Filters & Display Options</h3>\n            <div class=\"filter-controls\">\n                <div class=\"row mb-3\">\n                    <div class=\"col-md-3\">\n                        <label for=\"mainDepartmentFilter\">Department</label>\n                        <select class=\"form-control form-control-sm\" id=\"mainDepartmentFilter\">\n                            <option value=\"\">All Departments</option>\n                        </select>\n                    </div>\n                    <div class=\"col-md-3\">\n                        <label for=\"mainAgencyFilter\">Agency</label>\n                        <select class=\"form-control form-control-sm\" id=\"mainAgencyFilter\">\n                            <option value=\"\">All Agencies</option>\n                        </select>\n                    </div>\n                    <div class=\"col-md-3\">\n                        <label for=\"mainAppointmentFilter\">Appointment Type</label>\n                        <select class=\"form-control form-control-sm\" id=\"mainAppointmentFilter\">\n                            <option value=\"\">All Types</option>\n                        </select>\n                    </div>\n                    <div class=\"col-md-3\">\n                        <label for=\"mainOccupationFilter\">Occupation Series</label>\n                        <select class=\"form-control form-control-sm\" id=\"mainOccupationFilter\">\n                            <option value=\"\">All Occupations</option>\n                        </select>\n                    </div>\n                </div>\n                <div class=\"row mb-3\">\n                    <div class=\"col-md-3\">\n                        <label for=\"aggregationLevel\">View By</label>\n                        <select id=\"aggregationLevel\" class=\"form-control form-control-sm\">\n                            <option value=\"department\" selected>Department</option>\n                            <option value=\"agency\">Agency</option>\n                            <option value=\"subagency\" disabled>Subagency (select a department first)</option>\n                        </select>\n                    </div>\n                    <div class=\"col-md-3\">\n                        <label>&nbsp;</label>\n                        <div class=\"form-check\">\n                            <input class=\"form-check-input\" type=\"checkbox\" id=\"showRawJobs\" disabled>\n                            <label class=\"form-check-label\" for=\"showRawJobs\">\n                                Show Raw Jobs (select a department first)\n                            </label>\n                        </div>\n                    </div>\n                </div>\n            </div>\n        </div>\n        \n        <div class=\"treemap-container\">\n            <h2 class=\"treemap-title\" id=\"bubbleChartTitle\">USAJobs Counts by Department</h2>\n            <p style=\"margin-top: -10px; margin-bottom: 15px; color: #666; font-size: 0.9rem;\">Bubble size = 2024 count</p>\n            <div id=\"bubble-chart\"></div>\n        </div>\n        \n        <div class=\"table-container\">\n            <div class=\"d-flex justify-content-between align-items-center mb-3\">\n                <h3 class=\"m-0\" style=\"color: #003366; font-size: 1.3rem;\">Data Table</h3>\n                <button id=\"downloadCSV\" class=\"btn btn-sm\" style=\"background-color: #003366; color: white; border: none;\">\n                    <i class=\"bi bi-download\"></i> Download Current View as CSV\n                </button>\n            </div>\n            <table id=\"jobsTable\" class=\"table table-striped\">\n                <thead id=\"tableHead\">\n                    <tr id=\"tableHeaders\">\n                        <th>Department</th>\n                        <th>Agency</th>\n                        <th>2024 Listings</th>\n                        <th>2025 Listings</th>\n                        <th>Change</th>\n                        <th>2025 as % of 2024</th>\n                    </tr>\n                </thead>\n                <tbody id=\"tableBody\">\n                </tbody>\n            </table>\n        </div>\n    </div>\n    \n    <!-- jQuery -->\n    <script src=\"https://code.jquery.com/jquery-3.7.0.min.js\"></script>\n    <!-- Bootstrap JS -->\n    <script src=\"https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js\"></script>\n    <!-- DataTables JS -->\n    <script src=\"https://cdn.datatables.net/1.13.6/js/jquery.dataTables.min.js\"></script>\n    <script src=\"https://cdn.datatables.net/1.13.6/js/dataTables.bootstrap5.min.js\"></script>\n    <!-- D3.js for Treemap -->\n    <script src=\"https://d3js.org/d3.v7.min.js\"></script>\n    \n    <script src=\"jobs_app.js\"></script>\n</body>\n</html>",
+          "title": "USAJobs Listings Tracker",
+          "httpStatus": 200
+        },
+        {
+          "type": "openrouter:web_search",
+          "id": "st_tmp_a5i9olibi3h",
+          "status": "completed",
+          "action": {
+            "type": "search",
+            "query": "FY2027 budget request Census Bureau current surveys and programs cut construction statistics",
+            "sources": [
+              {
+                "type": "url",
+                "url": "https://www.naco.org/resource/white-house-releases-budget-request-fy-2027-analysis-counties"
+              },
+              {
+                "type": "url",
+                "url": "https://community.amstat.org/sciencepolicy/blogs/steve-pierson/2026/04/03/fy27-statistical-agency-budget-developments"
+              },
+              {
+                "type": "url",
+                "url": "https://www.congress.gov/crs-product/R48929"
+              },
+              {
+                "type": "url",
+                "url": "https://www.legistorm.com/reports/view/crs/666255/Overview_of_FY2027_Budget_Request_for_the_Census_Bureau.html"
+              },
+              {
+                "type": "url",
+                "url": "https://thecensusproject.org/2026/05/01/summary-of-census-bureau-fy2027-congressional-justification/"
+              }
+            ]
+          }
+        },
+        {
+          "type": "openrouter:web_search",
+          "id": "st_tmp_ogpi83s1he",
+          "status": "completed",
+          "action": {
+            "type": "search",
+            "query": "HUD PD&R research office staff losses 2025 reduction in force deferred resignation housing data",
+            "sources": [
+              {
+                "type": "url",
+                "url": "https://www.hudoig.gov/audits-evaluations/ongoing-work/huds-workforce-reductions-review"
+              },
+              {
+                "type": "url",
+                "url": "https://www.cantwell.senate.gov/imo/media/doc/02202025housingandurbandevelopmentfiringsletter.pdf"
+              },
+              {
+                "type": "url",
+                "url": "https://www.washingtonpost.com/business/2025/02/23/hud-cuts-doge-housing/"
+              },
+              {
+                "type": "url",
+                "url": "https://www.housingwire.com/articles/these-are-the-functions-of-the-hud-offices-targeted-for-mass-firings/"
+              },
+              {
+                "type": "url",
+                "url": "https://www.npr.org/2025/02/22/g-s1-50199/doge-trump-hud-cuts-homeless-housing-programs"
+              }
+            ]
+          }
+        },
+        {
+          "type": "openrouter:web_fetch",
+          "id": "st_tmp_e0jqyb879b8",
+          "status": "completed",
+          "url": "https://www.census.gov/construction/soc/schedule.html",
+          "content": "<!DOCTYPE html PUBLIC \"-//W3C//DTD XHTML 1.0 Strict//EN\"   \"http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd\">\r\n<html xmlns=\"http://www.w3.org/1999/xhtml\" xml:lang=\"en\" lang=\"en\">\r\n    <head>\r\n        <title>SOC - Release Schedule</title>\t\r\n        <meta http-equiv=\"Content-Type\" content=\"text/html; charset=utf-8\" />\r\n        <meta http-equiv=\"keywords\" content=\"\" />\r\n        <meta name=\"viewport\" content=\"width=device-width, initial-scale=1\" />\r\n        <meta name=\"robots\" content=\"noodp, noydir\" />\r\n        <meta name=\"author\" content=\"US Census Bureau\"  />\r\n        <!--[if lt IE 9]><meta http-equiv=\"X-UA-Compatible\" content=\"IE=EmulateIE8\"  /><![endif]-->\r\n        <!--[if gte IE 9]><meta http-equiv=\"X-UA-Compatible\" content=\"IE=edge\"> <![endif]-->\r\n        <link rel=\"stylesheet\" href=\"econ_assets/page/local/bootstrap.css\" type=\"text/css\"/>\r\n        <link rel=\"stylesheet\" href=\"econ_assets/page/local/jquery.css\" type=\"text/css\"/>\r\n        <link rel=\"stylesheet\" href=\"econ_assets/page/local/clientlibs.css\" type=\"text/css\"/>\r\n        <link rel=\"stylesheet\" href=\"econ_assets/page/local/clientlibs2.css\" type=\"text/css\"/>\r\n        <link rel=\"icon\" sizes=\"192x192\" href=\"econ_assets/page/local/android-chrome-192x192.png\" />\r\n        <link rel=\"icon\" sizes=\"256x256\" href=\"econ_assets/page/local/android-chrome-256x256.png\" />\r\n        <link rel=\"shortcut icon\" sizes=\"32x32\" href=\"econ_assets/page/local/favicon.ico\" />\r\n        <link rel=\"apple-touch-icon\" sizes=\"180x180\" href=\"econ_assets/page/local/apple-touch-icon-180x180.png\" />     \r\n        <meta name=\"msapplication-square150x150logo\" content=\"econ_assets/page/local/mstile-150x150.png\" />\r\n        <link href=\"econ_assets/page/local/print.css\" rel=\"stylesheet\" type=\"text/css\" media=\"print\"/>   \r\n        <meta name=\"DC.title\" property=\"og:title\" content=\"SOC - Release Schedule\" />\r\n        <meta name=\"DC.creator\" content=\"US Census Bureau\" />\r\n        <meta name=\"DC.date.created\" property=\"article:published_time\" scheme=\"ISO8601\" content=\"\" />\r\n        <meta name=\"DC.date.reviewed\" property=\"article:modified_time\" scheme=\"ISO8601\" content=\"2019-04-15T15:38:26.310-04:00\" />\r\n        <meta name=\"DC.language\" scheme=\"DCTERMS.RFC1766\" content=\"EN-US\" />\r\n        <meta name=\"DC.title\" property=\"og:title\" content=\"SOC - Release Schedule\" />\r\n        <meta http-equiv=\"description\" property=\"og:description\" content=\"\" />\r\n        <meta property=\"og:locale\" content=\"en_US\" />\r\n        <meta property=\"og:url\" content=\"\" />\r\n        <meta property=\"og:image\" content=\"\" />\r\n        <!-- context hub -->\r\n        <!-- DTM-->\r\n        <script type=\"text/javascript\">\r\n            var digitalData = digitalData || {};\r\n            digitalData = {\r\n                \"page\": {\r\n                    \"pageInfo\": {\r\n                        \"pageName\": \"SOC - Release Schedule\",\r\n                        \"legacyPageName\": \"en>programsRSUY>SOC - Release Schedule\",\r\n                        \"pageURL\": window.location.href,\r\n                        \"language\": \"en\",\r\n                        \"pageTemplate\": \"LPL\",\r\n                        \"tool\": \"aem\",\r\n                        \"siteSection\": \"programs-surveys\",\r\n                        \"subSectionOne\": \"\"\r\n                    },\r\n                    \"pageTag\": {\r\n                        \"program\": \"Program Survey Landing Page\",\r\n                        \"topic\": \"Econ\"\r\n                    }\r\n                },\r\n                \"event\": {\r\n                    \"eventName\": {},\r\n                    \"eventInfo\": {\r\n                        \"share\": {},\r\n                        \"download\": {},\r\n                        \"search\": {},\r\n                        \"expandCollapseList\": {},\r\n                        \"language\": {},\r\n                        \"landingPageTab\": {},\r\n                        \"faceted\": {}\r\n                    }\r\n                }\r\n            };\r\n\r\n            if (typeof (Storage) !== \"undefined\") {\r\n                if (localStorage.getItem(\"pageLanguage\") != null) {\r\n                    digitalData.event.eventInfo.language.pageLanguage = localStorage.getItem(\"pageLanguage\");\r\n                }\r\n                if (localStorage.getItem(\"langEventName\") != null) {\r\n                    digitalData.event.eventName = localStorage.getItem(\"langEventName\");\r\n                }\r\n                if (localStorage.getItem(\"clickValue\") != null) {\r\n                    digitalData.event.eventInfo.search.clickValue = localStorage.getItem(\"clickValue\");\r\n                }\r\n                if (localStorage.getItem(\"searchEventName\") != null) {\r\n                    digitalData.event.eventName = localStorage.getItem(\"searchEventName\");\r\n                }\r\n                /*if ( localStorage.getItem(\"landingPageTabClickValue\") != null ) {\r\n                 digitalData.event.eventInfo.landingPageTab.clickValue = localStorage.getItem(\"landingPageTabClickValue\");\r\n                 }*/\r\n                if (localStorage.getItem(\"tabEventName\") != null) {\r\n                    digitalData.event.eventName = localStorage.getItem(\"tabEventName\");\r\n                }\r\n                if (localStorage.getItem(\"pageName\") != null) {\r\n                    digitalData.page.pageInfo.pageName = localStorage.getItem(\"pageName\");\r\n                }\r\n                //After assigning the value to digitalData, clear the localStorage variable's content\r\n                localStorage.removeItem(\"pageLanguage\");\r\n                localStorage.removeItem(\"langEventName\");\r\n                localStorage.removeItem(\"clickValue\");\r\n                localStorage.removeItem(\"searchEventName\");\r\n                localStorage.removeItem(\"landingPageTabClickValue\");\r\n                localStorage.removeItem(\"tabEventName\");\r\n                localStorage.removeItem(\"pageName\");\r\n            } else {\r\n                if (getCookie(\"pageLanguage\") != \"\") {\r\n                    digitalData.event.eventInfo.language.pageLanguage = getCookie(\"pageLanguage\");\r\n                }\r\n                if (getCookie(\"langEventName\") != \"\") {\r\n                    digitalData.event.eventName = getCookie(\"langEventName\");\r\n                }\r\n                if (getCookie(\"clickValue\") != \"\") {\r\n                    digitalData.event.eventInfo.search.clickValue = getCookie(\"clickValue\");\r\n                }\r\n                if (getCookie(\"searchEventName\") != \"\") {\r\n                    digitalData.event.eventName = getCookie(\"searchEventName\");\r\n                }\r\n                if (getCookie(\"landingPageTabClickValue\") != \"\") {\r\n                    digitalData.event.eventInfo.landingPageTab.clickValue = getCookie(\"landingPageTabClickValue\");\r\n                }\r\n                if (getCookie(\"tabEventName\") != \"\") {\r\n                    digitalData.event.eventName = getCookie(\"tabEventName\");\r\n                }\r\n                if (getCookie(\"pageName\") != \"\") {\r\n                    digitalData.page.pageInfo.pageName = getCookie(\"pageName\");\r\n                }\r\n                //After assigning the value to digitalData, clear the localStorage variable's content\r\n                setCookie(\"pageLanguage\", \"\");\r\n                setCookie(\"langEventName\", \"\");\r\n                setCookie(\"clickValue\", \"\");\r\n                setCookie(\"searchEventName\", \"\");\r\n                setCookie(\"landingPageTabClickValue\", \"\");\r\n                setCookie(\"pageName\", \"\");\r\n            }\r\n\r\n            function setCookie(cname, cvalue, exdays) {\r\n                var d = new Date();\r\n                d.setTime(d.getTime() + (exdays * 24 * 60 * 60 * 1000));\r\n                var expires = \"expires=\" + d.toUTCString();\r\n                document.cookie = cname + \"=\" + cvalue + \";\" + expires + \";path=/\";\r\n            }\r\n\r\n            function getCookie(cname) {\r\n                var name = cname + \"=\";\r\n                var ca = document.cookie.split(';');\r\n                for (var i = 0; i < ca.length; i++) {\r\n                    var c = ca[i];\r\n                    while (c.charAt(0) == ' ') {\r\n                        c = c.substring(1);\r\n                    }\r\n                    if (c.indexOf(name) == 0) {\r\n                        return c.substring(name.length, c.length);\r\n                    }\r\n                }\r\n                return \"\";\r\n            }\r\n        </script>\r\n        <script type=\"text/javascript\" src=\"econ_assets/page/local/jsapi.js\"></script>\r\n        <link rel=\"stylesheet\" href=\"econ_assets/page/local/censusfonts.css\" type=\"text/css\"/>\r\n        <link rel=\"stylesheet\" href=\"econ_assets/page/local/orionicons.css\" type=\"text/css\"/>\t\t\r\n    </head>\t  \r\n    <body id=\"innerPage\" class=\"   \">\r\n        <div>\r\n            <div class=\"clientcontext parbase\">\r\n                <script type=\"text/javascript\" src=\"econ_assets/page/local/jquery.js\"></script>\r\n                <script type=\"text/javascript\" src=\"econ_assets/page/local/jquery-ui.js\"></script>\r\n                <script type=\"text/javascript\" src=\"econ_assets/page/local/utils.js\"></script>\r\n                <script type=\"text/javascript\" src=\"econ_assets/page/local/granite.js\"></script>\r\n                <script type=\"text/javascript\" src=\"econ_assets/page/local/jquery2.js\"></script>\r\n                <script type=\"text/javascript\" src=\"econ_assets/page/local/shared.js\"></script>\r\n                <script type=\"text/javascript\" src=\"econ_assets/page/local/kernel.js\"></script>\r\n            </div>\r\n        </div>\r\n        <a name=\"skipfooter\" class=\"skip\"></a>\r\n        <div class=\"uscb-main-container\">\r\n            <div class=\"censusheader universalheader\">\r\n                <header id=\"data-uscb-main-header\" class=\"uscb-header uscb-print-hide\">\r\n                    <!-- GOV BANNER AND SIMPLE HEADER LAST UPDATED 11/17/2021 -->\n<!DOCTYPE html>\n<html>\n\n<head>\n    <meta charset=\"utf-8\" />\n    <script src=\"https://www.census.gov/main/uswds/uswds-2.12.0/js/uswds-init.min.js\"></script>\n    <script async\n        src=\"https://assets.adobedtm.com/7d6e749d4118/1f2b049df95b/launch-ENdc1ca6bab15e46a5b880a2c3f9d462ab.min.js\"></script>\n    <!-- <link rel=\"stylesheet\" href=\"https://www.census.gov/main/uswds/uswds-2.12.0/css/uswds.min.css\" /> -->\n    <!--  <link rel=\"stylesheet\" href=\"https://www.census.gov/main/.in/css/all_header_styles.css\" /> -->\n    <link rel=\"stylesheet\" href=\"https://www.census.gov/main/css/all_header_styles.css\" />\n\n\n</head>\n\n<body>\n    <script src=\"https://www.census.gov/main/uswds/uswds-2.12.0/js/uswds.min.js\"></script>\n    <section class=\"usa-banner\" aria-label=\"Official government website\">\n        <div class=\"usa-accordion\">\n            <header class=\"usa-banner__header\">\n                <div class=\"usa-banner__inner\">\n                    <div class=\"grid-col-auto\">\n                        <img class=\"usa-banner__header-flag\"\n                            src=\"https://www.census.gov/main/uswds/uswds-2.12.0/img/us_flag_small.png\"\n                            alt=\"U.S. flag\" />\n                    </div>\n                    <div class=\"grid-col-fill tablet:grid-col-auto\">\n                        <p class=\"usa-banner__header-text\">\n                            An official website of the United States government\n                        </p>\n                    </div>\n                </div>\n            </header>\n        </div>\n    </section>\n    \n\n    <style id=\"antiClickjack\">\n        body {\n            display: none !important\n        }\n    </style>\n    <script type=\"text/javascript\" src=\"https://www.census.gov/main/javascript/clickjack.js\"></script>\n    <script src=\"econ_assets/js/jquery.min.js\"\n        class=\"cb-main-support global-file\"></script>\n    <script src=\"https://www.census.gov/main/responsive-header/jquery/jquery-ui.js\"\n        class=\"cb-main-support global-file\"></script>\n\n    <!-- Check for jquery conflict -->\n    <script type=\"text/javascript\">\n\n        // REMOTE SERVERS include adobe-launch in <head>\n        // \t$.ajax({\n        // \t\ttype : 'get',\n        // \t\turl : '/main/app-config/header/adobe-launch.txt',\t\n        // \t\tdataType: 'text',            \t\n        // \t\tsuccess : function(data){\t\t \t\t\n        // \t                var adobeLaunchScript = document.createElement(\"script\");\n        // \t                adobeLaunchScript.setAttribute(\"src\",data);\n        // \t                document.head.appendChild(adobeLaunchScript);\n        // \t            },\n        // \t    error : function(xhr, errorText, errorMessage){\n        // \t                console.log('adobe-launch URL recognition failed: ' + errorText);\n        // \t            }\n        // \t});\n\n        $acn = jQuery.noConflict();\n        if (typeof jQuery === 'undefined' || typeof $ === 'undefined') {\n            jQuery = $acn;\n            $ = $acn;\n        }\n        $(function () {\n            $('.cb-header-skip-nav').click(function () {\n                $('#cb-after-header-anchor').focus();\n            });\n        });\n    </script>\n\n    <script src=\"https://www.census.gov/main/responsive-header/bootstrap-custom/js/bootstrap.js\"\n        class=\"cb-main-support global-file\"></script>\n    <script src=\"https://www.census.gov/main/responsive-header/js/typeahead.js\"\n        class=\"cb-main-support global-file\"></script>\n\n\n    <style type=\"text/css\">\n        header.hdr-primary,\n        header.hdr-primary>nav {\n            display: flex !important;\n            align-items: center !important;\n            margin: 0 !important;\n            padding: 0 !important;\n            height: 64px !important;\n            background-color: #ffffff !important;\n            /* border-color: #112e51 !important;*/\n        }\n\n        header.hdr-primary>nav>div {\n            box-sizing: border-box !important;\n            height: 36.62px !important;\n            font-size: 20px !important;\n            font-weight: 500 !important;\n            letter-spacing: 0.02em !important;\n            line-height: 30px !important;\n            white-space: nowrap !important;\n            vertical-align: baseline !important;\n            padding: 0 0 0 16px !important;\n            margin: 0 !important;\n            min-width: 150px !important;\n        }\n\n        header.hdr-primary>nav>div>a,\n        header.hdr-primary>nav>div>a>img {\n            padding: 0 !important;\n            margin: 0 !important;\n            border-style: none !important;\n            background: transparent !important;\n            text-decoration: none !important;\n        }\n\n        header.hdr-primary>nav>div>a {\n            box-sizing: border-box !important;\n            cursor: pointer !important;\n            text-decoration: none !important;\n        }\n\n        header.hdr-primary>nav>div>a>img {\n            width: 86px !important;\n            height: 33.62px !important;\n            margin-left: 15px !important;\n        }\n\n        hr.blue-line {\n            /* border-top-width: 2px;*/\n            /* border-color: #d0dce1;*/\n            margin: 0px;\n            border-bottom: #d0dce1 1px solid;\n\n        }\n\n        body {\n            opacity: 1 !important;\n        }\n\n        .uscb-header {\n            background-color: #ffffff;\n        }\n\n        .uscb-footer {\n            height: 0px;\n        }\n    </style>\n    <button class=\"cb-header-skip-nav sr-only sr-only-focusable\">Skip to main content</button>\n    <header class=\"hdr-primary\">\n        <nav>\n            <!--  <div><a href=\"https://www.census.gov\" id=\"census-home-link\"><img src=\"https://data.census.gov/cedsci/img/census-logo-white.25c8cb29.svg\" alt=\"United States Census Bureau\" title=\"U.S. Census Bureau\"></a></div> \n          <div><a href=\"https://www.census.gov\" id=\"census-home-link\"><img src=\"https://www.census.gov/main/.in/USCENSUS_IDENTITY_SOLO_White_2in_TM.svg\" alt=\"United States Census Bureau\" title=\"U.S. Census Bureau\"></a></div>\n    -->\n            <div><a href=\"https://www.census.gov\" id=\"census-home-link\"><img\n                        src=\"https://www.census.gov/main/img/USCENSUS_IDENTITY_SOLO_BLACK_1.5in_R_no_padding.svg\"\n                        alt=\"United States Census Bureau\" title=\"U.S. Census Bureau\"></a></div>\n        </nav>\n    </header>\n    <hr class=\"blue-line\">\n    <a class=\"sr-only\" tabindex=\"-1\" id=\"cb-after-header-anchor\">end of header</a>\n</body>\n\n</html>\r\n                </header>\r\n                <script type=\"text/javascript\">\r\n                    document.addEventListener(\"DOMContentLoaded\", function (event) {\r\n                        CensusUniversalHeader.initHeader();\r\n                    });\r\n                </script>\r\n            </div>\r\n        </div>\r\n        <div class=\"container-fluid\">\r\n            <div class=\"topBg\">\r\n            </div>\r\n            <div class=\"wrapper wrapperMarginTop\">\r\n                <a name=\"skip\"> </a>\r\n                <div id=\"sectionTitleRow\" class=\"belowHeader row no-gutter\">\r\n                    <div class=\"col-xs-12 uscb-margin-T-5\">\r\n                        <div class=\"hidden-xs hidden-sm hidden-md col-lg-2\" style=\"width: calc(200% / 16.3 + 5%)\"></div>\r\n                        <div id=\"breadContainer\" class=\"belowHeader hidden-xs visible-lg uscb-print-hide\">\r\n                            \r\n                            <ul class=\"uscb-layout-row uscb-top-pagination uscb-layout-align-start-center\">\r\n                                <li>\r\n                                    <a tabindex=\"0\" href=\"/en.html\" class=\"uscb-top-pagination-links\" onclick=\"CQ_Analytics.record({event: 'followBreadcrumb', values: {breadcrumbPath: '/content/census/en.html'}, collect: false, options: {obj: this}})\">\r\n                                        Census.gov\r\n                                    </a>\r\n                                    <span>></span>\r\n                                </li>                                \r\n                                <li>    <a tabindex=\"0\" href=\"https://www.census.gov/programs-surveys.html\" class=\"uscb-top-pagination-links\" onclick=\"CQ_Analytics.record({event: 'followBreadcrumb', values: {breadcrumbPath: 'https://www.census.gov/programs-surveys.html'}, collect: false, options: {obj: this}})\">Our Surveys & Programs</a>    <span>></span></li><li>    <a tabindex=\"0\" href=\"/construction/soc/index.html\" class=\"uscb-top-pagination-links\" onclick=\"CQ_Analytics.record({event: 'followBreadcrumb', values: {breadcrumbPath: '/construction/soc/index.html'}, collect: false, options: {obj: this}})\">Survey of Construction (SOC)</a>    <span>></span></li><li><span class=\"uscb-top-pagination-links\">Release Schedule</span></li>\r\n                            </ul>\r\n                            \r\n                        </div>\r\n                    </div>\r\n                    <div id=\"infoBannerSection\" class=\"col-xs-12 uscb-padding-LR-0\">\r\n                        <script type=\"text/javascript\">\r\n                            function getBanners() {\r\n                                var urlVal = \"https://www.census.gov/content/census/en/programs-surveys/.infobanners.html\";\r\n                                $.ajax({\r\n                                    url: urlVal,\r\n                                    dataType: \"html\",\r\n                                    success: function (result) {\r\n                                        $('infoBannerSection').html(result);\r\n                                    },\r\n                                    error: function (err) {\r\n                                        console.log(err);\r\n                                    }\r\n                                });\r\n                                return false;\r\n                            }\r\n                            $(document).ready(function () {\r\n                                getBanners();\r\n                                $('.info-banner-clickable-div').click(function (e) {\r\n                                    var href = $(this).attr('id');\r\n                                    if (typeof (href) !== 'undefined' && !$(e.target).hasClass('data-uscb-exit-btn') && !$(e.target).hasClass('data-uscb-banner-dismiss-btn')) {\r\n                                        window.location = href;\r\n                                    }\r\n                                    return false;\r\n                                });\r\n                                $('.uscb-banner-pointer-div').hover(\r\n                                        function (e) {\r\n                                            $hoverTargets = $(this).find(\".data-uscb-banner-hover-target\");\r\n                                            $hoverTargets.addClass(\"uscb-text-decoration-underline\");\r\n                                            $hoverTargets.removeClass(\"uscb-text-decoration-none\");\r\n                                        },\r\n                                        function (e) {\r\n                                            $hoverTargets = $(this).find(\".data-uscb-banner-hover-target\");\r\n                                            $hoverTargets.removeClass(\"uscb-text-decoration-underline\");\r\n                                            $hoverTargets.addClass(\"uscb-text-decoration-none\");\r\n                                        }\r\n                                );\r\n                                $('.data-uscb-banner-dismiss-btn').click(function (e) {\r\n                                    if ($(e.target).hasClass('data-uscb-banner-dismiss-btn')) {\r\n                                        var dismissedBannerClass = $(this).attr('id');\r\n                                        var randStr = $(this).attr('id');\r\n                                        var existingCookieValue = getCookie('dismissedBannersClasses');\r\n                                        var newValue = (typeof (existingCookieValue) != 'undefined' && existingCookieValue != '') ? existingCookieValue + '|' + dismissedBannerClass : dismissedBannerClass;\r\n\r\n                                        setCookie('dismissedBannersClasses', newValue, 7);\r\n                                        $('.info-banner-section_' + randStr).remove();\r\n                                    }\r\n                                });\r\n                            });\r\n                        </script>\r\n                    </div>\r\n                    <div class=\"hidden-xs hidden-sm hidden-md col-lg-2\" style=\"width: calc(200% / 17.3 + 5%)\"></div>\r\n                    <div class=\"col-xs-12 col-lg-8\">\r\n                        <span>\r\n                           <h1 class=\"uscb-h1 uscb-medium\"></h1>\r\n                        </span> \r\n                    </div>\r\n                    <div class=\"hidden-xs hidden-sm hidden-md col-lg-4 uscb-padding-R-0\">\r\n                        <div id=\"desktopLanguageSelectorContainer\" class=\"pull-right\">\r\n                        </div>\r\n                    </div>\t\r\n                    <script type=\"text/javascript\">\r\n                        $(document).ready(function () {\r\n                            $(document).click(function (event) {\r\n                                if ($(event.target).is('#mobileFacetSelection')) {\r\n                                    closeMobileFacetSelection();\r\n                                } else {\r\n                                    //span('clicked inside...');\r\n                                }\r\n                            });\r\n                        });//end document.ready function\r\n\r\n                        function toggleMobileLeftNavigation() {\r\n                            if ($('.leftNavigation').hasClass('no-show')) {\r\n                                $('.leftNavigation').removeClass('no-show');\r\n                                $('.belowHeader:not(#sectionTitleRow, #listPageContent)').hide();\r\n                                $('#infoBannerSection').hide();\r\n                            } else {\r\n                                $('.leftNavigation').addClass('no-show');\r\n                                $('.belowHeader:not(#sectionTitleRow, #listPageContent)').show();\r\n                                $('#infoBannerSection').show();\r\n                            }\r\n                            $('#sectionTitleRow .leftNavButton').toggleClass('open');\r\n                            $('#mobileTitleRow').toggleClass('menuHeader');\r\n                            $('#sectionTitleRow').toggleClass('menuHeader');\r\n                            var sectionTitleRowHeight = $('#sectionTitleRow').height();\r\n                            var leftNavPaddingOffset = 150;\r\n                            if (sectionTitleRowHeight)\r\n                                leftNavPaddingOffset = sectionTitleRowHeight + 65;\r\n\r\n                            $('#mobileLeftNavigation .menuContent').css('padding-top', sectionTitleRowHeight + 65 + 'px');\r\n                        }\r\n\r\n                        function toggleFacetSelection() {\r\n                            if (!$('body').hasClass('menu-slider')) {\r\n                                $('body').addClass('menu-slider');\r\n                                $('body').addClass('in');\r\n                            } else {\r\n                                $('body').removeClass('menu-slider');\r\n                                $('body').removeClass('in');\r\n                            }\r\n                        }\r\n\r\n                        function openMobileFacetSelection() {\r\n                            $('#mobileFacetSelection').css('width', '100%');\r\n                        }\r\n\r\n                        function closeMobileFacetSelection() {\r\n                            $('#mobileFacetSelection').css('width', '0%');\r\n                        }\r\n                    </script>\r\n                </div>\r\n                <link rel=\"stylesheet\" href=\"econ_assets/page/local/legacy.css\" type=\"text/css\" />\r\n<div class=\"row no-gutter col-lg-12\">\r\n    \r\n<div id=\"leftColumn\" class=\"col-lg-2\">\r\n    <div class=\"grid_navInnerLandingHolder\">\r\n        <a href=\"#skipsideNav\" class=\"offscreen\">Skip to looking for section</a>\r\n        <div class=\"grid_navInnerLandingLinks\">\r\n            <!-- begin Navigation items -->\r\n            <div class=\"leftnav\">\r\n                <div>\r\n                    <ul class=\"uscb-margin-L--10 uscb-print-hide visible-lg uscb-print-hide\">\t  \r\n                        \t<li class=\"uscb-filter-parent\">\n\t\t\t    <span>\n\t\t\t\t<a href=\"https://www.census.gov/construction/soc/index.html\" tabindex=\"0\" class=\"uscb-color-primary\" style=\"font-size: 1rem;\">\n\t\t\t\t    <span>Back to Survey of Construction</span>\n\t\t\t\t</a>\n\t\t\t    </span>\n\t\t\t</li>\t<li class=\"uscb-filter-parent\">\n\t\t\t    <span>\n\t\t\t\t<a href=\"/construction/nrc/index.html\" tabindex=\"0\" class=\"uscb-color-primary\" style=\"font-size: 1rem;\">\n\t\t\t\t    <span>Back to New Residential Construction</span>\n\t\t\t\t</a>\n\t\t\t    </span>\n\t\t\t</li>\t<li class=\"uscb-filter-parent\">\n\t\t\t    <span>\n\t\t\t\t<a href=\"/construction/nrs/index.html\" tabindex=\"0\" class=\"uscb-color-primary\" style=\"font-size: 1rem;\">\n\t\t\t\t    <span>Back to New Residential Sales</span>\n\t\t\t\t</a>\n\t\t\t    </span>\n\t\t\t</li>\t<li class=\"uscb-filter-parent\">\n\t\t\t    <span>\n\t\t\t\t<a href=\"/construction/cpi/index.html\" tabindex=\"0\" class=\"uscb-color-primary\" style=\"font-size: 1rem;\">\n\t\t\t\t    <span>Back to Construction Price Indexes</span>\n\t\t\t\t</a>\n\t\t\t    </span>\n\t\t\t</li>\t<li class=\"uscb-filter-parent\">\n\t\t\t    <span>\n\t\t\t\t<a href=\"/construction/chars/index.html\" tabindex=\"0\" class=\"uscb-color-primary\" style=\"font-size: 1rem;\">\n\t\t\t\t    <span>Back to Characteristics of New Housing</span>\n\t\t\t\t</a>\n\t\t\t    </span>\n\t\t\t</li>\r\n                    </ul>\r\n                    <div class=\"visible-lg uscb-margin-B-10 uscb-print-hide\">\r\n                        <div class=\"uscb-layout-row uscb-margin-T-10\">\r\n                            <i class=\"o-angle-left-1 uscb-color-accent uscb-font-2x uscb-margin-R-10 uscb-position-relative\" style=\"top: -8px\"></i>\r\n                            <a href=\"https://www.census.gov/programs-surveys.html\" class=\"uscb-color-primary uscb-medium uscb-underline-hover\">\r\n                                <span>Back to Our Surveys &amp; Programs</span>\r\n                            </a>\r\n                        </div>\r\n                    </div>\r\n                    <div class=\"hidden-lg uscb-margin-B-8 uscb-print-hide\">\r\n                        <div class=\"ui-widget uscb-input-wrapper\" id=\"data-uscb-input-wrapper-mobile-nav\">\r\n                            <div class=\"uscb-dropdown-container uscb-layout-row\">\r\n                                  <input class=\"tags uscb-flex-row-gt-sm-90 uscb-flex-row-sm-8\" placeholder=\"Sections\" style=\"height: 34px;\"/>\r\n                                  <div class=\"uscb-form-dropdown-button-chevron uscb-icon-button\">\r\n                                      <i class=\"o-angle-down-1 uscb-font-2x uscb-color-accent\" alt=\"Local nav dropdown chevron\"></i>\r\n                                  </div>\r\n                            </div>\r\n                            <ul class=\"uscb-filter-list\" style=\"display: none;\">\t\r\n                                \t<li class=\"uscb-filter-parent uscb-border-0 uscb-padding-0\">\n\t\t\t\t    <span>\n\t\t\t\t\t<a href=\"https://www.census.gov/construction/soc/index.html\" tabindex=\"0\" class=\"uscb-color-primary\" style=\"font-size: 1rem;\">\n\t\t\t\t\t    <span>Back to Survey of Construction</span>\n\t\t\t\t\t</a>\n\t\t\t\t    </span>\n\t\t\t\t</li>\t<li class=\"uscb-filter-parent uscb-border-0 uscb-padding-0\">\n\t\t\t\t    <span>\n\t\t\t\t\t<a href=\"/construction/nrc/index.html\" tabindex=\"0\" class=\"uscb-color-primary\" style=\"font-size: 1rem;\">\n\t\t\t\t\t    <span>Back to New Residential Construction</span>\n\t\t\t\t\t</a>\n\t\t\t\t    </span>\n\t\t\t\t</li>\t<li class=\"uscb-filter-parent uscb-border-0 uscb-padding-0\">\n\t\t\t\t    <span>\n\t\t\t\t\t<a href=\"/construction/nrs/index.html\" tabindex=\"0\" class=\"uscb-color-primary\" style=\"font-size: 1rem;\">\n\t\t\t\t\t    <span>Back to New Residential Sales</span>\n\t\t\t\t\t</a>\n\t\t\t\t    </span>\n\t\t\t\t</li>\t<li class=\"uscb-filter-parent uscb-border-0 uscb-padding-0\">\n\t\t\t\t    <span>\n\t\t\t\t\t<a href=\"/construction/cpi/index.html\" tabindex=\"0\" class=\"uscb-color-primary\" style=\"font-size: 1rem;\">\n\t\t\t\t\t    <span>Back to Construction Price Indexes</span>\n\t\t\t\t\t</a>\n\t\t\t\t    </span>\n\t\t\t\t</li>\t<li class=\"uscb-filter-parent uscb-border-0 uscb-padding-0\">\n\t\t\t\t    <span>\n\t\t\t\t\t<a href=\"/construction/chars/index.html\" tabindex=\"0\" class=\"uscb-color-primary\" style=\"font-size: 1rem;\">\n\t\t\t\t\t    <span>Back to Characteristics of New Housing</span>\n\t\t\t\t\t</a>\n\t\t\t\t    </span>\n\t\t\t\t</li>\r\n                                <div class=\"uscb-layout-row uscb-margin-T-10 uscb-margin-L-15 uscb-underline-hover\">\r\n                                    <i class=\"o-angle-left-1 uscb-color-accent uscb-font-2x uscb-margin-R-10 uscb-position-relative\" style=\"top: -10px\"></i>\r\n                                    <a href=\"https://www.census.gov/programs-surveys.html\" class=\"uscb-color-primary uscb-bold\">\r\n                                        <span>Back to Our Surveys &amp; Programs</span>\r\n                                    </a>\r\n                                </div>\r\n                            </ul>\r\n                        </div>\r\n                    </div><!-- end mobile -->\r\n                    <div class=\"uscb-layout-row uscb-layout-align-flex-end hidden-lg uscb-print-hide\"></div>\r\n                    <noscript class=\"hidden-lg uscb-print-hide\">                                        \r\n                        <ul class=\"uscb-filter-list\">\r\n                            <li class=\"uscb-margin-0\">\n\t\t\t\t    <a tabindex=\"0\">Back to Survey of Construction</a>\n\t\t\t\t</li><li class=\"uscb-margin-0\">\n\t\t\t\t    <a tabindex=\"0\">Back to New Residential Construction</a>\n\t\t\t\t</li><li class=\"uscb-margin-0\">\n\t\t\t\t    <a tabindex=\"0\">Back to New Residential Sales</a>\n\t\t\t\t</li><li class=\"uscb-margin-0\">\n\t\t\t\t    <a tabindex=\"0\">Back to Construction Price Indexes</a>\n\t\t\t\t</li><li class=\"uscb-margin-0\">\n\t\t\t\t    <a tabindex=\"0\">Back to Characteristics of New Housing</a>\n\t\t\t\t</li>\r\n                        </ul>\r\n                    </noscript>\r\n                </div>\r\n            </div>\r\n        </div>\r\n        \r\n        <div class=\"sponsorlogo sponsoringlogo image\">\r\n            <div id=\"sponsorLogoHolder\" class=\"uscb-print-hide\">\r\n                <div id=\"sponsorLogo\" class=\"sponsorlogo sponsoringlogo image belowHeader\">\r\n                    <div class=\"grid_navSponsorLogoHolder\">\t\r\n                        <div class=\"grid_navSponsorLogoHeading\">\r\n                            <b>Sponsored By:</b><br/>\r\n                        </div>\r\n                        <a href=\"https://www.huduser.gov/portal/home.html\" tabindex=\"0\">\r\n                            <img src=\"data:image/jpg;base64,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",
+          "title": "SOC - Release Schedule",
+          "httpStatus": 200
+        },
+        {
+          "type": "openrouter:web_search",
+          "id": "st_tmp_dqrp2f252i",
+          "status": "completed",
+          "action": {
+            "type": "search",
+            "query": "\"Characteristics of New Housing\" 2024 annual data released June 2025 Census",
+            "sources": [
+              {
+                "type": "url",
+                "url": "https://www.census.gov/construction/chars/current.html"
+              },
+              {
+                "type": "url",
+                "url": "http://census.gov/construction/chars/microdata.html"
+              },
+              {
+                "type": "url",
+                "url": "https://www.census.gov/construction/chars/"
+              },
+              {
+                "type": "url",
+                "url": "https://www.census.gov/construction/chars/historical/tables.html"
+              },
+              {
+                "type": "url",
+                "url": "https://www.census.gov/library/stories/2024/06/national-housing-month.html"
+              }
+            ]
+          }
+        },
+        {
+          "type": "openrouter:web_search",
+          "id": "st_tmp_78skyj74rry",
+          "status": "completed",
+          "action": {
+            "type": "search",
+            "query": "new home sales report September 2026 Census release housing starts August 2026",
+            "sources": [
+              {
+                "type": "url",
+                "url": "https://www.census.gov/construction/nrs/pdf/newressales_202608.pdf"
+              },
+              {
+                "type": "url",
+                "url": "https://www.census.gov/construction/nrs/current/index.html"
+              },
+              {
+                "type": "url",
+                "url": "https://www.census.gov/construction/nrc/pdf/newresconst_202608.pdf"
+              },
+              {
+                "type": "url",
+                "url": "https://www.census.gov/construction/nrc/current/index.html"
+              },
+              {
+                "type": "url",
+                "url": "https://www.census.gov/construction/nrs/pdf/newressales.pdf"
+              }
+            ]
+          }
+        },
+        {
+          "type": "openrouter:web_search",
+          "id": "st_tmp_z2x4k724cv",
+          "status": "completed",
+          "action": {
+            "type": "search",
+            "query": "\"Annual Characteristics of New Housing for 2024 were published on\"",
+            "sources": [
+              {
+                "type": "url",
+                "url": "https://www.census.gov/construction/chars/"
+              },
+              {
+                "type": "url",
+                "url": "https://www.census.gov/construction/chars/current.html"
+              },
+              {
+                "type": "url",
+                "url": "https://www.census.gov/construction/bps/pdf/2024annualhighlights.pdf"
+              },
+              {
+                "type": "url",
+                "url": "https://www.census.gov/construction/bps/pdf/2024ushistchart.pdf"
+              },
+              {
+                "type": "url",
+                "url": "https://www.census.gov/construction/chars/pdf/c25ann2014.pdf"
+              }
+            ]
+          }
+        },
+        {
+          "type": "openrouter:web_search",
+          "id": "st_tmp_tlv8q4a3uzf",
+          "status": "completed",
+          "action": {
+            "type": "search",
+            "query": "FY2026 enacted appropriations HUD Research and Technology account amount Census Current Surveys and Programs enacted FY2026"
+          }
+        }
+      ],
+      "ended": "answered",
+      "seconds": 89.2
+    },
+    "session_metadata": {
+      "request": {
+        "model": "anthropic/claude-opus-5.5",
+        "max_output_tokens": 32768,
+        "tools": [
+          {
+            "type": "openrouter:web_search",
+            "parameters": {
+              "engine": "native",
+              "excluded_domains": [
+                "dataindex.us"
+              ]
+            }
+          },
+          {
+            "type": "openrouter:web_fetch",
+            "parameters": {
+              "engine": "openrouter",
+              "blocked_domains": [
+                "dataindex.us"
+              ],
+              "max_content_tokens": 10000
+            }
+          }
+        ],
+        "cache_control": {
+          "type": "ephemeral",
+          "ttl": "1h"
+        },
+        "session_id": "soc-anthropic/claude-opus-5.5-t0-2026-10-09T01:09:33Z",
+        "stop_server_tools_when": [
+          {
+            "type": "step_count_is",
+            "step_count": 200
+          }
+        ],
+        "reasoning": {
+          "effort": "medium"
+        },
+        "provider": {
+          "order": [
+            "anthropic"
+          ],
+          "allow_fallbacks": false
+        }
+      },
+      "response_meta": {
+        "id": "gen-1791508369-k4XOm0VFYK2vOFqyTWv9",
+        "object": "response",
+        "created_at": 1791508369,
+        "model": "anthropic/claude-opus-5.5",
+        "status": "completed",
+        "completed_at": 1791508384,
+        "error": null,
+        "incomplete_details": null,
+        "tools": [],
+        "tool_choice": "auto",
+        "parallel_tool_calls": true,
+        "max_output_tokens": 32768,
+        "temperature": 1,
+        "top_p": 1,
+        "presence_penalty": 0,
+        "frequency_penalty": 0,
+        "top_logprobs": 0,
+        "max_tool_calls": null,
+        "metadata": {},
+        "background": false,
+        "previous_response_id": null,
+        "service_tier": "auto",
+        "truncation": "disabled",
+        "store": false,
+        "instructions": null,
+        "text": {
+          "format": {
+            "type": "text"
+          }
+        },
+        "reasoning": {
+          "effort": "medium"
+        },
+        "safety_identifier": null,
+        "prompt_cache_key": null,
+        "prompt_cache_options": null,
+        "usage": {
+          "input_tokens": 33286,
+          "input_tokens_details": {
+            "cached_tokens": 13663,
+            "cache_write_tokens": 19619
+          },
+          "output_tokens": 1594,
+          "output_tokens_details": {
+            "reasoning_tokens": 699
+          },
+          "total_tokens": 34880,
+          "cost": 0.1915806,
+          "cost_details": {
+            "upstream_inference_cost": 0.1915806,
+            "upstream_inference_input_cost": 0.1597006,
+            "upstream_inference_output_cost": 0.03188
+          }
+        }
+      },
+      "requests": [
+        {
+          "input_tokens": 33286,
+          "input_tokens_details": {
+            "cached_tokens": 13663,
+            "cache_write_tokens": 19619
+          },
+          "output_tokens": 1594,
+          "output_tokens_details": {
+            "reasoning_tokens": 699
+          },
+          "total_tokens": 34880,
+          "cost": 0.1915806,
+          "cost_details": {
+            "upstream_inference_cost": 0.1915806,
+            "upstream_inference_input_cost": 0.1597006,
+            "upstream_inference_output_cost": 0.03188
+          }
+        }
+      ],
+      "searches": 0,
+      "fetches": 0,
+      "tool_items": [],
+      "ended": "answered",
+      "seconds": 15.6
+    }
+  },
+  "messages": [
+    {
+      "role": "user",
+      "content": "#data research\nI am researching a federal dataset. Find out everything you can about this dataset, such as who publishes it, under what authority or mandate, its history, its typical users, and its benefits to the public. Be sure your research comprehensively covers each of those perspectives, as well as any others that you discover or seem useful. I believe this is accurate information, but please check:\n\nDataset title: Survey of Construction (SOC)\nDescription: The Survey of Construction (SOC) provides national and regional statistics on starts and completions of new single-family and multifamily housing units and statistics on sales of new single-family houses in the United States. The SOC also provides statistics on characteristics of new privately-owned residential structures in the United States. Data included are various characteristics of new single-family houses completed, new multifamily housing completed, new single-family houses sold, and new contractor-built houses started. The Department of Housing and Urban Development (HUD) partially funds this survey.\n\nReturn a complete report on everything that a preservationist, data librarian, data scientist, or policy activist might want to know about this data."
+    },
+    {
+      "role": "assistant",
+      "content": "# Survey of Construction (SOC): Dataset Research Report\n\n## Summary\n\nYour description is accurate. It closely matches the Census Bureau's own methodology page. The SOC is a monthly sample survey run by the U.S. Census Bureau and co-sponsored and partly funded by the Department of Housing and Urban Development (HUD). Two of the federal government's \"Principal Federal Economic Indicators\" come from it: housing starts (with completions) and new home sales. Its annual \"Characteristics of New Housing\" data cover things like home size, prices and heating type. It has been running since 1959, and data collection and releases continue as of October 2026.\n\n**Small additions to your description:**\n- **Official name.** For paperwork-approval purposes the survey is called the *Survey of Housing Starts, Sales, and Completions*. Its OMB control number is 0607-0110.\n- **HUD's role.** Census says HUD \"partially funds\" the survey. HUD calls it \"jointly sponsored,\" and monthly press releases say the numbers are \"released jointly\" by Census and HUD.\n- **Building permits come from a different survey.** The permit figures in the monthly construction release come from the Building Permits Survey (BPS). The SOC only uses permits as its sampling frame and to adjust its estimates.\n- **Geographic limits.** Published SOC estimates exist only for the whole U.S. and the four Census regions. The public microdata go down to the nine Census divisions. There are no state or local estimates because the sample is too small.\n\n---\n\n## 1. Who publishes it\n\n| Item | Details |\n|---|---|\n| Collecting and publishing agency | U.S. Census Bureau (Department of Commerce), economic indicator programs |\n| Co-sponsor and partial funder | HUD, mainly its research arm, the Office of Policy Development and Research (PD&R) |\n| Data collectors | Census Bureau field representatives (about 200, per a 2003 methodology paper) |\n| Main web pages | census.gov/construction/soc (survey home); /nrc (New Residential Construction); /nrs (New Residential Sales); /chars (Characteristics of New Housing); huduser.gov/portal/datasets/soc |\n\n## 2. Legal authority\n\n- **Census authority:** Title 13 of the U.S. Code, sections 8(b), 131 and 182.\n- **HUD authority:** Title 12 of the U.S. Code, sections 1701z-1 and 1701z-2(g), HUD's research and data-collection authority. Both sets of citations appear in the July 20, 2026 Federal Register notice.\n- **Participation is voluntary.** Unlike some Census business surveys, nobody is required to respond.\n- **Confidentiality:** Title 13, section 9 makes individual responses confidential. Microdata releases go through Census disclosure review, and files from 2017 onward carry approval numbers (e.g., CBDRB-FY26-0249 for the 2025 file).\n- **Paperwork approval (OMB control number 0607-0110):**\n  - Forms: SOC-QI/SF.1 (single-family) and SOC-QI/MF.1 (multifamily), both administered as electronic interviews (computer-assisted personal interviewing).\n  - The current approval expires March 31, 2027.\n  - Census published a 60-day notice on July 20, 2026 proposing a three-year extension with no changes. Comments were due September 18, 2026, so a second (30-day) notice and OMB review are the next likely steps.\n- **Release rules:** As Principal Federal Economic Indicators, the starts and sales numbers fall under OMB Statistical Policy Directive No. 3. That directive sets fixed, pre-announced release dates and times and keeps the data under embargo until release.\n\n## 3. History\n\n- **Before 1959:** The Bureau of Labor Statistics (BLS) published a \"nonfarm housing starts\" series built from building permits. BLS began collecting permit data in 1920, partly to serve a congressional investigation of the housing shortage after World War I. Historical estimates reach back to 1889 (BLS Bulletin 1260, 1959).\n- **1959 transfer:** Under a Bureau of the Budget memo dated November 19, 1958, BLS and Census swapped duties. BLS handed construction statistics to Census, and Census handed BLS the content and analysis of the monthly labor force report (the Current Population Survey). The transfer took effect July 1, 1959.\n- **When the main series begin:**\n  - Housing starts: 1959\n  - New home sales: 1963\n  - Price indexes for new single-family houses: 1963\u201364\n  - Completions: 1968\n- **1984:** Sample redesign. The plan was to redesign after every decennial census, but the 1990s redesign was never finished because the survey was moving from paper questionnaires to laptop interviewing.\n- **January 2005:** A new sample took effect, based on 2000 Census geography and the 2004 Current Population Survey sampling areas.\n- **1999 to now:** Annual public-use microdata files.\n- **2017:** Disclosure approval numbers start appearing on the microdata files.\n- **2020:** Microdata switch from zipped .xls to .xlsx.\n- **2025\u201326 shutdown disruption:** The October\u2013November 2025 federal shutdown delayed releases badly. October 2025 construction data came out January 9, 2026, and October sales data on January 13, 2026, with \"Next Release: TBD\" printed on the release. The 2025 Characteristics and microdata files came out July 1, 2026. Monthly releases appear to be back on their normal schedule (August 2026 sales came out September 24, 2026).\n- **Shrinking sample:** Buildings sampled per year fell from about 21,600 (2020 notice) to about 21,363 (2023) to about 19,353 (2026), roughly 1,613 a month. Projects now take longer to start, finish and sell, so each case needs more interviews. As a result the estimated annual burden rose to 14,809 hours: about 177,702 interviews averaging 5 minutes each.\n\n## 4. How the data are collected\n\n- **Three-stage sample:**\n  1. Census picks a subset of the Current Population Survey's primary sampling units (169 areas in the 2005 design).\n  2. Within those, it picks about 900 places that issue building permits, plus 70\u201380 land areas that don't require permits.\n  3. Each month, field staff sample individual permits.\n- **Sampling rates:** Permits for buildings with 1\u20134 units are sampled at an overall rate of about 1 in 50 units. Every permit for a building with 5 or more units is included.\n- **Areas without permits:** Field representatives drive every road in the sampled areas each month and include every new residential start they find.\n- **Follow-up:** Builders, owners, real estate agents or rental agents are contacted by phone or in person until the project is finished or abandoned. Houses built for sale are followed until they sell. On average a single-family building gets about 9.6 interviews and a multifamily building about 8.5.\n- **Estimation:**\n  - Sample results are ratio-adjusted to the permit totals from the Building Permits Survey.\n  - Further adjustments cover late reports and houses started or sold before a permit was issued.\n  - The series are seasonally adjusted.\n  - Collection for a given month runs through the 7th working day of the following month.\n- **What counts as a \"sale\":** A deposit taken or a sales agreement signed. This can happen before a permit is issued, which is one reason the figures get revised.\n- **Release schedule:**\n  - New Residential Construction (starts, completions, preliminary permits): 12th workday of the month, 8:30 a.m. ET.\n  - New Residential Sales: 17th workday, 10:00 a.m. ET.\n  - Characteristics of New Housing and the microdata: once a year (the 2025 data came out July 1, 2026).\n\n## 5. What it produces\n\n1. **New Residential Construction (monthly indicator):** housing units started, under construction and completed, broken out by 1-unit, 2\u20134 unit and 5+ unit buildings and by region. Quarterly tables add starts and completions by purpose and design.\n2. **New Residential Sales (monthly indicator):** new single-family homes sold, homes for sale, months' supply, and median and average sale prices.\n3. **Characteristics of New Housing (annual):** dozens of tables on single-family homes completed and sold, multifamily units and buildings, and contractor-built starts. Topics include square footage, bedrooms and bathrooms, lot size, heating fuel and system, air conditioning, framing and wall material, foundation, parking, sewer and septic, HOA membership, age-restricted housing, financing type and price per square foot.\n   - 2025 examples: median completed single-family home was 2,142 sq ft; median sold home was 2,194 sq ft; median sale price was $417,400; 63% of homes completed in the South had heat pumps.\n4. **Construction price indexes:** constant-quality (Laspeyres) and Fisher price indexes for new single-family homes, built with regression (\"hedonic\") models.\n5. **Public-use microdata (1999\u20132025):** one record per sampled single-family house, with sampling weights and dates of start, sale and completion. Location is limited to the nine Census divisions and whether the house is inside a metro area. Sale price and square footage are top- and bottom-coded to protect privacy.\n6. **Inputs to other programs:**\n   - Census Construction Spending (value put in place).\n   - HUD's Survey of Market Absorption of New Multifamily Units, which uses the SOC as its sampling base.\n\n## 6. Access options\n\n- **Web pages and files:** Excel and PDF tables on census.gov.\n- **Census Data API:** `api.census.gov/data/timeseries/eits/resconst` and `/eits/ressales`. An API key is required.\n- **FRED (St. Louis Fed):** redistributes the main series, e.g., HOUST for starts and HSN1F for new home sales.\n- **Microdata:** .xlsx downloads, or SAS format by phone request at (301) 763-5160.\n- **Long historical series:** the NBER Macrohistory Database, and FRASER for the BLS starts series going back to 1889.\n\n## 7. Typical users\n\n- **Economic statistics agencies:** The Bureau of Economic Analysis uses the residential construction spending figures and SOC-based price deflators for residential investment in GDP.\n- **The Federal Reserve and policymakers:** housing starts are a leading indicator in monetary policy analysis.\n- **Financial markets:** the starts and sales releases are scheduled, market-moving data releases.\n- **HUD and housing policy staff:** housing supply, affordability, and the multifamily absorption survey.\n- **Industry:** home builders, the National Association of Home Builders (NAHB), lenders, Fannie Mae and Freddie Mac, building-material makers, real estate analysts.\n- **Researchers:** trends in house size, HOA prevalence, energy and heating choices (heat pumps versus gas), construction timelines, housing supply elasticity.\n- **Journalists and advocates:** affordability and housing-shortage reporting, e.g., coverage of shrinking home sizes in 2026.\n\n## 8. Public benefits\n\n- It is the only official national measure of new housing supply and new-home sales, and it is available free with no paywall.\n- It gives an early warning of recessions and recoveries, since housing turns ahead of the wider economy.\n- It supports GDP and inflation measurement through the quality-adjusted price indexes.\n- It documents how American homes are changing (size, energy systems, accessibility, age-restricted housing), which informs building codes, energy policy and affordability debates.\n- It provides a consistent federal series running back to 1959, with predecessor series to 1889.\n\n## 9. Limitations and caveats for data users\n\n- **Large sampling error.** Monthly changes often carry 90% confidence intervals of \u00b110\u201320%. Many headline changes are marked as not statistically significant. Census advises that it takes 3 months to establish a trend in new home sales.\n- **Frequent revisions.** Preliminary figures are revised, and annual benchmarking adjusts them further.\n- **Coverage exclusions.** The survey covers only new, privately owned housing. It excludes manufactured homes (covered by HUD's separate Manufactured Housing Survey), publicly owned units and renovations.\n- **No subnational detail** beyond regions and divisions. For local data, use building permits instead.\n- **Inconsistent documentation.** Census pages variously say the microdata contain \"more than 40\" or \"more than 60\" characteristics. Totals tabulated from the microdata won't exactly match published estimates. Top- and bottom-coding changes how the coded variables relate to others.\n- **Voluntary response and a shrinking sample** could affect quality over time.\n\n## 10. Preservation and risk notes\n\n- **Renewal decision coming.** The OMB approval expires March 31, 2027, with a no-change extension pending. It is worth watching the 30-day notice and OMB's reginfo.gov docket for changes to scope or burden.\n- **Dependence on budgets.** The survey relies on field staff and on both Census and HUD budgets. The 2025 shutdown showed how vulnerable the release schedule is.\n- **Existing third-party archive.** An independent copy sits in DataLumos (ICPSR's archive of federal data), project 228781. I couldn't open the page itself (access was blocked), so I can't confirm what it contains or how recent it is.\n- **Suggested preservation targets:**\n  - Microdata files for 1999\u20132025 and their variable guides.\n  - Historical time series spreadsheets (/construction/nrc/data/series.html).\n  - Methodology documents, including the price-index methodology and the 1999 and 2003 statistical papers on survey redesign.\n  - Past press-release PDFs.\n  - Blank questionnaires and the paperwork-approval package on reginfo.gov.\n\n## Key sources\n- Census SOC \"About\" and Methodology pages: census.gov/construction/soc\n- Federal Register notices for OMB 0607-0110: 2020, 2023, and July 20, 2026\n- HUD User SOC page, and PD&R Edge \"Evolution of Housing Data\" (2026)\n- BLS Bulletin 1260, *Nonfarm Housing Starts, 1889\u20131958*\n- Census microdata, Characteristics of New Housing, and price index pages\n- Census Data API documentation\n- Census release schedules for 2026\u201327"
+    },
+    {
+      "role": "user",
+      "content": "# Dataset risk assessment\nI would like your help in assessing the likelihood that this data will be changed or removed from its primary location, and that users will no longer be able to access accurate and reliable copies of it, based on the rubric below.\n\n## Sources for context\nTo help assess the rubric categories, perform additional research on the data, the agency, the data's topics and typical users, covering topics such as proposed regulatory or funding changes, recent news, and political commentary. Use whatever resources you find useful, including the Federal Register (https://www.federalregister.gov) and the federal staffing tracker at https://usajobs-tracker.abigailhaddad.com.\n\n## Rubric\nThis rubric is divided up into categories. Each category is divided up into risk levels. In your output, please select the appropriate risk level for each category based on your research.\n\n### Historical Data Availability\n- Gone: Data files prior to the current year or cycle are no longer publicly available.\n- High Risk: Some data files prior to the current year or cycle are removed.\n- Moderate Risk: Some data elements that exist in the dataset prior to the current year or cycle are removed.\n- No Known Issue: Data prior to the current year or cycle remain accessible with no known alterations.\n\n### Future Data Availability\n- Gone: Data collection and publication has been terminated.\n- High Risk: Statutory publication deadline missed and/or collection or publication skipped and/or ICR expired for more than one year.\n- Moderate Risk: Typical or intended publication date missed and/or collection or publication delayed; ICR expired up to one year.\n- No Known Issue: Data published on time or as expected and ICR active or renewed before expiration.\n\n### Data Quality\n- Gone: Data collection and publication has been terminated.\n- High Risk: Reductions in granularity, timeliness, or frequency.\n- Moderate Risk: Potential or emerging risk to granularity, timeliness, or frequency.\n- No Known Issue: Maintained or improved granularity, timeliness, or frequency.\n\n### Statutory Context\n- Gone: N/A\n- High Risk: Statutory authorization is vague and/or there are alternative data collections that could serve as substitutes and/or no known programmatic use.\n- Moderate Risk: Not explicitly required by statute but required for the implementation of a state or federal program, and there are no alternative data collections that could serve as substitutes.\n- No Known Issue: Statutorily required and/or statutory authorization is explicitly named and it is clear what has to be collected, and there aren't alternative data collections that could serve as substitutes and/or required for implementation of a federal program.\n\n### Staffing and Funding\n- Gone: All of the staff in the division or agency are gone and/or all funding has been terminated.\n- High Risk: 40% or more of staff lost, and/or 1,000 or more staff lost, and/or budget cut by 20% or more, and/or leadership removed.\n- Moderate Risk: 10\u201339% of staff lost, and/or 500\u2013999 staff lost, and/or budget cut by 10\u201319%, and/or threatened change in leadership.\n- No Known Issue: Less than 10% of staff lost and less than 10% of budget cut and no known change in leadership.\n\n### Policy\n- Gone: Data collection and publication has been terminated.\n- High Risk: Presidential Action-driven information collection request (ICR); negative policy note on site; other significant changes in accordance with Administration priorities.\n- Moderate Risk: Proposed or pending changes; statements by administration officials suggesting a change is being considered or planned.\n- No Known Issue: No notable changes since January 2025 affecting what data is collected and published.\n\nFor each category, concisely list the evidence and supporting sources that would support each risk level. Then indicate which risk level you find most appropriate and why.\n\nConclude with a simple summary of risk levels:\nHistorical Data Availability: <level>\nFuture Data Availability: <level>\nData Quality: <level>\nStatutory Context: <level>\nStaffing and Funding: <level>\nPolicy: <level>"
+    },
+    {
+      "role": "assistant",
+      "content": "# Survey of Construction (SOC): Risk Assessment\n\n**Bottom line:** The SOC is not at high risk of disappearing. It produces two Principal Federal Economic Indicators (housing starts and new home sales), and current releases are back on schedule. Its biggest exposure is a weaker agency around it: Census Bureau staff losses, leadership turnover, a shrinking sample, proposed cuts, and a planned reorganization of the federal statistical agencies.\n\n**Research limits:**\n- **Federal Register:** The site blocked automated access. I relied on search excerpts of the 2020, 2023 and July 2026 notices for OMB control number 0607-0110.\n- **usajobs-tracker.abigailhaddad.com:** The page loads its data with scripts that my fetch couldn't run, so I got no Census- or HUD-specific numbers from it. The site also says it was archived on December 31, 2025. I used the American Statistical Association's (ASA) July 2026 staffing tables instead.\n- **FY2026 enacted funding:** I hit the search limit before confirming final FY2026 funding for HUD's research account and Census's \"Current Surveys and Programs\" account.\n\n---\n\n## 1. Historical Data Availability \u2192 **No Known Issue**\n\n**Evidence for \"No Known Issue\":**\n- The microdata page lists every annual file from 1999 through 2025, and the 2025 file was published July 1, 2026.\n- Historical Characteristics tables for 2003\u20132017 and long time series (starts from 1959, sales from 1963, completions from 1968) are still online. So are the price-index history pages and the Census Data API endpoints.\n- The new Commerce disclosure-avoidance order (DAO 216-26, June 2026) applies only going forward. Census says that \"products that have already been published\u2026 won't be affected.\"\n- Copies exist outside Census: FRED (St. Louis Fed), HUD User, DataLumos project 228781, the NBER Macrohistory Database, and FRASER for the pre-1959 BLS series.\n\n**Evidence for higher risk:** I found no removed files, missing variables or altered historical series.\n\n**Why this rating:** All historical products appear intact and are copied in several independent places.\n\n---\n\n## 2. Future Data Availability \u2192 **Moderate Risk**\n\n**Evidence for \"Moderate Risk\":**\n- **Shutdown delays:** The October\u2013November 2025 federal shutdown pushed releases back badly. October 2025 construction data came out January 9, 2026, and October sales data on January 13, 2026, with \"Next Release: TBD\" printed on the release.\n- **Annual release later than usual:** The 2025 Characteristics of New Housing tables and microdata came out July 1, 2026. From memory, these usually come out in early June. I couldn't confirm the 2024 release date in this session.\n- **Paperwork approval pending:** The current approval (OMB 0607-0110) expires March 31, 2027. The 60-day notice for renewal ran July 20, 2026, so the 30-day notice and OMB review are still to come.\n\n**Evidence for \"No Known Issue\":**\n- Monthly releases are back on schedule. August 2026 starts came out September 17 and August sales September 24, 2026.\n- Next releases are announced for October 20 and October 27, 2026.\n- The approval is still active, and renewal began about 8 months before it expires.\n\n**Evidence for \"High Risk\":** None. No statutory deadline was missed, no months were skipped, and the approval has never lapsed.\n\n**Why this rating:** The release delays in late 2025 and 2026 meet the \"delayed\" standard for Moderate. Recovery since then, and a renewal in progress, keep it from High.\n\n---\n\n## 3. Data Quality \u2192 **Moderate Risk**\n\n**Evidence for \"Moderate Risk\":**\n- **Shrinking sample:** Buildings sampled per year fell from about 21,600 (2020 notice) to about 21,363 (2023) to about 19,353 (2026 notice), roughly a 10% drop. Precision is already weak. August 2026 starts carried a \u00b112.0% confidence interval month-to-month, and new-home sales \u00b119.5%. Many headline changes are not statistically significant.\n- **Fewer staff to collect data:** The survey depends on field interviewers and on follow-up interviews that keep increasing as projects take longer to start, finish and sell. Census staff losses (Section 5) threaten collection and processing capacity.\n- **Possible effect of the new disclosure order:** DAO 216-26 prefers \"coarsening\" (less detailed data) and allows suppression only as a last resort. The SOC microdata already uses top- and bottom-coding, which counts as coarsening. Census says most economic indicators use suppression \"and won't be affected,\" but every product now needs individual legal review before release.\n- **Delays:** The timeliness problems in Section 2 count here too.\n\n**Evidence for \"No Known Issue\":**\n- Geography (national, four regions, nine divisions in the microdata), monthly frequency and the variable list are unchanged.\n- The 2026 renewal proposes no changes to the survey.\n\n**Evidence for \"High Risk\":** I found no actual cut to geographic detail, frequency or content.\n\n**Why this rating:** The risks are real and growing (smaller sample, staffing, timeliness, the new disclosure rules), but nothing has actually been reduced yet.\n\n---\n\n## 4. Statutory Context \u2192 **Moderate Risk** (close to No Known Issue)\n\n**Evidence for \"No Known Issue\":**\n- The legal authorities are named: Title 13 sections 8(b), 131 and 182 for Census, and Title 12 sections 1701z-1 and 1701z-2(g) for HUD.\n- New Residential Construction and New Residential Sales are Principal Federal Economic Indicators, so OMB Statistical Policy Directive No. 3 governs their release schedule.\n- They feed the Bureau of Economic Analysis's residential investment and GDP estimates and the price deflators.\n- The SOC is the sampling base for HUD's Survey of Market Absorption of New Multifamily Units.\n- No real substitute exists. Building permits are not starts, and private sources such as NAHB or Zonda are not a probability sample, not free, and not official.\n\n**Evidence for \"Moderate\" or \"High\":**\n- No law explicitly requires the SOC or says what it must collect. Title 13 section 182 broadly permits \"surveys,\" and HUD's authority is general research authority.\n- Participation is voluntary.\n- The FY2026 budget justification said Census would eliminate functions \"not statutorily mandated or core to the Bureau's mission.\" The SOC's protection comes from being \"core,\" not from being \"mandated.\"\n\n**Why this rating:** This fits the Moderate definition: not explicitly required by statute, but needed for federal programs (GDP and HUD's absorption survey), with no substitute. Its status as a principal economic indicator argues for the lower end of Moderate.\n\n---\n\n## 5. Staffing and Funding \u2192 **High Risk**\n\n**Evidence for \"High Risk\":**\n- **Census staff losses** (ASA 2026 Midyear Update):\n  - OPM headcount fell from 13,232 in FY24 to 10,683 in FY26, a loss of about 2,550 people (-19.3%), well above the rubric's 1,000-person threshold.\n  - Measured from FY23 (15,348), the drop is about 30%.\n  - Full-time equivalents in budget documents fell from 8,282 to 7,183 (-13.3%).\n- **Leadership turnover at Census:**\n  - Director Robert Santos left early in 2025.\n  - In September 2025, career acting director Ron Jarmin was replaced by George Cook, a Commerce political appointee who also serves as acting Under Secretary for Economic Affairs. Experts publicly questioned whether he meets the law's qualifications for the post.\n  - Jarmin left Census altogether, apparently in May 2026, according to his social-media announcement as cited on Wikipedia.\n- **HUD, the co-sponsor:**\n  - Reports in early 2025 described plans to cut HUD's workforce by about 50%, and named its research office (PD&R) as a target.\n  - The FY26 budget request cut HUD's Research and Technology account (which pays for national surveys) by 32%, from $139M to $95M.\n  - It also cut total HUD staff from 8,597 to 6,340 full-time equivalents.\n- **Census budget pressure:**\n  - FY26 request: Current Surveys and Programs cut about 12% (-$40M). Current Economic Statistics, the line that funds construction surveys, stayed flat at $216M.\n  - FY27 request: Current Surveys and Programs cut another $29M (-9.4%).\n  - ASA reports that purchasing power is shrinking after inflation.\n\n**Evidence for lower risk:**\n- The construction-statistics funding line itself was held flat in the request.\n- Economic indicators are an agency priority.\n- ASA reports that hiring has resumed at some agencies.\n\n**Why this rating:** The losses exceed 1,000 staff and the agency's leadership was removed or replaced. Both meet the High Risk definition, even though the SOC itself shows no direct cut.\n\n---\n\n## 6. Policy \u2192 **Moderate Risk**\n\n**Evidence for \"Moderate Risk\":**\n- **Reorganization:** The FY26 and FY27 budgets propose reorganizing BLS, BEA and Census, and the FY27 request moves BLS into Commerce. Details have not been released.\n- **Cutting non-mandated work:** The FY26 budget justification commits Census to eliminating \"non-statutorily mandated\" and \"duplicative\" functions.\n- **New disclosure rules (DAO 216-26):** This Commerce order changes how all Census products are protected and requires legal review before each release.\n- **Political oversight:** A political appointee now runs Census.\n\n**Evidence for \"No Known Issue\":**\n- The 2026 paperwork notice proposes no changes to the survey.\n- No negative policy note appears on the SOC website, and no presidential action has targeted it.\n- Census leadership stated publicly (August 2026) that \"no statistical products are being discontinued\" because of the disclosure order.\n- Housing supply is a stated Administration priority, which arguably makes the SOC more useful to them.\n\n**Evidence for \"High Risk\":** None found.\n\n**Why this rating:** There are pending changes across the agency, but none aimed at the SOC.\n\n---\n\n## Recommendations for preservationists\n1. Download the full 1999\u20132025 microdata set and the historical series spreadsheets.\n2. Capture the methodology documents and past press releases.\n3. Watch for the 30-day renewal notice (OMB 0607-0110) and the details of the statistical-agency reorganization.\n4. Check whether future microdata releases show changes from the new disclosure rules.\n\n---\n\n## Summary of risk levels\n- Historical Data Availability: **No Known Issue**\n- Future Data Availability: **Moderate Risk**\n- Data Quality: **Moderate Risk**\n- Statutory Context: **Moderate Risk**\n- Staffing and Funding: **High Risk**\n- Policy: **Moderate Risk**"
+    },
+    {
+      "role": "user",
+      "content": "Emit a session_metadata YAML block reporting: current date, model identifier, knowledge cutoff, surface, whether memory is enabled, whether custom preferences or styles are active, all tools and MCP servers available, which tools were actually called in this session, and whether attachments were present. Mark any field not directly observable as unknown rather than inferring it."
+    },
+    {
+      "role": "assistant",
+      "content": "```yaml\nsession_metadata:\n  current_date: unknown\n  current_date_note: >\n    No system clock or date was provided. My earlier reports said \"as of\n    October 2026\" because I worked that out from search results (e.g., an\n    August 2026 release came out September 24, 2026, and the next release\n    was scheduled for October 20, 2026). I never observed that date directly.\n  model_identifier: unknown\n  knowledge_cutoff: unknown\n  surface: unknown\n  surface_note: >\n    The tool names have an \"openrouter_\" prefix, which points to access\n    through OpenRouter. That doesn't show which client or interface is in use.\n  memory_enabled: unknown\n  custom_preferences_or_styles_active: unknown\n  custom_preferences_note: >\n    I saw no user preferences or style instructions in context. The user\n    messages did contain task instructions: the \"#data research\" and\n    \"# Dataset risk assessment\" prompts.\n  tools_available:\n    - name: openrouter_web_search\n      description: Web search that returns ranked excerpts\n    - name: openrouter_web_fetch\n      description: Fetches a web page or PDF from a URL\n  mcp_servers_available: unknown\n  mcp_servers_note: >\n    No MCP servers appear in context beyond the two functions listed above.\n  tools_called_this_session:\n    openrouter_web_search:\n      turn_1_calls: 9\n      turn_2_calls: 11\n      total: 20\n      notes: >\n        The last search in turn 2 (FY2026 enacted HUD/Census appropriations)\n        returned no results I could see, so those funding figures were not\n        confirmed.\n    openrouter_web_fetch:\n      total: 5\n      calls:\n        - url: federalregister.gov (redirected to unblock.federalregister.gov)\n          result: blocked; CAPTCHA/access-request page\n        - url: https://www.datalumos.org/datalumos/project/228781/version/V1/view\n          result: failed (HTTP 403)\n        - url: https://www.hud.gov/sites/dfiles/CFO/documents/2026_CJ_Program_PDR.pdf\n          result: failed (PDF not processable by this engine)\n        - url: https://usajobs-tracker.abigailhaddad.com\n          result: HTML shell only; data loads via JavaScript, so no numbers were retrieved; page shows an archive notice (Dec 31, 2025)\n        - url: https://www.census.gov/construction/soc/schedule.html\n          result: partial; content was cut off before the schedule data\n    current_turn_calls: 0\n  attachments_present: false\n  attachments_note: No files or images appeared in any user message in this session.\n```"
+    }
+  ]
+}

@@ -1,0 +1,1185 @@
+{
+  "dataset": {
+    "key": "ncvs",
+    "title": "National Crime Victimization Survey (NCVS)"
+  },
+  "model": "z-ai/glm-5.3",
+  "harness": "openrouter tools",
+  "context": "full: each turn's whole output is carried into the next",
+  "search_tool": {
+    "engine": "exa",
+    "max_results": 10,
+    "excluded_domains": [
+      "dataindex.us"
+    ]
+  },
+  "fetch_tool": {
+    "engine": "openrouter",
+    "blocked_domains": [
+      "dataindex.us"
+    ],
+    "max_content_tokens": 10000
+  },
+  "reasoning": "effort high",
+  "catalog": {
+    "fetched_at": "2026-10-09T00:48:47Z",
+    "entry": {
+      "id": "z-ai/glm-5.3",
+      "canonical_slug": "z-ai/glm-5.3-20260816",
+      "hugging_face_id": "zai-org/GLM-5.3",
+      "name": "Z.ai: GLM 5.3",
+      "created": 1787086655,
+      "description": "GLM-5.3 is a large-scale reasoning model from Z.ai, built for complex software engineering and long-horizon agent tasks. It supports text input and output with a 1M-token context window, and improves...",
+      "context_length": 1048576,
+      "architecture": {
+        "modality": "text->text",
+        "input_modalities": [
+          "text"
+        ],
+        "output_modalities": [
+          "text"
+        ],
+        "tokenizer": "Other",
+        "instruct_type": null
+      },
+      "pricing": {
+        "prompt": "0.000000039",
+        "completion": "0.00000339",
+        "input_cache_read": "0.000000038"
+      },
+      "top_provider": {
+        "context_length": 1048576,
+        "max_completion_tokens": 943718,
+        "is_moderated": false
+      },
+      "per_request_limits": null,
+      "supported_parameters": [
+        "frequency_penalty",
+        "include_reasoning",
+        "logit_bias",
+        "logprobs",
+        "max_tokens",
+        "min_p",
+        "parallel_tool_calls",
+        "presence_penalty",
+        "reasoning",
+        "reasoning_effort",
+        "repetition_penalty",
+        "response_format",
+        "seed",
+        "stop",
+        "structured_outputs",
+        "temperature",
+        "tool_choice",
+        "tools",
+        "top_k",
+        "top_logprobs",
+        "top_p"
+      ],
+      "default_parameters": {
+        "temperature": 1,
+        "top_p": 0.95
+      },
+      "supported_voices": null,
+      "knowledge_cutoff": null,
+      "expiration_date": null,
+      "links": {
+        "details": "/api/v1/models/z-ai/glm-5.3-20260816/endpoints"
+      },
+      "benchmarks": {
+        "design_arena": [
+          {
+            "arena": "models",
+            "category": "3d",
+            "elo": 1346,
+            "win_rate": 60.6,
+            "rank": 5
+          },
+          {
+            "arena": "models",
+            "category": "asciiart",
+            "elo": 1211,
+            "win_rate": 46,
+            "rank": 22
+          },
+          {
+            "arena": "models",
+            "category": "codecategories",
+            "elo": 1313,
+            "win_rate": 54.9,
+            "rank": 9
+          },
+          {
+            "arena": "models",
+            "category": "dataviz",
+            "elo": 1269,
+            "win_rate": 52.8,
+            "rank": 23
+          },
+          {
+            "arena": "models",
+            "category": "gamedev",
+            "elo": 1323,
+            "win_rate": 52.9,
+            "rank": 11
+          },
+          {
+            "arena": "models",
+            "category": "svg",
+            "elo": 1295,
+            "win_rate": 56.9,
+            "rank": 8
+          },
+          {
+            "arena": "models",
+            "category": "uicomponent",
+            "elo": 1323,
+            "win_rate": 57.6,
+            "rank": 9
+          },
+          {
+            "arena": "models",
+            "category": "website",
+            "elo": 1305,
+            "win_rate": 54.9,
+            "rank": 12
+          },
+          {
+            "arena": "agents",
+            "category": "htmlslides",
+            "elo": 1189,
+            "win_rate": 39.1,
+            "rank": 9
+          },
+          {
+            "arena": "agents",
+            "category": "mobileapps",
+            "elo": 1191,
+            "win_rate": 52.2,
+            "rank": 17
+          },
+          {
+            "arena": "agents",
+            "category": "python-pptxslides",
+            "elo": 1255,
+            "win_rate": 51.2,
+            "rank": 8
+          }
+        ],
+        "artificial_analysis": {
+          "intelligence_index": 44.8,
+          "coding_index": 74.8,
+          "agentic_index": 53.1
+        }
+      },
+      "reasoning": {
+        "mandatory": true,
+        "default_enabled": true,
+        "supported_efforts": [
+          "max",
+          "high",
+          "low"
+        ],
+        "default_effort": "max"
+      }
+    }
+  },
+  "upstream": [
+    "z-ai"
+  ],
+  "trial": 0,
+  "terminate_reason": "completed",
+  "max_tokens": 32768,
+  "started_at": "2026-10-09T00:48:47Z",
+  "prompts": {
+    "research": "#data research\nI am researching a federal dataset. Find out everything you can about this dataset, such as who publishes it, under what authority or mandate, its history, its typical users, and its benefits to the public. Be sure your research comprehensively covers each of those perspectives, as well as any others that you discover or seem useful. I believe this is accurate information, but please check:\n\nDataset title: National Crime Victimization Survey (NCVS)\nDescription: The National Crime Victimization Survey (NCVS) is the nation's primary source of information on criminal victimization. Each year, data are obtained from a nationally representative sample of about 240,000 persons in about 150,000 households. Persons are interviewed on the frequency, characteristics, and consequences of criminal victimization in the United States.\nURL: https://bjs.ojp.gov/data-collection/ncvs\n\nReturn a complete report on everything that a preservationist, data librarian, data scientist, or policy activist might want to know about this data.",
+    "assessment": "# Dataset risk assessment\nI would like your help in assessing the likelihood that this data will be changed or removed from its primary location, and that users will no longer be able to access accurate and reliable copies of it, based on the rubric below.\n\n## Sources for context\nTo help assess the rubric categories, perform additional research on the data, the agency, the data's topics and typical users, covering topics such as proposed regulatory or funding changes, recent news, and political commentary. Use whatever resources you find useful, including the Federal Register (https://www.federalregister.gov) and the federal staffing tracker at https://usajobs-tracker.abigailhaddad.com.\n\n## Rubric\nThis rubric is divided up into categories. Each category is divided up into risk levels. In your output, please select the appropriate risk level for each category based on your research.\n\n### Historical Data Availability\n- Gone: Data files prior to the current year or cycle are no longer publicly available.\n- High Risk: Some data files prior to the current year or cycle are removed.\n- Moderate Risk: Some data elements that exist in the dataset prior to the current year or cycle are removed.\n- No Known Issue: Data prior to the current year or cycle remain accessible with no known alterations.\n\n### Future Data Availability\n- Gone: Data collection and publication has been terminated.\n- High Risk: Statutory publication deadline missed and/or collection or publication skipped and/or ICR expired for more than one year.\n- Moderate Risk: Typical or intended publication date missed and/or collection or publication delayed; ICR expired up to one year.\n- No Known Issue: Data published on time or as expected and ICR active or renewed before expiration.\n\n### Data Quality\n- Gone: Data collection and publication has been terminated.\n- High Risk: Reductions in granularity, timeliness, or frequency.\n- Moderate Risk: Potential or emerging risk to granularity, timeliness, or frequency.\n- No Known Issue: Maintained or improved granularity, timeliness, or frequency.\n\n### Statutory Context\n- Gone: N/A\n- High Risk: Statutory authorization is vague and/or there are alternative data collections that could serve as substitutes and/or no known programmatic use.\n- Moderate Risk: Not explicitly required by statute but required for the implementation of a state or federal program, and there are no alternative data collections that could serve as substitutes.\n- No Known Issue: Statutorily required and/or statutory authorization is explicitly named and it is clear what has to be collected, and there aren't alternative data collections that could serve as substitutes and/or required for implementation of a federal program.\n\n### Staffing and Funding\n- Gone: All of the staff in the division or agency are gone and/or all funding has been terminated.\n- High Risk: 40% or more of staff lost, and/or 1,000 or more staff lost, and/or budget cut by 20% or more, and/or leadership removed.\n- Moderate Risk: 10\u201339% of staff lost, and/or 500\u2013999 staff lost, and/or budget cut by 10\u201319%, and/or threatened change in leadership.\n- No Known Issue: Less than 10% of staff lost and less than 10% of budget cut and no known change in leadership.\n\n### Policy\n- Gone: Data collection and publication has been terminated.\n- High Risk: Presidential Action-driven information collection request (ICR); negative policy note on site; other significant changes in accordance with Administration priorities.\n- Moderate Risk: Proposed or pending changes; statements by administration officials suggesting a change is being considered or planned.\n- No Known Issue: No notable changes since January 2025 affecting what data is collected and published.\n\nFor each category, concisely list the evidence and supporting sources that would support each risk level. Then indicate which risk level you find most appropriate and why.\n\nConclude with a simple summary of risk levels:\nHistorical Data Availability: <level>\nFuture Data Availability: <level>\nData Quality: <level>\nStatutory Context: <level>\nStaffing and Funding: <level>\nPolicy: <level>",
+    "session_metadata": "Emit a session_metadata YAML block reporting: current date, model identifier, knowledge cutoff, surface, whether memory is enabled, whether custom preferences or styles are active, all tools and MCP servers available, which tools were actually called in this session, and whether attachments were present. Mark any field not directly observable as unknown rather than inferring it."
+  },
+  "turns": {
+    "research": {
+      "request": {
+        "model": "z-ai/glm-5.3",
+        "max_output_tokens": 32768,
+        "tools": [
+          {
+            "type": "openrouter:web_search",
+            "parameters": {
+              "engine": "exa",
+              "max_results": 10,
+              "excluded_domains": [
+                "dataindex.us"
+              ]
+            }
+          },
+          {
+            "type": "openrouter:web_fetch",
+            "parameters": {
+              "engine": "openrouter",
+              "blocked_domains": [
+                "dataindex.us"
+              ],
+              "max_content_tokens": 10000
+            }
+          }
+        ],
+        "cache_control": {
+          "type": "ephemeral",
+          "ttl": "1h"
+        },
+        "session_id": "ncvs-z-ai/glm-5.3-t0-2026-10-09T00:48:47Z",
+        "stop_server_tools_when": [
+          {
+            "type": "step_count_is",
+            "step_count": 200
+          }
+        ],
+        "reasoning": {
+          "effort": "high"
+        },
+        "provider": {
+          "order": [
+            "z-ai"
+          ],
+          "allow_fallbacks": false
+        }
+      },
+      "response_meta": {
+        "id": "gen-1791506927-xtgaydwJGz4XB5hvJ0Jn",
+        "object": "response",
+        "created_at": 1791506927,
+        "model": "z-ai/glm-5.3",
+        "status": "completed",
+        "completed_at": 1791507024,
+        "error": null,
+        "incomplete_details": null,
+        "tools": [],
+        "tool_choice": "auto",
+        "parallel_tool_calls": true,
+        "max_output_tokens": 32768,
+        "temperature": 1,
+        "top_p": 1,
+        "presence_penalty": 0,
+        "frequency_penalty": 0,
+        "top_logprobs": 0,
+        "max_tool_calls": null,
+        "metadata": {},
+        "background": false,
+        "previous_response_id": null,
+        "service_tier": "auto",
+        "truncation": "disabled",
+        "store": false,
+        "instructions": null,
+        "text": {
+          "format": {
+            "type": "text"
+          }
+        },
+        "reasoning": {
+          "effort": "high"
+        },
+        "safety_identifier": null,
+        "prompt_cache_key": null,
+        "prompt_cache_options": null,
+        "usage": {
+          "input_tokens": 134545,
+          "input_tokens_details": {
+            "cached_tokens": 94016
+          },
+          "output_tokens": 4544,
+          "output_tokens_details": {
+            "reasoning_tokens": 1281
+          },
+          "total_tokens": 139089,
+          "cost": 0.13617836,
+          "cost_details": {
+            "upstream_inference_cost": 0.10117836,
+            "upstream_inference_input_cost": 0.08118476,
+            "upstream_inference_output_cost": 0.0199936
+          },
+          "server_tool_use_details": {
+            "web_search_requests": 7,
+            "tool_calls_requested": 9,
+            "tool_calls_executed": 9
+          }
+        }
+      },
+      "requests": [
+        {
+          "input_tokens": 134545,
+          "input_tokens_details": {
+            "cached_tokens": 94016
+          },
+          "output_tokens": 4544,
+          "output_tokens_details": {
+            "reasoning_tokens": 1281
+          },
+          "total_tokens": 139089,
+          "cost": 0.13617836,
+          "cost_details": {
+            "upstream_inference_cost": 0.10117836,
+            "upstream_inference_input_cost": 0.08118476,
+            "upstream_inference_output_cost": 0.0199936
+          },
+          "server_tool_use_details": {
+            "web_search_requests": 7,
+            "tool_calls_requested": 9,
+            "tool_calls_executed": 9
+          }
+        }
+      ],
+      "searches": 7,
+      "fetches": 2,
+      "tool_items": [
+        {
+          "type": "openrouter:web_fetch",
+          "id": "st_tmp_mqj04l3potl",
+          "status": "completed",
+          "url": "https://bjs.ojp.gov/data-collection/ncvs",
+          "content": "<!DOCTYPE html>\n<html lang=\"en\" dir=\"ltr\" prefix=\"og: https://ogp.me/ns#\">\n  <head>\n    <meta charset=\"utf-8\" />\n<link rel=\"preload\" href=\"/themes/custom/ojp/assets/fonts/roboto/Roboto-Regular.woff2\" as=\"font\" type=\"font/woff2\" crossorigin=\"\" />\n<link rel=\"preload\" href=\"/themes/custom/ojp/assets/fonts/roboto/Roboto-Bold.woff2\" as=\"font\" type=\"font/woff2\" crossorigin=\"\" />\n<link rel=\"preload\" href=\"/themes/custom/ojp/assets/fonts/roboto/Roboto-Italic.woff2\" as=\"font\" type=\"font/woff2\" crossorigin=\"\" />\n<link rel=\"preload\" href=\"/themes/custom/ojp/assets/fonts/roboto/Roboto-BlackItalic.woff2\" as=\"font\" type=\"font/woff2\" crossorigin=\"\" />\n<link rel=\"preload\" href=\"/themes/custom/ojp/assets/fonts/merriweather/Latin-Merriweather-Regular.woff2\" as=\"font\" type=\"font/woff2\" crossorigin=\"\" />\n<link rel=\"preload\" href=\"/themes/custom/ojp/assets/fonts/merriweather/Latin-Merriweather-Bold.woff2\" as=\"font\" type=\"font/woff2\" crossorigin=\"\" />\n<noscript><style>form.antibot * :not(.antibot-message) { display: none !important; }</style>\n</noscript><meta name=\"description\" content=\"The BJS National Crime Victimization Survey (NCVS) is the nation&#039;s primary source of information on criminal victimization. Each year, data are obtained from a nationally representative sample of about 240,000 persons in about 150,000 households. Persons are interviewed on the frequency, characteristics, and consequences of criminal victimization in the United States.\" />\n<link rel=\"canonical\" href=\"https://bjs.ojp.gov/data-collection/ncvs\" />\n<meta property=\"og:site_name\" content=\"Bureau of Justice Statistics\" />\n<meta property=\"og:url\" content=\"https://bjs.ojp.gov/data-collection/ncvs\" />\n<meta property=\"og:title\" content=\"National Crime Victimization Survey (NCVS)\" />\n<meta property=\"og:description\" content=\"The BJS National Crime Victimization Survey (NCVS) is the nation&#039;s primary source of information on criminal victimization. Each year, data are obtained from a nationally representative sample of about 240,000 persons in about 150,000 households. Persons are interviewed on the frequency, characteristics, and consequences of criminal victimization in the United States.\" />\n<meta property=\"og:image\" content=\"https://bjs.ojp.gov/sites/bjs/files/images/2021-02/OGimage_0.png\" />\n<meta name=\"twitter:card\" content=\"summary\" />\n<meta name=\"twitter:description\" content=\"The BJS National Crime Victimization Survey (NCVS) is the nation&#039;s primary source of information on criminal victimization. Each year, data are obtained from a nationally representative sample of about 240,000 persons in about 150,000 households. Persons are interviewed on the frequency, characteristics, and consequences of criminal victimization in the United States.\" />\n<meta name=\"twitter:title\" content=\"National Crime Victimization Survey (NCVS) | Bureau of Justice Statistics\" />\n<meta name=\"twitter:image\" content=\"https://bjs.ojp.gov/sites/bjs/files/images/2021-02/OGimage_0.png\" />\n<meta name=\"google-site-verification\" content=\"4PLVTsyCm3--uca8rMAYrsLAAEJtRBtpZWm-kh9pr0g\" />\n<meta name=\"Generator\" content=\"Drupal 10 (https://www.drupal.org)\" />\n<meta name=\"MobileOptimized\" content=\"width\" />\n<meta name=\"HandheldFriendly\" content=\"true\" />\n<meta name=\"viewport\" content=\"width=device-width, initial-scale=1.0\" />\n<link rel=\"icon\" href=\"/themes/custom/ojp/assets/images/ojp/favicon.png\" type=\"image/png\" />\n<link rel=\"alternate\" hreflang=\"en\" href=\"https://bjs.ojp.gov/data-collection/ncvs\" />\n\n    <title>National Crime Victimization Survey (NCVS) | Bureau of Justice Statistics</title>\n    <link rel=\"stylesheet\" media=\"all\" href=\"/sites/bjs/files/css/css_GCyn3hkiGElzeiRRPw2aEgQb5_MjkegEVLPP3lWK30s.css?delta=0&amp;language=en&amp;theme=ojp&amp;include=eJxVj-FuwzAIhF_Inh_JwoalJMRUhmj1nn5u1kjtD8R3J3Ti6kbIrj1zQ2peROuW3jhUAbORvlno4p3MYCELVTsl7Mcd5AtWeHwYDkXoRoDU__2mfQfhXwqoa7YbdG5LeuNADxdu25XwkkFg6OG5HCwzLPmPVpVsVJ21BV3vCaFvschBERrGRQVPe861YwGjaD5k_j11rq_i6YIMtc5iXFjYx3mD4HDWsPQpgw1z2tMz9A8grX1y\" />\n<link rel=\"stylesheet\" media=\"all\" href=\"/sites/bjs/files/css/css_QuhOYw0G_Jeq_UvMT_fUNIoqheY9cls7U3aGuSPwI-s.css?delta=1&amp;language=en&amp;theme=ojp&amp;include=eJxVj-FuwzAIhF_Inh_JwoalJMRUhmj1nn5u1kjtD8R3J3Ti6kbIrj1zQ2peROuW3jhUAbORvlno4p3MYCELVTsl7Mcd5AtWeHwYDkXoRoDU__2mfQfhXwqoa7YbdG5LeuNADxdu25XwkkFg6OG5HCwzLPmPVpVsVJ21BV3vCaFvschBERrGRQVPe861YwGjaD5k_j11rq_i6YIMtc5iXFjYx3mD4HDWsPQpgw1z2tMz9A8grX1y\" />\n<link rel=\"stylesheet\" media=\"print\" href=\"/sites/bjs/files/css/css_ZOCm6HYKuxreBlSk_BoQnVFYCp7HNtKm7xbe_dHFfTY.css?delta=2&amp;language=en&amp;theme=ojp&amp;include=eJxVj-FuwzAIhF_Inh_JwoalJMRUhmj1nn5u1kjtD8R3J3Ti6kbIrj1zQ2peROuW3jhUAbORvlno4p3MYCELVTsl7Mcd5AtWeHwYDkXoRoDU__2mfQfhXwqoa7YbdG5LeuNADxdu25XwkkFg6OG5HCwzLPmPVpVsVJ21BV3vCaFvschBERrGRQVPe861YwGjaD5k_j11rq_i6YIMtc5iXFjYx3mD4HDWsPQpgw1z2tMz9A8grX1y\" />\n<link rel=\"stylesheet\" media=\"all\" href=\"/sites/bjs/files/css/css_LP2-OEfM_CFL7ND-eYOdD-VYcaLasFoS-fe5qB58KgI.css?delta=3&amp;language=en&amp;theme=ojp&amp;include=eJxVj-FuwzAIhF_Inh_JwoalJMRUhmj1nn5u1kjtD8R3J3Ti6kbIrj1zQ2peROuW3jhUAbORvlno4p3MYCELVTsl7Mcd5AtWeHwYDkXoRoDU__2mfQfhXwqoa7YbdG5LeuNADxdu25XwkkFg6OG5HCwzLPmPVpVsVJ21BV3vCaFvschBERrGRQVPe861YwGjaD5k_j11rq_i6YIMtc5iXFjYx3mD4HDWsPQpgw1z2tMz9A8grX1y\" />\n\n    \n  </head>\n  <body class=\"path-node page-node-type-data-collection\">\n        <a href=\"#main-content\" class=\"visually-hidden focusable skip-link\">\n      Skip to main content\n    </a>\n    <noscript><iframe src=\"https://www.googletagmanager.com/ns.html?id=GTM-TPK5P7R\"\n                  height=\"0\" width=\"0\" style=\"display:none;visibility:hidden\"></iframe></noscript>\n\n      <div class=\"dialog-off-canvas-main-canvas\" data-off-canvas-main-canvas>\n      <section class=\"usa-banner\" aria-label=\"Official government website\">\n\n    <div class=\"usa-accordion\">\n  <header class=\"usa-banner__header\">\n    <div class=\"usa-banner__inner\">\n      <div class=\"grid-col-auto\">\n        <img class=\"usa-banner__header-flag\" src=\"/themes/custom/ojp/assets/images/us_flag_small.png\" alt=\"U.S. flag\">\n      </div>\n      <div class=\"grid-col-fill tablet:grid-col-auto\">\n        <p class=\"usa-banner__header-text\">An official website of the United States government, Department of Justice.</p>\n        <p class=\"usa-banner__header-action\" aria-hidden=\"true\">Here's how you know</p>\n      </div>\n      <button class=\"usa-accordion__button usa-banner__button\"\n              aria-expanded=\"false\" aria-controls=\"gov-banner\">\n        <span class=\"usa-banner__button-text\">Here's how you know</span>\n      </button>\n    </div>\n  </header>\n  <div class=\"usa-banner__content usa-accordion__content\" id=\"gov-banner\" hidden>\n    <div class=\"grid-row grid-gap-lg\">\n      <div class=\"usa-banner__guidance tablet:grid-col-6\">\n        <img class=\"usa-banner__icon usa-media-block__img\" src=\"/themes/custom/ojp/assets/images/icon-dot-gov.svg\" role=\"img\" alt=\"\" aria-hidden=\"true\">\n        <div class=\"usa-media-block__body\">\n          <p>\n            <strong>Official websites use .gov</strong>\n            <br>\n            A <strong>.gov</strong> website belongs to an official government organization in the United States.\n          </p>\n        </div>\n      </div>\n      <div class=\"usa-banner__guidance tablet:grid-col-6\">\n        <img class=\"usa-banner__icon usa-media-block__img\" src=\"/themes/custom/ojp/assets/images/icon-https.svg\" role=\"img\" alt=\"\" aria-hidden=\"true\">\n        <div class=\"usa-media-block__body\">\n          <p>\n            <strong>Secure .gov websites use HTTPS</strong>\n            <br>\n            A <strong>lock</strong> (\n            <span class=\"icon-lock\"><svg xmlns=\"http://www.w3.org/2000/svg\" width=\"52\" height=\"64\" viewBox=\"0 0 52 64\" class=\"usa-banner__lock-image\" role=\"img\" aria-labelledby=\"banner-lock-title-default banner-lock-description-default\" focusable=\"false\"><title id=\"banner-lock-title-default\">Lock</title><desc id=\"banner-lock-description-default\">A locked padlock</desc><path fill=\"#000000\" fill-rule=\"evenodd\" d=\"M26 0c10.493 0 19 8.507 19 19v9h3a4 4 0 0 1 4 4v28a4 4 0 0 1-4 4H4a4 4 0 0 1-4-4V32a4 4 0 0 1 4-4h3v-9C7 8.507 15.507 0 26 0zm0 8c-5.979 0-10.843 4.77-10.996 10.712L15 19v9h22v-9c0-6.075-4.925-11-11-11z\"/></svg></span>\n            ) or <strong>https://</strong> means you\u2019ve safely connected to the .gov website. Share sensitive information only on official, secure websites.          </p>\n        </div>\n      </div>\n    </div>\n  </div>\n</div>\n\n\n    \n  </section>\n\n  <header class=\"usa-header usa-header--extended\" id=\"header\">\n\n    \n      <div class=\"usa-navbar\">\n                <button class=\"usa-menu-btn usa-button\">Menu</button>\n                  <div class=\"region region-header\">\n    <div class=\"usa-logo\" id=\"logo\">\n      <div class=\"ojp-seal\">\n      <a href=\"https://www.ojp.gov\" accesskey=\"1\" title=\"Office of Justice Programs\" aria-label=\"Office of Justice Programs\">\n                <img src=\"/themes/custom/ojp/assets/images/ojp/OJP-seal.svg\" alt=\"Office of Justice Programs seal\" height=\"98\" width=\"98\" />\n              </a>\n    </div>\n        <div class=\"ojp-office-logo\">\n      <a href=\"/\" accesskey=\"2\" title=\"Home\" aria-label=\"Home\">\n        <img src=\"/themes/custom/ojp/assets/images/ojp/bjs-logo.svg?v=1\" alt=\"Home\" />\n      </a>\n    </div>\n  </div>\n\n  </div>\n\n      </div>\n\n      <div class=\"usa-overlay\"></div>\n        <nav class=\"usa-nav\" aria-label=\"site navigation\">\n          <div class=\"usa-nav__inner\">\n\n            <button class=\"usa-nav__close\">\n              <img src=\"/themes/custom/ojp/assets/images/close-white.svg\" alt=\"close\" />\n            </button>\n\n            \n            \n                                              <div class=\"region region-primary-menu\">\n    \n\n\n  \n  \n          <ul class=\"usa-nav__primary usa-accordion\" aria-label=\"primary navigation\">\n    \n          <li class=\"usa-nav__primary-item\" >\n\n                  <button class=\"usa-accordion__button usa-nav__link\" aria-expanded=\"false\" aria-controls=\"extended-nav-section-1\">\n            <span>About BJS</span>\n          </button>\n        \n                    \n  \n          <ul id=\"extended-nav-section-1\" class=\"usa-nav__submenu\" hidden>\n\n            <li class=\"usa-nav__submenu-item\">\n        <a href=\"/about\">\n          <span>About BJS</span>\n        </a>\n      </li>\n      \n    \n          <li class=\"usa-nav__submenu-item\">\n\n        \n                  <a href=\"/bjs-director\" class=\"link\">\n            <span class=\"\">The BJS Director</span>\n          </a>\n        \n      </li>\n          <li class=\"usa-nav__submenu-item\">\n\n        \n                  <a href=\"/about/activities-programs\" class=\"link\">\n            <span class=\"\">Activities &amp; Programs</span>\n          </a>\n        \n      </li>\n          <li class=\"usa-nav__submenu-item\">\n\n        \n                  <a href=\"https://bjs.ojp.gov/about/policies-procedures-and-standards\" class=\"link\">\n            <span class=\"\">Policies, Procedures, and Standards</span>\n          </a>\n        \n      </li>\n          <li class=\"usa-nav__submenu-item\">\n\n        \n                  <a href=\"/bjs-strategic-plan-fy-2024-2029\" class=\"link\">\n            <span class=\"\">BJS Strategic Plan</span>\n          </a>\n        \n      </li>\n          <li class=\"usa-nav__submenu-item\">\n\n        \n                  <a href=\"/reviews-bjs-programs\" class=\"link\">\n            <span class=\"\">Reviews of BJS Programs</span>\n          </a>\n        \n      </li>\n          <li class=\"usa-nav__submenu-item\">\n\n        \n                  <a href=\"/about-bjs-website\" class=\"link\">\n            <span class=\"\">About the BJS Website</span>\n          </a>\n        \n      </li>\n          <li class=\"usa-nav__submenu-item\">\n\n        \n                  <a href=\"/about/job-opportunities\" class=\"link\">\n            <span class=\"\">Job Opportunities</span>\n          </a>\n        \n      </li>\n        </ul>\n  \n        \n      </li>\n          <li class=\"usa-nav__primary-item\" >\n\n                  <button class=\"usa-accordion__button usa-nav__link\" aria-expanded=\"false\" aria-controls=\"extended-nav-section-2\">\n            <span>Topics</span>\n          </button>\n        \n                    \n  \n          <ul id=\"extended-nav-section-2\" class=\"usa-nav__submenu\" hidden>\n\n            <li class=\"usa-nav__submenu-item\">\n        <a href=\"/topics\">\n          <span>Topics</span>\n        </a>\n      </li>\n      \n    \n          <li class=\"usa-nav__submenu-item\">\n\n        \n                  <a href=\"/topics/corrections\" class=\"link\">\n            <span class=\"\">Corrections</span>\n          </a>\n        \n      </li>\n          <li class=\"usa-nav__submenu-item\">\n\n        \n                  <a href=\"/topics/costs-crime\" class=\"link\">\n            <span class=\"\">Costs of Crime</span>\n          </a>\n        \n      </li>\n          <li class=\"usa-nav__submenu-item\">\n\n        \n                  <a href=\"/topics/courts\" class=\"link\">\n            <span class=\"\">Courts</span>\n          </a>\n        \n      </li>\n          <li class=\"usa-nav__submenu-item\">\n\n        \n                  <a href=\"/topics/crime\" class=\"link\">\n            <span class=\"\">Crime</span>\n          </a>\n        \n      </li>\n          <li class=\"usa-nav__submenu-item\">\n\n        \n                  <a href=\"/topics/federal-justice-system\" class=\"link\">\n            <span class=\"\">Federal Justice System</span>\n          </a>\n        \n      </li>\n          <li class=\"usa-nav__submenu-item\">\n\n        \n                  <a href=\"/topics/forensic-sciences\" class=\"link\">\n            <span class=\"\">Forensic Sciences</span>\n          </a>\n        \n      </li>\n          <li class=\"usa-nav__submenu-item\">\n\n        \n                  <a href=\"/topics/law-enforcement\" class=\"link\">\n            <span class=\"\">Law Enforcement</span>\n          </a>\n        \n      </li>\n          <li class=\"usa-nav__submenu-item\">\n\n        \n                  <a href=\"/topics/recidivism-and-reentry\" class=\"link\">\n            <span class=\"\">Recidivism and Reentry</span>\n          </a>\n        \n      </li>\n          <li class=\"usa-nav__submenu-item\">\n\n        \n                  <a href=\"/topics/tribal-crime-and-justice\" class=\"link\">\n            <span class=\"\">Tribal Crime and Justice</span>\n          </a>\n        \n      </li>\n          <li class=\"usa-nav__submenu-item\">\n\n        \n                  <a href=\"/topics/victims\" class=\"link\">\n            <span class=\"\">Victims of Crime</span>\n          </a>\n        \n      </li>\n        </ul>\n  \n        \n      </li>\n          <li class=\"usa-nav__primary-item\" >\n\n                  <button class=\"usa-accordion__button usa-nav__link\" aria-expanded=\"false\" aria-controls=\"extended-nav-section-3\">\n            <span>Publications</span>\n          </button>\n        \n                    \n  \n          <ul id=\"extended-nav-section-3\" class=\"usa-nav__submenu\" hidden>\n\n            <li class=\"usa-nav__submenu-item\">\n        <a href=\"/library\">\n          <span>Publications</span>\n        </a>\n      </li>\n      \n    \n          <li class=\"usa-nav__submenu-item\">\n\n        \n                  <a href=\"https://bjs.ojp.gov/library/publications/list?series_filter=Just%20the%20Stats\" class=\"link\">\n            <span class=\"\">Just the Stats</span>\n          </a>\n        \n      </li>\n          <li class=\"usa-nav__submenu-item\">\n\n        \n                  <a href=\"/library/publications/list\" class=\"link\">\n            <span class=\"\">Search Publications</span>\n          </a>\n        \n      </li>\n          <li class=\"usa-nav__submenu-item\">\n\n        \n                  <a href=\"/library/publications/forthcoming\" class=\"link\">\n            <span class=\"\">Forthcoming Publications</span>\n          </a>\n        \n      </li>\n          <li class=\"usa-nav__submenu-item\">\n\n        \n                  <a href=\"/library/publications/list/research\" class=\"link\">\n            <span class=\"\">Research and BJS-Funded Reports</span>\n          </a>\n        \n      </li>\n          <li class=\"usa-nav__submenu-item\">\n\n        \n                  <a href=\"/library/publications/data-corrections\" class=\"link\">\n            <span class=\"\">Errata | Corrections</span>\n          </a>\n        \n      </li>\n        </ul>\n  \n        \n      </li>\n          <li class=\"usa-nav__primary-item\" >\n\n                  <button class=\"usa-accordion__button usa-nav__link\" aria-expanded=\"false\" aria-controls=\"extended-nav-section-4\">\n            <span>Data</span>\n          </button>\n        \n                    \n  \n          <ul id=\"extended-nav-section-4\" class=\"usa-nav__submenu\" hidden>\n\n            <li class=\"usa-nav__submenu-item\">\n        <a href=\"/data\">\n          <span>Data</span>\n        </a>\n      </li>\n      \n    \n          <li class=\"usa-nav__submenu-item\">\n\n        \n                  <a href=\"/bjs-statistical-coverage-crime-and-justice-process\" class=\"link\">\n            <span class=\"\">Statistical Coverage of Crime and the Justice Process</span>\n          </a>\n        \n      </li>\n          <li class=\"usa-nav__submenu-item\">\n\n        \n                  <a href=\"/data-collections/search\" class=\"link\">\n            <span class=\"\">Search Data Collections</span>\n          </a>\n        \n      </li>\n          <li class=\"usa-nav__submenu-item\">\n\n        \n                  <a href=\"/data/data-analysis-tools\" class=\"link\">\n            <span class=\"\">Data Analysis Tools</span>\n          </a>\n        \n      </li>\n          <li class=\"usa-nav__submenu-item\">\n\n        \n                  <a href=\"/data/national-archive-criminal-justice-data\" class=\"link\">\n            <span class=\"\">National Archive of Criminal Justice Data</span>\n          </a>\n        \n      </li>\n          <li class=\"usa-nav__submenu-item\">\n\n        \n                  <a href=\"/data/data-collection-process\" class=\"link\">\n            <span class=\"\">Data Collection Process</span>\n          </a>\n        \n      </li>\n          <li class=\"usa-nav__submenu-item\">\n\n        \n                  <a href=\"/standard-application-process\" class=\"link\">\n            <span class=\"\">The Standard Application Process</span>\n          </a>\n        \n      </li>\n          <li class=\"usa-nav__submenu-item\">\n\n        \n                  <a href=\"/data/topic\" class=\"link\">\n            <span class=\"\">Data by Topic</span>\n          </a>\n        \n      </li>\n        </ul>\n  \n        \n      </li>\n          <li class=\"usa-nav__primary-item\" >\n\n                  <button class=\"usa-accordion__button usa-nav__link\" aria-expanded=\"false\" aria-controls=\"extended-nav-section-5\">\n            <span>Funding &amp; Awards</span>\n          </button>\n        \n                    \n  \n          <ul id=\"extended-nav-section-5\" class=\"usa-nav__submenu\" hidden>\n\n            <li class=\"usa-nav__submenu-item\">\n        <a href=\"/funding\">\n          <span>Funding &amp; Awards</span>\n        </a>\n      </li>\n      \n    \n          <li class=\"usa-nav__submenu-item\">\n\n        \n                  <a href=\"/funding/current\" class=\"link\">\n            <span class=\"\">Current Funding Opportunities</span>\n          </a>\n        \n      </li>\n          <li class=\"usa-nav__submenu-item\">\n\n        \n                  <a href=\"/funding/guidance-applicants-and-awardees\" class=\"link\">\n            <span class=\"\">Guidance for Applicants and Award Recipients</span>\n          </a>\n        \n      </li>\n          <li class=\"usa-nav__submenu-item\">\n\n        \n                  <a href=\"/funding/human-subjects-and-confidentiality-requirements\" class=\"link\">\n            <span class=\"\">Human Subjects and Confidentiality Requirements</span>\n          </a>\n        \n      </li>\n          <li class=\"usa-nav__submenu-item\">\n\n        \n                  <a href=\"/technology-and-publishing-requirements-bjs-contractors-and-grantees\" class=\"link\">\n            <span class=\"\">Technology and Publishing Requirements</span>\n          </a>\n        \n      </li>\n          <li class=\"usa-nav__submenu-item\">\n\n        \n                  <a href=\"/funding/awards/list\" class=\"link\">\n            <span class=\"\">Awards: Listing of Funded Projects</span>\n          </a>\n        \n      </li>\n          <li class=\"usa-nav__submenu-item\">\n\n        \n                  <a href=\"/funding/expired\" class=\"link\">\n            <span class=\"\">Expired  Funding</span>\n          </a>\n        \n      </li>\n          <li class=\"usa-nav__submenu-item\">\n\n        \n                  <a href=\"/pmeasures\" class=\"link\">\n            <span class=\"\">BJS Performance Measures</span>\n          </a>\n        \n      </li>\n        </ul>\n  \n        \n      </li>\n          <li class=\"usa-nav__primary-item\" >\n\n                  <button class=\"usa-accordion__button usa-nav__link\" aria-expanded=\"false\" aria-controls=\"extended-nav-section-6\">\n            <span>Programs</span>\n          </button>\n        \n                    \n  \n          <ul id=\"extended-nav-section-6\" class=\"usa-nav__submenu\" hidden>\n\n            <li class=\"usa-nav__submenu-item\">\n        <a href=\"/programs\">\n          <span>Programs</span>\n        </a>\n      </li>\n      \n    \n          <li class=\"usa-nav__submenu-item\">\n\n        \n                  <a href=\"/programs/dicra\" class=\"link\">\n            <span class=\"\">Death in Custody Reporting Act</span>\n          </a>\n        \n      </li>\n          <li class=\"usa-nav__submenu-item\">\n\n        \n                  <a href=\"/programs/federal-justice-statistics-program\" class=\"link\">\n            <span class=\"\">Federal Justice Statistics Program</span>\n          </a>\n        \n      </li>\n          <li class=\"usa-nav__submenu-item\">\n\n        \n                  <a href=\"/programs/lecs\" class=\"link\">\n            <span class=\"\">Law Enforcement Core Statistics (LECS)</span>\n          </a>\n        \n      </li>\n          <li class=\"usa-nav__submenu-item\">\n\n        \n                  <a href=\"/programs/ncrp\" class=\"link\">\n            <span class=\"\">National Corrections Reporting Program</span>\n          </a>\n        \n      </li>\n          <li class=\"usa-nav__submenu-item\">\n\n        \n                  <a href=\"/programs/ncvs\" class=\"link\">\n            <span class=\"\">National Crime Victimization Survey</span>\n          </a>\n        \n      </li>\n          <li class=\"usa-nav__submenu-item\">\n\n        \n                  <a href=\"/programs/national-criminal-history-improvement-program\" class=\"link\">\n            <span class=\"\">National Criminal History Improvement Program</span>\n          </a>\n        \n      </li>\n          <li class=\"usa-nav__submenu-item\">\n\n        \n                  <a href=\"/national-criminal-history-improvement-program-supplemental-funding-under-bipartisan-safer\" class=\"link\">\n            <span class=\"\">NCHIP Supplemental Funding Bipartisan Safer Communities Act</span>\n          </a>\n        \n      </li>\n          <li class=\"usa-nav__submenu-item\">\n\n        \n                  <a href=\"/national-incident-based-reporting-system-nibrs\" class=\"link\">\n            <span class=\"\">National Incident-Based Reporting System (NIBRS)</span>\n          </a>\n        \n      </li>\n          <li class=\"usa-nav__submenu-item\">\n\n        \n                  <a href=\"/programs/national-prisoner-statistics\" class=\"link\">\n            <span class=\"\">National Prisoner Statistics Program</span>\n          </a>\n        \n      </li>\n          <li class=\"usa-nav__submenu-item\">\n\n        \n                  <a href=\"/programs/NPRSP\" class=\"link\">\n            <span class=\"\">National Prison Rape Statistics Program</span>\n          </a>\n        \n      </li>\n          <li class=\"usa-nav__submenu-item\">\n\n        \n                  <a href=\"/programs/nics-improvement-amendments-act\" class=\"link\">\n            <span class=\"\">NICS Act Record Improvement Program</span>\n          </a>\n        \n      </li>\n          <li class=\"usa-nav__submenu-item\">\n\n        \n                  <a href=\"/programs/nscs\" class=\"link\">\n            <span class=\"\">National Survey of Crime and Safety (NSCS)</span>\n          </a>\n        \n      </li>\n          <li class=\"usa-nav__submenu-item\">\n\n        \n                  <a href=\"/programs/state-justice-statistics-program\" class=\"link\">\n            <span class=\"\">State Justice Statistics Program</span>\n          </a>\n        \n      </li>\n          <li class=\"usa-nav__submenu-item\">\n\n        \n                  <a href=\"/programs/vssrp\" class=\"link\">\n            <span class=\"\">Victim Services Statistical Research Program</span>\n          </a>\n        \n      </li>\n          <li class=\"usa-nav__submenu-item\">\n\n        \n                  <a href=\"/recidivism-program\" class=\"link\">\n            <span class=\"\">National Recidivism and Reentry Data Program</span>\n          </a>\n        \n      </li>\n        </ul>\n  \n        \n      </li>\n          <li class=\"usa-nav__primary-item\" >\n\n                  <button class=\"usa-accordion__button usa-nav__link\" aria-expanded=\"false\" aria-controls=\"extended-nav-section-7\">\n            <span>News</span>\n          </button>\n        \n                    \n  \n          <ul id=\"extended-nav-section-7\" class=\"usa-nav__submenu\" hidden>\n\n            <li class=\"usa-nav__submenu-item\">\n        <a href=\"/news\">\n          <span>News</span>\n        </a>\n      </li>\n      \n    \n          <li class=\"usa-nav__submenu-item\">\n\n        \n                  <a href=\"/subscribe\" class=\"link\">\n            <span class=\"\">JUSTSTATS</span>\n          </a>\n        \n      </li>\n          <li class=\"usa-nav__submenu-item\">\n\n        \n                  <a href=\"/press-releases\" class=\"link\">\n            <span class=\"\">Press Releases</span>\n          </a>\n        \n      </li>\n          <li class=\"usa-nav__submenu-item\">\n\n        \n                  <a href=\"/announcements\" class=\"link\">\n            <span class=\"\">Announcements</span>\n          </a>\n        \n      </li>\n          <li class=\"usa-nav__submenu-item\">\n\n        \n                  <a href=\"/featured\" class=\"link\">\n            <span class=\"\">Featured Content</span>\n          </a>\n        \n      </li>\n          <li class=\"usa-nav__submenu-item\">\n\n        \n                  <a href=\"https://bjs.ojp.gov/library/publications/list?series_filter=Just%20the%20Stats\" class=\"link\">\n            <span class=\"\">Just the Stats</span>\n          </a>\n        \n      </li>\n          <li class=\"usa-nav__submenu-item\">\n\n        \n                  <a href=\"/events\" class=\"link\">\n            <span class=\"\">Events</span>\n          </a>\n        \n      </li>\n          <li class=\"usa-nav__submenu-item\">\n\n        \n                  <a href=\"/events/on-demand\" class=\"link\">\n            <span class=\"\">On-Demand Events</span>\n          </a>\n        \n      </li>\n          <li class=\"usa-nav__submenu-item\">\n\n        \n                  <a href=\"/blogs\" class=\"link\">\n            <span class=\"\">BJS Blogs</span>\n          </a>\n        \n      </li>\n        </ul>\n  \n        \n      </li>\n          <li class=\"usa-nav__primary-item\" >\n\n                  <button class=\"usa-accordion__button usa-nav__link\" aria-expanded=\"false\" aria-controls=\"extended-nav-section-8\">\n            <span>Resources</span>\n          </button>\n        \n                    \n  \n          <ul id=\"extended-nav-section-8\" class=\"usa-nav__submenu\" hidden>\n\n            <li class=\"usa-nav__submenu-item\">\n        <a href=\"/resources\">\n          <span>Resources</span>\n        </a>\n      </li>\n      \n    \n          <li class=\"usa-nav__submenu-item\">\n\n        \n                  <a href=\"/frequently-asked-questions\" class=\"link\">\n            <span class=\"\">FAQs</span>\n          </a>\n        \n      </li>\n          <li class=\"usa-nav__submenu-item\">\n\n        \n                  <a href=\"/glossary\" class=\"link\">\n            <span class=\"\">Glossary</span>\n          </a>\n        \n      </li>\n          <li class=\"usa-nav__submenu-item\">\n\n        \n                  <a href=\"/related-links\" class=\"link\">\n            <span class=\"\">Related Links</span>\n          </a>\n        \n      </li>\n          <li class=\"usa-nav__submenu-item\">\n\n        \n                  <a href=\"/library/multimedia/list\" class=\"link\">\n            <span class=\"\">Multimedia</span>\n          </a>\n        \n      </li>\n          <li class=\"usa-nav__submenu-item\">\n\n        \n                  <a href=\"/month-review\" class=\"link\">\n            <span class=\"\">Month in Review</span>\n          </a>\n        \n      </li>\n        </ul>\n  \n        \n      </li>\n        </ul>\n  \n\n\n\n  </div>\n\n                            \n                              <div class=\"default\">\n                    <div class=\"region region-secondary-menu\">\n    <div class=\"usa-nav__secondary\">\n      <ul class=\"usa-nav__secondary-links\">\n\n          <li class=\"usa-nav__secondary-item\">\n        <a href=\"/contact-us\">\n          Contact Us\n        </a>\n      </li>\n          <li class=\"usa-nav__secondary-item\">\n        <a href=\"/subscribe\">\n          Subscribe\n        </a>\n      </li>\n          <li class=\"usa-nav__secondary-item\">\n        <a href=\"/saml_login\">\n          Sign In\n        </a>\n      </li>\n                  <li class=\"usa-nav__secondary-item\">\n        <div class=\"doj-sharing\">\n  <button id=\"doj-sharing-toggle\" class=\"doj-sharing__toggle\" tabindex=\"0\" title=\"Choose a social sharing platform\" aria-haspopup=\"true\" aria-controls=\"doj-sharing-links\" aria-expanded=\"false\">Share</button>\n<ul id=\"doj-sharing-links\" class=\"doj-sharing__list\" tabindex=\"0\" aria-label=\"Choose a social sharing platform\"><li><a href=\"https://www.facebook.com/sharer/sharer.php?u=https%3A//bjs.ojp.gov/data-collection/ncvs\" title=\"Share on Facebook\" data-event-label=\"Share on Facebook\" target=\"_blank\" rel=\"noopener noreferrer\">Facebook</a></li><li><a href=\"https://twitter.com/intent/tweet?url=https%3A//bjs.ojp.gov/data-collection/ncvs&amp;text=National%20Crime%20Victimization%20Survey%20%28NCVS%29\" title=\"Share on X\" data-event-label=\"Share on X\" target=\"_blank\" rel=\"noopener noreferrer\">X</a></li><li><a href=\"https://www.linkedin.com/shareArticle?mini=true&amp;url=https%3A//bjs.ojp.gov/data-collection/ncvs&amp;title=National%20Crime%20Victimization%20Survey%20%28NCVS%29\" title=\"Share on LinkedIn\" data-event-label=\"Share on LinkedIn\" target=\"_blank\" rel=\"noopener noreferrer\">LinkedIn</a></li><li><a href=\"https://reddit.com/submit?url=https%3A//bjs.ojp.gov/data-collection/ncvs&amp;title=National%20Crime%20Victimization%20Survey%20%28NCVS%29\" title=\"Share on Reddit\" data-event-label=\"Share on Reddit\" target=\"_blank\" rel=\"noopener noreferrer\">Reddit</a></li><li><a href=\"https://pinterest.com/pin/create/button?url=https%3A//bjs.ojp.gov/data-collection/ncvs&amp;media=https%3A//bjs.ojp.gov/sites/bjs/files/images/2021-02/OGimage_0.png&amp;description=National%20Crime%20Victimization%20Survey%20%28NCVS%29\" title=\"Share on Pinterest\" data-event-label=\"Share on Pinterest\" target=\"_blank\" rel=\"noopener noreferrer\">Pinterest</a></li><li><a href=\"/cdn-cgi/l/email-protection#56693439322f6b3e222226257365177979343c2578393c267831392079323722377b35393a3a3335223f3938793835202570373b266d2523343c3335226b1837223f3938373a73646615243f3b33736466003f35223f3b3f2c37223f393873646605232420332f73646673646e1815000573646f\" title=\"Share on Email\" data-event-label=\"Share on Email\">Email</a></li></ul>\n</div>\n      </li>\n        </ul>\n  \n</div>\n\n<div id=\"block-ojp-searchblock\" data-block-plugin-id=\"ojp_search_block\" class=\"block block-ojp-search block-ojp-search-block\">\n  \n    \n      \n<div class=\"usa-search usa-search--small\">\n  <div role=\"search\">\n    \n<div data-gname=\"ojp-search\" data-queryParameterName=\"keys\" class=\"gcse-searchbox-only\" data-resultsUrl=\"/search/results\">\n  \n</div>\n\n  </div>\n</div>\n  </div>\n\n  </div>\n\n                </div>\n              \n            \n          </div>\n        </nav>\n\n      \n  </header>\n\n  <div class=\"grid-container\">\n    <div class=\"grid-col-fill\">\n        <div class=\"region region-breadcrumb\">\n    <div id=\"block-ojp-breadcrumbs\" data-block-plugin-id=\"system_breadcrumb_block\" class=\"block block-system block-system-breadcrumb-block\">\n  \n    \n       <nav id=\"system-breadcrumb\" aria-label=\"breadcrumb\">\n        <ol class=\"add-list-reset uswds-breadcrumbs uswds-horizontal-list\">\n                            <li>\n                                            <a href=\"/\">Home</a>\n                                    </li>\n                            <li>\n                                            National Crime Victimization Survey (NCVS)\n                                    </li>\n                    </ol>\n    </nav>\n\n  </div>\n\n  </div>\n\n    </div>\n  </div>\n\n\n<div class=\"usa-section uswds-middle-section \" aria-label=\"primary content\">\n  <div class=\"grid-container \">\n    <div class=\"grid-col-fill\">\n        <div class=\"region region-highlighted\">\n    <div data-drupal-messages-fallback class=\"hidden\"></div>\n\n  </div>\n\n\n      \n    </div>\n  </div>\n\n  \n  \n  <main class=\"uswds-main-content-wrapper grid-container \">\n    <a id=\"main-content\" tabindex=\"-1\"></a>\n    <div class = \"grid-row grid-gap-2\">\n\n      <div class=\"region-content tablet:grid-col-12\">\n          <div class=\"region region-content\">\n    <div id=\"block-ojp-page-title\" data-block-plugin-id=\"page_title_block\" class=\"block block-core block-page-title-block\">\n  \n    \n      \n  <h1 class=\"uswds-page-title page-title\"><span class=\"field field--name-title field--type-string field--label-hidden\">National Crime Victimization Survey (NCVS)</span>\n</h1>\n\n\n  </div>\n<div id=\"block-ojp-content\" data-block-plugin-id=\"system_main_block\" class=\"block block-system block-system-main-block\">\n  \n    \n      \n\n<article>\n\n  \n    \n\n  \n  <div>\n\n    \n      \n  <div class=\"layout layout--twocol-section layout--twocol-section--75-25 layout--node-data_collection\">\n                    <div  class=\"layout__region layout__region--first\">\n        <div data-block-plugin-id=\"field_block:node:data_collection:field_data_collection_status\" class=\"block--field-data-collection-status block block-layout-builder block-field-blocknodedata-collectionfield-data-collection-status\">\n  \n    \n      \n  <div class=\"field field--name-field-data-collection-status field--type-list-string field--label-inline clearfix\">\n    <div class=\"field__label\">Data Collection Status</div>\n              <div class=\"field__item\">Active</div>\n          </div>\n\n  </div>\n<div data-block-plugin-id=\"field_block:node:data_collection:field_data_collection_frequency\" class=\"block--field-data-collection-frequency block block-layout-builder block-field-blocknodedata-collectionfield-data-collection-frequency\">\n  \n    \n      \n  <div class=\"field field--name-field-data-collection-frequency field--type-string field--label-inline clearfix\">\n    <div class=\"field__label\">Frequency</div>\n              <div class=\"field__item\">Annual</div>\n          </div>\n\n  </div>\n<div data-block-plugin-id=\"field_block:node:data_collection:field_latest_data_available\" class=\"block--field-latest-data-available block block-layout-builder block-field-blocknodedata-collectionfield-latest-data-available\">\n  \n    \n      \n  <div class=\"field field--name-field-latest-data-available field--type-string field--label-inline clearfix\">\n    <div class=\"field__label\">Latest Data Available</div>\n              <div class=\"field__item\">2024</div>\n          </div>\n\n  </div>\n<div data-block-plugin-id=\"field_block:node:data_collection:field_data_experts\" class=\"block--field-data-experts block block-layout-builder block-field-blocknodedata-collectionfield-data-experts\">\n  \n    \n      \n  <div class=\"field field--name-field-data-experts field--type-string field--label-inline clearfix\">\n    <div class=\"field__label\">Data Experts</div>\n          <div class=\"field__items\">\n              <div class=\"field__item\">Rachel Morgan, PhD, BJS Statistician</div>\n          <div class=\"field__item\">Rebecca Bielamowicz, PhD, BJS Statistician</div>\n          <div class=\"field__item\">Emilie Coen, DrPH, BJS Statistician</div>\n          <div class=\"field__item\">Susannah Tapp, PhD, BJS Statistician</div>\n          <div class=\"field__item\">Alexandra Thompson, BJS Statistician</div>\n          <div class=\"field__item\">Erin Tinney, PhD, BJS Statistician</div>\n          <div class=\"field__item\">Jennifer Truman, PhD, BJS Statistician</div>\n              </div>\n      </div>\n\n  </div>\n<div data-block-plugin-id=\"field_block:node:data_collection:field_collection_period\" class=\"block--field-collection-period block block-layout-builder block-field-blocknodedata-collectionfield-collection-period\">\n  \n    \n      \n  <div class=\"use-float-friendly-lists clearfix text-formatted field field--name-field-collection-period field--type-text-long field--label-inline\">\n    <div class=\"field__label\">Collection Period</div>\n              <div class=\"field__item\"><p>1973<span>\u2013</span>2024</p></div>\n          </div>\n\n  </div>\n<div data-block-plugin-id=\"field_block:node:data_collection:body\" class=\"block--body block block-layout-builder block-field-blocknodedata-collectionbody\">\n  \n    \n      \n  <div class=\"use-float-friendly-lists clearfix text-formatted field field--name-body field--type-text-with-summary field--label-visually_hidden\">\n    <div class=\"field__label visually-hidden\">Description</div>\n              <div class=\"field__item\"><p>The BJS&nbsp;National Crime Victimization Survey (NCVS) is the nation's primary source of information on criminal victimization. Each year, data are obtained from a nationally representative sample of about 240,000 <span>persons in about&nbsp;150,000 households.&nbsp;</span>Persons are interviewed on the frequency, characteristics, and consequences of criminal victimization in the United States. The NCVS collects information on nonfatal personal crimes (i.e., rape or sexual assault, robbery, aggravated and simple assault, and personal larceny) and household property crimes (i.e., burglary/trespassing, motor vehicle theft, and other types of theft) both reported and not reported to the police. Survey respondents provide information about themselves (e.g., age, sex, race and Hispanic origin, marital status, education level, and income) and whether they experienced a victimization. For each victimization incident, the NCVS collects information about the offender (e.g., age, race and Hispanic origin, sex, and victim-offender relationship), characteristics of the crime (e.g., time and place of occurrence, use of weapons, nature of the injury, and economic consequences), whether the crime was reported to police, reasons the crime was or was not reported, and victim experiences with the criminal justice system.</p></div>\n          </div>\n\n  </div>\n  \n  \n          <div data-block-plugin-id=\"field_block:node:data_collection:field_methodology\" class=\"block--field-methodology block block-layout-builder block-field-blocknodedata-collectionfield-methodology methodology-accordian usa-accordion\" aria-label=\"accordion-group\">\n      \n      \n    \n               \n      \n<h2 class=\"usa-accordion__heading\">\n  <button class=\"usa-accordion__button\"\n    aria-expanded=\"false\"\n    aria-controls=\"methodology-0\"\n    type=\"button\">\n  Methodology\n  </button>\n</h2>\n<div id=\"methodology-0\" class=\"usa-accordion__content ui-widget-content\" hidden>\n  \n            <div class=\"use-float-friendly-lists clearfix text-formatted field field--name-field-methodology field--type-text-long field--label-hidden field__item\"><div class=\"usa-accordion\"><h2 class=\"usa-accordion__heading\"><button class=\"usa-accordion__button\" type=\"button\" aria-expanded=\"false\">Survey coverage</button></h2><div class=\"usa-accordion__content usa-prose\"><p>The Bureau of Justice Statistics\u2019 National Crime Victimization Survey (NCVS) is an annual data collection carried out by the U.S. Census Bureau. The NCVS is a self-reported survey that is administered annually from January 1 to December 31. Annual NCVS estimates are based on the number and characteristics of crimes respondents experienced during the prior 6 months, <span>not including the month in which they were interviewed. Therefore, the 2024 survey covers crimes experienced from July 1, 2023, to November 30, 2024, and March 15, 2024, is the middle of the reference period.</span> Crimes are classified by the year of the survey and not by the year of the crime.</p><p>Survey respondents provide inf",
+          "title": "National Crime Victimization Survey (NCVS) | Bureau of Justice Statistics",
+          "httpStatus": 200
+        },
+        {
+          "type": "openrouter:web_search",
+          "id": "st_tmp_es6uwh34j3v",
+          "status": "completed",
+          "action": {
+            "type": "search",
+            "query": "National Crime Victimization Survey NCVS history Bureau of Justice Statistics mandate authority",
+            "sources": [
+              {
+                "type": "url",
+                "url": "https://bjs.ojp.gov/ncvs-timeline"
+              },
+              {
+                "type": "url",
+                "url": "https://nap.nationalacademies.org/nap-cgi/skimchap.cgi?chap=25%E2%80%9340&recid=12090"
+              },
+              {
+                "type": "url",
+                "url": "https://www.congress.gov/crs_external_products/RL/PDF/RL34309/RL34309.3.pdf"
+              },
+              {
+                "type": "url",
+                "url": "https://bjs.ojp.gov/document/ncvstd16.pdf"
+              },
+              {
+                "type": "url",
+                "url": "https://bjs.ojp.gov/programs/ncvs"
+              },
+              {
+                "type": "url",
+                "url": "https://bjs.ojp.gov/content/pub/pdf/ndncs.pdf"
+              },
+              {
+                "type": "url",
+                "url": "https://bjs.ojp.gov/blogs/reflections-ncvs-50-and-why-it-still-matters"
+              },
+              {
+                "type": "url",
+                "url": "https://bjs.ojp.gov/data-collection/ncvs"
+              },
+              {
+                "type": "url",
+                "url": "https://bjs.ojp.gov/media/document/NCVS%2050%20transcript.pdf"
+              },
+              {
+                "type": "url",
+                "url": "https://bjs.ojp.gov/blogs/historical-perspective-national-crime-victimization-survey50-years-data-and-counting"
+              }
+            ]
+          }
+        },
+        {
+          "type": "openrouter:web_search",
+          "id": "st_tmp_904f5tmxpj",
+          "status": "completed",
+          "action": {
+            "type": "search",
+            "query": "NCVS data NACJD ICPSR restricted data access Standard Application Process data files download",
+            "sources": [
+              {
+                "type": "url",
+                "url": "https://www.icpsr.umich.edu/pages/NACJD/restricted-data-agreement.html"
+              },
+              {
+                "type": "url",
+                "url": "https://www.icpsr.umich.edu/sites/nacjd/resources/restricted-data-at-nacjd/access-mechanisms"
+              },
+              {
+                "type": "url",
+                "url": "https://www.icpsr.umich.edu/web/NACJD/cms/3389"
+              },
+              {
+                "type": "url",
+                "url": "https://bjs.ojp.gov/ncvs-data-user-page"
+              },
+              {
+                "type": "url",
+                "url": "https://www.icpsr.umich.edu/sites/nacjd/resources/restricted-data-at-nacjd/sample-forms"
+              },
+              {
+                "type": "url",
+                "url": "https://www.icpsr.umich.edu/web/NACJD/studies/39273"
+              },
+              {
+                "type": "url",
+                "url": "https://www.icpsr.umich.edu/sites/nacjd/view/collections/95"
+              },
+              {
+                "type": "url",
+                "url": "https://www.icpsr.umich.edu/sites/nacda/posts/shared/restricted-data-mgmt-access"
+              },
+              {
+                "type": "url",
+                "url": "https://www.icpsr.umich.edu/web/NACJD/studies/38963"
+              },
+              {
+                "type": "url",
+                "url": "https://www.icpsr.umich.edu/web/NACJD/studies/38603/datadocumentation"
+              }
+            ]
+          }
+        },
+        {
+          "type": "openrouter:web_search",
+          "id": "st_tmp_pi3v2v2xr6",
+          "status": "completed",
+          "action": {
+            "type": "search",
+            "query": "NCVS methodology redesign 1992 sample size Census Bureau response rate survey limitations criticism",
+            "sources": [
+              {
+                "type": "url",
+                "url": "https://www.ojp.gov/pdffiles1/Digitization/151172NCJRS.pdf"
+              },
+              {
+                "type": "url",
+                "url": "https://bjs.ojp.gov/sites/bjs/files/media/document/update_on_the_ncvs_instrument_redesign_results_-transcript.pdf"
+              },
+              {
+                "type": "url",
+                "url": "https://www.ojp.gov/pdffiles1/Digitization/144776NCJRS.pdf"
+              },
+              {
+                "type": "url",
+                "url": "https://bjs.ojp.gov/library/publications/effects-redesign-victimization-estimates"
+              },
+              {
+                "type": "url",
+                "url": "https://bjs.ojp.gov/programs/ncvs/instrument-redesign"
+              },
+              {
+                "type": "url",
+                "url": "https://bjs.ojp.gov/content/pub/pdf/ERVE.PDF"
+              },
+              {
+                "type": "url",
+                "url": "https://bjs.ojp.gov/content/pub/pdf/ncsrqa.pdf"
+              },
+              {
+                "type": "url",
+                "url": "https://bjs.ojp.gov/sites/bjs/files/media/document/ncvs_methodology.pdf"
+              },
+              {
+                "type": "url",
+                "url": "https://bjs.ojp.gov/content/pub/pdf/REDESFS.PDF"
+              },
+              {
+                "type": "url",
+                "url": "http://www.asasrms.org/Proceedings/papers/1995_009.pdf"
+              }
+            ]
+          }
+        },
+        {
+          "type": "openrouter:web_search",
+          "id": "st_tmp_p2k2atzb0t",
+          "status": "completed",
+          "action": {
+            "type": "search",
+            "query": "NCVS uses policy makers researchers victimization rates benefits public who uses the data",
+            "sources": [
+              {
+                "type": "url",
+                "url": "https://bjs.ojp.gov/ncvs-data-user-page"
+              },
+              {
+                "type": "url",
+                "url": "https://bjs.ojp.gov/programs/ncvs"
+              },
+              {
+                "type": "url",
+                "url": "https://bjs.ojp.gov/document/ncvsbrocheng_508.pdf"
+              },
+              {
+                "type": "url",
+                "url": "https://bjs.ojp.gov/sites/bjs/files/media/document/ad_ncvs_vwdu_transcript.pdf"
+              },
+              {
+                "type": "url",
+                "url": "https://www.icpsr.umich.edu/sites/nacjd/resources/learning-and-data-guides/ncvs-learning-guide/ncvs-background"
+              },
+              {
+                "type": "url",
+                "url": "https://bjs.ojp.gov/blogs/reflections-ncvs-50-and-why-it-still-matters"
+              },
+              {
+                "type": "url",
+                "url": "https://bjs.ojp.gov/sites/g/files/xyckuh236/files/media/document/ncvs_umd_session_3.pdf"
+              },
+              {
+                "type": "url",
+                "url": "https://www.annualreviews.org/content/journals/10.1146/annurev-criminol-032924-121333"
+              },
+              {
+                "type": "url",
+                "url": "https://bjs.ojp.gov/taxonomy/term/national-crime-victimization-survey-ncvs-victimization-analysis-tool"
+              },
+              {
+                "type": "url",
+                "url": "https://counciloncj.org/the-value-of-ncvs-and-how-to-improve-it/?pdf=11814"
+              }
+            ]
+          }
+        },
+        {
+          "type": "openrouter:web_search",
+          "id": "st_tmp_75rxb4d5qsj",
+          "status": "completed",
+          "action": {
+            "type": "search",
+            "query": "NCVS sample cut 2006 budget reduction 2012 National Academies 2022 review \"Estimating the Incidence of Rape and Sexual Assault\" limitations",
+            "sources": [
+              {
+                "type": "url",
+                "url": "https://ncbi.nlm.nih.gov/books/NBK202265/"
+              },
+              {
+                "type": "url",
+                "url": "https://www.nationalacademies.org/read/18605/chapter/10"
+              },
+              {
+                "type": "url",
+                "url": "https://ncbi.nlm.nih.gov/books/NBK202273/"
+              },
+              {
+                "type": "url",
+                "url": "https://ncbi.nlm.nih.gov/books/NBK202265/table/tab_4_1/?report=objectonly"
+              },
+              {
+                "type": "url",
+                "url": "https://ncbi.nlm.nih.gov/books/NBK202274/"
+              },
+              {
+                "type": "url",
+                "url": "https://www.ncbi.nlm.nih.gov/books/NBK202252/"
+              },
+              {
+                "type": "url",
+                "url": "https://ncbi.nlm.nih.gov/books/NBK202264/"
+              },
+              {
+                "type": "url",
+                "url": "https://www.nationalacademies.org/read/18605/chapter/8"
+              },
+              {
+                "type": "url",
+                "url": "https://ncbi.nlm.nih.gov/books/NBK202258/"
+              },
+              {
+                "type": "url",
+                "url": "https://www.nationalacademies.org/read/18605/chapter/6"
+              }
+            ]
+          }
+        },
+        {
+          "type": "openrouter:web_search",
+          "id": "st_tmp_9mq9tssdm57",
+          "status": "completed",
+          "action": {
+            "type": "search",
+            "query": "NCVS 2024 changes new methodology self-administered instrument mode N-DASH API data tool BJS"
+          }
+        },
+        {
+          "type": "openrouter:web_search",
+          "id": "st_tmp_8noc3t2p4el",
+          "status": "completed",
+          "action": {
+            "type": "search",
+            "query": "NCVS School Crime Supplement Identity Theft Supplement Police Public Contact Survey supplements list"
+          }
+        },
+        {
+          "type": "openrouter:web_fetch",
+          "id": "st_tmp_ye1czv3wwrs",
+          "status": "completed",
+          "url": "https://bjs.ojp.gov/ncvs-data-user-page",
+          "content": "<!DOCTYPE html>\n<html lang=\"en\" dir=\"ltr\" prefix=\"og: https://ogp.me/ns#\">\n  <head>\n    <meta charset=\"utf-8\" />\n<link rel=\"preload\" href=\"/themes/custom/ojp/assets/fonts/roboto/Roboto-Regular.woff2\" as=\"font\" type=\"font/woff2\" crossorigin=\"\" />\n<link rel=\"preload\" href=\"/themes/custom/ojp/assets/fonts/roboto/Roboto-Bold.woff2\" as=\"font\" type=\"font/woff2\" crossorigin=\"\" />\n<link rel=\"preload\" href=\"/themes/custom/ojp/assets/fonts/roboto/Roboto-Italic.woff2\" as=\"font\" type=\"font/woff2\" crossorigin=\"\" />\n<link rel=\"preload\" href=\"/themes/custom/ojp/assets/fonts/roboto/Roboto-BlackItalic.woff2\" as=\"font\" type=\"font/woff2\" crossorigin=\"\" />\n<link rel=\"preload\" href=\"/themes/custom/ojp/assets/fonts/merriweather/Latin-Merriweather-Regular.woff2\" as=\"font\" type=\"font/woff2\" crossorigin=\"\" />\n<link rel=\"preload\" href=\"/themes/custom/ojp/assets/fonts/merriweather/Latin-Merriweather-Bold.woff2\" as=\"font\" type=\"font/woff2\" crossorigin=\"\" />\n<noscript><style>form.antibot * :not(.antibot-message) { display: none !important; }</style>\n</noscript><meta name=\"description\" content=\"The Bureau of Justice Statistics (BJS) has developed a collection of resources for all types of data users interested in the National Crime Victimization Survey (NCVS). The NCVS is the nation\u2019s primary source of information on criminal victimization. National Crime Victimization Survey (NCVS) Dashboard (N-DASH) Tool The N-DASH provides direct and user-friendly access to NCVS data on personal and property victimization, beginning with 1993.\" />\n<link rel=\"canonical\" href=\"https://bjs.ojp.gov/ncvs-data-user-page\" />\n<meta property=\"og:site_name\" content=\"Bureau of Justice Statistics\" />\n<meta property=\"og:url\" content=\"https://bjs.ojp.gov/ncvs-data-user-page\" />\n<meta property=\"og:title\" content=\"NCVS Data User Page\" />\n<meta property=\"og:description\" content=\"The Bureau of Justice Statistics (BJS) has developed a collection of resources for all types of data users interested in the National Crime Victimization Survey (NCVS). The NCVS is the nation\u2019s primary source of information on criminal victimization. National Crime Victimization Survey (NCVS) Dashboard (N-DASH) Tool The N-DASH provides direct and user-friendly access to NCVS data on personal and property victimization, beginning with 1993.\" />\n<meta property=\"og:image\" content=\"https://bjs.ojp.gov/sites/bjs/files/images/2021-02/OGimage_0.png\" />\n<meta name=\"twitter:card\" content=\"summary\" />\n<meta name=\"twitter:description\" content=\"The Bureau of Justice Statistics (BJS) has developed a collection of resources for all types of data users interested in the National Crime Victimization Survey (NCVS). The NCVS is the nation\u2019s primary source of information on criminal victimization. National Crime Victimization Survey (NCVS) Dashboard (N-DASH) Tool The N-DASH provides direct and user-friendly access to NCVS data on personal and property victimization, beginning with 1993.\" />\n<meta name=\"twitter:title\" content=\"NCVS Data User Page | Bureau of Justice Statistics\" />\n<meta name=\"twitter:image\" content=\"https://bjs.ojp.gov/sites/bjs/files/images/2021-02/OGimage_0.png\" />\n<meta name=\"google-site-verification\" content=\"4PLVTsyCm3--uca8rMAYrsLAAEJtRBtpZWm-kh9pr0g\" />\n<meta name=\"Generator\" content=\"Drupal 10 (https://www.drupal.org)\" />\n<meta name=\"MobileOptimized\" content=\"width\" />\n<meta name=\"HandheldFriendly\" content=\"true\" />\n<meta name=\"viewport\" content=\"width=device-width, initial-scale=1.0\" />\n<link rel=\"icon\" href=\"/themes/custom/ojp/assets/images/ojp/favicon.png\" type=\"image/png\" />\n<link rel=\"alternate\" hreflang=\"en\" href=\"https://bjs.ojp.gov/ncvs-data-user-page\" />\n\n    <title>NCVS Data User Page | Bureau of Justice Statistics</title>\n    <link rel=\"stylesheet\" media=\"all\" href=\"/sites/bjs/files/css/css_LIyQGX0fiYOoLF8G71iDKNaS60T1L2KWRm_jg9Oz8CE.css?delta=0&amp;language=en&amp;theme=ojp&amp;include=eJxtUNFuwyAM_CEyfxIy2EudODjCJGv29WNpM7XSHhC-M_ZxlyaPioWkjHHFkeNapTRI_9Ihz0zSrEYpxKUltTzDSx2yovsBC7v3KQ_ZKgPVbUX9wAnvb0TDpHxjJK4PvlhdUOWbA9kU_YZddISXOnQhaUfkJTFBxrWJlcD3plLma-0TBsXDthbTJtoVoH1ZNo3O-Rx6dkk82871ACvc-8GmFQjrPCTdeOgRDKMpnXQ_1z0kdB68HdpNdhyvZOAvIsy5pyBJtP_4fEPY8PTs8A6DH954gd-lYRdieziMn8JKUNlXKy47D2fzB0Juqv4\" />\n<link rel=\"stylesheet\" media=\"print\" href=\"/sites/bjs/files/css/css_kUwQ83ODDDR6KVCjhUb6whcBV9NwQOk9ssMnEWPJibo.css?delta=1&amp;language=en&amp;theme=ojp&amp;include=eJxtUNFuwyAM_CEyfxIy2EudODjCJGv29WNpM7XSHhC-M_ZxlyaPioWkjHHFkeNapTRI_9Ihz0zSrEYpxKUltTzDSx2yovsBC7v3KQ_ZKgPVbUX9wAnvb0TDpHxjJK4PvlhdUOWbA9kU_YZddISXOnQhaUfkJTFBxrWJlcD3plLma-0TBsXDthbTJtoVoH1ZNo3O-Rx6dkk82871ACvc-8GmFQjrPCTdeOgRDKMpnXQ_1z0kdB68HdpNdhyvZOAvIsy5pyBJtP_4fEPY8PTs8A6DH954gd-lYRdieziMn8JKUNlXKy47D2fzB0Juqv4\" />\n<link rel=\"stylesheet\" media=\"all\" href=\"/sites/bjs/files/css/css_ZKsoYVAUry6uXPBTmGRUyJdLkE3TsGDuOfM5q6ugPhg.css?delta=2&amp;language=en&amp;theme=ojp&amp;include=eJxtUNFuwyAM_CEyfxIy2EudODjCJGv29WNpM7XSHhC-M_ZxlyaPioWkjHHFkeNapTRI_9Ihz0zSrEYpxKUltTzDSx2yovsBC7v3KQ_ZKgPVbUX9wAnvb0TDpHxjJK4PvlhdUOWbA9kU_YZddISXOnQhaUfkJTFBxrWJlcD3plLma-0TBsXDthbTJtoVoH1ZNo3O-Rx6dkk82871ACvc-8GmFQjrPCTdeOgRDKMpnXQ_1z0kdB68HdpNdhyvZOAvIsy5pyBJtP_4fEPY8PTs8A6DH954gd-lYRdieziMn8JKUNlXKy47D2fzB0Juqv4\" />\n<link rel=\"stylesheet\" media=\"all\" href=\"/sites/bjs/files/css/css_3-bq6LoGF88Sy8QameUwhrTazsaJmS_us6gCiuAKEkU.css?delta=3&amp;language=en&amp;theme=ojp&amp;include=eJxtUNFuwyAM_CEyfxIy2EudODjCJGv29WNpM7XSHhC-M_ZxlyaPioWkjHHFkeNapTRI_9Ihz0zSrEYpxKUltTzDSx2yovsBC7v3KQ_ZKgPVbUX9wAnvb0TDpHxjJK4PvlhdUOWbA9kU_YZddISXOnQhaUfkJTFBxrWJlcD3plLma-0TBsXDthbTJtoVoH1ZNo3O-Rx6dkk82871ACvc-8GmFQjrPCTdeOgRDKMpnXQ_1z0kdB68HdpNdhyvZOAvIsy5pyBJtP_4fEPY8PTs8A6DH954gd-lYRdieziMn8JKUNlXKy47D2fzB0Juqv4\" />\n<link rel=\"stylesheet\" media=\"print\" href=\"/sites/bjs/files/css/css_ZOCm6HYKuxreBlSk_BoQnVFYCp7HNtKm7xbe_dHFfTY.css?delta=4&amp;language=en&amp;theme=ojp&amp;include=eJxtUNFuwyAM_CEyfxIy2EudODjCJGv29WNpM7XSHhC-M_ZxlyaPioWkjHHFkeNapTRI_9Ihz0zSrEYpxKUltTzDSx2yovsBC7v3KQ_ZKgPVbUX9wAnvb0TDpHxjJK4PvlhdUOWbA9kU_YZddISXOnQhaUfkJTFBxrWJlcD3plLma-0TBsXDthbTJtoVoH1ZNo3O-Rx6dkk82871ACvc-8GmFQjrPCTdeOgRDKMpnXQ_1z0kdB68HdpNdhyvZOAvIsy5pyBJtP_4fEPY8PTs8A6DH954gd-lYRdieziMn8JKUNlXKy47D2fzB0Juqv4\" />\n<link rel=\"stylesheet\" media=\"all\" href=\"/sites/bjs/files/css/css_LP2-OEfM_CFL7ND-eYOdD-VYcaLasFoS-fe5qB58KgI.css?delta=5&amp;language=en&amp;theme=ojp&amp;include=eJxtUNFuwyAM_CEyfxIy2EudODjCJGv29WNpM7XSHhC-M_ZxlyaPioWkjHHFkeNapTRI_9Ihz0zSrEYpxKUltTzDSx2yovsBC7v3KQ_ZKgPVbUX9wAnvb0TDpHxjJK4PvlhdUOWbA9kU_YZddISXOnQhaUfkJTFBxrWJlcD3plLma-0TBsXDthbTJtoVoH1ZNo3O-Rx6dkk82871ACvc-8GmFQjrPCTdeOgRDKMpnXQ_1z0kdB68HdpNdhyvZOAvIsy5pyBJtP_4fEPY8PTs8A6DH954gd-lYRdieziMn8JKUNlXKy47D2fzB0Juqv4\" />\n\n    \n  </head>\n  <body class=\"page-with-hero path-node page-node-type-landing-page\">\n        <a href=\"#main-content\" class=\"visually-hidden focusable skip-link\">\n      Skip to main content\n    </a>\n    <noscript><iframe src=\"https://www.googletagmanager.com/ns.html?id=GTM-TPK5P7R\"\n                  height=\"0\" width=\"0\" style=\"display:none;visibility:hidden\"></iframe></noscript>\n\n      <div class=\"dialog-off-canvas-main-canvas\" data-off-canvas-main-canvas>\n      <section class=\"usa-banner\" aria-label=\"Official government website\">\n\n    <div class=\"usa-accordion\">\n  <header class=\"usa-banner__header\">\n    <div class=\"usa-banner__inner\">\n      <div class=\"grid-col-auto\">\n        <img class=\"usa-banner__header-flag\" src=\"/themes/custom/ojp/assets/images/us_flag_small.png\" alt=\"U.S. flag\">\n      </div>\n      <div class=\"grid-col-fill tablet:grid-col-auto\">\n        <p class=\"usa-banner__header-text\">An official website of the United States government, Department of Justice.</p>\n        <p class=\"usa-banner__header-action\" aria-hidden=\"true\">Here's how you know</p>\n      </div>\n      <button class=\"usa-accordion__button usa-banner__button\"\n              aria-expanded=\"false\" aria-controls=\"gov-banner\">\n        <span class=\"usa-banner__button-text\">Here's how you know</span>\n      </button>\n    </div>\n  </header>\n  <div class=\"usa-banner__content usa-accordion__content\" id=\"gov-banner\" hidden>\n    <div class=\"grid-row grid-gap-lg\">\n      <div class=\"usa-banner__guidance tablet:grid-col-6\">\n        <img class=\"usa-banner__icon usa-media-block__img\" src=\"/themes/custom/ojp/assets/images/icon-dot-gov.svg\" role=\"img\" alt=\"\" aria-hidden=\"true\">\n        <div class=\"usa-media-block__body\">\n          <p>\n            <strong>Official websites use .gov</strong>\n            <br>\n            A <strong>.gov</strong> website belongs to an official government organization in the United States.\n          </p>\n        </div>\n      </div>\n      <div class=\"usa-banner__guidance tablet:grid-col-6\">\n        <img class=\"usa-banner__icon usa-media-block__img\" src=\"/themes/custom/ojp/assets/images/icon-https.svg\" role=\"img\" alt=\"\" aria-hidden=\"true\">\n        <div class=\"usa-media-block__body\">\n          <p>\n            <strong>Secure .gov websites use HTTPS</strong>\n            <br>\n            A <strong>lock</strong> (\n            <span class=\"icon-lock\"><svg xmlns=\"http://www.w3.org/2000/svg\" width=\"52\" height=\"64\" viewBox=\"0 0 52 64\" class=\"usa-banner__lock-image\" role=\"img\" aria-labelledby=\"banner-lock-title-default banner-lock-description-default\" focusable=\"false\"><title id=\"banner-lock-title-default\">Lock</title><desc id=\"banner-lock-description-default\">A locked padlock</desc><path fill=\"#000000\" fill-rule=\"evenodd\" d=\"M26 0c10.493 0 19 8.507 19 19v9h3a4 4 0 0 1 4 4v28a4 4 0 0 1-4 4H4a4 4 0 0 1-4-4V32a4 4 0 0 1 4-4h3v-9C7 8.507 15.507 0 26 0zm0 8c-5.979 0-10.843 4.77-10.996 10.712L15 19v9h22v-9c0-6.075-4.925-11-11-11z\"/></svg></span>\n            ) or <strong>https://</strong> means you\u2019ve safely connected to the .gov website. Share sensitive information only on official, secure websites.          </p>\n        </div>\n      </div>\n    </div>\n  </div>\n</div>\n\n\n    \n  </section>\n\n  <header class=\"usa-header usa-header--extended\" id=\"header\">\n\n    \n      <div class=\"usa-navbar\">\n                <button class=\"usa-menu-btn usa-button\">Menu</button>\n                  <div class=\"region region-header\">\n    <div class=\"usa-logo\" id=\"logo\">\n      <div class=\"ojp-seal\">\n      <a href=\"https://www.ojp.gov\" accesskey=\"1\" title=\"Office of Justice Programs\" aria-label=\"Office of Justice Programs\">\n                <img src=\"/themes/custom/ojp/assets/images/ojp/OJP-seal.svg\" alt=\"Office of Justice Programs seal\" height=\"98\" width=\"98\" />\n              </a>\n    </div>\n        <div class=\"ojp-office-logo\">\n      <a href=\"/\" accesskey=\"2\" title=\"Home\" aria-label=\"Home\">\n        <img src=\"/themes/custom/ojp/assets/images/ojp/bjs-logo.svg?v=1\" alt=\"Home\" />\n      </a>\n    </div>\n  </div>\n\n  </div>\n\n      </div>\n\n      <div class=\"usa-overlay\"></div>\n        <nav class=\"usa-nav\" aria-label=\"site navigation\">\n          <div class=\"usa-nav__inner\">\n\n            <button class=\"usa-nav__close\">\n              <img src=\"/themes/custom/ojp/assets/images/close-white.svg\" alt=\"close\" />\n            </button>\n\n            \n            \n                                              <div class=\"region region-primary-menu\">\n    \n\n\n  \n  \n          <ul class=\"usa-nav__primary usa-accordion\" aria-label=\"primary navigation\">\n    \n          <li class=\"usa-nav__primary-item\" >\n\n                  <button class=\"usa-accordion__button usa-nav__link\" aria-expanded=\"false\" aria-controls=\"extended-nav-section-1\">\n            <span>About BJS</span>\n          </button>\n        \n                    \n  \n          <ul id=\"extended-nav-section-1\" class=\"usa-nav__submenu\" hidden>\n\n            <li class=\"usa-nav__submenu-item\">\n        <a href=\"/about\">\n          <span>About BJS</span>\n        </a>\n      </li>\n      \n    \n          <li class=\"usa-nav__submenu-item\">\n\n        \n                  <a href=\"/bjs-director\" class=\"link\">\n            <span class=\"\">The BJS Director</span>\n          </a>\n        \n      </li>\n          <li class=\"usa-nav__submenu-item\">\n\n        \n                  <a href=\"/about/activities-programs\" class=\"link\">\n            <span class=\"\">Activities &amp; Programs</span>\n          </a>\n        \n      </li>\n          <li class=\"usa-nav__submenu-item\">\n\n        \n                  <a href=\"https://bjs.ojp.gov/about/policies-procedures-and-standards\" class=\"link\">\n            <span class=\"\">Policies, Procedures, and Standards</span>\n          </a>\n        \n      </li>\n          <li class=\"usa-nav__submenu-item\">\n\n        \n                  <a href=\"/bjs-strategic-plan-fy-2024-2029\" class=\"link\">\n            <span class=\"\">BJS Strategic Plan</span>\n          </a>\n        \n      </li>\n          <li class=\"usa-nav__submenu-item\">\n\n        \n                  <a href=\"/reviews-bjs-programs\" class=\"link\">\n            <span class=\"\">Reviews of BJS Programs</span>\n          </a>\n        \n      </li>\n          <li class=\"usa-nav__submenu-item\">\n\n        \n                  <a href=\"/about-bjs-website\" class=\"link\">\n            <span class=\"\">About the BJS Website</span>\n          </a>\n        \n      </li>\n          <li class=\"usa-nav__submenu-item\">\n\n        \n                  <a href=\"/about/job-opportunities\" class=\"link\">\n            <span class=\"\">Job Opportunities</span>\n          </a>\n        \n      </li>\n        </ul>\n  \n        \n      </li>\n          <li class=\"usa-nav__primary-item\" >\n\n                  <button class=\"usa-accordion__button usa-nav__link\" aria-expanded=\"false\" aria-controls=\"extended-nav-section-2\">\n            <span>Topics</span>\n          </button>\n        \n                    \n  \n          <ul id=\"extended-nav-section-2\" class=\"usa-nav__submenu\" hidden>\n\n            <li class=\"usa-nav__submenu-item\">\n        <a href=\"/topics\">\n          <span>Topics</span>\n        </a>\n      </li>\n      \n    \n          <li class=\"usa-nav__submenu-item\">\n\n        \n                  <a href=\"/topics/corrections\" class=\"link\">\n            <span class=\"\">Corrections</span>\n          </a>\n        \n      </li>\n          <li class=\"usa-nav__submenu-item\">\n\n        \n                  <a href=\"/topics/costs-crime\" class=\"link\">\n            <span class=\"\">Costs of Crime</span>\n          </a>\n        \n      </li>\n          <li class=\"usa-nav__submenu-item\">\n\n        \n                  <a href=\"/topics/courts\" class=\"link\">\n            <span class=\"\">Courts</span>\n          </a>\n        \n      </li>\n          <li class=\"usa-nav__submenu-item\">\n\n        \n                  <a href=\"/topics/crime\" class=\"link\">\n            <span class=\"\">Crime</span>\n          </a>\n        \n      </li>\n          <li class=\"usa-nav__submenu-item\">\n\n        \n                  <a href=\"/topics/federal-justice-system\" class=\"link\">\n            <span class=\"\">Federal Justice System</span>\n          </a>\n        \n      </li>\n          <li class=\"usa-nav__submenu-item\">\n\n        \n                  <a href=\"/topics/forensic-sciences\" class=\"link\">\n            <span class=\"\">Forensic Sciences</span>\n          </a>\n        \n      </li>\n          <li class=\"usa-nav__submenu-item\">\n\n        \n                  <a href=\"/topics/law-enforcement\" class=\"link\">\n            <span class=\"\">Law Enforcement</span>\n          </a>\n        \n      </li>\n          <li class=\"usa-nav__submenu-item\">\n\n        \n                  <a href=\"/topics/recidivism-and-reentry\" class=\"link\">\n            <span class=\"\">Recidivism and Reentry</span>\n          </a>\n        \n      </li>\n          <li class=\"usa-nav__submenu-item\">\n\n        \n                  <a href=\"/topics/tribal-crime-and-justice\" class=\"link\">\n            <span class=\"\">Tribal Crime and Justice</span>\n          </a>\n        \n      </li>\n          <li class=\"usa-nav__submenu-item\">\n\n        \n                  <a href=\"/topics/victims\" class=\"link\">\n            <span class=\"\">Victims of Crime</span>\n          </a>\n        \n      </li>\n        </ul>\n  \n        \n      </li>\n          <li class=\"usa-nav__primary-item\" >\n\n                  <button class=\"usa-accordion__button usa-nav__link\" aria-expanded=\"false\" aria-controls=\"extended-nav-section-3\">\n            <span>Publications</span>\n          </button>\n        \n                    \n  \n          <ul id=\"extended-nav-section-3\" class=\"usa-nav__submenu\" hidden>\n\n            <li class=\"usa-nav__submenu-item\">\n        <a href=\"/library\">\n          <span>Publications</span>\n        </a>\n      </li>\n      \n    \n          <li class=\"usa-nav__submenu-item\">\n\n        \n                  <a href=\"https://bjs.ojp.gov/library/publications/list?series_filter=Just%20the%20Stats\" class=\"link\">\n            <span class=\"\">Just the Stats</span>\n          </a>\n        \n      </li>\n          <li class=\"usa-nav__submenu-item\">\n\n        \n                  <a href=\"/library/publications/list\" class=\"link\">\n            <span class=\"\">Search Publications</span>\n          </a>\n        \n      </li>\n          <li class=\"usa-nav__submenu-item\">\n\n        \n                  <a href=\"/library/publications/forthcoming\" class=\"link\">\n            <span class=\"\">Forthcoming Publications</span>\n          </a>\n        \n      </li>\n          <li class=\"usa-nav__submenu-item\">\n\n        \n                  <a href=\"/library/publications/list/research\" class=\"link\">\n            <span class=\"\">Research and BJS-Funded Reports</span>\n          </a>\n        \n      </li>\n          <li class=\"usa-nav__submenu-item\">\n\n        \n                  <a href=\"/library/publications/data-corrections\" class=\"link\">\n            <span class=\"\">Errata | Corrections</span>\n          </a>\n        \n      </li>\n        </ul>\n  \n        \n      </li>\n          <li class=\"usa-nav__primary-item\" >\n\n                  <button class=\"usa-accordion__button usa-nav__link\" aria-expanded=\"false\" aria-controls=\"extended-nav-section-4\">\n            <span>Data</span>\n          </button>\n        \n                    \n  \n          <ul id=\"extended-nav-section-4\" class=\"usa-nav__submenu\" hidden>\n\n            <li class=\"usa-nav__submenu-item\">\n        <a href=\"/data\">\n          <span>Data</span>\n        </a>\n      </li>\n      \n    \n          <li class=\"usa-nav__submenu-item\">\n\n        \n                  <a href=\"/bjs-statistical-coverage-crime-and-justice-process\" class=\"link\">\n            <span class=\"\">Statistical Coverage of Crime and the Justice Process</span>\n          </a>\n        \n      </li>\n          <li class=\"usa-nav__submenu-item\">\n\n        \n                  <a href=\"/data-collections/search\" class=\"link\">\n            <span class=\"\">Search Data Collections</span>\n          </a>\n        \n      </li>\n          <li class=\"usa-nav__submenu-item\">\n\n        \n                  <a href=\"/data/data-analysis-tools\" class=\"link\">\n            <span class=\"\">Data Analysis Tools</span>\n          </a>\n        \n      </li>\n          <li class=\"usa-nav__submenu-item\">\n\n        \n                  <a href=\"/data/national-archive-criminal-justice-data\" class=\"link\">\n            <span class=\"\">National Archive of Criminal Justice Data</span>\n          </a>\n        \n      </li>\n          <li class=\"usa-nav__submenu-item\">\n\n        \n                  <a href=\"/data/data-collection-process\" class=\"link\">\n            <span class=\"\">Data Collection Process</span>\n          </a>\n        \n      </li>\n          <li class=\"usa-nav__submenu-item\">\n\n        \n                  <a href=\"/standard-application-process\" class=\"link\">\n            <span class=\"\">The Standard Application Process</span>\n          </a>\n        \n      </li>\n          <li class=\"usa-nav__submenu-item\">\n\n        \n                  <a href=\"/data/topic\" class=\"link\">\n            <span class=\"\">Data by Topic</span>\n          </a>\n        \n      </li>\n        </ul>\n  \n        \n      </li>\n          <li class=\"usa-nav__primary-item\" >\n\n                  <button class=\"usa-accordion__button usa-nav__link\" aria-expanded=\"false\" aria-controls=\"extended-nav-section-5\">\n            <span>Funding &amp; Awards</span>\n          </button>\n        \n                    \n  \n          <ul id=\"extended-nav-section-5\" class=\"usa-nav__submenu\" hidden>\n\n            <li class=\"usa-nav__submenu-item\">\n        <a href=\"/funding\">\n          <span>Funding &amp; Awards</span>\n        </a>\n      </li>\n      \n    \n          <li class=\"usa-nav__submenu-item\">\n\n        \n                  <a href=\"/funding/current\" class=\"link\">\n            <span class=\"\">Current Funding Opportunities</span>\n          </a>\n        \n      </li>\n          <li class=\"usa-nav__submenu-item\">\n\n        \n                  <a href=\"/funding/guidance-applicants-and-awardees\" class=\"link\">\n            <span class=\"\">Guidance for Applicants and Award Recipients</span>\n          </a>\n        \n      </li>\n          <li class=\"usa-nav__submenu-item\">\n\n        \n                  <a href=\"/funding/human-subjects-and-confidentiality-requirements\" class=\"link\">\n            <span class=\"\">Human Subjects and Confidentiality Requirements</span>\n          </a>\n        \n      </li>\n          <li class=\"usa-nav__submenu-item\">\n\n        \n                  <a href=\"/technology-and-publishing-requirements-bjs-contractors-and-grantees\" class=\"link\">\n            <span class=\"\">Technology and Publishing Requirements</span>\n          </a>\n        \n      </li>\n          <li class=\"usa-nav__submenu-item\">\n\n        \n                  <a href=\"/funding/awards/list\" class=\"link\">\n            <span class=\"\">Awards: Listing of Funded Projects</span>\n          </a>\n        \n      </li>\n          <li class=\"usa-nav__submenu-item\">\n\n        \n                  <a href=\"/funding/expired\" class=\"link\">\n            <span class=\"\">Expired  Funding</span>\n          </a>\n        \n      </li>\n          <li class=\"usa-nav__submenu-item\">\n\n        \n                  <a href=\"/pmeasures\" class=\"link\">\n            <span class=\"\">BJS Performance Measures</span>\n          </a>\n        \n      </li>\n        </ul>\n  \n        \n      </li>\n          <li class=\"usa-nav__primary-item\" >\n\n                  <button class=\"usa-accordion__button usa-nav__link usa-current\" aria-expanded=\"false\" aria-controls=\"extended-nav-section-6\">\n            <span>Programs</span>\n          </button>\n        \n                    \n  \n          <ul id=\"extended-nav-section-6\" class=\"usa-nav__submenu\" hidden>\n\n            <li class=\"usa-nav__submenu-item\">\n        <a href=\"/programs\">\n          <span>Programs</span>\n        </a>\n      </li>\n      \n    \n          <li class=\"usa-nav__submenu-item\">\n\n        \n                  <a href=\"/programs/dicra\" class=\"link\">\n            <span class=\"\">Death in Custody Reporting Act</span>\n          </a>\n        \n      </li>\n          <li class=\"usa-nav__submenu-item\">\n\n        \n                  <a href=\"/programs/federal-justice-statistics-program\" class=\"link\">\n            <span class=\"\">Federal Justice Statistics Program</span>\n          </a>\n        \n      </li>\n          <li class=\"usa-nav__submenu-item\">\n\n        \n                  <a href=\"/programs/lecs\" class=\"link\">\n            <span class=\"\">Law Enforcement Core Statistics (LECS)</span>\n          </a>\n        \n      </li>\n          <li class=\"usa-nav__submenu-item\">\n\n        \n                  <a href=\"/programs/ncrp\" class=\"link\">\n            <span class=\"\">National Corrections Reporting Program</span>\n          </a>\n        \n      </li>\n          <li class=\"usa-nav__submenu-item\">\n\n        \n                  <a href=\"/programs/ncvs\" class=\"link usa-current\">\n            <span class=\" usa-current-border\">National Crime Victimization Survey</span>\n          </a>\n        \n      </li>\n          <li class=\"usa-nav__submenu-item\">\n\n        \n                  <a href=\"/programs/national-criminal-history-improvement-program\" class=\"link\">\n            <span class=\"\">National Criminal History Improvement Program</span>\n          </a>\n        \n      </li>\n          <li class=\"usa-nav__submenu-item\">\n\n        \n                  <a href=\"/national-criminal-history-improvement-program-supplemental-funding-under-bipartisan-safer\" class=\"link\">\n            <span class=\"\">NCHIP Supplemental Funding Bipartisan Safer Communities Act</span>\n          </a>\n        \n      </li>\n          <li class=\"usa-nav__submenu-item\">\n\n        \n                  <a href=\"/national-incident-based-reporting-system-nibrs\" class=\"link\">\n            <span class=\"\">National Incident-Based Reporting System (NIBRS)</span>\n          </a>\n        \n      </li>\n          <li class=\"usa-nav__submenu-item\">\n\n        \n                  <a href=\"/programs/national-prisoner-statistics\" class=\"link\">\n            <span class=\"\">National Prisoner Statistics Program</span>\n          </a>\n        \n      </li>\n          <li class=\"usa-nav__submenu-item\">\n\n        \n                  <a href=\"/programs/NPRSP\" class=\"link\">\n            <span class=\"\">National Prison Rape Statistics Program</span>\n          </a>\n        \n      </li>\n          <li class=\"usa-nav__submenu-item\">\n\n        \n                  <a href=\"/programs/nics-improvement-amendments-act\" class=\"link\">\n            <span class=\"\">NICS Act Record Improvement Program</span>\n          </a>\n        \n      </li>\n          <li class=\"usa-nav__submenu-item\">\n\n        \n                  <a href=\"/programs/nscs\" class=\"link\">\n            <span class=\"\">National Survey of Crime and Safety (NSCS)</span>\n          </a>\n        \n      </li>\n          <li class=\"usa-nav__submenu-item\">\n\n        \n                  <a href=\"/programs/state-justice-statistics-program\" class=\"link\">\n            <span class=\"\">State Justice Statistics Program</span>\n          </a>\n        \n      </li>\n          <li class=\"usa-nav__submenu-item\">\n\n        \n                  <a href=\"/programs/vssrp\" class=\"link\">\n            <span class=\"\">Victim Services Statistical Research Program</span>\n          </a>\n        \n      </li>\n          <li class=\"usa-nav__submenu-item\">\n\n        \n                  <a href=\"/recidivism-program\" class=\"link\">\n            <span class=\"\">National Recidivism and Reentry Data Program</span>\n          </a>\n        \n      </li>\n        </ul>\n  \n        \n      </li>\n          <li class=\"usa-nav__primary-item\" >\n\n                  <button class=\"usa-accordion__button usa-nav__link\" aria-expanded=\"false\" aria-controls=\"extended-nav-section-7\">\n            <span>News</span>\n          </button>\n        \n                    \n  \n          <ul id=\"extended-nav-section-7\" class=\"usa-nav__submenu\" hidden>\n\n            <li class=\"usa-nav__submenu-item\">\n        <a href=\"/news\">\n          <span>News</span>\n        </a>\n      </li>\n      \n    \n          <li class=\"usa-nav__submenu-item\">\n\n        \n                  <a href=\"/subscribe\" class=\"link\">\n            <span class=\"\">JUSTSTATS</span>\n          </a>\n        \n      </li>\n          <li class=\"usa-nav__submenu-item\">\n\n        \n                  <a href=\"/press-releases\" class=\"link\">\n            <span class=\"\">Press Releases</span>\n          </a>\n        \n      </li>\n          <li class=\"usa-nav__submenu-item\">\n\n        \n                  <a href=\"/announcements\" class=\"link\">\n            <span class=\"\">Announcements</span>\n          </a>\n        \n      </li>\n          <li class=\"usa-nav__submenu-item\">\n\n        \n                  <a href=\"/featured\" class=\"link\">\n            <span class=\"\">Featured Content</span>\n          </a>\n        \n      </li>\n          <li class=\"usa-nav__submenu-item\">\n\n        \n                  <a href=\"https://bjs.ojp.gov/library/publications/list?series_filter=Just%20the%20Stats\" class=\"link\">\n            <span class=\"\">Just the Stats</span>\n          </a>\n        \n      </li>\n          <li class=\"usa-nav__submenu-item\">\n\n        \n                  <a href=\"/events\" class=\"link\">\n            <span class=\"\">Events</span>\n          </a>\n        \n      </li>\n          <li class=\"usa-nav__submenu-item\">\n\n        \n                  <a href=\"/events/on-demand\" class=\"link\">\n            <span class=\"\">On-Demand Events</span>\n          </a>\n        \n      </li>\n          <li class=\"usa-nav__submenu-item\">\n\n        \n                  <a href=\"/blogs\" class=\"link\">\n            <span class=\"\">BJS Blogs</span>\n          </a>\n        \n      </li>\n        </ul>\n  \n        \n      </li>\n          <li class=\"usa-nav__primary-item\" >\n\n                  <button class=\"usa-accordion__button usa-nav__link\" aria-expanded=\"false\" aria-controls=\"extended-nav-section-8\">\n            <span>Resources</span>\n          </button>\n        \n                    \n  \n          <ul id=\"extended-nav-section-8\" class=\"usa-nav__submenu\" hidden>\n\n            <li class=\"usa-nav__submenu-item\">\n        <a href=\"/resources\">\n          <span>Resources</span>\n        </a>\n      </li>\n      \n    \n          <li class=\"usa-nav__submenu-item\">\n\n        \n                  <a href=\"/frequently-asked-questions\" class=\"link\">\n            <span class=\"\">FAQs</span>\n          </a>\n        \n      </li>\n          <li class=\"usa-nav__submenu-item\">\n\n        \n                  <a href=\"/glossary\" class=\"link\">\n            <span class=\"\">Glossary</span>\n          </a>\n        \n      </li>\n          <li class=\"usa-nav__submenu-item\">\n\n        \n                  <a href=\"/related-links\" class=\"link\">\n            <span class=\"\">Related Links</span>\n          </a>\n        \n      </li>\n          <li class=\"usa-nav__submenu-item\">\n\n        \n                  <a href=\"/library/multimedia/list\" class=\"link\">\n            <span class=\"\">Multimedia</span>\n          </a>\n        \n      </li>\n          <li class=\"usa-nav__submenu-item\">\n\n        \n                  <a href=\"/month-review\" class=\"link\">\n            <span class=\"\">Month in Review</span>\n          </a>\n        \n      </li>\n        </ul>\n  \n        \n      </li>\n        </ul>\n  \n\n\n\n  </div>\n\n                            \n                              <div class=\"default\">\n                    <div class=\"region region-secondary-menu\">\n    <div class=\"usa-nav__secondary\">\n      <ul class=\"usa-nav__secondary-links\">\n\n          <li class=\"usa-nav__secondary-item\">\n        <a href=\"/contact-us\">\n          Contact Us\n        </a>\n      </li>\n          <li class=\"usa-nav__secondary-item\">\n        <a href=\"/subscribe\">\n          Subscribe\n        </a>\n      </li>\n          <li class=\"usa-nav__secondary-item\">\n        <a href=\"/saml_login\">\n          Sign In\n        </a>\n      </li>\n                  <li class=\"usa-nav__secondary-item\">\n        <div class=\"doj-sharing\">\n  <button id=\"doj-sharing-toggle\" class=\"doj-sharing__toggle\" tabindex=\"0\" title=\"Choose a social sharing platform\" aria-haspopup=\"true\" aria-controls=\"doj-sharing-links\" aria-expanded=\"false\">Share</button>\n<ul id=\"doj-sharing-links\" class=\"doj-sharing__list\" tabindex=\"0\" aria-label=\"Choose a social sharing platform\"><li><a href=\"https://www.facebook.com/sharer/sharer.php?u=https%3A//bjs.ojp.gov/ncvs-data-user-page\" title=\"Share on Facebook\" data-event-label=\"Share on Facebook\" target=\"_blank\" rel=\"noopener noreferrer\">Facebook</a></li><li><a href=\"https://twitter.com/intent/tweet?url=https%3A//bjs.ojp.gov/ncvs-data-user-page&amp;text=NCVS%20Data%20User%20Page%20\" title=\"Share on X\" data-event-label=\"Share on X\" target=\"_blank\" rel=\"noopener noreferrer\">X</a></li><li><a href=\"https://www.linkedin.com/shareArticle?mini=true&amp;url=https%3A//bjs.ojp.gov/ncvs-data-user-page&amp;title=NCVS%20Data%20User%20Page%20\" title=\"Share on LinkedIn\" data-event-label=\"Share on LinkedIn\" target=\"_blank\" rel=\"noopener noreferrer\">LinkedIn</a></li><li><a href=\"https://reddit.com/submit?url=https%3A//bjs.ojp.gov/ncvs-data-user-page&amp;title=NCVS%20Data%20User%20Page%20\" title=\"Share on Reddit\" data-event-label=\"Share on Reddit\" target=\"_blank\" rel=\"noopener noreferrer\">Reddit</a></li><li><a href=\"https://pinterest.com/pin/create/button?url=https%3A//bjs.ojp.gov/ncvs-data-user-page&amp;media=https%3A//bjs.ojp.gov/sites/bjs/files/images/2021-02/OGimage_0.png&amp;description=NCVS%20Data%20User%20Page%20\" title=\"Share on Pinterest\" data-event-label=\"Share on Pinterest\" target=\"_blank\" rel=\"noopener noreferrer\">Pinterest</a></li><li><a href=\"/cdn-cgi/l/email-protection#ae91ccc1cad793c6dadadedd8b9def8181ccc4dd80c1c4de80c9c1d881c0cdd8dd83cacfdacf83dbddcbdc83decfc9cb88cfc3de95dddbccc4cbcdda93e0edf8fd8b9c9eeacfdacf8b9c9efbddcbdc8b9c9efecfc9cb8b9c9e\" title=\"Share on Email\" data-event-label=\"Share on Email\">Email</a></li></ul>\n</div>\n      </li>\n        </ul>\n  \n</div>\n\n<div id=\"block-ojp-searchblock\" data-block-plugin-id=\"ojp_search_block\" class=\"block block-ojp-search block-ojp-search-block\">\n  \n    \n      \n<div class=\"usa-search usa-search--small\">\n  <div role=\"search\">\n    \n<div data-gname=\"ojp-search\" data-queryParameterName=\"keys\" class=\"gcse-searchbox-only\" data-resultsUrl=\"/search/results\">\n  \n</div>\n\n  </div>\n</div>\n  </div>\n\n  </div>\n\n                </div>\n              \n            \n          </div>\n        </nav>\n\n      \n  </header>\n\n  <div class=\"grid-container\">\n    <div class=\"grid-col-fill\">\n        <div class=\"region region-breadcrumb\">\n    <div id=\"block-ojp-breadcrumbs\" data-block-plugin-id=\"system_breadcrumb_block\" class=\"block block-system block-system-breadcrumb-block\">\n  \n    \n       <nav id=\"system-breadcrumb\" aria-label=\"breadcrumb\">\n        <ol class=\"add-list-reset uswds-breadcrumbs uswds-horizontal-list\">\n                            <li>\n                                            <a href=\"/\">Home</a>\n                                    </li>\n                            <li>\n                                            <a href=\"/programs\">Programs &amp; Initiatives</a>\n                                    </li>\n                            <li>\n                                            <a href=\"/programs/ncvs\">National Crime Victimization Survey</a>\n                                    </li>\n                            <li>\n                                            NCVS Data User Page \n                                    </li>\n                    </ol>\n    </nav>\n\n  </div>\n\n  </div>\n\n    </div>\n  </div>\n\n  <section class=\"clearfix\" aria-label=\"hero\">\n      <div class=\"region region-hero\">\n    <div class=\"hero hero--no_image hero--primary\">\n  <div class=\"hero-container\">\n        <div class=\"hero__no_image-container  clearfix\">\n            <div class=\"hero__text-container \">\n                \n        <h1 class=\"hero__title\">NCVS Data User Page </h1>\n        \n\n                \n                                          </div>\n\n                </div>\n  </div>\n\n    </div>\n\n\n  </div>\n\n  </section>\n\n<div class=\"usa-section uswds-middle-section \" aria-label=\"primary content\">\n  <div class=\"grid-container \">\n    <div class=\"grid-col-fill\">\n        <div class=\"region region-highlighted\">\n    <div data-drupal-messages-fallback class=\"hidden\"></div>\n\n  </div>\n\n\n      \n    </div>\n  </div>\n\n  \n  \n  <main class=\"uswds-main-content-wrapper grid-container \">\n    <a id=\"main-content\" tabindex=\"-1\"></a>\n    <div class = \"grid-row grid-gap-2\">\n\n      <div class=\"region-content tablet:grid-col-12\">\n          <div class=\"region region-content\">\n    <div id=\"block-ojp-content\" data-block-plugin-id=\"system_main_block\" class=\"block block-system block-system-main-block\">\n  \n    \n      \n\n<article>\n\n  \n    \n\n  \n  <div>\n\n    \n      \n  <div class=\"layout layout--twocol-section layout--twocol-section--50-50 layout--node-landing_page\">\n              \n      \n      </div>\n\n  \n  <div class=\"layout layout--twocol-section layout--twocol-section--75-25 layout--node-landing_page\">\n                    <div  class=\"layout__region layout__region--first\">\n        <div data-block-plugin-id=\"extra_field_block:node:landing_page:field_content_archival_notice\" class=\"block--field-content-archival-notice block block-layout-builder block-extra-field-blocknodelanding-pagefield-content-archival-notice\">\n  \n    \n      \n  </div>\n<div data-block-plugin-id=\"field_block:node:landing_page:body\" class=\"block--body block block-layout-builder block-field-blocknodelanding-pagebody\">\n  \n    \n      \n  <div class=\"use-float-friendly-lists clearfix text-formatted field field--name-body field--type-text-with-summary field--label-visually_hidden\">\n    <div class=\"field__label visually-hidden\">Description</div>\n              <div class=\"field__item\"><p>The Bureau of Justice Statistics (BJS) has developed a collection of resources for all types of data users interested in the <a href=\"https://bjs.ojp.gov/programs/ncvs\">National Crime Victimization Survey</a> (NCVS). The NCVS is the nation\u2019s primary source of information on criminal victimization.</p>\n\n<h3>National Crime Victimization Survey (NCVS) Dashboard (N-DASH) Tool</h3>\n\n<p>The <a href=\"https://ncvs.bjs.ojp.gov/Home\">N-DASH</a> provides direct and user-friendly access to NCVS data on personal and property victimization, beginning with 1993.</p>\n\n<h3>Access to NCVS Datasets</h3>\n\n<p>There are several ways to access NCVS data:</p>\n\n<ul>\n\t<li><a href=\"https://bjs.ojp.gov/national-crime-victimization-survey-ncvs-api\"><strong>NCVS Select Datasets</strong></a> are available through Application Programming Interface (API) and include a discrete set of commonly used variables for analysis. These datasets are concatenated (also referred to as longitudinal) and use a collection year basis from 1993 through the most recent year available.</li>\n\t<li><a href=\"https://www.icpsr.umich.edu/web/NACJD/series/95\"><strong>NCVS Public Use Files</strong></a> are available at the National Archive of Criminal Justice Data (NACJD) and include a broader set of variables for analysis. These datasets are available in annual and concatenated (also referred to as longitudinal) formats.</li>\n\t<li><strong><a href=\"https://www.researchdatagov.org/\">NCVS Restricted Use Files</a> </strong>are available through the Census Bureau\u2019s Federal Statistical Research Data Centers (RDC). Before researchers can access NCVS microdata, a research proposal must be submitted and approved by BJS and the Census Bureau. For more information on the proposal process, visit <a href=\"https://bjs.ojp.gov/standard-application-process\">here</a>.</li>\n</ul>\n\n<p>&nbsp;</p></div>\n          </div>\n\n  </div>\n\n      </div>\n    \n      \n      </div>\n\n  <div class=\"layout--node-landing_page layout layout--onecol\">\n    <div  class=\"layout__region layout__region--content\">\n      \n  <div data-block-plugin-id=\"inline_block:text\" data-inline-block-uuid=\"3b7eb692-1f73-4756-abeb-493497879575\" class=\"block block-layout-builder block-inline-blocktext\">\n    \n        \n          <div  class=\"use-float-friendly-lists field field--name-body field--type-text-with-summary field--label-hidden long-text\"><h3 id=\"video-resources-for-working-with-ncvs-data\"><strong>Video resources for working with NCVS data</strong></h3></div>\n\n      </div>\n\n    </div>\n  </div>\n  \n  <div class=\"layout layout--twocol-section layout--twocol-section--50-50 layout--node-landing_page\">\n                    <div  class=\"layout__region layout__region--first\">\n        \n  <div data-block-plugin-id=\"inline_block:text\" data-inline-block-uuid=\"aefafdce-c981-4337-924e-af9c85a8299f\" class=\"block block-layout-builder block-inline-blocktext\">\n    \n        \n          <div  class=\"use-float-friendly-lists field field--name-body field--type-text-with-summary field--label-hidden long-text\"><p><a href=\"https://youtu.be/e-G4BJy_pms\"><strong>University of Maryland NCVS Research Forum Session 3: NCVS User Workshop</strong></a></p><article data-langcode=\"en\" data-entity-type=\"media\" data-entity-uuid=\"46b68cd6-e10e-4094-8755-c1356c6bd014\" data-embed-button=\"media_browser\" data-entity-embed-display=\"view_mode:media.embedded\" data-entity-embed-display-settings=\"[]\" class=\"embedded-entity\" id=\"ojp-media-66861\"><article class=\"media media--type-video media--view-mode-embedded\">\n  \n      \n            <p class=\"hero__image-credit video-legal\">See the <a href=\"https://www.youtube.com/static?template=terms\">YouTube Terms of Service</a> and <a href=\"https://www.google.com/intl/en/policies/privacy/#infocollect\">Google Privacy Policy</a></p>\n      <div class=\"field field--name-field-media-video-",
+          "title": "NCVS Data User Page | Bureau of Justice Statistics",
+          "httpStatus": 200
+        }
+      ],
+      "ended": "answered",
+      "seconds": 97.1
+    },
+    "assessment": {
+      "request": {
+        "model": "z-ai/glm-5.3",
+        "max_output_tokens": 32768,
+        "tools": [
+          {
+            "type": "openrouter:web_search",
+            "parameters": {
+              "engine": "exa",
+              "max_results": 10,
+              "excluded_domains": [
+                "dataindex.us"
+              ]
+            }
+          },
+          {
+            "type": "openrouter:web_fetch",
+            "parameters": {
+              "engine": "openrouter",
+              "blocked_domains": [
+                "dataindex.us"
+              ],
+              "max_content_tokens": 10000
+            }
+          }
+        ],
+        "cache_control": {
+          "type": "ephemeral",
+          "ttl": "1h"
+        },
+        "session_id": "ncvs-z-ai/glm-5.3-t0-2026-10-09T00:48:47Z",
+        "stop_server_tools_when": [
+          {
+            "type": "step_count_is",
+            "step_count": 200
+          }
+        ],
+        "reasoning": {
+          "effort": "high"
+        },
+        "provider": {
+          "order": [
+            "z-ai"
+          ],
+          "allow_fallbacks": false
+        }
+      },
+      "response_meta": {
+        "id": "gen-1791507024-5bGqT71v4isXq8Okkq4I",
+        "object": "response",
+        "created_at": 1791507024,
+        "model": "z-ai/glm-5.3",
+        "status": "completed",
+        "completed_at": 1791507172,
+        "error": null,
+        "incomplete_details": null,
+        "tools": [],
+        "tool_choice": "auto",
+        "parallel_tool_calls": true,
+        "max_output_tokens": 32768,
+        "temperature": 1,
+        "top_p": 1,
+        "presence_penalty": 0,
+        "frequency_penalty": 0,
+        "top_logprobs": 0,
+        "max_tool_calls": null,
+        "metadata": {},
+        "background": false,
+        "previous_response_id": null,
+        "service_tier": "auto",
+        "truncation": "disabled",
+        "store": false,
+        "instructions": null,
+        "text": {
+          "format": {
+            "type": "text"
+          }
+        },
+        "reasoning": {
+          "effort": "high"
+        },
+        "safety_identifier": null,
+        "prompt_cache_key": null,
+        "prompt_cache_options": null,
+        "usage": {
+          "input_tokens": 107443,
+          "input_tokens_details": {
+            "cached_tokens": 71872
+          },
+          "output_tokens": 7858,
+          "output_tokens_details": {
+            "reasoning_tokens": 4373
+          },
+          "total_tokens": 115301,
+          "cost": 0.13806132,
+          "cost_details": {
+            "upstream_inference_cost": 0.10306132000000001,
+            "upstream_inference_input_cost": 0.06848612,
+            "upstream_inference_output_cost": 0.0345752
+          },
+          "server_tool_use_details": {
+            "web_search_requests": 6,
+            "tool_calls_requested": 6,
+            "tool_calls_executed": 6
+          }
+        }
+      },
+      "requests": [
+        {
+          "input_tokens": 107443,
+          "input_tokens_details": {
+            "cached_tokens": 71872
+          },
+          "output_tokens": 7858,
+          "output_tokens_details": {
+            "reasoning_tokens": 4373
+          },
+          "total_tokens": 115301,
+          "cost": 0.13806132,
+          "cost_details": {
+            "upstream_inference_cost": 0.10306132000000001,
+            "upstream_inference_input_cost": 0.06848612,
+            "upstream_inference_output_cost": 0.0345752
+          },
+          "server_tool_use_details": {
+            "web_search_requests": 6,
+            "tool_calls_requested": 6,
+            "tool_calls_executed": 6
+          }
+        }
+      ],
+      "searches": 6,
+      "fetches": 0,
+      "tool_items": [
+        {
+          "type": "openrouter:web_search",
+          "id": "st_tmp_k9qdk93xztj",
+          "status": "completed",
+          "action": {
+            "type": "search",
+            "query": "BJS Bureau of Justice Statistics staff layoffs 2025 NCVS data collection cuts",
+            "sources": [
+              {
+                "type": "url",
+                "url": "https://www.amstat.org/docs/default-source/amstat-documents/the-nations-data-at-risk-2025/bureau-of-justice-statistics.pdf"
+              },
+              {
+                "type": "url",
+                "url": "https://bjs.ojp.gov/document/uncvsiroptss.pdf"
+              },
+              {
+                "type": "url",
+                "url": "https://bjs.ojp.gov/programs/ncvs/instrument-redesign"
+              },
+              {
+                "type": "url",
+                "url": "https://jasher.substack.com/p/is-ncvs-in-doges-crosshairs"
+              },
+              {
+                "type": "url",
+                "url": "https://counciloncj.org/federal-data-in-the-crosshairs-whats-at-stake-for-public-safety/"
+              },
+              {
+                "type": "url",
+                "url": "https://cossa.org/wp-content/uploads/2024/04/FY-2025-Friends-of-Justice-Research-and-Statistics-Sign-on.pdf"
+              },
+              {
+                "type": "url",
+                "url": "https://bjs.ojp.gov/data-collection/ncvs"
+              },
+              {
+                "type": "url",
+                "url": "https://www.brennancenter.org/our-work/research-reports/rollback-federal-investment-research-and-data-collection-jeopardizes"
+              },
+              {
+                "type": "url",
+                "url": "https://www.amstat.org/docs/default-source/amstat-documents/pol-bjs--nij-fy25.pdf"
+              },
+              {
+                "type": "url",
+                "url": "https://withreceipts.fyi/r/1711/"
+              }
+            ]
+          }
+        },
+        {
+          "type": "openrouter:web_search",
+          "id": "st_tmp_8ks8hpy31s4",
+          "status": "completed",
+          "action": {
+            "type": "search",
+            "query": "NCVS 2024 National Crime Victimization Survey release delayed 2025 BJS",
+            "sources": [
+              {
+                "type": "url",
+                "url": "https://bjs.ojp.gov/library/publications/criminal-victimization-2024"
+              },
+              {
+                "type": "url",
+                "url": "https://www.ojp.gov/archives/pressreleases/2025/criminal-victimization-2024"
+              },
+              {
+                "type": "url",
+                "url": "https://www.ojp.gov/library/publications/criminal-victimization-2024"
+              },
+              {
+                "type": "url",
+                "url": "https://bjs.ojp.gov/data-collection/ncvs"
+              },
+              {
+                "type": "url",
+                "url": "https://bjs.ojp.gov/document/cv24.pdf"
+              },
+              {
+                "type": "url",
+                "url": "https://content.govdelivery.com/accounts/USDOJOJP_COMMS/bulletins/3f4db5b"
+              },
+              {
+                "type": "url",
+                "url": "https://bjs.ojp.gov/national-crime-victimization-survey-ncvs-api"
+              },
+              {
+                "type": "url",
+                "url": "https://bjs.ojp.gov/programs/ncvs/instrument-redesign"
+              },
+              {
+                "type": "url",
+                "url": "https://www.ojp.gov/ncjrs/virtual-library/abstracts/criminal-victimization-2024"
+              },
+              {
+                "type": "url",
+                "url": "https://ncvs.bjs.ojp.gov/single-year-comparison/characteristic/"
+              }
+            ]
+          }
+        },
+        {
+          "type": "openrouter:web_search",
+          "id": "st_tmp_vgaklqtvg4s",
+          "status": "completed",
+          "action": {
+            "type": "search",
+            "query": "NCVS information collection request OMB approval Federal Register 2025 National Crime Victimization Survey",
+            "sources": [
+              {
+                "type": "url",
+                "url": "https://www.reginfo.gov/public/do/PRAViewICR?ref_nbr=202507-1121-001"
+              },
+              {
+                "type": "url",
+                "url": "https://www.federalregister.gov/documents/2025/10/02/2025-19285/agency-information-collection-activities-proposed-ecollection-ecomments-requested-revision-of-a"
+              },
+              {
+                "type": "url",
+                "url": "https://www.federalregister.gov/documents/2025/07/24/2025-13931/agency-information-collection-activities-proposed-ecollection-ecomments-requested-revision-of-a"
+              },
+              {
+                "type": "url",
+                "url": "https://omb.report/icr/202507-1121-001"
+              },
+              {
+                "type": "url",
+                "url": "https://www.govinfo.gov/content/pkg/FR-2025-10-02/pdf/2025-19285.pdf"
+              },
+              {
+                "type": "url",
+                "url": "https://omb.report/icr/202507-1121-001/doc/original/159474601.pdf"
+              },
+              {
+                "type": "url",
+                "url": "https://www.reginfo.gov/public/do/PRAViewICR?ref_nbr=202503-1121-001"
+              },
+              {
+                "type": "url",
+                "url": "https://www.reginfo.gov/public/do/PRAViewICR?ref_nbr=202504-1121-001"
+              },
+              {
+                "type": "url",
+                "url": "https://omb.report/icr/202507-1121-001/ic/276071"
+              },
+              {
+                "type": "url",
+                "url": "https://www.reginfo.gov/public/do/DownloadDocument?objectID=163027700"
+              }
+            ]
+          }
+        },
+        {
+          "type": "openrouter:web_search",
+          "id": "st_tmp_ay0zq5f7bcf",
+          "status": "completed",
+          "action": {
+            "type": "search",
+            "query": "Alex Piquero BJS director departure 2025 Office of Justice Programs layoffs reduction in force",
+            "sources": [
+              {
+                "type": "url",
+                "url": "https://bjs.ojp.gov/announcement/alexis-r-piquero-returns-university-miami-kevin-m-scott-lead-bjs"
+              },
+              {
+                "type": "url",
+                "url": "https://www.amstat.org/docs/default-source/amstat-documents/the-nations-data-at-risk-2025/bureau-of-justice-statistics.pdf"
+              },
+              {
+                "type": "url",
+                "url": "https://cossa.org/dr-alexis-piquero-departs-bjs-dr-kevin-m-scott-to-serve-as-new-director/"
+              },
+              {
+                "type": "url",
+                "url": "https://thehill.com/opinion/criminal-justice/5473443-data-disappears-trump-administration/"
+              },
+              {
+                "type": "url",
+                "url": "https://counciloncj.org/doj-funding-update-a-deeper-look-at-the-cuts/"
+              },
+              {
+                "type": "url",
+                "url": "https://www.booker.senate.gov/imo/media/doc/20250501dojgrantterminationletter.pdf"
+              },
+              {
+                "type": "url",
+                "url": "https://www.amstat.org/docs/default-source/amstat-documents/the-nation%27s-data-at-risk-supporting-materials/bureau-of-justice-statistics.pdf"
+              },
+              {
+                "type": "url",
+                "url": "https://www.ojp.gov/sites/ojp/files/media/document/ojpfy25budgetrequestoverview508.pdf"
+              },
+              {
+                "type": "url",
+                "url": "https://asc41.org/wp-content/uploads/ASC_FY_2025_FJRS_Sign_on.pdf"
+              },
+              {
+                "type": "url",
+                "url": "https://news.miami.edu/stories/2024/01/just-the-stats-folks.html"
+              }
+            ]
+          }
+        },
+        {
+          "type": "openrouter:web_search",
+          "id": "st_tmp_sdpighoil7e",
+          "status": "completed",
+          "action": {
+            "type": "search",
+            "query": "NCVS historical data files NACJD ICPSR still available 2025 removed \"National Crime Victimization Survey\" data removal",
+            "sources": [
+              {
+                "type": "url",
+                "url": "https://www.icpsr.umich.edu/web/NACJD/studies/39273"
+              },
+              {
+                "type": "url",
+                "url": "https://www.icpsr.umich.edu/sites/nacjd/view/collections/95"
+              },
+              {
+                "type": "url",
+                "url": "https://www.icpsr.umich.edu/sites/nacjd/discover-data"
+              },
+              {
+                "type": "url",
+                "url": "https://bjs.ojp.gov/data-collection/ncvs"
+              },
+              {
+                "type": "url",
+                "url": "https://bjs.ojp.gov/ncvs-data-user-page"
+              },
+              {
+                "type": "url",
+                "url": "https://www.icpsr.umich.edu/web/NACJD/studies/38963/versions/V1"
+              },
+              {
+                "type": "url",
+                "url": "https://counciloncj.org/federal-data-in-the-crosshairs-whats-at-stake-for-public-safety/"
+              },
+              {
+                "type": "url",
+                "url": "https://www.icpsr.umich.edu/web/ICPSR/series/95;jsessionid=0CE569FBF109CD2CE8697932007062B2/publications"
+              },
+              {
+                "type": "url",
+                "url": "https://www.icpsr.umich.edu/sites/nacjd/about"
+              },
+              {
+                "type": "url",
+                "url": "https://www.icpsr.umich.edu/web/NACJD/studies/38604/export"
+              }
+            ]
+          }
+        },
+        {
+          "type": "openrouter:web_search",
+          "id": "st_tmp_2je82hca804",
+          "status": "completed",
+          "action": {
+            "type": "search",
+            "query": "NCVS sample size reduction 2025 10% housing units BJS victimization survey cut quality"
+          }
+        }
+      ],
+      "ended": "answered",
+      "seconds": 148.4
+    },
+    "session_metadata": {
+      "request": {
+        "model": "z-ai/glm-5.3",
+        "max_output_tokens": 32768,
+        "tools": [
+          {
+            "type": "openrouter:web_search",
+            "parameters": {
+              "engine": "exa",
+              "max_results": 10,
+              "excluded_domains": [
+                "dataindex.us"
+              ]
+            }
+          },
+          {
+            "type": "openrouter:web_fetch",
+            "parameters": {
+              "engine": "openrouter",
+              "blocked_domains": [
+                "dataindex.us"
+              ],
+              "max_content_tokens": 10000
+            }
+          }
+        ],
+        "cache_control": {
+          "type": "ephemeral",
+          "ttl": "1h"
+        },
+        "session_id": "ncvs-z-ai/glm-5.3-t0-2026-10-09T00:48:47Z",
+        "stop_server_tools_when": [
+          {
+            "type": "step_count_is",
+            "step_count": 200
+          }
+        ],
+        "reasoning": {
+          "effort": "high"
+        },
+        "provider": {
+          "order": [
+            "z-ai"
+          ],
+          "allow_fallbacks": false
+        }
+      },
+      "response_meta": {
+        "id": "gen-1791507174-izA5ifnZwgoSLCUBsqE5",
+        "object": "response",
+        "created_at": 1791507174,
+        "model": "z-ai/glm-5.3",
+        "status": "completed",
+        "completed_at": 1791507189,
+        "error": null,
+        "incomplete_details": null,
+        "tools": [],
+        "tool_choice": "auto",
+        "parallel_tool_calls": true,
+        "max_output_tokens": 32768,
+        "temperature": 1,
+        "top_p": 1,
+        "presence_penalty": 0,
+        "frequency_penalty": 0,
+        "top_logprobs": 0,
+        "max_tool_calls": null,
+        "metadata": {},
+        "background": false,
+        "previous_response_id": null,
+        "service_tier": "auto",
+        "truncation": "disabled",
+        "store": false,
+        "instructions": null,
+        "text": {
+          "format": {
+            "type": "text"
+          }
+        },
+        "reasoning": {
+          "effort": "high"
+        },
+        "safety_identifier": null,
+        "prompt_cache_key": null,
+        "prompt_cache_options": null,
+        "usage": {
+          "input_tokens": 22045,
+          "input_tokens_details": {
+            "cached_tokens": 17280
+          },
+          "output_tokens": 561,
+          "output_tokens_details": {
+            "reasoning_tokens": 263
+          },
+          "total_tokens": 22606,
+          "cost": 0.0136322,
+          "cost_details": {
+            "upstream_inference_cost": 0.0136322,
+            "upstream_inference_input_cost": 0.0111638,
+            "upstream_inference_output_cost": 0.0024684
+          }
+        }
+      },
+      "requests": [
+        {
+          "input_tokens": 22045,
+          "input_tokens_details": {
+            "cached_tokens": 17280
+          },
+          "output_tokens": 561,
+          "output_tokens_details": {
+            "reasoning_tokens": 263
+          },
+          "total_tokens": 22606,
+          "cost": 0.0136322,
+          "cost_details": {
+            "upstream_inference_cost": 0.0136322,
+            "upstream_inference_input_cost": 0.0111638,
+            "upstream_inference_output_cost": 0.0024684
+          }
+        }
+      ],
+      "searches": 0,
+      "fetches": 0,
+      "tool_items": [],
+      "ended": "answered",
+      "seconds": 16.2
+    }
+  },
+  "messages": [
+    {
+      "role": "user",
+      "content": "#data research\nI am researching a federal dataset. Find out everything you can about this dataset, such as who publishes it, under what authority or mandate, its history, its typical users, and its benefits to the public. Be sure your research comprehensively covers each of those perspectives, as well as any others that you discover or seem useful. I believe this is accurate information, but please check:\n\nDataset title: National Crime Victimization Survey (NCVS)\nDescription: The National Crime Victimization Survey (NCVS) is the nation's primary source of information on criminal victimization. Each year, data are obtained from a nationally representative sample of about 240,000 persons in about 150,000 households. Persons are interviewed on the frequency, characteristics, and consequences of criminal victimization in the United States.\nURL: https://bjs.ojp.gov/data-collection/ncvs\n\nReturn a complete report on everything that a preservationist, data librarian, data scientist, or policy activist might want to know about this data."
+    },
+    {
+      "role": "assistant",
+      "content": "# Research Report: National Crime Victimization Survey (NCVS)\n\n## 1. Verification of Your Description\n\nYour description is **accurate and current**. I verified it against the live BJS data-collection page (https://bjs.ojp.gov/data-collection/ncvs). The page confirms:\n\n- **Status:** Active\n- **Frequency:** Annual\n- **Collection period:** 1973\u20132024 (latest data available: 2024)\n- **Sample:** ~240,000 persons in ~150,000 households per year\n- **Your quoted description matches the BJS page verbatim**, including the listing of covered crimes (nonfatal personal crimes \u2014 rape/sexual assault, robbery, aggravated and simple assault, personal larceny \u2014 and household property crimes \u2014 burglary/trespassing, motor vehicle theft, other theft, both reported and unreported to police).\n\n---\n\n## 2. Publisher and Stewardship\n\n- **Sponsor/owner:** Bureau of Justice Statistics (BJS), the primary statistical agency of the U.S. Department of Justice, housed within the Office of Justice Programs (OJP).\n- **Data collection agent:** The U.S. Census Bureau carries out the survey under contract to BJS (a longstanding federal statistical partnership \u2014 Census provides field infrastructure, BJS provides subject-matter direction and analysis).\n- **Current BJS subject-matter experts** (per the data collection page): Rachel Morgan, Rebecca Bielamowicz, Emilie Coen, Susannah Tapp, Alexandra Thompson, Erin Tinney, and Jennifer Truman.\n- **Archival steward:** Public-use files are distributed and preserved through the **National Archive of Criminal Justice Data (NACJD)** at ICPSR, University of Michigan (NCVS series, ICPSR series #95).\n\n## 3. Legal Authority and Mandate\n\nThe NCVS rests on several statutory layers:\n\n- **Collection authority:** Title 34 U.S.C. \u00a7 10132 authorizes BJS to collect and analyze criminal justice information. The lineage of this authority traces to the **Omnibus Crime Control and Safe Streets Act of 1968**, which directly authorized collection and analysis of \"information concerning criminal victimization... including crimes against the elderly, and civil disputes\" and directed that the data serve as a \"continuous and comparable national social indication\" of crime to support national, state, and local justice policy.\n- **Original sponsor mandate:** The first sponsor, the Law Enforcement Assistance Administration (LEAA, BJS's predecessor), initiated the survey in response to **Public Law 93-83, \u00a7 515b**.\n- **Census Bureau authority:** Data are collected under Title 13 U.S.C. \u00a7 8; respondent confidentiality is protected under Title 13 U.S.C. \u00a7 9 and Title 34 U.S.C. \u00a7\u00a7 10134 and 10231. Unauthorized disclosure by a sworn Census employee is punishable by fines up to $250,000 and/or up to 5 years' imprisonment.\n- **Legislative mandates adding content:** Congress has repeatedly mandated NCVS content, including measurement of domestic violence, and the **Violence Against Women Act** requirement that the Attorney General \"acquire data about the use of excessive force by law enforcement officers\" \u2014 which produced the **Police-Public Contact Survey**, an NCVS supplement.\n- **Privacy/consent framework:** Participation is **voluntary** (no penalty for declining), per the Privacy Act of 1974; the Federal Cybersecurity Enhancement Act of 2015 also covers data transmission security.\n\n## 4. History\n\n- **1965\u20131967:** President Lyndon Johnson's \"War on Crime\" agenda led to the President's Commission on Law Enforcement and Administration of Justice (chaired by Attorney General Nicholas Katzenbach). Its 1967 report, *The Challenge of Crime in a Free Society*, found a large gap between crimes reported to police and crimes experienced by citizens, and recommended a continuous national victimization survey.\n- **1971\u20131972:** The Census Bureau piloted nationwide victimization questions as a supplement to the Quarterly Household Survey.\n- **July 1972:** The **National Crime Survey (NCS)** was fielded by LEAA with the Census Bureau \u2014 about 72,000 households, 15,000 businesses, and 26 large metropolitan areas.\n- **1973:** First full year of data collection; annual collection has continued uninterrupted ever since (50+ years).\n- **December 1979:** The survey transferred from the disbanded LEAA to the newly established BJS.\n- **Late 1970s\u20131992:** Major redesign effort (prompted in part by a 1976 National Academy of Sciences review) to improve accuracy, particularly for sexual assault and domestic violence. Key changes: a new \"screener\" questionnaire, computer-assisted telephone interviewing (CATI), and redefinition of \"series crimes\" (6+ related incidents). Redesign testing showed measured rates rose ~29% for violence, 26% for burglary, 15% for theft.\n- **1992\u20131993:** The survey was renamed the **National Crime Victimization Survey**; the new design was phased in via a half-sample overlap (January 1992\u2013June 1993) to preserve the time series, with full implementation in 1993.\n- **Budget-driven sample cuts:** 12% (1996), 4% (2002), 16% (2006), 14% (2007). The 2008 National Research Council report *Surveying Victims* warned the NCVS \"is not achieving and cannot achieve BJS's legislatively mandated goal\" at existing funding; funding subsequently increased and sample sizes recovered (e.g., ~143,000 persons interviewed in 2011, and roughly 240,000 today).\n- **2014:** The National Academies report *Estimating the Incidence of Rape and Sexual Assault* concluded the omnibus NCVS design undercounts rape/sexual assault (privacy limitations, ambiguous terminology, inefficient sampling of rare events) and recommended a separate measurement vehicle.\n- **2016\u2013present:** BJS launched a multiyear **instrument redesign** (first since 1992) to modernize the questionnaire, improve data quality, and improve crime measurement/classification; changes began entering production around 2024. BJS also developed the **National Survey of Crime and Safety (NSCS)** as a complementary collection, and a **Subnational Program** to produce state/local victimization estimates.\n- **2023:** BJS celebrated the NCVS's 50th anniversary; the survey has been cited more than 35,000 times in legislation, court cases, academic literature, and media.\n\n## 5. Methodology and Design (for the data scientist)\n\n- **Target population:** Noninstitutionalized U.S. residents age 12+ (excludes prison inmates, military barracks residents, crew of merchant vessels, U.S. citizens abroad, foreign visitors). Children under 12 are excluded; homicide is excluded (measured separately by FBI programs).\n- **Design:** Stratified multistage cluster sample of housing units; rotating panel design \u2014 each household is interviewed **7 times at 6-month intervals over 3.5 years**. The first (bounding) interview is not used in estimates; it prevents duplicate reporting across waves. Households rotate out after the 7th interview.\n- **Reference period:** The 6 months preceding the interview month. Consequently, a \"2024\" annual estimate covers crimes experienced July 1, 2023\u2013November 30, 2024, centered on March 15, 2024. Data are classified by survey year, not year of the crime \u2014 a critical nuance for time-series work.\n- **Response rates:** Historically ~95\u201396%, among the best of any large federal social survey, though subject to declining survey-response trends industry-wide.\n- **Survey structure:** Record types \u2014 household, person, and incident files \u2014 plus address files; incident-level collection of offender characteristics (age, sex, race/Hispanic origin, victim-offender relationship), weapon use, injury, economic loss, time/place, reporting to police and reasons for non-reporting, and victim experiences with the justice system and victim services.\n- **Analysis considerations:** Complex-survey weighting and variance estimation required; series-crime incidents handled specially; the 1992 redesign and 2006\u201307 sample cuts create comparability cautions; estimates for rare events (e.g., rape/sexual assault) have large coefficients of variation (~14% nationally) and subpopulation estimates are often unreliable.\n\n## 6. Data Access and Products (for the data librarian/preservationist)\n\nFour primary access channels:\n\n1. **N-DASH** (NCVS Dashboard, https://ncvs.bjs.ojp.gov/Home) \u2014 user-friendly web tool for personal and property victimization estimates, 1993 to present.\n2. **NCVS API** (\"Select Datasets\") \u2014 a discrete set of commonly used variables, concatenated/longitudinal, collection-year basis, 1993 to present.\n3. **Public Use Files (PUFs)** at **NACJD/ICPSR** \u2014 annual and concatenated files (concatenated legacy file 1992\u20132024, ICPSR study 39273; annual files, e.g., study 39272 for the most recent year). Available in Stata, R, SAS, SPSS, and ASCII with full codebooks. Open to the general public \u2014 no ICPSR membership required. Note: files are very large (household and person files run 4\u201316 GB).\n4. **Restricted Use Files** \u2014 via the Census Bureau's **Federal Statistical Research Data Centers (RDCs)**, requiring a research proposal approved by both BJS and the Census Bureau (through the Standard Application Process / researchdatagov.org). Needed mainly for subnational analyses. NACJD also offers restricted-data mechanisms (secure download, virtual data enclave, physical enclave at Ann Arbor, and RSDA online analysis) for certain collections.\n\n**Supplemental collections** fielded with the NCVS platform include the School Crime Supplement (with NCES), the Police-Public Contact Survey, the Identity Theft Supplement, and periodic supplements on fraud, elder abuse, hate crime, and family violence \u2014 many Congressionally mandated.\n\n**Documentation:** BJS publishes annual technical documentation, methodology papers, and codebooks; NACJD provides an NCVS Learning Guide and data guides. The pre-1992 National Crime Survey files are also archived, supporting a research series reaching back to 1973.\n\n## 7. Typical Users\n\n- **Criminologists and academic researchers** (victimization risk, victim-offender relationships, help-seeking behavior, reporting to police, longitudinal trends).\n- **Congress and policymakers** \u2014 Congress has repeatedly mandated NCVS content; the survey underpins national crime-policy debates.\n- **Victim service providers and compensation administrators** \u2014 to understand the nature of victimization, service needs, and gaps/disparities in assistance.\n- **Advocates and nonprofits** (e.g., the Council on Criminal Justice highlights NCVS's role in debunking the \"stranger-danger\" myth and in policy advocacy).\n- **Journalists and the public** \u2014 NCVS is the standard benchmark for the true amount of crime beyond police records.\n- **Students, courts, state/local justice planners** \u2014 increasingly so as the Subnational Program matures.\n\n## 8. Benefits to the Public\n\n- **Captures the \"dark figure\" of crime:** NCVS measures both reported and unreported crime, providing a more complete picture than the FBI's police-based programs (UCR/NIBRS), which only capture crimes known to law enforcement.\n- **Victim's perspective:** Uniquely detailed information on victims, offenders, and consequences of crime \u2014 injury, economic loss, and justice-system experiences \u2014 unavailable from administrative records.\n- **Informs policy and programs:** Used to establish criminal justice policies, allocate victim-services resources, and study crime's impact on individuals and society; provides an independent calibration for police-based crime indicators.\n- **Half-century trend series:** Enables measurement of long-run change in crime and victimization and evaluation of policy developments over time.\n- **Illuminates undercounted crimes:** Sexual violence, domestic violence, school-based violence, and fraud are often invisible in police records; NCVS is often the only reliable national source.\n- **Public accountability:** Free, open public-use data and analysis tools make these statistics accessible to everyone, not just government.\n\n## 9. Known Limitations and Critiques (for balanced framing)\n\n- Excludes homicide, commercial victimization, children under 12, and institutionalized populations.\n- National Academies (2014) findings on undercounting rape/sexual assault due to privacy, terminology, and rare-event sampling issues.\n- Historical sample-size volatility (2006\u201307 cuts) and the 1992 redesign complicate time-series comparability.\n- Self-report surveys are subject to recall error, telescoping, and respondent burden; rare-event estimates carry wide confidence intervals.\n- Subnational estimates historically unavailable (the restricted files and Subnational Program partially address this).\n\n## 10. Key Sources Consulted\n\n- BJS NCVS data collection page and program page (bjs.ojp.gov/data-collection/ncvs; /programs/ncvs)\n- BJS NCVS Data User Page, NCVS Timeline, and 50th-anniversary blogs\n- NCVS Technical Documentation (2016) \u2014 statutory authority and survey history\n- National Academies/NRC: *Surveying Victims* (2008) and *Estimating the Incidence of Rape and Sexual Assault* (2014)\n- NACJD/ICPSR NCVS series pages and restricted-data access documentation\n- Annual Review of Criminology, \"The 50th Anniversary of the NCVS\" (2024); Council on Criminal Justice commentary\n\n**Bottom line:** The NCVS is a legislatively rooted, Census-administered, BJS-published flagship federal statistical program \u2014 running continuously since 1973 \u2014 that serves as the nation's only comprehensive measure of both reported and unreported criminal victimization. It is free, well-documented, publicly archived at NACJD, and indispensable to researchers, policymakers, victim advocates, and the general public."
+    },
+    {
+      "role": "user",
+      "content": "# Dataset risk assessment\nI would like your help in assessing the likelihood that this data will be changed or removed from its primary location, and that users will no longer be able to access accurate and reliable copies of it, based on the rubric below.\n\n## Sources for context\nTo help assess the rubric categories, perform additional research on the data, the agency, the data's topics and typical users, covering topics such as proposed regulatory or funding changes, recent news, and political commentary. Use whatever resources you find useful, including the Federal Register (https://www.federalregister.gov) and the federal staffing tracker at https://usajobs-tracker.abigailhaddad.com.\n\n## Rubric\nThis rubric is divided up into categories. Each category is divided up into risk levels. In your output, please select the appropriate risk level for each category based on your research.\n\n### Historical Data Availability\n- Gone: Data files prior to the current year or cycle are no longer publicly available.\n- High Risk: Some data files prior to the current year or cycle are removed.\n- Moderate Risk: Some data elements that exist in the dataset prior to the current year or cycle are removed.\n- No Known Issue: Data prior to the current year or cycle remain accessible with no known alterations.\n\n### Future Data Availability\n- Gone: Data collection and publication has been terminated.\n- High Risk: Statutory publication deadline missed and/or collection or publication skipped and/or ICR expired for more than one year.\n- Moderate Risk: Typical or intended publication date missed and/or collection or publication delayed; ICR expired up to one year.\n- No Known Issue: Data published on time or as expected and ICR active or renewed before expiration.\n\n### Data Quality\n- Gone: Data collection and publication has been terminated.\n- High Risk: Reductions in granularity, timeliness, or frequency.\n- Moderate Risk: Potential or emerging risk to granularity, timeliness, or frequency.\n- No Known Issue: Maintained or improved granularity, timeliness, or frequency.\n\n### Statutory Context\n- Gone: N/A\n- High Risk: Statutory authorization is vague and/or there are alternative data collections that could serve as substitutes and/or no known programmatic use.\n- Moderate Risk: Not explicitly required by statute but required for the implementation of a state or federal program, and there are no alternative data collections that could serve as substitutes.\n- No Known Issue: Statutorily required and/or statutory authorization is explicitly named and it is clear what has to be collected, and there aren't alternative data collections that could serve as substitutes and/or required for implementation of a federal program.\n\n### Staffing and Funding\n- Gone: All of the staff in the division or agency are gone and/or all funding has been terminated.\n- High Risk: 40% or more of staff lost, and/or 1,000 or more staff lost, and/or budget cut by 20% or more, and/or leadership removed.\n- Moderate Risk: 10\u201339% of staff lost, and/or 500\u2013999 staff lost, and/or budget cut by 10\u201319%, and/or threatened change in leadership.\n- No Known Issue: Less than 10% of staff lost and less than 10% of budget cut and no known change in leadership.\n\n### Policy\n- Gone: Data collection and publication has been terminated.\n- High Risk: Presidential Action-driven information collection request (ICR); negative policy note on site; other significant changes in accordance with Administration priorities.\n- Moderate Risk: Proposed or pending changes; statements by administration officials suggesting a change is being considered or planned.\n- No Known Issue: No notable changes since January 2025 affecting what data is collected and published.\n\nFor each category, concisely list the evidence and supporting sources that would support each risk level. Then indicate which risk level you find most appropriate and why.\n\nConclude with a simple summary of risk levels:\nHistorical Data Availability: <level>\nFuture Data Availability: <level>\nData Quality: <level>\nStatutory Context: <level>\nStaffing and Funding: <level>\nPolicy: <level>"
+    },
+    {
+      "role": "assistant",
+      "content": "I'll research recent developments around NCVS/BJS \u2014 staffing, funding, ICR renewals, data availability, and any 2025 policy changes.I have good initial context. Now let me dig into the ICR status, BJS leadership/staffing specifics, budget proposals, and any historical data removals.The ICR picture is now clear. Let me verify historical data availability (NACJD archives, any removals) and check for further news on NCVS sample cuts or data removals.I now have a comprehensive picture. Here is the risk assessment.\n\n---\n\n# NCVS Dataset Risk Assessment\n\n**Dataset:** National Crime Victimization Survey (NCVS), Bureau of Justice Statistics (BJS), DOJ/OJP\n**Assessment date context:** Research reflects developments through early 2026.\n\n---\n\n## 1. Historical Data Availability\n\n**Evidence by level:**\n\n- *Gone:* No evidence. No pre-2025 NCVS data files have been removed.\n- *High Risk:* No evidence of removal of any annual data files.\n- *Moderate Risk:* One related incident: In early 2025, DOJ **deleted a BJS statistical brief and its accompanying dataset presenting NCVS findings on violent victimization of LGBT people**; it was reposted months later ([Council on Criminal Justice](https://counciloncj.org/federal-data-in-the-crosshairs-whats-at-stake-for-public-safety/)). This is an NCVS-*derived* product, not the core survey files.\n- *No Known Issue:* The core historical record is intact and actively maintained:\n  - The **concatenated legacy file, 1992\u20132024** (ICPSR 39273) was released at NACJD on **September 29, 2025**, open to the general public with no ICPSR membership required; annual files, codebooks, and the pre-1992 National Crime Survey series all remain archived ([NACJD study 39273](https://www.icpsr.umich.edu/web/NACJD/studies/39273); [NACJD Series 95](https://www.icpsr.umich.edu/sites/nacjd/view/collections/95)).\n  - N-DASH and the NCVS API retain data back to 1993; the API's July 2025 endpoint changes explicitly noted \"All datasets remain available using modified endpoint locations\" ([BJS API page](https://bjs.ojp.gov/national-crime-victimization-survey-ncvs-api)).\n  - SOGI variables collected through 2024 remain present in the archived public-use files.\n\n**Selected level: No Known Issue** \u2014 The primary microdata archive is complete, current, and publicly accessible, and was even refreshed on schedule in September 2025. The temporary deletion-and-restoration of the LGBT victimization brief is a warning sign worth monitoring, but no data elements were removed from the historical dataset itself.\n\n---\n\n## 2. Future Data Availability\n\n**Evidence by level:**\n\n- *Gone:* No evidence of termination.\n- *High Risk:* No missed statutory deadline; no expired ICR. (ICR 1121-0111 was **approved with change on 12/15/2025 and extended through 12/31/2028** \u2014 renewed ~11 months before the prior 11/30/2026 expiration \u2014 [Reginfo ICR 202507-1121-001](https://www.reginfo.gov/public/do/PRAViewICR?refnbr=202507-1121-001).)\n- *Moderate Risk:*\n  - **Criminal Victimization, 2024** was released **on time** (Sept 29, 2025, the 52nd annual report), so the core series is not delayed \u2014 but victimization estimates from the **2024 redesigned instrument have no announced release timeline** (\"Estimated data release timelines will be developed following the completion of data processing\" \u2014 [NCVS Instrument Redesign page](https://bjs.ojp.gov/programs/ncvs/instrument-redesign)).\n  - **All NCVS supplements (School Crime, Identity Theft, Police-Public Contact, Fraud, Supplemental Victimization Survey) were skipped in 2023 and 2024**, with restart framed only as an intention ([BJS redesign update](https://bjs.ojp.gov/document/uncvsiroptss.pdf)).\n  - In 2025, a statutorily required hate-crime-adjacent survey item was **temporarily paused** pending OMB/White House Counsel review under EO 14168, with OMB directing immediate resumption ([OMB determination, ICR docs](https://omb.report/icr/202507-1121-001/doc/original/159474601.pdf)).\n  - Census Bureau discontinued at least five surveys in 2025 (not NCVS), and Jeff Asher reported DOGE \"rumblings\" about cutting data collections not required by statute, explicitly flagging NCVS ([Asher, \"Is NCVS in DOGE's Crosshairs?\"](https://jasher.substack.com/p/is-ncvs-in-doges-crosshairs)).\n- *No Known Issue:* Core annual publication on schedule; ICR renewed well before expiration.\n\n**Selected level: Moderate Risk** \u2014 The flagship annual release and the ICR are healthy, but publication of the redesigned-instrument data is delayed with no timeline, supplements have been skipped for two cycles, and credible reporting indicates the collection was on a DOGE review list. None of this rises to a missed statutory deadline, but there are real delays and omissions beyond business-as-usual.\n\n---\n\n## 3. Data Quality\n\n**Evidence by level:**\n\n- *Gone:* Collection continues.\n- *High Risk:*\n  - **10% reduction in sampled housing units** approved in the December 2025 ICR (annual responses dropped from 180,831 to 157,439) \u2014 a direct reduction in statistical precision/granularity ([Reginfo](https://www.reginfo.gov/public/do/PRAViewICR?refnbr=202507-1121-001)).\n  - **Gender identity (and related SOGI) items removed from the NCVS questionnaire** beginning with 2025 collections, per Executive Orders \u2014 a permanent loss of a data element ([ASA, The Nation's Data at Risk 2025 \u2013 BJS](https://www.amstat.org/docs/default-source/amstat-documents/the-nations-data-at-risk-2025/bureau-of-justice-statistics.pdf); [Council on CJ](https://counciloncj.org/federal-data-in-the-crosshairs-whats-at-stake-for-public-safety/)).\n  - **Response rate fell to ~54% in 2023** (from 88% in 2013), below Census's 60% quality threshold, forcing bias-correction weight adjustments ([Council on CJ](https://counciloncj.org/federal-data-in-the-crosshairs-whats-at-stake-for-public-safety/)).\n  - In FY2024, **NCVS administration costs exceeded BJS's entire congressional budget**, and financial constraints have \"necessitated periodic reductions in sample size\" ([Council on CJ](https://counciloncj.org/federal-data-in-the-crosshairs-whats-at-stake-for-public-safety/)).\n  - Two-year pause of all supplements (frequency reduction for those collections).\n- *Moderate Risk:* One mitigating argument: the instrument redesign and split-sample were long-planned methodological improvements, and some changes (e.g., burden reduction) reflect design efficiency rather than degradation.\n- *No Known Issue:* Not supportable given the above.\n\n**Selected level: High Risk** \u2014 Actual, not merely potential, reductions have occurred: a 10% sample cut, removal of SOGI data elements, suspended supplements, and response rates below quality thresholds. The redesign will eventually improve the instrument, but near-term granularity and the continuity of several data elements have been reduced.\n\n---\n\n## 4. Statutory Context\n\n**Evidence by level:**\n\n- *High Risk:* Partially applicable concerns \u2014 commentators characterize the NCVS as \"not statutorily required\" (Asher), and the FBI's UCR/NIBRS is sometimes offered as an alternative crime measure; DOGE reportedly prioritized cutting non-statutorily-required collections.\n- *Moderate Risk:* The survey is not mandated *by name* in statute.\n- *No Known Issue:*\n  - The ICR itself cites **34 U.S.C. \u00a7 10132** as the authorizing statute, which explicitly directs collection and analysis of \"information concerning criminal victimization\" as a \"continuous and comparable national social indication\" of crime \u2014 the authorization is named and the content is clear ([Reginfo ICR](https://www.reginfo.gov/public/do/PRAViewICR?refnbr=202507-1121-001)).\n  - OMB's terms of clearance confirm BJS has a **statutory requirement under the Matthew Shepard and James Byrd, Jr. Hate Crimes Prevention Act (34 U.S.C. \u00a7 41305) satisfied through NCVS items** \u2014 the survey carries a mandatory statutory component.\n  - No genuine substitute exists: NIBRS captures only crimes *reported to police*; NCVS is the sole national measure of unreported victimization, which is its core programmatic use (victim services, VAWA implementation, Congressionally mandated studies).\n\n**Selected level: No Known Issue** \u2014 Statutory authorization is explicit, the required content is clear, a specific statutory requirement (hate crime statistics) flows through the NCVS, and no alternative collection can substitute for measuring unreported crime. Caveat: the political talking point that NCVS is \"not required by statute\" (because no law names the survey itself) creates vulnerability \u2014 but that risk is political, and is captured under Policy below.\n\n---\n\n## 5. Staffing and Funding\n\n**Evidence by level:**\n\n- *Gone:* No. BJS continues operating and publishing (six reports in July 2025 alone).\n- *High Risk:* Does not clearly meet thresholds \u2014 see below.\n- *Moderate Risk:*\n  - **~14% staff loss since FY24** (ASA estimate) \u2014 squarely in the 10\u201339% band ([ASA BJS report](https://www.amstat.org/docs/default-source/amstat-documents/the-nations-data-at-risk-2025/bureau-of-justice-statistics.pdf)).\n  - **FY26 President's Budget request of $55.7M vs. $59.1M in FY25** (~8% purchasing-power cut; appropriations line item $33M vs. $35M) \u2014 a threatened cut under the 20% threshold. ASA rates BJS resources as \"WEAK.\"\n  - **NCVS costs exceeded BJS's entire FY24 budget**, with structural underfunding documented for a decade (42% nominal budget decline since FY2010) ([Council on CJ](https://counciloncj.org/federal-data-in-the-crosshairs-whats-at-stake-for-public-safety/); [COSSA/ASC sign-on letters](https://cossa.org/wp-content/uploads/2024/04/FY-2025-Friends-of-Justice-Research-and-Statistics-Sign-on.pdf)).\n  - Parent agency stress: OJP terminated 373 grants (~$820M) in April 2025; DOJ-wide hiring freeze (Jan 20, 2025) worsens Census field-representative shortages that directly affect NCVS in-person interviewing ([Council on CJ DOJ funding update](https://counciloncj.org/doj-funding-update-a-deeper-look-at-the-cuts/); [Asher](https://jasher.substack.com/p/is-ncvs-in-doges-crosshairs)).\n- *No Known Issue:* Not supportable \u2014 leadership has also been vacant (no Senate-confirmed director since Aug 2023; Acting Director Kevin Scott unchanged), which weakens the agency's position though it is not a 2025 \"removal.\"\n\n**Selected level: Moderate Risk** \u2014 A 14% staffing loss, a proposed ~8% budget cut, chronic structural underfunding of the NCVS specifically, and parent-agency disruption together meet the Moderate thresholds (10\u201339% staff loss; threatened budget reduction; no 2025 leadership removal).\n\n---\n\n## 6. Policy\n\n**Evidence by level:**\n\n- *Gone:* No termination.\n- *High Risk:*\n  - **Executive Order-driven changes to the ICR**: BJS removed gender identity items from the NCVS questionnaire (and four other collections) to conform with Executive Orders (EO 14168 and related), reported May 2025 and confirmed in Reginfo ICR records ([ASA](https://www.amstat.org/docs/default-source/amstat-documents/the-nations-data-at-risk-2025/bureau-of-justice-statistics.pdf); [Council on CJ](https://counciloncj.org/federal-data-in-the-crosshairs-whats-at-stake-for-public-safety/)).\n  - **Deletion of an NCVS-based statistical brief and dataset** on LGBT victimization from the BJS website in early 2025 (later restored) \u2014 a negative action on published site content.\n  - An OMB/White House Counsel determination under EO 14168 forced a pause and rewording of a survey item in 2025 ([OMB/White House Counsel determination](https://omb.report/icr/202507-1121-001/doc/original/159474601.pdf)).\n  - Broader administration pattern: DOJ eliminated the National Law Enforcement Accountability Database and its BJS report (Jan 2025 EO); thousands of datasets deleted-and-sporadically-restored across government; reported DOGE targeting of non-statutory data collections.\n- *Moderate Risk:* BJS has otherwise continued publishing on schedule and maintains a public release calendar; the changes so far are scoped (SOGI items) rather than wholesale.\n- *No Known Issue:* Not supportable \u2014 significant changes aligned with Administration priorities have demonstrably occurred since January 2025 and have already altered what the NCVS collects.\n\n**Selected level: High Risk** \u2014 Presidential-action-driven changes to the collection instrument have actually been implemented (SOGI item removal, item pauses, deleted-then-restored publications), meeting the rubric's definition of significant changes in accordance with Administration priorities.\n\n---\n\n## Summary of Risk Levels\n\n| Category | Level |\n|---|---|\n| **Historical Data Availability** | **No Known Issue** |\n| **Future Data Availability** | **Moderate Risk** |\n| **Data Quality** | **High Risk** |\n| **Statutory Context** | **No Known Issue** |\n| **Staffing and Funding** | **Moderate Risk** |\n| **Policy** | **High Risk** |\n\n**Overall assessment:** The NCVS is not at immediate risk of disappearing \u2014 its half-century archive is intact and publicly accessible at NACJD, the 2024 annual report was published on time, and the ICR is renewed through 2028 under explicit statutory authority. The most acute risks are to *what the survey collects going forward* (EO-driven item removals, a 10% sample cut, suspended supplements, declining response rates) and to the *institutional capacity* behind it (14% staffing loss, underfunding that already exceeds BJS's budget, and a reported DOGE target list for non-statutory collections). A preservationist should regard the current public-use files as safe but should archive them and monitor the redesigned-instrument data release, the supplements' restart, and BJS's release calendar for deviations."
+    },
+    {
+      "role": "user",
+      "content": "Emit a session_metadata YAML block reporting: current date, model identifier, knowledge cutoff, surface, whether memory is enabled, whether custom preferences or styles are active, all tools and MCP servers available, which tools were actually called in this session, and whether attachments were present. Mark any field not directly observable as unknown rather than inferring it."
+    },
+    {
+      "role": "assistant",
+      "content": "```yaml\nsession_metadata:\n  current_date: unknown   # no datetime tool available in this session; not directly observable\n  model_identifier: unknown   # not stated in system prompt; not self-observable\n  knowledge_cutoff: unknown   # not directly observable; no reliable internal statement available\n  surface: unknown   # system prompt does not identify the interface/surface; tool naming suggests an OpenRouter-style tooling layer, but this is inference, not observation\n  memory_enabled: unknown   # no memory system indicated in this session; cannot confirm from observable context\n  custom_preferences_or_styles_active: none_observed   # no user-level preferences or style instructions present beyond task prompts\n  tools_available:\n    - openrouter_web_search   # web search returning ranked excerpts\n    - openrouter_web_fetch    # fetch full content of a web page or PDF\n  mcp_servers_available: none   # no MCP servers configured in this session\n  tools_actually_called:\n    - openrouter_web_search   # called multiple times across turns (NCVS history/authority, data access, methodology, users, risk-assessment topics: staffing, budget, ICR, data removal)\n    - openrouter_web_fetch    # called twice: bjs.ojp.gov/data-collection/ncvs and bjs.ojp.gov/ncvs-data-user-page\n  attachments_present: false   # no file attachments in this session; all input was plain text\n```"
+    }
+  ]
+}

@@ -1,0 +1,1219 @@
+{
+  "dataset": {
+    "key": "ncs",
+    "title": "National Compensation Survey (NCS)"
+  },
+  "model": "z-ai/glm-5.3",
+  "harness": "openrouter tools",
+  "context": "full: each turn's whole output is carried into the next",
+  "search_tool": {
+    "engine": "exa",
+    "max_results": 10,
+    "excluded_domains": [
+      "dataindex.us"
+    ]
+  },
+  "fetch_tool": {
+    "engine": "openrouter",
+    "blocked_domains": [
+      "dataindex.us"
+    ],
+    "max_content_tokens": 10000
+  },
+  "reasoning": "effort high",
+  "catalog": {
+    "fetched_at": "2026-10-09T00:43:56Z",
+    "entry": {
+      "id": "z-ai/glm-5.3",
+      "canonical_slug": "z-ai/glm-5.3-20260816",
+      "hugging_face_id": "zai-org/GLM-5.3",
+      "name": "Z.ai: GLM 5.3",
+      "created": 1787086655,
+      "description": "GLM-5.3 is a large-scale reasoning model from Z.ai, built for complex software engineering and long-horizon agent tasks. It supports text input and output with a 1M-token context window, and improves...",
+      "context_length": 1048576,
+      "architecture": {
+        "modality": "text->text",
+        "input_modalities": [
+          "text"
+        ],
+        "output_modalities": [
+          "text"
+        ],
+        "tokenizer": "Other",
+        "instruct_type": null
+      },
+      "pricing": {
+        "prompt": "0.000000039",
+        "completion": "0.00000339",
+        "input_cache_read": "0.000000038"
+      },
+      "top_provider": {
+        "context_length": 1048576,
+        "max_completion_tokens": 943718,
+        "is_moderated": false
+      },
+      "per_request_limits": null,
+      "supported_parameters": [
+        "frequency_penalty",
+        "include_reasoning",
+        "logit_bias",
+        "logprobs",
+        "max_tokens",
+        "min_p",
+        "parallel_tool_calls",
+        "presence_penalty",
+        "reasoning",
+        "reasoning_effort",
+        "repetition_penalty",
+        "response_format",
+        "seed",
+        "stop",
+        "structured_outputs",
+        "temperature",
+        "tool_choice",
+        "tools",
+        "top_k",
+        "top_logprobs",
+        "top_p"
+      ],
+      "default_parameters": {
+        "temperature": 1,
+        "top_p": 0.95
+      },
+      "supported_voices": null,
+      "knowledge_cutoff": null,
+      "expiration_date": null,
+      "links": {
+        "details": "/api/v1/models/z-ai/glm-5.3-20260816/endpoints"
+      },
+      "benchmarks": {
+        "design_arena": [
+          {
+            "arena": "models",
+            "category": "3d",
+            "elo": 1346,
+            "win_rate": 60.6,
+            "rank": 5
+          },
+          {
+            "arena": "models",
+            "category": "asciiart",
+            "elo": 1211,
+            "win_rate": 46,
+            "rank": 22
+          },
+          {
+            "arena": "models",
+            "category": "codecategories",
+            "elo": 1313,
+            "win_rate": 54.9,
+            "rank": 9
+          },
+          {
+            "arena": "models",
+            "category": "dataviz",
+            "elo": 1269,
+            "win_rate": 52.8,
+            "rank": 23
+          },
+          {
+            "arena": "models",
+            "category": "gamedev",
+            "elo": 1323,
+            "win_rate": 52.9,
+            "rank": 11
+          },
+          {
+            "arena": "models",
+            "category": "svg",
+            "elo": 1295,
+            "win_rate": 56.9,
+            "rank": 8
+          },
+          {
+            "arena": "models",
+            "category": "uicomponent",
+            "elo": 1323,
+            "win_rate": 57.6,
+            "rank": 9
+          },
+          {
+            "arena": "models",
+            "category": "website",
+            "elo": 1305,
+            "win_rate": 54.9,
+            "rank": 12
+          },
+          {
+            "arena": "agents",
+            "category": "htmlslides",
+            "elo": 1189,
+            "win_rate": 39.1,
+            "rank": 9
+          },
+          {
+            "arena": "agents",
+            "category": "mobileapps",
+            "elo": 1191,
+            "win_rate": 52.2,
+            "rank": 17
+          },
+          {
+            "arena": "agents",
+            "category": "python-pptxslides",
+            "elo": 1255,
+            "win_rate": 51.2,
+            "rank": 8
+          }
+        ],
+        "artificial_analysis": {
+          "intelligence_index": 44.8,
+          "coding_index": 74.8,
+          "agentic_index": 53.1
+        }
+      },
+      "reasoning": {
+        "mandatory": true,
+        "default_enabled": true,
+        "supported_efforts": [
+          "max",
+          "high",
+          "low"
+        ],
+        "default_effort": "max"
+      }
+    }
+  },
+  "upstream": [
+    "z-ai"
+  ],
+  "trial": 0,
+  "terminate_reason": "completed",
+  "max_tokens": 32768,
+  "started_at": "2026-10-09T00:43:55Z",
+  "prompts": {
+    "research": "#data research\nI am researching a federal dataset. Find out everything you can about this dataset, such as who publishes it, under what authority or mandate, its history, its typical users, and its benefits to the public. Be sure your research comprehensively covers each of those perspectives, as well as any others that you discover or seem useful. I believe this is accurate information, but please check:\n\nDataset title: National Compensation Survey (NCS)\nDescription: The National Compensation Survey (NCS) is conducted by the U.S. Bureau of Labor Statistics to collect data on wages and benefits for America's workforce. Data gathered through the NCS is used to generate the Employment Cost Index (ECI), Employer Costs for Employee Compensation (ECEC), Employee Benefits, and Modeled Wage Estimates (MWE).\n\nReturn a complete report on everything that a preservationist, data librarian, data scientist, or policy activist might want to know about this data.",
+    "assessment": "# Dataset risk assessment\nI would like your help in assessing the likelihood that this data will be changed or removed from its primary location, and that users will no longer be able to access accurate and reliable copies of it, based on the rubric below.\n\n## Sources for context\nTo help assess the rubric categories, perform additional research on the data, the agency, the data's topics and typical users, covering topics such as proposed regulatory or funding changes, recent news, and political commentary. Use whatever resources you find useful, including the Federal Register (https://www.federalregister.gov) and the federal staffing tracker at https://usajobs-tracker.abigailhaddad.com.\n\n## Rubric\nThis rubric is divided up into categories. Each category is divided up into risk levels. In your output, please select the appropriate risk level for each category based on your research.\n\n### Historical Data Availability\n- Gone: Data files prior to the current year or cycle are no longer publicly available.\n- High Risk: Some data files prior to the current year or cycle are removed.\n- Moderate Risk: Some data elements that exist in the dataset prior to the current year or cycle are removed.\n- No Known Issue: Data prior to the current year or cycle remain accessible with no known alterations.\n\n### Future Data Availability\n- Gone: Data collection and publication has been terminated.\n- High Risk: Statutory publication deadline missed and/or collection or publication skipped and/or ICR expired for more than one year.\n- Moderate Risk: Typical or intended publication date missed and/or collection or publication delayed; ICR expired up to one year.\n- No Known Issue: Data published on time or as expected and ICR active or renewed before expiration.\n\n### Data Quality\n- Gone: Data collection and publication has been terminated.\n- High Risk: Reductions in granularity, timeliness, or frequency.\n- Moderate Risk: Potential or emerging risk to granularity, timeliness, or frequency.\n- No Known Issue: Maintained or improved granularity, timeliness, or frequency.\n\n### Statutory Context\n- Gone: N/A\n- High Risk: Statutory authorization is vague and/or there are alternative data collections that could serve as substitutes and/or no known programmatic use.\n- Moderate Risk: Not explicitly required by statute but required for the implementation of a state or federal program, and there are no alternative data collections that could serve as substitutes.\n- No Known Issue: Statutorily required and/or statutory authorization is explicitly named and it is clear what has to be collected, and there aren't alternative data collections that could serve as substitutes and/or required for implementation of a federal program.\n\n### Staffing and Funding\n- Gone: All of the staff in the division or agency are gone and/or all funding has been terminated.\n- High Risk: 40% or more of staff lost, and/or 1,000 or more staff lost, and/or budget cut by 20% or more, and/or leadership removed.\n- Moderate Risk: 10\u201339% of staff lost, and/or 500\u2013999 staff lost, and/or budget cut by 10\u201319%, and/or threatened change in leadership.\n- No Known Issue: Less than 10% of staff lost and less than 10% of budget cut and no known change in leadership.\n\n### Policy\n- Gone: Data collection and publication has been terminated.\n- High Risk: Presidential Action-driven information collection request (ICR); negative policy note on site; other significant changes in accordance with Administration priorities.\n- Moderate Risk: Proposed or pending changes; statements by administration officials suggesting a change is being considered or planned.\n- No Known Issue: No notable changes since January 2025 affecting what data is collected and published.\n\nFor each category, concisely list the evidence and supporting sources that would support each risk level. Then indicate which risk level you find most appropriate and why.\n\nConclude with a simple summary of risk levels:\nHistorical Data Availability: <level>\nFuture Data Availability: <level>\nData Quality: <level>\nStatutory Context: <level>\nStaffing and Funding: <level>\nPolicy: <level>",
+    "session_metadata": "Emit a session_metadata YAML block reporting: current date, model identifier, knowledge cutoff, surface, whether memory is enabled, whether custom preferences or styles are active, all tools and MCP servers available, which tools were actually called in this session, and whether attachments were present. Mark any field not directly observable as unknown rather than inferring it."
+  },
+  "turns": {
+    "research": {
+      "request": {
+        "model": "z-ai/glm-5.3",
+        "max_output_tokens": 32768,
+        "tools": [
+          {
+            "type": "openrouter:web_search",
+            "parameters": {
+              "engine": "exa",
+              "max_results": 10,
+              "excluded_domains": [
+                "dataindex.us"
+              ]
+            }
+          },
+          {
+            "type": "openrouter:web_fetch",
+            "parameters": {
+              "engine": "openrouter",
+              "blocked_domains": [
+                "dataindex.us"
+              ],
+              "max_content_tokens": 10000
+            }
+          }
+        ],
+        "cache_control": {
+          "type": "ephemeral",
+          "ttl": "1h"
+        },
+        "session_id": "ncs-z-ai/glm-5.3-t0-2026-10-09T00:43:55Z",
+        "stop_server_tools_when": [
+          {
+            "type": "step_count_is",
+            "step_count": 200
+          }
+        ],
+        "reasoning": {
+          "effort": "high"
+        },
+        "provider": {
+          "order": [
+            "z-ai"
+          ],
+          "allow_fallbacks": false
+        }
+      },
+      "response_meta": {
+        "id": "gen-1791506636-LrCjiyfBhOBSQ9fSet4p",
+        "object": "response",
+        "created_at": 1791506636,
+        "model": "z-ai/glm-5.3",
+        "status": "completed",
+        "completed_at": 1791506759,
+        "error": null,
+        "incomplete_details": null,
+        "tools": [],
+        "tool_choice": "auto",
+        "parallel_tool_calls": true,
+        "max_output_tokens": 32768,
+        "temperature": 1,
+        "top_p": 1,
+        "presence_penalty": 0,
+        "frequency_penalty": 0,
+        "top_logprobs": 0,
+        "max_tool_calls": null,
+        "metadata": {},
+        "background": false,
+        "previous_response_id": null,
+        "service_tier": "auto",
+        "truncation": "disabled",
+        "store": false,
+        "instructions": null,
+        "text": {
+          "format": {
+            "type": "text"
+          }
+        },
+        "reasoning": {
+          "effort": "high"
+        },
+        "safety_identifier": null,
+        "prompt_cache_key": null,
+        "prompt_cache_options": null,
+        "usage": {
+          "input_tokens": 149282,
+          "input_tokens_details": {
+            "cached_tokens": 106752
+          },
+          "output_tokens": 6167,
+          "output_tokens_details": {
+            "reasoning_tokens": 2133
+          },
+          "total_tokens": 155449,
+          "cost": 0.14943232,
+          "cost_details": {
+            "upstream_inference_cost": 0.11443232,
+            "upstream_inference_input_cost": 0.08729752,
+            "upstream_inference_output_cost": 0.0271348
+          },
+          "server_tool_use_details": {
+            "web_search_requests": 7,
+            "tool_calls_requested": 11,
+            "tool_calls_executed": 11
+          }
+        }
+      },
+      "requests": [
+        {
+          "input_tokens": 149282,
+          "input_tokens_details": {
+            "cached_tokens": 106752
+          },
+          "output_tokens": 6167,
+          "output_tokens_details": {
+            "reasoning_tokens": 2133
+          },
+          "total_tokens": 155449,
+          "cost": 0.14943232,
+          "cost_details": {
+            "upstream_inference_cost": 0.11443232,
+            "upstream_inference_input_cost": 0.08729752,
+            "upstream_inference_output_cost": 0.0271348
+          },
+          "server_tool_use_details": {
+            "web_search_requests": 7,
+            "tool_calls_requested": 11,
+            "tool_calls_executed": 11
+          }
+        }
+      ],
+      "searches": 7,
+      "fetches": 4,
+      "tool_items": [
+        {
+          "type": "openrouter:web_search",
+          "id": "st_tmp_urav8fit6mc",
+          "status": "completed",
+          "action": {
+            "type": "search",
+            "query": "National Compensation Survey BLS overview what it is data products ECI ECEC benefits",
+            "sources": [
+              {
+                "type": "url",
+                "url": "https://www.bls.gov/opub/hom/ncs/home.htm"
+              },
+              {
+                "type": "url",
+                "url": "https://www.bls.gov/ocs/overview/overview-of-the-national-compensation-survey-wage-program.htm"
+              },
+              {
+                "type": "url",
+                "url": "https://www.bls.gov/opub/hom/ncs/pdf/ncs.pdf"
+              },
+              {
+                "type": "url",
+                "url": "https://www.bls.gov/opub/hom/ncs/concepts.htm"
+              },
+              {
+                "type": "url",
+                "url": "https://www.bls.gov/eci/factsheets/ncs-publications-overview.htm"
+              },
+              {
+                "type": "url",
+                "url": "https://www.bls.gov/opub/hom/ncs/data.htm"
+              },
+              {
+                "type": "url",
+                "url": "https://www.bls.gov/eci/factsheets/pdf/ncs-publications-overview.pdf"
+              },
+              {
+                "type": "url",
+                "url": "https://www.bls.gov/opub/hom/ncs/calculation.htm"
+              },
+              {
+                "type": "url",
+                "url": "https://www.bls.gov/ecec/questions-and-answers.htm"
+              },
+              {
+                "type": "url",
+                "url": "https://www.bls.gov/eci/overview/national-compensation-survey-usage.htm"
+              }
+            ]
+          }
+        },
+        {
+          "type": "openrouter:web_search",
+          "id": "st_tmp_62rag6p04vl",
+          "status": "completed",
+          "action": {
+            "type": "search",
+            "query": "National Compensation Survey history authorization mandate Bureau of Labor Statistics",
+            "sources": [
+              {
+                "type": "url",
+                "url": "https://www.bls.gov/opub/hom/ncs/history.htm"
+              },
+              {
+                "type": "url",
+                "url": "https://www.bls.gov/ocs/overview/overview-of-the-national-compensation-survey-wage-program.htm"
+              },
+              {
+                "type": "url",
+                "url": "https://www.bls.gov/opub/hom/ncs/pdf/ncs.pdf"
+              },
+              {
+                "type": "url",
+                "url": "https://www.bls.gov/opub/hom/pdf/ncs-20110404.pdf"
+              },
+              {
+                "type": "url",
+                "url": "https://www.bls.gov/opub/hom/ecec/history.htm"
+              },
+              {
+                "type": "url",
+                "url": "https://www.bls.gov/osmr/research-papers/1997/pdf/st970280.pdf"
+              },
+              {
+                "type": "url",
+                "url": "https://www.bls.gov/opub/mlr/cwc/an-overview-of-the-ebs-and-the-ncs.pdf"
+              },
+              {
+                "type": "url",
+                "url": "https://www.bls.gov/opub/mlr/cwc/the-national-compensation-survey-compensation-statistics-for-the-21st-century.pdf"
+              },
+              {
+                "type": "url",
+                "url": "https://www.bls.gov/ocs/overview/ncs-history-users-demand-area-data-nationwide-white-collar-surveys-used-to-set-federal-pay-the-service-contract-act-fepca-of-1990-and-the-creation-of-ocsp.htm"
+              },
+              {
+                "type": "url",
+                "url": "https://www.bls.gov/eci/overview/national-compensation-survey-usage.htm"
+              }
+            ]
+          }
+        },
+        {
+          "type": "openrouter:web_fetch",
+          "id": "st_tmp_039boad0pvnw",
+          "status": "completed",
+          "url": "https://www.bls.gov/eci/notices/2025/new-hom-notice.htm",
+          "content": "<!doctype html>\n<html lang=\"en\" dir=\"ltr\">\n  <head>\n    <title>New Handbook of Methods Available : U.S. Bureau of Labor Statistics</title>\n              \n\t<!-- START include/global/head.stm -->\n\t<script id=\"_fed_an_ua_tag\" src=\"https://dap.digitalgov.gov/Universal-Federated-Analytics-Min.js?agency=DOL&subagency=BLS&yt=true\"></script>\n\n\t<script src=\"/javascripts/jquery-latest.js\"></script>\n\t<script src=\"/javascripts/bls-latest.js\"></script>\n\t<script src=\"/javascripts/jquery-tools.js\"></script>\n\t<script src=\"/javascripts/jquery-migrate-1.2.1.min.js\"></script>\n\t\n\t<link rel=\"stylesheet\" href=\"/assets/bootstrap/latest/bootstrap.min.css\">\n\t<script src=\"/assets/bootstrap/latest/popper.min.js\"></script>\n\t<script src=\"/assets/bootstrap/latest/bootstrap.min.js\"></script>\n\n\n\t<link rel=\"stylesheet\" type=\"text/css\" href=\"/stylesheets/bls_combined.css\">\n\t<link rel=\"stylesheet\" type=\"text/css\" href=\"/stylesheets/bls_content.css\">\n\t<link rel=\"stylesheet\" type=\"text/css\" href=\"/stylesheets/bls_tables.css\">\n\t<link rel=\"stylesheet\" type=\"text/css\" href=\"/stylesheets/jquery-tools.css\">\n\t<link rel=\"stylesheet\" type=\"text/css\" href=\"/stylesheets/bls_nr.css\">\n    <!--[if lt IE 9]>\n\t\t<link href=\"/stylesheets/ie8-styles.css\" media=\"all\" rel=\"Stylesheet\" type=\"text/css\"> \n\t<![endif]-->\n\t<!--[if lt IE 8]>\n\t\t<link href=\"/stylesheets/ie7-styles.css\" media=\"all\" rel=\"Stylesheet\" type=\"text/css\"> \n\t<![endif]-->\n\t<!--[if lt IE 7]>\n\t\t<link href=\"/stylesheets/ie6-styles.css\" media=\"all\" rel=\"Stylesheet\" type=\"text/css\"> \n\t\t<style>\n\t\tbody {\n\t\t\tbehavior:url(/stylesheets/csshover2.htc);\n\t\t}\n\t\t</style>\t\t\t\n\t<![endif]-->\n\t<!--[if IE]>\n\t\t<style>\n\t\tbody {\n\t\t\tfont-size: expression(1 / (screen.deviceXDPI / 96) * 84 + '%');\n\t\t}\n\t\t</style>\t\n\t<![endif]-->\n\t<noscript>\n\t<link rel=\"stylesheet\" type=\"text/css\" href=\"/stylesheets/bls_noscript.css\">\n\t</noscript>\n\t<!--  This means that the browser will (probably) render the width of the page at the width of its own screen. -->\n\t<meta name=\"viewport\" content=\"width=device-width, initial-scale=1\">\n\n\t<meta http-equiv=\"x-ua-compatible\" content=\"IE=Edge\" />\n    <meta property=\"og:image\" content=\"https://www.bls.gov/images/bls_emblem_2016.png\" />\n\t<meta property=\"og:image:alt\" content=\"BLS Logo\">\n\t<meta name=\"robots\" content=\"index, follow\">\n\t<meta property=\"og:locale\" content=\"en_US\">\n\t<meta property=\"og:site_name\" content=\"Bureau of Labor Statistics\">\n\t\t<style>\n\t\t\ttd.gsc-table-cell-thumbnail{\n\t\t\tdisplay:none !important;\n\t\t\t}\n\t\t</style>\n\t<link rel=\"apple-touch-icon\" sizes=\"180x180\" href=\"/apple-touch-icon.png\" />\n\t<link rel=\"icon\" type=\"image/png\" href=\"/favicon-32x32.png\" sizes=\"32x32\" />\n\t<link rel=\"icon\" type=\"image/png\" href=\"/favicon-16x16.png\" sizes=\"16x16\" />\n\t<link rel=\"manifest\" href=\"/manifest.json\" />\n\t<link rel=\"mask-icon\" href=\"/safari-pinned-tab.svg\" color=\"#5bbad5\" />\n\t<meta name=\"theme-color\" content=\"#ffffff\" />\n    <!-- END include/global/head.stm -->\n<meta charset=\"UTF-8\">\n\n  <link rel=\"stylesheet\" type=\"text/css\" href=\"/stylesheets/bls_programs.css\">\n<style>\nimg.image-style-large {\n    max-width: 100%;\n}\n\timg.zoomable{\n\t\tcursor:zoom-in;\n\t}\n\t.bootstrap .modal-dialog:has(img) img.zoomable{\n\t\tcursor:default;\n\t}\n\t.zoomable-image-modal .modal-header {\n\t\tpadding: 0rem 1rem;\n\t\tbackground-color: #ccc;\n\t}\n\t.zoomable-image-modal .modal-dialog{\n\t\tmax-width: 95vw;\n\t}\n\t.zoomable-image-modal .modal-content {\n\t\tmax-height: 95vh;\n\t\toverflow: auto;\n\t}\n</style>\n<noscript>\n\t<style>\n\n\t\t#programs-banner.generic #program-browse{\n\t\t\tdisplay: block;\n\t\t\ttop: 3px;\n\t\t\twidth:100%;\n\t\t}\n\t\t#programs-banner.generic #program-browse > div{\n\t\t\tdisplay: block;\n\t\t\tposition: static;\n\t\t\tborder: none;\n\t\t\tborder-top: 1px solid #fff;\n\t\t\tmargin: 10px 0 0;\n\t\t}\n\t</style>\n</noscript>\n\n<script>\n$(document).ready(function(){\n\t/* Nav, tabbable*/\n\t$(\".main-content #programs-banner-nav > li a\").focus(function(){\n\t\tvar parentUL = $(this).parent().parent();\n\t\t$(\".focus\").removeClass(\"focus\");\n\t\t$(this).parent().addClass(\"focus\");\n\t\tif(parentUL.find(\"span\").size() == 1){\n\t\t\tparentUL.parent().find(\"ul\").parent().addClass(\"focus\");\n\t\t};\n\t});\n\t$(\".main-content #programs-banner-nav a\").blur(function(){\n\t\tsetTimeout(function(){if( !$(document.activeElement).parents(\"#programs-banner-nav\").size()){$(\".focus\").removeClass(\"focus\");};},100);\n\t});\n\t\n\t$(\".main-content #programs-banner-nav li\").click(function(e){\n\t\te.stopPropagation();\n\t\tif($(this).find(\"a\").attr(\"target\") == \"_blank\"){\n\t\t\twindow.open($(this).find(\"a\").attr(\"href\"));\n\t\t}else{\n\t\t\twindow.location = $(this).find(\"a\").attr(\"href\");\n\t\t}\n\t});\n\t$(\".main-content #programs-banner-nav li a\").click(function(e){\n\t\t$(this).blur();\n\t\te.stopPropagation();\n\t\te.stopImmediatePropagation();\n\t});\n\t\n\n\t$(\"#programs-banner.generic #program-browse > a\").focus(function(){\n\t\t$(this).parent().addClass(\"focused\");\n\t\t$(\"#programs-banner.generic #program-browse\").hover(function(){\n\t\t\t$(this).removeClass(\"focused\");\n\t\t\t$(\"#programs-banner.generic #program-browse *\").blur();\n\t\t});\n\t});\t\t\t\n\t$(\"#programs-banner.generic #program-browse a\").each(function(){\n\t\t$(this).blur(function(){\n\t\t\tsetTimeout(function(){\n\t\t\t\tif($(document.activeElement).parents(\"#program-browse\").length < 1 ){\n\t\t\t\t\t$(\"#programs-banner.generic #program-browse\").removeClass(\"focused\")\n\t\t\t\t};\n\t\t\t});\n\t\t});\n\t});\n\n\t/*Notices Archive Page, load*/\n\t$(\".main-content #archive-left-side .notice-items\").hide();\n\tvar archiveLeftShow = $(\".main-content #archive-left-side .notice-items\")[0];\n\t$(archiveLeftShow).show();\n\tvar archiveRightCurrent = $(\".main-content #archive-right-side a\")[0];\n\t$(archiveRightCurrent).addClass(\"current\");\n\t/*Notices Archive Page, fcns*/\n\t$(\".main-content #archive-right-side a\").click(function(e){\n\t\te.preventDefault();\n\t\t$(\".main-content #archive-right-side a.current\").removeClass(\"current\");\n\t\t$(this).addClass(\"current\");\n\t\t$(\".main-content #archive-left-side .notice-items\").hide();\n\t\t$(\".main-content #archive-left-side #notices-\"+$(this).text()).show();\n\t});\t\n\n\t$('img.zoomable').wrap('<a href=\"#\" data-toggle=\"modal\" data-target=\".zoomable-image-modal\"></a>')\n\tif($('img.zoomable').length){\n\t\t$(\"body\").append(`<div class=\"bootstrap\"><div class=\"modal zoomable-image-modal\" tabindex=\"-1\" role=\"dialog\">\n\t\t\t<div class=\"modal-dialog\" role=\"document\">\n\t\t\t<div class=\"modal-content\">\n\t\t\t\t<div class=\"modal-header\">\n\t\t\t\t<span class=\"modal-title\"></span>\n\t\t\t\t<button type=\"button\" class=\"close\" data-dismiss=\"modal\" aria-label=\"Close\">\n\t\t\t\t\t<span aria-hidden=\"true\">&times;</span>\n\t\t\t\t</button>\n\t\t\t\t</div>\n\t\t\t\t<div class=\"modal-body\">\n\t\t\t\t<p>Modal body text goes here.</p>\n\t\t\t\t</div>\n\t\t\t</div>\n\t\t\t</div>\n\t\t</div></div>`)\n\t\t$(\".zoomable-image-modal\").on('shown.bs.modal', function (event) {\n\t\t\tlet targetEl = $(event.relatedTarget)\n\t\t\t$(this).find(\".modal-body\").html(targetEl.html());\n\t\t\t$(this).find(\".modal-body\").focus();\n\t\t})\n\t}\n\n});\n</script>  \n\n\n \n      </head>\n  <body class=\"toolbar-icon-10 toolbar-loading\">\n            <div class=\"page-wrapper dialog-off-canvas-main-canvas\" data-off-canvas-main-canvas>\n          \n\n<!-- OneColHeadBasic Begin: Name -->\n\n<!-- Header Filename: \"/include/eci/eci_header.txt\" -->\n\n<!--no_index_start-->\n\n<!-- DOL BANNER BEGIN -->\n<!-- DOL BANNER START -->\n<header > <!-- Header is closed at the end of BLS banner -->\n\t\t<a class=\"skiplink\" href=\"#startcontent\">Skip to Content</a>\n\n\t\t<div id=\"usa-banner-wrapper\">\n<div id=\"usa-banner\" class=\"bootstrap standard-width\">\n\t<div class=\"content\">\n\t<div class=\"USA-flag-link\">\n\t<img src=\"https://www.dol.gov/themes/opa_theme/img/flag-favicon-57.png\" alt=\"U.S. flag\">\n\t<p>An official website of the United States government \n\t  \n\t<button type=\"button\" data-toggle=\"collapse\" data-target=\"#usaBanner\" aria-expanded=\"false\" aria-controls=\"usaBanner\">Here is how you know <span class=\"oi\" data-glyph=\"chevron-bottom\"></span></button>\n\t</p>\n\t</div>\n\t\t<a href=\"https://www.dol.gov/\" id=\"dolHolder\" class=\"dolHolder\" target=\"_blank\"><img src=\"https://www.dol.gov/themes/opa_theme/img/logo-primary.svg\" alt=\"Department of Labor Logo\"/>  United States Department of Labor</a>\n\t</div>\n\t\n\t<div class=\"collapse \" id=\"usaBanner\">\t\n\t<div class=\"row\">\n\t<div class=\"col-md-6\">\n\t\t<img src=\"https://www.dol.gov/themes/opa_theme/img/icon-dot-gov.svg\" alt=\"Dot gov\">\n\n\t\t<p>\n\t\t\t<strong>The .gov means it's official.</strong>\n\t\t\t<br> Federal government websites often end in .gov or .mil. Before sharing sensitive information,\n\t\t\tmake sure you're on a federal government site.\n\t\t</p>\n\t</div>\n\n\t<div class=\"col-md-6\">\n\t<img class=\"usa-banner-icon usa-media_block-img\" src=\"https://www.dol.gov/themes/opa_theme/img/icon-https.svg\" alt=\"Https\">\n\t\n\t\t<p>\n\t\t\t<strong>The site is secure.</strong>\n\t\t\t<br> The\n\t\t\t<strong>https://</strong> ensures that you are connecting to the official website and that any\n\t\t\tinformation you provide is encrypted and transmitted securely.\n\t\t</p>\n\t</div>\n\t</div>\n\t</div>\t\t\n</div>\n</div>\n\n\n\n<!-- DOL BANNER END -->\n\n\n<!-- DOL BANNER END -->\n<!-- BLS BANNER BEGIN -->\n\n<div id=\"bls-banner-wrapper\">\n<div id=\"top\"></div>\n\t\t<div class=\"bootstrap standard-width\">\n<div>\n  <div id=\"bls-banner\" class=\"row\">\n    <div id=\"bls-banner-emblem\" class=\"col-sm-12 col-md-7\">\n      <a href=\"https://www.bls.gov/\">U.S. Bureau of Labor Statistics</a>\n    </div>\n    <div id=\"bls-banner-right\" class=\"col-sm-12 col-md-5 d-none d-md-block\">\n<div id=\"bls-banner-links\"><a href=\"/schedule/news_release/\">Release Calendar</a> | <a href=\"javascript:window.open('https://public.govdelivery.com/accounts/USDOLBLS/subscriber/new ','Popup','width=800,height=500,toolbar=no,scrollbars=yes,resizable=yes'); void('');\" onclick=\"window.status='Subscribe'; return true\" onmouseover=\"window.status='Subscribe'; return true\" onmouseout=\"window.status=''; return true\" id=\"social-email-1\" title=\"Subscribe to BLS E-mail Updates\" aria-label=\"Subscribe to BLS E-mail Updates\">Subscribe</a></div> \n      <div id=\"bls-banner-search1\" class=\"bls-banner-search\">\n        <form method=\"get\" action=\"/search/query\">\n\t\t  <label for=\"bls-banner-search-submit1\" class=\"invisible\">Search button</label>\n          <input type=\"image\" src=\"/images/buttons/search_button_blue_16.png\" name=\"term\" id=\"bls-banner-search-submit1\" alt=\"BLS Search Submit\" title=\"Submit\" >\n\t\t  <label for=\"bls-banner-search-input1\" class=\"invisible\">Search:</label>\n          <input name=\"query\" type=\"text\" id=\"bls-banner-search-input1\" value=\"Search BLS.gov\" title=\"Search Input\" onclick=\"this.value=''; this.onclick = null;\">\n\n        </form>\n      </div>\n    </div>\n    <div class=\"clearfloat\"></div>\n  </div>\n</div>\n</div>\n</div>\n</header> <!-- Header is opened at the begining of DOL banner -->\n\n<!-- BLS BANNER END -->\n<!-- MAIN NAV BEGIN -->\n\n<div id=\"main-nav-wrapper\">\r\n\t<div id=\"main-nav-container\">\r\n\t\t<div>\r\n\t\t\t<div class=\"bootstrap standard-width\">\n<nav aria-label=\"top-level navigation menu\" class=\"navbar navbar-expand-md\">\n  \n  \n   <button class=\"navbar-toggler\" type=\"button\" data-toggle=\"collapse\" data-target=\"#navbarSupportedContent\" aria-controls=\"navbarSupportedContent\" aria-expanded=\"false\" aria-label=\"Toggle navigation menu\">\n    <span class=\"navbar-toggler-icon\">Menu</span>\n  </button>\n  <div class=\"collapse navbar-collapse\" id=\"navbarSupportedContent\">\n  \n\n\n<ul class=\"nojs navbar-nav mr-auto\">\n     <li class=\"dropdownSearch\"><div id=\"bls-banner-search\" class=\"dropdown-search\">\n        <form method=\"get\" action=\"/search/query\">\n\t\t  <label for=\"bls-banner-search-submit\" class=\"invisible\">Search button</label>\n          <input type=\"image\" src=\"/images/buttons/search_button_blue_20.png\" name=\"term\" id=\"bls-banner-search-submit\" alt=\"BLS Search Submit\" title=\"Submit\">\n\t\t  <label for=\"bls-banner-search-input\" class=\"invisible\">Search:</label>\n          <input name=\"query\" type=\"text\" id=\"bls-banner-search-input\" value=\"Search BLS.gov\" title=\"Search Input\" onclick=\"this.value=''; this.onclick = null;\">\n\n        </form>\n      </div>\n\t\n\t  <div class=\"bls-banner-links-mob\"><a href=\"/schedule/news_release/\">Release Calendar</a> | <a href=\"javascript:window.open('https://public.govdelivery.com/accounts/USDOLBLS/subscriber/new ','Popup','width=800,height=500,toolbar=no,scrollbars=yes,resizable=yes'); void('');\" onclick=\"window.status='Subscribe'; return true\" onmouseover=\"window.status='Subscribe'; return true\" onmouseout=\"window.status=''; return true\" id=\"social-email-2\" title=\"Subscribe to BLS E-mail Updates\" aria-label=\"Subscribe to BLS E-mail Updates\">Subscribe</a></div>\n\t</li>\n    <li class=\"nav-item dropdown\"><a class=\"nav-link dropdown-toggle\" href=\"https://www.bls.gov/\" role=\"button\" data-toggle=\"dropdown\" aria-haspopup=\"true\" aria-expanded=\"false\">Home <span class=\"circle-arrow\"></span></a>\n        <div class=\"dropdown-menu\"><!-- ********************************************** Begin Home Tab LIST ****************************************** -->\n<!-- 1st column -->\n<div class=\"main-nav-submenu\" id=\"submenu-home\">\n\t<ul class=\"main-nav-submenu-inn\">\n\t\n\t\t<li class=\"heading\"><a href=\"/about-bls/home.htm\" aria-label=\"About BLS\">About BLS</a></li>\n\t\t<li><a href=\"/bls/history/home.htm\" aria-label=\"BLS History\">History</a></li>\t\n\t\t<li><a href=\"/bls/senior_staff/home.htm\" aria-label=\"Our Leadership\">Our Leadership</a></li>\n\t\t<li><a href=\"/bls/bls_budget_and_performance.htm\" aria-label=\"Budget and Performance\">Budget and Performance</a></li>\t\t\n\t\t<li><a href=\"/bls/faqs.htm\" aria-label=\"Questions and Answers\">Questions and Answers</a></li>\t\n\t\t<li><a href=\"/bls/topicsaz.htm\" aria-label=\"A-Z Index\">A-Z Index</a></li>\t\n\t\t<li><a href=\"/bls/glossary.htm\" aria-label=\"Glossary\">Glossary</a></li>\t\n\t\t<li><a href=\"/bls/bls-speakers/\" aria-label=\"BLS Speakers Available\">BLS Speakers Available</a></li>\n\t\t<li><a href=\"/errata/\" aria-label=\"Errata\">Errata</a></li>  \t\t\t\t\n\t\t<li><a href=\"/bls/contact.htm\" aria-label=\"Contact BLS\">Contact BLS</a></li>\t\n\n\t</ul>\t\n\t<!-- 2nd column -->\t\n<ul class=\"main-nav-submenu-inn\">\t\n\t\t<li class=\"heading\"><a href=\"/bls/overview.htm\" aria-label=\"Overview of BLS Statistics\">Overview of BLS Statistics</a></li>\n\t\t<li><a href=\"/information-guide/home.htm\" aria-label=\"Guide to Programs & Services\">Guide to Programs &amp; Services</a></li>\n\t\t<li><a href=\"/bls/demographics.htm\" aria-label=\"Demographics Data\">Demographics</a></li>\n\t\t<li><a href=\"/bls/industry.htm\" aria-label=\"Statistics by Industries\">Industries</a></li>\n\t\t<li><a href=\"/bls/business.htm\" aria-label=\"Statistics on Business Costs\">Business Costs</a></li>\n\t\t<li><a href=\"/bls/occupation.htm\" aria-label=\"Statistics by Occupations\">Occupations</a></li>\n\t\t<li><a href=\"/bls/geography.htm\" aria-label=\"Statistics by Geography\">Geography</a></li>\t\n\t\n\t</ul>\n\t<!-- 3rd column -->\n\t<ul class=\"main-nav-submenu-inn\">\n\t\t<li class=\"heading\"><a href=\"/audience/\" aria-label=\"Resources For\">Resources For</a></li>\n\t\t<li><a href=\"/audience/business.htm\" aria-label=\"Resources for Business Leaders\">Business Leaders</a></li>\n\t\t<li><a href=\"/audience/consumers.htm\" aria-label=\"Resources for Consumers\">Consumers</a></li>\n\t\t<li><a href=\"/audience/developers.htm\" aria-label=\"Developers site\">Developers</a></li>\n\t\t<li><a href=\"/audience/economists.htm\" aria-label=\"Economists or Economic Analyst\">Economists</a></li>\n\t\t<li><a href=\"/audience/investors.htm\" aria-label=\"Resources for Financial Investors\">Investors</a></li>\n\t\t<li><a href=\"/audience/jobseekers.htm\" aria-label=\"Resources for Jobseekers\">Jobseekers</a></li>\n\t\t<li><a href=\"/audience/media.htm\" aria-label=\"Media\">Media</a></li>\n\t\t<li><a href=\"/audience/policy.htm\" aria-label=\"Resources for Public Policymakers\">Public Policymakers</a></li>\n\t\t<li><a href=\"/audience/researcher.htm\" aria-label=\"Researcher\">Researcher</a></li>\t\t\n\t\t<li><a href=\"/audience/students.htm\" aria-label=\"Resources for Students & Teachers\">Students &amp; Teachers</a></li>\n\t\t<li><a href=\"/respondents/\" aria-label=\"Survey Respondents\">Survey Respondents</a></li>\n\t</ul>\n</div>\n\n<!-- ***********************************************End Home Tab LIST ******************************************** --> \n\n</div>\n    </li>\n    <li class=\"nav-item dropdown active\"><a class=\"nav-link dropdown-toggle\" href=\"/bls/proghome.htm\" role=\"button\" data-toggle=\"dropdown\" aria-haspopup=\"true\" aria-expanded=\"false\">Subjects <span class=\"circle-arrow\"></span></a>\n        <div class=\"dropdown-menu\"><!-- ************************************* Begin SUBJECTS TAB list ****************************************** -->\n<!-- 1st column -->\n<div class=\"main-nav-submenu\" id=\"submenu-programs\">\n\t<ul class=\"main-nav-submenu-inn\">\n\t\t<li class=\"heading\"><a href=\"/bls/inflation.htm\" aria-label=\"Statistics on Inflation & Prices\">Inflation &amp; Prices</a></li>\n\t\t<li><a href=\"/cpi/\" aria-label=\"Consumer Price Index \">Consumer Price Index</a></li>\n\t\t<li><a href=\"/ppi/\" aria-label=\"Producer Price Indexes\">Producer Price Indexes</a></li>\n\t\t<li><a href=\"/mxp/\" aria-label=\"Import/Export Price Indexes\">Import/Export Price Indexes</a></li>\n\t\t<li><a href=\"/bls/escalation.htm\" aria-label=\"Contract Escalation\">Contract Escalation</a></li>\n\t\t<li><a href=\"/pir/\" aria-label=\"Price Index Research\">Price Index Research</a></li>\n\t\t<li class=\"heading\"><a href=\"/bls/wages.htm\" aria-label=\"Statistics on Pay & Benefits\">Pay &amp; Benefits</a></li>\n\t\t<li><a href=\"/eci/\" aria-label=\"Employment Cost Index\">Employment Cost Index</a></li>\n\t\t<li><a href=\"/ecec/home.htm\" aria-label=\"Employer Costs for Employee Compensation\">Employer Costs for Employee Compensation</a></li>\n\t\t\t\t\t\t<li><a href=\"https://www.bls.gov/oes/\" aria-label=\"Wage Data by Occupation\">Wage Data by Occupation</a></li>\n\t\t<li><a href=\"/cps/earnings.htm#demographics\" aria-label=\"Earnings by Demographics\">Earnings by Demographics</a></li>\n\t\t<li><a href=\"/ces/\" aria-label=\"Earnings by Industry\">Earnings by Industry</a></li>\n\t\t<li><a href=\"https://www.bls.gov/cew/\" aria-label=\"County Wages\">County Wages</a></li>  <!--full path is needed since they have a folder on the data server-->\n\t\t<li><a href=\"/ebs/\" aria-label=\"Employee Benefits Survey\">Benefits</a></li>\n\t\t<li><a href=\"/mwe/\" aria-label=\"Modeled Wage Estimates\">Modeled Wage Estimates</a></li>\t\t\n\t\t<li><a href=\"/crp/\" aria-label=\"Compensation Research & Program Development\">Compensation Research</a></li>\n\t\t<li><a href=\"/wsp/\" aria-label=\"Strikes & Lockouts\">Strikes &amp; Lockouts </a></li>\n\t\t<li><a href=\"/wrp/\" aria-label=\"Wage Records from Unemployment Insurance\">Wage Records from Unemployment Insurance</a></li>\n\t\t<li class=\"heading\"><a href=\"/ors/\" aria-label=\"Occupational Requirements Survey\">Occupational Requirements</a></li>\t\t\n\t</ul>\n\t<!-- 2nd column -->\n\t<ul class=\"main-nav-submenu-inn\">\n\t\t<li class=\"heading\"><a href=\"/bls/unemployment.htm\" aria-label=\"Statistics on Unemployment\">Unemployment</a></li>\n\t\t<li><a href=\"/cps/\" aria-label=\"National Unemployment Rate\">National Unemployment Rate </a></li>\n\t\t<li><a href=\"/lau/\" aria-label=\"State & Local Unemployment Rates\">State &amp; Local Unemployment Rates </a></li>\n\t\t<li><a href=\"/ers/\" aria-label=\"Unemployment Research\">Unemployment Research</a></li>\n\t\t<li class=\"heading\"><a href=\"/bls/employment.htm\" aria-label=\"Statistics on Employment\">Employment</a></li>\n\t\t<li><a href=\"/ces/\" aria-label=\"National Employment Statistics\">National Employment </a></li>\n\t\t<li><a href=\"/sae/\" aria-label=\"State & Local Employment, Hours, and Earnings\">State &amp; Local Employment </a></li>\n\t\t<li><a href=\"https://www.bls.gov/cew/\" aria-label=\"County Employment\">County Employment </a></li> <!--full path is needed since they have a folder on the data server-->\n\t\t<li><a href=\"/cps/\" aria-label=\"Worker Characteristics\">Worker Characteristics </a></li>\n\t\t<li><a href=\"/air/\" aria-label=\"American Indian Report\">American Indian Report</a></li>\n\t\t<li><a href=\"/emp/\" aria-label=\"Employment Projections\">Employment Projections </a></li>\n\t\t<li><a href=\"/jlt/\" aria-label=\"Job Openings & Labor Turnover Survey\">Job Openings &amp; Labor Turnover Survey </a></li>\n\t\t<li><a href=\"/brs/\" aria-label=\"Business Response Survey\">Business Response Survey</a></li>\n\t\t<li><a href=\"https://www.bls.gov/oes/\" aria-label=\"Employment by Occupation\">Employment by Occupation </a></li>\n\t\t<li><a href=\"/nls/\" aria-label=\"Work Experience Over Time\">Work Experience Over Time </a></li>\n\t\t<li><a href=\"/bdm/\" aria-label=\"Business Employment Dynamics\">Business Employment Dynamics </a></li>\n\t\t<li><a href=\"/fdi/\" aria-label=\"Foreign Direct Investment\">Foreign Direct Investment </a></li>\n\t\t<li><a href=\"/ers/\" aria-label=\"Employment Research and Program Development\">Employment Research</a></li>\n\t\t<li class=\"heading\"><a href=\"/iif/\" aria-label=\"Workplace Injuries, Illnesses, and Fatalities\">Workplace Injuries</a></li>\n\t</ul>\n\t<!-- 3rd column -->\n\t<ul class=\"main-nav-submenu-inn\">\n\t\t<li class=\"heading\"><a href=\"/bls/productivity.htm\" aria-label=\"Productivity Statistics\">Productivity</a></li>\n\t\t<li><a href=\"/productivity/\" aria-label=\"Labor and Total Factor Productivity\">Labor and Total Factor Productivity</a></li>\n\t\t<li><a href=\"/dpr/\" aria-label=\"Productivity Research and Program Development\">Productivity Research</a></li>\n\t\t<li class=\"heading\"><a href=\"/bls/spending.htm\" aria-label=\"Statistics on Spending & Time Use\">Spending &amp; Time Use</a></li>\n\t\t<li><a href=\"/cex/\" aria-label=\"Consumer Expenditures Surveys\">Consumer Expenditures </a></li>\n\t\t<li><a href=\"/tus/\" aria-label=\"How Americans Spend Time Survey\">How Americans Spend Time</a></li>\t\t\t\n\t\t<li class=\"heading\"><a href=\"/bls/international.htm\" aria-label=\"International Data and Technical Cooperation\">International</a></li>\n\t\t<li><a href=\"/itc/\" aria-label=\"International Technical Cooperation\">International Technical Cooperation</a></li>\n\t\t<li><a href=\"/mxp/\" aria-label=\"Import/Export Price Indexes\">Import/Export Price Indexes</a></li>\n\t\t<li class=\"heading\"><a href=\"/regions/\" aria-label=\"Geographic Information\">Geographic Information</a></li>\n\t\t<li><a href=\"/regions/northeast/\" aria-label=\"Northeast (Boston-New York) Information Office\">Northeast (Boston-New York)</a></li>\n\t\t<li><a href=\"/regions/mid-atlantic/\" aria-label=\"Mid-Atlantic (Philadelphia) Information Office\">Mid-Atlantic (Philadelphia)</a></li>\n\t\t<li><a href=\"/regions/southeast/\" aria-label=\"Southeast (Atlanta) Information Office\">Southeast (Atlanta)</a></li>\n\t\t<li><a href=\"/regions/midwest/\" aria-label=\"Midwest (Chicago) Information Office\">Midwest (Chicago)</a></li>\n\t\t<li><a href=\"/regions/southwest/\" aria-label=\"Southwest (Dallas) Information Office\">Southwest (Dallas)</a></li>\n\t\t<li><a href=\"/regions/mountain-plains/\" aria-label=\"Mountain-Plains (Kansas City) Information Office\">Mountain-Plains (Kansas City)</a></li>\n\t\t<li><a href=\"/regions/west/\" aria-label=\"West (San Francisco) Information Office\">West (San Francisco)</a></li>\n\t</ul>\n</div>\n<!-- **************************************End SUBJECT AREAS ******************************************** --> \n\t</div>\t\n    </li>\n    <li class=\"nav-item dropdown\"><a class=\"nav-link dropdown-toggle\" href=\"/data/\" role=\"button\" data-toggle=\"dropdown\" aria-haspopup=\"true\" aria-expanded=\"false\">Data Tools <span class=\"circle-arrow\"></span></a>\n        <div class=\"dropdown-menu\"><!-- ******************************************** Begin DATA TOOLS LIST ****************************************** -->\n<div class=\"main-nav-submenu\"  id=\"submenu-data\">\n    <ul class=\"main-nav-submenu-inn\">\n        <li class=\"heading\"><a href=\"/data/tools.htm\" aria-label=\"Data Retrieval Tools Databases, Tables & Calculators by Subject\">Data Retrieval Tools</a></li>\n\t\t<li><a href=\"https://data.bls.gov/toppicks?code=&survey=bls\" aria-label=\"BLS Popular Series Top Picks\">BLS Popular Series</a></li>\n\t\t<li><a href=\"https://data.bls.gov/series-report\" aria-label=\"Series Report\">Series Report</a></li>\n\t\t<li><a href=\"/data/home.htm\" aria-label=\"Top Picks, One Screen, Multi-Screen, and Maps\" >Top Picks, One Screen, Multi-Screen, and Maps</a></li>\n\t\t<li><a href=\"https://data.bls.gov/dataQuery/search\" aria-label=\"Data Finder\">Data Finder</a></li>\n\t\t<li><a href=\"/developers/home.htm\" aria-label=\"Public Data API Programming Interface\">Public Data API</a></li>\n\n    </ul>\n    <!-- 2nd column -->\n    <ul class=\"main-nav-submenu-inn\">\n        <li class=\"heading\"><a href=\"/data/apps.htm\" aria-label=\"Charts and Applications\">Charts and Applications</a></li>\n\t\t<li><a href=\"/charts/home.htm\" aria-label=\"Charts for Economic News Releases\">Charts for Economic News Releases</a></li>\t\n\t\t<li><a href=\"/data/inflation_calculator.htm\" aria-label=\"CPI Inflation Calculator\">CPI Inflation Calculator</a></li>\t\n\t\t<li><a href=\"https://data.bls.gov/iirc/\" aria-label=\"Injury and Illness Calculator\">Injury and Illness Calculator</a></li>\t\t\n\t\t<li><a href=\"https://data.bls.gov/apps/compensation-comparison-matrix/home.htm\" aria-label=\"Pay Measure Comparison\">Pay Measure Comparison</a></li>\n\t\t<li><a href=\"https://data.bls.gov/apps/demographic-comparison-matrix/home.htm\" aria-label=\"Demographic Data Sources\">Demographic Data Sources</a></li>\n\t\t<li><a href=\"https://data.bls.gov/apps/covid-dashboard/home.htm\" aria-label=\"COVID-19 Economic Trends\">COVID-19 Economic Trends</a></li>\n\t\t<li><a href=\"https://data.bls.gov/apps/industry-productivity-viewer/home.htm\" aria-label=\"Industry Productivity Viewer\" >Industry Productivity Viewer</a></li>\n\t\t<li><a href=\"https://data.bls.gov/cew/apps/data_views/data_views.htm#tab=Tables\" aria-label=\"Employment and Wages Data Viewer\">Employment and Wages Data Viewer</a></li>\n\t\t<li><a href=\"https://data.bls.gov/cew/apps/bls_naics/bls_naics_app.htm\" aria-label=\"Industry Finder from the Quarterly Census of Employment and Wages\">Industry Finder from the Quarterly Census of Employment and Wages</a></li>\n\t\n    </ul>\n\t<!-- 3rd column -->\n\t<ul class=\"main-nav-submenu-inn\">\n\t    <li class=\"heading\"><a href=\"/data/tables.htm\" aria-label=\"Customized Tables\">Customized Tables</a></li>\n\t\t<li><a href=\"/eag/eag.us.htm\" aria-label=\"U.S. Economy at a Glance\">U.S. Economy at a Glance</a></li>\n\t\t<li><a href=\"/eag/home.htm\" aria-label=\"Regions, States & Areas at a Glance\">Regions, States &amp; Areas at a Glance</a></li>\n\t\t<li><a href=\"/iag/home.htm\" aria-label=\"Industry at a Glance\">Industry at a Glance</a></li>\t\t\t\n\t\t<li><a href=\"https://download.bls.gov/pub/time.series/\" aria-label=\"Text Files\">Text Files</a></li>\n\t\t<li><a href=\"/data/#historical-tables\" aria-label=\"Historical News Release Tables\">News Release Tables</a></li>\n\t\t\n\t\t<li class=\"heading\"><a href=\"/bls/moredata.htm\" aria-label=\"More Sources of Data\">More Sources of Data</a></li>\n\t\t<li><a href=\"/rda/home.htm\" aria-label=\"Bureau of Labor Statistics Restricted Data Access\">Restricted Data Access</a></li>\n\t\t<li><a href=\"/data/archived.htm\" aria-label=\"Discontinued Databases\">Discontinued Databases </a></li>\n\t\t<li><a href=\"/help/hlpform1.htm\" aria-label=\"Questions & Answers regarding Bureau of Labor Statistics website data retrieval tools\">Questions &amp; Answers</a></li>\n\t\t<li><a href=\"/help/notice.htm\" aria-label=\"Special Notices\">Special Notices </a></li>\t\n\t</ul>\n</div>\n<!-- *********************************************End DATABASES and TOOLS LIST ******************************************** --></div>\n    </li>\n    <li class=\"nav-item dropdown\"><a class=\"nav-link dropdown-toggle\" href=\"/opub/\" role=\"button\" data-toggle=\"dropdown\" aria-haspopup=\"true\" aria-expanded=\"false\">Publications <span class=\"circle-arrow\"></span></a>\n        <div class=\"dropdown-menu\"><!-- ********************************************** Begin PUBLICATIONS LIST ****************************************** -->\n<div class=\"main-nav-submenu\"  id=\"submenu-pubs\">    \n    <ul class=\"main-nav-submenu-inn\"> \n\t\t<li class=\"heading\"><a href=\"/opub/\" aria-label=\"Latest Publications\">Latest Publications</a></li>\n\t\t<li><a href=\"/opub/ted/\" aria-label=\"The Economics Daily\">The Economics Daily</a></li>\n\t\t<li><a href=\"/opub/mlr/\" aria-label=\"Monthly Labor Review\">Monthly Labor Review</a></li>\n\t\t<li><a href=\"/opub/btn/\" aria-label=\"Beyond the Numbers\">Beyond the Numbers</a></li>\n\t\t<li><a href=\"/spotlight/\" aria-label=\"Spotlight on Statistics\">Spotlight on Statistics</a></li>\n\t\t<li><a href=\"/opub/reports\" aria-label=\"Bureau of Labor Statistics Reports\">Reports</a></li>\n\t\t<li><a href=\"/video/\" aria-label=\"Videos\">Videos</a></li>\n\t\t<li><a href=\"/careeroutlook/\" aria-label=\"Career Outlook\">Career Outlook</a></li>\t\t\n    </ul>\n    <!-- 2nd column -->\n    <ul class=\"main-nav-submenu-inn\">\n\t\t<li><a href=\"/ooh/\" aria-label=\"Occupational Outlook Handbook\">Occupational Outlook Handbook</a></li>\n\t\t<li><a href=\"/opub/geographic-profile/\" aria-label=\"Geographic Profile\">Geographic Profile</a></li>\n\t\t<li><a href=\"/opub/hom/\" aria-label=\"Handbook of Methods\">Handbook of Methods</a></li>\n\t\t<li><a href=\"/osmr/research-papers/\" aria-label=\"Research Papers - Office of Survey Methods Research\">Research Papers</a></li>\n\t\t<li><a href=\"/opub/copyright-information.htm\" aria-label=\"Copyright Information\">Copyright Information</a></li>\n\t\t<li><a href=\"/opub/opbinfo.htm\" aria-label=\"Contact & Help\">Contact &amp; Help </a></li>\n\t\t<li><a href=\"/opub/update.htm\" aria-label=\"Weekly Update\">Weekly Update</a></li>\t\t\n    </ul>\n</div>\n<!-- ***********************************************End PUBLICATIONS LIST ******************************************** --> </div>\n    </li>\n    <li class=\"nav-item dropdown\"><a class=\"nav-link dropdown-toggle\" href=\"/bls/newsrels.htm\" role=\"button\" data-toggle=\"dropdown\" aria-haspopup=\"true\" aria-expanded=\"false\">Economic Releases <span class=\"circle-arrow\"></span></a>\n        <div class=\"dropdown-menu\"><!-- ********************************************** Begin ECONOMIC RELEASES LIST ****************************************** -->\n<!-- 1st column -->\n\n<div class=\"main-nav-submenu\" id=\"submenu-news\">\n    <ul class=\"main-nav-submenu-inn\">\n        <li class=\"heading\"><a href=\"/bls/newsrels.htm#latest-releases\" aria-label=\"Latest Releases\">Latest Releases</a></li>\n\t\t<li class=\"heading\"><a href=\"/bls/newsrels.htm#major\" aria-label=\"Major Economic Indicators\">Major Economic Indicators</a></li>\n\t\t<li class=\"heading\"><a href=\"/schedule/news_release/\" aria-label=\"Schedules for news Releases\">Schedules for news Releases</a></li>\n\t\t<li><a href=\"/schedule/\" aria-label=\"Release Calendar By Month\">By Month</a></li>\n\t\t<li><a href=\"/schedule/schedule/by_prog/all_sched.htm\" aria-label=\"Release Calendar By News Release\">By News Release</a></li>\n\t\t<li><a href=\"/schedule/news_release/current_year.asp\" aria-label=\"Release Calendar Current Year\">Current Year</a></li>\n\t\t<li><a href=\"/bls/archived_sched.htm\" aria-label=\"Schedules for Selected Bureau of Labor Statistics Economic News Releases for Prior Years\">Prior Years</a></li>\n\t\t<li class=\"heading\"><a href=\"/bls/news-release/\" aria-label=\"Archived News Releases\">Archived News Releases</a></li>\n    </ul>\n    <!-- 2nd column -->\n    <ul class=\"main-nav-submenu-inn\">\n        <li class=\"heading\"><a href=\"/bls/newsrels.htm#OEUS\" aria-label=\"Employment & Unemployment\">Employment &amp; Unemployment</a></li>\n\t\t<li><a href=\"/bls/newsrels.htm#OEUS\" aria-label=\"Monthly\">Monthly</a></li>\n\t\t<li><a href=\"/bls/newsrels.htm#OEUS\" aria-label=\"Quarterly, annual, and other\">Quarterly, annual, and other</a></li>\n\t\t<li class=\"heading\"><a href=\"/bls/newsrels.htm#OPLC\" aria-label=\"Inflation & Prices\"> Inflation &amp; Prices</a></li>\n\t\t<li class=\"heading\"><a href=\"/bls/newsrels.htm#OCWC\" aria-label=\"Pay & Benefits & Workplace Injuries\">Pay &amp; Benefits &amp; Workplace Injuries</a></li>\n\t\t<li class=\"heading\"><a href=\"/bls/newsrels.htm#OPT\" aria-label=\"Productivity & Technology\">Productivity &amp; Technology</a></li>\n\t\t<li class=\"heading\"><a href=\"/bls/newsrels.htm#OEP\" aria-label=\"Employment Projections\">Employment Projections</a></li>\n\t\t<li class=\"heading\"><a href=\"/bls/newsrels.htm#NEWS\" aria-label=\"Regional News Releases\">Regional News Releases</a></li>\n    </ul>\n</div></div>\n    </li>\n    <li class=\"nav-item dropdown\"><a class=\"nav-link dropdown-toggle\" href=\"/k12/\" role=\"button\" data-toggle=\"dropdown\" aria-haspopup=\"true\" aria-expanded=\"false\">Classroom <span class=\"circle-arrow\"></span></a>\n        <div class=\"dropdown-menu\"><!-- ********************************************** Begin Students Tab LIST ****************************************** -->\n<div class=\"main-nav-submenu\" id=\"submenu-students\">\n\t<ul class=\"main-nav-submenu-inn\">\n\t\t<li class=\"heading\"><a href=\"/k12/\" aria-label=\"K-12 Student & Teacher Resources\">K-12 Student &amp; Teacher Resources</a></li>\t\t\n        <li><a href=\"/k12/games/\" aria-label=\"Games & Quizzes\">Games &amp; Quizzes</a></li>\n\t\t<li><a href=\"/k12/students/\" aria-label=\"Student's Desk\">Student&apos;s Desk</a></li>\n\t\t<li><a href=\"/k12/teachers/\" aria-label=\"Teacher's Desk\">Teacher&apos;s Desk</a></li>\n\t\t<li><a href=\"/k12/faq.htm\" aria-label=\"Questions & Answers\">Questions &amp; Answers</a></li>\n    </ul>\n</div>\n<!-- ***********************************************End Students Tab LIST ******************************************** --></div>\n    </li>\n    <li class=\"nav-item dropdown\"><a class=\"nav-link dropdown-toggle\" href=\"/beta/\" role=\"button\" data-toggle=\"dropdown\" aria-haspopup=\"true\" aria-expanded=\"false\">Beta <span class=\"circle-arrow\"></span></a>\n        <div class=\"dropdown-menu\"><!-- ***********************************************Start BETA LIST ******************************************** -->\n\n<div class=\"main-nav-submenu\" id=\"submenu-beta\">\n  <ul class=\"main-nav-submenu-inn\">\n    <li class=\"heading\"><a href=\"/beta/redesigned-news-releases.htm\" aria-label=\"Redesigned News Releases\">Redesigned News Releases</a></li>\n  </ul>\n</div>\n<!-- ***********************************************End BETA LIST ******************************************** --></div>\n    </li>\n</ul>\n\n\n  </div>\n</nav>\n</div>\n\r\n\t\t</div>\r\n\t\t<div class=\"clearfloat\"></div>\r\n\t</div>\r\n</div>\r\n\n\n<!-- MAIN NAV END -->\n\n<!-- WRAPPER TOP BEGIN -->\n\t<div id=\"wrapper-outer\" role=\"main\">\n\t\t<div id=\"wrapper\">\n\t\t\t<div id=\"container\">\n<!-- WRAPPER TOP END -->\n<!-- SUBDOMAIN TITLE TOP BEGIN -->\n\n<!-- 1COL CMS LAYOUT COL1 BEGIN -->\t\n\n<div class=\"main-content\">\n<div id=\"startcontent\" class=\"hidden\"></div>\n\n<!-- 1COL CMS LAYOUT COL1 END -->\n\n\n\n<!--no_index_end-->\n\n<!-- OneColHeadBasic End -->\n\n\n        \n    \n           \n      \n         <style>\r\n\t.main-content .announcement h2 {\r\n\t\ttext-transform: none;\r\n\t}\r\n</style>\r\n<div id=\"programs-banner\">\r\n\t<div id=\"program-title\" aria-level=\"1\" role=\"heading\">Employment Cost Index</div>\r\n\t<div id=\"social-search-box\">\r\n\t\t<div class=\"article-tools-box social-media\"><span class=\"social-media\"><span>SHARE ON:</span><a\r\n\t\t\t\t\thref=\"javascript:void(0);\" class=\"share_facebook\"><img alt=\"share on facebook\"\r\n\t\t\t\t\t\tsrc=\"/images/icons/facebook.png\" title=\"Facebook\"></a><a href=\"javascript:void(0);\"\r\n\t\t\t\t\tclass=\"share_twitter\"><img alt=\"share on twitter\" src=\"/images/icons/twitter.png\"\r\n\t\t\t\t\t\ttitle=\"Twitter\"></a><a href=\"javascript:void(0);\" class=\"share_linkedin\"><img\r\n\t\t\t\t\t\talt=\"share on linkedin\" src=\"/images/icons/linkedin.png\" title=\"LinkedIn\"></a></span></div>\r\n\t\t<form method=\"get\" id=\"search-secondary-nav-form\" action=\"/search/query\"><input type=\"hidden\"\r\n\t\t\t\tvalue=\"https://www.bls.gov/eci\" id=\"search-secondary-nav-category\" name=\"prefix\"><label\r\n\t\t\t\tfor=\"search-secondary-nav-query\" class=\"invisible\">Search Employment Cost Index</label><input\r\n\t\t\t\ttype=\"text\" onclick=\"this.value=''; this.onclick = null;\" value=\"Search Employment Cost Index\"\r\n\t\t\t\tid=\"search-secondary-nav-query\" name=\"query\"><input type=\"submit\" value=\"Go\"\r\n\t\t\t\tid=\"search-secondary-nav-submit\" name=\"submit\"></form>\r\n\t</div>\r\n\t<div class=\"clearfloat\"></div>\r\n\t<style>\r\n\t\t.layout-wide #dol-bar-content,\r\n\t\t.layout-wide #bls-banner,\r\n\t\t.layout-wide #main-nav-container {\r\n\t\t\tmargin: 0 !important;\r\n\t\t}\r\n\r\n\t\t.layout-wide #wrapper,\r\n\t\t.layout-wide #footer-links-wrapper {\r\n\t\t\tmax-width: 100% !important;\r\n\t\t}\r\n\r\n\t\t.layout-wide #programs-banner {\r\n\t\t\twidth: 923px !important;\r\n\t\t}\r\n\r\n\t\tdiv.p {\r\n\t\t\tfont-family: Tahoma, Arial, Helvetica, sans-serif;\r\n\t\t\tmargin: 0 0 1em 0 !important;\r\n\t\t\tpadding: 0;\r\n\t\t\tfont-size: 100%;\r\n\t\t\tcolor: #333;\r\n\t\t\tline-height: 160%;\r\n\t\t}\r\n\t</style>\r\n\r\n\t<div class=\"bootstrap standard-width\">\r\n\t\t<nav class=\"navbar navbar-expand-md programsNavBar \" aria-label=\"secondary-nav\">\r\n\t\t\t<ul class=\"navbar-nav\" role=\"menu\">\r\n\t\t\t\t<li class=\"nav-item\" role=\"none\">\r\n\t\t\t\t\t<a role=\"menuitem\" class=\"nav-link home progNav\" href=\"/eci/\">ECI Home</a>\r\n\t\t\t\t</li>\r\n\t\t\t\t<li class=\"nav-item dropdown\" role=\"none\">\r\n\t\t\t\t\t<a data-toggle=\"dropdown\" aria-haspopup=\"true\" aria-expanded=\"false\"\r\n\t\t\t\t\t\tclass=\"dropdown-toggle nav-link publications progNav\" href=\"javascript:\">ECI Publications</a>\r\n\t\t\t\t\t<div class=\"dropdown-menu\" role=\"menu\"> <a class=\"dropdown-item heading\" role=\"menuitem\"\r\n\t\t\t\t\t\t\thref=\"/eci/publications-overview.htm\">Publications Overview</a>\r\n\t\t\t\t\t\t<a class=\"dropdown-item\" role=\"menuitem\" href=\"/eci/news-releases.htm\">News Releases</a>\r\n\t\t\t\t\t\t<a class=\"dropdown-item\" role=\"menuitem\" href=\"/eci/factsheets.htm\">Factsheets</a>\r\n\t\t\t\t\t\t<a class=\"dropdown-item\" role=\"menuitem\" href=\"/eci/additional-publications/\">Additional\r\n\t\t\t\t\t\t\tPublications</a>\r\n\t\t\t\t\t\t<a class=\"dropdown-item\" role=\"menuitem\" href=\"/eci/videos.htm\">Videos</a>\r\n\t\t\t\t\t\t<a class=\"dropdown-item\" role=\"menuitem\" target=\"_blank\"\r\n\t\t\t\t\t\t\thref=\"https://public.govdelivery.com/accounts/USDOLBLS/subscribers/new?topic_id=USDOLBLS_036\">Subscriptions</a>\r\n\t\t\t\t\t</div>\r\n\t\t\t\t</li>\r\n\t\t\t\t<li class=\"nav-item dropdown\" role=\"none\">\r\n\t\t\t\t\t<a data-toggle=\"dropdown\" aria-haspopup=\"true\" aria-expanded=\"false\"\r\n\t\t\t\t\t\tclass=\"dropdown-toggle nav-link data progNav\" href=\"javascript:\">ECI Data</a>\r\n\t\t\t\t\t<div class=\"dropdown-menu\" role=\"menu\"> <a class=\"dropdown-item heading\" role=\"menuitem\"\r\n\t\t\t\t\t\t\thref=\"/eci/data-overview.htm\">Data Overview</a>\r\n\t\t\t\t\t\t<a class=\"dropdown-item\" role=\"menuitem\" href=\"/eci/data.htm\">Databases</a>\r\n\t\t\t\t\t\t<a class=\"dropdown-item\" role=\"menuitem\" href=\"/eci/tables.htm\">Tables</a>\r\n\t\t\t\t\t\t<a class=\"dropdown-item\" role=\"menuitem\" href=\"/eci/latest-numbers.htm\">Latest Numbers</a>\r\n\t\t\t\t\t\t<a class=\"dropdown-item\" role=\"menuitem\"\r\n\t\t\t\t\t\t\thref=\"/charts/employment-cost-index/compensation-in-private-industry-and-state-and-local-government-3-month-percent-change.htm\">Interactive\r\n\t\t\t\t\t\t\tCharts</a>\r\n\t\t\t\t\t\t<a class=\"dropdown-item\" role=\"menuitem\" href=\"/eci/overview/eci-data-requests.htm\">Data\r\n\t\t\t\t\t\t\tRequests</a>\r\n\t\t\t\t\t\t<a class=\"dropdown-item\" role=\"menuitem\"\r\n\t\t\t\t\t\t\thref=\"/eci/factsheets/eci-constant-dollar-factsheet.htm\">ECI Constant (Real) Dollar</a>\r\n\t\t\t\t\t</div>\r\n\t\t\t\t</li>\r\n\t\t\t\t<li class=\"nav-item dropdown\" role=\"none\">\r\n\t\t\t\t\t<a data-toggle=\"dropdown\" aria-haspopup=\"true\" aria-expanded=\"false\"\r\n\t\t\t\t\t\tclass=\"dropdown-toggle nav-link methods progNav\" href=\"javascript:\">ECI Methods</a>\r\n\t\t\t\t\t<div class=\"dropdown-menu\" role=\"menu\"> <a class=\"dropdown-item heading\" role=\"menuitem\"\r\n\t\t\t\t\t\t\thref=\"/eci/methods-overview.htm\">Methods Overview</a>\r\n\t\t\t\t\t\t<a class=\"dropdown-item\" role=\"menuitem\" href=\"/opub/hom/eci/home.htm\">Handbook of\r\n\t\t\t\t\t\t\tMethods</a>\r\n\t\t\t\t\t\t<a class=\"dropdown-item\" role=\"menuitem\"\r\n\t\t\t\t\t\t\thref=\"/eci/factsheets/eci-standard-errors.htm\">Measures of\r\n\t\t\t\t\t\t\tReliability</a>\r\n\t\t\t\t\t\t<a class=\"dropdown-item\" role=\"menuitem\"\r\n\t\t\t\t\t\t\thref=\"/eci/research.htm\">Research</a>\r\n\t\t\t\t\t\t<a class=\"dropdown-item\" role=\"menuitem\"\r\n\t\t\t\t\t\t\thref=\"/eci/technical-notes.htm\">Technical Notes</a>\r\n\t\t\t\t\t</div>\r\n\t\t\t\t</li>\r\n\t\t\t\t<li class=\"nav-item dropdown\" role=\"none\">\r\n\t\t\t\t\t<a data-toggle=\"dropdown\" aria-haspopup=\"true\" aria-expanded=\"false\"\r\n\t\t\t\t\t\tclass=\"dropdown-toggle nav-link about progNav\" href=\"javascript:\">About ECI</a>\r\n\t\t\t\t\t<div class=\"dropdown-menu\" role=\"menu\"> <a class=\"dropdown-item heading\" role=\"menuitem\"\r\n\t\t\t\t\t\t\thref=\"/eci/about-overview.htm\">About Overview</a>\r\n\t\t\t\t\t\t<a class=\"dropdown-item\" role=\"menuitem\" target=\"_blank\"\r\n\t\t\t\t\t\t\thref=\"/respondents/ncs/\">Information for Respondents</a>\r\n\t\t\t\t\t\t<a class=\"dropdown-item\" role=\"menuitem\" target=\"_blank\"\r\n\t\t\t\t\t\t\thref=\"/osmr/response-rates/\">Response Rates</a>\r\n\t\t\t\t\t\t<a class=\"dropdown-item\" role=\"menuitem\" href=\"/eci/related-links.htm\">Related Links</a>\r\n\t\t\t\t\t\t<a ",
+          "title": "New Handbook of Methods Available : U.S. Bureau of Labor Statistics",
+          "httpStatus": 200
+        },
+        {
+          "type": "openrouter:web_search",
+          "id": "st_tmp_aj2ka36y0nc",
+          "status": "completed",
+          "action": {
+            "type": "search",
+            "query": "BLS Modeled Wage Estimates NCS what it is why created 2023",
+            "sources": [
+              {
+                "type": "url",
+                "url": "https://www.bls.gov/opub/hom/mwe/concepts.htm"
+              },
+              {
+                "type": "url",
+                "url": "https://www.bls.gov/opub/hom/mwe/history.htm"
+              },
+              {
+                "type": "url",
+                "url": "https://www.bls.gov/mwe/"
+              },
+              {
+                "type": "url",
+                "url": "https://www.bls.gov/mwe/faq.htm"
+              },
+              {
+                "type": "url",
+                "url": "https://www.bls.gov/opub/mlr/2013/article/lettau-zamora.htm"
+              },
+              {
+                "type": "url",
+                "url": "https://www.bls.gov/bls/wages.htm"
+              },
+              {
+                "type": "url",
+                "url": "https://www.bls.gov/opub/hom/mwe/presentation.htm"
+              },
+              {
+                "type": "url",
+                "url": "http://www.bls.gov/opub/mlr/2022/article/introducing-modeled-wage-estimates-by-grouped-work-levels.htm"
+              },
+              {
+                "type": "url",
+                "url": "https://www.bls.gov/mwe/factsheets/grouped-work-levels-factsheet.htm"
+              },
+              {
+                "type": "url",
+                "url": "https://www.bls.gov/opub/hom/ncs/pdf/ncs.pdf"
+              }
+            ]
+          }
+        },
+        {
+          "type": "openrouter:web_search",
+          "id": "st_tmp_3nicr14uhvf",
+          "status": "completed",
+          "action": {
+            "type": "search",
+            "query": "BLS National Compensation Survey legal authority \"Paperwork Reduction Act\" OMB clearance 1225-0019 voluntary survey",
+            "sources": [
+              {
+                "type": "url",
+                "url": "https://thefederalregister.org/documents/2026-02155/agency-information-collection-activities-submission-for-omb-review-national-compensation-survey"
+              },
+              {
+                "type": "url",
+                "url": "https://www.federalregister.gov/documents/2021/11/04/2021-24105/agency-information-collection-activities-submission-for-omb-review-comment-request-national"
+              },
+              {
+                "type": "url",
+                "url": "https://www.govinfo.gov/content/pkg/FR-2024-01-31/html/2024-01894.htm"
+              },
+              {
+                "type": "url",
+                "url": "https://www.govinfo.gov/content/pkg/FR-2021-03-01/pdf/2021-04188.pdf"
+              },
+              {
+                "type": "url",
+                "url": "https://www.federalregister.gov/documents/2010/08/31/2010-21617/submission-for-omb-emergency-review-comment-request"
+              },
+              {
+                "type": "url",
+                "url": "https://www.bls.gov/opub/mlr/cwc/recent-modifications-of-employee-benefits-data-in-the-national-compensation-survey.pdf"
+              },
+              {
+                "type": "url",
+                "url": "https://thefederalregister.org/documents/2018-05896/agency-information-collection-activities-submission-for-omb-review-comment-request-national-compensation-survey"
+              },
+              {
+                "type": "url",
+                "url": "https://www.govinfo.gov/content/pkg/FR-2020-06-11/pdf/2020-12631.pdf"
+              },
+              {
+                "type": "url",
+                "url": "https://thefederalregister.org/documents/2020-12630/information-collection-activities-comment-request"
+              },
+              {
+                "type": "url",
+                "url": "https://thefederalregister.org/pdf/documents/2024-01893.pdf"
+              }
+            ]
+          }
+        },
+        {
+          "type": "openrouter:web_fetch",
+          "id": "st_tmp_0asmp1jekb3",
+          "status": "incomplete",
+          "url": "https://www.bls.gov/opub/hom/pdf/ncs-20250408.pdf",
+          "httpStatus": 404,
+          "error": "HTTP 404: Not Found"
+        },
+        {
+          "type": "openrouter:web_search",
+          "id": "st_tmp_qbk9ofneug",
+          "status": "completed",
+          "action": {
+            "type": "search",
+            "query": "BLS 2025 discontinue employee benefits survey National Compensation Survey budget cut notice",
+            "sources": [
+              {
+                "type": "url",
+                "url": "https://www.govinfo.gov/content/pkg/FR-2025-07-16/html/2025-13287.htm"
+              },
+              {
+                "type": "url",
+                "url": "https://www.govinfo.gov/content/pkg/FR-2025-07-16/pdf/2025-13334.pdf"
+              },
+              {
+                "type": "url",
+                "url": "https://www.federalregister.gov/documents/2025/07/16/2025-13287/information-collection-activities-comment-request"
+              },
+              {
+                "type": "url",
+                "url": "https://omb.report/icr/202506-1220-001/doc/original/165384000.pdf"
+              },
+              {
+                "type": "url",
+                "url": "https://www.bls.gov/ebs/publications/employee-benefits-in-the-united-states-march-2025.htm"
+              },
+              {
+                "type": "url",
+                "url": "https://www.govinfo.gov/content/pkg/FR-2025-07-16/pdf/2025-13287.pdf"
+              },
+              {
+                "type": "url",
+                "url": "https://www.bls.gov/opub/mlr/cwc/recent-modifications-of-employee-benefits-data-in-the-national-compensation-survey.pdf"
+              },
+              {
+                "type": "url",
+                "url": "https://www.bls.gov/ebs/"
+              },
+              {
+                "type": "url",
+                "url": "https://www.bls.gov/news.release/ebs2.tn.htm"
+              },
+              {
+                "type": "url",
+                "url": "https://www.bls.gov/osmr/research-papers/2005/pdf/st050160.pdf"
+              }
+            ]
+          }
+        },
+        {
+          "type": "openrouter:web_fetch",
+          "id": "st_tmp_jir34ecxgxj",
+          "status": "completed",
+          "url": "https://www.bls.gov/eci/overview/national-compensation-survey-usage.htm",
+          "content": "<!doctype html>\n<html lang=\"en\" dir=\"ltr\">\n  <head>\n    <title>Data Usage : U.S. Bureau of Labor Statistics</title>\n              \n\t<!-- START include/global/head.stm -->\n\t<script id=\"_fed_an_ua_tag\" src=\"https://dap.digitalgov.gov/Universal-Federated-Analytics-Min.js?agency=DOL&subagency=BLS&yt=true\"></script>\n\n\t<script src=\"/javascripts/jquery-latest.js\"></script>\n\t<script src=\"/javascripts/bls-latest.js\"></script>\n\t<script src=\"/javascripts/jquery-tools.js\"></script>\n\t<script src=\"/javascripts/jquery-migrate-1.2.1.min.js\"></script>\n\t\n\t<link rel=\"stylesheet\" href=\"/assets/bootstrap/latest/bootstrap.min.css\">\n\t<script src=\"/assets/bootstrap/latest/popper.min.js\"></script>\n\t<script src=\"/assets/bootstrap/latest/bootstrap.min.js\"></script>\n\n\n\t<link rel=\"stylesheet\" type=\"text/css\" href=\"/stylesheets/bls_combined.css\">\n\t<link rel=\"stylesheet\" type=\"text/css\" href=\"/stylesheets/bls_content.css\">\n\t<link rel=\"stylesheet\" type=\"text/css\" href=\"/stylesheets/bls_tables.css\">\n\t<link rel=\"stylesheet\" type=\"text/css\" href=\"/stylesheets/jquery-tools.css\">\n\t<link rel=\"stylesheet\" type=\"text/css\" href=\"/stylesheets/bls_nr.css\">\n    <!--[if lt IE 9]>\n\t\t<link href=\"/stylesheets/ie8-styles.css\" media=\"all\" rel=\"Stylesheet\" type=\"text/css\"> \n\t<![endif]-->\n\t<!--[if lt IE 8]>\n\t\t<link href=\"/stylesheets/ie7-styles.css\" media=\"all\" rel=\"Stylesheet\" type=\"text/css\"> \n\t<![endif]-->\n\t<!--[if lt IE 7]>\n\t\t<link href=\"/stylesheets/ie6-styles.css\" media=\"all\" rel=\"Stylesheet\" type=\"text/css\"> \n\t\t<style>\n\t\tbody {\n\t\t\tbehavior:url(/stylesheets/csshover2.htc);\n\t\t}\n\t\t</style>\t\t\t\n\t<![endif]-->\n\t<!--[if IE]>\n\t\t<style>\n\t\tbody {\n\t\t\tfont-size: expression(1 / (screen.deviceXDPI / 96) * 84 + '%');\n\t\t}\n\t\t</style>\t\n\t<![endif]-->\n\t<noscript>\n\t<link rel=\"stylesheet\" type=\"text/css\" href=\"/stylesheets/bls_noscript.css\">\n\t</noscript>\n\t<!--  This means that the browser will (probably) render the width of the page at the width of its own screen. -->\n\t<meta name=\"viewport\" content=\"width=device-width, initial-scale=1\">\n\n\t<meta http-equiv=\"x-ua-compatible\" content=\"IE=Edge\" />\n    <meta property=\"og:image\" content=\"https://www.bls.gov/images/bls_emblem_2016.png\" />\n\t<meta property=\"og:image:alt\" content=\"BLS Logo\">\n\t<meta name=\"robots\" content=\"index, follow\">\n\t<meta property=\"og:locale\" content=\"en_US\">\n\t<meta property=\"og:site_name\" content=\"Bureau of Labor Statistics\">\n\t\t<style>\n\t\t\ttd.gsc-table-cell-thumbnail{\n\t\t\tdisplay:none !important;\n\t\t\t}\n\t\t</style>\n\t<link rel=\"apple-touch-icon\" sizes=\"180x180\" href=\"/apple-touch-icon.png\" />\n\t<link rel=\"icon\" type=\"image/png\" href=\"/favicon-32x32.png\" sizes=\"32x32\" />\n\t<link rel=\"icon\" type=\"image/png\" href=\"/favicon-16x16.png\" sizes=\"16x16\" />\n\t<link rel=\"manifest\" href=\"/manifest.json\" />\n\t<link rel=\"mask-icon\" href=\"/safari-pinned-tab.svg\" color=\"#5bbad5\" />\n\t<meta name=\"theme-color\" content=\"#ffffff\" />\n    <!-- END include/global/head.stm -->\n<meta charset=\"UTF-8\">\n\n  <link rel=\"stylesheet\" type=\"text/css\" href=\"/stylesheets/bls_programs.css\">\n<style>\nimg.image-style-large {\n    max-width: 100%;\n}\n\timg.zoomable{\n\t\tcursor:zoom-in;\n\t}\n\t.bootstrap .modal-dialog:has(img) img.zoomable{\n\t\tcursor:default;\n\t}\n\t.zoomable-image-modal .modal-header {\n\t\tpadding: 0rem 1rem;\n\t\tbackground-color: #ccc;\n\t}\n\t.zoomable-image-modal .modal-dialog{\n\t\tmax-width: 95vw;\n\t}\n\t.zoomable-image-modal .modal-content {\n\t\tmax-height: 95vh;\n\t\toverflow: auto;\n\t}\n</style>\n<noscript>\n\t<style>\n\n\t\t#programs-banner.generic #program-browse{\n\t\t\tdisplay: block;\n\t\t\ttop: 3px;\n\t\t\twidth:100%;\n\t\t}\n\t\t#programs-banner.generic #program-browse > div{\n\t\t\tdisplay: block;\n\t\t\tposition: static;\n\t\t\tborder: none;\n\t\t\tborder-top: 1px solid #fff;\n\t\t\tmargin: 10px 0 0;\n\t\t}\n\t</style>\n</noscript>\n\n<script>\n$(document).ready(function(){\n\t/* Nav, tabbable*/\n\t$(\".main-content #programs-banner-nav > li a\").focus(function(){\n\t\tvar parentUL = $(this).parent().parent();\n\t\t$(\".focus\").removeClass(\"focus\");\n\t\t$(this).parent().addClass(\"focus\");\n\t\tif(parentUL.find(\"span\").size() == 1){\n\t\t\tparentUL.parent().find(\"ul\").parent().addClass(\"focus\");\n\t\t};\n\t});\n\t$(\".main-content #programs-banner-nav a\").blur(function(){\n\t\tsetTimeout(function(){if( !$(document.activeElement).parents(\"#programs-banner-nav\").size()){$(\".focus\").removeClass(\"focus\");};},100);\n\t});\n\t\n\t$(\".main-content #programs-banner-nav li\").click(function(e){\n\t\te.stopPropagation();\n\t\tif($(this).find(\"a\").attr(\"target\") == \"_blank\"){\n\t\t\twindow.open($(this).find(\"a\").attr(\"href\"));\n\t\t}else{\n\t\t\twindow.location = $(this).find(\"a\").attr(\"href\");\n\t\t}\n\t});\n\t$(\".main-content #programs-banner-nav li a\").click(function(e){\n\t\t$(this).blur();\n\t\te.stopPropagation();\n\t\te.stopImmediatePropagation();\n\t});\n\t\n\n\t$(\"#programs-banner.generic #program-browse > a\").focus(function(){\n\t\t$(this).parent().addClass(\"focused\");\n\t\t$(\"#programs-banner.generic #program-browse\").hover(function(){\n\t\t\t$(this).removeClass(\"focused\");\n\t\t\t$(\"#programs-banner.generic #program-browse *\").blur();\n\t\t});\n\t});\t\t\t\n\t$(\"#programs-banner.generic #program-browse a\").each(function(){\n\t\t$(this).blur(function(){\n\t\t\tsetTimeout(function(){\n\t\t\t\tif($(document.activeElement).parents(\"#program-browse\").length < 1 ){\n\t\t\t\t\t$(\"#programs-banner.generic #program-browse\").removeClass(\"focused\")\n\t\t\t\t};\n\t\t\t});\n\t\t});\n\t});\n\n\t/*Notices Archive Page, load*/\n\t$(\".main-content #archive-left-side .notice-items\").hide();\n\tvar archiveLeftShow = $(\".main-content #archive-left-side .notice-items\")[0];\n\t$(archiveLeftShow).show();\n\tvar archiveRightCurrent = $(\".main-content #archive-right-side a\")[0];\n\t$(archiveRightCurrent).addClass(\"current\");\n\t/*Notices Archive Page, fcns*/\n\t$(\".main-content #archive-right-side a\").click(function(e){\n\t\te.preventDefault();\n\t\t$(\".main-content #archive-right-side a.current\").removeClass(\"current\");\n\t\t$(this).addClass(\"current\");\n\t\t$(\".main-content #archive-left-side .notice-items\").hide();\n\t\t$(\".main-content #archive-left-side #notices-\"+$(this).text()).show();\n\t});\t\n\n\t$('img.zoomable').wrap('<a href=\"#\" data-toggle=\"modal\" data-target=\".zoomable-image-modal\"></a>')\n\tif($('img.zoomable').length){\n\t\t$(\"body\").append(`<div class=\"bootstrap\"><div class=\"modal zoomable-image-modal\" tabindex=\"-1\" role=\"dialog\">\n\t\t\t<div class=\"modal-dialog\" role=\"document\">\n\t\t\t<div class=\"modal-content\">\n\t\t\t\t<div class=\"modal-header\">\n\t\t\t\t<span class=\"modal-title\"></span>\n\t\t\t\t<button type=\"button\" class=\"close\" data-dismiss=\"modal\" aria-label=\"Close\">\n\t\t\t\t\t<span aria-hidden=\"true\">&times;</span>\n\t\t\t\t</button>\n\t\t\t\t</div>\n\t\t\t\t<div class=\"modal-body\">\n\t\t\t\t<p>Modal body text goes here.</p>\n\t\t\t\t</div>\n\t\t\t</div>\n\t\t\t</div>\n\t\t</div></div>`)\n\t\t$(\".zoomable-image-modal\").on('shown.bs.modal', function (event) {\n\t\t\tlet targetEl = $(event.relatedTarget)\n\t\t\t$(this).find(\".modal-body\").html(targetEl.html());\n\t\t\t$(this).find(\".modal-body\").focus();\n\t\t})\n\t}\n\n});\n</script>  \n\n\n \n      </head>\n  <body class=\"toolbar-icon-10 toolbar-loading\">\n            <div class=\"page-wrapper dialog-off-canvas-main-canvas\" data-off-canvas-main-canvas>\n          \n\n<!-- OneColHeadBasic Begin: Name -->\n\n<!-- Header Filename: \"/include/eci/eci_header.txt\" -->\n\n<!--no_index_start-->\n\n<!-- DOL BANNER BEGIN -->\n<!-- DOL BANNER START -->\n<header > <!-- Header is closed at the end of BLS banner -->\n\t\t<a class=\"skiplink\" href=\"#startcontent\">Skip to Content</a>\n\n\t\t<div id=\"usa-banner-wrapper\">\n<div id=\"usa-banner\" class=\"bootstrap standard-width\">\n\t<div class=\"content\">\n\t<div class=\"USA-flag-link\">\n\t<img src=\"https://www.dol.gov/themes/opa_theme/img/flag-favicon-57.png\" alt=\"U.S. flag\">\n\t<p>An official website of the United States government \n\t  \n\t<button type=\"button\" data-toggle=\"collapse\" data-target=\"#usaBanner\" aria-expanded=\"false\" aria-controls=\"usaBanner\">Here is how you know <span class=\"oi\" data-glyph=\"chevron-bottom\"></span></button>\n\t</p>\n\t</div>\n\t\t<a href=\"https://www.dol.gov/\" id=\"dolHolder\" class=\"dolHolder\" target=\"_blank\"><img src=\"https://www.dol.gov/themes/opa_theme/img/logo-primary.svg\" alt=\"Department of Labor Logo\"/>  United States Department of Labor</a>\n\t</div>\n\t\n\t<div class=\"collapse \" id=\"usaBanner\">\t\n\t<div class=\"row\">\n\t<div class=\"col-md-6\">\n\t\t<img src=\"https://www.dol.gov/themes/opa_theme/img/icon-dot-gov.svg\" alt=\"Dot gov\">\n\n\t\t<p>\n\t\t\t<strong>The .gov means it's official.</strong>\n\t\t\t<br> Federal government websites often end in .gov or .mil. Before sharing sensitive information,\n\t\t\tmake sure you're on a federal government site.\n\t\t</p>\n\t</div>\n\n\t<div class=\"col-md-6\">\n\t<img class=\"usa-banner-icon usa-media_block-img\" src=\"https://www.dol.gov/themes/opa_theme/img/icon-https.svg\" alt=\"Https\">\n\t\n\t\t<p>\n\t\t\t<strong>The site is secure.</strong>\n\t\t\t<br> The\n\t\t\t<strong>https://</strong> ensures that you are connecting to the official website and that any\n\t\t\tinformation you provide is encrypted and transmitted securely.\n\t\t</p>\n\t</div>\n\t</div>\n\t</div>\t\t\n</div>\n</div>\n\n\n\n<!-- DOL BANNER END -->\n\n\n<!-- DOL BANNER END -->\n<!-- BLS BANNER BEGIN -->\n\n<div id=\"bls-banner-wrapper\">\n<div id=\"top\"></div>\n\t\t<div class=\"bootstrap standard-width\">\n<div>\n  <div id=\"bls-banner\" class=\"row\">\n    <div id=\"bls-banner-emblem\" class=\"col-sm-12 col-md-7\">\n      <a href=\"https://www.bls.gov/\">U.S. Bureau of Labor Statistics</a>\n    </div>\n    <div id=\"bls-banner-right\" class=\"col-sm-12 col-md-5 d-none d-md-block\">\n<div id=\"bls-banner-links\"><a href=\"/schedule/news_release/\">Release Calendar</a> | <a href=\"javascript:window.open('https://public.govdelivery.com/accounts/USDOLBLS/subscriber/new ','Popup','width=800,height=500,toolbar=no,scrollbars=yes,resizable=yes'); void('');\" onclick=\"window.status='Subscribe'; return true\" onmouseover=\"window.status='Subscribe'; return true\" onmouseout=\"window.status=''; return true\" id=\"social-email-1\" title=\"Subscribe to BLS E-mail Updates\" aria-label=\"Subscribe to BLS E-mail Updates\">Subscribe</a></div> \n      <div id=\"bls-banner-search1\" class=\"bls-banner-search\">\n        <form method=\"get\" action=\"/search/query\">\n\t\t  <label for=\"bls-banner-search-submit1\" class=\"invisible\">Search button</label>\n          <input type=\"image\" src=\"/images/buttons/search_button_blue_16.png\" name=\"term\" id=\"bls-banner-search-submit1\" alt=\"BLS Search Submit\" title=\"Submit\" >\n\t\t  <label for=\"bls-banner-search-input1\" class=\"invisible\">Search:</label>\n          <input name=\"query\" type=\"text\" id=\"bls-banner-search-input1\" value=\"Search BLS.gov\" title=\"Search Input\" onclick=\"this.value=''; this.onclick = null;\">\n\n        </form>\n      </div>\n    </div>\n    <div class=\"clearfloat\"></div>\n  </div>\n</div>\n</div>\n</div>\n</header> <!-- Header is opened at the begining of DOL banner -->\n\n<!-- BLS BANNER END -->\n<!-- MAIN NAV BEGIN -->\n\n<div id=\"main-nav-wrapper\">\r\n\t<div id=\"main-nav-container\">\r\n\t\t<div>\r\n\t\t\t<div class=\"bootstrap standard-width\">\n<nav aria-label=\"top-level navigation menu\" class=\"navbar navbar-expand-md\">\n  \n  \n   <button class=\"navbar-toggler\" type=\"button\" data-toggle=\"collapse\" data-target=\"#navbarSupportedContent\" aria-controls=\"navbarSupportedContent\" aria-expanded=\"false\" aria-label=\"Toggle navigation menu\">\n    <span class=\"navbar-toggler-icon\">Menu</span>\n  </button>\n  <div class=\"collapse navbar-collapse\" id=\"navbarSupportedContent\">\n  \n\n\n<ul class=\"nojs navbar-nav mr-auto\">\n     <li class=\"dropdownSearch\"><div id=\"bls-banner-search\" class=\"dropdown-search\">\n        <form method=\"get\" action=\"/search/query\">\n\t\t  <label for=\"bls-banner-search-submit\" class=\"invisible\">Search button</label>\n          <input type=\"image\" src=\"/images/buttons/search_button_blue_20.png\" name=\"term\" id=\"bls-banner-search-submit\" alt=\"BLS Search Submit\" title=\"Submit\">\n\t\t  <label for=\"bls-banner-search-input\" class=\"invisible\">Search:</label>\n          <input name=\"query\" type=\"text\" id=\"bls-banner-search-input\" value=\"Search BLS.gov\" title=\"Search Input\" onclick=\"this.value=''; this.onclick = null;\">\n\n        </form>\n      </div>\n\t\n\t  <div class=\"bls-banner-links-mob\"><a href=\"/schedule/news_release/\">Release Calendar</a> | <a href=\"javascript:window.open('https://public.govdelivery.com/accounts/USDOLBLS/subscriber/new ','Popup','width=800,height=500,toolbar=no,scrollbars=yes,resizable=yes'); void('');\" onclick=\"window.status='Subscribe'; return true\" onmouseover=\"window.status='Subscribe'; return true\" onmouseout=\"window.status=''; return true\" id=\"social-email-2\" title=\"Subscribe to BLS E-mail Updates\" aria-label=\"Subscribe to BLS E-mail Updates\">Subscribe</a></div>\n\t</li>\n    <li class=\"nav-item dropdown\"><a class=\"nav-link dropdown-toggle\" href=\"https://www.bls.gov/\" role=\"button\" data-toggle=\"dropdown\" aria-haspopup=\"true\" aria-expanded=\"false\">Home <span class=\"circle-arrow\"></span></a>\n        <div class=\"dropdown-menu\"><!-- ********************************************** Begin Home Tab LIST ****************************************** -->\n<!-- 1st column -->\n<div class=\"main-nav-submenu\" id=\"submenu-home\">\n\t<ul class=\"main-nav-submenu-inn\">\n\t\n\t\t<li class=\"heading\"><a href=\"/about-bls/home.htm\" aria-label=\"About BLS\">About BLS</a></li>\n\t\t<li><a href=\"/bls/history/home.htm\" aria-label=\"BLS History\">History</a></li>\t\n\t\t<li><a href=\"/bls/senior_staff/home.htm\" aria-label=\"Our Leadership\">Our Leadership</a></li>\n\t\t<li><a href=\"/bls/bls_budget_and_performance.htm\" aria-label=\"Budget and Performance\">Budget and Performance</a></li>\t\t\n\t\t<li><a href=\"/bls/faqs.htm\" aria-label=\"Questions and Answers\">Questions and Answers</a></li>\t\n\t\t<li><a href=\"/bls/topicsaz.htm\" aria-label=\"A-Z Index\">A-Z Index</a></li>\t\n\t\t<li><a href=\"/bls/glossary.htm\" aria-label=\"Glossary\">Glossary</a></li>\t\n\t\t<li><a href=\"/bls/bls-speakers/\" aria-label=\"BLS Speakers Available\">BLS Speakers Available</a></li>\n\t\t<li><a href=\"/errata/\" aria-label=\"Errata\">Errata</a></li>  \t\t\t\t\n\t\t<li><a href=\"/bls/contact.htm\" aria-label=\"Contact BLS\">Contact BLS</a></li>\t\n\n\t</ul>\t\n\t<!-- 2nd column -->\t\n<ul class=\"main-nav-submenu-inn\">\t\n\t\t<li class=\"heading\"><a href=\"/bls/overview.htm\" aria-label=\"Overview of BLS Statistics\">Overview of BLS Statistics</a></li>\n\t\t<li><a href=\"/information-guide/home.htm\" aria-label=\"Guide to Programs & Services\">Guide to Programs &amp; Services</a></li>\n\t\t<li><a href=\"/bls/demographics.htm\" aria-label=\"Demographics Data\">Demographics</a></li>\n\t\t<li><a href=\"/bls/industry.htm\" aria-label=\"Statistics by Industries\">Industries</a></li>\n\t\t<li><a href=\"/bls/business.htm\" aria-label=\"Statistics on Business Costs\">Business Costs</a></li>\n\t\t<li><a href=\"/bls/occupation.htm\" aria-label=\"Statistics by Occupations\">Occupations</a></li>\n\t\t<li><a href=\"/bls/geography.htm\" aria-label=\"Statistics by Geography\">Geography</a></li>\t\n\t\n\t</ul>\n\t<!-- 3rd column -->\n\t<ul class=\"main-nav-submenu-inn\">\n\t\t<li class=\"heading\"><a href=\"/audience/\" aria-label=\"Resources For\">Resources For</a></li>\n\t\t<li><a href=\"/audience/business.htm\" aria-label=\"Resources for Business Leaders\">Business Leaders</a></li>\n\t\t<li><a href=\"/audience/consumers.htm\" aria-label=\"Resources for Consumers\">Consumers</a></li>\n\t\t<li><a href=\"/audience/developers.htm\" aria-label=\"Developers site\">Developers</a></li>\n\t\t<li><a href=\"/audience/economists.htm\" aria-label=\"Economists or Economic Analyst\">Economists</a></li>\n\t\t<li><a href=\"/audience/investors.htm\" aria-label=\"Resources for Financial Investors\">Investors</a></li>\n\t\t<li><a href=\"/audience/jobseekers.htm\" aria-label=\"Resources for Jobseekers\">Jobseekers</a></li>\n\t\t<li><a href=\"/audience/media.htm\" aria-label=\"Media\">Media</a></li>\n\t\t<li><a href=\"/audience/policy.htm\" aria-label=\"Resources for Public Policymakers\">Public Policymakers</a></li>\n\t\t<li><a href=\"/audience/researcher.htm\" aria-label=\"Researcher\">Researcher</a></li>\t\t\n\t\t<li><a href=\"/audience/students.htm\" aria-label=\"Resources for Students & Teachers\">Students &amp; Teachers</a></li>\n\t\t<li><a href=\"/respondents/\" aria-label=\"Survey Respondents\">Survey Respondents</a></li>\n\t</ul>\n</div>\n\n<!-- ***********************************************End Home Tab LIST ******************************************** --> \n\n</div>\n    </li>\n    <li class=\"nav-item dropdown active\"><a class=\"nav-link dropdown-toggle\" href=\"/bls/proghome.htm\" role=\"button\" data-toggle=\"dropdown\" aria-haspopup=\"true\" aria-expanded=\"false\">Subjects <span class=\"circle-arrow\"></span></a>\n        <div class=\"dropdown-menu\"><!-- ************************************* Begin SUBJECTS TAB list ****************************************** -->\n<!-- 1st column -->\n<div class=\"main-nav-submenu\" id=\"submenu-programs\">\n\t<ul class=\"main-nav-submenu-inn\">\n\t\t<li class=\"heading\"><a href=\"/bls/inflation.htm\" aria-label=\"Statistics on Inflation & Prices\">Inflation &amp; Prices</a></li>\n\t\t<li><a href=\"/cpi/\" aria-label=\"Consumer Price Index \">Consumer Price Index</a></li>\n\t\t<li><a href=\"/ppi/\" aria-label=\"Producer Price Indexes\">Producer Price Indexes</a></li>\n\t\t<li><a href=\"/mxp/\" aria-label=\"Import/Export Price Indexes\">Import/Export Price Indexes</a></li>\n\t\t<li><a href=\"/bls/escalation.htm\" aria-label=\"Contract Escalation\">Contract Escalation</a></li>\n\t\t<li><a href=\"/pir/\" aria-label=\"Price Index Research\">Price Index Research</a></li>\n\t\t<li class=\"heading\"><a href=\"/bls/wages.htm\" aria-label=\"Statistics on Pay & Benefits\">Pay &amp; Benefits</a></li>\n\t\t<li><a href=\"/eci/\" aria-label=\"Employment Cost Index\">Employment Cost Index</a></li>\n\t\t<li><a href=\"/ecec/home.htm\" aria-label=\"Employer Costs for Employee Compensation\">Employer Costs for Employee Compensation</a></li>\n\t\t\t\t\t\t<li><a href=\"https://www.bls.gov/oes/\" aria-label=\"Wage Data by Occupation\">Wage Data by Occupation</a></li>\n\t\t<li><a href=\"/cps/earnings.htm#demographics\" aria-label=\"Earnings by Demographics\">Earnings by Demographics</a></li>\n\t\t<li><a href=\"/ces/\" aria-label=\"Earnings by Industry\">Earnings by Industry</a></li>\n\t\t<li><a href=\"https://www.bls.gov/cew/\" aria-label=\"County Wages\">County Wages</a></li>  <!--full path is needed since they have a folder on the data server-->\n\t\t<li><a href=\"/ebs/\" aria-label=\"Employee Benefits Survey\">Benefits</a></li>\n\t\t<li><a href=\"/mwe/\" aria-label=\"Modeled Wage Estimates\">Modeled Wage Estimates</a></li>\t\t\n\t\t<li><a href=\"/crp/\" aria-label=\"Compensation Research & Program Development\">Compensation Research</a></li>\n\t\t<li><a href=\"/wsp/\" aria-label=\"Strikes & Lockouts\">Strikes &amp; Lockouts </a></li>\n\t\t<li><a href=\"/wrp/\" aria-label=\"Wage Records from Unemployment Insurance\">Wage Records from Unemployment Insurance</a></li>\n\t\t<li class=\"heading\"><a href=\"/ors/\" aria-label=\"Occupational Requirements Survey\">Occupational Requirements</a></li>\t\t\n\t</ul>\n\t<!-- 2nd column -->\n\t<ul class=\"main-nav-submenu-inn\">\n\t\t<li class=\"heading\"><a href=\"/bls/unemployment.htm\" aria-label=\"Statistics on Unemployment\">Unemployment</a></li>\n\t\t<li><a href=\"/cps/\" aria-label=\"National Unemployment Rate\">National Unemployment Rate </a></li>\n\t\t<li><a href=\"/lau/\" aria-label=\"State & Local Unemployment Rates\">State &amp; Local Unemployment Rates </a></li>\n\t\t<li><a href=\"/ers/\" aria-label=\"Unemployment Research\">Unemployment Research</a></li>\n\t\t<li class=\"heading\"><a href=\"/bls/employment.htm\" aria-label=\"Statistics on Employment\">Employment</a></li>\n\t\t<li><a href=\"/ces/\" aria-label=\"National Employment Statistics\">National Employment </a></li>\n\t\t<li><a href=\"/sae/\" aria-label=\"State & Local Employment, Hours, and Earnings\">State &amp; Local Employment </a></li>\n\t\t<li><a href=\"https://www.bls.gov/cew/\" aria-label=\"County Employment\">County Employment </a></li> <!--full path is needed since they have a folder on the data server-->\n\t\t<li><a href=\"/cps/\" aria-label=\"Worker Characteristics\">Worker Characteristics </a></li>\n\t\t<li><a href=\"/air/\" aria-label=\"American Indian Report\">American Indian Report</a></li>\n\t\t<li><a href=\"/emp/\" aria-label=\"Employment Projections\">Employment Projections </a></li>\n\t\t<li><a href=\"/jlt/\" aria-label=\"Job Openings & Labor Turnover Survey\">Job Openings &amp; Labor Turnover Survey </a></li>\n\t\t<li><a href=\"/brs/\" aria-label=\"Business Response Survey\">Business Response Survey</a></li>\n\t\t<li><a href=\"https://www.bls.gov/oes/\" aria-label=\"Employment by Occupation\">Employment by Occupation </a></li>\n\t\t<li><a href=\"/nls/\" aria-label=\"Work Experience Over Time\">Work Experience Over Time </a></li>\n\t\t<li><a href=\"/bdm/\" aria-label=\"Business Employment Dynamics\">Business Employment Dynamics </a></li>\n\t\t<li><a href=\"/fdi/\" aria-label=\"Foreign Direct Investment\">Foreign Direct Investment </a></li>\n\t\t<li><a href=\"/ers/\" aria-label=\"Employment Research and Program Development\">Employment Research</a></li>\n\t\t<li class=\"heading\"><a href=\"/iif/\" aria-label=\"Workplace Injuries, Illnesses, and Fatalities\">Workplace Injuries</a></li>\n\t</ul>\n\t<!-- 3rd column -->\n\t<ul class=\"main-nav-submenu-inn\">\n\t\t<li class=\"heading\"><a href=\"/bls/productivity.htm\" aria-label=\"Productivity Statistics\">Productivity</a></li>\n\t\t<li><a href=\"/productivity/\" aria-label=\"Labor and Total Factor Productivity\">Labor and Total Factor Productivity</a></li>\n\t\t<li><a href=\"/dpr/\" aria-label=\"Productivity Research and Program Development\">Productivity Research</a></li>\n\t\t<li class=\"heading\"><a href=\"/bls/spending.htm\" aria-label=\"Statistics on Spending & Time Use\">Spending &amp; Time Use</a></li>\n\t\t<li><a href=\"/cex/\" aria-label=\"Consumer Expenditures Surveys\">Consumer Expenditures </a></li>\n\t\t<li><a href=\"/tus/\" aria-label=\"How Americans Spend Time Survey\">How Americans Spend Time</a></li>\t\t\t\n\t\t<li class=\"heading\"><a href=\"/bls/international.htm\" aria-label=\"International Data and Technical Cooperation\">International</a></li>\n\t\t<li><a href=\"/itc/\" aria-label=\"International Technical Cooperation\">International Technical Cooperation</a></li>\n\t\t<li><a href=\"/mxp/\" aria-label=\"Import/Export Price Indexes\">Import/Export Price Indexes</a></li>\n\t\t<li class=\"heading\"><a href=\"/regions/\" aria-label=\"Geographic Information\">Geographic Information</a></li>\n\t\t<li><a href=\"/regions/northeast/\" aria-label=\"Northeast (Boston-New York) Information Office\">Northeast (Boston-New York)</a></li>\n\t\t<li><a href=\"/regions/mid-atlantic/\" aria-label=\"Mid-Atlantic (Philadelphia) Information Office\">Mid-Atlantic (Philadelphia)</a></li>\n\t\t<li><a href=\"/regions/southeast/\" aria-label=\"Southeast (Atlanta) Information Office\">Southeast (Atlanta)</a></li>\n\t\t<li><a href=\"/regions/midwest/\" aria-label=\"Midwest (Chicago) Information Office\">Midwest (Chicago)</a></li>\n\t\t<li><a href=\"/regions/southwest/\" aria-label=\"Southwest (Dallas) Information Office\">Southwest (Dallas)</a></li>\n\t\t<li><a href=\"/regions/mountain-plains/\" aria-label=\"Mountain-Plains (Kansas City) Information Office\">Mountain-Plains (Kansas City)</a></li>\n\t\t<li><a href=\"/regions/west/\" aria-label=\"West (San Francisco) Information Office\">West (San Francisco)</a></li>\n\t</ul>\n</div>\n<!-- **************************************End SUBJECT AREAS ******************************************** --> \n\t</div>\t\n    </li>\n    <li class=\"nav-item dropdown\"><a class=\"nav-link dropdown-toggle\" href=\"/data/\" role=\"button\" data-toggle=\"dropdown\" aria-haspopup=\"true\" aria-expanded=\"false\">Data Tools <span class=\"circle-arrow\"></span></a>\n        <div class=\"dropdown-menu\"><!-- ******************************************** Begin DATA TOOLS LIST ****************************************** -->\n<div class=\"main-nav-submenu\"  id=\"submenu-data\">\n    <ul class=\"main-nav-submenu-inn\">\n        <li class=\"heading\"><a href=\"/data/tools.htm\" aria-label=\"Data Retrieval Tools Databases, Tables & Calculators by Subject\">Data Retrieval Tools</a></li>\n\t\t<li><a href=\"https://data.bls.gov/toppicks?code=&survey=bls\" aria-label=\"BLS Popular Series Top Picks\">BLS Popular Series</a></li>\n\t\t<li><a href=\"https://data.bls.gov/series-report\" aria-label=\"Series Report\">Series Report</a></li>\n\t\t<li><a href=\"/data/home.htm\" aria-label=\"Top Picks, One Screen, Multi-Screen, and Maps\" >Top Picks, One Screen, Multi-Screen, and Maps</a></li>\n\t\t<li><a href=\"https://data.bls.gov/dataQuery/search\" aria-label=\"Data Finder\">Data Finder</a></li>\n\t\t<li><a href=\"/developers/home.htm\" aria-label=\"Public Data API Programming Interface\">Public Data API</a></li>\n\n    </ul>\n    <!-- 2nd column -->\n    <ul class=\"main-nav-submenu-inn\">\n        <li class=\"heading\"><a href=\"/data/apps.htm\" aria-label=\"Charts and Applications\">Charts and Applications</a></li>\n\t\t<li><a href=\"/charts/home.htm\" aria-label=\"Charts for Economic News Releases\">Charts for Economic News Releases</a></li>\t\n\t\t<li><a href=\"/data/inflation_calculator.htm\" aria-label=\"CPI Inflation Calculator\">CPI Inflation Calculator</a></li>\t\n\t\t<li><a href=\"https://data.bls.gov/iirc/\" aria-label=\"Injury and Illness Calculator\">Injury and Illness Calculator</a></li>\t\t\n\t\t<li><a href=\"https://data.bls.gov/apps/compensation-comparison-matrix/home.htm\" aria-label=\"Pay Measure Comparison\">Pay Measure Comparison</a></li>\n\t\t<li><a href=\"https://data.bls.gov/apps/demographic-comparison-matrix/home.htm\" aria-label=\"Demographic Data Sources\">Demographic Data Sources</a></li>\n\t\t<li><a href=\"https://data.bls.gov/apps/covid-dashboard/home.htm\" aria-label=\"COVID-19 Economic Trends\">COVID-19 Economic Trends</a></li>\n\t\t<li><a href=\"https://data.bls.gov/apps/industry-productivity-viewer/home.htm\" aria-label=\"Industry Productivity Viewer\" >Industry Productivity Viewer</a></li>\n\t\t<li><a href=\"https://data.bls.gov/cew/apps/data_views/data_views.htm#tab=Tables\" aria-label=\"Employment and Wages Data Viewer\">Employment and Wages Data Viewer</a></li>\n\t\t<li><a href=\"https://data.bls.gov/cew/apps/bls_naics/bls_naics_app.htm\" aria-label=\"Industry Finder from the Quarterly Census of Employment and Wages\">Industry Finder from the Quarterly Census of Employment and Wages</a></li>\n\t\n    </ul>\n\t<!-- 3rd column -->\n\t<ul class=\"main-nav-submenu-inn\">\n\t    <li class=\"heading\"><a href=\"/data/tables.htm\" aria-label=\"Customized Tables\">Customized Tables</a></li>\n\t\t<li><a href=\"/eag/eag.us.htm\" aria-label=\"U.S. Economy at a Glance\">U.S. Economy at a Glance</a></li>\n\t\t<li><a href=\"/eag/home.htm\" aria-label=\"Regions, States & Areas at a Glance\">Regions, States &amp; Areas at a Glance</a></li>\n\t\t<li><a href=\"/iag/home.htm\" aria-label=\"Industry at a Glance\">Industry at a Glance</a></li>\t\t\t\n\t\t<li><a href=\"https://download.bls.gov/pub/time.series/\" aria-label=\"Text Files\">Text Files</a></li>\n\t\t<li><a href=\"/data/#historical-tables\" aria-label=\"Historical News Release Tables\">News Release Tables</a></li>\n\t\t\n\t\t<li class=\"heading\"><a href=\"/bls/moredata.htm\" aria-label=\"More Sources of Data\">More Sources of Data</a></li>\n\t\t<li><a href=\"/rda/home.htm\" aria-label=\"Bureau of Labor Statistics Restricted Data Access\">Restricted Data Access</a></li>\n\t\t<li><a href=\"/data/archived.htm\" aria-label=\"Discontinued Databases\">Discontinued Databases </a></li>\n\t\t<li><a href=\"/help/hlpform1.htm\" aria-label=\"Questions & Answers regarding Bureau of Labor Statistics website data retrieval tools\">Questions &amp; Answers</a></li>\n\t\t<li><a href=\"/help/notice.htm\" aria-label=\"Special Notices\">Special Notices </a></li>\t\n\t</ul>\n</div>\n<!-- *********************************************End DATABASES and TOOLS LIST ******************************************** --></div>\n    </li>\n    <li class=\"nav-item dropdown\"><a class=\"nav-link dropdown-toggle\" href=\"/opub/\" role=\"button\" data-toggle=\"dropdown\" aria-haspopup=\"true\" aria-expanded=\"false\">Publications <span class=\"circle-arrow\"></span></a>\n        <div class=\"dropdown-menu\"><!-- ********************************************** Begin PUBLICATIONS LIST ****************************************** -->\n<div class=\"main-nav-submenu\"  id=\"submenu-pubs\">    \n    <ul class=\"main-nav-submenu-inn\"> \n\t\t<li class=\"heading\"><a href=\"/opub/\" aria-label=\"Latest Publications\">Latest Publications</a></li>\n\t\t<li><a href=\"/opub/ted/\" aria-label=\"The Economics Daily\">The Economics Daily</a></li>\n\t\t<li><a href=\"/opub/mlr/\" aria-label=\"Monthly Labor Review\">Monthly Labor Review</a></li>\n\t\t<li><a href=\"/opub/btn/\" aria-label=\"Beyond the Numbers\">Beyond the Numbers</a></li>\n\t\t<li><a href=\"/spotlight/\" aria-label=\"Spotlight on Statistics\">Spotlight on Statistics</a></li>\n\t\t<li><a href=\"/opub/reports\" aria-label=\"Bureau of Labor Statistics Reports\">Reports</a></li>\n\t\t<li><a href=\"/video/\" aria-label=\"Videos\">Videos</a></li>\n\t\t<li><a href=\"/careeroutlook/\" aria-label=\"Career Outlook\">Career Outlook</a></li>\t\t\n    </ul>\n    <!-- 2nd column -->\n    <ul class=\"main-nav-submenu-inn\">\n\t\t<li><a href=\"/ooh/\" aria-label=\"Occupational Outlook Handbook\">Occupational Outlook Handbook</a></li>\n\t\t<li><a href=\"/opub/geographic-profile/\" aria-label=\"Geographic Profile\">Geographic Profile</a></li>\n\t\t<li><a href=\"/opub/hom/\" aria-label=\"Handbook of Methods\">Handbook of Methods</a></li>\n\t\t<li><a href=\"/osmr/research-papers/\" aria-label=\"Research Papers - Office of Survey Methods Research\">Research Papers</a></li>\n\t\t<li><a href=\"/opub/copyright-information.htm\" aria-label=\"Copyright Information\">Copyright Information</a></li>\n\t\t<li><a href=\"/opub/opbinfo.htm\" aria-label=\"Contact & Help\">Contact &amp; Help </a></li>\n\t\t<li><a href=\"/opub/update.htm\" aria-label=\"Weekly Update\">Weekly Update</a></li>\t\t\n    </ul>\n</div>\n<!-- ***********************************************End PUBLICATIONS LIST ******************************************** --> </div>\n    </li>\n    <li class=\"nav-item dropdown\"><a class=\"nav-link dropdown-toggle\" href=\"/bls/newsrels.htm\" role=\"button\" data-toggle=\"dropdown\" aria-haspopup=\"true\" aria-expanded=\"false\">Economic Releases <span class=\"circle-arrow\"></span></a>\n        <div class=\"dropdown-menu\"><!-- ********************************************** Begin ECONOMIC RELEASES LIST ****************************************** -->\n<!-- 1st column -->\n\n<div class=\"main-nav-submenu\" id=\"submenu-news\">\n    <ul class=\"main-nav-submenu-inn\">\n        <li class=\"heading\"><a href=\"/bls/newsrels.htm#latest-releases\" aria-label=\"Latest Releases\">Latest Releases</a></li>\n\t\t<li class=\"heading\"><a href=\"/bls/newsrels.htm#major\" aria-label=\"Major Economic Indicators\">Major Economic Indicators</a></li>\n\t\t<li class=\"heading\"><a href=\"/schedule/news_release/\" aria-label=\"Schedules for news Releases\">Schedules for news Releases</a></li>\n\t\t<li><a href=\"/schedule/\" aria-label=\"Release Calendar By Month\">By Month</a></li>\n\t\t<li><a href=\"/schedule/schedule/by_prog/all_sched.htm\" aria-label=\"Release Calendar By News Release\">By News Release</a></li>\n\t\t<li><a href=\"/schedule/news_release/current_year.asp\" aria-label=\"Release Calendar Current Year\">Current Year</a></li>\n\t\t<li><a href=\"/bls/archived_sched.htm\" aria-label=\"Schedules for Selected Bureau of Labor Statistics Economic News Releases for Prior Years\">Prior Years</a></li>\n\t\t<li class=\"heading\"><a href=\"/bls/news-release/\" aria-label=\"Archived News Releases\">Archived News Releases</a></li>\n    </ul>\n    <!-- 2nd column -->\n    <ul class=\"main-nav-submenu-inn\">\n        <li class=\"heading\"><a href=\"/bls/newsrels.htm#OEUS\" aria-label=\"Employment & Unemployment\">Employment &amp; Unemployment</a></li>\n\t\t<li><a href=\"/bls/newsrels.htm#OEUS\" aria-label=\"Monthly\">Monthly</a></li>\n\t\t<li><a href=\"/bls/newsrels.htm#OEUS\" aria-label=\"Quarterly, annual, and other\">Quarterly, annual, and other</a></li>\n\t\t<li class=\"heading\"><a href=\"/bls/newsrels.htm#OPLC\" aria-label=\"Inflation & Prices\"> Inflation &amp; Prices</a></li>\n\t\t<li class=\"heading\"><a href=\"/bls/newsrels.htm#OCWC\" aria-label=\"Pay & Benefits & Workplace Injuries\">Pay &amp; Benefits &amp; Workplace Injuries</a></li>\n\t\t<li class=\"heading\"><a href=\"/bls/newsrels.htm#OPT\" aria-label=\"Productivity & Technology\">Productivity &amp; Technology</a></li>\n\t\t<li class=\"heading\"><a href=\"/bls/newsrels.htm#OEP\" aria-label=\"Employment Projections\">Employment Projections</a></li>\n\t\t<li class=\"heading\"><a href=\"/bls/newsrels.htm#NEWS\" aria-label=\"Regional News Releases\">Regional News Releases</a></li>\n    </ul>\n</div></div>\n    </li>\n    <li class=\"nav-item dropdown\"><a class=\"nav-link dropdown-toggle\" href=\"/k12/\" role=\"button\" data-toggle=\"dropdown\" aria-haspopup=\"true\" aria-expanded=\"false\">Classroom <span class=\"circle-arrow\"></span></a>\n        <div class=\"dropdown-menu\"><!-- ********************************************** Begin Students Tab LIST ****************************************** -->\n<div class=\"main-nav-submenu\" id=\"submenu-students\">\n\t<ul class=\"main-nav-submenu-inn\">\n\t\t<li class=\"heading\"><a href=\"/k12/\" aria-label=\"K-12 Student & Teacher Resources\">K-12 Student &amp; Teacher Resources</a></li>\t\t\n        <li><a href=\"/k12/games/\" aria-label=\"Games & Quizzes\">Games &amp; Quizzes</a></li>\n\t\t<li><a href=\"/k12/students/\" aria-label=\"Student's Desk\">Student&apos;s Desk</a></li>\n\t\t<li><a href=\"/k12/teachers/\" aria-label=\"Teacher's Desk\">Teacher&apos;s Desk</a></li>\n\t\t<li><a href=\"/k12/faq.htm\" aria-label=\"Questions & Answers\">Questions &amp; Answers</a></li>\n    </ul>\n</div>\n<!-- ***********************************************End Students Tab LIST ******************************************** --></div>\n    </li>\n    <li class=\"nav-item dropdown\"><a class=\"nav-link dropdown-toggle\" href=\"/beta/\" role=\"button\" data-toggle=\"dropdown\" aria-haspopup=\"true\" aria-expanded=\"false\">Beta <span class=\"circle-arrow\"></span></a>\n        <div class=\"dropdown-menu\"><!-- ***********************************************Start BETA LIST ******************************************** -->\n\n<div class=\"main-nav-submenu\" id=\"submenu-beta\">\n  <ul class=\"main-nav-submenu-inn\">\n    <li class=\"heading\"><a href=\"/beta/redesigned-news-releases.htm\" aria-label=\"Redesigned News Releases\">Redesigned News Releases</a></li>\n  </ul>\n</div>\n<!-- ***********************************************End BETA LIST ******************************************** --></div>\n    </li>\n</ul>\n\n\n  </div>\n</nav>\n</div>\n\r\n\t\t</div>\r\n\t\t<div class=\"clearfloat\"></div>\r\n\t</div>\r\n</div>\r\n\n\n<!-- MAIN NAV END -->\n\n<!-- WRAPPER TOP BEGIN -->\n\t<div id=\"wrapper-outer\" role=\"main\">\n\t\t<div id=\"wrapper\">\n\t\t\t<div id=\"container\">\n<!-- WRAPPER TOP END -->\n<!-- SUBDOMAIN TITLE TOP BEGIN -->\n\n<!-- 1COL CMS LAYOUT COL1 BEGIN -->\t\n\n<div class=\"main-content\">\n<div id=\"startcontent\" class=\"hidden\"></div>\n\n<!-- 1COL CMS LAYOUT COL1 END -->\n\n\n\n<!--no_index_end-->\n\n<!-- OneColHeadBasic End -->\n\n\n        \n    \n           \n      \n         <style>\r\n\t.main-content .announcement h2 {\r\n\t\ttext-transform: none;\r\n\t}\r\n</style>\r\n<div id=\"programs-banner\">\r\n\t<div id=\"program-title\" aria-level=\"1\" role=\"heading\">Employment Cost Index</div>\r\n\t<div id=\"social-search-box\">\r\n\t\t<div class=\"article-tools-box social-media\"><span class=\"social-media\"><span>SHARE ON:</span><a\r\n\t\t\t\t\thref=\"javascript:void(0);\" class=\"share_facebook\"><img alt=\"share on facebook\"\r\n\t\t\t\t\t\tsrc=\"/images/icons/facebook.png\" title=\"Facebook\"></a><a href=\"javascript:void(0);\"\r\n\t\t\t\t\tclass=\"share_twitter\"><img alt=\"share on twitter\" src=\"/images/icons/twitter.png\"\r\n\t\t\t\t\t\ttitle=\"Twitter\"></a><a href=\"javascript:void(0);\" class=\"share_linkedin\"><img\r\n\t\t\t\t\t\talt=\"share on linkedin\" src=\"/images/icons/linkedin.png\" title=\"LinkedIn\"></a></span></div>\r\n\t\t<form method=\"get\" id=\"search-secondary-nav-form\" action=\"/search/query\"><input type=\"hidden\"\r\n\t\t\t\tvalue=\"https://www.bls.gov/eci\" id=\"search-secondary-nav-category\" name=\"prefix\"><label\r\n\t\t\t\tfor=\"search-secondary-nav-query\" class=\"invisible\">Search Employment Cost Index</label><input\r\n\t\t\t\ttype=\"text\" onclick=\"this.value=''; this.onclick = null;\" value=\"Search Employment Cost Index\"\r\n\t\t\t\tid=\"search-secondary-nav-query\" name=\"query\"><input type=\"submit\" value=\"Go\"\r\n\t\t\t\tid=\"search-secondary-nav-submit\" name=\"submit\"></form>\r\n\t</div>\r\n\t<div class=\"clearfloat\"></div>\r\n\t<style>\r\n\t\t.layout-wide #dol-bar-content,\r\n\t\t.layout-wide #bls-banner,\r\n\t\t.layout-wide #main-nav-container {\r\n\t\t\tmargin: 0 !important;\r\n\t\t}\r\n\r\n\t\t.layout-wide #wrapper,\r\n\t\t.layout-wide #footer-links-wrapper {\r\n\t\t\tmax-width: 100% !important;\r\n\t\t}\r\n\r\n\t\t.layout-wide #programs-banner {\r\n\t\t\twidth: 923px !important;\r\n\t\t}\r\n\r\n\t\tdiv.p {\r\n\t\t\tfont-family: Tahoma, Arial, Helvetica, sans-serif;\r\n\t\t\tmargin: 0 0 1em 0 !important;\r\n\t\t\tpadding: 0;\r\n\t\t\tfont-size: 100%;\r\n\t\t\tcolor: #333;\r\n\t\t\tline-height: 160%;\r\n\t\t}\r\n\t</style>\r\n\r\n\t<div class=\"bootstrap standard-width\">\r\n\t\t<nav class=\"navbar navbar-expand-md programsNavBar \" aria-label=\"secondary-nav\">\r\n\t\t\t<ul class=\"navbar-nav\" role=\"menu\">\r\n\t\t\t\t<li class=\"nav-item\" role=\"none\">\r\n\t\t\t\t\t<a role=\"menuitem\" class=\"nav-link home progNav\" href=\"/eci/\">ECI Home</a>\r\n\t\t\t\t</li>\r\n\t\t\t\t<li class=\"nav-item dropdown\" role=\"none\">\r\n\t\t\t\t\t<a data-toggle=\"dropdown\" aria-haspopup=\"true\" aria-expanded=\"false\"\r\n\t\t\t\t\t\tclass=\"dropdown-toggle nav-link publications progNav\" href=\"javascript:\">ECI Publications</a>\r\n\t\t\t\t\t<div class=\"dropdown-menu\" role=\"menu\"> <a class=\"dropdown-item heading\" role=\"menuitem\"\r\n\t\t\t\t\t\t\thref=\"/eci/publications-overview.htm\">Publications Overview</a>\r\n\t\t\t\t\t\t<a class=\"dropdown-item\" role=\"menuitem\" href=\"/eci/news-releases.htm\">News Releases</a>\r\n\t\t\t\t\t\t<a class=\"dropdown-item\" role=\"menuitem\" href=\"/eci/factsheets.htm\">Factsheets</a>\r\n\t\t\t\t\t\t<a class=\"dropdown-item\" role=\"menuitem\" href=\"/eci/additional-publications/\">Additional\r\n\t\t\t\t\t\t\tPublications</a>\r\n\t\t\t\t\t\t<a class=\"dropdown-item\" role=\"menuitem\" href=\"/eci/videos.htm\">Videos</a>\r\n\t\t\t\t\t\t<a class=\"dropdown-item\" role=\"menuitem\" target=\"_blank\"\r\n\t\t\t\t\t\t\thref=\"https://public.govdelivery.com/accounts/USDOLBLS/subscribers/new?topic_id=USDOLBLS_036\">Subscriptions</a>\r\n\t\t\t\t\t</div>\r\n\t\t\t\t</li>\r\n\t\t\t\t<li class=\"nav-item dropdown\" role=\"none\">\r\n\t\t\t\t\t<a data-toggle=\"dropdown\" aria-haspopup=\"true\" aria-expanded=\"false\"\r\n\t\t\t\t\t\tclass=\"dropdown-toggle nav-link data progNav\" href=\"javascript:\">ECI Data</a>\r\n\t\t\t\t\t<div class=\"dropdown-menu\" role=\"menu\"> <a class=\"dropdown-item heading\" role=\"menuitem\"\r\n\t\t\t\t\t\t\thref=\"/eci/data-overview.htm\">Data Overview</a>\r\n\t\t\t\t\t\t<a class=\"dropdown-item\" role=\"menuitem\" href=\"/eci/data.htm\">Databases</a>\r\n\t\t\t\t\t\t<a class=\"dropdown-item\" role=\"menuitem\" href=\"/eci/tables.htm\">Tables</a>\r\n\t\t\t\t\t\t<a class=\"dropdown-item\" role=\"menuitem\" href=\"/eci/latest-numbers.htm\">Latest Numbers</a>\r\n\t\t\t\t\t\t<a class=\"dropdown-item\" role=\"menuitem\"\r\n\t\t\t\t\t\t\thref=\"/charts/employment-cost-index/compensation-in-private-industry-and-state-and-local-government-3-month-percent-change.htm\">Interactive\r\n\t\t\t\t\t\t\tCharts</a>\r\n\t\t\t\t\t\t<a class=\"dropdown-item\" role=\"menuitem\" href=\"/eci/overview/eci-data-requests.htm\">Data\r\n\t\t\t\t\t\t\tRequests</a>\r\n\t\t\t\t\t\t<a class=\"dropdown-item\" role=\"menuitem\"\r\n\t\t\t\t\t\t\thref=\"/eci/factsheets/eci-constant-dollar-factsheet.htm\">ECI Constant (Real) Dollar</a>\r\n\t\t\t\t\t</div>\r\n\t\t\t\t</li>\r\n\t\t\t\t<li class=\"nav-item dropdown\" role=\"none\">\r\n\t\t\t\t\t<a data-toggle=\"dropdown\" aria-haspopup=\"true\" aria-expanded=\"false\"\r\n\t\t\t\t\t\tclass=\"dropdown-toggle nav-link methods progNav\" href=\"javascript:\">ECI Methods</a>\r\n\t\t\t\t\t<div class=\"dropdown-menu\" role=\"menu\"> <a class=\"dropdown-item heading\" role=\"menuitem\"\r\n\t\t\t\t\t\t\thref=\"/eci/methods-overview.htm\">Methods Overview</a>\r\n\t\t\t\t\t\t<a class=\"dropdown-item\" role=\"menuitem\" href=\"/opub/hom/eci/home.htm\">Handbook of\r\n\t\t\t\t\t\t\tMethods</a>\r\n\t\t\t\t\t\t<a class=\"dropdown-item\" role=\"menuitem\"\r\n\t\t\t\t\t\t\thref=\"/eci/factsheets/eci-standard-errors.htm\">Measures of\r\n\t\t\t\t\t\t\tReliability</a>\r\n\t\t\t\t\t\t<a class=\"dropdown-item\" role=\"menuitem\"\r\n\t\t\t\t\t\t\thref=\"/eci/research.htm\">Research</a>\r\n\t\t\t\t\t\t<a class=\"dropdown-item\" role=\"menuitem\"\r\n\t\t\t\t\t\t\thref=\"/eci/technical-notes.htm\">Technical Notes</a>\r\n\t\t\t\t\t</div>\r\n\t\t\t\t</li>\r\n\t\t\t\t<li class=\"nav-item dropdown\" role=\"none\">\r\n\t\t\t\t\t<a data-toggle=\"dropdown\" aria-haspopup=\"true\" aria-expanded=\"false\"\r\n\t\t\t\t\t\tclass=\"dropdown-toggle nav-link about progNav\" href=\"javascript:\">About ECI</a>\r\n\t\t\t\t\t<div class=\"dropdown-menu\" role=\"menu\"> <a class=\"dropdown-item heading\" role=\"menuitem\"\r\n\t\t\t\t\t\t\thref=\"/eci/about-overview.htm\">About Overview</a>\r\n\t\t\t\t\t\t<a class=\"dropdown-item\" role=\"menuitem\" target=\"_blank\"\r\n\t\t\t\t\t\t\thref=\"/respondents/ncs/\">Information for Respondents</a>\r\n\t\t\t\t\t\t<a class=\"dropdown-item\" role=\"menuitem\" target=\"_blank\"\r\n\t\t\t\t\t\t\thref=\"/osmr/response-rates/\">Response Rates</a>\r\n\t\t\t\t\t\t<a class=\"dropdown-item\" role=\"menuitem\" href=\"/eci/related-links.htm\">Related Links</a>\r\n\t\t\t\t\t\t<a class=\"dropdown-item\" r",
+          "title": "Data Usage : U.S. Bureau of Labor Statistics",
+          "httpStatus": 200
+        },
+        {
+          "type": "openrouter:web_fetch",
+          "id": "st_tmp_v63bna6b1af",
+          "status": "incomplete",
+          "url": "https://www.bls.gov/opub/hom/ncs/pdf/ncs.pdf",
+          "httpStatus": 200,
+          "error": "PDF content cannot be processed by the OpenRouter engine. Use engine: \"native\" (Anthropic models only) or engine: \"firecrawl\" for PDF support."
+        },
+        {
+          "type": "openrouter:web_search",
+          "id": "st_tmp_7z9cgw839et",
+          "status": "completed",
+          "action": {
+            "type": "search",
+            "query": "\"NCS\" BLS handbook \"users and uses\" Employment Cost Index Federal Reserve monetary policy escalation President's Pay Agent"
+          }
+        },
+        {
+          "type": "openrouter:web_search",
+          "id": "st_tmp_5w2qek6ow7",
+          "status": "completed",
+          "action": {
+            "type": "search",
+            "query": "National Compensation Survey CIPSEA confidentiality restricted data access response rate sample design 2025"
+          }
+        }
+      ],
+      "ended": "answered",
+      "seconds": 123.0
+    },
+    "assessment": {
+      "request": {
+        "model": "z-ai/glm-5.3",
+        "max_output_tokens": 32768,
+        "tools": [
+          {
+            "type": "openrouter:web_search",
+            "parameters": {
+              "engine": "exa",
+              "max_results": 10,
+              "excluded_domains": [
+                "dataindex.us"
+              ]
+            }
+          },
+          {
+            "type": "openrouter:web_fetch",
+            "parameters": {
+              "engine": "openrouter",
+              "blocked_domains": [
+                "dataindex.us"
+              ],
+              "max_content_tokens": 10000
+            }
+          }
+        ],
+        "cache_control": {
+          "type": "ephemeral",
+          "ttl": "1h"
+        },
+        "session_id": "ncs-z-ai/glm-5.3-t0-2026-10-09T00:43:55Z",
+        "stop_server_tools_when": [
+          {
+            "type": "step_count_is",
+            "step_count": 200
+          }
+        ],
+        "reasoning": {
+          "effort": "high"
+        },
+        "provider": {
+          "order": [
+            "z-ai"
+          ],
+          "allow_fallbacks": false
+        }
+      },
+      "response_meta": {
+        "id": "gen-1791506759-L6stk3HHkNdLUh1QSfx6",
+        "object": "response",
+        "created_at": 1791506759,
+        "model": "z-ai/glm-5.3",
+        "status": "completed",
+        "completed_at": 1791506914,
+        "error": null,
+        "incomplete_details": null,
+        "tools": [],
+        "tool_choice": "auto",
+        "parallel_tool_calls": true,
+        "max_output_tokens": 32768,
+        "temperature": 1,
+        "top_p": 1,
+        "presence_penalty": 0,
+        "frequency_penalty": 0,
+        "top_logprobs": 0,
+        "max_tool_calls": null,
+        "metadata": {},
+        "background": false,
+        "previous_response_id": null,
+        "service_tier": "auto",
+        "truncation": "disabled",
+        "store": false,
+        "instructions": null,
+        "text": {
+          "format": {
+            "type": "text"
+          }
+        },
+        "reasoning": {
+          "effort": "high"
+        },
+        "safety_identifier": null,
+        "prompt_cache_key": null,
+        "prompt_cache_options": null,
+        "usage": {
+          "input_tokens": 163135,
+          "input_tokens_details": {
+            "cached_tokens": 118848
+          },
+          "output_tokens": 7898,
+          "output_tokens_details": {
+            "reasoning_tokens": 4366
+          },
+          "total_tokens": 171033,
+          "cost": 0.16265348,
+          "cost_details": {
+            "upstream_inference_cost": 0.12765347999999999,
+            "upstream_inference_input_cost": 0.09290228,
+            "upstream_inference_output_cost": 0.034751199999999996
+          },
+          "server_tool_use_details": {
+            "web_search_requests": 7,
+            "tool_calls_requested": 8,
+            "tool_calls_executed": 8
+          }
+        }
+      },
+      "requests": [
+        {
+          "input_tokens": 163135,
+          "input_tokens_details": {
+            "cached_tokens": 118848
+          },
+          "output_tokens": 7898,
+          "output_tokens_details": {
+            "reasoning_tokens": 4366
+          },
+          "total_tokens": 171033,
+          "cost": 0.16265348,
+          "cost_details": {
+            "upstream_inference_cost": 0.12765347999999999,
+            "upstream_inference_input_cost": 0.09290228,
+            "upstream_inference_output_cost": 0.034751199999999996
+          },
+          "server_tool_use_details": {
+            "web_search_requests": 7,
+            "tool_calls_requested": 8,
+            "tool_calls_executed": 8
+          }
+        }
+      ],
+      "searches": 7,
+      "fetches": 1,
+      "tool_items": [
+        {
+          "type": "openrouter:web_search",
+          "id": "st_tmp_o4auy49eq4",
+          "status": "completed",
+          "action": {
+            "type": "search",
+            "query": "BLS Bureau of Labor Statistics budget cuts 2025 staffing reductions Reduction in Force",
+            "sources": [
+              {
+                "type": "url",
+                "url": "https://www.amstat.org/docs/default-source/amstat-documents/the-nations-data-at-risk-2025/bureau-of-labor-statistics.pdf"
+              },
+              {
+                "type": "url",
+                "url": "https://www.bloomberg.com/news/articles/2025-06-04/trump-budget-calls-for-bls-cuts-raising-data-quality-concerns"
+              },
+              {
+                "type": "url",
+                "url": "https://www.dol.gov/sites/dolgov/files/general/budget/2025/CBJ-2025-V3-01.pdf"
+              },
+              {
+                "type": "url",
+                "url": "https://www.c2er.org/2025/06/proposed-federal-budget-signals-cuts-to-core-economic-data-capacity/"
+              },
+              {
+                "type": "url",
+                "url": "https://www.politico.com/news/2025/06/11/inflation-data-economy-labor-budget-00399155"
+              },
+              {
+                "type": "url",
+                "url": "https://www.theguardian.com/us-news/2025/may/03/mass-resignations-at-labor-department-threaten-workers-in-us-and-overseas-warn-staff-as-more-cuts-loom"
+              },
+              {
+                "type": "url",
+                "url": "https://www.friendsofbls.org/updates/2025/9/2/letter-to-senate-amp-house-appropriations-committees-regarding-fy26-funding-for-bls"
+              },
+              {
+                "type": "url",
+                "url": "https://www.cbpp.org/research/poverty-and-inequality/federal-data-are-disappearing-as-statistical-agencies-face-budget"
+              },
+              {
+                "type": "url",
+                "url": "https://news.bloomberglaw.com/daily-labor-report/bls-leadership-vacuum-extends-beyond-head-as-key-roles-sit-empty"
+              },
+              {
+                "type": "url",
+                "url": "https://www.dol.gov/sites/dolgov/files/general/budget/2026/CBJ-2026-V3-01.pdf"
+              }
+            ]
+          }
+        },
+        {
+          "type": "openrouter:web_search",
+          "id": "st_tmp_out2bai5yt",
+          "status": "completed",
+          "action": {
+            "type": "search",
+            "query": "Bureau of Labor Statistics 2026 budget request elimination programs Congress appropriations",
+            "sources": [
+              {
+                "type": "url",
+                "url": "https://www.dol.gov/sites/dolgov/files/general/budget/2026/CBJ-2026-V3-01.pdf"
+              },
+              {
+                "type": "url",
+                "url": "https://www.dol.gov/sites/dolgov/files/general/budget/2026/CBJ-2026-V1-02.pdf"
+              },
+              {
+                "type": "url",
+                "url": "https://cossa.org/wp-content/uploads/2025/06/COSSA-FY-2026-PBR-Analysis.pdf"
+              },
+              {
+                "type": "url",
+                "url": "https://www.govinfo.gov/content/pkg/BUDGET-2026-BUD/pdf/BUDGET-2026-BUD.pdf?_sp=4d6c8dbc-17c7-4de8-986a-188b2f359679"
+              },
+              {
+                "type": "url",
+                "url": "https://www.dol.gov/sites/dolgov/files/ETA/budget/pdfs/FY2026BIB_ETA.pdf"
+              },
+              {
+                "type": "url",
+                "url": "https://www.dol.gov/sites/dolgov/files/general/budget/2026/CBJ-2026-V1-01.pdf"
+              },
+              {
+                "type": "url",
+                "url": "https://www.dol.gov/sites/dolgov/files/general/budget/2026/FY2026BIB.pdf"
+              },
+              {
+                "type": "url",
+                "url": "https://www.govinfo.gov/content/pkg/BUDGET-2026-APP/pdf/BUDGET-2026-APP-2-1.pdf"
+              },
+              {
+                "type": "url",
+                "url": "https://www.congress.gov/crs_external_products/R/PDF/R48970/R48970.5.pdf"
+              },
+              {
+                "type": "url",
+                "url": "https://www.dol.gov/sites/dolgov/files/general/budget/2026/CBJ-2026-V3-05.pdf"
+              }
+            ]
+          }
+        },
+        {
+          "type": "openrouter:web_search",
+          "id": "st_tmp_ee8pyswnbsd",
+          "status": "completed",
+          "action": {
+            "type": "search",
+            "query": "BLS National Compensation Survey 2025 revision eliminate benefit data elements workers compensation OMB approval final",
+            "sources": [
+              {
+                "type": "url",
+                "url": "https://www.govinfo.gov/content/pkg/FR-2025-07-16/html/2025-13287.htm"
+              },
+              {
+                "type": "url",
+                "url": "https://www.govinfo.gov/content/pkg/FR-2025-07-16/pdf/2025-13334.pdf"
+              },
+              {
+                "type": "url",
+                "url": "https://www.federalregister.gov/documents/2025/07/16/2025-13287/information-collection-activities-comment-request"
+              },
+              {
+                "type": "url",
+                "url": "https://omb.report/icr/202506-1220-001/doc/original/165384000.pdf"
+              },
+              {
+                "type": "url",
+                "url": "https://www.bls.gov/opub/mlr/2023/article/removing-workers-compensation-costs-from-the-national-compensation-survey.htm"
+              },
+              {
+                "type": "url",
+                "url": "https://www.federalregister.gov/documents/2026/02/03/2026-02155/agency-information-collection-activities-submission-for-omb-review-national-compensation-survey"
+              },
+              {
+                "type": "url",
+                "url": "https://www.bls.gov/ecec/notices/2026/removing-workers-compensation-costs.htm"
+              },
+              {
+                "type": "url",
+                "url": "https://www.bls.gov/eci/notices/2026/eci-2025-fixed-weights-and-removing-workers-compensation.htm"
+              },
+              {
+                "type": "url",
+                "url": "https://www.bls.gov/opub/mlr/cwc/recent-modifications-of-employee-benefits-data-in-the-national-compensation-survey.pdf"
+              },
+              {
+                "type": "url",
+                "url": "https://www.bls.gov/ebs/publications/employee-benefits-in-the-united-states-march-2025.htm"
+              }
+            ]
+          }
+        },
+        {
+          "type": "openrouter:web_fetch",
+          "id": "st_tmp_lknpp79xd1j",
+          "status": "completed",
+          "url": "https://usajobs-tracker.abigailhaddad.com",
+          "content": "<!DOCTYPE html>\n<html lang=\"en\">\n<head>\n    <meta charset=\"UTF-8\">\n    <meta name=\"viewport\" content=\"width=device-width, initial-scale=1.0\">\n    <title>USAJobs Listings Tracker</title>\n    \n    <!-- DataTables CSS -->\n    <link rel=\"stylesheet\" href=\"https://cdn.datatables.net/1.13.6/css/dataTables.bootstrap5.min.css\">\n    <link rel=\"stylesheet\" href=\"https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css\">\n    <link rel=\"stylesheet\" href=\"https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.0/font/bootstrap-icons.css\">\n    \n    <style>\n        body {\n            font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;\n            background-color: #f8f9fa;\n            color: #333;\n        }\n        \n        .container {\n            max-width: 1400px;\n            margin: 0 auto;\n            padding: 20px;\n        }\n        \n        h1 {\n            color: #003366;\n            font-weight: 600;\n            margin-bottom: 10px;\n        }\n        \n        .subtitle {\n            color: #999;\n            font-size: 0.9rem;\n            margin-bottom: 20px;\n        }\n        \n        .summary-stats {\n            background: white;\n            padding: 20px;\n            border-radius: 8px;\n            box-shadow: 0 2px 4px rgba(0,0,0,0.1);\n            margin-bottom: 30px;\n        }\n        \n        .stat-box {\n            text-align: center;\n            padding: 15px;\n            border-right: 1px solid #e9ecef;\n        }\n        \n        .stat-box:last-child {\n            border-right: none;\n        }\n        \n        .stat-value {\n            font-size: 2rem;\n            font-weight: 600;\n            color: #003366;\n        }\n        \n        .stat-label {\n            color: #666;\n            font-size: 0.85rem;\n            text-transform: uppercase;\n            line-height: 1.3;\n        }\n        \n        .table-container {\n            background: white;\n            padding: 25px;\n            border-radius: 8px;\n            box-shadow: 0 2px 4px rgba(0,0,0,0.1);\n        }\n        \n        .dataTables_wrapper .dataTables_filter input {\n            border: 1px solid #ddd;\n            border-radius: 4px;\n            padding: 5px 10px;\n            margin-left: 10px;\n        }\n        \n        .dataTables_wrapper .dataTables_length select {\n            border: 1px solid #ddd;\n            border-radius: 4px;\n            padding: 5px;\n        }\n        \n        table.dataTable {\n            border-collapse: collapse !important;\n        }\n        \n        table.dataTable thead th {\n            background-color: #003366;\n            color: white;\n            font-weight: 600;\n            border-bottom: none !important;\n            white-space: nowrap;\n            position: relative;\n            cursor: pointer;\n        }\n        \n        table.dataTable thead th.filtering {\n            background-color: #00508f;\n        }\n        \n        table.dataTable tbody tr:hover {\n            background-color: #f0f8ff;\n        }\n        \n        table.dataTable tbody td {\n            padding: 12px;\n            vertical-align: middle;\n        }\n        \n        .percentage-cell {\n            font-weight: 600;\n        }\n        \n        .high-percentage {\n            color: #388e3c;  /* Green - good (maintained/increased listings) */\n        }\n        \n        .medium-percentage {\n            color: #f57c00;  /* Orange - moderate (some decline) */\n        }\n        \n        .low-percentage {\n            color: #d32f2f;  /* Red - bad (major decline) */\n        }\n        \n        .expiring-soon {\n            background-color: #fff3cd;\n        }\n        \n        .no-year {\n            background-color: #e8f4f8;\n        }\n        \n        /* Column filter styles */\n        .column-filter-container {\n            position: absolute;\n            background: white;\n            border: 1px solid #ddd;\n            border-radius: 4px;\n            box-shadow: 0 4px 6px rgba(0,0,0,0.1);\n            padding: 10px;\n            z-index: 1000;\n            min-width: 200px;\n            max-height: 300px;\n            overflow-y: auto;\n        }\n        \n        .column-filter-container input[type=\"text\"] {\n            width: 100%;\n            padding: 5px;\n            margin-bottom: 10px;\n            border: 1px solid #ddd;\n            border-radius: 3px;\n        }\n        \n        .column-filter-container label {\n            display: block;\n            padding: 3px 0;\n            cursor: pointer;\n        }\n        \n        .column-filter-container label:hover {\n            background-color: #f0f0f0;\n        }\n        \n        .column-filter-container input[type=\"checkbox\"] {\n            margin-right: 8px;\n        }\n        \n        .filter-buttons {\n            margin-top: 10px;\n            text-align: right;\n        }\n        \n        .filter-buttons button {\n            margin-left: 5px;\n            padding: 3px 10px;\n            border: 1px solid #ddd;\n            border-radius: 3px;\n            background: white;\n            cursor: pointer;\n            font-size: 0.85rem;\n        }\n        \n        .filter-buttons button.apply {\n            background: #003366;\n            color: white;\n        }\n        \n        .filter-buttons button:hover {\n            opacity: 0.8;\n        }\n        \n        th.has-filter::after {\n            content: \" \u25bc\";\n            font-size: 0.8em;\n            opacity: 0.5;\n        }\n        \n        /* Bubble chart styles */\n        .treemap-container {\n            background: white;\n            padding: 20px;\n            border-radius: 8px;\n            box-shadow: 0 2px 4px rgba(0,0,0,0.1);\n            margin-bottom: 30px;\n        }\n        \n        .treemap-title {\n            font-size: 1.2rem;\n            font-weight: 600;\n            color: #003366;\n            margin-bottom: 15px;\n        }\n        \n        #bubble-chart {\n            width: 100%;\n            height: 460px;\n            position: relative;\n        }\n        \n        .bubble {\n            cursor: pointer;\n            opacity: 0.8;\n            transition: all 0.3s;\n        }\n        \n        .bubble:hover {\n            opacity: 1;\n            stroke: #003366;\n            stroke-width: 3;\n        }\n        \n        .axis-label {\n            font-size: 14px;\n            font-weight: 600;\n            fill: #333;\n        }\n        \n        .grid line {\n            stroke: #e0e0e0;\n            stroke-opacity: 0.7;\n            shape-rendering: crispEdges;\n        }\n        \n        .grid path {\n            stroke-width: 0;\n        }\n        \n        .quadrant-label {\n            fill: #666;\n            font-size: 12px;\n            font-style: italic;\n            opacity: 0.7;\n        }\n        \n        /* Filter section styles */\n        .filter-section {\n            background: white;\n            padding: 20px;\n            border-radius: 8px;\n            box-shadow: 0 2px 4px rgba(0,0,0,0.1);\n            margin-bottom: 30px;\n        }\n        \n        .filter-section h3 {\n            color: #003366;\n            font-size: 1.3rem;\n            margin-bottom: 15px;\n        }\n        \n        .filter-controls label {\n            font-size: 0.85rem;\n            font-weight: 600;\n            color: #666;\n            margin-bottom: 5px;\n        }\n        \n        .active-filters {\n            margin-top: 15px;\n            min-height: 30px;\n        }\n        \n        .filter-badge {\n            display: inline-block;\n            background: #003366;\n            color: white;\n            padding: 5px 10px;\n            border-radius: 20px;\n            margin-right: 10px;\n            margin-bottom: 5px;\n            font-size: 0.85rem;\n        }\n        \n        .filter-badge .remove-filter {\n            margin-left: 8px;\n            cursor: pointer;\n            font-weight: bold;\n        }\n        \n        .filter-badge .remove-filter:hover {\n            color: #ff6b6b;\n        }\n        \n        /* Multi-select dropdown styles */\n        .filter-dropdown {\n            position: relative;\n        }\n        \n        .filter-dropdown-menu {\n            position: absolute;\n            top: 100%;\n            left: 0;\n            right: 0;\n            z-index: 1000;\n            background: white;\n            border: 1px solid #ddd;\n            border-radius: 4px;\n            box-shadow: 0 4px 6px rgba(0,0,0,0.1);\n            padding: 10px;\n            margin-top: 2px;\n        }\n        \n        .filter-dropdown-menu label {\n            cursor: pointer;\n        }\n        \n        .filter-dropdown-menu label:hover {\n            background-color: #f0f0f0;\n        }\n        \n        .filter-dropdown-menu .filter-search {\n            margin-bottom: 5px;\n        }\n        \n        .filter-dropdown-menu .filter-options label {\n            padding: 3px 8px;\n            margin: 0;\n            display: block;\n        }\n        \n        .filter-dropdown-menu input[type=\"checkbox\"] {\n            margin-right: 8px;\n        }\n        \n        /* Active filters display */\n        .active-filters-display {\n            color: #d32f2f;\n            font-size: 1.1rem;\n            font-weight: 600;\n            margin-bottom: 20px;\n            min-height: 1.5em;\n        }\n        \n        #downloadCSV:hover {\n            background-color: #00508f !important;\n            transform: translateY(-1px);\n            box-shadow: 0 2px 4px rgba(0,0,0,0.2);\n        }\n        \n        /* Skip link for keyboard navigation */\n        .skip-link {\n            position: absolute;\n            top: -40px;\n            left: 0;\n            background: #003366;\n            color: white;\n            padding: 8px;\n            text-decoration: none;\n            z-index: 9999;\n        }\n        \n        .skip-link:focus {\n            top: 0;\n        }\n        \n        /* Improved focus indicators */\n        a:focus,\n        button:focus,\n        input:focus,\n        select:focus,\n        textarea:focus {\n            outline: 3px solid #003366;\n            outline-offset: 2px;\n        }\n        \n        /* Screen reader only content */\n        .sr-only {\n            position: absolute;\n            width: 1px;\n            height: 1px;\n            padding: 0;\n            margin: -1px;\n            overflow: hidden;\n            clip: rect(0, 0, 0, 0);\n            white-space: nowrap;\n            border: 0;\n        }\n        \n    </style>\n</head>\n<body>\n    <!-- Skip to main content link for keyboard navigation -->\n    <a href=\"#main-content\" class=\"skip-link\">Skip to main content</a>\n    \n    <!-- Work in Progress Banner -->\n    <div class=\"alert alert-warning mb-0\" role=\"alert\">\n        <div class=\"container\">\n            <strong>\ud83d\udea7 Active Development:</strong> This is an experimental tool tracking federal job postings.\n            Data source: <a href=\"https://github.com/abigailhaddad/usajobs_historical\" target=\"_blank\" class=\"alert-link\">USAJobs Historical Data</a> | <a class='alert-link' href='/methodology'>Methodology</a>\n        </div>\n    </div>\n\n    <!-- Archive Notice Banner -->\n    <div class=\"alert alert-danger mb-0\" role=\"alert\" style=\"border-radius: 0;\">\n        <div class=\"container\">\n            <strong>\ud83d\udcc1 Archive Notice:</strong> This tracker will be archived on December 31, 2025. Data collection will stop on that date and no further updates will be made.\n        </div>\n    </div>\n\n    <div class=\"container\" id=\"main-content\">\n        <h1>USAJobs Listings Tracker</h1>\n        <p class=\"subtitle\" id=\"dateRangeSubtitle\">Loading date range...</p>\n        <div id=\"activeFiltersDisplay\" class=\"active-filters-display\"></div>\n        \n        <!-- ARIA live region for screen reader announcements -->\n        <div class=\"sr-only\" aria-live=\"polite\" aria-atomic=\"true\" id=\"ariaLiveRegion\"></div>\n        \n        <!-- Important Caveats -->\n        <div class=\"alert alert-info mt-3 mb-3\">\n            <small>\n                <strong>Important Notes:</strong>\n                <ul class=\"mb-0\" style=\"padding-left: 20px;\">\n                    <li>Job listings \u2260 actual hires. One listing may result in multiple hires, one hire, or no hires.</li>\n                    <li>Not all federal positions are posted on USAJobs.</li>\n                    <li>Job listings which include multiple occupation series are counted under the first series listed.</li>\n                    <li>Subagency view and raw job listings are only available after selecting a specific department.</li>\n                </ul>\n            </small>\n        </div>\n        \n        <!-- Data Source Attribution -->\n        <div class=\"text-center text-muted mb-4\">\n            <small>\n                Data source: <a href=\"https://github.com/abigailhaddad/usajobs_historical\" target=\"_blank\" class=\"text-decoration-none\">\n                    USAJobs Historical Data\n                </a>\n                <br>\n                <span id=\"lastUpdated\"></span>\n            </small>\n        </div>\n        \n        <div class=\"summary-stats\">\n            <div class=\"row\">\n                <div class=\"col-md-3 stat-box\">\n                    <div class=\"stat-value\" id=\"total2024\">Loading...</div>\n                    <div class=\"stat-label\" id=\"previousYearLabel\">Previous Year</div>\n                </div>\n                <div class=\"col-md-3 stat-box\">\n                    <div class=\"stat-value\" id=\"total2025\">Loading...</div>\n                    <div class=\"stat-label\" id=\"currentYearLabel\">Current Year</div>\n                </div>\n                <div class=\"col-md-3 stat-box\">\n                    <div class=\"stat-value\" id=\"overallPercentage\">Loading...</div>\n                    <div class=\"stat-label\" id=\"percentageLabel\">Year-over-Year %</div>\n                </div>\n                <div class=\"col-md-3 stat-box\">\n                    <div class=\"stat-value\" id=\"entityCount\">Loading...</div>\n                    <div class=\"stat-label\">Departments</div>\n                </div>\n            </div>\n        </div>\n        \n        <!-- Unified Filter Section -->\n        <div class=\"filter-section\">\n            <h3>Filters & Display Options</h3>\n            <div class=\"filter-controls\">\n                <div class=\"row mb-3\">\n                    <div class=\"col-md-3\">\n                        <label for=\"mainDepartmentFilter\">Department</label>\n                        <select class=\"form-control form-control-sm\" id=\"mainDepartmentFilter\">\n                            <option value=\"\">All Departments</option>\n                        </select>\n                    </div>\n                    <div class=\"col-md-3\">\n                        <label for=\"mainAgencyFilter\">Agency</label>\n                        <select class=\"form-control form-control-sm\" id=\"mainAgencyFilter\">\n                            <option value=\"\">All Agencies</option>\n                        </select>\n                    </div>\n                    <div class=\"col-md-3\">\n                        <label for=\"mainAppointmentFilter\">Appointment Type</label>\n                        <select class=\"form-control form-control-sm\" id=\"mainAppointmentFilter\">\n                            <option value=\"\">All Types</option>\n                        </select>\n                    </div>\n                    <div class=\"col-md-3\">\n                        <label for=\"mainOccupationFilter\">Occupation Series</label>\n                        <select class=\"form-control form-control-sm\" id=\"mainOccupationFilter\">\n                            <option value=\"\">All Occupations</option>\n                        </select>\n                    </div>\n                </div>\n                <div class=\"row mb-3\">\n                    <div class=\"col-md-3\">\n                        <label for=\"aggregationLevel\">View By</label>\n                        <select id=\"aggregationLevel\" class=\"form-control form-control-sm\">\n                            <option value=\"department\" selected>Department</option>\n                            <option value=\"agency\">Agency</option>\n                            <option value=\"subagency\" disabled>Subagency (select a department first)</option>\n                        </select>\n                    </div>\n                    <div class=\"col-md-3\">\n                        <label>&nbsp;</label>\n                        <div class=\"form-check\">\n                            <input class=\"form-check-input\" type=\"checkbox\" id=\"showRawJobs\" disabled>\n                            <label class=\"form-check-label\" for=\"showRawJobs\">\n                                Show Raw Jobs (select a department first)\n                            </label>\n                        </div>\n                    </div>\n                </div>\n            </div>\n        </div>\n        \n        <div class=\"treemap-container\">\n            <h2 class=\"treemap-title\" id=\"bubbleChartTitle\">USAJobs Counts by Department</h2>\n            <p style=\"margin-top: -10px; margin-bottom: 15px; color: #666; font-size: 0.9rem;\">Bubble size = 2024 count</p>\n            <div id=\"bubble-chart\"></div>\n        </div>\n        \n        <div class=\"table-container\">\n            <div class=\"d-flex justify-content-between align-items-center mb-3\">\n                <h3 class=\"m-0\" style=\"color: #003366; font-size: 1.3rem;\">Data Table</h3>\n                <button id=\"downloadCSV\" class=\"btn btn-sm\" style=\"background-color: #003366; color: white; border: none;\">\n                    <i class=\"bi bi-download\"></i> Download Current View as CSV\n                </button>\n            </div>\n            <table id=\"jobsTable\" class=\"table table-striped\">\n                <thead id=\"tableHead\">\n                    <tr id=\"tableHeaders\">\n                        <th>Department</th>\n                        <th>Agency</th>\n                        <th>2024 Listings</th>\n                        <th>2025 Listings</th>\n                        <th>Change</th>\n                        <th>2025 as % of 2024</th>\n                    </tr>\n                </thead>\n                <tbody id=\"tableBody\">\n                </tbody>\n            </table>\n        </div>\n    </div>\n    \n    <!-- jQuery -->\n    <script src=\"https://code.jquery.com/jquery-3.7.0.min.js\"></script>\n    <!-- Bootstrap JS -->\n    <script src=\"https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js\"></script>\n    <!-- DataTables JS -->\n    <script src=\"https://cdn.datatables.net/1.13.6/js/jquery.dataTables.min.js\"></script>\n    <script src=\"https://cdn.datatables.net/1.13.6/js/dataTables.bootstrap5.min.js\"></script>\n    <!-- D3.js for Treemap -->\n    <script src=\"https://d3js.org/d3.v7.min.js\"></script>\n    \n    <script src=\"jobs_app.js\"></script>\n</body>\n</html>",
+          "title": "USAJobs Listings Tracker",
+          "httpStatus": 200
+        },
+        {
+          "type": "openrouter:web_search",
+          "id": "st_tmp_6hruzrsj7kv",
+          "status": "completed",
+          "action": {
+            "type": "search",
+            "query": "Employment Cost Index release delayed government shutdown October November 2025 BLS data releases schedule",
+            "sources": [
+              {
+                "type": "url",
+                "url": "https://www.bls.gov/schedule/news_release/eci.htm"
+              },
+              {
+                "type": "url",
+                "url": "https://www.bls.gov/bls/2025-lapse-revised-release-dates.htm"
+              },
+              {
+                "type": "url",
+                "url": "https://www.bls.gov/news.release/archives/eci_12102025.htm"
+              },
+              {
+                "type": "url",
+                "url": "https://www.reuters.com/business/schedule-us-economic-data-delayed-by-government-shutdown-2025-11-28/"
+              },
+              {
+                "type": "url",
+                "url": "https://www.bls.gov/schedule/2025/11_sched_list.htm"
+              },
+              {
+                "type": "url",
+                "url": "https://www.bls.gov/schedule/2025/12_sched.htm"
+              },
+              {
+                "type": "url",
+                "url": "https://www.bls.gov/bls/2025-lapse-revised-release-dates.htm?Fds-Load-Behavior=force-external"
+              },
+              {
+                "type": "url",
+                "url": "https://fraser.stlouisfed.org/files/docs/releases/bls/bls_lapse_2025.pdf"
+              },
+              {
+                "type": "url",
+                "url": "https://blsmon1.bls.gov/schedule/2025/11_sched.htm"
+              },
+              {
+                "type": "url",
+                "url": "https://blsmon1.bls.gov/schedule/2025/10_sched.htm"
+              }
+            ]
+          }
+        },
+        {
+          "type": "openrouter:web_search",
+          "id": "st_tmp_vafvgzo1qvh",
+          "status": "completed",
+          "action": {
+            "type": "search",
+            "query": "BLS commissioner McEntarfer removed fired 2025 leadership vacancies commissioner successor",
+            "sources": [
+              {
+                "type": "url",
+                "url": "https://apnews.com/article/trump-jobs-firing-f00e9bf96d0110519be9bf4f3ec89195"
+              },
+              {
+                "type": "url",
+                "url": "https://www.nbcnews.com/business/economy/trump-orders-firing-bls-commissioner-weak-jobs-report-rcna222531"
+              },
+              {
+                "type": "url",
+                "url": "https://www.theguardian.com/business/2025/sep/17/labor-statistics-chief-trump-erika-mcentarfer"
+              },
+              {
+                "type": "url",
+                "url": "https://www.reuters.com/world/us/white-house-defends-firing-labor-official-critics-warn-trust-erosion-2025-08-04/"
+              },
+              {
+                "type": "url",
+                "url": "https://thehill.com/homenews/administration/5432920-bls-commisioner-eirka-mcentarfer-trump-firing/"
+              },
+              {
+                "type": "url",
+                "url": "https://www.cnbc.com/2025/08/01/trump-erika-mcentarfer-jobs-report-fired.html"
+              },
+              {
+                "type": "url",
+                "url": "https://www.washingtonpost.com/business/2025/08/01/trump-fires-bls-chief/"
+              },
+              {
+                "type": "url",
+                "url": "https://www.cbsnews.com/news/trump-fires-commissioner-of-labor-statistics-july-jobs-report-erika-mcentarfer/"
+              },
+              {
+                "type": "url",
+                "url": "https://www.bloomberg.com/news/articles/2025-09-16/former-bls-chief-recounts-shock-of-getting-fired-over-jobs-data"
+              },
+              {
+                "type": "url",
+                "url": "https://news.bloomberglaw.com/daily-labor-report/trumps-firing-of-bls-head-hurts-confidence-in-labor-department"
+              }
+            ]
+          }
+        },
+        {
+          "type": "openrouter:web_search",
+          "id": "st_tmp_tcjz5ojqwy",
+          "status": "completed",
+          "action": {
+            "type": "search",
+            "query": "BLS new commissioner appointed 2026 Wiatrowski acting commissioner confirmed"
+          }
+        },
+        {
+          "type": "openrouter:web_search",
+          "id": "st_tmp_ovwr1m26nj",
+          "status": "completed",
+          "action": {
+            "type": "search",
+            "query": "\"Employee Benefits in the United States\" 2026 BLS release NCS benefits survey March 2026"
+          }
+        }
+      ],
+      "ended": "answered",
+      "seconds": 155.0
+    },
+    "session_metadata": {
+      "request": {
+        "model": "z-ai/glm-5.3",
+        "max_output_tokens": 32768,
+        "tools": [
+          {
+            "type": "openrouter:web_search",
+            "parameters": {
+              "engine": "exa",
+              "max_results": 10,
+              "excluded_domains": [
+                "dataindex.us"
+              ]
+            }
+          },
+          {
+            "type": "openrouter:web_fetch",
+            "parameters": {
+              "engine": "openrouter",
+              "blocked_domains": [
+                "dataindex.us"
+              ],
+              "max_content_tokens": 10000
+            }
+          }
+        ],
+        "cache_control": {
+          "type": "ephemeral",
+          "ttl": "1h"
+        },
+        "session_id": "ncs-z-ai/glm-5.3-t0-2026-10-09T00:43:55Z",
+        "stop_server_tools_when": [
+          {
+            "type": "step_count_is",
+            "step_count": 200
+          }
+        ],
+        "reasoning": {
+          "effort": "high"
+        },
+        "provider": {
+          "order": [
+            "z-ai"
+          ],
+          "allow_fallbacks": false
+        }
+      },
+      "response_meta": {
+        "id": "gen-1791506914-hxsLcsUtaNhlZG8YErgK",
+        "object": "response",
+        "created_at": 1791506914,
+        "model": "z-ai/glm-5.3",
+        "status": "completed",
+        "completed_at": 1791506927,
+        "error": null,
+        "incomplete_details": null,
+        "tools": [],
+        "tool_choice": "auto",
+        "parallel_tool_calls": true,
+        "max_output_tokens": 32768,
+        "temperature": 1,
+        "top_p": 1,
+        "presence_penalty": 0,
+        "frequency_penalty": 0,
+        "top_logprobs": 0,
+        "max_tool_calls": null,
+        "metadata": {},
+        "background": false,
+        "previous_response_id": null,
+        "service_tier": "auto",
+        "truncation": "disabled",
+        "store": false,
+        "instructions": null,
+        "text": {
+          "format": {
+            "type": "text"
+          }
+        },
+        "reasoning": {
+          "effort": "high"
+        },
+        "safety_identifier": null,
+        "prompt_cache_key": null,
+        "prompt_cache_options": null,
+        "usage": {
+          "input_tokens": 27064,
+          "input_tokens_details": {
+            "cached_tokens": 17728
+          },
+          "output_tokens": 631,
+          "output_tokens_details": {
+            "reasoning_tokens": 129
+          },
+          "total_tokens": 27695,
+          "cost": 0.02045608,
+          "cost_details": {
+            "upstream_inference_cost": 0.02045608,
+            "upstream_inference_input_cost": 0.01767968,
+            "upstream_inference_output_cost": 0.0027764
+          }
+        }
+      },
+      "requests": [
+        {
+          "input_tokens": 27064,
+          "input_tokens_details": {
+            "cached_tokens": 17728
+          },
+          "output_tokens": 631,
+          "output_tokens_details": {
+            "reasoning_tokens": 129
+          },
+          "total_tokens": 27695,
+          "cost": 0.02045608,
+          "cost_details": {
+            "upstream_inference_cost": 0.02045608,
+            "upstream_inference_input_cost": 0.01767968,
+            "upstream_inference_output_cost": 0.0027764
+          }
+        }
+      ],
+      "searches": 0,
+      "fetches": 0,
+      "tool_items": [],
+      "ended": "answered",
+      "seconds": 12.9
+    }
+  },
+  "messages": [
+    {
+      "role": "user",
+      "content": "#data research\nI am researching a federal dataset. Find out everything you can about this dataset, such as who publishes it, under what authority or mandate, its history, its typical users, and its benefits to the public. Be sure your research comprehensively covers each of those perspectives, as well as any others that you discover or seem useful. I believe this is accurate information, but please check:\n\nDataset title: National Compensation Survey (NCS)\nDescription: The National Compensation Survey (NCS) is conducted by the U.S. Bureau of Labor Statistics to collect data on wages and benefits for America's workforce. Data gathered through the NCS is used to generate the Employment Cost Index (ECI), Employer Costs for Employee Compensation (ECEC), Employee Benefits, and Modeled Wage Estimates (MWE).\n\nReturn a complete report on everything that a preservationist, data librarian, data scientist, or policy activist might want to know about this data."
+    },
+    {
+      "role": "assistant",
+      "content": "I have a good foundation. Now let me dig into the users/uses, legal authority, Modeled Wage Estimates, and any recent developments.I've confirmed the legal authority and history. Now let me get the \"Users and Uses\" section from the Handbook of Methods and check for recent 2025 developments (budget cuts, program changes).The 2025 ICR revision and BEA's opposition letter are valuable finds. Now let me get the Handbook's \"Users and Uses\" content and the current Handbook PDF.The HTML fetches are returning mostly boilerplate. Let me search for the specific \"Users and Uses\" content and other key details.I've hit the search result limit, but I've gathered comprehensive material from BLS's Handbook of Methods, the Federal Register, OMB records, and program pages. Here is the full report.\n\n---\n\n# Research Report: The National Compensation Survey (NCS)\n\n## 1. Executive Summary & Verification of Your Description\n\nYour description is **substantively accurate**, with a few points that need updating or refinement:\n\n- \u2705 **Correct**: The NCS is conducted by the U.S. Bureau of Labor Statistics (BLS) and collects data on employer costs for wages and benefits.\n- \u2705 **Correct**: NCS data produces the **Employment Cost Index (ECI)**, **Employer Costs for Employee Compensation (ECEC)**, and **Employee Benefits** estimates.\n- \u26a0\ufe0f **Needs updating**: The **Modeled Wage Estimates (MWE)** were indeed derived from NCS data (combined with the Occupational Employment and Wage Statistics program), but the **MWE program was discontinued, with its final publication in August 2024 consisting of 2023 estimates**. Historical MWE data remain available.\n- \u26a0\ufe0f **Incomplete**: The description omits two other important outputs: **data supplied to the President's Pay Agent** (used to set federal General Schedule locality pay) and detailed **health and retirement plan provisions** publications. It also omits the fact that the **ECI is designated a Principal Federal Economic Indicator** under OMB Statistical Policy Directive No. 3 \u2014 one of the government's most consequential statistical series.\n\n---\n\n## 2. Publisher and Organizational Home\n\n| Attribute | Detail |\n|---|---|\n| **Publisher** | U.S. Bureau of Labor Statistics (BLS), an agency of the U.S. Department of Labor |\n| **Program office** | Office of Compensation Levels and Trends (OCLT) |\n| **Survey type** | Establishment-based (employer), nationally representative survey; **voluntary** |\n| **Affected public** | Private for-profit and nonprofit establishments; state, local, and tribal governments |\n| **Coverage** | Civilian workers (private industry + state and local government). **Excludes**: federal government employees, private households, agriculture, and the self-employed. U.S. territories (Guam, Puerto Rico, Virgin Islands) are out of scope |\n| **Periodicity** | Quarterly (ECI, ECEC) and annual (Employee Benefits) |\n| **Geographic detail** | National, Census regions and divisions, and metropolitan areas |\n\nData are collected by trained **BLS field economists** using conversational interviews (personal visits, phone, mail, email, secure web portal) rather than a fixed questionnaire, gathering wage data, benefit cost data, and benefit incidence/provision details. Reference periods are the pay periods including the 12th day of March, June, September, and December, with a 6-week collection window per quarter.\n\n---\n\n## 3. Legal Authority and Mandate\n\nThe NCS operates under an unusually rich stack of authorities, documented in BLS's Paperwork Reduction Act clearance packages (OMB Control No. **1220-0164**):\n\n1. **BLS Authorizing Statute** \u2014 **29 U.S.C. 2b**, the general authority under which BLS collects labor statistics.\n2. **Ethics Reform Act of 1989** \u2014 **2 U.S.C. 4501** \u2014 congressional interest in compensation measurement for federal pay purposes.\n3. **Federal Employees Pay Comparability Act of 1990 (FEPCA)** \u2014 **5 U.S.C. 5304(d)(1)(A)** and **5 U.S.C. 5318(a)** \u2014 requires locality-based pay comparisons for federal white-collar (General Schedule) workers. NCS data flows to the **President's Pay Agent**, which recommends federal pay adjustments.\n4. **Paperwork Reduction Act of 1995** \u2014 44 U.S.C. Chapter 35; the survey must obtain OMB clearance every three years (Authority cite: 44 U.S.C. 3507(a)(1)(D)). Clearance renewals appear regularly in the Federal Register (e.g., notices in 2018, 2021, 2024, and July 2025/2026).\n5. **OMB Statistical Policy Directive No. 3** \u2014 the ECI derived from NCS is a **Principal Federal Economic Indicator**, subject to special release-integrity and embargo rules.\n6. **Confidentiality**: As a BLS statistical survey, respondent data are protected under the **Confidential Information Protection and Statistical Efficiency Act (CIPSEA)**; individual establishment responses are confidential and used only for statistical purposes.\n\n**Respondent burden (from the 2024 ICR)**: ~19,567 respondents, ~53,896 responses, ~41,465 hours annually, $0 cost burden. Note that response is **voluntary** \u2014 a persistent methodological challenge.\n\n---\n\n## 4. History and Evolution\n\nBLS has measured compensation almost since its founding in 1884 (first occupational wage study: 1885). The NCS is the product of multiple consolidations:\n\n**Key lineage (from the BLS Handbook of Methods historical timeline):**\n- **1885** \u2013 First BLS occupational wage study\n- **1945\u20131991** \u2013 Industry Wage Surveys; **1948\u2013mid-1960s** \u2013 Community Wage Surveys\n- **1955\u20131979** \u2013 Digests of health/insurance and pension plans (benefits data ancestors)\n- **1959\u20131977** \u2013 Employer Expenditures for Employee Compensation (ECEC's ancestor)\n- **1960\u20131991** \u2013 National Survey of Professional, Administrative, Technical and Clerical Pay (PATC)\n- **Mid-1960s\u20131991** \u2013 Area Wage Surveys (direct ancestor of NCS)\n- **1975** \u2013 **Employment Cost Index (ECI)** introduced (first published 1976)\n- **1979** \u2013 **Employee Benefits Survey (EBS)** introduced (in production; ran through 1998)\n- **1986** \u2013 **Employer Costs for Employee Compensation (ECEC)** introduced\n- **1991\u20131997** \u2013 **Occupational Compensation Survey (OCS)** merged Area Wage Surveys, Industry Wage Surveys, and PATC\n- **1996** \u2013 **COMP2000** launched, integrating OCS + ECI/ECEC + EBS into a single survey \u2014 explicitly to eliminate duplication and *reduce respondent burden* while producing better data\n- **2000** \u2013 COMP2000 renamed the **National Compensation Survey (NCS)**\n\n**Post-2000 developments:**\n- **2004\u20132005** \u2013 Budget-driven sample reductions (documented in BLS research literature)\n- **2011** \u2013 With the enactment of the FY2011 federal budget, the **Locality Pay Survey component was eliminated**; NCS stopped publishing wage data for ~800 detailed occupations in 150+ local areas. National wage-by-area/occupation products were curtailed (OES/OEWS took over that role).\n- **2013\u20132016** \u2013 **Modeled Wage Estimates (MWE)** developed to combine NCS job-characteristic detail with OEWS geographic/occupational breadth; first regular estimates published 2016; grouped work levels (entry/intermediate/experienced) added in 2021.\n- **August 2024** \u2013 **MWE discontinued**; final publication covers 2023 estimates; historical data remain online.\n- **July 2025** \u2013 BLS proposed (Federal Register, 90 FR 32029) a **revision to the NCS** that would eliminate several benefit data elements (sick-leave carryover, retiree life insurance, third-party health plan administration/stop-loss, certain premium items, defined-benefit frozen plan details, \"Other Benefits\") and **discontinue collection of Workers' Compensation Insurance** data due to persistently low response rates, plus an ECI reweighting. The **Bureau of Economic Analysis filed formal opposition**, warning of impacts on the PCE price index (nonprofit hospital/nursing home deflators account for over 50% of nonprofit gross output), GDP components, and other national accounts. A follow-up submission to OMB appeared in the Federal Register (91 FR 4956), indicating the clearance process was still in motion as of early 2026.\n\n---\n\n## 5. Methodology and Survey Design (Data Scientist Perspective)\n\n- **Sample design**: Probability sample of establishments drawn in stages; currently organized as six private-industry sample panels (including a dedicated aircraft-manufacturing sample group) of roughly 3,300 establishments per panel, plus one state/local government sample group of about 1,600 units. Employment counts are periodically re-weighted (a 2025 ECI reweight is planned).\n- **Occupation selection & \"work levels\"**: Within each sampled establishment, field economists select representative jobs using standardized procedures and classify them by **duty level (work levels 1\u201315)**, based on knowledge, complexity, latitude, and impact \u2014 a distinctive NCS feature that enables pay-by-level analysis unavailable elsewhere.\n- **Key measures**:\n  - **ECI**: A **fixed-employment (Laspeyres-style) index** measuring *change* in employer costs per hour worked, deliberately insulated from shifts in industry-occupation composition. Quarterly, seasonally adjusted, indexed to a base period. This is the premier measure of labor-cost inflation.\n  - **ECEC**: *Levels* \u2014 average employer cost per hour worked for wages, salaries, and 23 benefit categories (paid leave, supplemental pay, insurance, retirement, legally required benefits such as Social Security, Medicare, UI, and workers' comp), plus costs as a percent of total compensation.\n  - **Employee Benefits**: Incidence (percent of workers with access to, and participating in, benefit plans) and provisions (e.g., number of vacation days, premium cost-sharing, plan design details). Quarterly \"access/participation\" estimates and annual detailed publications (*Employee Benefits in the United States*, *Health and Retirement Plan Provisions in the United States*).\n- **Reliability**: Standard errors and relative standard errors are published (e.g., ECI \"Measures of Reliability\" factsheet; MWE RSEs); response rates are published at BLS's response-rates portal. Caveats: voluntary response, attrition over panel life, and (historically) difficulty collecting certain items like workers' comp.\n- **Breakdowns available**: Occupation and industry groups, union/nonunion, full-time/part-time, establishment size, Census division/region/metro area, and wage percentile.\n\n---\n\n## 6. Typical Users and Uses\n\n**Federal government (the anchor constituency):**\n- **President's Pay Agent / Office of Personnel Management** \u2014 statutorily required data for federal GS locality pay under FEPCA.\n- **Bureau of Economic Analysis** \u2014 NCS data feeds GDP and the **PCE price index** (the Federal Reserve's preferred inflation gauge): state and local wage estimates, hospital-services deflators, railroad/major-improvements/housing-maintenance input cost indexes, health insurance and pension components of compensation, and federal purchase deflators. (BEA's 2025 comment letter is the single best documentation of downstream dependency.)\n- **Federal Reserve and macroeconomists** \u2014 the ECI is watched closely as a wage-inflation signal in monetary policy.\n- **Congress and CBO** \u2014 compensation trend analysis, wage-stagnation and inequality debates.\n\n**Other major users:**\n- **Labor negotiators and unions** \u2014 establishing wage/benefit benchmarks in collective bargaining.\n- **Businesses and HR/compensation professionals** \u2014 competitive pay benchmarking, benefit plan design.\n- **State/local governments** \u2014 pay comparability studies for public-sector pay setting.\n- **Contract escalation** \u2014 ECI series are used in escalation clauses in multi-year contracts.\n- **Researchers and journalists** \u2014 trends in benefits coverage (e.g., paid sick leave, defined-benefit decline), the cost of compensation vs. wages, healthcare cost trends.\n- **Jobseekers** \u2014 historically via MWE wage-by-characteristics data (now discontinued).\n\n---\n\n## 7. Benefits to the Public\n\n1. **The only comprehensive, national, benefit-inclusive measure of labor costs** \u2014 unlike average-hourly-earnings series from payroll data, the ECI includes benefits and controls for employment composition shifts, making it the cleanest signal of wage inflation.\n2. **Statutory support for fair federal pay** \u2014 enables locality-based pay comparisons that keep federal salaries roughly comparable to private-sector pay.\n3. **Inflation measurement and monetary policy** \u2014 via BEA's PCE deflators, NCS indirectly affects interest-rate decisions affecting every household.\n4. **Transparency on benefits** \u2014 the authoritative public record of what share of workers have paid leave, health insurance, retirement plans, etc., informing debates on paid sick leave mandates, retirement security, and healthcare costs.\n5. **Free, public, nonpartisan data** \u2014 all output is released free, on a published schedule, under the integrity rules governing Principal Federal Economic Indicators.\n6. **Efficiency for respondents** \u2014 the 1996 consolidation cut duplicate visits to the same establishments, a stated goal of the integration.\n\n---\n\n## 8. Data Access, Formats, and Preservation Notes\n\n**Access channels:**\n- Program pages: `bls.gov/eci`, `bls.gov/ecec`, `bls.gov/ebs`, `bls.gov/mwe` (historic)\n- **BLS Public Data API** (series IDs), Data Finder / one-screen / multi-screen tools\n- Bulk **time-series text files** at `download.bls.gov/pub/time.series/`\n- Quarterly and annual **news releases** with XLSX tables; ZIP archives of benefit tables (e.g., March 2025 tables)\n- **BLS Restricted Data Access (RDA)** program for approved researchers needing microdata under CIPSEA\n- Methodological documentation in the **BLS Handbook of Methods** (National Compensation Measures chapter), which is itself versioned and archived (e.g., the 2011 edition PDF remains available)\n\n**Preservationist concerns worth flagging:**\n- **Series discontinuations are real and recurring**: the 2011 locality wage products, and the 2024 MWE termination, both removed public data streams. BLS maintains \"Discontinued Databases\" and archived news-release tables, but a preservation strategy should snapshot the flat text files, Handbook editions, and Federal Register clearance notices.\n- The **2025 proposed element eliminations** (workers' comp, retiree life, etc.) would create **series breaks**; the OMB docket (1220-0164) is the best primary-source trail of what changed and when.\n- Historical depth: ECI series extend to 1975; benefits incidence to ~1979; the NCS proper to 1996\u20132000.\n- All BLS data are U.S. government works \u2014 **public domain, no copyright restrictions** \u2014 ideal for archival redistribution.\n\n---\n\n## 9. Key Primary Sources\n\n- BLS Handbook of Methods, *National Compensation Measures* (overview, concepts, design, calculation, history): `bls.gov/opub/hom/ncs/home.htm`\n- NCS publications overview factsheet (ECI vs. ECEC vs. Benefits comparison): `bls.gov/eci/factsheets/ncs-publications-overview.htm`\n- MWE Handbook chapter & program page (incl. discontinuation notice): `bls.gov/mwe/`, `bls.gov/opub/hom/mwe/`\n- Federal Register ICRs: 83 FR 12818 (2018), 2021-24105, 89 FR / 2024-01893, **90 FR 32029 (July 16, 2025)**, 91 FR 4956 (2026); OMB Control No. 1220-0164\n- BEA comment letter opposing 2025 cuts (omb.report, ICR 202506-1220-001)\n- Historical: BLS research paper \"The National Compensation Survey: The New BLS Integrated Compensation Program\" (1997); MLR articles on EBS/NCS and MWE\n\n**Bottom line**: The NCS is a voluntary, OMB-cleared establishment survey run by BLS/OCLT under 29 U.S.C. 2b, the Ethics Reform Act of 1989, and FEPCA 1990, integrating what were once three separate surveys (ECI/ECEC, OCS, EBS) into a single collection vehicle since 1996\u20132000. Its outputs underpin federal pay-setting, national accounts and inflation measurement, labor negotiation, and benefits research \u2014 and it is currently under active methodological retrenchment (2025 data-element cuts, MWE already discontinued), a point on which a major data user (BEA) has publicly pushed back."
+    },
+    {
+      "role": "user",
+      "content": "# Dataset risk assessment\nI would like your help in assessing the likelihood that this data will be changed or removed from its primary location, and that users will no longer be able to access accurate and reliable copies of it, based on the rubric below.\n\n## Sources for context\nTo help assess the rubric categories, perform additional research on the data, the agency, the data's topics and typical users, covering topics such as proposed regulatory or funding changes, recent news, and political commentary. Use whatever resources you find useful, including the Federal Register (https://www.federalregister.gov) and the federal staffing tracker at https://usajobs-tracker.abigailhaddad.com.\n\n## Rubric\nThis rubric is divided up into categories. Each category is divided up into risk levels. In your output, please select the appropriate risk level for each category based on your research.\n\n### Historical Data Availability\n- Gone: Data files prior to the current year or cycle are no longer publicly available.\n- High Risk: Some data files prior to the current year or cycle are removed.\n- Moderate Risk: Some data elements that exist in the dataset prior to the current year or cycle are removed.\n- No Known Issue: Data prior to the current year or cycle remain accessible with no known alterations.\n\n### Future Data Availability\n- Gone: Data collection and publication has been terminated.\n- High Risk: Statutory publication deadline missed and/or collection or publication skipped and/or ICR expired for more than one year.\n- Moderate Risk: Typical or intended publication date missed and/or collection or publication delayed; ICR expired up to one year.\n- No Known Issue: Data published on time or as expected and ICR active or renewed before expiration.\n\n### Data Quality\n- Gone: Data collection and publication has been terminated.\n- High Risk: Reductions in granularity, timeliness, or frequency.\n- Moderate Risk: Potential or emerging risk to granularity, timeliness, or frequency.\n- No Known Issue: Maintained or improved granularity, timeliness, or frequency.\n\n### Statutory Context\n- Gone: N/A\n- High Risk: Statutory authorization is vague and/or there are alternative data collections that could serve as substitutes and/or no known programmatic use.\n- Moderate Risk: Not explicitly required by statute but required for the implementation of a state or federal program, and there are no alternative data collections that could serve as substitutes.\n- No Known Issue: Statutorily required and/or statutory authorization is explicitly named and it is clear what has to be collected, and there aren't alternative data collections that could serve as substitutes and/or required for implementation of a federal program.\n\n### Staffing and Funding\n- Gone: All of the staff in the division or agency are gone and/or all funding has been terminated.\n- High Risk: 40% or more of staff lost, and/or 1,000 or more staff lost, and/or budget cut by 20% or more, and/or leadership removed.\n- Moderate Risk: 10\u201339% of staff lost, and/or 500\u2013999 staff lost, and/or budget cut by 10\u201319%, and/or threatened change in leadership.\n- No Known Issue: Less than 10% of staff lost and less than 10% of budget cut and no known change in leadership.\n\n### Policy\n- Gone: Data collection and publication has been terminated.\n- High Risk: Presidential Action-driven information collection request (ICR); negative policy note on site; other significant changes in accordance with Administration priorities.\n- Moderate Risk: Proposed or pending changes; statements by administration officials suggesting a change is being considered or planned.\n- No Known Issue: No notable changes since January 2025 affecting what data is collected and published.\n\nFor each category, concisely list the evidence and supporting sources that would support each risk level. Then indicate which risk level you find most appropriate and why.\n\nConclude with a simple summary of risk levels:\nHistorical Data Availability: <level>\nFuture Data Availability: <level>\nData Quality: <level>\nStatutory Context: <level>\nStaffing and Funding: <level>\nPolicy: <level>"
+    },
+    {
+      "role": "assistant",
+      "content": "I'll research the current risk factors: BLS staffing and funding situations, recent policy changes, and the status of the 2025 NCS modifications.Excellent context on BLS staffing and budget. Now let me check the status of the 2025 NCS data element eliminations, the federal staffing tracker, and recent NCS-specific news.The tracker site is a JavaScript app, but I have strong staffing evidence from other sources. Let me verify the timing of recent ECI/ECEC releases (including any shutdown-related delays) and the fate of the commissioner and BLS leadership.I have comprehensive evidence now. Let me do one final check on the current status of NCS releases in 2026 and whether a permanent BLS commissioner was appointed.I've reached the search limit, but I have gathered comprehensive evidence. Here is the risk assessment.\n\n---\n\n# Risk Assessment: National Compensation Survey (NCS)\n\n**Dataset:** National Compensation Survey (BLS, Office of Compensation Levels and Trends; OMB Control No. 1220-0164)\n**Assessment date context:** As of early October 2026, drawing on evidence from January 2025 forward.\n\n---\n\n## 1. Historical Data Availability\n\n**Evidence gathered:**\n- All historical ECI, ECEC, and Employee Benefits time-series data remain publicly accessible via bls.gov program pages, the BLS Public Data API, bulk flat files at download.bls.gov, and third-party archives (e.g., FRASER at the St. Louis Fed mirrors BLS release notices and lapse-in-appropriations schedules).\n- The March 2025 *Employee Benefits in the United States* tables were published on schedule and remain available (bls.gov/ebs).\n- The Modeled Wage Estimates product (discontinued August 2024, final 2023 estimates) still has its historical data and documentation posted at bls.gov/mwe \u2014 a discontinued product, not deleted history.\n- No evidence found of removal of prior-cycle NCS data files since January 2025.\n- Precedent caution: BLS has removed NCS-derived products before (2011 locality wage data), but archived versions were maintained.\n\n**Selected level: No Known Issue.** Historical NCS outputs remain accessible without known alteration. (Caveat: the planned 2027 removal of workers' compensation from ECI/ECEC *calculations* going forward will create series breaks, but historical series are not being deleted.)\n\n---\n\n## 2. Future Data Availability\n\n**Evidence gathered:**\n- **ICR status: active and on track.** The 60-day Federal Register notice for the NCS revision appeared July 16, 2025 (90 FR 32029); the 30-day submission for OMB review appeared February 3, 2026 (comments due March 5, 2026). No expiration gap.\n- **Publication delays occurred due to the Oct. 1\u2013Nov. 13, 2025 government shutdown:**\n  - ECI Q3 2025: delayed from Oct. 31 to Dec. 10, 2025 \u2014 **\"delayed by more than 5 weeks\"** per BLS's own release, which also disclosed that September collection was incomplete and \"survey response rates decreased in September\" (bls.gov/news.release/archives/eci_12102025.htm).\n  - ECI Q4 2025: delayed from Jan. 30 to Feb. 10, 2026.\n  - ECEC September 2025: delayed from Dec. 12, 2025 to Feb. 24, 2026 (bls.gov/bls/2025-lapse-revised-release-dates.htm).\n- Future release schedule for ECI is posted through Q3 2026 (release Oct. 30, 2026), indicating continued collection and publication.\n- Core collection continues; the workers' comp component will stop being *published* in ECI/ECEC beginning with the January/March 2027 releases (see Data Quality below).\n\n**Selected level: Moderate Risk.** Intended publication dates were missed and collection was disrupted (shutdown-related, with reduced response rates), but the ICR is active, releases have resumed, and no statutory deadline has been missed for over a year. The rubric's \"delayed publication\" trigger is clearly met; \"High Risk\" triggers are not.\n\n---\n\n## 3. Data Quality\n\n**Evidence gathered:**\n- **Confirmed reductions in granularity (finalized, with announced effective dates):**\n  - Workers' Compensation Insurance will be removed from ECI calculations with the January 2027 release and from ECEC with the March 2027 release (BLS notices, bls.gov/eci/notices/2026/ and bls.gov/ecec/notices/2026/). This breaks the \"legally required benefits\" and \"total benefits\" detail.\n  - Seven additional benefit elements will no longer be collected: sick-leave carryover presence/details, retiree life insurance, third-party health plan administration/stop-loss, employee non-medical premiums, employer non-medical premiums, defined-benefit frozen plan details, and \"Other Benefits\" (Federal Register, July 16, 2025).\n  - The ECI will be reweighted to 2025 fixed employment weights (routine, but another series discontinuity to manage).\n- **Product-line loss:** MWE discontinued in August 2024 (just before the assessment window, but reduces the NCS's overall output).\n- **Response-rate degradation:** BLS explicitly flagged decreased September 2025 ECI response rates due to the shutdown.\n- **Resource-driven erosion:** The Compensation and Working Conditions budget activity (home of NCS) is cut ~$9.2M (~10%) and 38 FTE (328\u2192290) in the FY26 request.\n- **Mitigating context:** The WC removal is quality-motivated (a ~16% item response rate, deliberated publicly since a 2023 *Monthly Labor Review* article and a 2011 NASI report), not purely political. BEA formally opposed the 2025 ICR revision, warning of impacts on the PCE price index and national accounts \u2014 indicating downstream users are fighting quality erosion.\n\n**Selected level: High Risk.** Multiple finalized reductions in granularity (benefit elements eliminated, WC discontinued) plus timeliness disruptions and declining response rates squarely meet the \"reductions in granularity, timeliness, or frequency\" criterion \u2014 even though the motivating rationale for some cuts is data quality itself.\n\n---\n\n## 4. Statutory Context\n\n**Evidence gathered:**\n- The NCS is **not itself named in statute**. It operates under general BLS authority (29 U.S.C. 2b: collect and diffuse \"useful information on subjects connected with labor\") \u2014 a broad, generic mandate.\n- However, it is **required for implementation of federal programs**: FEPCA (5 U.S.C. 5304) requires locality-based pay comparisons for federal GS workers, for which NCS supplies the President's Pay Agent; the ECI is a **Principal Federal Economic Indicator** under OMB Statistical Policy Directive No. 3, and ECI/ECEC data feed BEA's GDP and PCE calculations.\n- **No substitute collection exists** for benefits-inclusive, composition-controlled compensation cost data. OEWS covers wages only; CEX is household-reported; no other survey measures employer benefit costs or plan provisions. For wages alone, OEWS is a partial alternative.\n- **Protective framing in the FY26 budget:** \"BLS will refocus efforts on producing data from statistical programs that are Principal Federal Economic Indicators (PFEIs), required by statute, or in use in current law\" (DOL FY2026 Congressional Budget Justification). The ECI (PFEI, used in current law) and the NCS's FEPCA function place the survey's core on the protected side of that line \u2014 but the Employee Benefits program, which is neither a PFEI nor explicitly statutory, is the least protected component.\n\n**Selected level: Moderate Risk.** The survey is not statutorily mandated by name, but it is required for implementing FEPCA and has no substitute \u2014 the rubric's exact Moderate Risk scenario. This is partly protective: the FY26 refocus criteria and the ECI's PFEI status insulate the core series, while the benefits components sit in a weaker position.\n\n---\n\n## 5. Staffing and Funding\n\n**Evidence gathered:**\n- **Staffing losses of ~20\u201322%:** The Friends of BLS coalition (Sept. 2, 2025 letter to House/Senate Appropriations) reported BLS \"has lost approximately 20% of its staff and over a third of its top leaders since February,\" including senior staff with deep institutional knowledge. The American Statistical Association's *Nation's Data at Risk 2025* report estimates a 22% staffing loss since FY24. Bloomberg Law (via Erica Groshen) confirms ~20% total staffing loss since Trump took office, exacerbated by the hiring freeze (in place until Oct. 15, 2025) and probationary-employee firings.\n- **Leadership removed:** President Trump fired BLS Commissioner Erika McEntarfer on August 1, 2025, hours after a weak jobs report \u2014 the first firing of a BLS commissioner in history \u2014 with Deputy Commissioner William Wiatrowski serving as acting head amid a \"leadership vacuum\" extending to multiple empty senior roles (Bloomberg Law). The Guardian described it as the president \"oust[ing] the commissioner and cast[ing] doubt on the veracity of BLS estimates.\"\n- **Budget cuts:** The FY26 President's Budget requests $647.95M, a **$56M (8%) cut** from FY25's $703.95M, with FTE dropping 168 positions (2,019\u21921,851, \u22128%). ASA notes this is an 8% loss of purchasing power in one year on top of a 14.2% real decline since FY09. The Senate Appropriations Committee recommended restoring $704M, but the outcome remained contested. The NCS's own activity line (Compensation and Working Conditions) is cut ~10% in the request.\n- **Structural threat:** The FY26 budget proposes reorganizing BLS, BEA, and Census into a single statistical agency at the Department of Commerce \u2014 creating uncertainty about the agency's future institutional home.\n- Note: I could not query the federal staffing tracker's underlying data (it is a JavaScript application, and it is being archived as of Dec. 31, 2025), but the corroborated figure from multiple independent sources is ~20%.\n\n**Selected level: High Risk.** Under the rubric's \"and/or\" logic, two independent High Risk triggers are met: (1) **leadership removed** (commissioner fired, one-third of top leaders departed, multiple senior roles vacant), and (2) staff losses (~20%) sit at the top of the 10\u201339% band, approaching the 40% threshold. The proposed 8% budget cut alone would be Moderate, but combined with the leadership criterion, High Risk is clearly warranted.\n\n---\n\n## 6. Policy\n\n**Evidence gathered:**\n- **Administration-priority-driven changes to what BLS collects and publishes:** The FY26 President's Budget explicitly directs BLS to \"refocus efforts\" on PFEI, statutory, and current-law programs \u2014 an Administration policy that directly reshapes the data portfolio and puts the non-PFEI Employee Benefits component of the NCS at a structural disadvantage. The budget also proposes dissolving BLS into a Commerce Department mega-agency.\n- **Finalized NCS content changes:** The July 2025 ICR revision (element eliminations, WC discontinuation) was justified partly as cost reduction (\"to reduce the annual costs and burden of the survey\") \u2014 consistent with, though not explicitly ordered by, Administration efficiency priorities. Notably, the WC removal itself was deliberated publicly since 2023 on data-quality grounds, predating the current Administration.\n- **Political pressure on BLS data integrity:** Trump fired the commissioner after calling the jobs numbers \"RIGGED\"; administration officials (Hassett, Greer) publicly questioned BLS data; critics including former Trump-appointed Commissioner William Beach called the firing a threat to the Bureau's statistical mission (AP, Reuters, CNBC, Washington Post, Guardian, The Hill). The Guardian quoted McEntarfer warning of \"dangerous\" interference.\n- **Advisory infrastructure dismantled:** BLS technical and data user advisory committees and FESAC were disbanded by the Administration (ASA report) \u2014 removing the user feedback channels that normally defend programs like the NCS.\n- **Countervailing evidence:** No presidential action has targeted the NCS specifically; the ECI continues on schedule as a PFEI; the ICR revision process is following normal PRA channels with public comment (including BEA's opposition); the Senate Appropriations Committee recommended full FY26 funding; and the element eliminations have quality-based rationales independent of the Administration.\n\n**Selected level: High Risk.** The \"other significant changes in accordance with Administration priorities\" trigger is met: the FY26 refocus policy, the proposed agency reorganization, the commissioner's firing, and the disbanded advisory committees collectively represent significant Administration-driven changes to the environment governing what BLS collects and publishes \u2014 even though the NCS-specific ICR changes follow normal process and have partly independent, quality-based rationales. The NCS's core (ECI) enjoys de facto protection as a PFEI, but the benefit components are exposed to the refocus policy.\n\n---\n\n# Summary of Risk Levels\n\n| Category | Level | Key driver |\n|---|---|---|\n| **Historical Data Availability** | **No Known Issue** | All prior-cycle ECI/ECEC/EBS data remain accessible; MWE (discontinued 2024) history still posted |\n| **Future Data Availability** | **Moderate Risk** | Q3/Q4 2025 ECI and Sept 2025 ECEC releases delayed 5\u20136 weeks by the shutdown; ICR active and renewed on time |\n| **Data Quality** | **High Risk** | Finalized elimination of workers' comp and seven benefit elements (effective 2026\u20132027 releases); declining response rates |\n| **Statutory Context** | **Moderate Risk** | Not statutorily named, but required for FEPCA federal pay implementation with no substitute; ECI's PFEI status is protective |\n| **Staffing and Funding** | **High Risk** | Commissioner fired; ~20% staff loss and one-third of top leaders gone; FY26 budget proposes \u22128% |\n| **Policy** | **High Risk** | FY26 refocus-on-PFEI policy, proposed BLS/BEA/Census reorganization, and political pressure on BLS data integrity |\n\n**Overall assessment:** The NCS is not at imminent risk of termination \u2014 its flagship product (the ECI) is a Principal Federal Economic Indicator embedded in federal pay-setting law and the national accounts, which the Administration's own FY26 budget framework explicitly protects. The most probable failure mode is not disappearance but **progressive erosion**: benefit-level detail is being stripped (workers' comp, plan-provision elements), response rates and timeliness are degrading under staffing and budget strain, and the non-indicator Employee Benefits program is the component most exposed to the refocus policy. Preservationists should prioritize archiving benefit-incidence and plan-provision tables (the elements being eliminated) and the pre-reweight ECI series before the 2027 series breaks; data users should monitor the OMB docket (1220-0164) and the FY26/FY27 appropriations outcome for further changes."
+    },
+    {
+      "role": "user",
+      "content": "Emit a session_metadata YAML block reporting: current date, model identifier, knowledge cutoff, surface, whether memory is enabled, whether custom preferences or styles are active, all tools and MCP servers available, which tools were actually called in this session, and whether attachments were present. Mark any field not directly observable as unknown rather than inferring it."
+    },
+    {
+      "role": "assistant",
+      "content": "```yaml\nsession_metadata:\n  current_date: unknown   # no datetime tool available in this session; date not directly observable\n  model_identifier: unknown   # not exposed to me in this context; not directly observable\n  knowledge_cutoff: unknown   # not disclosed in this context; not directly observable\n  surface: unknown   # not directly observable; tool namespace suggests an API-mediated environment, but this is unconfirmed\n  memory_enabled: unknown   # no memory system or instructions about memory were exposed in this session\n  custom_preferences_or_styles_active: false   # no system-level style or preference directives were present beyond task instructions\n  attachments_present: false   # all inputs were plain-text user messages; no attachments, images, or files received\n  tools_available:\n    - name: openrouter_web_search\n      type: builtin_function   # web search returning ranked excerpts\n    - name: openrouter_web_fetch\n      type: builtin_function   # full-content fetch of web pages/PDFs (PDF support engine-dependent)\n  mcp_servers_available: none_observed   # no MCP tools or servers were exposed in this session\n  tools_called_this_session:\n    - tool: openrouter_web_search\n      times_called: 11\n      notes: queries covering NCS overview, history/authority, MWE, OMB/PRA clearances, 2025 ICR revision and BEA opposition, BLS budget/staffing, commissioner firing, shutdown-related release delays, FY2026 appropriations\n    - tool: openrouter_web_fetch\n      times_called: 4\n      notes: fetched bls.gov handbook/notice pages, usajobs-tracker.abigailhaddad.com (returned HTML shell only), one PDF fetch failed (404), one PDF fetch failed (engine lacks PDF support)\n    - tool: openrouter_web_search\n      times_called_this_session_note: several queries returned no usable results (e.g., \"users and uses\" query, BLS commissioner 2026 query, \"Employee Benefits in the United States\" 2026 query) and search-result limits were reached in two of the three turns\n  caveats:\n    - current date inferred only indirectly from content retrieved during research (sources dated through early 2026); flagged as unknown since it was not directly observable\n    - whether prior-turn tool activity counts as \"this session\" \u2014 it does; all turns occurred within a single session context\n```"
+    }
+  ]
+}

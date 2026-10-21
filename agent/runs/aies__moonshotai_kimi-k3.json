@@ -1,0 +1,1209 @@
+{
+  "dataset": {
+    "key": "aies",
+    "title": "Annual Integrated Economic Survey (AIES)"
+  },
+  "model": "moonshotai/kimi-k3",
+  "harness": "openrouter tools",
+  "context": "full: each turn's whole output is carried into the next",
+  "search_tool": {
+    "engine": "exa",
+    "max_results": 10,
+    "excluded_domains": [
+      "dataindex.us"
+    ]
+  },
+  "fetch_tool": {
+    "engine": "openrouter",
+    "blocked_domains": [
+      "dataindex.us"
+    ],
+    "max_content_tokens": 10000
+  },
+  "reasoning": "effort high",
+  "catalog": {
+    "fetched_at": "2026-10-08T20:02:03Z",
+    "entry": {
+      "id": "moonshotai/kimi-k3",
+      "canonical_slug": "moonshotai/kimi-k3-20260715",
+      "hugging_face_id": "moonshotai/Kimi-K3",
+      "name": "MoonshotAI: Kimi K3",
+      "created": 1784215858,
+      "description": "Kimi K3 is a 2.8T parameter open-weight multimodal reasoning model from Moonshot AI. It is suited for complex coding, knowledge work, and long-horizon agentic workflows, and is particularly strong at...",
+      "context_length": 1048576,
+      "architecture": {
+        "modality": "text+image+video->text",
+        "input_modalities": [
+          "text",
+          "image",
+          "video"
+        ],
+        "output_modalities": [
+          "text"
+        ],
+        "tokenizer": "Other",
+        "instruct_type": null
+      },
+      "pricing": {
+        "prompt": "0.00000082",
+        "completion": "0.0000135",
+        "input_cache_read": "0.00000055"
+      },
+      "top_provider": {
+        "context_length": 1048576,
+        "max_completion_tokens": 943718,
+        "is_moderated": false
+      },
+      "per_request_limits": null,
+      "supported_parameters": [
+        "frequency_penalty",
+        "include_reasoning",
+        "logit_bias",
+        "logprobs",
+        "max_tokens",
+        "min_p",
+        "presence_penalty",
+        "reasoning",
+        "reasoning_effort",
+        "repetition_penalty",
+        "response_format",
+        "seed",
+        "stop",
+        "structured_outputs",
+        "temperature",
+        "tool_choice",
+        "tools",
+        "top_k",
+        "top_logprobs",
+        "top_p"
+      ],
+      "default_parameters": {
+        "temperature": null,
+        "top_p": 0.95,
+        "top_k": null,
+        "frequency_penalty": null,
+        "presence_penalty": null,
+        "repetition_penalty": null
+      },
+      "supported_voices": null,
+      "knowledge_cutoff": null,
+      "expiration_date": null,
+      "links": {
+        "details": "/api/v1/models/moonshotai/kimi-k3-20260715/endpoints"
+      },
+      "benchmarks": {
+        "design_arena": [
+          {
+            "arena": "agents",
+            "category": "agenticgamedev",
+            "elo": 1252,
+            "win_rate": 55,
+            "rank": 3
+          },
+          {
+            "arena": "agents",
+            "category": "androidnative",
+            "elo": 1262,
+            "win_rate": 55.4,
+            "rank": 5
+          },
+          {
+            "arena": "agents",
+            "category": "fullstack",
+            "elo": 1313,
+            "win_rate": 61.8,
+            "rank": 2
+          },
+          {
+            "arena": "agents",
+            "category": "godotgamedev",
+            "elo": 1223,
+            "win_rate": 48.2,
+            "rank": 14
+          },
+          {
+            "arena": "agents",
+            "category": "htmlslides",
+            "elo": 1256,
+            "win_rate": 59.6,
+            "rank": 2
+          },
+          {
+            "arena": "agents",
+            "category": "mobileapps",
+            "elo": 1263,
+            "win_rate": 56.9,
+            "rank": 4
+          },
+          {
+            "arena": "agents",
+            "category": "python-pptxslides",
+            "elo": 1273,
+            "win_rate": 59.2,
+            "rank": 4
+          },
+          {
+            "arena": "agents",
+            "category": "webapps",
+            "elo": 1285,
+            "win_rate": 59.1,
+            "rank": 4
+          },
+          {
+            "arena": "models",
+            "category": "3d",
+            "elo": 1396,
+            "win_rate": 67.7,
+            "rank": 4
+          },
+          {
+            "arena": "models",
+            "category": "codecategories",
+            "elo": 1369,
+            "win_rate": 63.1,
+            "rank": 2
+          },
+          {
+            "arena": "models",
+            "category": "dataviz",
+            "elo": 1353,
+            "win_rate": 63.1,
+            "rank": 4
+          },
+          {
+            "arena": "models",
+            "category": "gamedev",
+            "elo": 1368,
+            "win_rate": 61.3,
+            "rank": 4
+          },
+          {
+            "arena": "models",
+            "category": "svg",
+            "elo": 1305,
+            "win_rate": 59.7,
+            "rank": 4
+          },
+          {
+            "arena": "models",
+            "category": "uicomponent",
+            "elo": 1360,
+            "win_rate": 62.1,
+            "rank": 3
+          },
+          {
+            "arena": "models",
+            "category": "website",
+            "elo": 1341,
+            "win_rate": 59.8,
+            "rank": 2
+          }
+        ],
+        "artificial_analysis": {
+          "intelligence_index": 43.6,
+          "coding_index": 76.2,
+          "agentic_index": 50
+        }
+      },
+      "reasoning": {
+        "mandatory": false,
+        "default_enabled": true,
+        "supported_efforts": [
+          "max",
+          "high",
+          "low"
+        ],
+        "default_effort": "max"
+      }
+    }
+  },
+  "upstream": [
+    "moonshotai"
+  ],
+  "trial": 0,
+  "terminate_reason": "completed",
+  "max_tokens": 32768,
+  "started_at": "2026-10-08T20:02:03Z",
+  "prompts": {
+    "research": "#data research\nI am researching a federal dataset. Find out everything you can about this dataset, such as who publishes it, under what authority or mandate, its history, its typical users, and its benefits to the public. Be sure your research comprehensively covers each of those perspectives, as well as any others that you discover or seem useful. I believe this is accurate information, but please check:\n\nDataset title: Annual Integrated Economic Survey (AIES)\nDescription: The Annual Integrated Economic Survey (AIES) replaced and integrated seven annual business surveys (Annual Retail Trade Survey, Annual Wholesale Survey, Service Annual Survey, Annual Survey of Manufactures, Annual Capital Expenditures Survey, Manufacturer's Unfilled Orders Survey , Report of Organization) into one survey. The AIES provides the most comprehensive national and subnational data on business revenues, expenses, payroll, and employment on an annual basis.\n\nReturn a complete report on everything that a preservationist, data librarian, data scientist, or policy activist might want to know about this data.",
+    "assessment": "# Dataset risk assessment\nI would like your help in assessing the likelihood that this data will be changed or removed from its primary location, and that users will no longer be able to access accurate and reliable copies of it, based on the rubric below.\n\n## Sources for context\nTo help assess the rubric categories, perform additional research on the data, the agency, the data's topics and typical users, covering topics such as proposed regulatory or funding changes, recent news, and political commentary. Use whatever resources you find useful, including the Federal Register (https://www.federalregister.gov) and the federal staffing tracker at https://usajobs-tracker.abigailhaddad.com.\n\n## Rubric\nThis rubric is divided up into categories. Each category is divided up into risk levels. In your output, please select the appropriate risk level for each category based on your research.\n\n### Historical Data Availability\n- Gone: Data files prior to the current year or cycle are no longer publicly available.\n- High Risk: Some data files prior to the current year or cycle are removed.\n- Moderate Risk: Some data elements that exist in the dataset prior to the current year or cycle are removed.\n- No Known Issue: Data prior to the current year or cycle remain accessible with no known alterations.\n\n### Future Data Availability\n- Gone: Data collection and publication has been terminated.\n- High Risk: Statutory publication deadline missed and/or collection or publication skipped and/or ICR expired for more than one year.\n- Moderate Risk: Typical or intended publication date missed and/or collection or publication delayed; ICR expired up to one year.\n- No Known Issue: Data published on time or as expected and ICR active or renewed before expiration.\n\n### Data Quality\n- Gone: Data collection and publication has been terminated.\n- High Risk: Reductions in granularity, timeliness, or frequency.\n- Moderate Risk: Potential or emerging risk to granularity, timeliness, or frequency.\n- No Known Issue: Maintained or improved granularity, timeliness, or frequency.\n\n### Statutory Context\n- Gone: N/A\n- High Risk: Statutory authorization is vague and/or there are alternative data collections that could serve as substitutes and/or no known programmatic use.\n- Moderate Risk: Not explicitly required by statute but required for the implementation of a state or federal program, and there are no alternative data collections that could serve as substitutes.\n- No Known Issue: Statutorily required and/or statutory authorization is explicitly named and it is clear what has to be collected, and there aren't alternative data collections that could serve as substitutes and/or required for implementation of a federal program.\n\n### Staffing and Funding\n- Gone: All of the staff in the division or agency are gone and/or all funding has been terminated.\n- High Risk: 40% or more of staff lost, and/or 1,000 or more staff lost, and/or budget cut by 20% or more, and/or leadership removed.\n- Moderate Risk: 10\u201339% of staff lost, and/or 500\u2013999 staff lost, and/or budget cut by 10\u201319%, and/or threatened change in leadership.\n- No Known Issue: Less than 10% of staff lost and less than 10% of budget cut and no known change in leadership.\n\n### Policy\n- Gone: Data collection and publication has been terminated.\n- High Risk: Presidential Action-driven information collection request (ICR); negative policy note on site; other significant changes in accordance with Administration priorities.\n- Moderate Risk: Proposed or pending changes; statements by administration officials suggesting a change is being considered or planned.\n- No Known Issue: No notable changes since January 2025 affecting what data is collected and published.\n\nFor each category, concisely list the evidence and supporting sources that would support each risk level. Then indicate which risk level you find most appropriate and why.\n\nConclude with a simple summary of risk levels:\nHistorical Data Availability: <level>\nFuture Data Availability: <level>\nData Quality: <level>\nStatutory Context: <level>\nStaffing and Funding: <level>\nPolicy: <level>",
+    "session_metadata": "Emit a session_metadata YAML block reporting: current date, model identifier, knowledge cutoff, surface, whether memory is enabled, whether custom preferences or styles are active, all tools and MCP servers available, which tools were actually called in this session, and whether attachments were present. Mark any field not directly observable as unknown rather than inferring it."
+  },
+  "turns": {
+    "research": {
+      "request": {
+        "model": "moonshotai/kimi-k3",
+        "max_output_tokens": 32768,
+        "tools": [
+          {
+            "type": "openrouter:web_search",
+            "parameters": {
+              "engine": "exa",
+              "max_results": 10,
+              "excluded_domains": [
+                "dataindex.us"
+              ]
+            }
+          },
+          {
+            "type": "openrouter:web_fetch",
+            "parameters": {
+              "engine": "openrouter",
+              "blocked_domains": [
+                "dataindex.us"
+              ],
+              "max_content_tokens": 10000
+            }
+          }
+        ],
+        "cache_control": {
+          "type": "ephemeral",
+          "ttl": "1h"
+        },
+        "session_id": "aies-moonshotai/kimi-k3-t0-2026-10-08T20:02:03Z",
+        "stop_server_tools_when": [
+          {
+            "type": "step_count_is",
+            "step_count": 200
+          }
+        ],
+        "reasoning": {
+          "effort": "high"
+        },
+        "provider": {
+          "order": [
+            "moonshotai"
+          ],
+          "allow_fallbacks": false
+        }
+      },
+      "response_meta": {
+        "id": "gen-1791489723-7Lv5T7Lc7mxyytqdmrLq",
+        "object": "response",
+        "created_at": 1791489723,
+        "model": "moonshotai/kimi-k3",
+        "status": "completed",
+        "completed_at": 1791489861,
+        "error": null,
+        "incomplete_details": null,
+        "tools": [],
+        "tool_choice": "auto",
+        "parallel_tool_calls": true,
+        "max_output_tokens": 32768,
+        "temperature": 1,
+        "top_p": 1,
+        "presence_penalty": 0,
+        "frequency_penalty": 0,
+        "top_logprobs": 0,
+        "max_tool_calls": null,
+        "metadata": {},
+        "background": false,
+        "previous_response_id": null,
+        "service_tier": "auto",
+        "truncation": "disabled",
+        "store": false,
+        "instructions": null,
+        "text": {
+          "format": {
+            "type": "text"
+          }
+        },
+        "reasoning": {
+          "effort": "high"
+        },
+        "safety_identifier": null,
+        "prompt_cache_key": null,
+        "prompt_cache_options": null,
+        "usage": {
+          "input_tokens": 71564,
+          "input_tokens_details": {
+            "cached_tokens": 41216
+          },
+          "output_tokens": 5955,
+          "output_tokens_details": {
+            "reasoning_tokens": 1754
+          },
+          "total_tokens": 77519,
+          "cost": 0.2277338,
+          "cost_details": {
+            "upstream_inference_cost": 0.1927338,
+            "upstream_inference_input_cost": 0.10340879999999998,
+            "upstream_inference_output_cost": 0.089325
+          },
+          "server_tool_use_details": {
+            "web_search_requests": 8,
+            "tool_calls_requested": 9,
+            "tool_calls_executed": 9
+          }
+        }
+      },
+      "requests": [
+        {
+          "input_tokens": 71564,
+          "input_tokens_details": {
+            "cached_tokens": 41216
+          },
+          "output_tokens": 5955,
+          "output_tokens_details": {
+            "reasoning_tokens": 1754
+          },
+          "total_tokens": 77519,
+          "cost": 0.2277338,
+          "cost_details": {
+            "upstream_inference_cost": 0.1927338,
+            "upstream_inference_input_cost": 0.10340879999999998,
+            "upstream_inference_output_cost": 0.089325
+          },
+          "server_tool_use_details": {
+            "web_search_requests": 8,
+            "tool_calls_requested": 9,
+            "tool_calls_executed": 9
+          }
+        }
+      ],
+      "searches": 8,
+      "fetches": 1,
+      "tool_items": [
+        {
+          "type": "openrouter:web_search",
+          "id": "st_tmp_rsavfogboe",
+          "status": "completed",
+          "action": {
+            "type": "search",
+            "query": "Annual Integrated Economic Survey AIES Census Bureau overview authority Title 13",
+            "sources": [
+              {
+                "type": "url",
+                "url": "https://www.census.gov/programs-surveys/aies/about.html"
+              },
+              {
+                "type": "url",
+                "url": "https://www.census.gov/programs-surveys/aies/information.html"
+              },
+              {
+                "type": "url",
+                "url": "https://www.federalregister.gov/documents/2024/03/25/2024-06226/current-mandatory-business-surveys"
+              },
+              {
+                "type": "url",
+                "url": "https://www.census.gov/programs-surveys/aies/faq.html"
+              },
+              {
+                "type": "url",
+                "url": "https://www.census.gov/help/topics/survey/aies.html"
+              },
+              {
+                "type": "url",
+                "url": "https://www2.census.gov/programs-surveys/aies/information-respondents/2025/aies_instruction_manual.pdf"
+              },
+              {
+                "type": "url",
+                "url": "https://www.federalregister.gov/documents/2022/11/04/2022-24035/annual-integrated-economic-survey"
+              },
+              {
+                "type": "url",
+                "url": "https://www2.census.gov/programs-surveys/aies/technical-documentation/methodology/2024-aies-methodology-final.pdf"
+              },
+              {
+                "type": "url",
+                "url": "https://www.govinfo.gov/content/pkg/FR-2023-08-08/html/2023-16926.htm"
+              },
+              {
+                "type": "url",
+                "url": "https://www.census.gov/library/stories/2024/03/seven-annual-economic-surveys-combined-into-one.html"
+              }
+            ]
+          }
+        },
+        {
+          "type": "openrouter:web_search",
+          "id": "st_tmp_khia3ba15yp",
+          "status": "completed",
+          "action": {
+            "type": "search",
+            "query": "Annual Integrated Economic Survey AIES history replaced Annual Retail Trade Survey Service Annual Survey Annual Survey of Manufactures integrated",
+            "sources": [
+              {
+                "type": "url",
+                "url": "https://www.census.gov/programs-surveys/aies/about.html"
+              },
+              {
+                "type": "url",
+                "url": "https://www.census.gov/newsroom/blogs/random-samplings/2023/09/transforming-annual-surveys-businesses.html"
+              },
+              {
+                "type": "url",
+                "url": "https://www.census.gov/help/topics/survey/aies.html"
+              },
+              {
+                "type": "url",
+                "url": "https://www.census.gov/programs-surveys/aies.html"
+              },
+              {
+                "type": "url",
+                "url": "https://www.census.gov/newsroom/blogs/random-samplings/2024/integrating-business-statistics-for-economy.html"
+              },
+              {
+                "type": "url",
+                "url": "https://www.govinfo.gov/content/pkg/FR-2023-08-08/html/2023-16926.htm"
+              },
+              {
+                "type": "url",
+                "url": "https://www.govinfo.gov/content/pkg/FR-2023-10-30/html/2023-23908.htm"
+              },
+              {
+                "type": "url",
+                "url": "https://www.federalregister.gov/documents/2023/04/04/2023-06947/agency-information-collection-activities-submission-to-the-office-of-management-and-budget-omb-for"
+              },
+              {
+                "type": "url",
+                "url": "https://www.test.census.gov/library/stories/2024/03/seven-annual-economic-surveys-combined-into-one.html"
+              },
+              {
+                "type": "url",
+                "url": "https://thefederalregister.org/documents/2025-16018/agency-information-collection-activities-submission-to-the-office-of-management-and-budget-omb-for-review-and-approval-c"
+              }
+            ]
+          }
+        },
+        {
+          "type": "openrouter:web_search",
+          "id": "st_tmp_7t10oe77mgj",
+          "status": "completed",
+          "action": {
+            "type": "search",
+            "query": "AIES Annual Integrated Economic Survey first release 2024 data users methodology sample size",
+            "sources": [
+              {
+                "type": "url",
+                "url": "https://www2.census.gov/programs-surveys/aies/technical-documentation/methodology/2024-aies-methodology-final.pdf"
+              },
+              {
+                "type": "url",
+                "url": "https://www.census.gov/programs-surveys/aies/technical-documentation/methodology/2024-aies.html"
+              },
+              {
+                "type": "url",
+                "url": "https://www.census.gov/data/developers/data-sets/aies.2024.html"
+              },
+              {
+                "type": "url",
+                "url": "https://www.census.gov/programs-surveys/aies/about.html"
+              },
+              {
+                "type": "url",
+                "url": "https://www.census.gov/newsroom/press-releases/2024/annual-integrated-economic-survey-launches.html"
+              },
+              {
+                "type": "url",
+                "url": "https://api.census.gov/data/2024/aiesbasic.html"
+              },
+              {
+                "type": "url",
+                "url": "https://www.census.gov/newsroom/press-releases/2026/2024-aies-data-release.html"
+              },
+              {
+                "type": "url",
+                "url": "https://www2.census.gov/about/partners/sdc-cic-ddtb/meetings/2024/presentations/presentation-aies.pdf"
+              },
+              {
+                "type": "url",
+                "url": "https://www.census.gov/programs-surveys/aies.html"
+              },
+              {
+                "type": "url",
+                "url": "https://www2.census.gov/programs-surveys/aies/technical-documentation/methodology/2023-aies-methodology.pdf"
+              }
+            ]
+          }
+        },
+        {
+          "type": "openrouter:web_search",
+          "id": "st_tmp_is892nw1tbj",
+          "status": "completed",
+          "action": {
+            "type": "search",
+            "query": "AIES 2023 first data release 2025 Census Bureau press release data.census.gov API tables comparability legacy surveys",
+            "sources": [
+              {
+                "type": "url",
+                "url": "https://www.census.gov/newsroom/press-releases/2025/aies-releases-first-dataset.html"
+              },
+              {
+                "type": "url",
+                "url": "https://www.census.gov/data/tables/2023/econ/aies/2023-aies-tables.html"
+              },
+              {
+                "type": "url",
+                "url": "https://www.census.gov/data/developers/data-sets/aies.2023.html"
+              },
+              {
+                "type": "url",
+                "url": "https://www2.census.gov/programs-surveys/aies/technical-documentation/methodology/2023-aies-methodology.pdf"
+              },
+              {
+                "type": "url",
+                "url": "https://www.census.gov/newsroom/press-releases/2026/main-release-of-aies-data.html"
+              },
+              {
+                "type": "url",
+                "url": "https://www.census.gov/data/developers/data-sets/aies.html"
+              },
+              {
+                "type": "url",
+                "url": "https://www2.census.gov/programs-surveys/aies/data/2023/API_Datasets/"
+              },
+              {
+                "type": "url",
+                "url": "https://www.census.gov/newsroom/blogs/random-samplings/2026/02/first-aies-data-release.html"
+              },
+              {
+                "type": "url",
+                "url": "https://www.census.gov/library/stories/2025/03/aies-changes.html"
+              },
+              {
+                "type": "url",
+                "url": "https://www.census.gov/newsroom/press-releases/2024/annual-integrated-economic-survey-launches.html"
+              }
+            ]
+          }
+        },
+        {
+          "type": "openrouter:web_search",
+          "id": "st_tmp_zo4sjpvdreg",
+          "status": "completed",
+          "action": {
+            "type": "search",
+            "query": "AIES Census Bureau disclosure avoidance differential privacy noise injection suppression cell",
+            "sources": [
+              {
+                "type": "url",
+                "url": "https://www.census.gov/about/policies/privacy/statistical_safeguards.html"
+              },
+              {
+                "type": "url",
+                "url": "https://www.census.gov/programs-surveys/decennial-census/decade/2020/planning-management/process/disclosure-avoidance/differential-privacy.html"
+              },
+              {
+                "type": "url",
+                "url": "https://www.census.gov/content/dam/Census/library/factsheets/2021/comparing-differential-privacy-with-older-disclosure-avoidance-methods.pdf"
+              },
+              {
+                "type": "url",
+                "url": "https://www2.census.gov/library/publications/decennial/2020/census-briefs/c2020br-05.pdf"
+              },
+              {
+                "type": "url",
+                "url": "https://www.census.gov/newsroom/blogs/director/2026/08/understanding-the-new-disclosure-avoidance-policy.html"
+              },
+              {
+                "type": "url",
+                "url": "https://www2.census.gov/adrm/CED/Papers/CY22/2022-002-AbowdAshmeadCumingMenonGarfinkelEtal.pdf"
+              },
+              {
+                "type": "url",
+                "url": "https://www2.census.gov/library/working-papers/2023/adrm/ced/ced-wp-2023-005.pdf"
+              },
+              {
+                "type": "url",
+                "url": "https://www.census.gov/content/dam/Census/library/working-papers/2020/adrm/The%20modernization%20of%20statistical%20disclosure%20limitation%20at%20the%20U.S.%20Census%20Bureau.pdf"
+              },
+              {
+                "type": "url",
+                "url": "https://www2.census.gov/library/publications/decennial/2020/census-briefs/c2020br-03.pdf"
+              },
+              {
+                "type": "url",
+                "url": "https://www.census.gov/newsroom/blogs/research-matters/2025/2030-census-disclosure-avoidance.html"
+              }
+            ]
+          }
+        },
+        {
+          "type": "openrouter:web_fetch",
+          "id": "st_tmp_wgmm00kkot",
+          "status": "completed",
+          "url": "https://www.census.gov/programs-surveys/aies/about.html",
+          "content": "\n<!DOCTYPE HTML>\n<!-- /*Per CMS-3223 we need the line below to have a 301 redirect capability*/ -->\n\n\n<html lang=\"en\">\n    <head>\r\n    \n    <link rel=\"icon\" sizes=\"192x192\" href=\"/etc.clientlibs/census/clientlibs/common-site/resources/icons/android-chrome-192x192.png\"/>\n    <link rel=\"icon\" sizes=\"256x256\" href=\"/etc.clientlibs/census/clientlibs/common-site/resources/icons/android-chrome-256x256.png\"/>\n    <link rel=\"shortcut icon\" sizes=\"32x32\" href=\"/etc.clientlibs/census/clientlibs/common-site/resources/icons/favicon.ico\"/>\n    <link rel=\"apple-touch-icon\" sizes=\"180x180\" href=\"/etc.clientlibs/census/clientlibs/common-site/resources/icons/apple-touch-icon-180x180.png\"/>     \n    <meta name=\"msapplication-square150x150logo\" content=\"/etc.clientlibs/census/clientlibs/common-site/resources/icons/mstile-150x150.png\"/>    \n\r\n    <meta charset=\"UTF-8\"/>\r\n    <title>About the AIES</title>\r\n    \r\n    <meta name=\"keywords\" content=\"About\"/>\r\n    <meta name=\"article:tag\" content=\"About\"/>\r\n    <meta name=\"description\" property=\"og:description\" content=\"Provides detailed information on this company-based survey that covers domestic, nonfarm employer businesses with operations during the survey year.\"/>\r\n    <meta name=\"template\" content=\"template-detail3colleftright\"/>\r\n    <meta name=\"viewport\" content=\"width=device-width, initial-scale=1\"/>\r\n    \r\n    <link rel=\"canonical\" href=\"https://www.census.gov/programs-surveys/aies/about.html\"/>\r\n\r\n    \r\n    \r\n    \r\n\r\n    \n\n\n  \n    <meta name=\"DC.title\" property=\"og:title\" content=\"About the AIES\"/>\n    <meta name=\"DC.creator\" content=\"US Census Bureau\"/>\n    \n    <meta name=\"DC.date.reviewed\" property=\"article:modified_time\" scheme=\"ISO8601\" content=\"2026-09-04T07:33:58.670-04:00\"/>\n    <meta name=\"DC.language\" scheme=\"DCTERMS.RFC1766\" content=\"en\"/>\n  \t<meta name=\"robots\" content=\"noodp, noydir\"/>\n  \t<meta name=\"author\" content=\"US Census Bureau\"/>\n  \t<meta http-equiv=\"content-type\" content=\"text/html; charset=UTF-8\"/>\n  \t<meta property=\"og:locale\" content=\"en\"/>\n  \t<meta property=\"og:site_name\" content=\"Census.gov\"/>\n  \t<meta property=\"og:type\" content=\"article\"/>\n  \t<meta property=\"og:url\" content=\"https://www.census.gov/programs-surveys/aies/about.html\"/>\n  \t<meta property=\"og:image\" content=\"https://www.census.gov/content/dam/Census/public/brand/census-logo-sharing-card.jpg\"/>\n  \t<meta name=\"twitter:image\" content=\"https://www.census.gov/content/dam/Census/public/brand/census-logo-sharing-card.jpg\"/>\n  \t<meta name=\"twitter:card\" content=\"summary_large_image\"/>\n  \t<meta name=\"twitter:site\" content=\"@uscensusbureau\"/>\n  \t<meta name=\"twitter:creator\" content=\"@uscensusbureau\"/>\n  \t<meta name=\"twitter:title\" content=\"About the AIES\"/>\n  \t<meta property=\"article:publisher\" content=\"https://census.gov/\"/>\n  \t<meta property=\"article:section\" content=\"Government\"/>\n  \r\n    <script type=\"text/javascript\" src=\"https://www.google.com/jsapi\"></script>\r\n    \r\n    \n    \n    \n    \n    \n<script src=\"/etc.clientlibs/clientlibs/granite/jquery.min.cee8557e8779d371fe722bbcdd3b3eb7.js\"></script>\n<script src=\"/etc.clientlibs/clientlibs/granite/utils.min.899004cc02c33efc1f6694b1aee587fd.js\"></script>\n<script src=\"/etc.clientlibs/clientlibs/granite/jquery/granite.min.543d214c88dfa6f4a3233b630c82d875.js\"></script>\n<script src=\"/etc.clientlibs/foundation/clientlibs/jquery.min.dd9b395c741ce2784096e26619e14910.js\"></script>\n<script src=\"/etc.clientlibs/census/clientlibs/modernizr.min.33837f3aff33e7a40a760d767866141e.js\"></script>\n\n\n\n\t\n    \n<script src=\"/etc.clientlibs/clientlibs/granite/jquery-ui.min.000478df169ef08edfb24d7502acb3c1.js\"></script>\n<script src=\"/etc.clientlibs/foundation/clientlibs/jquery-ui.min.3cc462ae7fb48fa3949850e903137f14.js\"></script>\n\n\n\n    \n    \n<link rel=\"stylesheet\" href=\"/etc.clientlibs/census-core/clientlibs.min.9556bf894a0d404c4e4f4bf83ef3c63b.css\" type=\"text/css\">\n<link rel=\"stylesheet\" href=\"/etc.clientlibs/census/clientlibs/bootstrap.min.3e7d159faa40f5cdf7d02fbe2b1bb215.css\" type=\"text/css\">\n<link rel=\"stylesheet\" href=\"/etc.clientlibs/census/clientlibs/census-fonts.min.9ebcbfc417b8006268ac47b61f6ebfba.css\" type=\"text/css\">\n<link rel=\"stylesheet\" href=\"/etc.clientlibs/census/clientlibs/common-site.min.8e92f508ecd83720ca5ccc6c8f0637d4.css\" type=\"text/css\">\n<link rel=\"stylesheet\" href=\"/etc.clientlibs/clientlibs/granite/jquery-ui.min.48e542f529ebea7475d83a20a3394c1e.css\" type=\"text/css\">\n<link rel=\"stylesheet\" href=\"/etc.clientlibs/census/clientlibs/orionicons.min.2ffd39f8bfe972a21504ca49f50084ec.css\" type=\"text/css\">\n<link rel=\"stylesheet\" href=\"/etc.clientlibs/census/clientlibs/uswds-init.min.c213ff96bc721c3e7977bc763c809e0a.css\" type=\"text/css\">\n<link rel=\"stylesheet\" href=\"/etc.clientlibs/census/clientlibs/core-overrides.min.95bca97fbd3ca07d6424f7fbbe926450.css\" type=\"text/css\">\n<link rel=\"stylesheet\" href=\"/etc.clientlibs/census/clientlibs/clientlib-dependencies.min.d41d8cd98f00b204e9800998ecf8427e.css\" type=\"text/css\">\n<link rel=\"stylesheet\" href=\"/etc.clientlibs/census/clientlibs/clientlib-site.min.25c805315eb4f3f64da0cc62097979ea.css\" type=\"text/css\">\n<link rel=\"stylesheet\" href=\"/etc.clientlibs/census/clientlibs/census-fonts-multilang.min.e7ca9bab4d61ddbda89ed7b2948bf2b6.css\" type=\"text/css\">\n<link rel=\"stylesheet\" href=\"/etc.clientlibs/census/clientlibs/census-pattern-library.min.a89a57ffc2832e0526e9000bfe5d3b7f.css\" type=\"text/css\">\n<link rel=\"stylesheet\" href=\"/etc.clientlibs/census/clientlibs/census-css.min.eea51f80edbde7164c45da04901e3b7f.css\" type=\"text/css\">\n<link rel=\"stylesheet\" href=\"/etc.clientlibs/census/clientlibs/aemgrid.min.be57a8c9b7d09f61725fd419ae4495cb.css\" type=\"text/css\">\n\n\n\n    \n    \n    \n\t\n    \n<link rel=\"stylesheet\" href=\"/etc.clientlibs/census/clientlibs/census-disabled.min.d002d8837bb961541a62e1a6402d7e2b.css\" type=\"text/css\">\n<script src=\"/etc.clientlibs/census/clientlibs/census-disabled.min.42535f152edc257f3458c8e1d559866c.js\"></script>\n\n\n\n    <link href=\"/etc.clientlibs/census/clientlibs/census-css/resources/print.css\" rel=\"stylesheet\" type=\"text/css\" media=\"print\"/> \n\n\t  <!-- Conditional CSS -->\n\t\n\t\t\n\t\n\t\n\n\t\n\n\t\t\n\t \n\t\n\n\t\n\n    \n\n\n        <script type=\"text/javascript\" src=\"//assets.adobedtm.com/launch-ENdc1ca6bab15e46a5b880a2c3f9d462ab.min.js\"></script>\n\n \n\t<!-- /*Data Layer*/ -->\t\n\t<div><script type=\"text/javascript\">\r\n\tvar d = new Date();\r\n\tvar days = [\"Sunday\",\"Monday\",\"Tuesday\",\"Wednesday\",\"Thursday\",\"Friday\",\"Saturday\"];\r\n\tvar digitalData = digitalData || {};\r\n    digitalData = {\r\n       \t\"page\" : {\r\n            \"pageInfo\" : {                \r\n                \"pageName\" \t\t\t: \"About the AIES_120896\",\r\n                \"legacyPageName\" \t: \"en>programsRSUY>aies>About the AIES\",\r\n                \"pageURL\" \t\t\t: window.location.href,\r\n                \"language\" \t\t\t: \"en\",\r\n                \"pageTemplate\" \t\t: \"template\\u002Ddetail3colleftright\",\r\n                \"topic\" \t\t\t: \"\",\r\n                \"programTag\" \t\t: \"\",\r\n                \"collectionYear\" \t: \"\",\r\n                \"AEMtopic\" \t\t\t: \"\",\r\n                \"contentType\" \t\t: \"About\",\r\n                \"geoTag\" \t\t\t: \"\",\r\n                \"seriesTag\" \t\t: \"\",\r\n                \"publishDate\" \t\t: \"\",\r\n                \"timeOfDay\" \t\t: twoDigits(d.getHours()) + \":\" + twoDigits(d.getMinutes()),\r\n                \"tool\" \t\t\t\t: \"aem\",\r\n                \"dayOfWeek\" \t\t: days[d.getDay()],\r\n                \"siteSection\" : \"programs-surveys\",\"subSectionOne\" : \"aies\",\"subSectionTwo\" : \"about\"\r\n            },\r\n            \"pageTag\" : {\r\n                \"contentType\" : \"About\"                \r\n            }\r\n        },\r\n        \"event\" : {\r\n        \t\"eventName\" : {},\r\n          \t\"eventInfo\" : {\r\n\t            \"share\" \t\t\t : {},\r\n\t            \"download\" \t\t\t : {},\r\n\t            \"search\" \t\t\t : {},\r\n\t            \"expandCollapseList\" : {},\r\n\t            \"language\" \t\t\t : {\r\n\t            \tpageLanguage\t : \"en\"\r\n\t            },\r\n\t            \"landingPageTab\" \t : {}\r\n          }\r\n        },\r\n        \"browserInfo\" : {\r\n        \t\"browserWidth\" : getBrowserWidth()\r\n        }\r\n    };    \r\n\r\n    if ( typeof(Storage) !== \"undefined\" ) {\r\n      if ( localStorage.getItem(\"pageLanguage\") != null ) {\r\n        digitalData.event.eventInfo.language.pageLanguage = localStorage.getItem(\"pageLanguage\");\r\n      }\r\n      if ( localStorage.getItem(\"langEventName\") != null ) {\r\n        digitalData.event.eventName = localStorage.getItem(\"langEventName\");\r\n      }\r\n      if ( localStorage.getItem(\"clickValue\") != null ) {\r\n        digitalData.event.eventInfo.search.clickValue = localStorage.getItem(\"clickValue\");\r\n      }\r\n      if ( localStorage.getItem(\"searchEventName\") != null ) {\r\n        digitalData.event.eventInfo.eventName = localStorage.getItem(\"searchEventName\");\r\n      }       \r\n      if ( localStorage.getItem(\"tabEventName\") != null ) {\r\n        digitalData.event.eventName = localStorage.getItem(\"tabEventName\");\r\n      } \r\n      if ( localStorage.getItem(\"pageName\") != null ) {\r\n        digitalData.page.pageInfo.pageName = localStorage.getItem(\"pageName\");\r\n      } \r\n      if ( localStorage.getItem(\"eventInfoEventName\") != null ) {\r\n    \t  digitalData.event.eventInfo.eventName = localStorage.getItem(\"eventInfoEventName\");  \t  \r\n      }\r\n      if ( localStorage.getItem(\"eventInfoLanguage\") != null ) {\r\n    \t  digitalData.event.eventInfo.language.pageLanguage = localStorage.getItem(\"eventInfoLanguage\");\r\n      }\r\n      if ( localStorage.getItem(\"searchTerm\") != null ) {\r\n    \t  digitalData.event.eventInfo.search.term = localStorage.getItem(\"searchTerm\");\r\n      }\r\n      if ( localStorage.getItem(\"blogSearchPhrase\") != null ) {\r\n    \t  digitalData.event.eventInfo.blogSearchPhrase = localStorage.getItem(\"blogSearchPhrase\");\r\n      }\r\n      if ( localStorage.getItem(\"blogEventName\") != null ) {\r\n    \t  digitalData.event.eventInfo.eventName = localStorage.getItem(\"blogEventName\");\r\n      }      \r\n      if ( localStorage.getItem(\"blogName\") != null ) {\r\n    \t  digitalData.event.eventInfo.blogName = localStorage.getItem(\"blogName\");\r\n      }\r\n      if ( localStorage.getItem(\"buttonClickCount\") != null ) {\r\n    \t  digitalData.event.eventInfo.buttonClickCount = localStorage.getItem(\"buttonClickCount\");\r\n      }\r\n      //After assigning the value to digitalData, clear the localStorage variable's content\r\n      localStorage.removeItem(\"pageLanguage\");\r\n      localStorage.removeItem(\"langEventName\");\r\n      localStorage.removeItem(\"clickValue\");\r\n      localStorage.removeItem(\"searchEventName\");\r\n      localStorage.removeItem(\"landingPageTabClickValue\");\r\n      localStorage.removeItem(\"tabEventName\");\r\n      localStorage.removeItem(\"pageName\");\r\n      localStorage.removeItem(\"eventInfoEventName\");\r\n      localStorage.removeItem(\"eventInfoLanguage\");\r\n      localStorage.removeItem(\"searchTerm\");\r\n      localStorage.removeItem(\"blogSearchPhrase\");\r\n      localStorage.removeItem(\"blogEventName\");\r\n      localStorage.removeItem(\"blogName\");\r\n      localStorage.removeItem(\"buttonClickCount\");\r\n    } else {\r\n      if ( getCookie(\"pageLanguage\") != \"\" ) {\r\n        digitalData.event.eventInfo.language.pageLanguage = getCookie(\"pageLanguage\");\r\n      }\r\n      if ( getCookie(\"langEventName\") != \"\" ) {\r\n        digitalData.event.eventName = getCookie(\"langEventName\");\r\n      }\r\n      if ( getCookie(\"clickValue\") != \"\" ) {\r\n        digitalData.event.eventInfo.search.clickValue = getCookie(\"clickValue\");\r\n      }\r\n      if ( getCookie(\"searchEventName\") != \"\" ) {\r\n        digitalData.event.eventInfo.eventName = getCookie(\"searchEventName\");\r\n      }\r\n      if ( getCookie(\"landingPageTabClickValue\") != \"\" ) {\r\n        digitalData.event.eventInfo.landingPageTab.clickValue = getCookie(\"landingPageTabClickValue\");\r\n      }\r\n      if ( getCookie(\"tabEventName\") != \"\" ) {\r\n        digitalData.event.eventName = getCookie(\"tabEventName\");\r\n      }\r\n      if ( getCookie(\"pageName\") != \"\" ) {\r\n        digitalData.page.pageInfo.pageName = getCookie(\"pageName\");\r\n      }\r\n      if ( getCookie(\"eventInfoEventName\") != \"\" ) {\r\n    \t  digitalData.event.eventInfo.eventName = getCookie(\"eventInfoEventName\");  \r\n      }\r\n      if ( getCookie(\"eventInfoLanguage\") ) {\r\n    \t  digitalData.event.eventInfo.language.pageLanguage = getCookie(\"eventInfoLanguage\");\r\n      }\r\n      if ( getCookie(\"searchTerm\") ) {\r\n    \t  digitalData.event.eventInfo.search.term = getCookie(\"searchTerm\");\r\n      }\r\n      if ( getCookie(\"blogSearchPhrase\") ) {\r\n    \t  digitalData.event.eventInfo.blogSearchPhrase = getCookie(\"blogSearchPhrase\");\r\n      }\r\n      if ( getCookie(\"blogEventName\") ) {\r\n    \t  digitalData.event.eventInfo.eventName = getCookie(\"blogEventName\");\r\n      }\r\n      if ( getCookie(\"blogName\") ) {\r\n    \t  digitalData.event.eventInfo.blogName = getCookie(\"blogName\");\r\n      }\r\n      if ( getCookie(\"buttonClickCount\") ) {\r\n    \t  digitalData.event.eventInfo.buttonClickCount = getCookie(\"buttonClickCount\");\r\n      }\r\n      //After assigning the value to digitalData, clear the localStorage variable's content\r\n      setCookie(\"pageLanguage\", \"\");\r\n      setCookie(\"langEventName\", \"\");\r\n      setCookie(\"clickValue\", \"\");\r\n      setCookie(\"searchEventName\", \"\");\r\n      setCookie(\"landingPageTabClickValue\", \"\");\r\n      setCookie(\"pageName\", \"\");\r\n      setCookie(\"eventInfoEventName\", \"\");\r\n      setCookie(\"eventInfoLanguage\", \"\");\r\n      setCookie(\"searchTerm\", \"\");\r\n      setCookie(\"blogSearchPhrase\", \"\");\r\n      setCookie(\"blogName\", \"\");\r\n      setCookie(\"buttonClickCount\", \"\");\r\n    }\r\n\r\n    function setCookie(cname, cvalue, exdays) {\r\n       var d = new Date();\r\n       d.setTime(d.getTime() + (exdays*24*60*60*1000));\r\n       var expires = \"expires=\"+d.toUTCString();\r\n       document.cookie = cname + \"=\" + cvalue + \";\" + expires + \";path=/\";\r\n    }\r\n\r\n    function getCookie(cname) {\r\n       var name = cname + \"=\";\r\n       var ca = document.cookie.split(';');\r\n       for(var i = 0; i < ca.length; i++) {\r\n           var c = ca[i];\r\n           while (c.charAt(0) == ' ') {\r\n               c = c.substring(1);\r\n           }\r\n           if (c.indexOf(name) == 0) {\r\n               return c.substring(name.length, c.length);\r\n           }\r\n       }\r\n       return \"\";\r\n    }\r\n    \r\n    function getBrowserWidth() {         \r\n   \t  \treturn window.innerWidth;\r\n   \t}\r\n    \r\n    function twoDigits(n){\r\n        return n > 9 ? \"\" + n: \"0\" + n;\r\n    }\r\n    \r\n    document.addEventListener('click', function (event) {    \t\r\n    \tif (typeof(event.target.href) !== 'undefined' && event.target.href.toLowerCase().indexOf('tel:') >= 0) {\r\n    \t\tdigitalData.event.eventName = 'phoneNumber';\r\n    \t\tdigitalData.event.eventInfo.eventName = 'Telephone Click';\r\n    \t\tvar splittedData = event.target.href.toLowerCase().split(':');\r\n    \t\tif (splittedData.length > 0) {\r\n    \t\t\tdigitalData.event.eventInfo.telephoneNumber = splittedData[splittedData.length - 1];\t\r\n    \t\t}    \t\t\r\n    \t}\r\n    \t\r\n    \tif (typeof(event.target.href) !== 'undefined' && event.target.href.toLowerCase().indexOf('mailto:') >= 0) {\r\n    \t\tdigitalData.event.eventName = 'emailClick';\r\n    \t\tdigitalData.event.eventInfo.eventName = 'Email Click';\r\n    \t\tvar splittedData = event.target.href.toLowerCase().split(':');\r\n    \t\tif (splittedData.length > 0) {\r\n    \t\t\tdigitalData.event.eventInfo.emailAddress = splittedData[splittedData.length - 1 ]\r\n    \t\t}\r\n    \t}\r\n    \t\r\n    \t//For non-download links that are added via RTE\r\n    \tif (typeof(event.target.href) !== 'undefined') {\r\n    \t\tvar extension = event.target.href.split('.').pop();\r\n    \t\tif (extension == event.target.href || extension == \"html\")\r\n    \t\t\tlinkClick(event.target, 'RTE');    \t\t\r\n    \t}\r\n    });\r\n    \r\n    document.addEventListener(\"DOMContentLoaded\", function() {   \t\t\r\n   \t  \tif (typeof(getCookie('visitor')) !== 'undefined' && getCookie('visitor') !== '') {\r\n   \t  \t    date = new Date();   \t  \t    \r\n   \t\t\tdigitalData.event.eventInfo.newVsRepeat = 'repeat';\r\n   \t\t\tvar dateLastVisited = Date.parse(getCookie('dateLastVisited'));   \t\t\t\r\n   \t\t\tvar differenceInTime = date.getTime() - dateLastVisited;   \t\t\t\r\n   \t\t\tvar seconds = (differenceInTime * .001) >> 0;\r\n   \t\t\t\r\n   \t\t\tif (seconds > 0) {   \t\t\t\t\r\n\t   \t        var minutes = seconds / 60;\r\n\t   \t        var hours = minutes / 60;\t   \t        \r\n\t   \t        var days = hours / 24;\t   \t        \r\n   \t        \tdigitalData.event.eventInfo.secondsSinceLastVisit = seconds.toFixed(2);\r\n   \t        \tdigitalData.event.eventInfo.minutesSinceLastVisit = minutes.toFixed(2);\r\n   \t        \tdigitalData.event.eventInfo.hoursSinceLastVisit = hours.toFixed(2);\r\n   \t        \tdigitalData.event.eventInfo.daysSinceLastVisit = days.toFixed(2);\r\n   \t        }   \t\t\t\r\n   \t\t\t\r\n   \t\t\tsetCookie('dateLastVisited', date, 365); \r\n   \t\t\tvar visitNumber = parseInt(getCookie('visitNumber')) + 1;\r\n   \t\t\tsetCookie('visitNumber', visitNumber, 365);\r\n   \t\t\tdigitalData.event.eventInfo.visitNumber = visitNumber;\r\n   \t  \t} else {\r\n   \t  \t\tdate = new Date();\r\n   \t  \t\tsetCookie('visitor', 'census website visitor', 365);\r\n   \t  \t\tsetCookie('dateLastVisited', date, 365);\r\n   \t  \t\tsetCookie('visitNumber', 1, 365);\r\n   \t  \t\tdigitalData.event.eventInfo.newVsRepeat = 'new';\r\n   \t  \t\tdigitalData.event.eventInfo.visitNumber = 1;\r\n   \t  \t}\r\n   \t});\r\n    \r\n\t$(document).ready(function () { // ensure we wait for listeners to connect to dataLayerReady instead of just firing immediately\r\n    \t$(document).trigger({type: \"dataLayerReady\"});\r\n  });\r\n</script></div>\n\t<script type=\"text/javascript\" src=\"https://www.google.com/jsapi\"></script>\n\t<!-- /*Asset Ref, Content-Language*/-->\n\t<div><script type=\"text/javascript\">    \r\n   \t'use strict';\r\n   \t\r\n   \tdocument.addEventListener('click', function (event) {\r\n    \tif (typeof(event.target.href) !== 'undefined' && event.target.href.toLowerCase().indexOf('pdf') >= 0) {\r\n    \t\tvar pdfXhr = new XMLHttpRequest();\r\n    \t\tpdfXhr.open('GET', '/bin/custom/header/asset?pdfPath=' + event.target.href, true);\r\n    \t\tpdfXhr.send();\r\n    \t}\r\n   \t});\r\n   \t\r\n</script></div>\n\r\n\r\n    \r\n\r\n    \r\n        <style>.uscb-tag__census{background-color: #bbddff;border-color: #bbddff;--icon-class:o-news-1;}.uscb-tag__census_type{background-color: #bbddff;border-color: #bbddff;--icon-class:o-news-1;}.uscb-tag__census_type_publication{background-color: #d0dce1;border-color: #d0dce1;--icon-class:o-book-1;}.uscb-tag__census_type_publication_atlas{background-color: #d0dce1;border-color: #d0dce1;--icon-class:o-book-1;}.uscb-tag__census_type_about{background-color: #bbddff;border-color: #bbddff;--icon-class:o-news-1;}.uscb-tag__census_type_about_biography{background-color: #bbddff;border-color: #bbddff;--icon-class:o-news-1;}.uscb-tag__census_type_about_survey-respondent-information{background-color: #bbddff;border-color: #bbddff;--icon-class:o-news-1;}.uscb-tag__census_type_data{background-color: #ffccbc;border-color: #ffccbc;--icon-class:o-news-1;}.uscb-tag__census_type_data_table{background-color: #ffccbc;border-color: #ffccbc;--icon-class:o-news-1;}.uscb-tag__census_type_data_table_comp-tab{background-color: #ffccbc;border-color: #ffccbc;--icon-class:o-news-1;}.uscb-tag__census_type_data_table_rank-tab{background-color: #ffccbc;border-color: #ffccbc;--icon-class:o-news-1;}.uscb-tag__census_type_data_table_summary-table{background-color: #ffccbc;border-color: #ffccbc;--icon-class:o-news-1;}.uscb-tag__census_type_data_errata-note{background-color: #ffccbc;border-color: #ffccbc;--icon-class:o-news-1;}.uscb-tag__census_type_data_dataset{background-color: #ffccbc;border-color: #ffccbc;--icon-class:o-news-1;}.uscb-tag__census_type_data_dataset_pums-puf-microdata{background-color: #ffccbc;border-color: #ffccbc;--icon-class:o-news-1;}.uscb-tag__census_type_data_dataset_pums-puf-microdata_puf{background-color: #ffccbc;border-color: #ffccbc;--icon-class:o-news-1;}.uscb-tag__census_type_data_dataset_pums-puf-microdata_pums{background-color: #ffccbc;border-color: #ffccbc;--icon-class:o-news-1;}.uscb-tag__census_type_data_dataset_summary-file{background-color: #ffccbc;border-color: #ffccbc;--icon-class:o-news-1;}.uscb-tag__census_type_data_dataset_api{background-color: #ffccbc;border-color: #ffccbc;--icon-class:o-news-1;}.uscb-tag__census_type_data_indicator{background-color: #ffccbc;border-color: #ffccbc;--icon-class:o-news-1;}.uscb-tag__census_type_data_experimental-data-product{background-color: #ffccbc;border-color: #ffccbc;--icon-class:o-news-1;}.uscb-tag__census_type_event{background-color: #e0d2e3;border-color: #e0d2e3;--icon-class:o-news-1;}.uscb-tag__census_type_event_conference{background-color: #e0d2e3;border-color: #e0d2e3;--icon-class:o-news-1;}.uscb-tag__census_type_event_c-span{background-color: #e0d2e3;border-color: #e0d2e3;--icon-class:o-news-1;}.uscb-tag__census_type_event_media-event{background-color: #e0d2e3;border-color: #e0d2e3;--icon-class:o-news-1;}.uscb-tag__census_type_event_seminar{background-color: #e0d2e3;border-color: #e0d2e3;--icon-class:o-news-1;}.uscb-tag__census_type_event_training{background-color: #e0d2e3;border-color: #e0d2e3;--icon-class:o-news-1;}.uscb-tag__census_type_event_training_courses{background-color: #e0d2e3;border-color: #e0d2e3;--icon-class:o-news-1;}.uscb-tag__census_type_event_training_webinar{background-color: #e0d2e3;border-color: #e0d2e3;--icon-class:o-news-1;}.uscb-tag__census_type_event_training_tutorial{background-color: #e0d2e3;border-color: #e0d2e3;--icon-class:o-news-1;}.uscb-tag__census_type_event_u-stream{background-color: #e0d2e3;border-color: #e0d2e3;--icon-class:o-news-1;}.uscb-tag__census_type_event_presentation{background-color: #e0d2e3;border-color: #e0d2e3;--icon-class:o-news-1;}.uscb-tag__census_type_event_disasters{background-color: #e0d2e3;border-color: #e0d2e3;--icon-class:o-news-1;}.uscb-tag__census_type_event_disasters_earthquake{background-color: #e0d2e3;border-color: #e0d2e3;--icon-class:o-news-1;}.uscb-tag__census_type_event_disasters_flood{background-color: #e0d2e3;border-color: #e0d2e3;--icon-class:o-news-1;}.uscb-tag__census_type_event_disasters_hurricane{background-color: #e0d2e3;border-color: #e0d2e3;--icon-class:o-news-1;}.uscb-tag__census_type_event_disasters_pandemic{background-color: #e0d2e3;border-color: #e0d2e3;--icon-class:o-news-1;}.uscb-tag__census_type_event_disasters_tornado{background-color: #e0d2e3;border-color: #e0d2e3;--icon-class:o-news-1;}.uscb-tag__census_type_event_disasters_wildfire{background-color: #e0d2e3;border-color: #e0d2e3;--icon-class:o-news-1;}.uscb-tag__census_type_event_disasters_storm{background-color: #e0d2e3;border-color: #e0d2e3;--icon-class:o-news-1;}.uscb-tag__census_type_event_disasters_incident{background-color: #e0d2e3;border-color: #e0d2e3;--icon-class:o-news-1;}.uscb-tag__census_type_event_disasters_air-quality{background-color: #e0d2e3;border-color: #e0d2e3;--icon-class:o-news-1;}.uscb-tag__census_type_event_disasters_extreme-heat{background-color: #e0d2e3;border-color: #e0d2e3;--icon-class:o-news-1;}.uscb-tag__census_type_media-resource{background-color: #bbddff;border-color: #bbddff;--icon-class:o-news-1;}.uscb-tag__census_type_media-resource_press-release{background-color: #7ad4e2;border-color: #7ad4e2;--icon-class:o-news-2;}.uscb-tag__census_type_media-resource_press-kit{background-color: #7ad4e2;border-color: #7ad4e2;--icon-class:o-documents-1;}.uscb-tag__census_type_media-resource_tip-sheet{background-color: #7ad4e2;border-color: #7ad4e2;--icon-class:o-data-file-1;}.uscb-tag__census_type_media-resource_facts-for-features-special-editions{background-color: #7ad4e2;border-color: #7ad4e2;--icon-class:o-image-saved-1;}.uscb-tag__census_type_media-resource_local-area-pr{background-color: #7ad4e2;border-color: #7ad4e2;--icon-class:o-news-2;}.uscb-tag__census_type_media-resource_stories{background-color: #7ad4e2;border-color: #7ad4e2;--icon-class:o-statistic-1;}.uscb-tag__census_type_multimedia{background-color: #bbddff;border-color: #bbddff;--icon-class:o-news-1;}.uscb-tag__census_type_multimedia_audio{background-color: #ffe434;border-color: #ffe434;--icon-class:o-volume-1;}.uscb-tag__census_type_multimedia_video{background-color: #ffe434;border-color: #ffe434;--icon-class:o-play-1;}.uscb-tag__census_type_multimedia_photograph{background-color: #ffe434;border-color: #ffe434;--icon-class:o-image-1;}.uscb-tag__census_type_working-paper{background-color: #d0dce1;border-color: #d0dce1;--icon-class:o-multiple-files-1;}.uscb-tag__census_type_visualization{background-color: #ffe434;border-color: #ffe434;--icon-class:o-bar-chart-1;}.uscb-tag__census_type_visualization_figure{background-color: #ffe434;border-color: #ffe434;--icon-class:o-bar-chart-1;}.uscb-tag__census_type_visualization_infographic{background-color: #ffe434;border-color: #ffe434;--icon-class:o-bar-chart-1;}.uscb-tag__census_type_visualization_thematic-map{background-color: #ffe434;border-color: #ffe434;--icon-class:o-bar-chart-1;}.uscb-tag__census_type_technical-documentation{background-color: #bbddff;border-color: #bbddff;--icon-class:o-news-1;}.uscb-tag__census_type_technical-documentation_data-dictionary{background-color: #bbddff;border-color: #bbddff;--icon-class:o-news-1;}.uscb-tag__census_type_technical-documentation_user-notes{background-color: #bbddff;border-color: #bbddff;--icon-class:o-news-1;}.uscb-tag__census_type_technical-documentation_questionnaire{background-color: #bbddff;border-color: #bbddff;--icon-class:o-news-1;}.uscb-tag__census_type_technical-documentation_sampling-weighting{background-color: #bbddff;border-color: #bbddff;--icon-class:o-news-1;}.uscb-tag__census_type_technical-documentation_quality-measures{background-color: #bbddff;border-color: #bbddff;--icon-class:o-news-1;}.uscb-tag__census_type_technical-documentation_source-accuracy-statements{background-color: #bbddff;border-color: #bbddff;--icon-class:o-news-1;}.uscb-tag__census_type_technical-documentation_subject-definitions{background-color: #bbddff;border-color: #bbddff;--icon-class:o-news-1;}.uscb-tag__census_type_technical-documentation_statistical-testing{background-color: #bbddff;border-color: #bbddff;--icon-class:o-news-1;}.uscb-tag__census_type_updates{background-color: #bbddff;border-color: #bbddff;--icon-class:o-news-1;}.uscb-tag__census_type_updates_newsletter{background-color: #bbddff;border-color: #bbddff;--icon-class:o-news-1;}.uscb-tag__census_type_methodology{background-color: #bbddff;border-color: #bbddff;--icon-class:o-news-1;}.uscb-tag__census_type_data-tool{background-color: #ffccbc;border-color: #ffccbc;--icon-class:o-news-1;}.uscb-tag__census_type_data-tool_api{background-color: #ffccbc;border-color: #ffccbc;--icon-class:o-news-1;}.uscb-tag__census_type_data-tool_software{background-color: #ffccbc;border-color: #ffccbc;--icon-class:o-news-1;}.uscb-tag__census_type_data-tool_mobile-app{background-color: #ffccbc;border-color: #ffccbc;--icon-class:o-news-1;}.uscb-tag__census_type_data-tool_web-app{background-color: #ffccbc;border-color: #ffccbc;--icon-class:o-news-1;}.uscb-tag__census_type_transcript{background-color: #bbddff;border-color: #bbddff;--icon-class:o-news-1;}.uscb-tag__census_type_blog{background-color: #7ad4e2;border-color: #7ad4e2;--icon-class:o-news-website-1;}.uscb-tag__census_type_blog_directors-blog{background-color: #7ad4e2;border-color: #7ad4e2;--icon-class:o-news-website-1;}.uscb-tag__census_type_blog_global-reach-blog{background-color: #7ad4e2;border-color: #7ad4e2;--icon-class:o-news-website-1;}.uscb-tag__census_type_blog_random-samplings-blog{background-color: #7ad4e2;border-color: #7ad4e2;--icon-class:o-news-website-1;}.uscb-tag__census_type_blog_research-blog{background-color: #7ad4e2;border-color: #7ad4e2;--icon-class:o-news-website-1;}.uscb-tag__census_type_blog_deputy-directors-blog{background-color: #7ad4e2;border-color: #7ad4e2;--icon-class:o-news-website-1;}.uscb-tag__census_type_blog_previous-directors-blogs{background-color: #7ad4e2;border-color: #7ad4e2;--icon-class:o-news-website-1;}.uscb-tag__census_type_story{background-color: #bdf;border-color: #bdf;--icon-class:o-news-1;}.uscb-tag__census_type_story_story-map{background-color: #bdf;border-color: #bdf;--icon-class:o-news-1;}.uscb-tag__census_type_geographic{background-color: #bbddff;border-color: #bbddff;--icon-class:o-news-1;}.uscb-tag__census_type_geographic_geo-profile{background-color: #bbddff;border-color: #bbddff;--icon-class:o-news-1;}.uscb-tag__census_type_geographic_mapping-file{background-color: #bbddff;border-color: #bbddff;--icon-class:o-news-1;}.uscb-tag__census_type_geographic_reference-file{background-color: #bbddff;border-color: #bbddff;--icon-class:o-news-1;}.uscb-tag__census_type_geographic_reference-map{background-color: #bbddff;border-color: #bbddff;--icon-class:o-news-1;}.uscb-tag__census_type_geographic_mapping-tool{background-color: #bbddff;border-color: #bbddff;--icon-class:o-news-1;}.uscb-tag__census_type_forms{background-color: #bbddff;border-color: #bbddff;--icon-class:o-news-1;}.uscb-tag__census_type_forms_request-form{background-color: #bbddff;border-color: #bbddff;--icon-class:o-news-1;}.uscb-tag__census_type_contact{background-color: #bbddff;border-color: #bbddff;--icon-class:o-news-1;}.uscb-tag__census_type_indicator{background-color: #bbddff;border-color: #bbddff;--icon-class:o-news-1;}.uscb-tag__census_type_job{background-color: #bbddff;border-color: #bbddff;--icon-class:o-news-1;}.uscb-tag__census_type_fact-sheet{background-color: #d0dce1;border-color: #d0dce1;--icon-class:o-find-notes-1;}.uscb-tag__census_type_faq{background-color: #bbddff;border-color: #bbddff;--icon-class:o-news-1;}.uscb-tag__census_type_faq_faq-feature{background-color: #bbddff;border-color: #bbddff;--icon-class:o-news-1;}.uscb-tag__census_type_outreach-materials{background-color: #bbddff;border-color: #bbddff;--icon-class:o-news-1;}.uscb-tag__census_type_spotlight{background-color: #d0dce1;border-color: #d0dce1;--icon-class:o-find-notes-1;}.uscb-tag__census_type_census-reference-materials{background-color: #bbddff;border-color: #bbddff;--icon-class:o-news-1;}.uscb-tag__census_type_census-reference-materials_code-lists{background-color: #bbddff;border-color: #bbddff;--icon-class:o-news-1;}.uscb-tag__census_type_monthly-history-story{background-color: #d0dce1;border-color: #d0dce1;--icon-class:o-find-notes-1;}.uscb-tag__census_type_flyer{background-color: #d0dce1;border-color: #d0dce1;--icon-class:o-find-notes-1;}.uscb-tag__census_program{background-color: #bbddff;border-color: #bbddff;--icon-class:o-news-1;}.uscb-tag__census_program_demo-survey{background-color: #c0e4be;border-color: #c0e4be;--icon-class:o-news-1;}.uscb-tag__census_program_demo-survey_atus{background-color: #c0e4be;border-color: #c0e4be;--icon-class:o-news-1;}.uscb-tag__census_program_demo-survey_ce{background-color: #c0e4be;border-color: #c0e4be;--icon-class:o-news-1;}.uscb-tag__census_program_demo-survey_ncvs{background-color: #c0e4be;border-color: #c0e4be;--icon-class:o-news-1;}.uscb-tag__census_program_demo-survey_namcs{background-color: #c0e4be;border-color: #c0e4be;--icon-class:o-news-1;}.uscb-tag__census_program_demo-survey_nhis{background-color: #c0e4be;border-color: #c0e4be;--icon-class:o-news-1;}.uscb-tag__census_program_demo-survey_nhamcs{background-color: #c0e4be;border-color: #c0e4be;--icon-class:o-news-1;}.uscb-tag__census_program_demo-survey_nhes{background-color: #c0e4be;border-color: #c0e4be;--icon-class:o-news-1;}.uscb-tag__census_program_demo-survey_nscg{background-color: #c0e4be;border-color: #c0e4be;--icon-class:o-news-1;}.uscb-tag__census_program_demo-survey_fhwar{background-color: #c0e4be;border-color: #c0e4be;--icon-class:o-news-1;}.uscb-tag__census_program_demo-survey_nychvs{background-color: #c0e4be;border-color: #c0e4be;--icon-class:o-news-1;}.uscb-tag__census_program_demo-survey_prcs{background-color: #c0e4be;border-color: #c0e4be;--icon-class:o-news-1;}.uscb-tag__census_program_demo-survey_rfs{background-color: #c0e4be;border-color: #c0e4be;--icon-class:o-news-1;}.uscb-tag__census_program_demo-survey_scs{background-color: #c0e4be;border-color: #c0e4be;--icon-class:o-news-1;}.uscb-tag__census_program_demo-survey_sass{background-color: #c0e4be;border-color: #c0e4be;--icon-class:o-news-1;}.uscb-tag__census_program_demo-survey_soma{background-color: #c0e4be;border-color: #c0e4be;--icon-class:o-news-1;}.uscb-tag__census_program_demo-survey_spd{background-color: #c0e4be;border-color: #c0e4be;--icon-class:o-news-1;}.uscb-tag__census_program_demo-survey_tfs{background-color: #c0e4be;border-color: #c0e4be;--icon-class:o-news-1;}.uscb-tag__census_program_demo-survey_tpops{background-color: #c0e4be;border-color: #c0e4be;--icon-class:o-news-1;}.uscb-tag__census_program_demo-survey_decennial{background-color: #c0e4be;border-color: #c0e4be;--icon-class:o-news-1;}.uscb-tag__census_program_demo-survey_decennial_2010census{background-color: #c0e4be;border-color: #c0e4be;--icon-class:o-news-1;}.uscb-tag__census_program_demo-survey_decennial_2000-census{background-color: #c0e4be;border-color: #c0e4be;--icon-class:o-news-1;}.uscb-tag__census_program_demo-survey_decennial_1990-census{background-color: #c0e4be;border-color: #c0e4be;--icon-class:o-news-1;}.uscb-tag__census_program_demo-survey_decennial_2020-census{background-color: #c0e4be;border-color: #c0e4be;--icon-class:o-news-1;}.uscb-tag__census_program_demo-survey_decennial_2020-census_2015-test{background-color: #c0e4be;border-color: #c0e4be;--icon-class:o-news-1;}.uscb-tag__census_program_demo-survey_decennial_2020-census_2016-test{background-color: #c0e4be;border-color: #c0e4be;--icon-class:o-news-1;}.uscb-tag__census_program_demo-survey_decennial_2020-census_2017-test{background-color: #c0e4be;border-color: #c0e4be;--icon-class:o-news-1;}.uscb-tag__census_program_demo-survey_decennial_2020-census_2018-test{background-color: #c0e4be;border-color: #c0e4be;--icon-class:o-news-1;}.uscb-tag__census_program_demo-survey_decennial_census-population{background-color: #c0e4be;border-color: #c0e4be;--icon-class:o-news-1;}.uscb-tag__census_program_demo-survey_decennial_census-housing{background-color: #c0e4be;border-color: #c0e4be;--icon-class:o-news-1;}.uscb-tag__census_program_demo-survey_decennial_voting-rights{background-color: #c0e4be;border-color: #c0e4be;--icon-class:o-news-1;}.uscb-tag__census_program_demo-survey_decennial_pes{background-color: #c0e4be;border-color: #c0e4be;--icon-class:o-news-1;}.uscb-tag__census_program_demo-survey_decennial_2030-census{background-color: #c0e4be;border-color: #c0e4be;--icon-class:o-news-1;}.uscb-tag__census_program_demo-survey_decennial_2030-census_2023-census-test{background-color: #c0e4be;border-color: #c0e4be;--icon-class:o-news-1;}.uscb-tag__census_program_demo-survey_decennial_2030-census_2024-census-survey{background-color: #c0e4be;border-color: #c0e4be;--icon-class:o-news-1;}.uscb-tag__census_program_demo-survey_decennial_2030-census_2026-census-test{background-color: #c0e4be;border-color: #c0e4be;--icon-class:o-news-1;}.uscb-tag__census_program_demo-survey_hvs{background-color: #c0e4be;border-color: #c0e4be;--icon-class:o-news-1;}.uscb-tag__census_program_demo-survey_ahs{background-color: #c0e4be;border-color: #c0e4be;--icon-class:o-news-1;}.uscb-tag__census_program_demo-survey_cps{background-color: #c0e4be;border-color: #c0e4be;--icon-class:o-news-1;}.uscb-tag__census_program_demo-survey_acs{background-color: #c0e4be;border-color: #c0e4be;--icon-class:o-news-1;}.uscb-tag__census_program_demo-survey_sipp{background-color: #c0e4be;border-color: #c0e4be;--icon-class:o-news-1;}.uscb-tag__census_program_demo-survey_popest{background-color: #c0e4be;border-color: #c0e4be;--icon-class:o-news-1;}.uscb-tag__census_program_demo-survey_popproj{background-color: #c0e4be;border-color: #c0e4be;--icon-class:o-news-1;}.uscb-tag__census_program_demo-survey_bas{background-color: #c0e4be;border-color: #c0e4be;--icon-class:o-news-1;}.uscb-tag__census_program_demo-survey_tsap{background-color: #c0e4be;border-color: #c0e4be;--icon-class:o-news-1;}.uscb-tag__census_program_demo-survey_sdrp{background-color: #c0e4be;border-color: #c0e4be;--icon-class:o-news-1;}.uscb-tag__census_program_demo-survey_luca{background-color: #c0e4be;border-color: #c0e4be;--icon-class:o-news-1;}.uscb-tag__census_program_demo-survey_psap{background-color: #c0e4be;border-color: #c0e4be;--icon-class:o-news-1;}.uscb-tag__census_program_demo-survey_gupcp{background-color: #c0e4be;border-color: #c0e4be;--icon-class:o-news-1;}.uscb-tag__census_program_demo-survey_gss-i{background-color: #c0e4be;border-color: #c0e4be;--icon-class:o-news-1;}.uscb-tag__census_program_demo-survey_metro-micro{background-color: #c0e4be;border-color: #c0e4be;--icon-class:o-news-1;}.uscb-tag__census_program_demo-survey_aian{background-color: #c0e4be;border-color: #c0e4be;--icon-class:o-news-1;}.uscb-tag__census_program_demo-survey_rdo{background-color: #c0e4be;border-color: #c0e4be;--icon-class:o-news-1;}.uscb-tag__census_program_demo-survey_nshapc{background-color: #c0e4be;border-color: #c0e4be;--icon-class:o-news-1;}.uscb-tag__census_program_demo-survey_ip{background-color: #c0e4be;border-color: #c0e4be;--icon-class:o-news-1;}.uscb-tag__census_program_demo-survey_sahie{background-color: #c0e4be;border-color: #c0e4be;--icon-class:o-news-1;}.uscb-tag__census_program_demo-survey_saipe{background-color: #c0e4be;border-color: #c0e4be;--icon-class:o-news-1;}.uscb-tag__census_program_demo-survey_nssrn{background-color: #c0e4be;border-color: #c0e4be;--icon-class:o-news-1;}.uscb-tag__census_program_demo-survey_ntps{background-color: #c0e4be;border-color: #c0e4be;--icon-class:o-news-1;}.uscb-tag__census_program_demo-survey_sis{background-color: #c0e4be;border-color: #c0e4be;--icon-class:o-news-1;}.uscb-tag__census_program_demo-survey_hh-pulse-survey{background-color: #c0e4be;border-color: #c0e4be;--icon-class:o-news-1;}.uscb-tag__census_program_demo-survey_ehealth{background-color: #c0e4be;border-color: #c0e4be;--icon-class:o-news-1;}.uscb-tag__census_program_demo-survey_cre{background-color: #c0e4be;border-color: #c0e4be;--icon-class:o-news-1;}.uscb-tag__census_program_demo-survey_school-pulse-panel{background-color: #c0e4be;border-color: #c0e4be;--icon-class:o-news-1;}.uscb-tag__census_program_demo-survey_dcdl{background-color: #c0e4be;border-color: #c0e4be;--icon-class:o-news-1;}.uscb-tag__census_program_demo-survey_ntews{background-color: #c0e4be;border-color: #c0e4be;--icon-class:o-news-1;}.uscb-tag__census_program_demo-survey_pfs{background-color: #c0e4be;border-color: #c0e4be;--icon-class:o-news-1;}.uscb-tag__census_program_demo-survey_ssocs{background-color: #c0e4be;border-color: #c0e4be;--icon-class:o-news-1;}.uscb-tag__census_program_demo-survey_special-census-program{background-color: #c0e4be;border-color: #c0e4be;--icon-class:o-news-1;}.uscb-tag__census_program_demo-survey_nsch{background-color: #c0e4be;border-color: #c0e4be;--icon-class:o-news-1;}.uscb-tag__census_program_demo-survey_pss{background-color: #c0e4be;border-color: #c0e4be;--icon-class:o-news-1;}.uscb-tag__census_program_demo-survey_nschlc{background-color: #c0e4be;border-color: #c0e4be;--icon-class:o-news-1;}.uscb-tag__census_program_demo-survey_national-household-food-study{background-color: #c0e4be;border-color: #c0e4be;--icon-class:o-news-1;}.uscb-tag__census_program_demo-survey_chs{background-color: #c0e4be;border-color: #c0e4be;--icon-class:o-news-1;}.uscb-tag__census_program_demo-survey_htops{background-color: #c0e4be;border-color: #c0e4be;--icon-class:o-news-1;}.uscb-tag__census_program_econ-survey{background-color: #c0e4be;border-color: #c0e4be;--icon-class:o-news-1;}.uscb-tag__census_program_econ-survey_annual-survey-state-local-government-finances{background-color: #c0e4be;border-color: #c0e4be;--icon-class:o-news-1;}.uscb-tag__census_program_econ-survey_marts{background-color: #c0e4be;border-color: #c0e4be;--icon-class:o-news-1;}.uscb-tag__census_program_econ-survey_als{background-color: #c0e4be;border-color: #c0e4be;--icon-class:o-news-1;}.uscb-tag__census_program_econ-survey_parole-probation-surveys{background-color: #c0e4be;border-color: #c0e4be;--icon-class:o-news-1;}.usc",
+          "title": "About the AIES",
+          "httpStatus": 200
+        },
+        {
+          "type": "openrouter:web_search",
+          "id": "st_tmp_bc11nh64mh9",
+          "status": "completed",
+          "action": {
+            "type": "search",
+            "query": "\"2024 Annual Integrated Economic Survey\" data release 2026 state metro area subnational press release"
+          }
+        },
+        {
+          "type": "openrouter:web_search",
+          "id": "st_tmp_q7q8rna2jim",
+          "status": "completed",
+          "action": {
+            "type": "search",
+            "query": "Annual Integrated Economic Survey microdata Federal Statistical Research Data Center FSRDC restricted access researcher"
+          }
+        },
+        {
+          "type": "openrouter:web_search",
+          "id": "st_tmp_070dt3s75a82",
+          "status": "completed",
+          "action": {
+            "type": "search",
+            "query": "Census Bureau economic surveys budget cuts termination 2025 APDU Data Foundation preservation annual surveys risk"
+          }
+        }
+      ],
+      "ended": "answered",
+      "seconds": 138.8
+    },
+    "assessment": {
+      "request": {
+        "model": "moonshotai/kimi-k3",
+        "max_output_tokens": 32768,
+        "tools": [
+          {
+            "type": "openrouter:web_search",
+            "parameters": {
+              "engine": "exa",
+              "max_results": 10,
+              "excluded_domains": [
+                "dataindex.us"
+              ]
+            }
+          },
+          {
+            "type": "openrouter:web_fetch",
+            "parameters": {
+              "engine": "openrouter",
+              "blocked_domains": [
+                "dataindex.us"
+              ],
+              "max_content_tokens": 10000
+            }
+          }
+        ],
+        "cache_control": {
+          "type": "ephemeral",
+          "ttl": "1h"
+        },
+        "session_id": "aies-moonshotai/kimi-k3-t0-2026-10-08T20:02:03Z",
+        "stop_server_tools_when": [
+          {
+            "type": "step_count_is",
+            "step_count": 200
+          }
+        ],
+        "reasoning": {
+          "effort": "high"
+        },
+        "provider": {
+          "order": [
+            "moonshotai"
+          ],
+          "allow_fallbacks": false
+        }
+      },
+      "response_meta": {
+        "id": "gen-1791489862-xBJKWFspPexBjjS96jaT",
+        "object": "response",
+        "created_at": 1791489862,
+        "model": "moonshotai/kimi-k3",
+        "status": "completed",
+        "completed_at": 1791489994,
+        "error": null,
+        "incomplete_details": null,
+        "tools": [],
+        "tool_choice": "auto",
+        "parallel_tool_calls": true,
+        "max_output_tokens": 32768,
+        "temperature": 1,
+        "top_p": 1,
+        "presence_penalty": 0,
+        "frequency_penalty": 0,
+        "top_logprobs": 0,
+        "max_tool_calls": null,
+        "metadata": {},
+        "background": false,
+        "previous_response_id": null,
+        "service_tier": "auto",
+        "truncation": "disabled",
+        "store": false,
+        "instructions": null,
+        "text": {
+          "format": {
+            "type": "text"
+          }
+        },
+        "reasoning": {
+          "effort": "high"
+        },
+        "safety_identifier": null,
+        "prompt_cache_key": null,
+        "prompt_cache_options": null,
+        "usage": {
+          "input_tokens": 88164,
+          "input_tokens_details": {
+            "cached_tokens": 57856
+          },
+          "output_tokens": 5316,
+          "output_tokens_details": {
+            "reasoning_tokens": 2193
+          },
+          "total_tokens": 93480,
+          "cost": 0.22302080000000002,
+          "cost_details": {
+            "upstream_inference_cost": 0.1880208,
+            "upstream_inference_input_cost": 0.10828080000000001,
+            "upstream_inference_output_cost": 0.07974
+          },
+          "server_tool_use_details": {
+            "web_search_requests": 5,
+            "tool_calls_requested": 5,
+            "tool_calls_executed": 5
+          }
+        }
+      },
+      "requests": [
+        {
+          "input_tokens": 88164,
+          "input_tokens_details": {
+            "cached_tokens": 57856
+          },
+          "output_tokens": 5316,
+          "output_tokens_details": {
+            "reasoning_tokens": 2193
+          },
+          "total_tokens": 93480,
+          "cost": 0.22302080000000002,
+          "cost_details": {
+            "upstream_inference_cost": 0.1880208,
+            "upstream_inference_input_cost": 0.10828080000000001,
+            "upstream_inference_output_cost": 0.07974
+          },
+          "server_tool_use_details": {
+            "web_search_requests": 5,
+            "tool_calls_requested": 5,
+            "tool_calls_executed": 5
+          }
+        }
+      ],
+      "searches": 5,
+      "fetches": 0,
+      "tool_items": [
+        {
+          "type": "openrouter:web_search",
+          "id": "st_tmp_ner58ligofi",
+          "status": "completed",
+          "action": {
+            "type": "search",
+            "query": "Census Bureau budget cuts staffing layoffs 2025 DOGE deferred resignation economic surveys",
+            "sources": [
+              {
+                "type": "url",
+                "url": "https://apnews.com/article/census-bureau-doge-federal-surveys-fe560e377be69e913660a6d90c1ee419"
+              },
+              {
+                "type": "url",
+                "url": "https://www.amstat.org/docs/default-source/amstat-documents/the-nations-data-at-risk-2025/census.pdf"
+              },
+              {
+                "type": "url",
+                "url": "https://www.wxxinews.org/2025-04-17/brain-drain-at-census-bureau-has-employees-warning-about-the-countrys-statistics"
+              },
+              {
+                "type": "url",
+                "url": "https://www.govexec.com/workforce/2025/07/census-has-long-struggled-staffing-shortages-employees-say-trump-making-it-worse/406840/"
+              },
+              {
+                "type": "url",
+                "url": "https://www.washingtonpost.com/politics/2025/05/23/census-bureau-doge-federal-surveys/73615954-378b-11f0-9c9e-0db2d748bea7_story.html"
+              },
+              {
+                "type": "url",
+                "url": "https://www.boisestatepublicradio.org/2025-05-23/doge-created-a-survey-of-surveys-for-a-push-to-cut-some-government-data-collection"
+              },
+              {
+                "type": "url",
+                "url": "https://www.npr.org/2025/10/01/nx-s1-5558298/doge-fiscal-year-savings-budget-rehired-government-shutdown"
+              },
+              {
+                "type": "url",
+                "url": "https://www.bostonglobe.com/2025/05/23/nation/trump-administration-doge-targets-census-bureau/"
+              },
+              {
+                "type": "url",
+                "url": "https://en.wikipedia.org/wiki/2025_United_States_federal_mass_layoffs"
+              },
+              {
+                "type": "url",
+                "url": "https://fortune.com/2025/05/23/elon-musk-doge-targeting-census-bureau/"
+              }
+            ]
+          }
+        },
+        {
+          "type": "openrouter:web_search",
+          "id": "st_tmp_qnrbl4j3emj",
+          "status": "completed",
+          "action": {
+            "type": "search",
+            "query": "Annual Integrated Economic Survey AIES 2025 OMB renewal ICR 0607-1024 Federal Register",
+            "sources": [
+              {
+                "type": "url",
+                "url": "https://www.govinfo.gov/content/pkg/FR-2026-01-20/html/2026-00924.htm"
+              },
+              {
+                "type": "url",
+                "url": "https://www.reginfo.gov/public/do/PRAViewICR?ref_nbr=202603-0607-006"
+              },
+              {
+                "type": "url",
+                "url": "https://www.govinfo.gov/content/pkg/FR-2025-08-21/pdf/2025-16018.pdf"
+              },
+              {
+                "type": "url",
+                "url": "https://www.reginfo.gov/public/do/PRAViewICR?ref_nbr=202601-0607-002"
+              },
+              {
+                "type": "url",
+                "url": "https://thefederalregister.org/documents/2025-16018/agency-information-collection-activities-submission-to-the-office-of-management-and-budget-omb-for-review-and-approval-c"
+              },
+              {
+                "type": "url",
+                "url": "https://www.reginfo.gov/public/do/PRAViewIC?icID=259383&ref_nbr=202601-0607-002"
+              },
+              {
+                "type": "url",
+                "url": "https://www.census.gov/programs-surveys/aies/information.html"
+              },
+              {
+                "type": "url",
+                "url": "https://thefederalregister.org/documents/2026-00924/agency-information-collection-activities-submission-to-the-office-of-management-and-budget-omb-for-review-and-approval-c"
+              },
+              {
+                "type": "url",
+                "url": "https://www.federalregister.gov/documents/2025/04/04/2025-05843/current-mandatory-business-surveys"
+              },
+              {
+                "type": "url",
+                "url": "https://omb.report/omb/0607-1024"
+              }
+            ]
+          }
+        },
+        {
+          "type": "openrouter:web_search",
+          "id": "st_tmp_starwefgags",
+          "status": "completed",
+          "action": {
+            "type": "search",
+            "query": "Census Bureau economic data releases delayed 2025 government shutdown Annual Integrated Economic Survey 2024 release schedule",
+            "sources": [
+              {
+                "type": "url",
+                "url": "https://content.govdelivery.com/accounts/USCENSUS/bulletins/3fb7110"
+              },
+              {
+                "type": "url",
+                "url": "https://www.census.gov/economic-indicators/econcards/assets/pdf/censusreleaseglance_2024.pdf"
+              },
+              {
+                "type": "url",
+                "url": "https://www.census.gov/econ/indicators/census-pfei-recovery-2025-lapse-in-funding.pdf"
+              },
+              {
+                "type": "url",
+                "url": "https://www.census.gov/newsroom/press-releases/2025/aies-releases-first-dataset.html"
+              },
+              {
+                "type": "url",
+                "url": "https://www.census.gov/newsroom/tip-sheets/2025/tp25-07.html"
+              },
+              {
+                "type": "url",
+                "url": "https://www.census.gov/newsroom/press-releases/2025/aies-data-collection-begins.html"
+              },
+              {
+                "type": "url",
+                "url": "https://bea.gov/news/blog/2025-11-24/economic-release-schedule-updates"
+              },
+              {
+                "type": "url",
+                "url": "https://www.cnn.com/2025/11/14/economy/federal-data-what-to-expect-economic-data"
+              },
+              {
+                "type": "url",
+                "url": "https://www.census.gov/programs-surveys/aies.html"
+              },
+              {
+                "type": "url",
+                "url": "https://www2.census.gov/about/training-workshops/2026/2026-03-19-aies-streamlined-approach-to-business-statistics-presentation.pdf"
+              }
+            ]
+          }
+        },
+        {
+          "type": "openrouter:web_search",
+          "id": "st_tmp_1daklwsusjmi",
+          "status": "completed",
+          "action": {
+            "type": "search",
+            "query": "Census Bureau director nominee 2025 2026 confirmation acting director Jarmin FY2026 appropriation current surveys funding",
+            "sources": [
+              {
+                "type": "url",
+                "url": "https://www.npr.org/2025/09/19/nx-s1-5288846/trump-census-bureau-director-george-cook"
+              },
+              {
+                "type": "url",
+                "url": "https://apnews.com/article/us-census-bureau-commerce-trump-e87407373e9cfe507374664a6d86f643"
+              },
+              {
+                "type": "url",
+                "url": "https://www.npr.org/2025/01/30/nx-s1-5258393/census-bureau-director-robert-santos"
+              },
+              {
+                "type": "url",
+                "url": "https://www.commerce.gov/about/leadership/ron-jarmin"
+              },
+              {
+                "type": "url",
+                "url": "https://www.congress.gov/crs_external_products/IF/PDF/IF12714/IF12714.4.pdf"
+              },
+              {
+                "type": "url",
+                "url": "https://congress.gov/crs-product/R48643"
+              },
+              {
+                "type": "url",
+                "url": "https://www.everycrsreport.com/reports/IF13105.html"
+              },
+              {
+                "type": "url",
+                "url": "https://thecensusproject.org/2026/01/07/congress-unveils-fiscal-year-2026-funding-proposal-for-u-s-census-bureau/"
+              },
+              {
+                "type": "url",
+                "url": "https://thecensusproject.org/2025/09/11/fiscal-year-2026-house-commerce-justice-science-appropriations-bill-advances/"
+              },
+              {
+                "type": "url",
+                "url": "https://en.wikipedia.org/wiki/Ron_S._Jarmin"
+              }
+            ]
+          }
+        },
+        {
+          "type": "openrouter:web_search",
+          "id": "st_tmp_r4f0ovxkr6",
+          "status": "completed",
+          "action": {
+            "type": "search",
+            "query": "AIES 2023 main release February 2026 delayed fall 2025 shutdown final estimates Census",
+            "sources": [
+              {
+                "type": "url",
+                "url": "https://www.census.gov/newsroom/press-releases/2026/main-release-of-aies-data.html"
+              },
+              {
+                "type": "url",
+                "url": "https://www.census.gov/newsroom/blogs/random-samplings/2026/02/first-aies-data-release.html"
+              },
+              {
+                "type": "url",
+                "url": "https://www2.census.gov/about/training-workshops/2026/2026-03-19-aies-streamlined-approach-to-business-statistics-presentation.pdf"
+              },
+              {
+                "type": "url",
+                "url": "https://www2.census.gov/programs-surveys/aies/data/2023/API_Datasets/"
+              },
+              {
+                "type": "url",
+                "url": "https://www.census.gov/newsroom/press-releases/2025/aies-releases-first-dataset.html"
+              },
+              {
+                "type": "url",
+                "url": "https://www.census.gov/data/tables/2023/econ/aies/2023-aies-tables.html"
+              },
+              {
+                "type": "url",
+                "url": "https://thecensusproject.org/2025/12/08/census-bureau-recovery-plan-for-economic-indicators-post-shutdown/"
+              },
+              {
+                "type": "url",
+                "url": "https://www.census.gov/programs-surveys/aies.html"
+              },
+              {
+                "type": "url",
+                "url": "https://www.census.gov/programs-surveys/nonemployer-statistics/newsroom/updates/feb-2026.html"
+              },
+              {
+                "type": "url",
+                "url": "https://www.census.gov/data/experimental-data-products/aies-small-area-state-estimates.html"
+              }
+            ]
+          }
+        }
+      ],
+      "ended": "answered",
+      "seconds": 132.3
+    },
+    "session_metadata": {
+      "request": {
+        "model": "moonshotai/kimi-k3",
+        "max_output_tokens": 32768,
+        "tools": [
+          {
+            "type": "openrouter:web_search",
+            "parameters": {
+              "engine": "exa",
+              "max_results": 10,
+              "excluded_domains": [
+                "dataindex.us"
+              ]
+            }
+          },
+          {
+            "type": "openrouter:web_fetch",
+            "parameters": {
+              "engine": "openrouter",
+              "blocked_domains": [
+                "dataindex.us"
+              ],
+              "max_content_tokens": 10000
+            }
+          }
+        ],
+        "cache_control": {
+          "type": "ephemeral",
+          "ttl": "1h"
+        },
+        "session_id": "aies-moonshotai/kimi-k3-t0-2026-10-08T20:02:03Z",
+        "stop_server_tools_when": [
+          {
+            "type": "step_count_is",
+            "step_count": 200
+          }
+        ],
+        "reasoning": {
+          "effort": "high"
+        },
+        "provider": {
+          "order": [
+            "moonshotai"
+          ],
+          "allow_fallbacks": false
+        }
+      },
+      "response_meta": {
+        "id": "gen-1791489994-f5yS6DpP7ncVSCv1KjL3",
+        "object": "response",
+        "created_at": 1791489994,
+        "model": "moonshotai/kimi-k3",
+        "status": "completed",
+        "completed_at": 1791490026,
+        "error": null,
+        "incomplete_details": null,
+        "tools": [],
+        "tool_choice": "auto",
+        "parallel_tool_calls": true,
+        "max_output_tokens": 32768,
+        "temperature": 1,
+        "top_p": 1,
+        "presence_penalty": 0,
+        "frequency_penalty": 0,
+        "top_logprobs": 0,
+        "max_tool_calls": null,
+        "metadata": {},
+        "background": false,
+        "previous_response_id": null,
+        "service_tier": "auto",
+        "truncation": "disabled",
+        "store": false,
+        "instructions": null,
+        "text": {
+          "format": {
+            "type": "text"
+          }
+        },
+        "reasoning": {
+          "effort": "high"
+        },
+        "safety_identifier": null,
+        "prompt_cache_key": null,
+        "prompt_cache_options": null,
+        "usage": {
+          "input_tokens": 16604,
+          "input_tokens_details": {
+            "cached_tokens": 12032
+          },
+          "output_tokens": 1273,
+          "output_tokens_details": {
+            "reasoning_tokens": 1115
+          },
+          "total_tokens": 17877,
+          "cost": 0.0364206,
+          "cost_details": {
+            "upstream_inference_cost": 0.0364206,
+            "upstream_inference_input_cost": 0.0173256,
+            "upstream_inference_output_cost": 0.019095
+          }
+        }
+      },
+      "requests": [
+        {
+          "input_tokens": 16604,
+          "input_tokens_details": {
+            "cached_tokens": 12032
+          },
+          "output_tokens": 1273,
+          "output_tokens_details": {
+            "reasoning_tokens": 1115
+          },
+          "total_tokens": 17877,
+          "cost": 0.0364206,
+          "cost_details": {
+            "upstream_inference_cost": 0.0364206,
+            "upstream_inference_input_cost": 0.0173256,
+            "upstream_inference_output_cost": 0.019095
+          }
+        }
+      ],
+      "searches": 0,
+      "fetches": 0,
+      "tool_items": [],
+      "ended": "answered",
+      "seconds": 31.8
+    }
+  },
+  "messages": [
+    {
+      "role": "user",
+      "content": "#data research\nI am researching a federal dataset. Find out everything you can about this dataset, such as who publishes it, under what authority or mandate, its history, its typical users, and its benefits to the public. Be sure your research comprehensively covers each of those perspectives, as well as any others that you discover or seem useful. I believe this is accurate information, but please check:\n\nDataset title: Annual Integrated Economic Survey (AIES)\nDescription: The Annual Integrated Economic Survey (AIES) replaced and integrated seven annual business surveys (Annual Retail Trade Survey, Annual Wholesale Survey, Service Annual Survey, Annual Survey of Manufactures, Annual Capital Expenditures Survey, Manufacturer's Unfilled Orders Survey , Report of Organization) into one survey. The AIES provides the most comprehensive national and subnational data on business revenues, expenses, payroll, and employment on an annual basis.\n\nReturn a complete report on everything that a preservationist, data librarian, data scientist, or policy activist might want to know about this data."
+    },
+    {
+      "role": "assistant",
+      "content": "I'll research the Annual Integrated Economic Survey comprehensively. Let me start with several targeted searches.I have a strong foundation. Let me dig deeper into the data releases, methodology, disclosure protection, and preservation considerations.I have the core content from the About page via the search excerpts. Let me gather a few more details on the latest releases, microdata access, and any controversies or preservation concerns.I've reached the search-result limit for this session, but I have gathered substantial verified material from Census.gov, the Federal Register, and official press releases. Here is the comprehensive report.\n\n---\n\n# Research Report: Annual Integrated Economic Survey (AIES)\n\n## 1. Verification of Your Description\n\nYour description is **accurate**, with two minor naming corrections:\n\n- The official names of two predecessor surveys are the **Annual Wholesale Trade Survey (AWTS)** (not \"Annual Wholesale Survey\") and the **Manufacturers' Unfilled Orders Survey (M3UFO)** (not \"Manufacturer's\"). The Report of Organization is also historically known as the **Company Organization Survey (COS)**.\n- The Census Bureau describes AIES variously as providing data on \"business revenues, expenses, and assets\" and \"revenues, expenses, payroll, and employment\" \u2014 both phrasings appear on official pages, so your characterization is consistent with the Bureau's own.\n- Confirmed: AIES integrated exactly seven annual business surveys beginning with survey year 2023, and it is the only comprehensive annual source of national *and* subnational business revenue/expense/asset data.\n\n---\n\n## 2. Publisher and Identity\n\n| Attribute | Detail |\n|---|---|\n| **Publisher** | U.S. Census Bureau, Economic Directorate (U.S. Department of Commerce) |\n| **OMB control number** | 0607-1024 (appears on all reporting screens; required under the Paperwork Reduction Act) |\n| **Frequency** | Annual (reference year = prior calendar year) |\n| **Program page** | census.gov/programs-surveys/aies |\n| **Related programs** | Economic Census (quinquennial; AIES provides the intercensal annual measures between censuses) |\n\n---\n\n## 3. Legal Authority and Mandate\n\n- **Authorization:** Title 13, United States Code, **Sections 131 and 182** (Section 193 was additionally cited for the 2022 dress rehearsal).\n- **Mandatory response:** Title 13 **Sections 224 and 225** make response compulsory and specify penalties for firms that fail to report. Congress has deemed the survey important enough that selected businesses are required by law to respond.\n- **Confidentiality:** Title 13 **Section 9** requires the Census Bureau to keep responses confidential, use them only to produce statistics, and never publish anything identifying an individual business. Responses are also protected under the **Federal Cybersecurity Enhancement Act of 2015**; they are exempt from FOIA and immune from legal process.\n- **Oversight/regulatory record:** The survey is documented in multiple Federal Register notices, including:\n  - Nov. 4, 2022 \u2014 initial notice of the planned survey\n  - Apr. 4, 2023 \u2014 OMB information-collection submission (60-day comment)\n  - Aug. 8, 2023 \u2014 notice of the 2022 dress rehearsal and full-scale plans\n  - Oct. 30, 2023 \u2014 confirmation that the seven legacy surveys would sunset\n  - Mar. 25, 2024 \u2014 AIES listed among the Census Bureau's current mandatory business surveys\n\n---\n\n## 4. History and Development\n\n**Origins (2015\u20132018):** The impetus was a 2015 request by the Census Bureau to the **Committee on National Statistics (CNSTAT)** of the National Academies of Sciences, Engineering, and Medicine to convene a panel (chaired by former BLS Commissioner Katharine Abraham) reviewing the Bureau's then-11 annual economic surveys. The panel's 2018 report, *Reengineering the Census Bureau's Annual Economic Surveys*, recommended an integrated annual survey system \u2014 the direct ancestor of AIES.\n\n**Legacy surveys absorbed** (with their histories and sunset dates):\n\n| Legacy Survey | OMB # | Ran since | Final collection year |\n|---|---|---|---|\n| Annual Retail Trade Survey (ARTS) | 0607-0013 | 1951 | 2022 |\n| Annual Wholesale Trade Survey (AWTS) | 0607-0195 | 1978 | 2022 |\n| Service Annual Survey (SAS) | 0607-0422 | 1982 | 2022 |\n| Annual Survey of Manufactures (ASM) | 0607-0449 | 1948 | 2021 |\n| Annual Capital Expenditures Survey (ACES) | 0607-0782 | 1996 | 2022 |\n| Manufacturers' Unfilled Orders Survey (M3UFO) | 0607-0561 | 2010 | 2022 |\n| Report of Organization (COS) | 0607-0444 | longstanding | 2021 |\n\n**Implementation timeline:**\n- **2023:** 2022 dress rehearsal (~8,500 businesses) \u2014 responses counted toward legacy survey obligations to avoid double burden\n- **March 15, 2024:** Full-scale launch of survey year 2023 collection; ~370,000 businesses notified (372,789 companies mailed, covering >2.1 million establishments); due date April 30, 2024\n- **July 31, 2025:** **First-ever AIES data release** \u2014 preliminary \"First Look\" estimates for reference year 2023 (national, regional, divisional; select 2- and 3-digit NAICS)\n- **February 26, 2026:** **First main release** of 2023 AIES data \u2014 expanded industry and geographic detail\n- **2026:** 2024 AIES data released (the survey is now on an annual cycle; the 2025 instruction manual is published)\n\n**Design goals:** (1) reduce respondent burden \u2014 one consolidated request instead of up to seven overlapping ones, harmonized content and reporting units; (2) increase data quality; (3) improve operational efficiency and reduce long-term cost.\n\n---\n\n## 5. Coverage, Population, and Methodology\n\n**Target population:** All domestic, private-sector, nonfarm **employer** businesses (companies with paid employees) in the 50 states and DC, classified in **19 in-scope sectors of the 2017 NAICS**. **Exclusions:** foreign operations of U.S. firms, most government entities (including the U.S. Postal Service), agricultural production companies, private households, and U.S. territories. **Nonemployer** revenue estimates are produced separately (from administrative records) in a companion table.\n\n**Frame and sample:**\n- Sampling frame: ~5.4 million companies extracted from the Census Bureau's **Business Register** (its master list of employer establishments), refreshed with 2022 Economic Census results\n- **Sampling unit: the company** (a change from establishment-level sampling in some legacy surveys \u2014 important for comparability)\n- Sample: ~385,000 companies, of which ~48,500 are **self-representing \"certainties\"** (probability = 1) due to size/diversity\n- Measure of size: administrative annual payroll; stratification by 3-digit NAICS subsector and geography, with a \"zero-MOS\" stratum for recently inactive firms\n- Design: unequal-probability stratified sequential sampling (**Chromy\u2019s method**, PPS without replacement); sample reselected every 2\u20133 years; a manufacturing subsample reduces burden\n- Estimation: **Horvitz\u2013Thompson** estimator; nonresponse handled via imputation and administrative records\n\n**Key data items:** sales/value of shipments/revenue; annual and first-quarter payroll; employment (March 12 pay period); total and detailed operating expenses (purchased services, benefits, rent, utilities, interest, materials); capital expenditures; inventories; depreciable assets; **robotics**; e-commerce; taxes; and contributions/gifts/grants (for nonprofits).\n\n**Time-series linking (critical for researchers):** AIES estimates are linked to legacy series via **carry-forward factors** \u2014 the ratio of 2022 legacy (census-adjusted) estimates to 2022 new-sample estimates \u2014 implicitly benchmarking AIES to the 2022 Economic Census. **Important caveats:** expense items are *not* linked for most sectors (scope differences); a handful of industries (e.g., certain transit, newspaper revenue details) start new series in 2023. Estimates are in **current dollars** (not inflation-adjusted) and subject to sampling and nonsampling error.\n\n**Major innovation \u2014 subnational data:** Previously only the ASM produced subnational annual estimates. AIES produces state-level (and region/division) data for manufacturing, retail, wholesale, and services where quality standards are met.\n\n---\n\n## 6. Release Schedule and Data Products\n\nReleases occur in waves: a summer **\"First Look\"** (preliminary, broad industry/geography), followed by a fall/winter **main release** with full detail. Products include:\n\n- **AIES00BASIC** \u2014 all-sector summary statistics (revenue, payroll, employment, etc.) for employer firms by NAICS and geography\n- **AIES00NONEMP** \u2014 employer and nonemployer revenue for the U.S.\n- Sector-specific miscellaneous statistics, total inventories, total and detailed operating expenses, and e-commerce tables\n- **Time-series datasets** linking AIES to legacy series (e.g., AIESBASICTIMESERIES)\n\n**Access channels:**\n1. **data.census.gov** \u2014 interactive tables; export to XLS/CSV/ZIP\n2. **FTP bulk downloads** \u2014 complete zipped datasets at www2.census.gov/programs-surveys/aies/data/\n3. **Census Data API** \u2014 endpoints including `/data/{year}/aiesbasic`, `aiesnonemp`, `aiesmiscsector`, `aiesinv`, `aiesexp01`, `aiesexp02`, `aiesecom` (HTML/XML/JSON; **an API key is now required**)\n4. **FRED** (Federal Reserve Bank of St. Louis) \u2014 selected series\n5. Methodology documents, questionnaires, and instruction manuals published as PDFs on census.gov\n\n---\n\n## 7. Typical Users and Downstream Dependencies\n\nAIES is not a standalone dataset \u2014 it is **load-bearing infrastructure** for the U.S. statistical system:\n\n- **Bureau of Economic Analysis (BEA):** industry output for input-output accounts and **GDP**\n- **Bureau of Labor Statistics (BLS):** Producer Price Index and productivity measurement\n- **Federal Reserve Board:** Index of Industrial Production, investment indicators for monetary policy, retail credit monitoring\n- **Centers for Medicare & Medicaid Services:** National Health Accounts expenditure estimates\n- **U.S. Treasury:** depreciation analysis and economic trend research\n- **Census Bureau itself:** AIES **benchmarks** the high-frequency indicator programs \u2014 Advance Monthly Retail Sales (MARTS), Monthly Retail Trade Survey, Manufacturers' Shipments/Inventories/Orders (M3), Monthly Wholesale Trade Survey, and Quarterly Services Survey \u2014 and **updates the Business Register** that underpins virtually all Census economic programs (the Report of Organization function)\n- **Private sector:** businesses, trade and professional associations, market researchers, financial analysts (benchmarking, forecasting, market analysis, regulatory evaluation)\n- **Academic and policy researchers:** productivity, capital formation, tax policy, competitiveness, and economic performance studies\n- **State and local governments / regional planners:** the new subnational detail supports economic development analysis\n\n---\n\n## 8. Benefits to the Public\n\n1. **The only comprehensive annual intercensal economic measurement.** The Economic Census runs every five years (most recent: 2022 reference year; next: 2027). AIES fills the gap with economy-wide revenue, expense, payroll, employment, and asset data \u2014 information the Federal Register notes is \"not publicly available from nongovernmental or other governmental sources.\"\n2. **Feeds the headline statistics everyone uses** \u2014 GDP, industrial production, PPI, monthly retail sales \u2014 making it indirectly foundational to fiscal and monetary policy, federal funding formulas, and business investment decisions.\n3. **Reduced burden on businesses** (~385,000 sampled firms get one harmonized request instead of multiple), which also improves response quality and timeliness.\n4. **New geographic granularity:** subnational data for retail, wholesale, and services for the first time, benefiting state/regional analysis.\n5. **Continuity with depth:** seven decades of linked legacy series (ASM since 1948, ARTS since 1951) are preserved via the carry-forward linking methodology.\n\n---\n\n## 9. Confidentiality and Disclosure Avoidance\n\n- Individual responses are protected by **Title 13 \u00a79** and cannot be used for taxation, regulation, or litigation; only sworn Census employees may access them.\n- Published tables use **disclosure avoidance** (cell/item suppression and related techniques for economic programs; the Census Bureau's statistical safeguards program covers suppression, coarsening, and noise methods).\n- **Policy-watch item:** An August 2026 Census Bureau announcement described a new disclosure-avoidance administrative order making **coarsening the preferred method**, suppression a last resort, and **eliminating noise infusion** across statistical products. Researchers and preservationists should watch how this policy affects the granularity of future AIES tables.\n\n---\n\n## 10. Preservation Considerations (for librarians, archivists, and activists)\n\n- **Born-digital, single-publisher risk:** AIES exists only via census.gov, the Census FTP tree, the API, and FRED. Bulk FTP ZIPs (e.g., under `/programs-surveys/aies/data/2023/API_Datasets/`) are the most preservable artifacts \u2014 download and mirror them with checksums, along with methodology PDFs, questionnaires, and instruction manuals, which are essential for interpretability.\n- **Preserve the legacy endpoints:** The final releases of ARTS, AWTS, SAS, ASM, ACES, M3UFO, and the Report of Organization (2021\u20132022 vintages) plus the AIES time-series linking files are needed to reconstruct any long-run series. The carry-forward methodology documentation is crucial metadata \u2014 without it, the 2023 break-in-series is unintelligible.\n- **Versioning/volatility:** Preliminary \"First Look\" estimates are replaced by final estimates; archives should capture both vintages. API responses are keyed and mutable; static snapshots are safer for citation.\n- **Metadata to capture:** NAICS vintage (2017 for early AIES years \u2014 watch for transition to NAICS 2022), sampling/measure-of-size documentation, nonresponse/imputation rates, and the Summary of Changes files published with each vintage.\n- **Documentation trail:** The Federal Register notices, OMB clearance packages (reginfo.gov, control #0607-1024), the 2018 CNSTAT/National Academies reengineering report, and Census blogs/press releases constitute the provenance record and should be archived alongside the data.\n- **One caveat on my research:** I was unable to verify (due to session limits) whether restricted-use AIES microdata have yet been deposited in the Federal Statistical Research Data Centers (FSRDCs). Legacy ASM and SAS microdata have long been available there to researchers with Special Sworn Status, so AIES microdata access via FSRDC is likely planned or available \u2014 worth confirming with the Census Bureau's Center for Economic Studies (CES) if microdata preservation/access matters to your work.\n- **General advocacy note:** As a new, still-ramping program, AIES's funding, release cadence, and geographic detail are the kinds of things statistical-policy organizations (e.g., APDU, the Data Foundation, Friends of BLS/Census coalitions) monitor; the survey's value to GDP and Fed/BEA/BLS products makes its continuity a system-wide concern, not just a Census Bureau one.\n\n---\n\n## 11. Key Source List\n\n- **Program hub & About page:** census.gov/programs-surveys/aies | /aies/about.html\n- **2023 & 2024 methodology PDFs:** www2.census.gov/programs-surveys/aies/technical-documentation/methodology/\n- **Federal Register:** 2022-24035 (Nov 4, 2022); 2023-06947 (Apr 4, 2023); 2023-16926 (Aug 8, 2023); 2023-23908 (Oct 30, 2023); 2024-06226 (Mar 25, 2024); 2025-16018 (2025 renewal)\n- **Press releases:** Launch (Mar 18, 2024); First dataset (Jul 31, 2025); First main release (Feb 26, 2026); 2024 data release (2026)\n- **CNSTAT report (2018):** *Reengineering the Census Bureau's Annual Economic Surveys*, National Academies Press\n- **API docs:** census.gov/data/developers/data-sets/aies.2023.html and aies.2024.html\n- **Legal authority:** 13 U.S.C. \u00a7\u00a7 9, 131, 182, 193, 224, 225\n\nIf you'd like, I can do a follow-up pass focused on any single facet \u2014 e.g., a deep dive on the time-series linking methodology, the state-level geography tables, or a preservation checklist with exact FTP URLs and file inventories."
+    },
+    {
+      "role": "user",
+      "content": "# Dataset risk assessment\nI would like your help in assessing the likelihood that this data will be changed or removed from its primary location, and that users will no longer be able to access accurate and reliable copies of it, based on the rubric below.\n\n## Sources for context\nTo help assess the rubric categories, perform additional research on the data, the agency, the data's topics and typical users, covering topics such as proposed regulatory or funding changes, recent news, and political commentary. Use whatever resources you find useful, including the Federal Register (https://www.federalregister.gov) and the federal staffing tracker at https://usajobs-tracker.abigailhaddad.com.\n\n## Rubric\nThis rubric is divided up into categories. Each category is divided up into risk levels. In your output, please select the appropriate risk level for each category based on your research.\n\n### Historical Data Availability\n- Gone: Data files prior to the current year or cycle are no longer publicly available.\n- High Risk: Some data files prior to the current year or cycle are removed.\n- Moderate Risk: Some data elements that exist in the dataset prior to the current year or cycle are removed.\n- No Known Issue: Data prior to the current year or cycle remain accessible with no known alterations.\n\n### Future Data Availability\n- Gone: Data collection and publication has been terminated.\n- High Risk: Statutory publication deadline missed and/or collection or publication skipped and/or ICR expired for more than one year.\n- Moderate Risk: Typical or intended publication date missed and/or collection or publication delayed; ICR expired up to one year.\n- No Known Issue: Data published on time or as expected and ICR active or renewed before expiration.\n\n### Data Quality\n- Gone: Data collection and publication has been terminated.\n- High Risk: Reductions in granularity, timeliness, or frequency.\n- Moderate Risk: Potential or emerging risk to granularity, timeliness, or frequency.\n- No Known Issue: Maintained or improved granularity, timeliness, or frequency.\n\n### Statutory Context\n- Gone: N/A\n- High Risk: Statutory authorization is vague and/or there are alternative data collections that could serve as substitutes and/or no known programmatic use.\n- Moderate Risk: Not explicitly required by statute but required for the implementation of a state or federal program, and there are no alternative data collections that could serve as substitutes.\n- No Known Issue: Statutorily required and/or statutory authorization is explicitly named and it is clear what has to be collected, and there aren't alternative data collections that could serve as substitutes and/or required for implementation of a federal program.\n\n### Staffing and Funding\n- Gone: All of the staff in the division or agency are gone and/or all funding has been terminated.\n- High Risk: 40% or more of staff lost, and/or 1,000 or more staff lost, and/or budget cut by 20% or more, and/or leadership removed.\n- Moderate Risk: 10\u201339% of staff lost, and/or 500\u2013999 staff lost, and/or budget cut by 10\u201319%, and/or threatened change in leadership.\n- No Known Issue: Less than 10% of staff lost and less than 10% of budget cut and no known change in leadership.\n\n### Policy\n- Gone: Data collection and publication has been terminated.\n- High Risk: Presidential Action-driven information collection request (ICR); negative policy note on site; other significant changes in accordance with Administration priorities.\n- Moderate Risk: Proposed or pending changes; statements by administration officials suggesting a change is being considered or planned.\n- No Known Issue: No notable changes since January 2025 affecting what data is collected and published.\n\nFor each category, concisely list the evidence and supporting sources that would support each risk level. Then indicate which risk level you find most appropriate and why.\n\nConclude with a simple summary of risk levels:\nHistorical Data Availability: <level>\nFuture Data Availability: <level>\nData Quality: <level>\nStatutory Context: <level>\nStaffing and Funding: <level>\nPolicy: <level>"
+    },
+    {
+      "role": "assistant",
+      "content": "I'll research the current risk environment for AIES \u2014 Census Bureau budget/staffing changes, the 2025 ICR renewal, release delays, and administration policy affecting economic statistics.Strong findings so far. Let me check release timing/delays (including the 2025 shutdown's effects) and the FY2026 funding/leadership picture.I have enough for most categories. Let me do one final verification on whether the 2023 AIES main release slipped from its announced fall 2025 date and whether any prior data was removed.# Risk Assessment: Annual Integrated Economic Survey (AIES)\n\n**Assessment date context:** Based on research current through late 2026. AIES is a young program (first collection 2024, first data July 2025), so some rubric categories require interpreting limited track record plus the broader Census Bureau environment.\n\n---\n\n## 1. Historical Data Availability\n\n**Evidence by level:**\n- *Gone/High Risk:* No evidence that any AIES data files (2023 vintage, including First Look and Main Release) or legacy survey archives (ARTS, AWTS, SAS, ASM, ACES, M3UFO, Report of Organization final vintages) have been removed. The 2023 bulk files remain on the Census FTP tree (www2.census.gov/programs-surveys/aies/data/2023/API_Datasets/), 2023 tables remain on census.gov, and time-series linking files (AIESBASICTIMESERIES) connecting to legacy series remain posted. No reports of website purges of economic data (unlike some 2025 removals of demographic/health content at other agencies).\n- *Moderate Risk:* Preliminary \"First Look\" estimates were superseded by final estimates \u2014 but this is the program's designed publication model, not a removal, and the FTP files persist.\n- *No Known Issue:* All published vintages remain accessible through data.census.gov, FTP, and the API; legacy survey archives remain available for historical reconstruction.\n\n**Finding: No Known Issue.** The dataset is only a few years old, everything published to date remains online, and the legacy survey archives that AIES replaced are still accessible. The main latent risk is that bulk files live on a single federal FTP/API infrastructure with no independent mirror \u2014 a preservation gap, but not a rubric-level alteration.\n\n---\n\n## 2. Future Data Availability\n\n**Evidence by level:**\n- *Gone/High Risk:* Not applicable \u2014 collection is ongoing (2025 AIES launched March 2026; 2024 closed fall 2025), and the ICR is active.\n- *Moderate Risk:* (a) The July 31, 2025 First Look press release stated final estimates were \"scheduled to be replaced in the fall\" of 2025; the main release actually arrived **February 26, 2026** \u2014 an intended publication date missed by roughly three months, during the period of the 43-day federal shutdown (Oct 1\u2013Nov 12, 2025), which forced Census to publish a formal recovery plan for its economic indicators. (b) The survey has no statutory publication deadline, so slippage carries no legal trigger. *Mitigating:* the ICR (0607-1024) is far from expiration \u2014 renewed January 15, 2025, revised and re-approved March 20, 2026 and May 27, 2026, with expiration now **March 31, 2029**. The 2024 and 2025 cycles are proceeding on schedule, with 2024 releases slated for summer/fall 2026.\n- *No Known Issue:* Arguable if one treats February 2026 as the always-intended main-release date (a March 2026 Census training deck presents that timeline as planned).\n\n**Finding: Moderate Risk.** The explicit public commitment to fall 2025 final estimates was missed, and the shutdown demonstrably disrupted the Economic Directorate's release calendar. However, this is a delay profile, not a termination profile: the ICR is secure through 2029 and each annual cycle has launched on time (March 2024, March 2025, March 2026).\n\n---\n\n## 3. Data Quality\n\n**Evidence by level:**\n- *High Risk:* The OMB-approved revision (concluded March 20, 2026, per reginfo.gov) makes **actual reductions to collected content** beginning survey year 2025: removal of depreciable asset questions; select capital expenditure details (finance leases, software); company-level questions (leased employees, R&D spending); and select revenue details; plus a \"modular and subsampled content strategy\" that means some items are collected from only a subset of respondents. Separately, a new August 2026 Census Bureau disclosure-avoidance policy makes **coarsening the preferred protection method** across products, which can reduce published granularity.\n- *Moderate Risk:* Framing the above as \"emerging\" rather than realized is defensible because the removals are paired with additions (NAPCS product detail for retail/wholesale/services; capital expenditures by type), response burden dropped from ~785,000 to ~687,000 hours, and the Bureau characterizes the changes as quality-neutral burden reduction. OIRA's terms of clearance also require Census to justify \"the detailed uses and needs of each data element\" within six months \u2014 signaling continued pressure that could produce further trims (emerging risk).\n- *No Known Issue:* Not supportable given the approved content removals.\n\n**Finding: High Risk.** The rubric defines High as \"reductions in granularity, timeliness, or frequency.\" The approved 2026 revision eliminates previously collected data elements and subsamples others \u2014 a literal, realized reduction in the dataset's granularity, even though it arose through the routine PRA process rather than political intervention and is partially offset by new content. Frequency (annual) and the carry-forward time-series design remain intact.\n\n---\n\n## 4. Statutory Context\n\n**Evidence by level:**\n- *High Risk:* Not applicable \u2014 authorization is not vague, and no substitutes exist.\n- *Moderate Risk:* Not applicable \u2014 AIES is explicitly required for implementation of federal programs: BEA's GDP and input-output accounts, BLS's PPI and productivity measures, the Federal Reserve's industrial production index, and CMS's National Health Accounts, and it benchmarks Census's monthly/quarterly economic indicators.\n- *No Known Issue:* AIES is conducted under explicit statutory authority \u2014 **13 U.S.C. \u00a7\u00a7 131 and 182**, with mandatory response under **\u00a7\u00a7 224\u2013225** and confidentiality under **\u00a7 9**. The April 2025 Federal Register \"Current Mandatory Business Surveys\" notice reaffirmed it as one of only four mandatory business surveys, stating the data \"are not publicly available from nongovernmental or other governmental sources.\" The Bureau describes it as the *only* comprehensive annual national and subnational source of business revenue/expense data \u2014 no alternative collection could substitute.\n\n**Finding: No Known Issue.** This is the dataset's strongest protective feature: explicit Title 13 authorization, mandatory-response status, named downstream statutory uses, and no substitute. Terminating AIES would degrade GDP itself, creating strong institutional inertia against cancellation.\n\n---\n\n## 5. Staffing and Funding\n\n**Evidence by level:**\n- *High Risk (40%+ staff / 1,000+ staff / 20%+ budget cut / leadership removed):* (a) **~1,300+ Census employees** (out of ~13,230 in Sept. 2024) have left via deferred resignation, voluntary separation, and early retirement since January 2025 \u2014 exceeding the 1,000-person threshold (AFGE Census Council; Washington Post; GovExec). The American Statistical Association estimates a **~15% staffing loss since FY24**. (b) Leadership churn: Director Robert Santos resigned January 2025; career acting director Ron Jarmin was replaced in September 2025 by George Cook, a Commerce political appointee without the statutory qualifications for the permanent role; no Senate-confirmed director nominated; over 20% of leadership positions vacant. One could read \"leadership removed\" as met.\n- *Moderate Risk (10\u201339% staff / 500\u2013999 / 10\u201319% budget cut / threatened leadership change):* The 15% staffing loss squarely fits; the FY26 President's Budget Request proposed cutting the Current Surveys and Programs account (which funds AIES's Current Economic Statistics line) by ~14% in real terms, though Congress's enacted FY26 bill (P.L. 119-74, Jan. 23, 2026) softened this to \u2212$10M (\u22123%), and Current Economic Statistics specifically was held flat at $216M.\n- *No Known Issue:* Ruled out by the staffing losses, hiring freeze, Commerce's $100K contract-approval bottleneck (3,000+ request backlog), and DOGE's termination of five Census-conducted surveys in May 2025 (though those were reimbursable surveys for other agencies, not AIES).\n\n**Finding: Moderate Risk.** The raw headcount loss (~1,300) technically crosses the rubric's 1,000-person High threshold, but I weigh Moderate as more accurate because: (1) the percentage loss (15%) sits in the Moderate band and the losses were voluntary-separation-driven rather than program-targeted RIFs; (2) Congress rejected the administration's proposed current-surveys cuts, funding economic statistics flat; and (3) AIES cycles have continued on schedule despite the strain. That said, this category sits at the top of Moderate \u2014 the unqualified acting director, leadership vacancies, and hiring freeze create real fragility, and any shift to involuntary reductions or targeted economic-program cuts would tip this to High.\n\n---\n\n## 6. Policy\n\n**Evidence by level:**\n- *Gone/High Risk:* AIES has **not** been targeted: its ICR renewals proceeded through the normal PRA process (not a Presidential Action-driven ICR), no negative policy note appears on its pages, and it was reaffirmed in the 2025 mandatory-surveys Federal Register notice. However, High-level environmental signals exist: DOGE's May 2025 \"survey of surveys\" announced a one-by-one review of 100+ Census surveys and claimed five \"wasteful\" surveys were \"terminated\"; the FY26 budget proposes **reorganizing BLS, BEA, and Census within Commerce**; and the President has publicly demanded politically driven changes to census methodology (decennial-focused to date).\n- *Moderate Risk:* DOGE's statements that many Census surveys are \"obsolete with the results not being used to drive any action\" are administration statements suggesting changes are being considered for the survey portfolio generally; OIRA's terms of clearance requiring item-by-item justification of AIES data elements reflect heightened political-level scrutiny of content; the new disclosure-avoidance administrative order is a policy-driven change to publication practice.\n- *No Known Issue:* Not supportable given the DOGE review and reorganization proposal.\n\n**Finding: Moderate Risk.** No AIES-specific adverse policy action has occurred \u2014 indeed its renewal was approved with ordinary terms in 2026. But the administration has demonstrated willingness to terminate Census surveys, is reviewing the entire portfolio, has floated restructuring the statistical system, and its budget office is interrogating individual AIES data elements. AIES's role in GDP and its mandatory statutory basis are protective, but the policy environment is actively hostile to \"non-essential\" federal data collection.\n\n---\n\n## Summary\n\n| Category | Risk Level |\n|---|---|\n| Historical Data Availability | **No Known Issue** |\n| Future Data Availability | **Moderate Risk** |\n| Data Quality | **High Risk** |\n| Statutory Context | **No Known Issue** |\n| Staffing and Funding | **Moderate Risk** |\n| Policy | **Moderate Risk** |\n\n**Overall interpretation:** AIES is institutionally well-protected (explicit Title 13 mandate, GDP dependency, ICR valid through 2029, Congress funding economic statistics) and nothing has been deleted or terminated. The two most concrete harms to date are (1) the OMB-approved removal of data elements (depreciable assets, capex detail, R&D, leased-employee items) beginning survey year 2025 \u2014 the basis for the Data Quality \"High\" rating \u2014 and (2) the slip of the first main release from fall 2025 to February 2026 amid the shutdown. Preservationists should prioritize archiving the 2023\u20132024 vintages *with* their full item content, since those years contain variables (e.g., depreciable assets, R&D) that will not exist in future cycles, plus the legacy survey endpoints needed for time-series reconstruction.\n\n**Key sources:** reginfo.gov ICR packages 202601-0607-002 and 202603-0607-006 (OMB 0607-1024); 90 FR 40814 and 91 FR 2330; Census press releases (July 31, 2025; Feb. 26, 2026); Census PFEI shutdown recovery plan; American Statistical Association \"The Nation's Data at Risk\" (2025); CRS IF12714/IF13105 and R48643 (FY26 Census budget); AP/Washington Post/GovExec/NPR reporting on DOGE and Census staffing/leadership."
+    },
+    {
+      "role": "user",
+      "content": "Emit a session_metadata YAML block reporting: current date, model identifier, knowledge cutoff, surface, whether memory is enabled, whether custom preferences or styles are active, all tools and MCP servers available, which tools were actually called in this session, and whether attachments were present. Mark any field not directly observable as unknown rather than inferring it."
+    },
+    {
+      "role": "assistant",
+      "content": "```yaml\nsession_metadata:\n  current_date: \"2026-09-06\"\n  model_identifier: unknown\n  knowledge_cutoff: unknown\n  surface: unknown\n  memory_enabled: unknown\n  custom_preferences_or_styles_active: unknown\n  tools_available:\n    - name: openrouter_web_search\n      description: \"Search the web and return ranked excerpts from matching pages.\"\n    - name: openrouter_web_fetch\n      description: \"Fetch the full content of a web page or PDF document at a given URL.\"\n  mcp_servers_available: unknown\n  tools_called_in_session:\n    - openrouter_web_search\n    - openrouter_web_fetch\n  attachments_present: false\n```"
+    }
+  ]
+}

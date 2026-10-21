@@ -1,0 +1,1209 @@
+{
+  "dataset": {
+    "key": "abs",
+    "title": "Annual Business Survey (ABS)"
+  },
+  "model": "moonshotai/kimi-k3",
+  "harness": "openrouter tools",
+  "context": "full: each turn's whole output is carried into the next",
+  "search_tool": {
+    "engine": "exa",
+    "max_results": 10,
+    "excluded_domains": [
+      "dataindex.us"
+    ]
+  },
+  "fetch_tool": {
+    "engine": "openrouter",
+    "blocked_domains": [
+      "dataindex.us"
+    ],
+    "max_content_tokens": 10000
+  },
+  "reasoning": "effort high",
+  "catalog": {
+    "fetched_at": "2026-10-08T19:55:51Z",
+    "entry": {
+      "id": "moonshotai/kimi-k3",
+      "canonical_slug": "moonshotai/kimi-k3-20260715",
+      "hugging_face_id": "moonshotai/Kimi-K3",
+      "name": "MoonshotAI: Kimi K3",
+      "created": 1784215858,
+      "description": "Kimi K3 is a 2.8T parameter open-weight multimodal reasoning model from Moonshot AI. It is suited for complex coding, knowledge work, and long-horizon agentic workflows, and is particularly strong at...",
+      "context_length": 1048576,
+      "architecture": {
+        "modality": "text+image+video->text",
+        "input_modalities": [
+          "text",
+          "image",
+          "video"
+        ],
+        "output_modalities": [
+          "text"
+        ],
+        "tokenizer": "Other",
+        "instruct_type": null
+      },
+      "pricing": {
+        "prompt": "0.00000082",
+        "completion": "0.0000135",
+        "input_cache_read": "0.00000055"
+      },
+      "top_provider": {
+        "context_length": 1048576,
+        "max_completion_tokens": 943718,
+        "is_moderated": false
+      },
+      "per_request_limits": null,
+      "supported_parameters": [
+        "frequency_penalty",
+        "include_reasoning",
+        "logit_bias",
+        "logprobs",
+        "max_tokens",
+        "min_p",
+        "presence_penalty",
+        "reasoning",
+        "reasoning_effort",
+        "repetition_penalty",
+        "response_format",
+        "seed",
+        "stop",
+        "structured_outputs",
+        "temperature",
+        "tool_choice",
+        "tools",
+        "top_k",
+        "top_logprobs",
+        "top_p"
+      ],
+      "default_parameters": {
+        "temperature": null,
+        "top_p": 0.95,
+        "top_k": null,
+        "frequency_penalty": null,
+        "presence_penalty": null,
+        "repetition_penalty": null
+      },
+      "supported_voices": null,
+      "knowledge_cutoff": null,
+      "expiration_date": null,
+      "links": {
+        "details": "/api/v1/models/moonshotai/kimi-k3-20260715/endpoints"
+      },
+      "benchmarks": {
+        "design_arena": [
+          {
+            "arena": "agents",
+            "category": "agenticgamedev",
+            "elo": 1252,
+            "win_rate": 55,
+            "rank": 3
+          },
+          {
+            "arena": "agents",
+            "category": "androidnative",
+            "elo": 1262,
+            "win_rate": 55.4,
+            "rank": 5
+          },
+          {
+            "arena": "agents",
+            "category": "fullstack",
+            "elo": 1313,
+            "win_rate": 61.8,
+            "rank": 2
+          },
+          {
+            "arena": "agents",
+            "category": "godotgamedev",
+            "elo": 1223,
+            "win_rate": 48.2,
+            "rank": 14
+          },
+          {
+            "arena": "agents",
+            "category": "htmlslides",
+            "elo": 1256,
+            "win_rate": 59.6,
+            "rank": 2
+          },
+          {
+            "arena": "agents",
+            "category": "mobileapps",
+            "elo": 1263,
+            "win_rate": 56.9,
+            "rank": 4
+          },
+          {
+            "arena": "agents",
+            "category": "python-pptxslides",
+            "elo": 1273,
+            "win_rate": 59.2,
+            "rank": 4
+          },
+          {
+            "arena": "agents",
+            "category": "webapps",
+            "elo": 1285,
+            "win_rate": 59.1,
+            "rank": 4
+          },
+          {
+            "arena": "models",
+            "category": "3d",
+            "elo": 1396,
+            "win_rate": 67.7,
+            "rank": 4
+          },
+          {
+            "arena": "models",
+            "category": "codecategories",
+            "elo": 1369,
+            "win_rate": 63.1,
+            "rank": 2
+          },
+          {
+            "arena": "models",
+            "category": "dataviz",
+            "elo": 1353,
+            "win_rate": 63.1,
+            "rank": 4
+          },
+          {
+            "arena": "models",
+            "category": "gamedev",
+            "elo": 1368,
+            "win_rate": 61.3,
+            "rank": 4
+          },
+          {
+            "arena": "models",
+            "category": "svg",
+            "elo": 1305,
+            "win_rate": 59.7,
+            "rank": 4
+          },
+          {
+            "arena": "models",
+            "category": "uicomponent",
+            "elo": 1360,
+            "win_rate": 62.1,
+            "rank": 3
+          },
+          {
+            "arena": "models",
+            "category": "website",
+            "elo": 1341,
+            "win_rate": 59.8,
+            "rank": 2
+          }
+        ],
+        "artificial_analysis": {
+          "intelligence_index": 43.6,
+          "coding_index": 76.2,
+          "agentic_index": 50
+        }
+      },
+      "reasoning": {
+        "mandatory": false,
+        "default_enabled": true,
+        "supported_efforts": [
+          "max",
+          "high",
+          "low"
+        ],
+        "default_effort": "max"
+      }
+    }
+  },
+  "upstream": [
+    "moonshotai"
+  ],
+  "trial": 0,
+  "terminate_reason": "completed",
+  "max_tokens": 32768,
+  "started_at": "2026-10-08T19:55:50Z",
+  "prompts": {
+    "research": "#data research\nI am researching a federal dataset. Find out everything you can about this dataset, such as who publishes it, under what authority or mandate, its history, its typical users, and its benefits to the public. Be sure your research comprehensively covers each of those perspectives, as well as any others that you discover or seem useful. I believe this is accurate information, but please check:\n\nDataset title: Annual Business Survey (ABS)\nDescription: The Annual Business Survey (ABS) measures business owner demographics, research and development (R&D), innovation, and other topics of interest among businesses in the United States. The Business Enterprise Research and Development (BERD) Survey was integrated into the ABS in 2025. The ABS is a joint statistical project between the National Center for Science and Engineering Statistics (NCSES) within the U.S. National Science Foundation (NSF) and the U.S. Census Bureau.\n\nReturn a complete report on everything that a preservationist, data librarian, data scientist, or policy activist might want to know about this data.",
+    "assessment": "# Dataset risk assessment\nI would like your help in assessing the likelihood that this data will be changed or removed from its primary location, and that users will no longer be able to access accurate and reliable copies of it, based on the rubric below.\n\n## Sources for context\nTo help assess the rubric categories, perform additional research on the data, the agency, the data's topics and typical users, covering topics such as proposed regulatory or funding changes, recent news, and political commentary. Use whatever resources you find useful, including the Federal Register (https://www.federalregister.gov) and the federal staffing tracker at https://usajobs-tracker.abigailhaddad.com.\n\n## Rubric\nThis rubric is divided up into categories. Each category is divided up into risk levels. In your output, please select the appropriate risk level for each category based on your research.\n\n### Historical Data Availability\n- Gone: Data files prior to the current year or cycle are no longer publicly available.\n- High Risk: Some data files prior to the current year or cycle are removed.\n- Moderate Risk: Some data elements that exist in the dataset prior to the current year or cycle are removed.\n- No Known Issue: Data prior to the current year or cycle remain accessible with no known alterations.\n\n### Future Data Availability\n- Gone: Data collection and publication has been terminated.\n- High Risk: Statutory publication deadline missed and/or collection or publication skipped and/or ICR expired for more than one year.\n- Moderate Risk: Typical or intended publication date missed and/or collection or publication delayed; ICR expired up to one year.\n- No Known Issue: Data published on time or as expected and ICR active or renewed before expiration.\n\n### Data Quality\n- Gone: Data collection and publication has been terminated.\n- High Risk: Reductions in granularity, timeliness, or frequency.\n- Moderate Risk: Potential or emerging risk to granularity, timeliness, or frequency.\n- No Known Issue: Maintained or improved granularity, timeliness, or frequency.\n\n### Statutory Context\n- Gone: N/A\n- High Risk: Statutory authorization is vague and/or there are alternative data collections that could serve as substitutes and/or no known programmatic use.\n- Moderate Risk: Not explicitly required by statute but required for the implementation of a state or federal program, and there are no alternative data collections that could serve as substitutes.\n- No Known Issue: Statutorily required and/or statutory authorization is explicitly named and it is clear what has to be collected, and there aren't alternative data collections that could serve as substitutes and/or required for implementation of a federal program.\n\n### Staffing and Funding\n- Gone: All of the staff in the division or agency are gone and/or all funding has been terminated.\n- High Risk: 40% or more of staff lost, and/or 1,000 or more staff lost, and/or budget cut by 20% or more, and/or leadership removed.\n- Moderate Risk: 10\u201339% of staff lost, and/or 500\u2013999 staff lost, and/or budget cut by 10\u201319%, and/or threatened change in leadership.\n- No Known Issue: Less than 10% of staff lost and less than 10% of budget cut and no known change in leadership.\n\n### Policy\n- Gone: Data collection and publication has been terminated.\n- High Risk: Presidential Action-driven information collection request (ICR); negative policy note on site; other significant changes in accordance with Administration priorities.\n- Moderate Risk: Proposed or pending changes; statements by administration officials suggesting a change is being considered or planned.\n- No Known Issue: No notable changes since January 2025 affecting what data is collected and published.\n\nFor each category, concisely list the evidence and supporting sources that would support each risk level. Then indicate which risk level you find most appropriate and why.\n\nConclude with a simple summary of risk levels:\nHistorical Data Availability: <level>\nFuture Data Availability: <level>\nData Quality: <level>\nStatutory Context: <level>\nStaffing and Funding: <level>\nPolicy: <level>",
+    "session_metadata": "Emit a session_metadata YAML block reporting: current date, model identifier, knowledge cutoff, surface, whether memory is enabled, whether custom preferences or styles are active, all tools and MCP servers available, which tools were actually called in this session, and whether attachments were present. Mark any field not directly observable as unknown rather than inferring it."
+  },
+  "turns": {
+    "research": {
+      "request": {
+        "model": "moonshotai/kimi-k3",
+        "max_output_tokens": 32768,
+        "tools": [
+          {
+            "type": "openrouter:web_search",
+            "parameters": {
+              "engine": "exa",
+              "max_results": 10,
+              "excluded_domains": [
+                "dataindex.us"
+              ]
+            }
+          },
+          {
+            "type": "openrouter:web_fetch",
+            "parameters": {
+              "engine": "openrouter",
+              "blocked_domains": [
+                "dataindex.us"
+              ],
+              "max_content_tokens": 10000
+            }
+          }
+        ],
+        "cache_control": {
+          "type": "ephemeral",
+          "ttl": "1h"
+        },
+        "session_id": "abs-moonshotai/kimi-k3-t0-2026-10-08T19:55:50Z",
+        "stop_server_tools_when": [
+          {
+            "type": "step_count_is",
+            "step_count": 200
+          }
+        ],
+        "reasoning": {
+          "effort": "high"
+        },
+        "provider": {
+          "order": [
+            "moonshotai"
+          ],
+          "allow_fallbacks": false
+        }
+      },
+      "response_meta": {
+        "id": "gen-1791489351-SCGeB6UahBz8DUGVd7O5",
+        "object": "response",
+        "created_at": 1791489351,
+        "model": "moonshotai/kimi-k3",
+        "status": "completed",
+        "completed_at": 1791489502,
+        "error": null,
+        "incomplete_details": null,
+        "tools": [],
+        "tool_choice": "auto",
+        "parallel_tool_calls": true,
+        "max_output_tokens": 32768,
+        "temperature": 1,
+        "top_p": 1,
+        "presence_penalty": 0,
+        "frequency_penalty": 0,
+        "top_logprobs": 0,
+        "max_tool_calls": null,
+        "metadata": {},
+        "background": false,
+        "previous_response_id": null,
+        "service_tier": "auto",
+        "truncation": "disabled",
+        "store": false,
+        "instructions": null,
+        "text": {
+          "format": {
+            "type": "text"
+          }
+        },
+        "reasoning": {
+          "effort": "high"
+        },
+        "safety_identifier": null,
+        "prompt_cache_key": null,
+        "prompt_cache_options": null,
+        "usage": {
+          "input_tokens": 64560,
+          "input_tokens_details": {
+            "cached_tokens": 35584
+          },
+          "output_tokens": 5118,
+          "output_tokens_details": {
+            "reasoning_tokens": 1624
+          },
+          "total_tokens": 69678,
+          "cost": 0.20937319999999998,
+          "cost_details": {
+            "upstream_inference_cost": 0.1743732,
+            "upstream_inference_input_cost": 0.0976032,
+            "upstream_inference_output_cost": 0.07676999999999999
+          },
+          "server_tool_use_details": {
+            "web_search_requests": 7,
+            "tool_calls_requested": 8,
+            "tool_calls_executed": 8
+          }
+        }
+      },
+      "requests": [
+        {
+          "input_tokens": 64560,
+          "input_tokens_details": {
+            "cached_tokens": 35584
+          },
+          "output_tokens": 5118,
+          "output_tokens_details": {
+            "reasoning_tokens": 1624
+          },
+          "total_tokens": 69678,
+          "cost": 0.20937319999999998,
+          "cost_details": {
+            "upstream_inference_cost": 0.1743732,
+            "upstream_inference_input_cost": 0.0976032,
+            "upstream_inference_output_cost": 0.07676999999999999
+          },
+          "server_tool_use_details": {
+            "web_search_requests": 7,
+            "tool_calls_requested": 8,
+            "tool_calls_executed": 8
+          }
+        }
+      ],
+      "searches": 7,
+      "fetches": 1,
+      "tool_items": [
+        {
+          "type": "openrouter:web_search",
+          "id": "st_tmp_4ed67jdbr25",
+          "status": "completed",
+          "action": {
+            "type": "search",
+            "query": "Annual Business Survey ABS Census Bureau NCSES National Science Foundation survey",
+            "sources": [
+              {
+                "type": "url",
+                "url": "https://www.census.gov/programs-surveys/abs.html"
+              },
+              {
+                "type": "url",
+                "url": "https://www.census.gov/programs-surveys/abs/about.html"
+              },
+              {
+                "type": "url",
+                "url": "https://ncses.nsf.gov/surveys/annual-business-survey/2024/"
+              },
+              {
+                "type": "url",
+                "url": "https://www.census.gov/programs-surveys/abs/data.html"
+              },
+              {
+                "type": "url",
+                "url": "https://ncses.nsf.gov/surveys/annual-business-survey"
+              },
+              {
+                "type": "url",
+                "url": "https://www.census.gov/programs-surveys/abs/information.html"
+              },
+              {
+                "type": "url",
+                "url": "https://www.census.gov/data/developers/data-sets/abs.html"
+              },
+              {
+                "type": "url",
+                "url": "https://www.census.gov/programs-surveys/abs/about/faq.html"
+              },
+              {
+                "type": "url",
+                "url": "https://www.census.gov/programs-surveys/abs/technical-documentation/methodology/2024.html"
+              },
+              {
+                "type": "url",
+                "url": "https://www.ncses.nsf.gov/pubs/ncses26007/assets/ncses26007.pdf"
+              }
+            ]
+          }
+        },
+        {
+          "type": "openrouter:web_search",
+          "id": "st_tmp_mg143qhd92h",
+          "status": "completed",
+          "action": {
+            "type": "search",
+            "query": "BERD Survey integrated into Annual Business Survey 2025 NCSES",
+            "sources": [
+              {
+                "type": "url",
+                "url": "https://www.census.gov/programs-surveys/abs.html"
+              },
+              {
+                "type": "url",
+                "url": "https://www.census.gov/programs-surveys/brds.html"
+              },
+              {
+                "type": "url",
+                "url": "https://www.census.gov/programs-surveys/brds/about/faq.html"
+              },
+              {
+                "type": "url",
+                "url": "https://ncses.nsf.gov/surveys/business-enterprise-research-development"
+              },
+              {
+                "type": "url",
+                "url": "https://ncses.nsf.gov/1879/assets/0/files/srvyabs-2025.pdf"
+              },
+              {
+                "type": "url",
+                "url": "https://ncses.nsf.gov/surveys/annual-business-survey"
+              },
+              {
+                "type": "url",
+                "url": "https://ncses.nsf.gov/1219/assets/0/files/srvyabs-2025.pdf"
+              },
+              {
+                "type": "url",
+                "url": "https://www.federalregister.gov/documents/2025/04/04/2025-05843/current-mandatory-business-surveys"
+              },
+              {
+                "type": "url",
+                "url": "https://thecensusproject.org/2026/02/12/follow-up-comments-requested-on-revising-the-annual-business-survey/"
+              },
+              {
+                "type": "url",
+                "url": "https://ncses.nsf.gov/pubs/ncses25015/assets/ncses25015.pdf"
+              }
+            ]
+          }
+        },
+        {
+          "type": "openrouter:web_search",
+          "id": "st_tmp_fog7jsf86kt",
+          "status": "completed",
+          "action": {
+            "type": "search",
+            "query": "Annual Business Survey restricted microdata Federal Statistical Research Data Center FSRDC researchers uses",
+            "sources": [
+              {
+                "type": "url",
+                "url": "https://www.census.gov/topics/research/guidance/restricted-use-microdata/economic-data.html"
+              },
+              {
+                "type": "url",
+                "url": "https://ncses.nsf.gov/surveys/annual-business-survey/2024/"
+              },
+              {
+                "type": "url",
+                "url": "https://nces.ed.gov/fCSM/abs.asp"
+              },
+              {
+                "type": "url",
+                "url": "https://www.census.gov/topics/research/guidance/restricted-use-microdata/standard-application-process.html"
+              },
+              {
+                "type": "url",
+                "url": "https://www.census.gov/topics/research/guidance/restricted-use-microdata.html"
+              },
+              {
+                "type": "url",
+                "url": "https://ncses.nsf.gov/surveys/annual-business-survey/2023"
+              },
+              {
+                "type": "url",
+                "url": "https://www.ncses.nsf.gov/pubs/ncses26007/assets/ncses26007.pdf"
+              },
+              {
+                "type": "url",
+                "url": "https://www.ncses.nsf.gov/surveys/annual-business-survey/2022"
+              },
+              {
+                "type": "url",
+                "url": "https://ncses.nsf.gov/surveys/annual-business-survey/2021"
+              },
+              {
+                "type": "url",
+                "url": "https://www.census.gov/about/adrm/fsrdc/research-highlights/data-focus.html"
+              }
+            ]
+          }
+        },
+        {
+          "type": "openrouter:web_search",
+          "id": "st_tmp_5hiqypjgpr2",
+          "status": "completed",
+          "action": {
+            "type": "search",
+            "query": "Annual Business Survey replaced Survey of Business Owners Annual Survey of Entrepreneurs BRDI-M history 2017",
+            "sources": [
+              {
+                "type": "url",
+                "url": "https://www.federalregister.gov/documents/2018/06/08/2018-12356/annual-business-survey"
+              },
+              {
+                "type": "url",
+                "url": "https://www.census.gov/newsroom/press-releases/2018/annual-business-survey.html"
+              },
+              {
+                "type": "url",
+                "url": "https://www.census.gov/topics/business-economy/characteristics/demographic-characteristics/about.html"
+              },
+              {
+                "type": "url",
+                "url": "https://www.census.gov/programs-surveys/economic-census/news-updates/updates/new-annual-business-survey.html"
+              },
+              {
+                "type": "url",
+                "url": "https://www.govinfo.gov/content/pkg/FR-2017-12-28/pdf/2017-28021.pdf"
+              },
+              {
+                "type": "url",
+                "url": "https://www.census.gov/programs-surveys/abs/guidance.html"
+              },
+              {
+                "type": "url",
+                "url": "https://www.census.gov/programs-surveys/abs/technical-documentation/methodology/2018.html"
+              },
+              {
+                "type": "url",
+                "url": "https://www.federalregister.gov/documents/2017/10/24/2017-23041/annual-business-survey"
+              },
+              {
+                "type": "url",
+                "url": "https://www.federalregister.gov/documents/2017/08/07/2017-16605/proposed-information-collection-comment-request-annual-business-survey-abs"
+              },
+              {
+                "type": "url",
+                "url": "https://ncses.nsf.gov/pubs/nsf21303"
+              }
+            ]
+          }
+        },
+        {
+          "type": "openrouter:web_search",
+          "id": "st_tmp_b4dty0zek55",
+          "status": "completed",
+          "action": {
+            "type": "search",
+            "query": "Annual Business Survey 2026 proposed revision Federal Register comment BERD integration content changes",
+            "sources": [
+              {
+                "type": "url",
+                "url": "https://www.federalregister.gov/documents/2026/02/06/2026-02453/agency-information-collection-activities-submission-to-the-office-of-management-and-budget-omb-for"
+              },
+              {
+                "type": "url",
+                "url": "https://www.reginfo.gov/public/do/PRAViewICR?ref_nbr=202602-0607-001"
+              },
+              {
+                "type": "url",
+                "url": "https://thecensusproject.org/2026/02/12/follow-up-comments-requested-on-revising-the-annual-business-survey/"
+              },
+              {
+                "type": "url",
+                "url": "https://www.federalregister.gov/documents/2026/09/04/2026-18176/current-mandatory-business-surveys"
+              },
+              {
+                "type": "url",
+                "url": "https://www.census.gov/programs-surveys/abs.html"
+              },
+              {
+                "type": "url",
+                "url": "https://omb.report/icr/202602-0607-001/doc/original/165965200.pdf"
+              },
+              {
+                "type": "url",
+                "url": "https://www.govinfo.gov/content/pkg/FR-2026-02-06/pdf/2026-02453.pdf"
+              },
+              {
+                "type": "url",
+                "url": "https://www2.census.gov/programs-surveys/abs/information/2026/ABS-2026-Instructions.pdf"
+              },
+              {
+                "type": "url",
+                "url": "https://thefederalregister.org/documents/2025-16777/agency-information-collection-activities-submission-to-the-office-of-management-and-budget-omb-for-review-and-approval-c"
+              },
+              {
+                "type": "url",
+                "url": "https://www.federalregister.gov/documents/2023/09/22/2023-20568/agency-information-collection-activities-submission-to-the-office-of-management-and-budget-omb-for"
+              }
+            ]
+          }
+        },
+        {
+          "type": "openrouter:web_search",
+          "id": "st_tmp_gnai087he6a",
+          "status": "completed",
+          "action": {
+            "type": "search",
+            "query": "NCSES NSF budget cuts 2025 federal statistical data risk business R&D survey delayed release"
+          }
+        },
+        {
+          "type": "openrouter:web_search",
+          "id": "st_tmp_pit7ppcwjhl",
+          "status": "completed",
+          "action": {
+            "type": "search",
+            "query": "Annual Business Survey data users SBA minority-owned businesses policy research entrepreneurship innovation statistics benefits"
+          }
+        },
+        {
+          "type": "openrouter:web_fetch",
+          "id": "st_tmp_95llaxi0s7o",
+          "status": "completed",
+          "url": "https://www.census.gov/programs-surveys/abs/about.html",
+          "content": "\n<!DOCTYPE HTML>\n<!-- /*Per CMS-3223 we need the line below to have a 301 redirect capability*/ -->\n\n\n<html lang=\"en\">\n    <head>\r\n    \n    <link rel=\"icon\" sizes=\"192x192\" href=\"/etc.clientlibs/census/clientlibs/common-site/resources/icons/android-chrome-192x192.png\"/>\n    <link rel=\"icon\" sizes=\"256x256\" href=\"/etc.clientlibs/census/clientlibs/common-site/resources/icons/android-chrome-256x256.png\"/>\n    <link rel=\"shortcut icon\" sizes=\"32x32\" href=\"/etc.clientlibs/census/clientlibs/common-site/resources/icons/favicon.ico\"/>\n    <link rel=\"apple-touch-icon\" sizes=\"180x180\" href=\"/etc.clientlibs/census/clientlibs/common-site/resources/icons/apple-touch-icon-180x180.png\"/>     \n    <meta name=\"msapplication-square150x150logo\" content=\"/etc.clientlibs/census/clientlibs/common-site/resources/icons/mstile-150x150.png\"/>    \n\r\n    <meta charset=\"UTF-8\"/>\r\n    <title>About the Annual Business Survey (ABS)</title>\r\n    \r\n    <meta name=\"keywords\" content=\"2013,Business Counts,Sales, Receipts, Shipments, or Production,Annual Survey of Manufactures (ASM),Business and Owner Characteristics,Small Business,Business and Economy\"/>\r\n    <meta name=\"article:tag\" content=\"2013,Business Counts,Sales, Receipts, Shipments, or Production,Annual Survey of Manufactures (ASM),Business and Owner Characteristics,Small Business,Business and Economy\"/>\r\n    <meta name=\"description\" property=\"og:description\" content=\"This section provides detailed information about the ABS. Access the frequently asked questions (FAQs) and other content.\"/>\r\n    <meta name=\"template\" content=\"template-detail3colleftright\"/>\r\n    <meta name=\"viewport\" content=\"width=device-width, initial-scale=1\"/>\r\n    \r\n    <link rel=\"canonical\" href=\"https://www.census.gov/programs-surveys/abs/about.html\"/>\r\n\r\n    \r\n    \r\n    \r\n\r\n    \n\n\n  \n    <meta name=\"DC.title\" property=\"og:title\" content=\"About the Annual Business Survey (ABS)\"/>\n    <meta name=\"DC.creator\" content=\"US Census Bureau\"/>\n    \n    <meta name=\"DC.date.reviewed\" property=\"article:modified_time\" scheme=\"ISO8601\" content=\"2026-05-26T15:51:29.864-04:00\"/>\n    <meta name=\"DC.language\" scheme=\"DCTERMS.RFC1766\" content=\"en\"/>\n  \t<meta name=\"robots\" content=\"noodp, noydir\"/>\n  \t<meta name=\"author\" content=\"US Census Bureau\"/>\n  \t<meta http-equiv=\"content-type\" content=\"text/html; charset=UTF-8\"/>\n  \t<meta property=\"og:locale\" content=\"en\"/>\n  \t<meta property=\"og:site_name\" content=\"Census.gov\"/>\n  \t<meta property=\"og:type\" content=\"article\"/>\n  \t<meta property=\"og:url\" content=\"https://www.census.gov/programs-surveys/abs/about.html\"/>\n  \t<meta property=\"og:image\" content=\"https://www.census.gov/content/dam/Census/public/brand/census-logo-sharing-card.jpg\"/>\n  \t<meta name=\"twitter:image\" content=\"https://www.census.gov/content/dam/Census/public/brand/census-logo-sharing-card.jpg\"/>\n  \t<meta name=\"twitter:card\" content=\"summary_large_image\"/>\n  \t<meta name=\"twitter:site\" content=\"@uscensusbureau\"/>\n  \t<meta name=\"twitter:creator\" content=\"@uscensusbureau\"/>\n  \t<meta name=\"twitter:title\" content=\"About the Annual Business Survey (ABS)\"/>\n  \t<meta property=\"article:publisher\" content=\"https://census.gov/\"/>\n  \t<meta property=\"article:section\" content=\"Government\"/>\n  \r\n    <script type=\"text/javascript\" src=\"https://www.google.com/jsapi\"></script>\r\n    \r\n    \n    \n    \n    \n    \n<script src=\"/etc.clientlibs/clientlibs/granite/jquery.min.cee8557e8779d371fe722bbcdd3b3eb7.js\"></script>\n<script src=\"/etc.clientlibs/clientlibs/granite/utils.min.899004cc02c33efc1f6694b1aee587fd.js\"></script>\n<script src=\"/etc.clientlibs/clientlibs/granite/jquery/granite.min.543d214c88dfa6f4a3233b630c82d875.js\"></script>\n<script src=\"/etc.clientlibs/foundation/clientlibs/jquery.min.dd9b395c741ce2784096e26619e14910.js\"></script>\n<script src=\"/etc.clientlibs/census/clientlibs/modernizr.min.33837f3aff33e7a40a760d767866141e.js\"></script>\n\n\n\n\t\n    \n<script src=\"/etc.clientlibs/clientlibs/granite/jquery-ui.min.000478df169ef08edfb24d7502acb3c1.js\"></script>\n<script src=\"/etc.clientlibs/foundation/clientlibs/jquery-ui.min.3cc462ae7fb48fa3949850e903137f14.js\"></script>\n\n\n\n    \n    \n<link rel=\"stylesheet\" href=\"/etc.clientlibs/census-core/clientlibs.min.9556bf894a0d404c4e4f4bf83ef3c63b.css\" type=\"text/css\">\n<link rel=\"stylesheet\" href=\"/etc.clientlibs/census/clientlibs/bootstrap.min.3e7d159faa40f5cdf7d02fbe2b1bb215.css\" type=\"text/css\">\n<link rel=\"stylesheet\" href=\"/etc.clientlibs/census/clientlibs/census-fonts.min.9ebcbfc417b8006268ac47b61f6ebfba.css\" type=\"text/css\">\n<link rel=\"stylesheet\" href=\"/etc.clientlibs/census/clientlibs/common-site.min.8e92f508ecd83720ca5ccc6c8f0637d4.css\" type=\"text/css\">\n<link rel=\"stylesheet\" href=\"/etc.clientlibs/clientlibs/granite/jquery-ui.min.48e542f529ebea7475d83a20a3394c1e.css\" type=\"text/css\">\n<link rel=\"stylesheet\" href=\"/etc.clientlibs/census/clientlibs/orionicons.min.2ffd39f8bfe972a21504ca49f50084ec.css\" type=\"text/css\">\n<link rel=\"stylesheet\" href=\"/etc.clientlibs/census/clientlibs/uswds-init.min.c213ff96bc721c3e7977bc763c809e0a.css\" type=\"text/css\">\n<link rel=\"stylesheet\" href=\"/etc.clientlibs/census/clientlibs/core-overrides.min.95bca97fbd3ca07d6424f7fbbe926450.css\" type=\"text/css\">\n<link rel=\"stylesheet\" href=\"/etc.clientlibs/census/clientlibs/clientlib-dependencies.min.d41d8cd98f00b204e9800998ecf8427e.css\" type=\"text/css\">\n<link rel=\"stylesheet\" href=\"/etc.clientlibs/census/clientlibs/clientlib-site.min.25c805315eb4f3f64da0cc62097979ea.css\" type=\"text/css\">\n<link rel=\"stylesheet\" href=\"/etc.clientlibs/census/clientlibs/census-fonts-multilang.min.e7ca9bab4d61ddbda89ed7b2948bf2b6.css\" type=\"text/css\">\n<link rel=\"stylesheet\" href=\"/etc.clientlibs/census/clientlibs/census-pattern-library.min.a89a57ffc2832e0526e9000bfe5d3b7f.css\" type=\"text/css\">\n<link rel=\"stylesheet\" href=\"/etc.clientlibs/census/clientlibs/census-css.min.eea51f80edbde7164c45da04901e3b7f.css\" type=\"text/css\">\n<link rel=\"stylesheet\" href=\"/etc.clientlibs/census/clientlibs/aemgrid.min.be57a8c9b7d09f61725fd419ae4495cb.css\" type=\"text/css\">\n\n\n\n    \n    \n    \n\t\n    \n<link rel=\"stylesheet\" href=\"/etc.clientlibs/census/clientlibs/census-disabled.min.d002d8837bb961541a62e1a6402d7e2b.css\" type=\"text/css\">\n<script src=\"/etc.clientlibs/census/clientlibs/census-disabled.min.42535f152edc257f3458c8e1d559866c.js\"></script>\n\n\n\n    <link href=\"/etc.clientlibs/census/clientlibs/census-css/resources/print.css\" rel=\"stylesheet\" type=\"text/css\" media=\"print\"/> \n\n\t  <!-- Conditional CSS -->\n\t\n\t\t\n\t\n\t\n\n\t\n\n\t\t\n\t \n\t\n\n\t\n\n    \n\n\n        <script type=\"text/javascript\" src=\"//assets.adobedtm.com/launch-ENdc1ca6bab15e46a5b880a2c3f9d462ab.min.js\"></script>\n\n \n\t<!-- /*Data Layer*/ -->\t\n\t<div><script type=\"text/javascript\">\r\n\tvar d = new Date();\r\n\tvar days = [\"Sunday\",\"Monday\",\"Tuesday\",\"Wednesday\",\"Thursday\",\"Friday\",\"Saturday\"];\r\n\tvar digitalData = digitalData || {};\r\n    digitalData = {\r\n       \t\"page\" : {\r\n            \"pageInfo\" : {                \r\n                \"pageName\" \t\t\t: \"About the Annual Business Survey (ABS)_389259\",\r\n                \"legacyPageName\" \t: \"en>programsRSUY>abs>About the Annual Business Survey (ABS)\",\r\n                \"pageURL\" \t\t\t: window.location.href,\r\n                \"language\" \t\t\t: \"en\",\r\n                \"pageTemplate\" \t\t: \"template\\u002Ddetail3colleftright\",\r\n                \"topic\" \t\t\t: \"Business Counts,Sales, Receipts, Shipments, or Production,Business and Owner Characteristics,Small Business,Business and Economy\",\r\n                \"programTag\" \t\t: \"Annual Survey of Manufactures (ASM)\",\r\n                \"collectionYear\" \t: \"2013\",\r\n                \"AEMtopic\" \t\t\t: \"Business Counts,Sales, Receipts, Shipments, or Production,Business and Owner Characteristics,Small Business,Business and Economy\",\r\n                \"contentType\" \t\t: \"\",\r\n                \"geoTag\" \t\t\t: \"\",\r\n                \"seriesTag\" \t\t: \"\",\r\n                \"publishDate\" \t\t: \"\",\r\n                \"timeOfDay\" \t\t: twoDigits(d.getHours()) + \":\" + twoDigits(d.getMinutes()),\r\n                \"tool\" \t\t\t\t: \"aem\",\r\n                \"dayOfWeek\" \t\t: days[d.getDay()],\r\n                \"siteSection\" : \"programs-surveys\",\"subSectionOne\" : \"abs\",\"subSectionTwo\" : \"about\"\r\n            },\r\n            \"pageTag\" : {\r\n                \"collectionYear\" : \"2013\",\"topic\" : \"Business Counts\",\"topic\" : \"Business Counts|Sales, Receipts, Shipments, or Production\",\"program\" : \"Annual Survey of Manufactures (ASM)\",\"topic\" : \"Business Counts|Sales, Receipts, Shipments, or Production|Business and Owner Characteristics\",\"topic\" : \"Business Counts|Sales, Receipts, Shipments, or Production|Business and Owner Characteristics|Small Business\",\"topic\" : \"Business Counts|Sales, Receipts, Shipments, or Production|Business and Owner Characteristics|Small Business|Business and Economy\"                \r\n            }\r\n        },\r\n        \"event\" : {\r\n        \t\"eventName\" : {},\r\n          \t\"eventInfo\" : {\r\n\t            \"share\" \t\t\t : {},\r\n\t            \"download\" \t\t\t : {},\r\n\t            \"search\" \t\t\t : {},\r\n\t            \"expandCollapseList\" : {},\r\n\t            \"language\" \t\t\t : {\r\n\t            \tpageLanguage\t : \"en\"\r\n\t            },\r\n\t            \"landingPageTab\" \t : {}\r\n          }\r\n        },\r\n        \"browserInfo\" : {\r\n        \t\"browserWidth\" : getBrowserWidth()\r\n        }\r\n    };    \r\n\r\n    if ( typeof(Storage) !== \"undefined\" ) {\r\n      if ( localStorage.getItem(\"pageLanguage\") != null ) {\r\n        digitalData.event.eventInfo.language.pageLanguage = localStorage.getItem(\"pageLanguage\");\r\n      }\r\n      if ( localStorage.getItem(\"langEventName\") != null ) {\r\n        digitalData.event.eventName = localStorage.getItem(\"langEventName\");\r\n      }\r\n      if ( localStorage.getItem(\"clickValue\") != null ) {\r\n        digitalData.event.eventInfo.search.clickValue = localStorage.getItem(\"clickValue\");\r\n      }\r\n      if ( localStorage.getItem(\"searchEventName\") != null ) {\r\n        digitalData.event.eventInfo.eventName = localStorage.getItem(\"searchEventName\");\r\n      }       \r\n      if ( localStorage.getItem(\"tabEventName\") != null ) {\r\n        digitalData.event.eventName = localStorage.getItem(\"tabEventName\");\r\n      } \r\n      if ( localStorage.getItem(\"pageName\") != null ) {\r\n        digitalData.page.pageInfo.pageName = localStorage.getItem(\"pageName\");\r\n      } \r\n      if ( localStorage.getItem(\"eventInfoEventName\") != null ) {\r\n    \t  digitalData.event.eventInfo.eventName = localStorage.getItem(\"eventInfoEventName\");  \t  \r\n      }\r\n      if ( localStorage.getItem(\"eventInfoLanguage\") != null ) {\r\n    \t  digitalData.event.eventInfo.language.pageLanguage = localStorage.getItem(\"eventInfoLanguage\");\r\n      }\r\n      if ( localStorage.getItem(\"searchTerm\") != null ) {\r\n    \t  digitalData.event.eventInfo.search.term = localStorage.getItem(\"searchTerm\");\r\n      }\r\n      if ( localStorage.getItem(\"blogSearchPhrase\") != null ) {\r\n    \t  digitalData.event.eventInfo.blogSearchPhrase = localStorage.getItem(\"blogSearchPhrase\");\r\n      }\r\n      if ( localStorage.getItem(\"blogEventName\") != null ) {\r\n    \t  digitalData.event.eventInfo.eventName = localStorage.getItem(\"blogEventName\");\r\n      }      \r\n      if ( localStorage.getItem(\"blogName\") != null ) {\r\n    \t  digitalData.event.eventInfo.blogName = localStorage.getItem(\"blogName\");\r\n      }\r\n      if ( localStorage.getItem(\"buttonClickCount\") != null ) {\r\n    \t  digitalData.event.eventInfo.buttonClickCount = localStorage.getItem(\"buttonClickCount\");\r\n      }\r\n      //After assigning the value to digitalData, clear the localStorage variable's content\r\n      localStorage.removeItem(\"pageLanguage\");\r\n      localStorage.removeItem(\"langEventName\");\r\n      localStorage.removeItem(\"clickValue\");\r\n      localStorage.removeItem(\"searchEventName\");\r\n      localStorage.removeItem(\"landingPageTabClickValue\");\r\n      localStorage.removeItem(\"tabEventName\");\r\n      localStorage.removeItem(\"pageName\");\r\n      localStorage.removeItem(\"eventInfoEventName\");\r\n      localStorage.removeItem(\"eventInfoLanguage\");\r\n      localStorage.removeItem(\"searchTerm\");\r\n      localStorage.removeItem(\"blogSearchPhrase\");\r\n      localStorage.removeItem(\"blogEventName\");\r\n      localStorage.removeItem(\"blogName\");\r\n      localStorage.removeItem(\"buttonClickCount\");\r\n    } else {\r\n      if ( getCookie(\"pageLanguage\") != \"\" ) {\r\n        digitalData.event.eventInfo.language.pageLanguage = getCookie(\"pageLanguage\");\r\n      }\r\n      if ( getCookie(\"langEventName\") != \"\" ) {\r\n        digitalData.event.eventName = getCookie(\"langEventName\");\r\n      }\r\n      if ( getCookie(\"clickValue\") != \"\" ) {\r\n        digitalData.event.eventInfo.search.clickValue = getCookie(\"clickValue\");\r\n      }\r\n      if ( getCookie(\"searchEventName\") != \"\" ) {\r\n        digitalData.event.eventInfo.eventName = getCookie(\"searchEventName\");\r\n      }\r\n      if ( getCookie(\"landingPageTabClickValue\") != \"\" ) {\r\n        digitalData.event.eventInfo.landingPageTab.clickValue = getCookie(\"landingPageTabClickValue\");\r\n      }\r\n      if ( getCookie(\"tabEventName\") != \"\" ) {\r\n        digitalData.event.eventName = getCookie(\"tabEventName\");\r\n      }\r\n      if ( getCookie(\"pageName\") != \"\" ) {\r\n        digitalData.page.pageInfo.pageName = getCookie(\"pageName\");\r\n      }\r\n      if ( getCookie(\"eventInfoEventName\") != \"\" ) {\r\n    \t  digitalData.event.eventInfo.eventName = getCookie(\"eventInfoEventName\");  \r\n      }\r\n      if ( getCookie(\"eventInfoLanguage\") ) {\r\n    \t  digitalData.event.eventInfo.language.pageLanguage = getCookie(\"eventInfoLanguage\");\r\n      }\r\n      if ( getCookie(\"searchTerm\") ) {\r\n    \t  digitalData.event.eventInfo.search.term = getCookie(\"searchTerm\");\r\n      }\r\n      if ( getCookie(\"blogSearchPhrase\") ) {\r\n    \t  digitalData.event.eventInfo.blogSearchPhrase = getCookie(\"blogSearchPhrase\");\r\n      }\r\n      if ( getCookie(\"blogEventName\") ) {\r\n    \t  digitalData.event.eventInfo.eventName = getCookie(\"blogEventName\");\r\n      }\r\n      if ( getCookie(\"blogName\") ) {\r\n    \t  digitalData.event.eventInfo.blogName = getCookie(\"blogName\");\r\n      }\r\n      if ( getCookie(\"buttonClickCount\") ) {\r\n    \t  digitalData.event.eventInfo.buttonClickCount = getCookie(\"buttonClickCount\");\r\n      }\r\n      //After assigning the value to digitalData, clear the localStorage variable's content\r\n      setCookie(\"pageLanguage\", \"\");\r\n      setCookie(\"langEventName\", \"\");\r\n      setCookie(\"clickValue\", \"\");\r\n      setCookie(\"searchEventName\", \"\");\r\n      setCookie(\"landingPageTabClickValue\", \"\");\r\n      setCookie(\"pageName\", \"\");\r\n      setCookie(\"eventInfoEventName\", \"\");\r\n      setCookie(\"eventInfoLanguage\", \"\");\r\n      setCookie(\"searchTerm\", \"\");\r\n      setCookie(\"blogSearchPhrase\", \"\");\r\n      setCookie(\"blogName\", \"\");\r\n      setCookie(\"buttonClickCount\", \"\");\r\n    }\r\n\r\n    function setCookie(cname, cvalue, exdays) {\r\n       var d = new Date();\r\n       d.setTime(d.getTime() + (exdays*24*60*60*1000));\r\n       var expires = \"expires=\"+d.toUTCString();\r\n       document.cookie = cname + \"=\" + cvalue + \";\" + expires + \";path=/\";\r\n    }\r\n\r\n    function getCookie(cname) {\r\n       var name = cname + \"=\";\r\n       var ca = document.cookie.split(';');\r\n       for(var i = 0; i < ca.length; i++) {\r\n           var c = ca[i];\r\n           while (c.charAt(0) == ' ') {\r\n               c = c.substring(1);\r\n           }\r\n           if (c.indexOf(name) == 0) {\r\n               return c.substring(name.length, c.length);\r\n           }\r\n       }\r\n       return \"\";\r\n    }\r\n    \r\n    function getBrowserWidth() {         \r\n   \t  \treturn window.innerWidth;\r\n   \t}\r\n    \r\n    function twoDigits(n){\r\n        return n > 9 ? \"\" + n: \"0\" + n;\r\n    }\r\n    \r\n    document.addEventListener('click', function (event) {    \t\r\n    \tif (typeof(event.target.href) !== 'undefined' && event.target.href.toLowerCase().indexOf('tel:') >= 0) {\r\n    \t\tdigitalData.event.eventName = 'phoneNumber';\r\n    \t\tdigitalData.event.eventInfo.eventName = 'Telephone Click';\r\n    \t\tvar splittedData = event.target.href.toLowerCase().split(':');\r\n    \t\tif (splittedData.length > 0) {\r\n    \t\t\tdigitalData.event.eventInfo.telephoneNumber = splittedData[splittedData.length - 1];\t\r\n    \t\t}    \t\t\r\n    \t}\r\n    \t\r\n    \tif (typeof(event.target.href) !== 'undefined' && event.target.href.toLowerCase().indexOf('mailto:') >= 0) {\r\n    \t\tdigitalData.event.eventName = 'emailClick';\r\n    \t\tdigitalData.event.eventInfo.eventName = 'Email Click';\r\n    \t\tvar splittedData = event.target.href.toLowerCase().split(':');\r\n    \t\tif (splittedData.length > 0) {\r\n    \t\t\tdigitalData.event.eventInfo.emailAddress = splittedData[splittedData.length - 1 ]\r\n    \t\t}\r\n    \t}\r\n    \t\r\n    \t//For non-download links that are added via RTE\r\n    \tif (typeof(event.target.href) !== 'undefined') {\r\n    \t\tvar extension = event.target.href.split('.').pop();\r\n    \t\tif (extension == event.target.href || extension == \"html\")\r\n    \t\t\tlinkClick(event.target, 'RTE');    \t\t\r\n    \t}\r\n    });\r\n    \r\n    document.addEventListener(\"DOMContentLoaded\", function() {   \t\t\r\n   \t  \tif (typeof(getCookie('visitor')) !== 'undefined' && getCookie('visitor') !== '') {\r\n   \t  \t    date = new Date();   \t  \t    \r\n   \t\t\tdigitalData.event.eventInfo.newVsRepeat = 'repeat';\r\n   \t\t\tvar dateLastVisited = Date.parse(getCookie('dateLastVisited'));   \t\t\t\r\n   \t\t\tvar differenceInTime = date.getTime() - dateLastVisited;   \t\t\t\r\n   \t\t\tvar seconds = (differenceInTime * .001) >> 0;\r\n   \t\t\t\r\n   \t\t\tif (seconds > 0) {   \t\t\t\t\r\n\t   \t        var minutes = seconds / 60;\r\n\t   \t        var hours = minutes / 60;\t   \t        \r\n\t   \t        var days = hours / 24;\t   \t        \r\n   \t        \tdigitalData.event.eventInfo.secondsSinceLastVisit = seconds.toFixed(2);\r\n   \t        \tdigitalData.event.eventInfo.minutesSinceLastVisit = minutes.toFixed(2);\r\n   \t        \tdigitalData.event.eventInfo.hoursSinceLastVisit = hours.toFixed(2);\r\n   \t        \tdigitalData.event.eventInfo.daysSinceLastVisit = days.toFixed(2);\r\n   \t        }   \t\t\t\r\n   \t\t\t\r\n   \t\t\tsetCookie('dateLastVisited', date, 365); \r\n   \t\t\tvar visitNumber = parseInt(getCookie('visitNumber')) + 1;\r\n   \t\t\tsetCookie('visitNumber', visitNumber, 365);\r\n   \t\t\tdigitalData.event.eventInfo.visitNumber = visitNumber;\r\n   \t  \t} else {\r\n   \t  \t\tdate = new Date();\r\n   \t  \t\tsetCookie('visitor', 'census website visitor', 365);\r\n   \t  \t\tsetCookie('dateLastVisited', date, 365);\r\n   \t  \t\tsetCookie('visitNumber', 1, 365);\r\n   \t  \t\tdigitalData.event.eventInfo.newVsRepeat = 'new';\r\n   \t  \t\tdigitalData.event.eventInfo.visitNumber = 1;\r\n   \t  \t}\r\n   \t});\r\n    \r\n\t$(document).ready(function () { // ensure we wait for listeners to connect to dataLayerReady instead of just firing immediately\r\n    \t$(document).trigger({type: \"dataLayerReady\"});\r\n  });\r\n</script></div>\n\t<script type=\"text/javascript\" src=\"https://www.google.com/jsapi\"></script>\n\t<!-- /*Asset Ref, Content-Language*/-->\n\t<div><script type=\"text/javascript\">    \r\n   \t'use strict';\r\n   \t\r\n   \tdocument.addEventListener('click', function (event) {\r\n    \tif (typeof(event.target.href) !== 'undefined' && event.target.href.toLowerCase().indexOf('pdf') >= 0) {\r\n    \t\tvar pdfXhr = new XMLHttpRequest();\r\n    \t\tpdfXhr.open('GET', '/bin/custom/header/asset?pdfPath=' + event.target.href, true);\r\n    \t\tpdfXhr.send();\r\n    \t}\r\n   \t});\r\n   \t\r\n</script></div>\n\r\n\r\n    \r\n\r\n    \r\n        <style>.uscb-tag__census{background-color: #bbddff;border-color: #bbddff;--icon-class:o-news-1;}.uscb-tag__census_type{background-color: #bbddff;border-color: #bbddff;--icon-class:o-news-1;}.uscb-tag__census_type_publication{background-color: #d0dce1;border-color: #d0dce1;--icon-class:o-book-1;}.uscb-tag__census_type_publication_atlas{background-color: #d0dce1;border-color: #d0dce1;--icon-class:o-book-1;}.uscb-tag__census_type_about{background-color: #bbddff;border-color: #bbddff;--icon-class:o-news-1;}.uscb-tag__census_type_about_biography{background-color: #bbddff;border-color: #bbddff;--icon-class:o-news-1;}.uscb-tag__census_type_about_survey-respondent-information{background-color: #bbddff;border-color: #bbddff;--icon-class:o-news-1;}.uscb-tag__census_type_data{background-color: #ffccbc;border-color: #ffccbc;--icon-class:o-news-1;}.uscb-tag__census_type_data_table{background-color: #ffccbc;border-color: #ffccbc;--icon-class:o-news-1;}.uscb-tag__census_type_data_table_comp-tab{background-color: #ffccbc;border-color: #ffccbc;--icon-class:o-news-1;}.uscb-tag__census_type_data_table_rank-tab{background-color: #ffccbc;border-color: #ffccbc;--icon-class:o-news-1;}.uscb-tag__census_type_data_table_summary-table{background-color: #ffccbc;border-color: #ffccbc;--icon-class:o-news-1;}.uscb-tag__census_type_data_errata-note{background-color: #ffccbc;border-color: #ffccbc;--icon-class:o-news-1;}.uscb-tag__census_type_data_dataset{background-color: #ffccbc;border-color: #ffccbc;--icon-class:o-news-1;}.uscb-tag__census_type_data_dataset_pums-puf-microdata{background-color: #ffccbc;border-color: #ffccbc;--icon-class:o-news-1;}.uscb-tag__census_type_data_dataset_pums-puf-microdata_puf{background-color: #ffccbc;border-color: #ffccbc;--icon-class:o-news-1;}.uscb-tag__census_type_data_dataset_pums-puf-microdata_pums{background-color: #ffccbc;border-color: #ffccbc;--icon-class:o-news-1;}.uscb-tag__census_type_data_dataset_summary-file{background-color: #ffccbc;border-color: #ffccbc;--icon-class:o-news-1;}.uscb-tag__census_type_data_dataset_api{background-color: #ffccbc;border-color: #ffccbc;--icon-class:o-news-1;}.uscb-tag__census_type_data_indicator{background-color: #ffccbc;border-color: #ffccbc;--icon-class:o-news-1;}.uscb-tag__census_type_data_experimental-data-product{background-color: #ffccbc;border-color: #ffccbc;--icon-class:o-news-1;}.uscb-tag__census_type_event{background-color: #e0d2e3;border-color: #e0d2e3;--icon-class:o-news-1;}.uscb-tag__census_type_event_conference{background-color: #e0d2e3;border-color: #e0d2e3;--icon-class:o-news-1;}.uscb-tag__census_type_event_c-span{background-color: #e0d2e3;border-color: #e0d2e3;--icon-class:o-news-1;}.uscb-tag__census_type_event_media-event{background-color: #e0d2e3;border-color: #e0d2e3;--icon-class:o-news-1;}.uscb-tag__census_type_event_seminar{background-color: #e0d2e3;border-color: #e0d2e3;--icon-class:o-news-1;}.uscb-tag__census_type_event_training{background-color: #e0d2e3;border-color: #e0d2e3;--icon-class:o-news-1;}.uscb-tag__census_type_event_training_courses{background-color: #e0d2e3;border-color: #e0d2e3;--icon-class:o-news-1;}.uscb-tag__census_type_event_training_webinar{background-color: #e0d2e3;border-color: #e0d2e3;--icon-class:o-news-1;}.uscb-tag__census_type_event_training_tutorial{background-color: #e0d2e3;border-color: #e0d2e3;--icon-class:o-news-1;}.uscb-tag__census_type_event_u-stream{background-color: #e0d2e3;border-color: #e0d2e3;--icon-class:o-news-1;}.uscb-tag__census_type_event_presentation{background-color: #e0d2e3;border-color: #e0d2e3;--icon-class:o-news-1;}.uscb-tag__census_type_event_disasters{background-color: #e0d2e3;border-color: #e0d2e3;--icon-class:o-news-1;}.uscb-tag__census_type_event_disasters_earthquake{background-color: #e0d2e3;border-color: #e0d2e3;--icon-class:o-news-1;}.uscb-tag__census_type_event_disasters_flood{background-color: #e0d2e3;border-color: #e0d2e3;--icon-class:o-news-1;}.uscb-tag__census_type_event_disasters_hurricane{background-color: #e0d2e3;border-color: #e0d2e3;--icon-class:o-news-1;}.uscb-tag__census_type_event_disasters_pandemic{background-color: #e0d2e3;border-color: #e0d2e3;--icon-class:o-news-1;}.uscb-tag__census_type_event_disasters_tornado{background-color: #e0d2e3;border-color: #e0d2e3;--icon-class:o-news-1;}.uscb-tag__census_type_event_disasters_wildfire{background-color: #e0d2e3;border-color: #e0d2e3;--icon-class:o-news-1;}.uscb-tag__census_type_event_disasters_storm{background-color: #e0d2e3;border-color: #e0d2e3;--icon-class:o-news-1;}.uscb-tag__census_type_event_disasters_incident{background-color: #e0d2e3;border-color: #e0d2e3;--icon-class:o-news-1;}.uscb-tag__census_type_event_disasters_air-quality{background-color: #e0d2e3;border-color: #e0d2e3;--icon-class:o-news-1;}.uscb-tag__census_type_event_disasters_extreme-heat{background-color: #e0d2e3;border-color: #e0d2e3;--icon-class:o-news-1;}.uscb-tag__census_type_media-resource{background-color: #bbddff;border-color: #bbddff;--icon-class:o-news-1;}.uscb-tag__census_type_media-resource_press-release{background-color: #7ad4e2;border-color: #7ad4e2;--icon-class:o-news-2;}.uscb-tag__census_type_media-resource_press-kit{background-color: #7ad4e2;border-color: #7ad4e2;--icon-class:o-documents-1;}.uscb-tag__census_type_media-resource_tip-sheet{background-color: #7ad4e2;border-color: #7ad4e2;--icon-class:o-data-file-1;}.uscb-tag__census_type_media-resource_facts-for-features-special-editions{background-color: #7ad4e2;border-color: #7ad4e2;--icon-class:o-image-saved-1;}.uscb-tag__census_type_media-resource_local-area-pr{background-color: #7ad4e2;border-color: #7ad4e2;--icon-class:o-news-2;}.uscb-tag__census_type_media-resource_stories{background-color: #7ad4e2;border-color: #7ad4e2;--icon-class:o-statistic-1;}.uscb-tag__census_type_multimedia{background-color: #bbddff;border-color: #bbddff;--icon-class:o-news-1;}.uscb-tag__census_type_multimedia_audio{background-color: #ffe434;border-color: #ffe434;--icon-class:o-volume-1;}.uscb-tag__census_type_multimedia_video{background-color: #ffe434;border-color: #ffe434;--icon-class:o-play-1;}.uscb-tag__census_type_multimedia_photograph{background-color: #ffe434;border-color: #ffe434;--icon-class:o-image-1;}.uscb-tag__census_type_working-paper{background-color: #d0dce1;border-color: #d0dce1;--icon-class:o-multiple-files-1;}.uscb-tag__census_type_visualization{background-color: #ffe434;border-color: #ffe434;--icon-class:o-bar-chart-1;}.uscb-tag__census_type_visualization_figure{background-color: #ffe434;border-color: #ffe434;--icon-class:o-bar-chart-1;}.uscb-tag__census_type_visualization_infographic{background-color: #ffe434;border-color: #ffe434;--icon-class:o-bar-chart-1;}.uscb-tag__census_type_visualization_thematic-map{background-color: #ffe434;border-color: #ffe434;--icon-class:o-bar-chart-1;}.uscb-tag__census_type_technical-documentation{background-color: #bbddff;border-color: #bbddff;--icon-class:o-news-1;}.uscb-tag__census_type_technical-documentation_data-dictionary{background-color: #bbddff;border-color: #bbddff;--icon-class:o-news-1;}.uscb-tag__census_type_technical-documentation_user-notes{background-color: #bbddff;border-color: #bbddff;--icon-class:o-news-1;}.uscb-tag__census_type_technical-documentation_questionnaire{background-color: #bbddff;border-color: #bbddff;--icon-class:o-news-1;}.uscb-tag__census_type_technical-documentation_sampling-weighting{background-color: #bbddff;border-color: #bbddff;--icon-class:o-news-1;}.uscb-tag__census_type_technical-documentation_quality-measures{background-color: #bbddff;border-color: #bbddff;--icon-class:o-news-1;}.uscb-tag__census_type_technical-documentation_source-accuracy-statements{background-color: #bbddff;border-color: #bbddff;--icon-class:o-news-1;}.uscb-tag__census_type_technical-documentation_subject-definitions{background-color: #bbddff;border-color: #bbddff;--icon-class:o-news-1;}.uscb-tag__census_type_technical-documentation_statistical-testing{background-color: #bbddff;border-color: #bbddff;--icon-class:o-news-1;}.uscb-tag__census_type_updates{background-color: #bbddff;border-color: #bbddff;--icon-class:o-news-1;}.uscb-tag__census_type_updates_newsletter{background-color: #bbddff;border-color: #bbddff;--icon-class:o-news-1;}.uscb-tag__census_type_methodology{background-color: #bbddff;border-color: #bbddff;--icon-class:o-news-1;}.uscb-tag__census_type_data-tool{background-color: #ffccbc;border-color: #ffccbc;--icon-class:o-news-1;}.uscb-tag__census_type_data-tool_api{background-color: #ffccbc;border-color: #ffccbc;--icon-class:o-news-1;}.uscb-tag__census_type_data-tool_software{background-color: #ffccbc;border-color: #ffccbc;--icon-class:o-news-1;}.uscb-tag__census_type_data-tool_mobile-app{background-color: #ffccbc;border-color: #ffccbc;--icon-class:o-news-1;}.uscb-tag__census_type_data-tool_web-app{background-color: #ffccbc;border-color: #ffccbc;--icon-class:o-news-1;}.uscb-tag__census_type_transcript{background-color: #bbddff;border-color: #bbddff;--icon-class:o-news-1;}.uscb-tag__census_type_blog{background-color: #7ad4e2;border-color: #7ad4e2;--icon-class:o-news-website-1;}.uscb-tag__census_type_blog_directors-blog{background-color: #7ad4e2;border-color: #7ad4e2;--icon-class:o-news-website-1;}.uscb-tag__census_type_blog_global-reach-blog{background-color: #7ad4e2;border-color: #7ad4e2;--icon-class:o-news-website-1;}.uscb-tag__census_type_blog_random-samplings-blog{background-color: #7ad4e2;border-color: #7ad4e2;--icon-class:o-news-website-1;}.uscb-tag__census_type_blog_research-blog{background-color: #7ad4e2;border-color: #7ad4e2;--icon-class:o-news-website-1;}.uscb-tag__census_type_blog_deputy-directors-blog{background-color: #7ad4e2;border-color: #7ad4e2;--icon-class:o-news-website-1;}.uscb-tag__census_type_blog_previous-directors-blogs{background-color: #7ad4e2;border-color: #7ad4e2;--icon-class:o-news-website-1;}.uscb-tag__census_type_story{background-color: #bdf;border-color: #bdf;--icon-class:o-news-1;}.uscb-tag__census_type_story_story-map{background-color: #bdf;border-color: #bdf;--icon-class:o-news-1;}.uscb-tag__census_type_geographic{background-color: #bbddff;border-color: #bbddff;--icon-class:o-news-1;}.uscb-tag__census_type_geographic_geo-profile{background-color: #bbddff;border-color: #bbddff;--icon-class:o-news-1;}.uscb-tag__census_type_geographic_mapping-file{background-color: #bbddff;border-color: #bbddff;--icon-class:o-news-1;}.uscb-tag__census_type_geographic_reference-file{background-color: #bbddff;border-color: #bbddff;--icon-class:o-news-1;}.uscb-tag__census_type_geographic_reference-map{background-color: #bbddff;border-color: #bbddff;--icon-class:o-news-1;}.uscb-tag__census_type_geographic_mapping-tool{background-color: #bbddff;border-color: #bbddff;--icon-class:o-news-1;}.uscb-tag__census_type_forms{background-color: #bbddff;border-color: #bbddff;--icon-class:o-news-1;}.uscb-tag__census_type_forms_request-form{background-color: #bbddff;border-color: #bbddff;--icon-class:o-news-1;}.uscb-tag__census_type_contact{background-color: #bbddff;border-color: #bbddff;--icon-class:o-news-1;}.uscb-tag__census_type_indicator{background-color: #bbddff;border-color: #bbddff;--icon-class:o-news-1;}.uscb-tag__census_type_job{background-color: #bbddff;border-color: #bbddff;--icon-class:o-news-1;}.uscb-tag__census_type_fact-sheet{background-color: #d0dce1;border-color: #d0dce1;--icon-class:o-find-notes-1;}.uscb-tag__census_type_faq{background-color: #bbddff;border-color: #bbddff;--icon-class:o-news-1;}.uscb-tag__census_type_faq_faq-feature{background-color: #bbddff;border-color: #bbddff;--icon-class:o-news-1;}.uscb-tag__census_type_outreach-materials{background-color: #bbddff;border-color: #bbddff;--icon-class:o-news-1;}.uscb-tag__census_type_spotlight{background-color: #d0dce1;border-color: #d0dce1;--icon-class:o-find-notes-1;}.uscb-tag__census_type_census-reference-materials{background-color: #bbddff;border-color: #bbddff;--icon-class:o-news-1;}.uscb-tag__census_type_census-reference-materials_code-lists{background-color: #bbddff;border-color: #bbddff;--icon-class:o-news-1;}.uscb-tag__census_type_monthly-history-story{background-color: #d0dce1;border-color: #d0dce1;--icon-class:o-find-notes-1;}.uscb-tag__census_type_flyer{background-color: #d0dce1;border-color: #d0dce1;--icon-class:o-find-notes-1;}.uscb-tag__census_program{background-color: #bbddff;border-color: #bbddff;--icon-class:o-news-1;}.uscb-tag__census_program_demo-survey{background-color: #c0e4be;border-color: #c0e4be;--icon-class:o-news-1;}.uscb-tag__census_program_demo-survey_atus{background-color: #c0e4be;border-color: #c0e4be;--icon-class:o-news-1;}.uscb-tag__census_program_demo-survey_ce{background-color: #c0e4be;border-color: #c0e4be;--icon-class:o-news-1;}.uscb-tag__census_program_demo-survey_ncvs{background-color: #c0e4be;border-color: #c0e4be;--icon-class:o-news-1;}.uscb-tag__census_program_demo-survey_namcs{background-color: #c0e4be;border-color: #c0e4be;--icon-class:o-news-1;}.uscb-tag__census_program_demo-survey_nhis{background-color: #c0e4be;border-color: #c0e4be;--icon-class:o-news-1;}.uscb-tag__census_program_demo-survey_nhamcs{background-color: #c0e4be;border-color: #c0e4be;--icon-class:o-news-1;}.uscb-tag__census_program_demo-survey_nhes{background-color: #c0e4be;border-color: #c0e4be;--icon-class:o-news-1;}.uscb-tag__census_program_demo-survey_nscg{background-color: #c0e4be;border-color: #c0e4be;--icon-class:o-news-1;}.uscb-tag__census_program_demo-survey_fhwar{background-color: #c0e4be;border-color: #c0e4be;--icon-class:o-news-1;}.uscb-tag__census_program_demo-survey_nychvs{background-color: #c0e4be;border-color: #c0e4be;--icon-class:o-news-1;}.uscb-tag__census_program_demo-survey_prcs{background-color: #c0e4be;border-color: #c0e4be;--icon-class:o-news-1;}.uscb-tag__census_program_demo-survey_rfs{background-color: #c0e4be;border-color: #c0e4be;--icon-class:o-news-1;}.uscb-tag__census_program_demo-survey_scs{background-color: #c0e4be;border-color: #c0e4be;--icon-class:o-news-1;}.uscb-tag__census_program_demo-survey_sass{background-color: #c0e4be;border-color: #c0e4be;--icon-class:o-news-1;}.uscb-tag__census_program_demo-survey_soma{background-color: #c0e4be;border-color: #c0e4be;--icon-class:o-news-1;}.uscb-tag__census_program_demo-survey_spd{background-color: #c0e4be;border-color: #c0e4be;--icon-class:o-news-1;}.uscb-tag__census_program_demo-survey_tfs{background-color: #c0e4be;border-color: #c0e4be;--icon-class:o-news-1;}.uscb-tag__census_program_demo-survey_tpops{background-color: #c0e4be;border-color: #c0e4be;--icon-class:o-news-1;}.uscb-tag__census_program_demo-survey_decennial{background-color: #c0e4be;border-color: #c0e4be;--icon-class:o-news-1;}.uscb-tag__census_program_demo-survey_decennial_2010census{background-color: #c0e4be;border-color: #c0e4be;--icon-class:o-news-1;}.uscb-tag__census_program_demo-survey_decennial_2000-census{background-color: #c0e4be;border-color: #c0e4be;--icon-class:o-news-1;}.uscb-tag__census_program_demo-survey_decennial_1990-census{background-color: #c0e4be;border-color: #c0e4be;--icon-class:o-news-1;}.uscb-tag__census_program_demo-survey_decennial_2020-census{background-color: #c0e4be;border-color: #c0e4be;--icon-class:o-news-1;}.uscb-tag__census_program_demo-survey_decennial_2020-census_2015-test{background-color: #c0e4be;border-color: #c0e4be;--icon-class:o-news-1;}.uscb-tag__census_program_demo-survey_decennial_2020-census_2016-test{background-color: #c0e4be;border-color: #c0e4be;--icon-class:o-news-1;}.uscb-tag__census_program_demo-survey_decennial_2020-census_2017-test{background-color: #c0e4be;border-color: #c0e4be;--icon-class:o-news-1;}.uscb-tag__census_program_demo-survey_decennial_2020-census_2018-test{background-color: #c0e4be;border-color: #c0e4be;--icon-class:o-news-1;}.uscb-tag__census_program_demo-survey_decennial_census-population{background-color: #c0e4be;border-color: #c0e4be;--icon-class:o-news-1;}.uscb-tag__census_program_demo-survey_decennial_census-housing{background-color: #c0e4be;border-color: #c0e4be;--icon-class:o-news-1;}.uscb-tag__census_program_demo-survey_decennial_voting-rights{background-color: #c0e4be;border-color: #c0e4be;--icon-class:o-news-1;}.uscb-tag__census_program_demo-survey_decennial_pes{background-color: #c0e4be;border-color: #c0e4be;--icon-class:o-news-1;}.uscb-tag__census_program_demo-survey_decennial_2030-census{background-color: #c0e4be;border-color: #c0e4be;--icon-class:o-news-1;}.uscb-tag__census_program_demo-survey_decennial_2030-census_2023-census-test{background-color: #c0e4be;border-color: #c0e4be;--icon-class:o-news-1;}.uscb-tag__census_program_demo-survey_decennial_2030-census_2024-census-survey{background-color: #c0e4be;border-color: #c0e4be;--icon-class:o-news-1;}.uscb-tag__census_program_demo-survey_decennial_2030-census_2026-census-test{background-color: #c0e4be;border-color: #c0e4be;--icon-class:o-news-1;}.uscb-tag__census_program_demo-survey_hvs{background-color: #c0e4be;border-color: #c0e4be;--icon-class:o-news-1;}.uscb-tag__census_program_demo-survey_ahs{background-color: #c0e4be;border-color: #c0e4be;--icon-class:o-news-1;}.uscb-tag__census_program_demo-survey_cps{background-color: #c0e4be;border-color: #c0e4be;--icon-class:o-news-1;}.uscb-tag__census_program_demo-survey_acs{background-color: #c0e4be;border-color: #c0e4be;--icon-class:o-news-1;}.uscb-tag__census_program_demo-survey_sipp{background-color: #c0e4be;border-color: #c0e4be;--icon-class:o-news-1;}.uscb-tag__census_program_demo-survey_popest{background-color: #c0e4be;border-color: #c0e4be;--icon-class:o-news-1;}.uscb-tag__census_program_demo-survey_popproj{background-color: #c0e4be;border-color: #c0e4be;--icon-class:o-news-1;}.uscb-tag__census_program_demo-survey_bas{background-color: #c0e4be;border-color: #c0e4be;--icon-class:o-news-1;}.uscb-tag__census_program_demo-survey_tsap{background-color: #c0e4be;border-color: #c0e4be;--icon-class:o-news-1;}.uscb-tag__census_program_demo-survey_sdrp{background-color: #c0e4be;border-color: #c0e4be;--icon-class:o-news-1;}.uscb-tag__census_program_demo-survey_luca{background-color: #c0e4be;border-color: #c0e4be;--icon-class:o-news-1;}.uscb-tag__census_program_demo-survey_psap{background-color: #c0e4be;border-color: #c0e4be;--icon-class:o-news-1;}.uscb-tag__census_program_demo-survey_gupcp{background-color: #c0e4be;border-color: #c0e4be;--icon-class:o-news-1;}.uscb-tag__census_program_demo-survey_gss-i{background-color: #c0e4be;border-color: #c0e4be;--icon-class:o-news-1;}.uscb-tag__census_program_demo-survey_metro-micro{background-color: #c0e4be;border-color: #c0e4be;--icon-class:o-news-1;}.uscb-tag__census_program_demo-survey_aian{background-color: #c0e4be;border-color: #c0e4be;--icon-class:o-news-1;}.uscb-tag__census_program_demo-survey_rdo{background-color: #c0e4be;border-color: #c0e4be;--icon-class:o-news-1;}.uscb-tag__census_program_demo-survey_nshapc{background-color: #c0e4be;border-color: #c0e4be;--icon-class:o-news-1;}.uscb-tag__census_program_demo-survey_ip{background-color: #c0e4be;border-color: #c0e4be;--icon-class:o-news-1;}.uscb-tag__census_program_demo-survey_sahie{background-color: #c0e4be;border-color: #c0e4be;--icon-class:o-news-1;}.uscb-tag__census_program_demo-survey_saipe{background-color: #c0e4be;border-color: #c0e4be;--icon-class:o-news-1;}.uscb-tag__census_program_demo-survey_nssrn{background-color: #c0e4be;border-color: #c0e4be;--icon-class:o-news-1;}.uscb-tag__census_program_demo-survey_ntps{background-color: #c0e4be;border-color: #c0e4be;--icon-class:o-news-1;}.uscb-tag__census_program_demo-survey_sis{background-color: #c0e4be;border-color: #c0e4be;--icon-class:o-news-1;}.uscb-tag__census_program_demo-survey_hh-pulse-survey{background-color: #c0e4be;border-color: #c0e4be;--icon-class:o-news-1;}.uscb-tag__census_program_demo-survey_ehealth{background-color: #c0e4be;border-color: #c0e4be;--icon-class:o-news-1;}.uscb-tag__census_program_demo-survey_cre{background-color: #c0e4be;border-color: #c0e4be;--icon-class:o-news-1;}.uscb-tag__census_program_demo-survey_school-pulse-panel{background-color: #c0e4be;border-color: #c0e4be;--icon-class:o-news-1;}.uscb-tag__census_program_demo-survey_dcdl{background-color: #c0e4be;border-color: #c0e4be;--icon-class:o-news-1;}.uscb-tag__census_program_demo-survey_ntews{background-color: #c0e4be;border-color: #c0e4be;--icon-class:o-news-1;}.uscb-tag__census_program_demo-survey_pfs{background-color: #c0e4be;border-color: #c0e4be;--icon-class:o-news-1;}.uscb-tag__census_program_demo-survey_ssocs{background-color: #c0e4be;border-color: #c0e4be;--icon-class:o-news-1;}.uscb-tag__census_program_demo-survey_special-census-program{background-color: #c0e4be;border-color: #c0e4be;--icon-class:o-news-1;}.uscb-tag__census_program_demo-survey_nsch{background-color: #c0e4be;border-color: #c0e4be;--icon-class:o-news-1;}.us",
+          "title": "About the Annual Business Survey (ABS)",
+          "httpStatus": 200
+        }
+      ],
+      "ended": "answered",
+      "seconds": 151.9
+    },
+    "assessment": {
+      "request": {
+        "model": "moonshotai/kimi-k3",
+        "max_output_tokens": 32768,
+        "tools": [
+          {
+            "type": "openrouter:web_search",
+            "parameters": {
+              "engine": "exa",
+              "max_results": 10,
+              "excluded_domains": [
+                "dataindex.us"
+              ]
+            }
+          },
+          {
+            "type": "openrouter:web_fetch",
+            "parameters": {
+              "engine": "openrouter",
+              "blocked_domains": [
+                "dataindex.us"
+              ],
+              "max_content_tokens": 10000
+            }
+          }
+        ],
+        "cache_control": {
+          "type": "ephemeral",
+          "ttl": "1h"
+        },
+        "session_id": "abs-moonshotai/kimi-k3-t0-2026-10-08T19:55:50Z",
+        "stop_server_tools_when": [
+          {
+            "type": "step_count_is",
+            "step_count": 200
+          }
+        ],
+        "reasoning": {
+          "effort": "high"
+        },
+        "provider": {
+          "order": [
+            "moonshotai"
+          ],
+          "allow_fallbacks": false
+        }
+      },
+      "response_meta": {
+        "id": "gen-1791489503-jaOrcsHfDEmrnFPrWvTZ",
+        "object": "response",
+        "created_at": 1791489503,
+        "model": "moonshotai/kimi-k3",
+        "status": "completed",
+        "completed_at": 1791489683,
+        "error": null,
+        "incomplete_details": null,
+        "tools": [],
+        "tool_choice": "auto",
+        "parallel_tool_calls": true,
+        "max_output_tokens": 32768,
+        "temperature": 1,
+        "top_p": 1,
+        "presence_penalty": 0,
+        "frequency_penalty": 0,
+        "top_logprobs": 0,
+        "max_tool_calls": null,
+        "metadata": {},
+        "background": false,
+        "previous_response_id": null,
+        "service_tier": "auto",
+        "truncation": "disabled",
+        "store": false,
+        "instructions": null,
+        "text": {
+          "format": {
+            "type": "text"
+          }
+        },
+        "reasoning": {
+          "effort": "high"
+        },
+        "safety_identifier": null,
+        "prompt_cache_key": null,
+        "prompt_cache_options": null,
+        "usage": {
+          "input_tokens": 61843,
+          "input_tokens_details": {
+            "cached_tokens": 35072
+          },
+          "output_tokens": 6263,
+          "output_tokens_details": {
+            "reasoning_tokens": 2395
+          },
+          "total_tokens": 68106,
+          "cost": 0.2197796,
+          "cost_details": {
+            "upstream_inference_cost": 0.1847796,
+            "upstream_inference_input_cost": 0.09083460000000002,
+            "upstream_inference_output_cost": 0.093945
+          },
+          "server_tool_use_details": {
+            "web_search_requests": 6,
+            "tool_calls_requested": 6,
+            "tool_calls_executed": 6
+          }
+        }
+      },
+      "requests": [
+        {
+          "input_tokens": 61843,
+          "input_tokens_details": {
+            "cached_tokens": 35072
+          },
+          "output_tokens": 6263,
+          "output_tokens_details": {
+            "reasoning_tokens": 2395
+          },
+          "total_tokens": 68106,
+          "cost": 0.2197796,
+          "cost_details": {
+            "upstream_inference_cost": 0.1847796,
+            "upstream_inference_input_cost": 0.09083460000000002,
+            "upstream_inference_output_cost": 0.093945
+          },
+          "server_tool_use_details": {
+            "web_search_requests": 6,
+            "tool_calls_requested": 6,
+            "tool_calls_executed": 6
+          }
+        }
+      ],
+      "searches": 6,
+      "fetches": 0,
+      "tool_items": [
+        {
+          "type": "openrouter:web_search",
+          "id": "st_tmp_24m4fhuc7y",
+          "status": "completed",
+          "action": {
+            "type": "search",
+            "query": "Census Bureau layoffs staff cuts 2025 deferred resignation economic surveys eliminated",
+            "sources": [
+              {
+                "type": "url",
+                "url": "https://apnews.com/article/census-bureau-doge-federal-surveys-fe560e377be69e913660a6d90c1ee419"
+              },
+              {
+                "type": "url",
+                "url": "https://news.bloomberglaw.com/daily-labor-report/census-bureau-hit-with-layoffs-as-100-get-notices-in-shutdown"
+              },
+              {
+                "type": "url",
+                "url": "https://www.amstat.org/docs/default-source/amstat-documents/the-nations-data-at-risk-2025/census.pdf"
+              },
+              {
+                "type": "url",
+                "url": "https://www.govexec.com/workforce/2025/07/census-has-long-struggled-staffing-shortages-employees-say-trump-making-it-worse/406840/"
+              },
+              {
+                "type": "url",
+                "url": "https://www.npr.org/2025/10/01/nx-s1-5558298/doge-fiscal-year-savings-budget-rehired-government-shutdown"
+              },
+              {
+                "type": "url",
+                "url": "https://www.cbpp.org/research/poverty-and-inequality/federal-data-are-disappearing-as-statistical-agencies-face-budget"
+              },
+              {
+                "type": "url",
+                "url": "https://www.c2er.org/2025/06/proposed-federal-budget-signals-cuts-to-core-economic-data-capacity/"
+              },
+              {
+                "type": "url",
+                "url": "https://federalnewsnetwork.com/big-data/2025/12/bedrock-federal-data-sets-are-disappearing-as-statistical-agencies-face-upheaval/"
+              },
+              {
+                "type": "url",
+                "url": "https://thecensusproject.org/2025/10/14/government-shutdown-rifs-impact-u-s-census-bureau/"
+              },
+              {
+                "type": "url",
+                "url": "https://www.wxxinews.org/2025-04-17/brain-drain-at-census-bureau-has-employees-warning-about-the-countrys-statistics"
+              }
+            ]
+          }
+        },
+        {
+          "type": "openrouter:web_search",
+          "id": "st_tmp_eck5yxhhejm",
+          "status": "completed",
+          "action": {
+            "type": "search",
+            "query": "NCSES NSF budget cuts 2025 statistics staff National Center for Science and Engineering Statistics",
+            "sources": [
+              {
+                "type": "url",
+                "url": "https://www.amstat.org/docs/default-source/amstat-documents/the-nations-data-at-risk-2025/national-center-for-science-and-engineering-statistics.pdf"
+              },
+              {
+                "type": "url",
+                "url": "https://nsf-gov-resources.nsf.gov/files/92_fy2025.pdf"
+              },
+              {
+                "type": "url",
+                "url": "https://nsf-gov-resources.nsf.gov/files/40-fy2026.pdf"
+              },
+              {
+                "type": "url",
+                "url": "https://community.amstat.org/sciencepolicy/blogs/steve-pierson/2024/03/11/fy25-statistical-agency-budget-developments"
+              },
+              {
+                "type": "url",
+                "url": "https://www.everycrsreport.com/reports/R48783.html"
+              },
+              {
+                "type": "url",
+                "url": "https://nsf-gov-resources.nsf.gov/files/00_NSF_FY25_CJ_Entire%20Rollup_web.pdf?VersionId=cbkdqD_UMweHEIsZwPjtVgcQRwMccgvu"
+              },
+              {
+                "type": "url",
+                "url": "https://www.amstat.org/docs/default-source/amstat-documents/the-nation's-data-at-risk-supporting-materials/national-center-for-science-and-engineering-statistics.pdf"
+              },
+              {
+                "type": "url",
+                "url": "https://fabbs.org/news/2025/07/nsf-budget-protected-in-senate-slashed-in-house/"
+              },
+              {
+                "type": "url",
+                "url": "https://www.amstat.org/docs/default-source/amstat-documents/pol-ncses-priorities-2021plus.pdf"
+              },
+              {
+                "type": "url",
+                "url": "https://nsf-gov-resources.nsf.gov/files/91_fy2025.pdf?VersionId=_2QiSKTUVQH1bjWf.cil2jlKJHHTngEc"
+              }
+            ]
+          }
+        },
+        {
+          "type": "openrouter:web_search",
+          "id": "st_tmp_fjoj7mj0ccc",
+          "status": "completed",
+          "action": {
+            "type": "search",
+            "query": "Annual Business Survey 2024 2025 data release delayed Census Bureau",
+            "sources": [
+              {
+                "type": "url",
+                "url": "https://www.census.gov/programs-surveys/abs/data/tables.html"
+              },
+              {
+                "type": "url",
+                "url": "https://www.census.gov/data/tables/2025/econ/abs/2025-abs-first-look.html"
+              },
+              {
+                "type": "url",
+                "url": "https://www2.census.gov/programs-surveys/abs/information/ABS-2025-Instructions.pdf"
+              },
+              {
+                "type": "url",
+                "url": "https://www2.census.gov/programs-surveys/abs/information/abs_2025.pdf"
+              },
+              {
+                "type": "url",
+                "url": "https://www.govinfo.gov/content/pkg/FR-2025-03-31/html/2025-05463.htm"
+              },
+              {
+                "type": "url",
+                "url": "https://www.census.gov/data/tables/2024/econ/abs/2024-abs-mcb.html"
+              },
+              {
+                "type": "url",
+                "url": "https://www.census.gov/data/developers/data-sets/abs.html"
+              },
+              {
+                "type": "url",
+                "url": "https://www.census.gov/programs-surveys/abs.html"
+              },
+              {
+                "type": "url",
+                "url": "https://www.census.gov/programs-surveys/abs/technical-documentation/methodology/2024.html"
+              },
+              {
+                "type": "url",
+                "url": "https://www.govinfo.gov/content/pkg/FR-2025-04-04/html/2025-05843.htm"
+              }
+            ]
+          }
+        },
+        {
+          "type": "openrouter:web_search",
+          "id": "st_tmp_vrc3rdogbq",
+          "status": "completed",
+          "action": {
+            "type": "search",
+            "query": "Census Bureau advisory committees terminated 2025 economic data surveys Trump administration",
+            "sources": [
+              {
+                "type": "url",
+                "url": "https://apnews.com/article/census-bureau-commerce-department-howard-lutnick-3a56003b790aedce6e6c8ddd7c6b6943"
+              },
+              {
+                "type": "url",
+                "url": "https://www.govinfo.gov/content/pkg/FR-2025-06-10/html/2025-10398.htm"
+              },
+              {
+                "type": "url",
+                "url": "https://www.reuters.com/world/us/trump-administration-disbands-two-expert-panels-economic-data-2025-03-05/"
+              },
+              {
+                "type": "url",
+                "url": "https://www.science.org/content/article/panels-giving-scientific-advice-census-bureau-disbanded-trump-administration"
+              },
+              {
+                "type": "url",
+                "url": "https://www.bloomberg.com/news/articles/2025-03-04/commerce-ends-advisory-committees-for-economic-data-agencies"
+              },
+              {
+                "type": "url",
+                "url": "https://www.wsj.com/politics/policy/trump-admin-disbands-two-committees-advising-on-economic-stats-990d0b85"
+              },
+              {
+                "type": "url",
+                "url": "https://civilrights.org/2025/03/04/civil-rights-coalition-denounces-the-termination-of-census-advisory-committees-and-the-inevitable-harm-to-2030-census-planning/"
+              },
+              {
+                "type": "url",
+                "url": "https://apnews.com/article/census-bureau-commerce-department-lutnick-668d081d5889662245e70eac315deb4e"
+              },
+              {
+                "type": "url",
+                "url": "https://cossa.org/wp-content/uploads/2025/05/Updated-Final-LCCHR-Census-Advisory-Committee-Letter-.pdf"
+              },
+              {
+                "type": "url",
+                "url": "https://www.marketplace.org/story/2025/03/05/advisory-committees-economic-data-commerce-department-bureau-of-labor-statistics"
+              }
+            ]
+          }
+        },
+        {
+          "type": "openrouter:web_search",
+          "id": "st_tmp_fa7qwb4yxq",
+          "status": "completed",
+          "action": {
+            "type": "search",
+            "query": "Census Bureau director Robert Santos resigned 2025 acting director leadership",
+            "sources": [
+              {
+                "type": "url",
+                "url": "https://www.npr.org/2025/09/19/nx-s1-5288846/trump-census-bureau-director-george-cook"
+              },
+              {
+                "type": "url",
+                "url": "https://apnews.com/article/us-census-bureau-commerce-trump-e87407373e9cfe507374664a6d86f643"
+              },
+              {
+                "type": "url",
+                "url": "https://www.congress.gov/crs-product/IF11845"
+              },
+              {
+                "type": "url",
+                "url": "https://www.census.gov/newsroom/bios/robert-santos.html"
+              },
+              {
+                "type": "url",
+                "url": "https://apnews.com/article/census-bureau-robert-santos-redistricting-bac775b7251f4bfabb9026f0930a553d"
+              },
+              {
+                "type": "url",
+                "url": "https://npr.org/2025/01/30/nx-s1-5258393/census-bureau-director-robert-santos"
+              },
+              {
+                "type": "url",
+                "url": "https://www.everycrsreport.com/reports/IF11845.html"
+              },
+              {
+                "type": "url",
+                "url": "https://www.kpbs.org/news/politics/2025/09/19/the-census-bureau-is-now-headed-by-a-trump-official-in-an-acting-position"
+              },
+              {
+                "type": "url",
+                "url": "https://www.pbs.org/newshour/nation/midway-through-a-5-year-term-robert-santos-decides-to-resign-as-us-census-bureau-director"
+              },
+              {
+                "type": "url",
+                "url": "https://www.politico.com/news/2025/01/31/census-bureau-director-trump-resign-009970"
+              }
+            ]
+          }
+        },
+        {
+          "type": "openrouter:web_search",
+          "id": "st_tmp_p8wpiextej",
+          "status": "completed",
+          "action": {
+            "type": "search",
+            "query": "government shutdown October November 2025 Census Bureau economic data releases delayed schedule"
+          }
+        }
+      ],
+      "ended": "answered",
+      "seconds": 180.9
+    },
+    "session_metadata": {
+      "request": {
+        "model": "moonshotai/kimi-k3",
+        "max_output_tokens": 32768,
+        "tools": [
+          {
+            "type": "openrouter:web_search",
+            "parameters": {
+              "engine": "exa",
+              "max_results": 10,
+              "excluded_domains": [
+                "dataindex.us"
+              ]
+            }
+          },
+          {
+            "type": "openrouter:web_fetch",
+            "parameters": {
+              "engine": "openrouter",
+              "blocked_domains": [
+                "dataindex.us"
+              ],
+              "max_content_tokens": 10000
+            }
+          }
+        ],
+        "cache_control": {
+          "type": "ephemeral",
+          "ttl": "1h"
+        },
+        "session_id": "abs-moonshotai/kimi-k3-t0-2026-10-08T19:55:50Z",
+        "stop_server_tools_when": [
+          {
+            "type": "step_count_is",
+            "step_count": 200
+          }
+        ],
+        "reasoning": {
+          "effort": "high"
+        },
+        "provider": {
+          "order": [
+            "moonshotai"
+          ],
+          "allow_fallbacks": false
+        }
+      },
+      "response_meta": {
+        "id": "gen-1791489683-HeYrhg1IbTOIgHp8MNxy",
+        "object": "response",
+        "created_at": 1791489683,
+        "model": "moonshotai/kimi-k3",
+        "status": "completed",
+        "completed_at": 1791489722,
+        "error": null,
+        "incomplete_details": null,
+        "tools": [],
+        "tool_choice": "auto",
+        "parallel_tool_calls": true,
+        "max_output_tokens": 32768,
+        "temperature": 1,
+        "top_p": 1,
+        "presence_penalty": 0,
+        "frequency_penalty": 0,
+        "top_logprobs": 0,
+        "max_tool_calls": null,
+        "metadata": {},
+        "background": false,
+        "previous_response_id": null,
+        "service_tier": "auto",
+        "truncation": "disabled",
+        "store": false,
+        "instructions": null,
+        "text": {
+          "format": {
+            "type": "text"
+          }
+        },
+        "reasoning": {
+          "effort": "high"
+        },
+        "safety_identifier": null,
+        "prompt_cache_key": null,
+        "prompt_cache_options": null,
+        "usage": {
+          "input_tokens": 16486,
+          "input_tokens_details": {
+            "cached_tokens": 11008
+          },
+          "output_tokens": 1304,
+          "output_tokens_details": {
+            "reasoning_tokens": 1187
+          },
+          "total_tokens": 17790,
+          "cost": 0.0392964,
+          "cost_details": {
+            "upstream_inference_cost": 0.0392964,
+            "upstream_inference_input_cost": 0.0197364,
+            "upstream_inference_output_cost": 0.01956
+          }
+        }
+      },
+      "requests": [
+        {
+          "input_tokens": 16486,
+          "input_tokens_details": {
+            "cached_tokens": 11008
+          },
+          "output_tokens": 1304,
+          "output_tokens_details": {
+            "reasoning_tokens": 1187
+          },
+          "total_tokens": 17790,
+          "cost": 0.0392964,
+          "cost_details": {
+            "upstream_inference_cost": 0.0392964,
+            "upstream_inference_input_cost": 0.0197364,
+            "upstream_inference_output_cost": 0.01956
+          }
+        }
+      ],
+      "searches": 0,
+      "fetches": 0,
+      "tool_items": [],
+      "ended": "answered",
+      "seconds": 39.1
+    }
+  },
+  "messages": [
+    {
+      "role": "user",
+      "content": "#data research\nI am researching a federal dataset. Find out everything you can about this dataset, such as who publishes it, under what authority or mandate, its history, its typical users, and its benefits to the public. Be sure your research comprehensively covers each of those perspectives, as well as any others that you discover or seem useful. I believe this is accurate information, but please check:\n\nDataset title: Annual Business Survey (ABS)\nDescription: The Annual Business Survey (ABS) measures business owner demographics, research and development (R&D), innovation, and other topics of interest among businesses in the United States. The Business Enterprise Research and Development (BERD) Survey was integrated into the ABS in 2025. The ABS is a joint statistical project between the National Center for Science and Engineering Statistics (NCSES) within the U.S. National Science Foundation (NSF) and the U.S. Census Bureau.\n\nReturn a complete report on everything that a preservationist, data librarian, data scientist, or policy activist might want to know about this data."
+    },
+    {
+      "role": "assistant",
+      "content": "I'll research the Annual Business Survey comprehensively. Let me start with several searches to verify your facts and gather details.I've confirmed the core facts. Let me dig deeper into the data access ecosystem, research uses, and the survey's history and current status.I have a solid picture of history and access. Let me check the current status \u2014 recent delays, proposed revisions, and risks relevant to preservation.I now have a comprehensive picture. Here is the full report.\n\n---\n\n# Research Report: Annual Business Survey (ABS)\n\n## 1. Verification of Your Description\n\nYour description is **substantially accurate**, with one nuance worth correcting:\n\n- \u2705 **Title and general description**: Correct. The ABS \"measures business owner demographics, research and development (R&D), innovation, and other topics of interest among businesses in the United States.\"\n- \u2705 **Joint NCSES/Census sponsorship**: Correct. It is a joint statistical project of the National Center for Science and Engineering Statistics (NCSES) within NSF and the U.S. Census Bureau.\n- \u26a0\ufe0f **\"BERD was integrated into the ABS in 2025\"**: Close, but the timing is more precise than that. The Business Enterprise Research and Development (BERD) Survey was **discontinued after the 2024 survey year** (its final report, covering reference year 2023, was released September 29, 2025). The integration takes effect with the **survey fielded in 2026**, which\u2014under a new naming convention\u2014is called the **\"2025 ABS\" because it now uses the reference year rather than the collection year**. So the merged instrument is the \"2025 ABS,\" mailed in May 2026. Simultaneously, the Census Bureau changed the survey's naming convention: prior cycles were named by collection year (e.g., \"2024 ABS\" covers reference year 2023); from this cycle forward, names align with reference years to match products like Nonemployer Statistics by Demographics (NES-D). Prior releases will not be renamed\u2014a potential citation trap for researchers.\n\n## 2. Who Publishes It\n\n| Role | Entity |\n|---|---|\n| **Collector & tabulator** | U.S. Census Bureau (Department of Commerce) |\n| **Cosponsor & funder** | National Center for Science and Engineering Statistics (NCSES), U.S. National Science Foundation |\n| **R&D/innovation data publisher** | NCSES (ncses.nsf.gov) \u2014 publishes R&D, innovation, and technology tables and InfoBriefs |\n| **Demographics/characteristics publisher** | Census Bureau (census.gov) \u2014 publishes Company Summary, Characteristics of Businesses, Characteristics of Business Owners, and Module tables |\n\nThe arrangement operates under an interagency agreement: Census collects and tabulates under Title 13 authority; NCSES funds, shapes the R&D/innovation/technology content, and releases those statistics. Notably, the OMB terms of clearance on the 2026 revision explicitly require Census to transmit all collected data to NCSES on request and to obtain NCSES's written approval before any future revisions\u2014underscoring NCSES's role as an equal steward.\n\n## 3. Authority and Mandate\n\n- **Statutory collection authority**: Title 13, U.S.C., \u00a7\u00a7 8(b), 131, and 182.\n- **Mandatory response**: Response is **required by law** under 13 U.S.C. \u00a7\u00a7 224\u2013225 (the Census Bureau designates it one of its \"current mandatory business surveys\" via Federal Register determination; the most recent was issued September 2026).\n- **NSF's mandate**: National Science Foundation Act of 1950, as amended (42 U.S.C. \u00a7\u00a7 1861\u201376), and the **America COMPETES Reauthorization Act of 2010**, which directs NCSES to collect and disseminate statistics on science and engineering, including business R&D and innovation.\n- **Paperwork Reduction Act clearance**: OMB Control Number **0607-1004**, currently approved through **May 31, 2027**. The revision incorporating BERD content was approved (with changes) by OIRA on May 15, 2026 (ICR Ref. 202602-0607-001).\n- **Confidentiality protections**: Responses are protected under **Title 13 and Title 26** (Title 26 applies because IRS administrative records inform the sampling frame). The Confidential Information Protection and Statistical Efficiency Act (CIPSEA) framework and the Foundations for Evidence-Based Policymaking Act of 2018 govern restricted-data access via the Standard Application Process (SAP).\n- **Burden**: Estimated response time increased from ~29 to ~45 minutes per respondent with the merged R&D content; ~230,000 respondents in recent non-census cycles (~296,000 total burden hours).\n\n## 4. History and Lineage\n\nThe ABS is best understood as the convergence of **two long statistical traditions**:\n\n**Owner-demographics lineage:**\n- **Survey of Business Owners (SBO)**, 1972\u20132012: quinquennial, part of the Economic Census; covered employer and nonemployer firms by owner sex, race, ethnicity, and veteran status.\n- **Annual Survey of Entrepreneurs (ASE)**, reference years 2014\u20132016: an interim annual supplement for employer firms.\n\n**Business R&D lineage (NCSES-cosponsored since 1953):**\n- **Survey of Industrial Research and Development (SIRD)**, 1953\u20132007\n- **Business R&D and Innovation Survey (BRDIS)**, 2008\u20132016\n- **BRDI-M** (microbusinesses, 1\u20139 employees), first fielded 2016\n- **Business Research and Development Survey (BRDS)**, 2017\u20132018\n- **BERD Survey**, 2019\u20132024 (renamed for OECD international comparability)\n\n**The ABS itself:**\n- Announced via Federal Register notice in 2017; **first collection began June 2018** (reference year 2017); first data released December 2019.\n- It replaced the SBO (employer portion), the ASE, BRDI-M, and the innovation section of BRDIS.\n- The companion **Nonemployer Statistics by Demographics (NES-D)** program covers firms without paid employees, replacing the SBO's nonemployer component.\n- **2026**: BERD discontinued as a standalone survey; its content folded into the ABS, making the ABS the sole federal collection of business R&D data. This ends a 70+ year standalone business R&D survey series.\n\n**Design basics:**\n- Population: all domestic nonfarm employer businesses with receipts \u2265 $1,000 (~5.6 million firms), plus (post-merger) nonprofits in R&D-performing industries. Agriculture and certain other NAICS sectors are excluded.\n- Sample: ~850,000 firms in Economic Census years (2017, 2022, 2027\u2026); ~230,000\u2013330,000 in other years. Stratified systematic sampling by industry and owner demographics; certainty strata for firms with 500+ employees and known small R&D performers.\n- Rotating **modules** each year cover topics like financing, technology use (including AI and, per OSTP guidance, cybersecurity and nuclear technology), intellectual property, and globalization\u2014making content partially non-comparable year to year.\n\n## 5. Data Products and Access\n\n**Public products (all free):**\n- **Census tables and API** (data.census.gov and the Census Developer API): Company Summary; Characteristics of Businesses; Characteristics of Business Owners; Module Business Characteristics (added 2021). Urban/rural breakdowns available 2021\u20132024. Geography: national, state, and metro area\u2014less geographic/industry detail than the old SBO in non-census years.\n- **NCSES tables and publications**: R&D by firms with 1\u20139 employees, innovation, and technology data; InfoBriefs and detailed statistical tables (e.g., NCSES 26-007 for the 2024 cycle).\n- **Historical continuity**: R&D for firms with 10+ employees remains on the NCSES BERD page (SIRD 1953\u20132007 through BERD 2019\u20132024).\n- **Technical documentation**: methodology, questionnaires (Form ABS-1), source-and-accuracy statements, and instruction guides are posted for each cycle.\n\n**Restricted microdata:**\n- **No public-use microdata file exists.** Public releases are disclosure-protected tabulations only.\n- Confidential firm-level microdata (reference years 2017 forward) are available to approved researchers at the ~15 **Federal Statistical Research Data Centers (FSRDCs)** via the **SAP portal (sap.nsf.gov)**. Proposals are evaluated on benefit to the Census Bureau, scientific merit, feasibility, and disclosure risk. The ABS can be linked within FSRDCs to assets like the Longitudinal Business Database (LBD)\u2014a major driver of modern entrepreneurship and firm-dynamics research.\n\n## 6. Typical Users\n\n- **Federal statistical agencies**: The **Bureau of Economic Analysis** uses ABS/BERD R&D data for the national accounts and the R&D satellite account (R&D is capitalized in GDP). BEA formally commented on the 2026 revision urging time-series consistency.\n- **NCSES flagship products**: Science and Engineering Indicators (for the National Science Board) and National Patterns of R&D Resources.\n- **Policy agencies**: SBA, MBDA, EDA, and state/local economic development offices use owner-demographic data to design and target business assistance programs, allocate resources, and assess programs serving disadvantaged groups.\n- **Academic and think-tank researchers**: entrepreneurship, innovation economics, minority/women/veteran business ownership, R&D spillovers, and firm dynamics\u2014heavily via FSRDC microdata.\n- **International**: OECD comparisons under the Frascati (R&D) and Oslo (innovation) Manuals; the BERD name itself was adopted for international comparability.\n- **Businesses and advocates**: benchmarking, market analysis, and advocacy for minority-, women-, and veteran-owned firms.\n\n## 7. Public Benefits\n\n1. **The sole annual source** of U.S. business-owner demographics by sex, race, ethnicity, and veteran status\u2014foundational for equity analysis and small-business policy.\n2. **The sole official measure of R&D by microbusinesses** (1\u20139 employees), a population invisible to the old large-firm surveys.\n3. With the BERD merger, the ABS becomes **the single source of all U.S. business R&D statistics**\u2014which account for roughly 75% of total U.S. R&D performance\u2014feeding GDP, productivity analysis, and science policy.\n4. **Innovation measurement**: the U.S. contribution to international business-innovation statistics, including adoption of critical and emerging technologies (AI, cybersecurity, nuclear).\n5. **Efficiency**: consolidating four-plus surveys reduces respondent burden and cost while enabling adaptive, annually rotated content responsive to policy needs (e.g., COVID-era and technology modules).\n6. **Evidence infrastructure**: FSRDC access has enabled a large literature on entrepreneurship and business dynamics that informs legislation and program evaluation.\n\n## 8. Notes for Preservationists, Librarians, and Policy Advocates\n\n- **What can be preserved**: Only aggregate tables, APIs, questionnaires, and documentation are public. The microdata cannot legally be archived outside the FSRDC system\u2014so preservation efforts should target summary files (Census FTP/www2.census.gov directories), NCSES PDF/Excel tables, API snapshots, questionnaires (Form ABS-1), methodology pages, and Federal Register notices.\n- **Series breaks to document**: SBO\u2192ABS (2017, scope change: employer-only); BRDIS\u2192ABS innovation move (2017); **BERD\u2192ABS (2025 reference year)**\u2014BEA and other users have flagged time-series comparability concerns; question wording was changed during integration and cognitively tested.\n- **Naming-convention hazard**: pre-2025 cycles are named by collection year; the 2026-fielded cycle is \"2025 ABS\" by reference year. Citation metadata should record both reference and collection years.\n- **Authorization horizon**: OMB clearance expires **May 31, 2027**; the survey must be re-cleared, and OMB's terms of clearance require Census and NCSES to brief OMB on implementation and any 2027 revisions\u2014an opportunity for public comment and advocacy (The Census Project and similar groups have been active in these comment windows).\n- **Institutional risk factors**: The ABS depends on the health of two agencies\u2014Census funding and NCSES's standing within NSF. Advocacy groups have raised concerns about federal statistical agency capacity in 2025\u20132026; the mandatory-survey determination, OMB clearance record, and NCSES cosponsorship are the key leverage points to monitor.\n- **Documentation anchors**: Key permanent records include the 2017 and 2018 founding Federal Register notices, annual methodology pages, NCSES InfoBrief series, and the September 2025 60-day / February 2026 30-day ICR notices (90 FR 42382; 91 FR 5425) documenting the BERD merger.\n\n## 9. Key Sources\n\n- Census ABS program hub: census.gov/programs-surveys/abs.html\n- NCSES ABS page: ncses.nsf.gov/surveys/annual-business-survey\n- BERD discontinuation notice: census.gov/programs-surveys/brds.html\n- Founding notices: 82 FR (Oct. 24, 2017; Dec. 28, 2017); press release June 19, 2018\n- Merger ICR: 90 FR 42382 (Sept. 2, 2025); 91 FR 5425 (Feb. 6, 2026); reginfo.gov ICR 202602-0607-001\n- Mandatory-survey determinations: Federal Register (Apr. 4, 2025; Sept. 4, 2026)\n- NCSES 26-007 (ABS 2024 overview); NCSES 25-015 (final BERD overview, Sept. 29, 2025)\n\nIf you'd like, I can go deeper on any one thread\u2014for example, the exact question changes made during the BERD integration, the FSRDC application process for microdata access, or building a preservation checklist with specific file URLs and formats."
+    },
+    {
+      "role": "user",
+      "content": "# Dataset risk assessment\nI would like your help in assessing the likelihood that this data will be changed or removed from its primary location, and that users will no longer be able to access accurate and reliable copies of it, based on the rubric below.\n\n## Sources for context\nTo help assess the rubric categories, perform additional research on the data, the agency, the data's topics and typical users, covering topics such as proposed regulatory or funding changes, recent news, and political commentary. Use whatever resources you find useful, including the Federal Register (https://www.federalregister.gov) and the federal staffing tracker at https://usajobs-tracker.abigailhaddad.com.\n\n## Rubric\nThis rubric is divided up into categories. Each category is divided up into risk levels. In your output, please select the appropriate risk level for each category based on your research.\n\n### Historical Data Availability\n- Gone: Data files prior to the current year or cycle are no longer publicly available.\n- High Risk: Some data files prior to the current year or cycle are removed.\n- Moderate Risk: Some data elements that exist in the dataset prior to the current year or cycle are removed.\n- No Known Issue: Data prior to the current year or cycle remain accessible with no known alterations.\n\n### Future Data Availability\n- Gone: Data collection and publication has been terminated.\n- High Risk: Statutory publication deadline missed and/or collection or publication skipped and/or ICR expired for more than one year.\n- Moderate Risk: Typical or intended publication date missed and/or collection or publication delayed; ICR expired up to one year.\n- No Known Issue: Data published on time or as expected and ICR active or renewed before expiration.\n\n### Data Quality\n- Gone: Data collection and publication has been terminated.\n- High Risk: Reductions in granularity, timeliness, or frequency.\n- Moderate Risk: Potential or emerging risk to granularity, timeliness, or frequency.\n- No Known Issue: Maintained or improved granularity, timeliness, or frequency.\n\n### Statutory Context\n- Gone: N/A\n- High Risk: Statutory authorization is vague and/or there are alternative data collections that could serve as substitutes and/or no known programmatic use.\n- Moderate Risk: Not explicitly required by statute but required for the implementation of a state or federal program, and there are no alternative data collections that could serve as substitutes.\n- No Known Issue: Statutorily required and/or statutory authorization is explicitly named and it is clear what has to be collected, and there aren't alternative data collections that could serve as substitutes and/or required for implementation of a federal program.\n\n### Staffing and Funding\n- Gone: All of the staff in the division or agency are gone and/or all funding has been terminated.\n- High Risk: 40% or more of staff lost, and/or 1,000 or more staff lost, and/or budget cut by 20% or more, and/or leadership removed.\n- Moderate Risk: 10\u201339% of staff lost, and/or 500\u2013999 staff lost, and/or budget cut by 10\u201319%, and/or threatened change in leadership.\n- No Known Issue: Less than 10% of staff lost and less than 10% of budget cut and no known change in leadership.\n\n### Policy\n- Gone: Data collection and publication has been terminated.\n- High Risk: Presidential Action-driven information collection request (ICR); negative policy note on site; other significant changes in accordance with Administration priorities.\n- Moderate Risk: Proposed or pending changes; statements by administration officials suggesting a change is being considered or planned.\n- No Known Issue: No notable changes since January 2025 affecting what data is collected and published.\n\nFor each category, concisely list the evidence and supporting sources that would support each risk level. Then indicate which risk level you find most appropriate and why.\n\nConclude with a simple summary of risk levels:\nHistorical Data Availability: <level>\nFuture Data Availability: <level>\nData Quality: <level>\nStatutory Context: <level>\nStaffing and Funding: <level>\nPolicy: <level>"
+    },
+    {
+      "role": "assistant",
+      "content": "I'll research current risk factors: agency funding and staffing, any delayed releases, policy changes under the current administration, and the status of the survey's authorizations.I have strong evidence on most categories. Let me confirm a few remaining specifics: Census Bureau leadership changes and whether the shutdown disrupted ABS releases.# Risk Assessment: Annual Business Survey (ABS)\n\nAssessment date context: evidence current through late 2025/early 2026 reporting.\n\n---\n\n## 1. Historical Data Availability\n\n**Evidence for \"Gone\":** None found. No ABS data files have been removed from public access.\n\n**Evidence for \"High Risk\":** None specific to ABS. Other federal datasets have been removed or altered government-wide since January 2025 (documented by CBPP and Federal News Network), but no ABS tables, API endpoints, or NCSES statistical tables are known to have been taken down.\n\n**Evidence for \"Moderate Risk\":** None specific to ABS. No data elements from prior cycles (2018\u20132024 collection years) are known to have been retroactively removed or altered.\n\n**Evidence for \"No Known Issue\":**\n- All ABS cycles remain accessible: Company Summary, Characteristics of Businesses, Characteristics of Business Owners, and Module tables for 2018\u20132025 on data.census.gov, the Census API, and census.gov table pages (census.gov/programs-surveys/abs/data/tables.html; census.gov/data/developers/data-sets/abs.html).\n- NCSES ABS tables and InfoBriefs (2019\u20132024 cycles) remain posted at ncses.nsf.gov.\n- Historical predecessor series (SBO, ASE, SIRD/BRDIS/BERD back to 1953) remain archived on Census and NCSES pages.\n- Census explicitly stated prior ABS releases will not be renamed or altered under the new reference-year naming convention (census.gov API documentation, updated November 20, 2025).\n\n**Rating: No Known Issue.** The full public time series remains intact and unaltered. (Preservationists should still archive copies given the volatile environment, but there is no evidence of loss to date.)\n\n---\n\n## 2. Future Data Availability\n\n**Evidence for \"Gone\":** Collection and publication have not been terminated. The merged ABS/BERD is scheduled to mail in May 2026.\n\n**Evidence for \"High Risk\":** The ICR (OMB No. 0607-1004) is **not** expired\u2014it runs through **May 31, 2027**, and the revision integrating BERD content was approved by OIRA on May 15, 2026 (reginfo.gov, ICR 202602-0607-001). No statutory publication deadline has been missed.\n\n**Evidence for \"Moderate Risk\":**\n- The October\u2013November 2025 government shutdown (43 days) disrupted economic data release schedules across Census, BEA, and BLS; Census issued ~100 RIF notices during the shutdown citing \"lack of funds\" (Bloomberg Law, Oct. 2025; The Census Project).\n- DOGE announced in May 2025 that it had \"terminated\" five Census surveys conducted for other agencies and stated remaining surveys are being reviewed \"one-by-one,\" calling many \"obsolete\" (AP News; Federal News Network, Dec. 2025). ABS is a reimbursable, cosponsored survey\u2014the same category DOGE targeted.\n\n**Evidence for \"No Known Issue\":**\n- The 2025 ABS (reference year 2024) was fielded on schedule in July 2025, and **2025 ABS First Look tables were released November 20, 2025** (census.gov/data/tables/2025/econ/abs/2025-abs-first-look.html).\n- The Census Bureau re-issued its mandatory-survey determination including the ABS in 2025 and again in September 2026 (90 FR 2025-05843; Federal Register Sept. 4, 2026).\n- BERD's termination is a *merger*, not a data loss\u2014its content continues inside the ABS, with OMB terms of clearance requiring Census to transmit all data to NCSES.\n- ICR active through May 31, 2027 with the renewal/revision already approved before expiration.\n\n**Rating: No Known Issue.** The rubric's mechanical criteria are met: collection and publication are on schedule and the ICR is active and renewed. I note, however, that this is the weakest \"No Known Issue\" on this list\u2014the DOGE survey-by-survey review and shutdown-era RIFs create a plausible path to future delay that has not yet materialized for ABS specifically.\n\n---\n\n## 3. Data Quality\n\n**Evidence for \"Gone\":** Not applicable; publication continues.\n\n**Evidence for \"High Risk\" (reductions in granularity, timeliness, or frequency):**\n- **Sample cut ~33%:** The 2025 ABS sample was reduced from ~330,000 employer businesses (2024 cycle) to ~222,000 employers plus 8,000 nonprofits (90 FR 2025-05463, March 31, 2025). This follows an earlier cut from ~850,000 in census years. Smaller samples increase sampling error and disclosure suppression, reducing usable detail in published cross-tabulations.\n- **Module content skipped:** The same notice states the 2025 ABS \"will not contain any new or variable content\"\u2014the rotating modules (financing, technology/AI, management practices, etc.) were dropped for a cycle, a reduction in the frequency of those topical data.\n- **Series break:** The BERD integration changed R&D question wording; BEA formally urged time-series consistency in its ICR comment, and NCSES/Census acknowledge comparability work is needed (reginfo.gov ICR 202602-0607-001).\n\n**Evidence for \"Moderate Risk\" (potential/emerging risk):**\n- ~15% Census staffing loss since FY24 and loss of division chiefs erode methodological capacity (American Statistical Association, \"The Nation's Data at Risk 2025\"; NPR/WXXI, April 2025).\n- All three Census advisory committees and FESAC\u2014the external bodies that reviewed survey methodology\u2014were terminated in February 2025 under E.O. 14217 (90 FR 2025-10398; Reuters, March 5, 2025).\n- Proposed FY26 budget cuts (Census staffing \u22129%; NCSES \u221240%) would, if enacted, further strain quality (ASA; NSF FY26 SBE/NCSES budget request).\n\n**Evidence for \"No Known Issue\":** Headline products (owner-demographic Company Summary at national/state/MSA/county levels) continue annually at the same geographic granularity; 2025 First Look tables were released on the normal timeline; the BERD merger arguably *adds* content (full economy-wide R&D in one instrument).\n\n**Rating: Moderate Risk.** Core product granularity, annual frequency, and timeliness are being maintained, which keeps this out of \"High.\" But the reductions are real and documented\u2014an actual one-third sample cut, a skipped module cycle, and an acknowledged comparability break\u2014combined with emerging risks from staffing losses and the elimination of scientific advisory oversight. If FY26 budget cuts are enacted or another module cycle is skipped, this should be re-rated High.\n\n---\n\n## 4. Statutory Context\n\n**Evidence for \"High Risk\":** The ABS is not named verbatim in statute, and NCSES's FY26 appropriation is proposed at a 40% cut\u2014though neither fact bears directly on authorization strength.\n\n**Evidence for \"Moderate Risk\":** The ABS rests on *general* Title 13 authority (\u00a7\u00a7 8(b), 131, 182) rather than a survey-specific statutory command, which is the main argument for anything below \"No Known Issue.\"\n\n**Evidence for \"No Known Issue\":**\n- **Explicit statutory authorization**: Collection is authorized under Title 13 U.S.C. \u00a7\u00a7 8(b), 131, and 182; response is mandatory under \u00a7\u00a7 224\u2013225 (reaffirmed in Federal Register mandatory-survey determinations, April 4, 2025 and September 4, 2026).\n- **Explicit cosponsor mandate**: The NSF Act of 1950 and the America COMPETES Reauthorization Act of 2010 direct NCSES to collect and disseminate statistics on U.S. R&D and innovation\u2014exactly what the ABS's R&D and innovation content provides.\n- **Required for federal program implementation**: ABS/BERD R&D estimates feed BEA's GDP calculations (R&D is capitalized in the national accounts), the R&D satellite account, NCSES's National Patterns of R&D Resources, and the National Science Board's statutorily required Science and Engineering Indicators (90 FR 2025-05463: \"Estimates from the Research and Development section of the ABS are used as a part of the calculations for investment in quarterly GDP\").\n- **No substitutes**: The ABS is the sole source of business-owner demographics by sex/race/ethnicity/veteran status and the sole source of R&D data for firms with 1\u20139 employees; after the BERD merger it is the only federal business R&D collection. OMB's terms of clearance (requiring data transmission to NCSES and NCSES approval of revisions) further institutionalize it.\n\n**Rating: No Known Issue.** Authorization is explicit and named, programmatic uses are concrete and statutory, and no alternative collection exists. The statutory foundation is the strongest protective factor this dataset has.\n\n---\n\n## 5. Staffing and Funding\n\n**Evidence for \"Gone\":** Neither agency is defunded; both continue operating.\n\n**Evidence for \"High Risk\":**\n- **>1,000 staff lost at Census**: AFGE reports ~1,300\u20131,500 Census employees lost since January 2025 via deferred resignation/early retirement, out of ~13,230 (GovExec, July 2025; Bloomberg Law, Oct. 2025). ASA estimates ~15% total staffing loss since FY24.\n- **Leadership removed**: Director Robert Santos resigned February 14, 2025; career acting director Ron Jarmin was displaced in September 2025 by George Cook, a Commerce political appointee simultaneously holding three roles, whose qualifications under 13 U.S.C. \u00a7 21 have been publicly questioned (NPR, Sept. 19, 2025; CRS IF11845). No permanent director has been nominated.\n- **Budget cut \u226520% (proposed)**: The FY26 President's Budget Request cuts **NCSES by 40.6%** ($74.07M \u2192 $44.0M; NSF FY26 SBE/NCSES Congressional Justification) and NSF overall by ~57%; House CJS bill proposed \u2212$2B for NSF (FABBS, July 2025). Census FY26 staffing request is \u22129% overall and \u221227% for periodic censuses/programs (ASA). Note: FY25 operated on a full-year CR at FY24 levels, so the deepest cuts are *proposed*, not yet enacted\u2014but the staffing losses are *realized*.\n- NSF workforce reportedly reduced by one-third January\u2013July 2025 (CRS R48783).\n- 100 Census employees received RIF notices in October 2025 (Bloomberg Law).\n\n**Evidence for \"Moderate Risk\":** If one credits only enacted funding (CR at FY24 levels) and the Census's ~15% staffing loss alone, the 10\u201339% band applies.\n\n**Evidence for \"No Known Issue\":** None; losses substantially exceed the <10% threshold.\n\n**Rating: High Risk.** Three independent High-tier criteria are met: more than 1,000 staff lost, agency leadership removed/replaced with a political acting director, and a proposed 40%+ budget cut to the cosponsoring statistical agency (NCSES) that funds ABS content. Even discounting unenacted budget proposals, the realized staffing and leadership facts alone satisfy the High threshold.\n\n---\n\n## 6. Policy\n\n**Evidence for \"Gone\":** ABS collection and publication have not been terminated.\n\n**Evidence for \"High Risk\":** No Presidential Action specifically targets the ABS; the ABS ICR revision (BERD merger) was an efficiency initiative in motion before January 2025, not a Presidential Action-driven collection; there is no negative policy note on the ABS site. However, DOGE's termination of five Census reimbursable surveys and its \"one-by-one\" review of the rest (AP News, May 2025) is arguably \"significant changes in accordance with Administration priorities\" affecting the survey portfolio ABS belongs to.\n\n**Evidence for \"Moderate Risk\":**\n- DOGE publicly stated Census's 100+ surveys are under individual review and called many \"obsolete\" with results \"not being used to drive any action\"\u2014an explicit signal that changes to surveys like ABS (a cosponsored/reimbursable survey, DOGE's target category) are being considered (AP News; Federal News Network, Dec. 2025).\n- The FY26 budget proposes eliminating/sharply reducing specific Census surveys (e.g., SIPP; CBPP), demonstrating administration willingness to cut current surveys.\n- Executive Order 14217 drove termination of the Census Scientific Advisory Committee, National Advisory Committee on Racial, Ethnic, and Other Populations, 2030 Census Advisory Committee, and FESAC\u2014removing the external review channels through which ABS methodology and race/ethnicity data quality were overseen (90 FR 2025-10398; Science, March 2025). Notably, the ABS's core product is business-owner data by race, ethnicity, sex, and veteran status\u2014content categories that administration DEI-related directives have targeted elsewhere in government.\n- The President's August 2025 directive for a \"new census\" excluding undocumented people signals active political interest in reshaping Census outputs (ASA, \"The Nation's Data at Risk 2025\").\n- Pending change: the ABS/BERD merged instrument and naming change take effect with the May 2026 mailing\u2014an approved but significant restructuring.\n\n**Evidence for \"No Known Issue\":** No ABS-specific content question has been publicly targeted for removal; the 2026 revision was cleared through normal OIRA process with stakeholder input.\n\n**Rating: Moderate Risk.** There is no direct Presidential Action or negative site notice against the ABS, which keeps this below High. But there are unambiguous administration statements and actions indicating that Census's non-core survey portfolio is under active review for elimination, plus pending structural changes to the ABS itself and the removal of its scientific oversight bodies\u2014squarely matching the Moderate definition of \"proposed or pending changes; statements by administration officials suggesting a change is being considered or planned.\"\n\n---\n\n## Summary of Risk Levels\n\n| Category | Risk Level |\n|---|---|\n| Historical Data Availability | **No Known Issue** |\n| Future Data Availability | **No Known Issue** |\n| Data Quality | **Moderate Risk** |\n| Statutory Context | **No Known Issue** |\n| Staffing and Funding | **High Risk** |\n| Policy | **Moderate Risk** |\n\n**Overall interpretation for preservation planning:** The ABS's *artifacts* (historical tables, APIs, documentation) are currently safe and unaltered, and its statutory footing is genuinely strong. The danger is forward-looking and institutional: the survey depends on two agencies experiencing severe realized staffing losses (>1,300 at Census; ~one-third at NSF), leadership politicization, a proposed 40% cut to NCSES, and an administration actively reviewing Census's survey portfolio for termination\u2014with the ABS sitting in the reimbursable/cosponsored category DOGE has already targeted. The near-term trigger points to watch are (1) the FY26 appropriations outcome for NCSES and Census, (2) the May 2026 mailing and subsequent release schedule of the merged 2025 ABS, and (3) OMB re-clearance activity ahead of the May 31, 2027 ICR expiration. Archiving all public ABS/NCSES tables, questionnaires, and methodology documents now\u2014while they remain fully available\u2014is prudent insurance against a plausible degradation scenario.\n\n**Key sources:** Census ABS program pages and 2025 First Look release; Federal Register notices 2025-05463, 2025-05843, 2025-10398, and Sept. 4, 2026 mandatory-survey determination; reginfo.gov ICR 202602-0607-001; NSF FY26 SBE/NCSES Congressional Justification; American Statistical Association, *The Nation's Data at Risk 2025* (Census and NCSES chapters); AP News (DOGE/Census surveys; Cook appointment); NPR (Census leadership); Bloomberg Law (October 2025 RIFs); GovExec and WXXI/NPR (Census staffing); Reuters and Science (advisory committee terminations); CBPP (survey budget cuts); CRS R48783 and IF11845; FABBS (NSF appropriations)."
+    },
+    {
+      "role": "user",
+      "content": "Emit a session_metadata YAML block reporting: current date, model identifier, knowledge cutoff, surface, whether memory is enabled, whether custom preferences or styles are active, all tools and MCP servers available, which tools were actually called in this session, and whether attachments were present. Mark any field not directly observable as unknown rather than inferring it."
+    },
+    {
+      "role": "assistant",
+      "content": "```yaml\nsession_metadata:\n  current_date: unknown\n  model_identifier: unknown\n  knowledge_cutoff: unknown\n  surface: unknown\n  memory_enabled: unknown\n  custom_preferences_or_styles_active: unknown\n  available_tools:\n    - functions.openrouter_web_search\n    - functions.openrouter_web_fetch\n  available_mcp_servers: unknown\n  tools_called_in_session:\n    - functions.openrouter_web_search\n    - functions.openrouter_web_fetch\n  attachments_present: false\n```"
+    }
+  ]
+}

@@ -1,0 +1,1230 @@
+{
+  "dataset": {
+    "key": "crop-production",
+    "title": "Crop Production"
+  },
+  "model": "deepseek/deepseek-v4-pro-0813",
+  "harness": "openrouter tools",
+  "context": "full: each turn's whole output is carried into the next",
+  "search_tool": {
+    "engine": "exa",
+    "max_results": 10,
+    "excluded_domains": [
+      "dataindex.us"
+    ]
+  },
+  "fetch_tool": {
+    "engine": "openrouter",
+    "blocked_domains": [
+      "dataindex.us"
+    ],
+    "max_content_tokens": 10000
+  },
+  "reasoning": "effort high",
+  "catalog": {
+    "fetched_at": "2026-10-08T20:15:36Z",
+    "entry": {
+      "id": "deepseek/deepseek-v4-pro-0813",
+      "canonical_slug": "deepseek/deepseek-v4-pro-20260813",
+      "hugging_face_id": "deepseek-ai/DeepSeek-V4-Pro-0813",
+      "name": "DeepSeek: DeepSeek V4 Pro 0813",
+      "created": 1786549364,
+      "description": "DeepSeek V4 Pro 0813 is a large-scale mixture-of-experts model from DeepSeek. This is the GA release of DeepSeek V4 Pro.",
+      "context_length": 1048576,
+      "architecture": {
+        "modality": "text->text",
+        "input_modalities": [
+          "text"
+        ],
+        "output_modalities": [
+          "text"
+        ],
+        "tokenizer": "DeepSeek",
+        "instruct_type": null
+      },
+      "pricing": {
+        "prompt": "0.00000066",
+        "completion": "0.00000198",
+        "input_cache_read": "0.000000022",
+        "overrides": [
+          {
+            "utc_days": [
+              "saturday",
+              "sunday"
+            ],
+            "prompt": "0.00000066",
+            "completion": "0.00000198",
+            "input_cache_read": "0.000000022"
+          },
+          {
+            "utc_days": [
+              "monday",
+              "tuesday",
+              "wednesday",
+              "thursday",
+              "friday"
+            ],
+            "utc_start": 0,
+            "utc_end": 100,
+            "prompt": "0.00000066",
+            "completion": "0.00000198",
+            "input_cache_read": "0.000000022"
+          },
+          {
+            "utc_days": [
+              "monday",
+              "tuesday",
+              "wednesday",
+              "thursday",
+              "friday"
+            ],
+            "utc_start": 100,
+            "utc_end": 400,
+            "prompt": "0.00000132",
+            "completion": "0.00000396",
+            "input_cache_read": "0.000000044"
+          },
+          {
+            "utc_days": [
+              "monday",
+              "tuesday",
+              "wednesday",
+              "thursday",
+              "friday"
+            ],
+            "utc_start": 400,
+            "utc_end": 600,
+            "prompt": "0.00000066",
+            "completion": "0.00000198",
+            "input_cache_read": "0.000000022"
+          },
+          {
+            "utc_days": [
+              "monday",
+              "tuesday",
+              "wednesday",
+              "thursday",
+              "friday"
+            ],
+            "utc_start": 600,
+            "utc_end": 1000,
+            "prompt": "0.00000132",
+            "completion": "0.00000396",
+            "input_cache_read": "0.000000044"
+          },
+          {
+            "utc_days": [
+              "monday",
+              "tuesday",
+              "wednesday",
+              "thursday",
+              "friday"
+            ],
+            "utc_start": 1000,
+            "utc_end": 0,
+            "prompt": "0.00000066",
+            "completion": "0.00000198",
+            "input_cache_read": "0.000000022"
+          }
+        ]
+      },
+      "top_provider": {
+        "context_length": 1048576,
+        "max_completion_tokens": 393216,
+        "is_moderated": false
+      },
+      "per_request_limits": null,
+      "supported_parameters": [
+        "frequency_penalty",
+        "include_reasoning",
+        "logit_bias",
+        "logprobs",
+        "max_tokens",
+        "min_p",
+        "presence_penalty",
+        "reasoning",
+        "reasoning_effort",
+        "repetition_penalty",
+        "response_format",
+        "seed",
+        "stop",
+        "structured_outputs",
+        "temperature",
+        "tool_choice",
+        "tools",
+        "top_k",
+        "top_logprobs",
+        "top_p"
+      ],
+      "default_parameters": {
+        "temperature": 1,
+        "top_p": 1
+      },
+      "supported_voices": null,
+      "knowledge_cutoff": null,
+      "expiration_date": null,
+      "links": {
+        "details": "/api/v1/models/deepseek/deepseek-v4-pro-20260813/endpoints"
+      },
+      "benchmarks": {
+        "design_arena": [],
+        "artificial_analysis": {
+          "intelligence_index": 36,
+          "coding_index": 68.8,
+          "agentic_index": 41.3
+        }
+      },
+      "reasoning": {
+        "mandatory": false,
+        "supported_efforts": [
+          "max",
+          "high",
+          "low"
+        ],
+        "default_effort": "high"
+      }
+    }
+  },
+  "upstream": [
+    "deepseek"
+  ],
+  "trial": 0,
+  "terminate_reason": "completed",
+  "max_tokens": 32768,
+  "started_at": "2026-10-08T20:15:35Z",
+  "prompts": {
+    "research": "#data research\nI am researching a federal dataset. Find out everything you can about this dataset, such as who publishes it, under what authority or mandate, its history, its typical users, and its benefits to the public. Be sure your research comprehensively covers each of those perspectives, as well as any others that you discover or seem useful. I believe this is accurate information, but please check:\n\nDataset title: Crop Production\nDescription: The USDA Crop Production report, released monthly by the National Agricultural Statistics Service (NASS), provides official estimates on U.S. agricultural acreage, yield, and production for major field crops, fruits, and nuts.\n\nReturn a complete report on everything that a preservationist, data librarian, data scientist, or policy activist might want to know about this data.",
+    "assessment": "# Dataset risk assessment\nI would like your help in assessing the likelihood that this data will be changed or removed from its primary location, and that users will no longer be able to access accurate and reliable copies of it, based on the rubric below.\n\n## Sources for context\nTo help assess the rubric categories, perform additional research on the data, the agency, the data's topics and typical users, covering topics such as proposed regulatory or funding changes, recent news, and political commentary. Use whatever resources you find useful, including the Federal Register (https://www.federalregister.gov) and the federal staffing tracker at https://usajobs-tracker.abigailhaddad.com.\n\n## Rubric\nThis rubric is divided up into categories. Each category is divided up into risk levels. In your output, please select the appropriate risk level for each category based on your research.\n\n### Historical Data Availability\n- Gone: Data files prior to the current year or cycle are no longer publicly available.\n- High Risk: Some data files prior to the current year or cycle are removed.\n- Moderate Risk: Some data elements that exist in the dataset prior to the current year or cycle are removed.\n- No Known Issue: Data prior to the current year or cycle remain accessible with no known alterations.\n\n### Future Data Availability\n- Gone: Data collection and publication has been terminated.\n- High Risk: Statutory publication deadline missed and/or collection or publication skipped and/or ICR expired for more than one year.\n- Moderate Risk: Typical or intended publication date missed and/or collection or publication delayed; ICR expired up to one year.\n- No Known Issue: Data published on time or as expected and ICR active or renewed before expiration.\n\n### Data Quality\n- Gone: Data collection and publication has been terminated.\n- High Risk: Reductions in granularity, timeliness, or frequency.\n- Moderate Risk: Potential or emerging risk to granularity, timeliness, or frequency.\n- No Known Issue: Maintained or improved granularity, timeliness, or frequency.\n\n### Statutory Context\n- Gone: N/A\n- High Risk: Statutory authorization is vague and/or there are alternative data collections that could serve as substitutes and/or no known programmatic use.\n- Moderate Risk: Not explicitly required by statute but required for the implementation of a state or federal program, and there are no alternative data collections that could serve as substitutes.\n- No Known Issue: Statutorily required and/or statutory authorization is explicitly named and it is clear what has to be collected, and there aren't alternative data collections that could serve as substitutes and/or required for implementation of a federal program.\n\n### Staffing and Funding\n- Gone: All of the staff in the division or agency are gone and/or all funding has been terminated.\n- High Risk: 40% or more of staff lost, and/or 1,000 or more staff lost, and/or budget cut by 20% or more, and/or leadership removed.\n- Moderate Risk: 10\u201339% of staff lost, and/or 500\u2013999 staff lost, and/or budget cut by 10\u201319%, and/or threatened change in leadership.\n- No Known Issue: Less than 10% of staff lost and less than 10% of budget cut and no known change in leadership.\n\n### Policy\n- Gone: Data collection and publication has been terminated.\n- High Risk: Presidential Action-driven information collection request (ICR); negative policy note on site; other significant changes in accordance with Administration priorities.\n- Moderate Risk: Proposed or pending changes; statements by administration officials suggesting a change is being considered or planned.\n- No Known Issue: No notable changes since January 2025 affecting what data is collected and published.\n\nFor each category, concisely list the evidence and supporting sources that would support each risk level. Then indicate which risk level you find most appropriate and why.\n\nConclude with a simple summary of risk levels:\nHistorical Data Availability: <level>\nFuture Data Availability: <level>\nData Quality: <level>\nStatutory Context: <level>\nStaffing and Funding: <level>\nPolicy: <level>",
+    "session_metadata": "Emit a session_metadata YAML block reporting: current date, model identifier, knowledge cutoff, surface, whether memory is enabled, whether custom preferences or styles are active, all tools and MCP servers available, which tools were actually called in this session, and whether attachments were present. Mark any field not directly observable as unknown rather than inferring it."
+  },
+  "turns": {
+    "research": {
+      "request": {
+        "model": "deepseek/deepseek-v4-pro-0813",
+        "max_output_tokens": 32768,
+        "tools": [
+          {
+            "type": "openrouter:web_search",
+            "parameters": {
+              "engine": "exa",
+              "max_results": 10,
+              "excluded_domains": [
+                "dataindex.us"
+              ]
+            }
+          },
+          {
+            "type": "openrouter:web_fetch",
+            "parameters": {
+              "engine": "openrouter",
+              "blocked_domains": [
+                "dataindex.us"
+              ],
+              "max_content_tokens": 10000
+            }
+          }
+        ],
+        "cache_control": {
+          "type": "ephemeral",
+          "ttl": "1h"
+        },
+        "session_id": "crop-production-deepseek/deepseek-v4-pro-0813-t0-2026-10-08T20:15:35Z",
+        "stop_server_tools_when": [
+          {
+            "type": "step_count_is",
+            "step_count": 200
+          }
+        ],
+        "reasoning": {
+          "effort": "high"
+        },
+        "provider": {
+          "order": [
+            "deepseek"
+          ],
+          "allow_fallbacks": false
+        }
+      },
+      "response_meta": {
+        "id": "gen-1791490536-kM1VPnT8eTEtkRILgAwP",
+        "object": "response",
+        "created_at": 1791490536,
+        "model": "deepseek/deepseek-v4-pro-0813",
+        "status": "completed",
+        "completed_at": 1791490633,
+        "error": null,
+        "incomplete_details": null,
+        "tools": [],
+        "tool_choice": "auto",
+        "parallel_tool_calls": true,
+        "max_output_tokens": 32768,
+        "temperature": 1,
+        "top_p": 1,
+        "presence_penalty": 0,
+        "frequency_penalty": 0,
+        "top_logprobs": 0,
+        "max_tool_calls": null,
+        "metadata": {},
+        "background": false,
+        "previous_response_id": null,
+        "service_tier": "auto",
+        "truncation": "disabled",
+        "store": false,
+        "instructions": null,
+        "text": {
+          "format": {
+            "type": "text"
+          }
+        },
+        "reasoning": {
+          "effort": "high"
+        },
+        "safety_identifier": null,
+        "prompt_cache_key": null,
+        "prompt_cache_options": null,
+        "usage": {
+          "input_tokens": 91947,
+          "input_tokens_details": {
+            "cached_tokens": 60416
+          },
+          "output_tokens": 9540,
+          "output_tokens_details": {
+            "reasoning_tokens": 3416
+          },
+          "total_tokens": 101487,
+          "cost": 0.076028812,
+          "cost_details": {
+            "upstream_inference_cost": 0.041028812,
+            "upstream_inference_input_cost": 0.022139612,
+            "upstream_inference_output_cost": 0.0188892
+          },
+          "server_tool_use_details": {
+            "web_search_requests": 8,
+            "tool_calls_requested": 10,
+            "tool_calls_executed": 10
+          }
+        }
+      },
+      "requests": [
+        {
+          "input_tokens": 91947,
+          "input_tokens_details": {
+            "cached_tokens": 60416
+          },
+          "output_tokens": 9540,
+          "output_tokens_details": {
+            "reasoning_tokens": 3416
+          },
+          "total_tokens": 101487,
+          "cost": 0.076028812,
+          "cost_details": {
+            "upstream_inference_cost": 0.041028812,
+            "upstream_inference_input_cost": 0.022139612,
+            "upstream_inference_output_cost": 0.0188892
+          },
+          "server_tool_use_details": {
+            "web_search_requests": 8,
+            "tool_calls_requested": 10,
+            "tool_calls_executed": 10
+          }
+        }
+      ],
+      "searches": 8,
+      "fetches": 2,
+      "tool_items": [
+        {
+          "type": "openrouter:web_search",
+          "id": "st_tmp_gb8ymlgwjo4",
+          "status": "completed",
+          "action": {
+            "type": "search",
+            "query": "USDA NASS Crop Production report monthly official estimates acreage yield production",
+            "sources": [
+              {
+                "type": "url",
+                "url": "https://esmis.nal.usda.gov/publication/crop-production"
+              },
+              {
+                "type": "url",
+                "url": "https://www.nass.usda.gov/Publications/Todays_Reports/reports/crop0826.pdf"
+              },
+              {
+                "type": "url",
+                "url": "https://www.nass.usda.gov/Surveys/Guide_to_NASS_Surveys/Agricultural_Yield/index.php"
+              },
+              {
+                "type": "url",
+                "url": "https://www.nass.usda.gov/Publications/Todays_Reports/reports/crop0926.pdf"
+              },
+              {
+                "type": "url",
+                "url": "https://www.nass.usda.gov/Newsroom/Executive_Briefings/2026/08-12-2026.pdf"
+              },
+              {
+                "type": "url",
+                "url": "https://esmis.nal.usda.gov/sites/default/release-files/795973/crop0726.pdf"
+              },
+              {
+                "type": "url",
+                "url": "https://www.nass.usda.gov/Publications/Todays_Reports/reports/crop0626.pdf"
+              },
+              {
+                "type": "url",
+                "url": "https://www.nass.usda.gov/Newsroom/Executive_Briefings/2026/09-11-2026.pdf"
+              },
+              {
+                "type": "url",
+                "url": "https://esmis.nal.usda.gov/sites/default/release-files/796015/crop0826.txt"
+              },
+              {
+                "type": "url",
+                "url": "https://esmis.nal.usda.gov/sites/default/release-files/796056/crop0926.pdf"
+              }
+            ]
+          }
+        },
+        {
+          "type": "openrouter:web_search",
+          "id": "st_tmp_v3mne642ub",
+          "status": "completed",
+          "action": {
+            "type": "search",
+            "query": "National Agricultural Statistics Service authority mandate legal basis Title 7 crop estimates",
+            "sources": [
+              {
+                "type": "url",
+                "url": "https://www.ecfr.gov/current/title-7/subtitle-A/part-2/subpart-K/section-2.68"
+              },
+              {
+                "type": "url",
+                "url": "https://uscode.house.gov/view.xhtml?req=(title:7%20section:2204g%20edition:prelim)"
+              },
+              {
+                "type": "url",
+                "url": "https://usda.azureedge.us/sites/default/files/documents/20-2024-NASS.pdf"
+              },
+              {
+                "type": "url",
+                "url": "https://www.usda.gov/sites/default/files/documents/17nass2021notes.pdf"
+              },
+              {
+                "type": "url",
+                "url": "https://www.govinfo.gov/content/pkg/CFR-2025-title7-vol15/pdf/CFR-2025-title7-vol15-part3600.pdf"
+              },
+              {
+                "type": "url",
+                "url": "https://www.nass.usda.gov/About_NASS/Regulations_Guiding_NASS/"
+              },
+              {
+                "type": "url",
+                "url": "https://uscode.ecfr.io/statutes/pl/105/113.pdf"
+              },
+              {
+                "type": "url",
+                "url": "https://www.usda.gov/sites/default/files/documents/17nass2019notes.pdf"
+              },
+              {
+                "type": "url",
+                "url": "https://www.nationalacademies.org/read/25260/chapter/4"
+              },
+              {
+                "type": "url",
+                "url": "https://www.govinfo.gov/content/pkg/FR-1996-04-17/html/96-9461.htm"
+              }
+            ]
+          }
+        },
+        {
+          "type": "openrouter:web_search",
+          "id": "st_tmp_w6bnzfwicb",
+          "status": "completed",
+          "action": {
+            "type": "search",
+            "query": "history of USDA crop production estimates NASS Crop Reporting Board 1863 annual report",
+            "sources": [
+              {
+                "type": "url",
+                "url": "https://www.nass.usda.gov/About_NASS/pdf/The%20Story%20of%20U.S.%20Agricultural%20Estimates.pdf"
+              },
+              {
+                "type": "url",
+                "url": "https://data.nass.usda.gov/Education_and_Outreach/Reports,_Presentations_and_Conferences/Survey_Reports/125%20Years%20of%20Agricultural%20Estimates.pdf"
+              },
+              {
+                "type": "url",
+                "url": "https://www.nass.usda.gov/About_NASS/History_of_Ag_Statistics/"
+              },
+              {
+                "type": "url",
+                "url": "https://www.nass.usda.gov/About_NASS/pdf/asb_historical.pdf"
+              },
+              {
+                "type": "url",
+                "url": "https://www.nass.usda.gov/About_NASS/pdf/evolving_nass.pdf"
+              },
+              {
+                "type": "url",
+                "url": "https://www.nass.usda.gov/About_NASS/Timeline/The_Founding_Period/index.php"
+              },
+              {
+                "type": "url",
+                "url": "https://www.nass.usda.gov/Education_and_Outreach/Reports,_Presentations_and_Conferences/reports/riberas_document_final_rdd-08-10.pdf"
+              },
+              {
+                "type": "url",
+                "url": "https://www.usda.gov/about-usda/news/blog/us-agricultural-statistics-history-and-new-historical-timeline"
+              },
+              {
+                "type": "url",
+                "url": "https://www.congress.gov/crs_external_products/R/PDF/R44814/R44814.3.pdf"
+              },
+              {
+                "type": "url",
+                "url": "https://en.wikipedia.org/wiki/National_Agricultural_Statistics_Service"
+              }
+            ]
+          }
+        },
+        {
+          "type": "openrouter:web_search",
+          "id": "st_tmp_8atc8roiyk",
+          "status": "completed",
+          "action": {
+            "type": "search",
+            "query": "Crop Production report NASS users market participants WASDE farmers economists benefits",
+            "sources": [
+              {
+                "type": "url",
+                "url": "https://www.usda.gov/oce/commodity-markets/wasde/faqs"
+              },
+              {
+                "type": "url",
+                "url": "https://www.congress.gov/crs_external_products/R/PDF/R44814/R44814.3.pdf"
+              },
+              {
+                "type": "url",
+                "url": "https://www.nass.usda.gov/Education_and_Outreach/Understanding_Statistics/pub1554.pdf"
+              },
+              {
+                "type": "url",
+                "url": "https://ers.usda.gov/topics/farm-economy/commodity-outlook/usda-outlook-process"
+              },
+              {
+                "type": "url",
+                "url": "https://www.nass.usda.gov/Publications/Methodology_and_Data_Quality/Crop_Production/09_2021/cranqm21.pdf"
+              },
+              {
+                "type": "url",
+                "url": "https://www.cambridge.org/core/journals/journal-of-agricultural-and-applied-economics/article/are-usda-forecasts-optimal-a-systematic-review/FC36FD14D4BE82E1A0D5C9DD45E90280"
+              },
+              {
+                "type": "url",
+                "url": "https://www.amstat.org/docs/default-source/amstat-documents/pol-asa-response-to-usda-data-rfi.pdf"
+              },
+              {
+                "type": "url",
+                "url": "https://aaec.vt.edu/content/dam/aaec_vt_edu/faculty-research/NCGA%20Report_Final.pdf"
+              },
+              {
+                "type": "url",
+                "url": "https://www.foodfarmingsustainability.com/_files/ugd/ea7add_4287175224be409e847bb11aa64910c6.pdf"
+              },
+              {
+                "type": "url",
+                "url": "https://www.nass.usda.gov/Publications/Todays_Reports/reports/crop0926.pdf"
+              }
+            ]
+          }
+        },
+        {
+          "type": "openrouter:web_search",
+          "id": "st_tmp_out319up6ik",
+          "status": "completed",
+          "action": {
+            "type": "search",
+            "query": "NASS Quick Stats Crop Production data access API methodology objective yield survey",
+            "sources": [
+              {
+                "type": "url",
+                "url": "https://www.nass.usda.gov/Quick_Stats/"
+              },
+              {
+                "type": "url",
+                "url": "https://www.nass.usda.gov/developer/index.php"
+              },
+              {
+                "type": "url",
+                "url": "https://data.nass.usda.gov/Surveys/Guide_to_NASS_Surveys/Objective_Yield/index.php"
+              },
+              {
+                "type": "url",
+                "url": "https://www.nass.usda.gov/Surveys/Guide_to_NASS_Surveys/Objective_Yield/index.php"
+              },
+              {
+                "type": "url",
+                "url": "https://apis.io/apis/agricultural-statistics-service/agricultural-statistics-service-statistics-api/"
+              },
+              {
+                "type": "url",
+                "url": "https://cran.r-project.org/web/packages/rnassqs/vignettes/rnassqs.html"
+              },
+              {
+                "type": "url",
+                "url": "https://www.nass.usda.gov/Publications/Methodology_and_Data_Quality/Crop_Production/02-2025/cranqm25.pdf"
+              },
+              {
+                "type": "url",
+                "url": "https://www.nass.usda.gov/Publications/Methodology_and_Data_Quality/Advanced_Topics/Yield%20Forecasting%20Program%20of%20NASS_2023.pdf"
+              },
+              {
+                "type": "url",
+                "url": "https://docs.ropensci.org/rnassqs/"
+              },
+              {
+                "type": "url",
+                "url": "https://data.nass.usda.gov/Surveys/Guide_to_NASS_Surveys/Agricultural_Yield/index.php"
+              }
+            ]
+          }
+        },
+        {
+          "type": "openrouter:web_fetch",
+          "id": "st_tmp_r612rdjoo5e",
+          "status": "incomplete",
+          "url": "https://www.congress.gov/crs_external_products/R/PDF/R44814/R44814.3.pdf",
+          "httpStatus": 200,
+          "error": "PDF content cannot be processed by the OpenRouter engine. Use engine: \"native\" (Anthropic models only) or engine: \"firecrawl\" for PDF support."
+        },
+        {
+          "type": "openrouter:web_fetch",
+          "id": "st_tmp_or1gyivef7c",
+          "status": "completed",
+          "url": "https://esmis.nal.usda.gov/publication/crop-production",
+          "content": "<!DOCTYPE html>\n<html lang=\"en\" dir=\"ltr\">\n  <head>\n    <meta charset=\"utf-8\" />\n<meta name=\"Generator\" content=\"Drupal 11 (https://www.drupal.org)\" />\n<meta name=\"MobileOptimized\" content=\"width\" />\n<meta name=\"HandheldFriendly\" content=\"true\" />\n<meta name=\"viewport\" content=\"width=device-width, initial-scale=1.0\" />\n<link rel=\"icon\" href=\"/themes/custom/global_subtheme/favicon.ico\" type=\"image/vnd.microsoft.icon\" />\n<link rel=\"canonical\" href=\"https://esmis.nal.usda.gov/publication/crop-production\" />\n<link rel=\"shortlink\" href=\"https://esmis.nal.usda.gov/node/1632\" />\n\n    <title>Crop Production | Economics, Statistics, and Market Information System</title>\n    <link rel=\"apple-touch-icon-precomposed\" href=\"/themes/custom/nal_global/images/favicons/favicon-57.png\">\n    <link rel=\"apple-touch-icon-precomposed\" sizes=\"72x72\" href=\"/themes/custom/nal_global/images/favicons/favicon-72.png\">\n    <link rel=\"apple-touch-icon-precomposed\" sizes=\"114x114\" href=\"/themes/custom/nal_global/images/favicons/favicon-114.png\">\n    <link rel=\"apple-touch-icon-precomposed\" sizes=\"144x144\" href=\"/themes/custom/nal_global/images/favicons/favicon-144.png\">\n    <link rel=\"stylesheet\" media=\"all\" href=\"/sites/default/files/css/css_24sZjGIu5HX4SAtWxmASdyHaMdeZDKpFUDWHdIhMIPg.css?delta=0&amp;language=en&amp;theme=global_subtheme&amp;include=eJyFj10OwjAMgy_UrUeqsiWUQJZOTfbD7WEwBA9ovFhy_El2-lIp9mUYi5K6tQqSspQOpGk6UKUa-iNkci96iOQyU9XhcU_CerVD-EyAVFOi1UmR8BAeIbOC858Bxk6pq6DIml8k1mkEabGWcf_gUbiteye7DSeBHDdpf9gEF1jDpyrujeY32aq-kskWtLAtWRgpgVD1yMoe7GZOQ-zAKMxMi8WntkPBSegOOw2gXA\" />\n<link rel=\"stylesheet\" media=\"all\" href=\"/sites/default/files/css/css_iJQcTb-uuLDSZjeOeObxDgWiGfNKgn6_i6YME9FKvjE.css?delta=1&amp;language=en&amp;theme=global_subtheme&amp;include=eJyFj10OwjAMgy_UrUeqsiWUQJZOTfbD7WEwBA9ovFhy_El2-lIp9mUYi5K6tQqSspQOpGk6UKUa-iNkci96iOQyU9XhcU_CerVD-EyAVFOi1UmR8BAeIbOC858Bxk6pq6DIml8k1mkEabGWcf_gUbiteye7DSeBHDdpf9gEF1jDpyrujeY32aq-kskWtLAtWRgpgVD1yMoe7GZOQ-zAKMxMi8WntkPBSegOOw2gXA\" />\n\n    <script type=\"application/json\" data-drupal-selector=\"drupal-settings-json\">{\"path\":{\"baseUrl\":\"\\/\",\"pathPrefix\":\"\",\"currentPath\":\"node\\/1632\",\"currentPathIsAdmin\":false,\"isFront\":false,\"currentLanguage\":\"en\",\"theme\":\"themes\\/custom\\/global_subtheme\"},\"pluralDelimiter\":\"\\u0003\",\"suppressDeprecationErrors\":true,\"ajaxPageState\":{\"libraries\":\"eJyNkGFuwyAMhS9Ew5GQAx7zCnaEIWlvP9JmWjVNpH8s2e-D92wvBa2XvAgjV50YkotJZkiXywzMWIwfIQUh-NLyrGOu1So8RHwSRfcGGGXFwrnPXSK-jo0_ez4szuGtIgcMQ5j8iXU3be9EXCASQ6UzrFCGcncMK8VzXLHnC_uD872Vaj9mAQ7EcUg2DeCSRHlSobQF0hSKLMei_XS7349ytOYjQbR7mf5pHXzBzUSRmNDVrsRe_vbTA_rNYo9IWu9pT_2iNN2Cmn2pjQI6SFiqJaZq9K4Vs51B0ayEm9pHff79OsgSWsJvaW8iiQ\",\"theme\":\"global_subtheme\",\"theme_token\":null},\"ajaxTrustedUrl\":{\"\\/publication\\/crop-production\":true},\"gtag\":{\"tagId\":\"G-VYRH7BQ1FL\",\"consentMode\":false,\"otherIds\":[],\"events\":[],\"additionalConfigInfo\":[]},\"data\":{\"extlink\":{\"extTarget\":false,\"extTargetAppendNewWindowDisplay\":true,\"extTargetAppendNewWindowLabel\":\"(opens in a new window)\",\"extTargetNoOverride\":false,\"extNofollow\":false,\"extTitleNoOverride\":false,\"extNoreferrer\":false,\"extFollowNoOverride\":false,\"extClass\":\"ext\",\"extLabel\":\"(link is external)\",\"extImgClass\":false,\"extSubdomains\":false,\"extExclude\":\"\",\"extInclude\":\"\",\"extCssExclude\":\".default-button,.social-link,.usa-button,.important-links,.site-branding__usda\",\"extCssInclude\":\"\",\"extCssExplicit\":\"\",\"extAlert\":false,\"extAlertText\":\"You are leaving a federal website to go to an external one.  We are not responsible for the content on external websites.\",\"extHideIcons\":false,\"mailtoClass\":\"mailto\",\"telClass\":\"\",\"mailtoLabel\":\"(link sends email)\",\"telLabel\":\"(link is a phone number)\",\"extUseFontAwesome\":false,\"extIconPlacement\":\"append\",\"extPreventOrphan\":false,\"extFaLinkClasses\":\"fa fa-external-link\",\"extFaMailtoClasses\":\"fa fa-envelope-o\",\"extAdditionalLinkClasses\":\"\",\"extAdditionalMailtoClasses\":\"\",\"extAdditionalTelClasses\":\"\",\"extFaTelClasses\":\"fa fa-phone\",\"allowedDomains\":[],\"extExcludeNoreferrer\":\"\"}},\"views\":{\"ajax_path\":\"\\/views\\/ajax\",\"ajaxViews\":{\"views_dom_id:f53abb369496de2b566bc14ecdadc88a0f54d63b3ca0c105d3900b87c1979ee2\":{\"view_name\":\"publication_releases_indexed\",\"view_display_id\":\"all_releases_block\",\"view_args\":\"1632\",\"view_path\":\"\\/node\\/1632\",\"view_base_path\":null,\"view_dom_id\":\"f53abb369496de2b566bc14ecdadc88a0f54d63b3ca0c105d3900b87c1979ee2\",\"pager_element\":0}}},\"sitewideAlert\":{\"refreshInterval\":15000,\"automaticRefresh\":false,\"showCount\":false,\"serverSideRender\":false},\"user\":{\"uid\":0,\"permissionsHash\":\"8334501404af57aa6b578b64d0827f654d896f8f6d70e0923d92951d4031b3ef\"}}</script>\n<script src=\"/sites/default/files/js/js_FABB270YIfqO91emIXmI-aNQ5IjQ8UL9EvNiRGeQ53o.js?scope=header&amp;delta=0&amp;language=en&amp;theme=global_subtheme&amp;include=eJxdjVEKhDAMRC9UmyOVaLMlu9lE2mg9vlqEhf158JgZZrFKsNh3NSX1FhUlFbEZZZpmVKUa6HBh_UCu24oSHw0vwQI34q0J33iEYlaEkl9JufDvcZR-F7C1nlto7NQ5U0Kh6sDKHnam3mBwrE5PpkCs\"></script>\n<script src=\"/modules/contrib/google_tag/js/gtag.js?tlit1e\"></script>\n\n  </head>\n  <body>\n        <a href=\"#main-content\" class=\"visually-hidden focusable\">\n      Skip to main content\n    </a>\n    \n      <div class=\"dialog-off-canvas-main-canvas\" data-off-canvas-main-canvas>\n    <section class=\"usa-banner\" aria-label=\"Official website of the United States government\">\n  <div class=\"usa-accordion\">\n    <header class=\"usa-banner__header\">\n      <div class=\"usa-banner__inner\">\n        <div class=\"grid-col-auto\">\n          <img aria-hidden=\"true\" class=\"usa-banner__header-flag\" src=\"/themes/custom/nal_global/uswds/img/us_flag_small.png\" alt=\"\" />\n        </div>\n        <div class=\"grid-col-fill tablet:grid-col-auto\" aria-hidden=\"true\">\n          <p class=\"usa-banner__header-text\">An official website of the United States government</p>\n          <p class=\"usa-banner__header-action\">Here&apos;s how you know</p>\n        </div>\n        <button type=\"button\" class=\"usa-accordion__button usa-banner__button\" aria-expanded=\"false\" aria-controls=\"gov-banner-default\">\n          <span class=\"usa-banner__button-text\">Here&apos;s how you know</span>\n        </button>\n      </div>\n    </header>\n    <div class=\"usa-banner__content usa-accordion__content\" id=\"gov-banner-default\">\n      <div class=\"grid-row grid-gap-lg\">\n        <div class=\"usa-banner__guidance tablet:grid-col-6\">\n          <svg width=\"40px\" height=\"40px\" class=\"usa-banner__icon usa-media-block__img banner-svg\" id=\"dot_gov_icon\" data-name=\"dot gov icon\" xmlns=\"http://www.w3.org/2000/svg\" viewBox=\"0 0 54 54\">\n            <defs>\n              <style>\n                .icon-dot-gov-1 {\n                  fill: #007faa;\n                }\n\n                .icon-dot-gov-2 {\n                  fill: none;\n                  stroke: #046b99 !important;\n                  stroke-miterlimit: 10;\n                }\n              </style>\n            </defs>\n            <title>dot gov icon</title>\n            <path class=\"icon-dot-gov-1\" d=\"M36.5,20.91v1.36H35.15a0.71,0.71,0,0,1-.73.68H18.23a0.71,0.71,0,0,1-.73-0.68H16.14V20.91l10.18-4.07Zm0,13.57v1.36H16.14V34.48a0.71,0.71,0,0,1,.73-0.68h18.9A0.71,0.71,0,0,1,36.5,34.48ZM21.57,23.62v8.14h1.36V23.62h2.71v8.14H27V23.62h2.71v8.14h1.36V23.62h2.71v8.14h0.63a0.71,0.71,0,0,1,.73.68v0.68H17.5V32.45a0.71,0.71,0,0,1,.73-0.68h0.63V23.62h2.71Z\" />\n            <circle class=\"icon-dot-gov-2\" cx=\"27\" cy=\"27.12\" r=\"26\" />\n          </svg>\n          <div class=\"usa-media-block__body\">\n            <p>\n              <strong>Official websites use .gov</strong><br>\n                A <strong>.gov</strong> website belongs to an official government organization in the United States.            </p>\n          </div>\n        </div>\n        <div class=\"usa-banner__guidance tablet:grid-col-6\">\n          <svg width=\"40px\" height=\"40px\" class=\"usa-banner__icon usa-media-block__img banner-svg\" id=\"https_icon\" data-name=\"https icon\" xmlns=\"http://www.w3.org/2000/svg\" viewBox=\"0 0 54 54\">\n            <defs>\n              <style>\n                .icon-https-1 {\n                  fill: #549500;\n                }\n\n                .icon-https-2 {\n                  fill: none;\n                  stroke: #458600;\n                  stroke-miterlimit: 10;\n                }\n              </style>\n            </defs>\n            <title>https icon</title>\n            <path class=\"icon-https-1\" d=\"M34.72,34.84a1.29,1.29,0,0,1-1.29,1.29H20.57a1.29,1.29,0,0,1-1.29-1.29V27.12a1.29,1.29,0,0,1,1.29-1.29H21V23.26a6,6,0,0,1,12,0v2.57h0.43a1.29,1.29,0,0,1,1.29,1.29v7.72Zm-4.29-9V23.26a3.43,3.43,0,0,0-6.86,0v2.57h6.86Z\" />\n            <circle class=\"icon-https-2\" cx=\"27\" cy=\"27.12\" r=\"26\" />\n          </svg>\n          <div class=\"usa-media-block__body\">\n            <p>\n              <strong>Secure .gov websites use HTTPS</strong><br>\n                A <strong>lock</strong> ( <span class=\"icon-lock\"><svg xmlns=\"http://www.w3.org/2000/svg\" width=\"52\" height=\"64\" viewBox=\"0 0 52 64\" class=\"usa-banner__lock-image\" role=\"img\" aria-hidden=\"true\"><path fill=\"#000000\" fill-rule=\"evenodd\" d=\"M26 0c10.493 0 19 8.507 19 19v9h3a4 4 0 0 1 4 4v28a4 4 0 0 1-4 4H4a4 4 0 0 1-4-4V32a4 4 0 0 1 4-4h3v-9C7 8.507 15.507 0 26 0zm0 8c-5.979 0-10.843 4.77-10.996 10.712L15 19v9h22v-9c0-6.075-4.925-11-11-11z\"/></svg></span> ) or <strong>https://</strong> means you\u2019ve safely connected to the .gov website. Share sensitive information only on official, secure websites.            </p>\n          </div>\n        </div>\n      </div>\n    </div>\n  </div>\n</section>\n\n\n\n<header data-component-id=\"nal_global:header__extended\" class=\"usa-header usa-header--extended\">\n  <div class=\"usa-navbar\">\n    \n<div data-component-id=\"nal_global:site_branding\" class=\"nal-site-branding\">\n  <svg xmlns=\"http://www.w3.org/2000/svg\" viewBox=\"0 0 147.04 100.58\" aria-labelledby=\"usda-logo\">\n  <title id=\"usda-logo\">USDA Logo</title>\n  <defs>\n    <style>.usda-logo-1{fill:#004785;}.usda-logo-2{fill:#005941;}</style>\n  </defs>\n  <g id=\"Layer_2\" data-name=\"Layer 2\">\n    <g id=\"Layer_1-2\" data-name=\"Layer 1\">\n      <path class=\"usda-logo-1\" d=\"M33.36,4.09l-.19,25.36c0,10.54-6.26,14.63-14.69,14.63C11.22,44.08,2,40.86,2,29.88V4.09A3.16,3.16,0,0,0,0,1.3H11.9A3.11,3.11,0,0,0,10,4.09v26c0,4.34,1.49,10.48,9.55,10.48,7.38,0,10-4.84,10-11L29.45,4.09A3,3,0,0,0,27.78,1.3H35A3,3,0,0,0,33.36,4.09Z\"/>\n      <path class=\"usda-logo-1\" d=\"M50.15,44.08a26.37,26.37,0,0,1-11.9-3l-.31-10.48c1.18,4.4,4.9,10.23,11.35,10.23,6.13,0,8-4.4,8-7.44,0-6-5.39-6.76-11-9.8s-8.19-6.51-8.19-11.22C38.06,4,45.94.62,51.58.62a19.92,19.92,0,0,1,9.36,2.29l.31,9.18c-.87-3.29-4.4-8.25-10.35-8.25-4.72,0-6.58,3.29-6.58,6,0,3.78,2.67,5.2,8.5,7.87S64.6,22.44,64.6,31.06C64.6,38.81,57.78,44.08,50.15,44.08Z\"/>\n      <path class=\"usda-logo-1\" d=\"M84.62,43.46H68.69a3.08,3.08,0,0,0,1.61-2.79V4.09A3,3,0,0,0,68.69,1.3H85.18c20.4,0,24.49,14.45,24.49,20.46C109.67,32.55,101.36,43.46,84.62,43.46ZM83.88,4.4c-1.49,0-4.78,0-5.71.13V40.24h5c14,0,17.92-9.43,17.92-18.48C101.05,14.32,96.71,4.4,83.88,4.4Z\"/>\n      <path class=\"usda-logo-1\" d=\"M133.77,43.46c1.62-.87,1.93-1.73,1.49-3-.18-.62-1.8-4.4-3.53-8.61H116.54a89.58,89.58,0,0,0-3.47,8.55c-.56,1.49-.25,2.36,1.42,3.1h-8.55a7.38,7.38,0,0,0,2.91-3C110,38.07,126.33,0,126.33,0s16.5,38.07,17.61,40.42a5.45,5.45,0,0,0,3.1,3ZM124,13.39s-4.22,10.54-6.2,15.19H130.3C127.39,21.7,124,13.39,124,13.39Z\"/>\n      <path class=\"usda-logo-2\" d=\"M145.18,49.42S55,47.18,1.52,75.65c0,0,56.63-22.39,143.66-20.15Z\"/>\n      <path class=\"usda-logo-2\" d=\"M1.52,49.42s30.4.32,49.27,7.36c0,0-38.71-3.2-49.27-1.6Z\"/>\n      <path class=\"usda-logo-2\" d=\"M1.52,59.34s21.76-1,34.88.32c0,0-31.68,3.84-34.88,5.44Z\"/>\n      <path class=\"usda-logo-2\" d=\"M130.23,60.32h-.47C103.53,60.83,48.51,64,1.54,80.59v20l143.66,0V60.32S139.62,60.15,130.23,60.32Z\"/>\n    </g>\n  </g>\n</svg>\n\n  <div class=\"nal-site-branding__text\">\n          <div class=\"nal-site-branding__site-name\"><a href=\"/\" title=\"Home\" rel=\"home\">Economics, Statistics, and Market Information System</a></div>\n        <div class=\"nal-site-branding__usda site-branding__usda\"><a href=\"https://www.usda.gov\">U.S. Department of Agriculture</a></div>\n  </div>\n</div>\n\n    <button data-component-id=\"nal_global:menu_button\" class=\"usa-menu-btn cursor-pointer\" type=\"button\">Menu</button>\n\n  </div>\n  <nav aria-label=\"Primary navigation\" class=\"usa-nav\">\n    <div class=\"usa-nav__inner\">\n      \n<button class=\"usa-nav__close nal-close-button bg-transparent border-0 cursor-pointer\" data-component-id=\"nal_global:close_button\">\n  <svg aria-hidden=\"true\" class=\"usa-icon\" focusable=\"false\" role=\"img\"><use href=\"/themes/custom/nal_global/uswds/img/sprite.svg#close\"></use></svg>\n  <span class=\"usa-sr-only\">Close</span>\n</button>\n\n\n      <div class=\"usa-nav__secondary\">\n            \n<ul id=\"block-global-subtheme-useraccountmenu\" data-component-id=\"nal_global:secondary_links\" class=\"usa-nav__secondary-links\">\n      <li class=\"usa-nav__secondary-item\">\n      <a href=\"/user/login\" data-drupal-link-system-path=\"user/login\">Log in</a>\n    </li>\n  </ul>\n\n\n\n\n\n  \n      </div>\n\n          \n                    <ul data-component-id=\"nal_global:primary_navigation\" class=\"usa-nav__primary usa-accordion\">\n                <li class=\"usa-nav__primary-item\">\n        \n                          <a href=\"/\" class=\"usa-nav-link\" data-drupal-link-system-path=\"&lt;front&gt;\"><span>Publication Search</span></a>\n        \n              </li>\n                <li class=\"usa-nav__primary-item\">\n        \n                          <a href=\"/release-calendar\" class=\"usa-nav-link\" data-drupal-link-system-path=\"release-calendar\"><span>Release Calendar</span></a>\n        \n              </li>\n                <li class=\"usa-nav__primary-item\">\n        \n                          <a href=\"/api-documentation\" class=\"usa-nav-link\" data-drupal-link-system-path=\"node/795716\"><span>API Documentation</span></a>\n        \n              </li>\n        </ul>\n  \n\n\n\n\n\n\n      </div>\n  </nav>\n</header>\n\n\n  <div class=\"grid-container\">\n    <div class=\"grid-row grid-gap\">\n\n                  <section class=\"tablet:grid-col-12\">\n\n                                      <div class=\"highlighted\">  <div class=\"region region--highlighted\">\n    <div id=\"block-global-subtheme-sitewidealert\" data-sitewide-alert aria-live=\"polite\" class=\"block block-sitewide-alert-block\">\n  \n    \n      <div></div>\n\n  </div>\n<div data-drupal-messages-fallback class=\"hidden\"></div>\n\n  </div>\n</div>\n                  \n                                      \n                  \n                          <main id=\"main-content\">\n              <div class=\"region region--content\">\n    <div id=\"block-global-subtheme-breadcrumbs\" class=\"block block-system block-system-breadcrumb-block\">\n  \n    \n        \n<nav data-component-id=\"nal_global:breadcrumbs\" aria-label=\"Breadcrumbs\" class=\"usa-breadcrumb\">\n  <ol class=\"usa-breadcrumb__list\">\n                <li class=\"usa-breadcrumb__list-item\">\n                  <a href=\"/\" class=\"usa-breadcrumb__link\"><span>Home</span></a>\n              </li>\n                              <li class=\"usa-breadcrumb__list-item usa-current\" aria-current=\"page\">\n                  <span>Crop Production</span>\n              </li>\n      </ol>\n</nav>\n\n\n\n  </div>\n<div id=\"block-global-subtheme-page-title\" class=\"block block-core block-page-title-block\">\n  \n    \n      \n  <h1 class=\"margin-top-0\"><span>Crop Production</span>\n</h1>\n\n\n  </div>\n<div id=\"block-global-subtheme-content\" class=\"block block-system block-system-main-block\">\n  \n    \n      <article class=\"node node--type-publication node--view-mode-full\">\n\n  \n    \n\n  \n  <div>\n        \n  <div class=\"layout\">\n    \n    <div class=\"layout__container grid-row grid-gap-4\">\n        <div class=\"layout__region layout__region--first tablet:grid-col-8\">\n    <div class=\"block block-layout-builder block-field-blocknodepublicationpublication-description\">\n  \n    \n      \n            <div class=\"usa-collection__description field__item\"><p>This monthly report contains crop production data for the U.S., including acreage, area harvested, and yield. Wheat, fruits, nuts, and hops are the specific crops included in the report, but data on planted and harvested crop area are also included. There is also a strong focus on maple syrup, as the report details production, value, season dates, and percent of sales by type. The report also contains a monthly weather summary, a monthly agricultural summary, and an analysis of precipitation and the degree of departure from the normal precipitation map for the month.</p>\n</div>\n      \n\n  </div>\n<div class=\"block block-layout-builder block-field-blocknodepublicationpublication-agency\">\n  \n    \n      \n  <div class=\"field field--name-publication-agency field--type-entity-reference field--label-inline clearfix\">\n    <div class=\"field__label\">Agency</div>\n          <div>\n              <span>National Agricultural Statistics Service</span>              </div>\n      </div>\n\n\n  </div>\n<div class=\"block block-layout-builder block-field-blocknodepublicationpublication-frequency\">\n  \n    \n      \n  <div class=\"field field--name-publication-frequency field--type-list-string field--label-inline clearfix\">\n    <div class=\"field__label\">Frequency of Release</div>\n              <div class=\"field__item\">Monthly</div>\n          </div>\n\n\n  </div>\n<div class=\"block block-layout-builder block-field-blocknodepublicationpublication-upcoming-releases\">\n  \n    \n      \n  <div class=\"field field--name-publication-upcoming-releases field--type-datetime field--label-inline clearfix\">\n    <div class=\"field__label\">Upcoming releases</div>\n          <div>\n              <span><time datetime=\"2026-10-09T12:00:00Z\">Oct 09 2026 12:00 PM</time>\n</span>,           <span><time datetime=\"2026-11-10T12:00:00Z\">Nov 10 2026 12:00 PM</time>\n</span>,           <span><time datetime=\"2026-12-10T12:00:00Z\">Dec 10 2026 12:00 PM</time>\n</span>              </div>\n      </div>\n\n\n  </div>\n<div class=\"block block-layout-builder block-field-blocknodepublicationpublication-category\">\n  \n    \n      \n  <div class=\"field field--name-publication-category field--type-entity-reference field--label-inline clearfix\">\n    <div class=\"field__label\">Category</div>\n          <div>\n              <span>Crops and Crop Products</span>              </div>\n      </div>\n\n\n  </div>\n<div class=\"block block-layout-builder block-field-blocknodepublicationpublication-keywords\">\n  \n    \n      \n  <div class=\"field field--name-publication-keywords field--type-string field--label-inline clearfix\">\n    <div class=\"field__label\">Keywords</div>\n          <div>\n              <span>acreage</span>,           <span>sales</span>,           <span>yields</span>,           <span>weather</span>,           <span>crops</span>              </div>\n      </div>\n\n\n  </div>\n<div class=\"views-element-container block block-views block-views-blockpublication-releases-indexed-all-releases-block\">\n  \n      <h2>Releases</h2>\n    \n      <div><div class=\"js-view-dom-id-f53abb369496de2b566bc14ecdadc88a0f54d63b3ca0c105d3900b87c1979ee2\">\n  \n  \n  \n\n  \n  <form class=\"views-exposed-form usa-form\" data-drupal-selector=\"views-exposed-form-publication-releases-indexed-all-releases-block\" action=\"/publication/crop-production\" method=\"get\" id=\"views-exposed-form-publication-releases-indexed-all-releases-block\" accept-charset=\"UTF-8\">\n  <div class=\"js-form-item form-item form-type-select js-form-type-select form-item-date js-form-item-date\">\n      <label for=\"edit-date--2\" class=\"usa-label\">Filter by Date</label>\n        <select data-drupal-selector=\"edit-date\" id=\"edit-date--2\" name=\"date\" class=\"form-select usa-select\">\n            <option value=\"All\"  selected=\"selected\">- Any -</option>\n                <option value=\"2026-09\" >September 2026</option>\n                <option value=\"2026-08\" >August 2026</option>\n                <option value=\"2026-07\" >July 2026</option>\n                <option value=\"2026-06\" >June 2026</option>\n                <option value=\"2026-05\" >May 2026</option>\n                <option value=\"2026-04\" >April 2026</option>\n                <option value=\"2026-03\" >March 2026</option>\n                <option value=\"2026-02\" >February 2026</option>\n                <option value=\"2026-01\" >January 2026</option>\n                <option value=\"2025-12\" >December 2025</option>\n                <option value=\"2025-11\" >November 2025</option>\n                <option value=\"2025-09\" >September 2025</option>\n                <option value=\"2025-08\" >August 2025</option>\n                <option value=\"2025-07\" >July 2025</option>\n                <option value=\"2025-06\" >June 2025</option>\n                <option value=\"2025-05\" >May 2025</option>\n                <option value=\"2025-04\" >April 2025</option>\n                <option value=\"2025-03\" >March 2025</option>\n                <option value=\"2025-02\" >February 2025</option>\n                <option value=\"2025-01\" >January 2025</option>\n                <option value=\"2024-12\" >December 2024</option>\n                <option value=\"2024-11\" >November 2024</option>\n                <option value=\"2024-10\" >October 2024</option>\n                <option value=\"2024-09\" >September 2024</option>\n                <option value=\"2024-08\" >August 2024</option>\n                <option value=\"2024-07\" >July 2024</option>\n                <option value=\"2024-06\" >June 2024</option>\n                <option value=\"2024-05\" >May 2024</option>\n                <option value=\"2024-04\" >April 2024</option>\n                <option value=\"2024-03\" >March 2024</option>\n                <option value=\"2024-02\" >February 2024</option>\n                <option value=\"2024-01\" >January 2024</option>\n                <option value=\"2023-12\" >December 2023</option>\n                <option value=\"2023-11\" >November 2023</option>\n                <option value=\"2023-10\" >October 2023</option>\n                <option value=\"2023-09\" >September 2023</option>\n                <option value=\"2023-08\" >August 2023</option>\n                <option value=\"2023-07\" >July 2023</option>\n                <option value=\"2023-06\" >June 2023</option>\n                <option value=\"2023-05\" >May 2023</option>\n                <option value=\"2023-04\" >April 2023</option>\n                <option value=\"2023-03\" >March 2023</option>\n                <option value=\"2023-02\" >February 2023</option>\n                <option value=\"2023-01\" >January 2023</option>\n                <option value=\"2022-12\" >December 2022</option>\n                <option value=\"2022-11\" >November 2022</option>\n                <option value=\"2022-10\" >October 2022</option>\n                <option value=\"2022-09\" >September 2022</option>\n                <option value=\"2022-08\" >August 2022</option>\n                <option value=\"2022-07\" >July 2022</option>\n                <option value=\"2022-06\" >June 2022</option>\n                <option value=\"2022-05\" >May 2022</option>\n                <option value=\"2022-04\" >April 2022</option>\n                <option value=\"2022-03\" >March 2022</option>\n                <option value=\"2022-02\" >February 2022</option>\n                <option value=\"2022-01\" >January 2022</option>\n                <option value=\"2021-12\" >December 2021</option>\n                <option value=\"2021-11\" >November 2021</option>\n                <option value=\"2021-10\" >October 2021</option>\n                <option value=\"2021-09\" >September 2021</option>\n                <option value=\"2021-08\" >August 2021</option>\n                <option value=\"2021-07\" >July 2021</option>\n                <option value=\"2021-06\" >June 2021</option>\n                <option value=\"2021-05\" >May 2021</option>\n                <option value=\"2021-04\" >April 2021</option>\n                <option value=\"2021-03\" >March 2021</option>\n                <option value=\"2021-02\" >February 2021</option>\n                <option value=\"2021-01\" >January 2021</option>\n                <option value=\"2020-12\" >December 2020</option>\n                <option value=\"2020-11\" >November 2020</option>\n                <option value=\"2020-10\" >October 2020</option>\n                <option value=\"2020-09\" >September 2020</option>\n                <option value=\"2020-08\" >August 2020</option>\n                <option value=\"2020-07\" >July 2020</option>\n                <option value=\"2020-06\" >June 2020</option>\n                <option value=\"2020-05\" >May 2020</option>\n                <option value=\"2020-04\" >April 2020</option>\n                <option value=\"2020-03\" >March 2020</option>\n                <option value=\"2020-02\" >February 2020</option>\n                <option value=\"2020-01\" >January 2020</option>\n                <option value=\"2019-12\" >December 2019</option>\n                <option value=\"2019-11\" >November 2019</option>\n                <option value=\"2019-10\" >October 2019</option>\n                <option value=\"2019-09\" >September 2019</option>\n                <option value=\"2019-08\" >August 2019</option>\n                <option value=\"2019-07\" >July 2019</option>\n                <option value=\"2019-06\" >June 2019</option>\n                <option value=\"2019-05\" >May 2019</option>\n                <option value=\"2019-04\" >April 2019</option>\n                <option value=\"2019-03\" >March 2019</option>\n                <option value=\"2019-02\" >February 2019</option>\n                <option value=\"2019-01\" >January 2019</option>\n                <option value=\"2018-12\" >December 2018</option>\n                <option value=\"2018-11\" >November 2018</option>\n                <option value=\"2018-10\" >October 2018</option>\n                <option value=\"2018-09\" >September 2018</option>\n                <option value=\"2018-08\" >August 2018</option>\n                <option value=\"2018-07\" >July 2018</option>\n                <option value=\"2018-06\" >June 2018</option>\n                <option value=\"2018-05\" >May 2018</option>\n                <option value=\"2018-04\" >April 2018</option>\n                <option value=\"2018-03\" >March 2018</option>\n                <option value=\"2018-02\" >February 2018</option>\n                <option value=\"2018-01\" >January 2018</option>\n                <option value=\"2017-12\" >December 2017</option>\n                <option value=\"2017-11\" >November 2017</option>\n                <option value=\"2017-10\" >October 2017</option>\n                <option value=\"2017-09\" >September 2017</option>\n                <option value=\"2017-08\" >August 2017</option>\n                <option value=\"2017-07\" >July 2017</option>\n                <option value=\"2017-06\" >June 2017</option>\n                <option value=\"2017-05\" >May 2017</option>\n                <option value=\"2017-04\" >April 2017</option>\n                <option value=\"2017-03\" >March 2017</option>\n                <option value=\"2017-02\" >February 2017</option>\n                <option value=\"2017-01\" >January 2017</option>\n                <option value=\"2016-12\" >December 2016</option>\n                <option value=\"2016-11\" >November 2016</option>\n                <option value=\"2016-10\" >October 2016</option>\n                <option value=\"2016-09\" >September 2016</option>\n                <option value=\"2016-08\" >August 2016</option>\n                <option value=\"2016-07\" >July 2016</option>\n                <option value=\"2016-06\" >June 2016</option>\n                <option value=\"2016-05\" >May 2016</option>\n                <option value=\"2016-04\" >April 2016</option>\n                <option value=\"2016-03\" >March 2016</option>\n                <option value=\"2016-02\" >February 2016</option>\n                <option value=\"2016-01\" >January 2016</option>\n                <option value=\"2015-12\" >December 2015</option>\n                <option value=\"2015-11\" >November 2015</option>\n                <option value=\"2015-10\" >October 2015</option>\n                <option value=\"2015-09\" >September 2015</option>\n                <option value=\"2015-08\" >August 2015</option>\n                <option value=\"2015-07\" >July 2015</option>\n                <option value=\"2015-06\" >June 2015</option>\n                <option value=\"2015-05\" >May 2015</option>\n                <option value=\"2015-04\" >April 2015</option>\n                <option value=\"2015-03\" >March 2015</option>\n                <option value=\"2015-02\" >February 2015</option>\n                <option value=\"2015-01\" >January 2015</option>\n                <option value=\"2014-12\" >December 2014</option>\n                <option value=\"2014-11\" >November 2014</option>\n                <option value=\"2014-10\" >October 2014</option>\n                <option value=\"2014-09\" >September 2014</option>\n                <option value=\"2014-08\" >August 2014</option>\n                <option value=\"2014-07\" >July 2014</option>\n                <option value=\"2014-06\" >June 2014</option>\n                <option value=\"2014-05\" >May 2014</option>\n                <option value=\"2014-04\" >April 2014</option>\n                <option value=\"2014-03\" >March 2014</option>\n                <option value=\"2014-02\" >February 2014</option>\n                <option value=\"2014-01\" >January 2014</option>\n                <option value=\"2013-12\" >December 2013</option>\n                <option value=\"2013-11\" >November 2013</option>\n                <option value=\"2013-10\" >October 2013</option>\n                <option value=\"2013-09\" >September 2013</option>\n                <option value=\"2013-08\" >August 2013</option>\n                <option value=\"2013-07\" >July 2013</option>\n                <option value=\"2013-06\" >June 2013</option>\n                <option value=\"2013-05\" >May 2013</option>\n                <option value=\"2013-04\" >April 2013</option>\n                <option value=\"2013-03\" >March 2013</option>\n                <option value=\"2013-02\" >February 2013</option>\n                <option value=\"2013-01\" >January 2013</option>\n                <option value=\"2012-12\" >December 2012</option>\n                <option value=\"2012-11\" >November 2012</option>\n                <option value=\"2012-10\" >October 2012</option>\n                <option value=\"2012-09\" >September 2012</option>\n                <option value=\"2012-08\" >August 2012</option>\n                <option value=\"2012-07\" >July 2012</option>\n                <option value=\"2012-06\" >June 2012</option>\n                <option value=\"2012-05\" >May 2012</option>\n                <option value=\"2012-04\" >April 2012</option>\n                <option value=\"2012-03\" >March 2012</option>\n                <option value=\"2012-02\" >February 2012</option>\n                <option value=\"2012-01\" >January 2012</option>\n                <option value=\"2011-12\" >December 2011</option>\n                <option value=\"2011-11\" >November 2011</option>\n                <option value=\"2011-10\" >October 2011</option>\n                <option value=\"2011-09\" >September 2011</option>\n                <option value=\"2011-08\" >August 2011</option>\n                <option value=\"2011-07\" >July 2011</option>\n                <option value=\"2011-06\" >June 2011</option>\n                <option value=\"2011-05\" >May 2011</option>\n                <option value=\"2011-04\" >April 2011</option>\n                <option value=\"2011-03\" >March 2011</option>\n                <option value=\"2011-02\" >February 2011</option>\n                <option value=\"2011-01\" >January 2011</option>\n                <option value=\"2010-12\" >December 2010</option>\n                <option value=\"2010-11\" >November 2010</option>\n                <option value=\"2010-10\" >October 2010</option>\n                <option value=\"2010-09\" >September 2010</option>\n                <option value=\"2010-08\" >August 2010</option>\n                <option value=\"2010-07\" >July 2010</option>\n                <option value=\"2010-06\" >June 2010</option>\n                <option value=\"2010-05\" >May 2010</option>\n                <option value=\"2010-04\" >April 2010</option>\n                <option value=\"2010-03\" >March 2010</option>\n                <option value=\"2010-02\" >February 2010</option>\n                <option value=\"2010-01\" >January 2010</option>\n                <option value=\"2009-12\" >December 2009</option>\n                <option value=\"2009-11\" >November 2009</option>\n                <option value=\"2009-10\" >October 2009</option>\n                <option value=\"2009-09\" >September 2009</option>\n                <option value=\"2009-08\" >August 2009</option>\n                <option value=\"2009-07\" >July 2009</option>\n                <option value=\"2009-06\" >June 2009</option>\n                <option value=\"2009-05\" >May 2009</option>\n                <option value=\"2009-04\" >April 2009</option>\n                <option value=\"2009-03\" >March 2009</option>\n                <option value=\"2009-02\" >February 2009</option>\n                <option value=\"2009-01\" >January 2009</option>\n                <option value=\"2008-12\" >December 2008</option>\n                <option value=\"2008-11\" >November 2008</option>\n                <option value=\"2008-10\" >October 2008</option>\n                <option value=\"2008-09\" >September 2008</option>\n                <option value=\"2008-08\" >August 2008</option>\n                <option value=\"2008-07\" >July 2008</option>\n                <option value=\"2008-06\" >June 2008</option>\n                <option value=\"2008-05\" >May 2008</option>\n                <option value=\"2008-04\" >April 2008</option>\n                <option value=\"2008-03\" >March 2008</option>\n                <option value=\"2008-02\" >February 2008</option>\n                <option value=\"2008-01\" >January 2008</option>\n                <option value=\"2007-12\" >December 2007</option>\n                <option value=\"2007-11\" >November 2007</option>\n                <option value=\"2007-10\" >October 2007</option>\n                <option value=\"2007-09\" >September 2007</option>\n                <option value=\"2007-08\" >August 2007</option>\n                <option value=\"2007-07\" >July 2007</option>\n                <option value=\"2007-06\" >June 2007</option>\n                <option value=\"2007-05\" >May 2007</option>\n                <option value=\"2007-04\" >April 2007</option>\n                <option value=\"2007-03\" >March 2007</option>\n                <option value=\"2007-02\" >February 2007</option>\n                <option value=\"2007-01\" >January 2007</option>\n                <option value=\"2006-12\" >December 2006</option>\n                <option value=\"2006-11\" >November 2006</option>\n                <option value=\"2006-10\" >October 2006</option>\n                <option value=\"2006-09\" >September 2006</option>\n                <option value=\"2006-08\" >August 2006</option>\n                <option value=\"2006-07\" >July 2006</option>\n                <option value=\"2006-06\" >June 2006</option>\n                <option value=\"2006-05\" >May 2006</option>\n                <option value=\"2006-04\" >April 2006</option>\n                <option value=\"2006-03\" >March 2006</option>\n                <option value=\"2006-02\" >February 2006</option>\n                <option value=\"2006-01\" >January 2006</option>\n                <option value=\"2005-12\" >December 2005</option>\n                <option value=\"2005-11\" >November 2005</option>\n                <option value=\"2005-10\" >October 2005</option>\n                <option value=\"2005-09\" >September 2005</option>\n                <option value=\"2005-08\" >August 2005</option>\n                <option value=\"2005-07\" >July 2005</option>\n                <option value=\"2005-06\" >June 2005</option>\n                <option value=\"2005-05\" >May 2005</option>\n                <option value=\"2005-04\" >April 2005</option>\n                <option value=\"2005-03\" >March 2005</option>\n                <option value=\"2005-02\" >February 2005</option>\n                <option value=\"2005-01\" >January 2005</option>\n                <option value=\"2004-12\" >December 2004</option>\n                <option value=\"2004-11\" >November 2004</option>\n                <option value=\"2004-10\" >October 2004</option>\n                <option value=\"2004-09\" >September 2004</option>\n                <option value=\"2004-08\" >August 2004</option>\n                <option value=\"2004-07\" >July 2004</option>\n                <option value=\"2004-06\" >June 2004</option>\n                <option value=\"2004-05\" >May 2004</option>\n                <option value=\"2004-04\" >April 2004</option>\n                <option value=\"2004-03\" >March 2004</option>\n                <option value=\"2004-02\" >February 2004</option>\n                <option value=\"2004-01\" >January 2004</option>\n                <option value=\"2003-12\" >December 2003</option>\n                <option value=\"2003-11\" >November 2003</option>\n                <option value=\"2003-10\" >October 2003</option>\n                <option value=\"2003-09\" >September 2003</option>\n                <option value=\"2003-08\" >August 2003</option>\n                <option value=\"2003-07\" >July 2003</option>\n                <option value=\"2003-06\" >June 2003</option>\n                <option value=\"2003-05\" >May 2003</option>\n                <option value=\"2003-04\" >April 2003</option>\n                <option value=\"2003-03\" >March 2003</option>\n                <option value=\"2003-02\" >February 2003</option>\n                <option value=\"2003-01\" >January 2003</option>\n                <option value=\"2002-12\" >December 2002</option>\n                <option value=\"2002-11\" >November 2002</option>\n                <option value=\"2002-10\" >October 2002</option>\n                <option value=\"2002-09\" >September 2002</option>\n                <option value=\"2002-08\" >August 2002</option>\n                <option value=\"2002-07\" >July 2002</option>\n                <option value=\"2002-06\" >June 2002</option>\n                <option value=\"2002-05\" >May 2002</option>\n                <option value=\"2002-04\" >April 2002</option>\n                <option value=\"2002-03\" >March 2002</option>\n                <option value=\"2002-02\" >February 2002</option>\n                <option value=\"2002-01\" >January 2002</option>\n                <option value=\"2001-12\" >December 2001</option>\n                <option value=\"2001-11\" >November 2001</option>\n                <option value=\"2001-10\" >October 2001</option>\n                <option value=\"2001-09\" >September 2001</option>\n                <option value=\"2001-08\" >August 2001</option>\n                <option value=\"2001-07\" >July 2001</option>\n                <option value=\"2001-06\" >June 2001</option>\n                <option value=\"2001-05\" >May 2001</option>\n                <option value=\"2001-04\" >April 2001</option>\n                <option value=\"2001-03\" >March 2001</option>\n                <option value=\"2001-02\" >February 2001</option>\n                <option value=\"2001-01\" >January 2001</option>\n                <option value=\"2000-12\" >December 2000</option>\n                <option value=\"2000-11\" >November 2000</option>\n                <option value=\"2000-10\" >October 2000</option>\n                <option value=\"2000-09\" >September 2000</option>\n                <option value=\"2000-08\" >August 2000</option>\n                <option value=\"2000-07\" >July 2000</option>\n                <option value=\"2000-06\" >June 2000</option>\n                <option value=\"2000-05\" >May 2000</option>\n                <option value=\"2000-04\" >April 2000</option>\n                <option value=\"2000-03\" >March 2000</option>\n                <option value=\"2000-02\" >February 2000</option>\n                <option value=\"2000-01\" >January 2000</option>\n                <option value=\"1999-12\" >December 1999</option>\n                <option value=\"1999-11\" >November 1999</option>\n                <option value=\"1999-10\" >October 1999</option>\n                <option value=\"1999-09\" >September 1999</option>\n                <option value=\"1999-08\" >August 1999</option>\n                <option value=\"1999-07\" >July 1999</option>\n                <option value=\"1999-06\" >June 1999</option>\n                <option value=\"1999-05\" >May",
+          "title": "Crop Production | Economics, Statistics, and Market Information System",
+          "httpStatus": 200
+        },
+        {
+          "type": "openrouter:web_search",
+          "id": "st_tmp_r8r6icul92h",
+          "status": "completed",
+          "action": {
+            "type": "search",
+            "query": "NASS Crop Production Annual Summary January end-of-season estimates final production by state"
+          }
+        },
+        {
+          "type": "openrouter:web_search",
+          "id": "st_tmp_3fa60pebj1l",
+          "status": "completed",
+          "action": {
+            "type": "search",
+            "query": "economic value USDA NASS crop reports market efficiency price discovery benefits farmers studies"
+          }
+        },
+        {
+          "type": "openrouter:web_search",
+          "id": "st_tmp_d6ogcrcajzb",
+          "status": "completed",
+          "action": {
+            "type": "search",
+            "query": "NASS lockup system Agricultural Statistics Board release procedures 8:30 a.m. commodity markets"
+          }
+        }
+      ],
+      "ended": "answered",
+      "seconds": 97.8
+    },
+    "assessment": {
+      "request": {
+        "model": "deepseek/deepseek-v4-pro-0813",
+        "max_output_tokens": 32768,
+        "tools": [
+          {
+            "type": "openrouter:web_search",
+            "parameters": {
+              "engine": "exa",
+              "max_results": 10,
+              "excluded_domains": [
+                "dataindex.us"
+              ]
+            }
+          },
+          {
+            "type": "openrouter:web_fetch",
+            "parameters": {
+              "engine": "openrouter",
+              "blocked_domains": [
+                "dataindex.us"
+              ],
+              "max_content_tokens": 10000
+            }
+          }
+        ],
+        "cache_control": {
+          "type": "ephemeral",
+          "ttl": "1h"
+        },
+        "session_id": "crop-production-deepseek/deepseek-v4-pro-0813-t0-2026-10-08T20:15:35Z",
+        "stop_server_tools_when": [
+          {
+            "type": "step_count_is",
+            "step_count": 200
+          }
+        ],
+        "reasoning": {
+          "effort": "high"
+        },
+        "provider": {
+          "order": [
+            "deepseek"
+          ],
+          "allow_fallbacks": false
+        }
+      },
+      "response_meta": {
+        "id": "gen-1791490633-Dx39vrDZXatlURbpHT2M",
+        "object": "response",
+        "created_at": 1791490633,
+        "model": "deepseek/deepseek-v4-pro-0813",
+        "status": "completed",
+        "completed_at": 1791490750,
+        "error": null,
+        "incomplete_details": null,
+        "tools": [],
+        "tool_choice": "auto",
+        "parallel_tool_calls": true,
+        "max_output_tokens": 32768,
+        "temperature": 1,
+        "top_p": 1,
+        "presence_penalty": 0,
+        "frequency_penalty": 0,
+        "top_logprobs": 0,
+        "max_tool_calls": null,
+        "metadata": {},
+        "background": false,
+        "previous_response_id": null,
+        "service_tier": "auto",
+        "truncation": "disabled",
+        "store": false,
+        "instructions": null,
+        "text": {
+          "format": {
+            "type": "text"
+          }
+        },
+        "reasoning": {
+          "effort": "high"
+        },
+        "safety_identifier": null,
+        "prompt_cache_key": null,
+        "prompt_cache_options": null,
+        "usage": {
+          "input_tokens": 138469,
+          "input_tokens_details": {
+            "cached_tokens": 85888
+          },
+          "output_tokens": 12597,
+          "output_tokens_details": {
+            "reasoning_tokens": 9344
+          },
+          "total_tokens": 151066,
+          "cost": 0.09653505600000001,
+          "cost_details": {
+            "upstream_inference_cost": 0.061535056,
+            "upstream_inference_input_cost": 0.036592996,
+            "upstream_inference_output_cost": 0.024942060000000002
+          },
+          "server_tool_use_details": {
+            "web_search_requests": 8,
+            "tool_calls_requested": 10,
+            "tool_calls_executed": 10
+          }
+        }
+      },
+      "requests": [
+        {
+          "input_tokens": 138469,
+          "input_tokens_details": {
+            "cached_tokens": 85888
+          },
+          "output_tokens": 12597,
+          "output_tokens_details": {
+            "reasoning_tokens": 9344
+          },
+          "total_tokens": 151066,
+          "cost": 0.09653505600000001,
+          "cost_details": {
+            "upstream_inference_cost": 0.061535056,
+            "upstream_inference_input_cost": 0.036592996,
+            "upstream_inference_output_cost": 0.024942060000000002
+          },
+          "server_tool_use_details": {
+            "web_search_requests": 8,
+            "tool_calls_requested": 10,
+            "tool_calls_executed": 10
+          }
+        }
+      ],
+      "searches": 8,
+      "fetches": 2,
+      "tool_items": [
+        {
+          "type": "openrouter:web_search",
+          "id": "st_tmp_jg08w5o8ww",
+          "status": "completed",
+          "action": {
+            "type": "search",
+            "query": "USDA NASS staffing cuts layoffs 2025 National Agricultural Statistics Service reorganization",
+            "sources": [
+              {
+                "type": "url",
+                "url": "https://www.fna.usda.gov/newsroom/usda-0178.25"
+              },
+              {
+                "type": "url",
+                "url": "https://nafsr.org/docs/Crisis/Secretary%20Reorganization%20Memorandum%20072425.pdf"
+              },
+              {
+                "type": "url",
+                "url": "https://www.amstat.org/docs/default-source/amstat-documents/the-nations-data-at-risk-2025/national-agricultural-statistics-service.pdf"
+              },
+              {
+                "type": "url",
+                "url": "https://www.oversight.gov/sites/default/files/documents/reports/2025-12/USDA%20Staffing%20Levels%20Final%20Report%20-%20Dec%2017_508-signed.pdf"
+              },
+              {
+                "type": "url",
+                "url": "https://www.usda.gov/sites/default/files/documents/usda-reorg-comments-analysis-12082025.pdf"
+              },
+              {
+                "type": "url",
+                "url": "https://www.govexec.com/workforce/2025/07/usda-says-reorg-disfavors-layoffs-predicts-most-employees-will-accept-relocations/407100/"
+              },
+              {
+                "type": "url",
+                "url": "https://www.amstat.org/docs/default-source/amstat-documents/pol-usda_relocationers_nass_astata_comments.pdf"
+              },
+              {
+                "type": "url",
+                "url": "https://www.usda.gov/about-usda/reorganization"
+              },
+              {
+                "type": "url",
+                "url": "https://www.agri-pulse.com/articles/23265-usda-reorganization-closes-buildings-creates-regional-hubs"
+              },
+              {
+                "type": "url",
+                "url": "https://www.reuters.com/business/world-at-work/us-farm-agency-lost-20000-staff-first-five-months-trump-administration-2025-12-22/"
+              }
+            ]
+          }
+        },
+        {
+          "type": "openrouter:web_search",
+          "id": "st_tmp_t5au9nl2s7",
+          "status": "completed",
+          "action": {
+            "type": "search",
+            "query": "NASS Crop Production report September 2025 October 2025 released on time shutdown",
+            "sources": [
+              {
+                "type": "url",
+                "url": "https://www.nass.usda.gov/Newsroom/Notices/2025/10-31-2025.php"
+              },
+              {
+                "type": "url",
+                "url": "https://esmis.nal.usda.gov/sites/default/release-files/tm70mv177/sx61gm45w/gb19h565z/crop0925.pdf"
+              },
+              {
+                "type": "url",
+                "url": "https://release.nass.usda.gov/reports/crop1125.pdf"
+              },
+              {
+                "type": "url",
+                "url": "https://www.nass.usda.gov/Newsroom/Notices/2025/11-19-2025.php"
+              },
+              {
+                "type": "url",
+                "url": "https://nass.usda.gov/Newsroom/Executive_Briefings/2025/11-14-2025.pdf"
+              },
+              {
+                "type": "url",
+                "url": "https://www.agriculture.com/usda-crop-progress-report-october-14-2025-11829422"
+              },
+              {
+                "type": "url",
+                "url": "https://www.agweb.com/news/policy/ag-economy/no-reports-no-clarity-how-government-shutdown-hurting-farmers-and-ranchers"
+              },
+              {
+                "type": "url",
+                "url": "https://www.nass.usda.gov/Newsroom/Executive_Briefings/2025/09-30-2025.pdf"
+              },
+              {
+                "type": "url",
+                "url": "https://ncga.com/stay-informed/media/the-corn-economy/article/2025/11/usda-data-returns-uncertainty-remains-a-look-inside-the-post-shutdown-reports"
+              },
+              {
+                "type": "url",
+                "url": "https://nass.usda.gov/Newsroom/Executive_Briefings/2025/09-12-2025.pdf"
+              }
+            ]
+          }
+        },
+        {
+          "type": "openrouter:web_search",
+          "id": "st_tmp_tnadndppgdc",
+          "status": "completed",
+          "action": {
+            "type": "search",
+            "query": "USDA removes datasets NASS ERS website data accessibility 2025",
+            "sources": [
+              {
+                "type": "url",
+                "url": "https://data.nass.usda.gov/Newsroom/Notices/2025/08-28-2025.php"
+              },
+              {
+                "type": "url",
+                "url": "https://www.reuters.com/world/us/usda-migrates-data-archive-new-website-dropping-cornells-mann-library-2025-09-30/"
+              },
+              {
+                "type": "url",
+                "url": "https://www.amstat.org/docs/default-source/amstat-documents/the-nations-data-at-risk-2025/economic-research-service.pdf"
+              },
+              {
+                "type": "url",
+                "url": "https://www.righttofoodus.org/post/hungry-for-food-security-data-and-analysis-losing-public-information-weakens-our-right-to-food"
+              },
+              {
+                "type": "url",
+                "url": "https://essentialdata.us/in-memoriam"
+              },
+              {
+                "type": "url",
+                "url": "https://nonprofitquarterly.org/farmers-are-finally-getting-critical-usda-web-pages-back/"
+              },
+              {
+                "type": "url",
+                "url": "https://www.amstat.org/docs/default-source/amstat-documents/the-nations-data-at-risk-2025/national-agricultural-statistics-service.pdf"
+              },
+              {
+                "type": "url",
+                "url": "https://www.nrdc.org/press-releases/trump-usda-sued-erasing-webpages-vital-farmers"
+              },
+              {
+                "type": "url",
+                "url": "https://www.aei.org/research-products/report/the-looming-data-imperative-to-inform-agricultural-policy/"
+              },
+              {
+                "type": "url",
+                "url": "https://data.nass.usda.gov/Education_and_Outreach/Meeting/2024/2024_Spring_Data_Users_Meeting_QA_v2.pdf"
+              }
+            ]
+          }
+        },
+        {
+          "type": "openrouter:web_search",
+          "id": "st_tmp_rcbnatswd6s",
+          "status": "completed",
+          "action": {
+            "type": "search",
+            "query": "USDA budget cuts 2025 NASS funding FY2026 proposal agricultural statistics",
+            "sources": [
+              {
+                "type": "url",
+                "url": "https://www.amstat.org/docs/default-source/amstat-documents/the-nations-data-at-risk-2025/national-agricultural-statistics-service.pdf"
+              },
+              {
+                "type": "url",
+                "url": "https://www.usda.gov/sites/default/files/documents/19-2026-CJ-NASS.pdf"
+              },
+              {
+                "type": "url",
+                "url": "https://community.amstat.org/sciencepolicy/blogs/steve-pierson/2025/05/30/fy26-statistical-agency-budget-developments?hlmlt=BL"
+              },
+              {
+                "type": "url",
+                "url": "https://www.congress.gov/crs-product/R48564"
+              },
+              {
+                "type": "url",
+                "url": "https://usda.azureedge.us/sites/default/files/documents/19-NASS-2025-ExNotes.pdf"
+              },
+              {
+                "type": "url",
+                "url": "https://www.aplu.org/wp-content/uploads/FY26-Skinny-PBR-Analysis.pdf"
+              },
+              {
+                "type": "url",
+                "url": "https://www.dtnpf.com/agriculture/web/ag/livestock/article/2024/05/13/nass-officials-7-5m-needed-bring"
+              },
+              {
+                "type": "url",
+                "url": "https://www.1230kfjb.com/2024/06/12/house-appropriations-subcommittee-approves-2025-usda-funding-cuts/"
+              },
+              {
+                "type": "url",
+                "url": "https://www.dtnpf.com/agriculture/web/ag/news/article/2025/05/05/15-000-employees-leaving-usda-white"
+              },
+              {
+                "type": "url",
+                "url": "https://www.congress.gov/crs_external_products/R/PDF/R48564/R48564.3.pdf"
+              }
+            ]
+          }
+        },
+        {
+          "type": "openrouter:web_search",
+          "id": "st_tmp_z2eju4w4cp",
+          "status": "completed",
+          "action": {
+            "type": "search",
+            "query": "ESMIS National Agricultural Library archive historical USDA reports 1973 accessibility after migration Cornell",
+            "sources": [
+              {
+                "type": "url",
+                "url": "https://www.reuters.com/world/us/usda-migrates-data-archive-new-website-dropping-cornells-mann-library-2025-09-30/"
+              },
+              {
+                "type": "url",
+                "url": "https://esmis.nal.usda.gov/?page=116"
+              },
+              {
+                "type": "url",
+                "url": "https://mann.library.cornell.edu/usda-esmis"
+              },
+              {
+                "type": "url",
+                "url": "https://www.agriculture.com/partners-usda-migrates-data-archive-to-new-website-dropping-cornell-s-mann-library-11822071"
+              },
+              {
+                "type": "url",
+                "url": "https://mann.library.cornell.edu/esmis-new-and-improved-agricultural-information-service"
+              },
+              {
+                "type": "url",
+                "url": "https://esmis.nal.usda.gov/sites/default/release-files/4j03cz64w/3x816q73t/1831cp398/DPS-11-09-1973.pdf"
+              },
+              {
+                "type": "url",
+                "url": "https://esmis.nal.usda.gov/sites/default/release-files/k930bx00t/jm214s39s/zc77st192/FIS-07-23-1973.pdf"
+              },
+              {
+                "type": "url",
+                "url": "https://www.techbloat.com/usdas-agricultural-report-archive-has-moved-from-cornell-to-a-government-website.html"
+              },
+              {
+                "type": "url",
+                "url": "https://www.itechguides.com/usda-migrates-data-archive-to-new-website-dropping-cornells-mann-library/"
+              },
+              {
+                "type": "url",
+                "url": "https://esmis.nal.usda.gov/sites/default/release-files/4j03cz64w/ft848t811/xw42nc33h/DPS-08-07-1973.pdf"
+              }
+            ]
+          }
+        },
+        {
+          "type": "openrouter:web_search",
+          "id": "st_tmp_y3pmkqz34jf",
+          "status": "completed",
+          "action": {
+            "type": "search",
+            "query": "NASS OMB control number 0535 Crop Production Agricultural Surveys Information Collection Request Federal Register 2025"
+          }
+        },
+        {
+          "type": "openrouter:web_search",
+          "id": "st_tmp_z1bdgfb6fgl",
+          "status": "completed",
+          "action": {
+            "type": "search",
+            "query": "USAJobs tracker NASS National Agricultural Statistics Service job postings 2025"
+          }
+        },
+        {
+          "type": "openrouter:web_search",
+          "id": "st_tmp_zhswmo8sloe",
+          "status": "completed",
+          "action": {
+            "type": "search",
+            "query": "NASS eliminated state reports regional reports 2025 which reports discontinued agricultural statistics"
+          }
+        },
+        {
+          "type": "openrouter:web_fetch",
+          "id": "st_tmp_0b33kmbovk6m",
+          "status": "completed",
+          "url": "https://usajobs-tracker.abigailhaddad.com/",
+          "content": "<!DOCTYPE html>\n<html lang=\"en\">\n<head>\n    <meta charset=\"UTF-8\">\n    <meta name=\"viewport\" content=\"width=device-width, initial-scale=1.0\">\n    <title>USAJobs Listings Tracker</title>\n    \n    <!-- DataTables CSS -->\n    <link rel=\"stylesheet\" href=\"https://cdn.datatables.net/1.13.6/css/dataTables.bootstrap5.min.css\">\n    <link rel=\"stylesheet\" href=\"https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css\">\n    <link rel=\"stylesheet\" href=\"https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.0/font/bootstrap-icons.css\">\n    \n    <style>\n        body {\n            font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;\n            background-color: #f8f9fa;\n            color: #333;\n        }\n        \n        .container {\n            max-width: 1400px;\n            margin: 0 auto;\n            padding: 20px;\n        }\n        \n        h1 {\n            color: #003366;\n            font-weight: 600;\n            margin-bottom: 10px;\n        }\n        \n        .subtitle {\n            color: #999;\n            font-size: 0.9rem;\n            margin-bottom: 20px;\n        }\n        \n        .summary-stats {\n            background: white;\n            padding: 20px;\n            border-radius: 8px;\n            box-shadow: 0 2px 4px rgba(0,0,0,0.1);\n            margin-bottom: 30px;\n        }\n        \n        .stat-box {\n            text-align: center;\n            padding: 15px;\n            border-right: 1px solid #e9ecef;\n        }\n        \n        .stat-box:last-child {\n            border-right: none;\n        }\n        \n        .stat-value {\n            font-size: 2rem;\n            font-weight: 600;\n            color: #003366;\n        }\n        \n        .stat-label {\n            color: #666;\n            font-size: 0.85rem;\n            text-transform: uppercase;\n            line-height: 1.3;\n        }\n        \n        .table-container {\n            background: white;\n            padding: 25px;\n            border-radius: 8px;\n            box-shadow: 0 2px 4px rgba(0,0,0,0.1);\n        }\n        \n        .dataTables_wrapper .dataTables_filter input {\n            border: 1px solid #ddd;\n            border-radius: 4px;\n            padding: 5px 10px;\n            margin-left: 10px;\n        }\n        \n        .dataTables_wrapper .dataTables_length select {\n            border: 1px solid #ddd;\n            border-radius: 4px;\n            padding: 5px;\n        }\n        \n        table.dataTable {\n            border-collapse: collapse !important;\n        }\n        \n        table.dataTable thead th {\n            background-color: #003366;\n            color: white;\n            font-weight: 600;\n            border-bottom: none !important;\n            white-space: nowrap;\n            position: relative;\n            cursor: pointer;\n        }\n        \n        table.dataTable thead th.filtering {\n            background-color: #00508f;\n        }\n        \n        table.dataTable tbody tr:hover {\n            background-color: #f0f8ff;\n        }\n        \n        table.dataTable tbody td {\n            padding: 12px;\n            vertical-align: middle;\n        }\n        \n        .percentage-cell {\n            font-weight: 600;\n        }\n        \n        .high-percentage {\n            color: #388e3c;  /* Green - good (maintained/increased listings) */\n        }\n        \n        .medium-percentage {\n            color: #f57c00;  /* Orange - moderate (some decline) */\n        }\n        \n        .low-percentage {\n            color: #d32f2f;  /* Red - bad (major decline) */\n        }\n        \n        .expiring-soon {\n            background-color: #fff3cd;\n        }\n        \n        .no-year {\n            background-color: #e8f4f8;\n        }\n        \n        /* Column filter styles */\n        .column-filter-container {\n            position: absolute;\n            background: white;\n            border: 1px solid #ddd;\n            border-radius: 4px;\n            box-shadow: 0 4px 6px rgba(0,0,0,0.1);\n            padding: 10px;\n            z-index: 1000;\n            min-width: 200px;\n            max-height: 300px;\n            overflow-y: auto;\n        }\n        \n        .column-filter-container input[type=\"text\"] {\n            width: 100%;\n            padding: 5px;\n            margin-bottom: 10px;\n            border: 1px solid #ddd;\n            border-radius: 3px;\n        }\n        \n        .column-filter-container label {\n            display: block;\n            padding: 3px 0;\n            cursor: pointer;\n        }\n        \n        .column-filter-container label:hover {\n            background-color: #f0f0f0;\n        }\n        \n        .column-filter-container input[type=\"checkbox\"] {\n            margin-right: 8px;\n        }\n        \n        .filter-buttons {\n            margin-top: 10px;\n            text-align: right;\n        }\n        \n        .filter-buttons button {\n            margin-left: 5px;\n            padding: 3px 10px;\n            border: 1px solid #ddd;\n            border-radius: 3px;\n            background: white;\n            cursor: pointer;\n            font-size: 0.85rem;\n        }\n        \n        .filter-buttons button.apply {\n            background: #003366;\n            color: white;\n        }\n        \n        .filter-buttons button:hover {\n            opacity: 0.8;\n        }\n        \n        th.has-filter::after {\n            content: \" \u25bc\";\n            font-size: 0.8em;\n            opacity: 0.5;\n        }\n        \n        /* Bubble chart styles */\n        .treemap-container {\n            background: white;\n            padding: 20px;\n            border-radius: 8px;\n            box-shadow: 0 2px 4px rgba(0,0,0,0.1);\n            margin-bottom: 30px;\n        }\n        \n        .treemap-title {\n            font-size: 1.2rem;\n            font-weight: 600;\n            color: #003366;\n            margin-bottom: 15px;\n        }\n        \n        #bubble-chart {\n            width: 100%;\n            height: 460px;\n            position: relative;\n        }\n        \n        .bubble {\n            cursor: pointer;\n            opacity: 0.8;\n            transition: all 0.3s;\n        }\n        \n        .bubble:hover {\n            opacity: 1;\n            stroke: #003366;\n            stroke-width: 3;\n        }\n        \n        .axis-label {\n            font-size: 14px;\n            font-weight: 600;\n            fill: #333;\n        }\n        \n        .grid line {\n            stroke: #e0e0e0;\n            stroke-opacity: 0.7;\n            shape-rendering: crispEdges;\n        }\n        \n        .grid path {\n            stroke-width: 0;\n        }\n        \n        .quadrant-label {\n            fill: #666;\n            font-size: 12px;\n            font-style: italic;\n            opacity: 0.7;\n        }\n        \n        /* Filter section styles */\n        .filter-section {\n            background: white;\n            padding: 20px;\n            border-radius: 8px;\n            box-shadow: 0 2px 4px rgba(0,0,0,0.1);\n            margin-bottom: 30px;\n        }\n        \n        .filter-section h3 {\n            color: #003366;\n            font-size: 1.3rem;\n            margin-bottom: 15px;\n        }\n        \n        .filter-controls label {\n            font-size: 0.85rem;\n            font-weight: 600;\n            color: #666;\n            margin-bottom: 5px;\n        }\n        \n        .active-filters {\n            margin-top: 15px;\n            min-height: 30px;\n        }\n        \n        .filter-badge {\n            display: inline-block;\n            background: #003366;\n            color: white;\n            padding: 5px 10px;\n            border-radius: 20px;\n            margin-right: 10px;\n            margin-bottom: 5px;\n            font-size: 0.85rem;\n        }\n        \n        .filter-badge .remove-filter {\n            margin-left: 8px;\n            cursor: pointer;\n            font-weight: bold;\n        }\n        \n        .filter-badge .remove-filter:hover {\n            color: #ff6b6b;\n        }\n        \n        /* Multi-select dropdown styles */\n        .filter-dropdown {\n            position: relative;\n        }\n        \n        .filter-dropdown-menu {\n            position: absolute;\n            top: 100%;\n            left: 0;\n            right: 0;\n            z-index: 1000;\n            background: white;\n            border: 1px solid #ddd;\n            border-radius: 4px;\n            box-shadow: 0 4px 6px rgba(0,0,0,0.1);\n            padding: 10px;\n            margin-top: 2px;\n        }\n        \n        .filter-dropdown-menu label {\n            cursor: pointer;\n        }\n        \n        .filter-dropdown-menu label:hover {\n            background-color: #f0f0f0;\n        }\n        \n        .filter-dropdown-menu .filter-search {\n            margin-bottom: 5px;\n        }\n        \n        .filter-dropdown-menu .filter-options label {\n            padding: 3px 8px;\n            margin: 0;\n            display: block;\n        }\n        \n        .filter-dropdown-menu input[type=\"checkbox\"] {\n            margin-right: 8px;\n        }\n        \n        /* Active filters display */\n        .active-filters-display {\n            color: #d32f2f;\n            font-size: 1.1rem;\n            font-weight: 600;\n            margin-bottom: 20px;\n            min-height: 1.5em;\n        }\n        \n        #downloadCSV:hover {\n            background-color: #00508f !important;\n            transform: translateY(-1px);\n            box-shadow: 0 2px 4px rgba(0,0,0,0.2);\n        }\n        \n        /* Skip link for keyboard navigation */\n        .skip-link {\n            position: absolute;\n            top: -40px;\n            left: 0;\n            background: #003366;\n            color: white;\n            padding: 8px;\n            text-decoration: none;\n            z-index: 9999;\n        }\n        \n        .skip-link:focus {\n            top: 0;\n        }\n        \n        /* Improved focus indicators */\n        a:focus,\n        button:focus,\n        input:focus,\n        select:focus,\n        textarea:focus {\n            outline: 3px solid #003366;\n            outline-offset: 2px;\n        }\n        \n        /* Screen reader only content */\n        .sr-only {\n            position: absolute;\n            width: 1px;\n            height: 1px;\n            padding: 0;\n            margin: -1px;\n            overflow: hidden;\n            clip: rect(0, 0, 0, 0);\n            white-space: nowrap;\n            border: 0;\n        }\n        \n    </style>\n</head>\n<body>\n    <!-- Skip to main content link for keyboard navigation -->\n    <a href=\"#main-content\" class=\"skip-link\">Skip to main content</a>\n    \n    <!-- Work in Progress Banner -->\n    <div class=\"alert alert-warning mb-0\" role=\"alert\">\n        <div class=\"container\">\n            <strong>\ud83d\udea7 Active Development:</strong> This is an experimental tool tracking federal job postings.\n            Data source: <a href=\"https://github.com/abigailhaddad/usajobs_historical\" target=\"_blank\" class=\"alert-link\">USAJobs Historical Data</a> | <a class='alert-link' href='/methodology'>Methodology</a>\n        </div>\n    </div>\n\n    <!-- Archive Notice Banner -->\n    <div class=\"alert alert-danger mb-0\" role=\"alert\" style=\"border-radius: 0;\">\n        <div class=\"container\">\n            <strong>\ud83d\udcc1 Archive Notice:</strong> This tracker will be archived on December 31, 2025. Data collection will stop on that date and no further updates will be made.\n        </div>\n    </div>\n\n    <div class=\"container\" id=\"main-content\">\n        <h1>USAJobs Listings Tracker</h1>\n        <p class=\"subtitle\" id=\"dateRangeSubtitle\">Loading date range...</p>\n        <div id=\"activeFiltersDisplay\" class=\"active-filters-display\"></div>\n        \n        <!-- ARIA live region for screen reader announcements -->\n        <div class=\"sr-only\" aria-live=\"polite\" aria-atomic=\"true\" id=\"ariaLiveRegion\"></div>\n        \n        <!-- Important Caveats -->\n        <div class=\"alert alert-info mt-3 mb-3\">\n            <small>\n                <strong>Important Notes:</strong>\n                <ul class=\"mb-0\" style=\"padding-left: 20px;\">\n                    <li>Job listings \u2260 actual hires. One listing may result in multiple hires, one hire, or no hires.</li>\n                    <li>Not all federal positions are posted on USAJobs.</li>\n                    <li>Job listings which include multiple occupation series are counted under the first series listed.</li>\n                    <li>Subagency view and raw job listings are only available after selecting a specific department.</li>\n                </ul>\n            </small>\n        </div>\n        \n        <!-- Data Source Attribution -->\n        <div class=\"text-center text-muted mb-4\">\n            <small>\n                Data source: <a href=\"https://github.com/abigailhaddad/usajobs_historical\" target=\"_blank\" class=\"text-decoration-none\">\n                    USAJobs Historical Data\n                </a>\n                <br>\n                <span id=\"lastUpdated\"></span>\n            </small>\n        </div>\n        \n        <div class=\"summary-stats\">\n            <div class=\"row\">\n                <div class=\"col-md-3 stat-box\">\n                    <div class=\"stat-value\" id=\"total2024\">Loading...</div>\n                    <div class=\"stat-label\" id=\"previousYearLabel\">Previous Year</div>\n                </div>\n                <div class=\"col-md-3 stat-box\">\n                    <div class=\"stat-value\" id=\"total2025\">Loading...</div>\n                    <div class=\"stat-label\" id=\"currentYearLabel\">Current Year</div>\n                </div>\n                <div class=\"col-md-3 stat-box\">\n                    <div class=\"stat-value\" id=\"overallPercentage\">Loading...</div>\n                    <div class=\"stat-label\" id=\"percentageLabel\">Year-over-Year %</div>\n                </div>\n                <div class=\"col-md-3 stat-box\">\n                    <div class=\"stat-value\" id=\"entityCount\">Loading...</div>\n                    <div class=\"stat-label\">Departments</div>\n                </div>\n            </div>\n        </div>\n        \n        <!-- Unified Filter Section -->\n        <div class=\"filter-section\">\n            <h3>Filters & Display Options</h3>\n            <div class=\"filter-controls\">\n                <div class=\"row mb-3\">\n                    <div class=\"col-md-3\">\n                        <label for=\"mainDepartmentFilter\">Department</label>\n                        <select class=\"form-control form-control-sm\" id=\"mainDepartmentFilter\">\n                            <option value=\"\">All Departments</option>\n                        </select>\n                    </div>\n                    <div class=\"col-md-3\">\n                        <label for=\"mainAgencyFilter\">Agency</label>\n                        <select class=\"form-control form-control-sm\" id=\"mainAgencyFilter\">\n                            <option value=\"\">All Agencies</option>\n                        </select>\n                    </div>\n                    <div class=\"col-md-3\">\n                        <label for=\"mainAppointmentFilter\">Appointment Type</label>\n                        <select class=\"form-control form-control-sm\" id=\"mainAppointmentFilter\">\n                            <option value=\"\">All Types</option>\n                        </select>\n                    </div>\n                    <div class=\"col-md-3\">\n                        <label for=\"mainOccupationFilter\">Occupation Series</label>\n                        <select class=\"form-control form-control-sm\" id=\"mainOccupationFilter\">\n                            <option value=\"\">All Occupations</option>\n                        </select>\n                    </div>\n                </div>\n                <div class=\"row mb-3\">\n                    <div class=\"col-md-3\">\n                        <label for=\"aggregationLevel\">View By</label>\n                        <select id=\"aggregationLevel\" class=\"form-control form-control-sm\">\n                            <option value=\"department\" selected>Department</option>\n                            <option value=\"agency\">Agency</option>\n                            <option value=\"subagency\" disabled>Subagency (select a department first)</option>\n                        </select>\n                    </div>\n                    <div class=\"col-md-3\">\n                        <label>&nbsp;</label>\n                        <div class=\"form-check\">\n                            <input class=\"form-check-input\" type=\"checkbox\" id=\"showRawJobs\" disabled>\n                            <label class=\"form-check-label\" for=\"showRawJobs\">\n                                Show Raw Jobs (select a department first)\n                            </label>\n                        </div>\n                    </div>\n                </div>\n            </div>\n        </div>\n        \n        <div class=\"treemap-container\">\n            <h2 class=\"treemap-title\" id=\"bubbleChartTitle\">USAJobs Counts by Department</h2>\n            <p style=\"margin-top: -10px; margin-bottom: 15px; color: #666; font-size: 0.9rem;\">Bubble size = 2024 count</p>\n            <div id=\"bubble-chart\"></div>\n        </div>\n        \n        <div class=\"table-container\">\n            <div class=\"d-flex justify-content-between align-items-center mb-3\">\n                <h3 class=\"m-0\" style=\"color: #003366; font-size: 1.3rem;\">Data Table</h3>\n                <button id=\"downloadCSV\" class=\"btn btn-sm\" style=\"background-color: #003366; color: white; border: none;\">\n                    <i class=\"bi bi-download\"></i> Download Current View as CSV\n                </button>\n            </div>\n            <table id=\"jobsTable\" class=\"table table-striped\">\n                <thead id=\"tableHead\">\n                    <tr id=\"tableHeaders\">\n                        <th>Department</th>\n                        <th>Agency</th>\n                        <th>2024 Listings</th>\n                        <th>2025 Listings</th>\n                        <th>Change</th>\n                        <th>2025 as % of 2024</th>\n                    </tr>\n                </thead>\n                <tbody id=\"tableBody\">\n                </tbody>\n            </table>\n        </div>\n    </div>\n    \n    <!-- jQuery -->\n    <script src=\"https://code.jquery.com/jquery-3.7.0.min.js\"></script>\n    <!-- Bootstrap JS -->\n    <script src=\"https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js\"></script>\n    <!-- DataTables JS -->\n    <script src=\"https://cdn.datatables.net/1.13.6/js/jquery.dataTables.min.js\"></script>\n    <script src=\"https://cdn.datatables.net/1.13.6/js/dataTables.bootstrap5.min.js\"></script>\n    <!-- D3.js for Treemap -->\n    <script src=\"https://d3js.org/d3.v7.min.js\"></script>\n    \n    <script src=\"jobs_app.js\"></script>\n</body>\n</html>",
+          "title": "USAJobs Listings Tracker",
+          "httpStatus": 200
+        },
+        {
+          "type": "openrouter:web_fetch",
+          "id": "st_tmp_qz22jo6xi6",
+          "status": "completed",
+          "url": "https://www.nass.usda.gov/Newsroom/Notices/2025/11-19-2025.php",
+          "content": "<!DOCTYPE html>\r\n<html lang=\"en-US\"><!-- InstanceBegin template=\"/Templates/02 - ASB Notice.dwt.php\" codeOutsideHTMLIsLocked=\"false\" -->\r\n<head>\r\n<!-- InstanceBeginEditable name=\"doctitle\" -->\r\n<title>USDA Reschedules Reports Affected by Lapse in Federal Funding</title>\r\n<!-- InstanceEndEditable -->\r\n<meta name=\"Content-Type\" content=\"X-Content-Type-Options: nosniff\">\r\n<meta charset=\"utf-8\">\r\n<meta http-equiv=\"X-UA-Compatible\" content=\"IE=Edge\">\r\n<meta name=\"viewport\" content=\"width=device-width, initial-scale=1.0\">\r\n<meta name=\"keywords\" content=\"Agricultural Statistical Bulletins, statstical reports, Statistics, Agriculture, Farm, Information, USDA, Government, agricultural, NASS\">\r\n<meta name=\"description\" content=\"USDA National Agricultural Statistics Service Information. NASS publications cover a wide range of subjects, from traditional crops, such as corn and wheat, to specialties, such as mushrooms and flowers; from calves born to hogs slaughtered; from agricultural prices to land in farms. The agency has the distinction of being known as The Fact Finders of U.S. Agriculture due to the abundance of information we produce. The National Agricultural Statistics Service's mission is to serve the United States, its agriculture, and its rural communities by providing meaningful, accurate, and objective statistical information and services.\">\r\n<link rel=\"alternate\" title=\"NASS Today's Reports\" href=\"http://www.nass.usda.gov/rss/reports.xml\" type=\"application/rss+xml\">\r\n<link rel=\"alternate\" title=\"NASS News and Events\" href=\"http://www.nass.usda.gov/rss/news.xml\" type=\"application/rss+xml\">\r\n<link rel=\"alternate\" title=\"Agricultural Statistics Board Notices\" href=\"http://www.nass.usda.gov/rss/asb.xml\" type=\"application/rss+xml\">\r\n<!--  Cascading Style Sheets  -->\r\n<link href=\"/newCSS/bootstrap.css\" rel=\"stylesheet\" type=\"text/css\" />\r\n<link href=\"/newCSS/master.css\" rel=\"stylesheet\" type=\"text/css\" />\r\n<link href=\"/newCSS/font-awesome.min.css\" rel=\"stylesheet\" type=\"text/css\" >\r\n<link rel=\"icon\" href=\"/favicon.ico\">\r\n<script src=\"/newJS/breadcrumbs.js\" ></script>\r\n<script type=\"text/javascript\">\r\nfunction getLastMod() {\r\n    var lastMod = Date.parse(document.lastModified);\r\n    var now = new Date();\r\n    var diff = (new Date(now.toLocaleString())).getTimezoneOffset() - now.getTimezoneOffset();\r\n    if (!diff) diff = now.getTimezoneOffset() * 60000;\r\n    else diff = 0;\r\n    return lastMod - diff;\r\n}\r\n</script>\r\n<!-- ReCaptcha -->\r\n<script src='https://www.google.com/recaptcha/api.js'></script>\r\n<!-- InstanceBeginEditable name=\"head\" -->\r\n<!-- InstanceEndEditable -->\r\n\t<script>\r\n\t\t// ForeSee Production Embed Script v2.01\r\n\t\t// DO NOT MODIFY BELOW THIS LINE *****************************************\r\n\t\t;\r\n\t\t( function ( g ) {\r\n\t\t\tvar d = document,\r\n\t\t\t\tam = d.createElement( 'script' ),\r\n\t\t\t\th = d.head || d.getElementsByTagName( \"head\" )[ 0 ],\r\n\t\t\t\tfsr = 'fsReady',\r\n\t\t\t\taex = {\r\n\t\t\t\t\t\"src\": \"//gateway.foresee.com/sites/usda-nass/production/gateway.min.js\",\r\n\t\t\t\t\t\"type\": \"text/javascript\",\r\n\t\t\t\t\t\"async\": \"true\",\r\n\t\t\t\t\t\"data-vendor\": \"fs\",\r\n\t\t\t\t\t\"data-role\": \"gateway\"\r\n\t\t\t\t};\r\n\t\t\tfor ( var attr in aex ) {\r\n\t\t\t\tam.setAttribute( attr, aex[ attr ] );\r\n\t\t\t}\r\n\t\t\th.appendChild( am );\r\n\t\t\tg[ fsr ] || ( g[ fsr ] = function () {\r\n\t\t\t\tvar aT = '__' + fsr + '_stk__';\r\n\t\t\t\tg[ aT ] = g[ aT ] || [];\r\n\t\t\t\tg[ aT ].push( arguments );\r\n\t\t\t} );\r\n\t\t} )( window );\r\n\t\t// DO NOT MODIFY ABOVE THIS LINE *****************************************\r\n\t</script>\r\n</head>\r\n<body>\r\n\r\n<!-- Google Tag Manager --> \r\n<script>(function(w,d,s,l,i){w[l]=w[l]||[];w[l].push({'gtm.start':\r\nnew Date().getTime(),event:'gtm.js'});var f=d.getElementsByTagName(s)[0],\r\nj=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=\r\n'https://www.googletagmanager.com/gtm.js?id='+i+dl;f.parentNode.insertBefore(j,f);\r\n})(window,document,'script','dataLayer','GTM-KVTND4N');</script> \r\n<!-- End Google Tag Manager -->\r\n\r\n<div class=\"container\">\r\n  <div id=\"masthead\" class=\"col-sm-12 clearfix\">\r\n    <!-- New script for fontawesome icons as of 12/12/2024 for the Touchpoints CX survey/PAO -->\r\n<script src=\"https://kit.fontawesome.com/dc4c24a15b.js\" crossorigin=\"anonymous\"></script>\r\n\r\n<div id=\"skip\" class=\"container\">\r\n\t\r\n\t<p class=\"text-center hidden-print skip\"><a href=\"#skipnav\" >Skip to Main Content</a></p>\r\n\r\n\r\n<div id=\"container\" class=\"masthead col-xs-12 clearfix\"> \r\n  <!-- open #mastheadLeft -->\r\n  <div class=\"mastheadLeft hidden-xs hidden-sm col-md-8\"> \r\n    <!-- open #logo -->\r\n    <div class=\"col-md-2 hidden-xs hidden-sm zoom80\"><img class=\"img-responsive\" src=\"/images/masthead/USDA-Logo.png\" alt=\"USDA Logo\" width=\"100\" height=\"71\" /></div>\r\n    <div class=\"col-md-1 hidden-xs hidden-sm zoom80\"><img class=\"img-responsive\" src=\"/images/masthead/nass_logo_bw-1.png\" alt=\"NASS - Agriculture Counts\" width=\"71\" height=\"71\" /></div>\r\n    <!-- closes #logo -->\r\n    <div class=\"usda hidden-xs hidden-sm col-md-8\">\r\n      <h1><a href=\"http://www.usda.gov\" target=\"_blank\">United States Department of Agriculture</a></h1>\r\n      <h2><a href=\"/index.php\">National Agricultural Statistics Service</a></h2>\r\n    </div>\r\n  </div>\r\n  <div class=\"mastheadRight col-xs-12 col-sm-12 col-md-4 clearfix\">\r\n    <div class=\"main_social hidden-xs hidden-sm col-md-12 clearfix\">\r\n      <div class=\"socialIcons\"><a href=\"http://twitter.com/usda_nass/\" target=\"_blank\"><img src=\"/images/main/sc-twitter-large-1.png\" alt=\"NASS on Twitter\" width=\"37\" height=\"37\"  /></a>&nbsp;<a href=\"https://www.youtube.com/usdanass\" target=\"_blank\"><img src=\"/images/main/sc-youtube-large-1.png\" alt=\"USDA-NASS on Youtube\" width=\"37\" height=\"37\"  /></a>&nbsp;<a href=\"https://www.usda.gov/media/blog\" target=\"_blank\"><img src=\"/images/main/sc-blogfeed-large-1.png\" alt=\"USDA Blog\" width=\"37\" height=\"37\"  /></a>&nbsp;<a href=\"/Newsroom/Syndication/\"><img src=\"/images/main/sc-rss-large-1.png\" alt=\"NASS RSS Feeds\" width=\"37\" height=\"37\"  /></a>&nbsp;<a href=\"http://www.flickr.com/photos/usdagov\"><img src=\"/images/main/sc-flickr-large-1.png\" alt=\"USDA on Flickr\" width=\"37\" height=\"37\"  /></a>&nbsp;<a href=\"http://www.facebook.com/USDA\"><img src=\"/images/main/sc-facebook-large-1.png\" alt=\"USDA on Facebook\" width=\"37\" height=\"37\"  /></a></div>\r\n      <div class=\"email_signup\"> Subscriptions:&nbsp;&nbsp;&nbsp; <a href=\"https://esmis.nal.usda.gov/\" target=\"_blank\" title=\"Subscribe to NASS National Reports\">National</a> | <a href=\"/Newsroom/Subscribe/\" title=\"Subscribe to NASS News Releases\">News</a></div>\r\n    </div>\r\n    <!-- closes #topNav --> \r\n    <!-- START Mobile Menu -->\r\n    <nav class=\"navbar navbar-default hidden-md hidden-lg col-xs-12 col-sm-12\">\r\n      <div id=\"mobile-navigation\" class=\"container\"> \r\n        <!-- Brand and toggle get grouped for better mobile display -->\r\n        <div class=\"navbar-header\">\r\n          <button type=\"button\" class=\"navbar-toggle collapsed\" data-toggle=\"collapse\" data-target=\"#bs-example-navbar-collapse-1\">  <span class=\"icon-bar\"></span> <span class=\"icon-bar\"></span> <span class=\"icon-bar\"></span> </button>\r\n          <a class=\"hidden-lg logo\" href=\"http://www.usda.gov\"><img src=\"/images/masthead/USDA-Logo.png\" alt=\"USDA Logo\" width=\"100\" height=\"71\" /></a>&nbsp;<a class=\"hidden-md hidden-lg logo\" href=\"/index.php\"><img src=\"/images/masthead/nass_logo_bw-1.png\" alt=\"NASS -Agriculture Counts\" width=\"71\" height=\"71\" /></a> </div>\r\n        \r\n        <!-- Collect the nav links, forms, and other content for toggling -->\r\n        <div class=\"collapse navbar-collapse mobile\" id=\"bs-example-navbar-collapse-1\">\r\n          <ul class=\"nav navbar-nav\" role=\"menu\">\r\n            <li><a href=\"/index.php\" title=\"Go to the NASS Homepage\">Home</a></li>\r\n            <li><a href=\"/Data_and_Statistics/index.php\" >Data & Statistics</a></li>\r\n            <li><a href=\"/Publications/index.php\" aria-label=\"National Publications\">Publications</a></li>\r\n            <li><a href=\"/Research_and_Science/index.php\">Research, Science and Technology</a></li>\r\n            <li><a href=\"/Newsroom/index.php\">Newsroom <span class=\"sr-only\">(current)</span></a></li>\r\n            <li><a href=\"/Surveys/index.php\" aria-label=\"NASS Surveys\">Surveys</a></li>\r\n            <li><a href=\"/AgCensus/index.php\">Census</a></li>\r\n            <li class=\"divider\"></li>\r\n            <li class=\"dropdown\"> <a href=\"#\" class=\"dropdown-toggle\" data-toggle=\"dropdown\" role=\"button\" aria-expanded=\"false\">NASS Information <span class=\"caret\"></span></a>\r\n              <ul class=\"dropdown-menu\">\r\n                <li><a href=\"/About_NASS/index.php\">About NASS</a></li>\r\n                <li><a href=\"/Statistics_by_State/RFO/index.php\">Regional Offices</a></li>\r\n                <li><a href=\"/About_NASS/Opportunities/index.php\">Careers</a></li>\r\n                <li><a href=\"/Contact_Us/index.php\">Contact Us</a></li>\r\n              </ul>\r\n            </li>\r\n            <li class=\"dropdown\"> <a href=\"#\" class=\"dropdown-toggle\" data-toggle=\"dropdown\" role=\"button\" aria-expanded=\"false\">Subscriptions <span class=\"caret\"></span></a>\r\n              <ul class=\"dropdown-menu\">\r\n                <li><a href=\"https://esmis.nal.usda.gov/\">National</a></li>\r\n                <li><a href=\"/Publications/Subscribe_to_State_Reports/index.php\">State</a></li>\r\n                <li><a href=\"/Newsroom/Subscribe/index.php\">News</a></li>\r\n              </ul>\r\n            </li>\r\n          </ul>\r\n        </div>\r\n        <!-- /.navbar-collapse --> \r\n      </div>\r\n      <!-- /.container-fluid --> \r\n    </nav>\r\n    <!-- END Mobile Menu --> \r\n    \r\n    <!-- start search -->\r\n    <div id=\"search_\" class=\"searchBar right clearfix\">\r\n      <form class=\"navbar-form navbar-right hidden-print\" action=\"https://search.usa.gov/search\" id=\"search_form_mobile\" method=\"get\" >\r\n  <input name=\"utf8\" type=\"hidden\" value=\"&#x2713;\" />\r\n  <input id=\"affiliate\" name=\"affiliate\" type=\"hidden\" value=\"usda-nass\" />\r\n  <input class=\"form-control usagov-search-autocomplete\" title=\"Search NASS\" placeholder=\"Search NASS\" id=\"query\" name=\"query\" />\r\n  <button type=\"submit\" aria-label=\"Search\" class=\"btn btn-default searchBar searchBtn\"><span class=\"fa fa-search\"></span></button>\r\n</form>\r\n<br />\r\n\r\n    </div>\r\n  </div>\r\n  <!-- closes #mastheadRight --> \r\n\r\n<!-- START Main Menu START -->\r\n</div>\r\n<div>\r\n  <!-- START Main Menu START -->\r\n\r\n<div id=\"primary_navigation\" class=\"container hidden-xs hidden-sm col-md-12 col-lg-12 clearfix\">\r\n\t<ul id=\"menu\" role=\"list\">\r\n\t\t<li><a href=\"/index.php\" title=\"Go to the NASS Homepage\"><span class=\"fa fa-home\"></span></a>\r\n\t\t</li>\r\n\t\t<!-- Begin Home Item -->\r\n\t\t\r\n\t\t<li><a href=\"/Data_and_Statistics/index.php\" class=\"drop\">Data & Statistics&nbsp;&nbsp;<span class=\"fa fa-caret-down\"></span></a>\r\n\t\t\t<!-- Begin 4 columns Item -->\r\n\r\n\t\t\t<div class=\"dropdown_4columns\">\r\n\t\t\t\t<!-- Begin 4 columns container -->\r\n\r\n\t\t\t\t<div class=\"col_4\" style=\"border-bottom: #ccc thin solid;\">\r\n\t\t\t\t\t<h2>Access Quick Stats (searchable database)&nbsp;&nbsp;<a href=\"https://quickstats.nass.usda.gov/\" target=\"_blank\" title=\"Go to Quick Stats website\"><span class=\"fa fa-2x fa-arrow-circle-right\"></span></a></h2>\r\n\t\t\t\t\t<p>The <a href=\"https://quickstats.nass.usda.gov/\" target=\"_blank\" title=\"Go to Quick Stats website\">Quick Stats</a> Database is the most comprehensive tool for accessing agricultural data published by NASS. It allows you to customize your query by commodity, location, or time period.</p>\r\n\t\t\t\t\t\r\n\t\t\t\t\t<ul>\r\n\t\t\t\t\t<li><a href=\"/Corrections/?log=QS\">Quick Stats System Updates</a></li>\r\n\t\t\t\t\t<li><a href=\"/datasets\">Download Quick Stats data files</a></li>\r\n\t\t\t\t\t</ul>\r\n\t\t\t\t\t\r\n\t\t\t\t\t\r\n\t\t\t\t\t<h3>Access Quick Stats Lite &nbsp;&nbsp;<a href=\"/Quick_Stats/Lite/index.php\" title=\"Go to Quick Stats Lite\"><span class=\"fa fa-2x fa-arrow-circle-right\"></span></a></h3>\r\n\t\t\t\t\t<p><a href=\"/Quick_Stats/Lite/index.php\">Quick Stats Lite</a> provides a more structured approach to get commonly requested statistics from our online database.</p>\r\n\t\t\t\t\t\r\n\t\t\t\t\t\r\n\t\t\t\t<!--<h3><img src=\"/Publications/AgCensus/images/newred.png\" width=\"25\" alt=\"New Census Data Query Tool\"/>Access Census Data Query Tool &nbsp;&nbsp;<a href=\"/Quick_Stats/CDQT/chapter/1/table/1\" title=\"Go to Census Data Query Tool\"><span class=\"fa fa-2x fa-arrow-circle-right\"></span></a></h3>\r\n\t\t\t\t\t<p>The <a href=\"/Quick_Stats/CDQT/chapter/1/table/1\">Census Data Query Tool</a> (CDQT) is a web based tool that is available to access and download table level data from the Census of Agriculture Volume 1 publication.</p>-->\r\n\t\t\t\t</div>\r\n\t\t\t\t<div class=\"col_2\">\r\n\t\t\t\t\t<p class=\"level3\">Explore Statistics</p>\r\n\t\t\t\t\t<ul>\r\n\t\t\t\t\t\t<li>\r\n\t\t\t\t\t\t\t<a href=\"/Statistics_by_State/index.php\">\r\n\t\t\t\t\t\t\t\t<p class=\"level4\">By State</p>\r\n\t\t\t\t\t\t\t</a>\r\n\t\t\t\t\t\t</li>\r\n\t\t\t\t\t\t<li>\r\n\t\t\t\t\t\t\t<p class=\"level4\">By Subject</p>\r\n\t\t\t\t\t\t\t<ul>\r\n\t\t\t\t\t\t\t\t<li><a href=\"/Statistics_by_Subject/index.php?sector=CROPS\">Crops and Plants</a>\r\n\t\t\t\t\t\t\t\t</li>\r\n\t\t\t\t\t\t\t\t<li><a href=\"/Statistics_by_Subject/Demographics/index.php\">Demographics</a>\r\n\t\t\t\t\t\t\t\t</li>\r\n\t\t\t\t\t\t\t\t<li><a href=\"/Statistics_by_Subject/Economics_and_Prices/index.php\">Economic and Prices</a>\r\n\t\t\t\t\t\t\t\t</li>\r\n\t\t\t\t\t\t\t\t<li><a href=\"/Statistics_by_Subject/Environmental/index.php\">Environmental</a>\r\n\t\t\t\t\t\t\t\t</li>\r\n\t\t\t\t\t\t\t\t<li><a href=\"/Statistics_by_Subject/index.php?sector=ANIMALS%20&amp;%20PRODUCTS\">Livestock and Animals</a>\r\n\t\t\t\t\t\t\t\t</li>\r\n\t\t\t\t\t\t\t\t<li><a href=\"/Research_and_Science/index.php\">Research, Science, and Technology</a>\r\n\t\t\t\t\t\t\t\t</li>\r\n\t\t\t\t\t\t\t</ul>\r\n\t\t\t\t\t\t\t<!--\t\t    <p><strong>* = Currently unavailable</strong></p>\r\n-->\r\n\t\t\t\t\t\t</li>\r\n\t\t\t\t\t\t<li>\r\n\t\t\t\t\t\t\t<a href=\"/Charts_and_Maps/index.php\">\r\n\t\t\t\t\t\t\t\t<p class=\"level4\">Charts and Maps</p>\r\n\t\t\t\t\t\t\t</a>\r\n\t\t\t\t\t\t</li>\r\n\t\t\t\t\t\t<li>\r\n\t\t\t\t\t\t\t<a href=\"/Data_Visualization/index.php\">\r\n\t\t\t\t\t\t\t\t<p class=\"level4\">Data Visualization</p>\r\n\t\t\t\t\t\t\t</a>\r\n\t\t\t\t\t\t</li>\r\n\t\t\t\t\t\t<li>\r\n\t\t\t\t\t\t\t<a href=\"/Data_and_Statistics/Pre-Defined_Queries/index.php\">\r\n\t\t\t\t\t\t\t\t<p class=\"level4\">Pre-Defined Queries</p>\r\n\t\t\t\t\t\t\t</a>\r\n\t\t\t\t\t\t</li>\r\n\t\t\t\t\t\t<li>\r\n\t\t\t\t\t\t\t<a href=\"/Data_and_Statistics/Special_Tabulations/index.php\">\r\n\t\t\t\t\t\t\t\t<p class=\"level4\">Special Tabulations and Restricted Microdata</p>\r\n\t\t\t\t\t\t\t</a>\r\n\t\t\t\t\t\t</li>\r\n\t\t\t\t\t</ul>\r\n\t\t\t\t</div>\r\n\t\t\t\t<div class=\"col_2\"> <br>\r\n\t\t\t\t\t<p class=\"level4\">County Level Information</p>\r\n\t\t\t\t\t<ul>\r\n\t\t\t\t\t\t<li><a href=\"/Charts_and_Maps/Crops_County/index.php\">County Maps</a>\r\n\t\t\t\t\t\t\t<ul>\r\n<!--\t\t\t\t\t\t\t\t<li><a href=\"/Data_and_Statistics/County_Data_Files/Release_Schedule/index.php\">County Data Release Schedule</a>\r\n\t\t\t\t\t\t\t\t</li>-->\r\n\t\t\t\t\t\t\t\t<li><a href=\"/Charts_and_Maps/Crops_County/boundary_maps/indexgif.php\">County and District Geographic Boundaries</a>\r\n\t\t\t\t\t\t\t\t</li>\r\n\t\t\t\t\t\t\t\t<li><a href=\"/Data_and_Statistics/County_Data_Files/Frequently_Asked_Questions/county_list.txt\">County and District Codes</a>\r\n\t\t\t\t\t\t\t\t</li>\r\n\t\t\t\t\t\t\t\t<li><a href=\"/Data_and_Statistics/County_Data_Files/Frequently_Asked_Questions/commcodes.php\">Commodity Codes</a>\r\n\t\t\t\t\t\t\t\t</li>\r\n\t\t\t\t\t\t\t\t<li><a href=\"/Data_and_Statistics/County_Data_Files/Livestock_County_Estimates/index.php\">Livestock County Estimates</a>\r\n\t\t\t\t\t\t\t\t</li>\r\n\t\t\t\t\t\t\t</ul>\r\n\t\t\t\t\t\t</li>\r\n\t\t\t\t\t</ul>\r\n\t\t\t\t\t\t\t\t\t\r\n\t\t\t\t</div>\r\n\t\t\t\t<div class=\"col_4\">\r\n\t\t\t\t\t<p class=\"level4\" style=\"border-top: #ccc thin solid; padding-top:10px;\">Geospatial Data &amp; Interactive Maps</p>\r\n\t\t\t\t</div>\r\n\t\t\t\t<div class=\"col_2\">\r\n\t\t\t\t\t<ul>\r\n\t\t\t\t\t\t<li><a href=\"https://croplandcros.scinet.usda.gov/\" target=\"_blank\">CroplandCROS</a>\r\n\t\t\t\t\t\t</li>\r\n\t\t\t\t\t\t<li><a href=\"/Research_and_Science/Cropland/SARS1a.php\">Cropland Data Layer</a>\r\n\t\t\t\t\t\t</li>\r\n\t\t\t\t\t\t<li><a href=\"https://nassgeodata.gmu.edu/VegScape/\" target=\"_blank\">VegScape</a>\r\n\t\t\t\t\t\t</li>\r\n\t\t\t\t\t\t<li><a href=\"https://cloud.csiss.gmu.edu/Crop-CASMA/\">Crop Condition and Soil Moisture Analytics\r\n\t\t\t\t\t\t\t</a>\r\n\t\t\t\t\t\t</li>\r\n\t\t\t\t\t</ul>\r\n\t\t\t\t</div>\r\n\t\t\t\t<div class=\"col_2\">\r\n\t\t\t\t\t<ul>\r\n\t\t\t\t\t\t<li><a href=\"/Research_and_Science/Crop-Sequence-Boundaries/index.php\">Crop Sequence Boundaries \r\n\t\t\t\t\t\t\t</a>\r\n\t\t\t\t\t\t</li>\r\n\t\t\t\t\t\t<li><a href=\"/Research_and_Science/Crop_Progress_Gridded_Layers/index.php\">Crop Progress & Condition Gridded Layers\r\n\t\t\t\t\t\t\t</a>\r\n\t\t\t\t\t\t</li>\r\n\t\t\t\t\t\t<li><a href=\"/Research_and_Science/Disaster-Analysis/index.php\">Disaster Analysis\r\n\t\t\t\t\t\t\t</a>\r\n\t\t\t\t\t\t</li>\r\n\t\t\t\t\t\t<li><a href=\"/Research_and_Science/stratafront2b.php\">Land Use Strata for Selected States</a></li>\r\n\t\t\t\t\t\t\r\n\t\t\t\t\t\t\r\n\t\t\t\t\t\t\t\t\t\t\t\t\r\n\t\t\t\t\t</ul>\r\n\t\t\t\t</div>\r\n\t\t\t</div>\r\n\t\t\t<!-- End 4 columns container -->\r\n\r\n\t\t</li>\r\n\t\t<!-- End Home Item -->\r\n\r\n\t\t<li><a href=\"/Publications/index.php\" class=\"drop\">Publications&nbsp;&nbsp;<span class=\"fa fa-caret-down\"></span></a>\r\n\t\t\t<!-- Begin 4 columns Item -->\r\n\r\n\t\t\t<div class=\"dropdown_4columns\">\r\n\t\t\t\t<!-- Begin 4 columns container -->\r\n\r\n\t\t\t\t<div class=\"col_4\">\r\n\t\t\t\t\t<h2>Today's Reports&nbsp;&nbsp;<a href=\"/Publications/index.php\" aria-label=\"Today's Reports\"><span class=\"fa fa-2x fa-arrow-circle-right\"></span></a></h2>\r\n\t\t\t\t</div>\r\n\t\t\t\t<div class=\"col_2\">\r\n\t\t\t\t\t<p class=\"level4\">Browse NASS Reports</p>\r\n\t\t\t\t\t<ul>\r\n\t\t\t\t\t\t<li><a href=\"/Statistics_by_Subject/index.php\">by Subject</a>\r\n\t\t\t\t\t\t</li>\r\n\t\t\t\t\t\t<li><a href=\"/Publications/Calendar/reports_by_date.php\">by Date (Reports Calendar)</a>\r\n\t\t\t\t\t\t</li>\r\n\t\t\t\t\t\t<li><a href=\"/Publications/Reports_by_Release_Day/index.php\">by Title/Release Day</a>\r\n\t\t\t\t\t\t</li>\r\n\t\t\t\t\t\t<li><a href=\"https://esmis.nal.usda.gov/\">by Keyword</a>\r\n\t\t\t\t\t\t</li>\r\n\t\t\t\t\t\t<li><a href=\"/Publications/2026_Products_and_Services_Guide.pdf\">Guide to Products and Services</a>\r\n\t\t\t\t\t\t</li>\r\n\t\t\t\t\t</ul>\r\n\t\t\t\t\t<p class=\"level4\">Additional Reports</p>\r\n\t\t\t\t\t<ul>\r\n\t\t\t\t\t\t<li><a href=\"/Publications/Highlights/index.php\">Highlights</a>\r\n\t\t\t\t\t\t</li>\r\n\t\t\t\t\t\t<li><a href=\"/Publications/AgCensus/2022/index.php\">2022 Census of Agriculture</a>\r\n\t\t\t\t\t\t</li>\r\n\t\t\t\t\t\t<li><a href=\"/Surveys/index.php\">Surveys and Programs</a>\r\n\t\t\t\t\t\t</li>\r\n\t\t\t\t\t\t<li><a href=\"/Publications/Methodology_and_Data_Quality/index.php\">Methodology &amp; Quality Measures</a></li>\r\n\t\t\t\t\t\t<li><a href=\"/Corrections/index.php?log=asb\">Agricultural Statistics Board Corrections</a></li>\r\n\t\t\t\t\t\t<li><a href=\"/Education_and_Outreach/Reports,_Presentations_and_Conferences/Reports_by_Date/index.php\">Research Reports</a>\r\n\t\t\t\t\t\t</li>\r\n\t\t\t\t\t</ul>\r\n\t\t\t\t</div>\r\n\t\t\t\t<div class=\"col_2\">\r\n\t\t\t\t\t<p class=\"level4\">Historical Publications</p>\r\n\t\t\t\t\t<ul>\r\n\t\t\t\t\t\t<li><a href=\"https://www.nass.usda.gov/AgCensus/archive/\" target=\"_blank\">Archived Ag Census Reports</a> (2002 and prior - published every 5 years)</li>\r\n\t\t\t\t\t\t<li><a href=\"https://esmis.nal.usda.gov/publication/agricultural-statistics\">Annual Agricultural Statistics</a>\r\n\t\t\t\t\t\t</li>\r\n\t\t\t\t\t\t<li><a href=\"/Publications/Statistical_Bulletins/index.php\">Statistical Bulletins</a> (final estimates, 1987 to 2012</li>\r\n\t\t\t\t\t\t<li><a href=\"/Publications/Track_Records/index.php\">Track Records:</a> (crops, livestock, grain stocks)</li>\r\n\t\t\t\t\t\t<li><a href=\"/Publications/Trends_in_U.S._Agriculture/index.php\">Trends</a> 20th century</li>\r\n\t\t\t\t\t\t<li><a href=\"/Publications/Price_Reactions/index.php\">Price Reactions</a> (after crop or livestock reports)</li>\r\n\t\t\t\t\t</ul>\r\n\t\t\t\t\t<p class=\"level4\">Receive Reports by Email:</p>\r\n\t\t\t\t\t<ul>\r\n\t\t\t\t\t\t<li><a href=\"https://esmis.nal.usda.gov/?keyword=national+reports\">National Reports</a>\r\n\t\t\t\t\t\t</li>\r\n\t\t\t\t\t\t<!--li><a href=\"/Publications/Subscribe_to_State_Reports/index.php\">State Reports</a>\r\n\t\t\t\t\t\t</li-->\r\n\t\t\t\t\t\t<li><a href=\"/Newsroom/Subscribe/index.php\">NASS News Releases</a>\r\n\t\t\t\t\t\t</li>\r\n\t\t\t\t\t</ul>\r\n\t\t\t\t</div>\r\n\t\t\t</div>\r\n\t\t\t<!-- End 4 columns container -->\r\n\r\n\t\t</li>\r\n\t\t<li><a href=\"/Newsroom/index.php\" class=\"drop\">Newsroom&nbsp;&nbsp;<span class=\"fa fa-caret-down\"></span></a>\r\n\t\t\t<!-- Begin 5 columns Item -->\r\n\r\n\t\t\t<div class=\"dropdown_4columns\">\r\n\t\t\t\t<!-- Begin 5 columns container -->\r\n\r\n\t\t\t\t<div class=\"col_2\">\r\n\t\t\t\t\t<p class=\"level4\">News Releases</p>\r\n\t\t\t\t\t<div class=\"newsFeed\">\r\n\t\t\t\t\t\t<p>10/01/26  &nbsp;<a href=\"/Newsroom/2026/10-01-2026.php\">USDA to Host Virtual Data Users\u2019 Meeting for Public Input on Statistical Programs</a></p>\r\n<p>09/30/26  &nbsp;<a href=\"/Newsroom/2026/09-30-2026.php\">US corn ending stocks up 35% from last year, soybean ending stocks down 3% </a></p>\r\n<p>09/24/26  &nbsp;<a href=\"/Newsroom/2026/09-24-2026.php\">United States hog inventory down 2% </a></p>\r\n<p>08/12/26  &nbsp;<a href=\"/Newsroom/2026/08-12-2026B.php\">USDA unlocks the power of producer insights in latest August Crop Production report Data is vital to ag industry\u2019s decision-making </a></p>\r\n<p>08/12/26  &nbsp;<a href=\"/Newsroom/2026/08-12-2026.php\">Producers Are Being Called to Help Build Their County Crop Estimates </a></p>\r\n\r\n\r\n\r\n\r\n\r\n\r\n\r\n\r\n\r\n\r\n\r\n\r\n\r\n\r\n\r\n\r\n\r\n\r\n\r\n\r\n\r\n\r\n\r\n\r\n\r\n\r\n\r\n\r\n\r\n\r\n\r\n\r\n\r\n\r\n\r\n\r\n\r\n\r\n\r\n\r\n\r\n\r\n\r\n\r\n\r\n\r\n\r\n\r\n\r\n\r\n\r\n\r\n\r\n\r\n\r\n\r\n\r\n\r\n\r\n\r\n\r\n\r\n\r\n\r\n\r\n\r\n\r\n\r\n\r\n\r\n\r\n\r\n\r\n\r\n\r\n\r\n\r\n\r\n\r\n\r\n\r\n\r\n\r\n\r\n\r\n\r\n\r\n\r\n\r\n\r\n\r\n\r\n\r\n\r\n\r\n\r\n\r\n\r\n\r\n\r\n\r\n\r\n\r\n\r\n\r\n\r\n\r\n\r\n\r\n\r\n\r\n\r\n\r\n\r\n\r\n\r\n\r\n\r\n\r\n\r\n\r\n\r\n\r\n\r\n\r\n\r\n\r\n\r\n\r\n\r\n\r\n\r\n\r\n\r\n\r\n\r\n\r\n\r\n\r\n\r\n\r\n\r\n\r\n\r\n\r\n\r\n\r\n\r\n\r\n\r\n\r\n\r\n\r\n\r\n\r\n\r\n\r\n\r\n\r\n\r\n\t\t\t\t\t</div>\r\n\t\t\t\t\t<h3 class=\"right\"><a href=\"/Newsroom/2026/index.php\">Read More News</a></h3>\r\n\t\t\t\t</div>\r\n\t\t\t\t<div class=\"col_2\">\r\n\t\t\t\t\t<p class=\"level4\">ASB Notices</p>\r\n\t\t\t\t\t<div class=\"newsFeed\">\r\n\t\t\t\t\t\t<p>06/22/26 &nbsp;<a href=\"/Newsroom/Notices/2026/06-22-2026.php\">NASS Adds Additional Counties to the 2025 Cotton County-level Estimates</a></p>\r\n<p>12/22/25 &nbsp;<a href=\"/Newsroom/Notices/2025/12-22-2025.php\">USDA NASS reschedules reports due to December 24 & 26 government closure</a></p>\r\n<p>11/19/25 &nbsp;<a href=\"/Newsroom/Notices/2025/11-19-2025.php\">USDA Reschedules Reports Affected by Lapse in Federal Funding</a></p>\r\n<p>10/31/25 &nbsp;<a href=\"/Newsroom/Notices/2025/10-31-2025.php\">USDA\u2019s National Agricultural Statistics Service (NASS) will release key data in November</a></p>\r\n<p>08/28/25 &nbsp;<a href=\"/Newsroom/Notices/2025/08-28-2025.php\">NASS discontinues select data collection programs and reports</a></p>\r\n\r\n\r\n\r\n\r\n\r\n\r\n\r\n\r\n\r\n\r\n\r\n\r\n\r\n\r\n\r\n\r\n\r\n\r\n\r\n\r\n\r\n\r\n\t\t\t\t\t</div>\r\n\t\t\t\t\t<h3 class=\"right\"><a href=\"/Newsroom/Notices/index.php\">Read More Notices</a></h3>\r\n\t\t\t\t</div>\r\n\t\t\t\t<div class=\"col_2\">\r\n\t\t\t\t\t<p class=\"level4\">Videos</p>\r\n\t\t\t\t\t<div class=\"newsFeed\">\r\n\t\t\t\t\t\t<p>02/13/24 &nbsp;<a target=\"_blank\"  href=\"https://youtu.be/VerxO14wiHI\">2022 Census of Agriculture Data Highlights</a></p>\r\n<p>02/13/24 &nbsp;<a target=\"_blank\"  href=\"https://youtu.be/FyjUJnIMSfc\">How to Find 2022 Census of Agriculture Data</a></p>\r\n<p>02/13/24 &nbsp;<a target=\"_blank\"  href=\"https://www.youtube.com/live/0EY87thoLuo?si=leRX_UTy2DKXJcvN\">2022 Census of Agriculture Data Release Event</a></p>\r\n<p>07/16/21 &nbsp;<a target=\"_blank\"  href=\"https://youtu.be/8t_ZfpMtjzg\">What is a Farm?</a></p>\r\n<p>08/05/20 &nbsp;<a target=\"_blank\"  href=\"https://www.youtube.com/watch?v=4rodJxNmISE&t\">The NASS Mission: We do it for you</a></p>\r\n\r\n\r\n\t\t\t\t\t</div>\r\n\t\t\t\t\t<h3 class=\"right\"><a href=\"/Newsroom/Video_Features/index.php\">View More Videos</a></h3>\r\n\t\t\t\t</div>\r\n\t\t\t\t<div class=\"col_2\">\r\n\t\t\t\t\t<p class=\"level4\">ASB Briefings</p>\r\n\t\t\t\t\t<div class=\"newsFeed\">\r\n\t\t\t\t\t\t<p>09/30/26 &nbsp;<a href=\"/Newsroom/Executive_Briefings/2026/09-30-2026.pdf\">Small Grains Summary and Grain Stocks (September 2026)</a></p>\r\n<p>09/24/26 &nbsp;<a href=\"/Newsroom/Executive_Briefings/2026/09-24-2026.pdf\">Quarterly Hogs and Pigs (September 2026)</a></p>\r\n<p>09/11/26 &nbsp;<a href=\"/Newsroom/Executive_Briefings/2026/09-11-2026.pdf\">Crop Production (September 2026)</a></p>\r\n<p>08/12/26 &nbsp;<a href=\"/Newsroom/Executive_Briefings/2026/08-12-2026.pdf\">Crop Production (August 2026)</a></p>\r\n<p>07/24/26 &nbsp;<a href=\"/Newsroom/Executive_Briefings/2026/07-23-2026.pdf\">Cattle (July 2026)</a></p>\r\n\r\n\r\n\r\n\r\n\r\n\r\n\r\n\r\n\r\n\r\n\r\n\r\n\r\n\r\n\r\n\r\n\r\n\r\n\r\n\r\n\r\n\r\n\r\n\r\n\r\n\r\n\r\n\r\n\r\n\r\n\r\n\r\n\r\n\r\n\r\n\r\n\r\n\r\n\r\n\r\n\r\n\r\n\r\n\r\n\r\n\r\n\r\n\r\n\r\n\r\n\r\n\r\n\r\n\r\n\r\n\r\n\r\n\r\n\r\n\r\n\r\n\r\n\r\n\r\n\r\n\r\n\r\n\r\n\r\n\r\n\r\n\r\n\r\n\r\n\r\n\r\n\r\n\r\n\r\n\r\n\r\n\r\n\r\n\r\n\r\n\r\n\r\n\r\n\r\n\r\n\r\n\r\n\r\n\r\n\r\n\r\n\r\n\r\n\r\n\r\n\r\n\r\n\r\n\r\n\r\n\r\n\r\n\r\n\r\n\r\n\r\n\r\n\r\n\r\n\r\n\r\n\r\n\r\n\r\n\r\n\r\n\r\n\r\n\r\n\r\n\r\n\r\n\r\n\r\n\r\n\r\n\r\n\r\n\r\n\r\n\r\n\r\n\r\n\r\n\t\t\t\t\t</div>\r\n\t\t\t\t\t<h3 class=\"right\"><a href=\"/Newsroom/Executive_Briefings/index.php\">View More Briefings</a></h3>\r\n\t\t\t\t</div>\r\n\t\t\t</div>\r\n\t\t\t<!-- End 5 columns container -->\r\n\t\t</li>\r\n\t\t<!-- End 5 columns Item -->\r\n\r\n\t\t<!-- End 4 columns Item -->\r\n\r\n\t\t<!-- End 4 columns Item -->\r\n\r\n\t\t<li><a href=\"/Surveys/index.php\" class=\"drop\">Surveys&nbsp;&nbsp;<span class=\"fa fa-caret-down\"></span></a>\r\n\t\t\t<div class=\"dropdown_2columns align_right\">\r\n\t\t\t\t<!-- Begin 2 columns container -->\r\n\t\t\t\t<div class=\"col_2\">\r\n\t\t\t\t\t<h2>Respond to Surveys Online&nbsp;&nbsp;<a href=\"https://www.agcounts.usda.gov\" target=\"_blank\" title=\"Go to Survey Page\"><span class=\"fa fa-2x fa-arrow-circle-right\"></span></a></h2>\r\n\t\t\t\t</div>\r\n\t\t\t\t<div class=\"col_2\">\r\n\t\t\t\t\t<p><a href=\"/Surveys/Guide_to_NASS_Surveys/index.php\">Guide to NASS Surveys and Programs</a>\r\n\t\t\t\t\t</p>\r\n\t\t\t\t\t<p> <a href=\"/Education_and_Outreach/Understanding_Statistics/index.php\">Understanding Agricultural Statistics</a>\r\n\t\t\t\t\t</p>\r\n\t\t\t\t\t<p><a href=\"https://www.agcounts.usda.gov/cgi-bin/counts/\" target=\"_blank\">Make Sure I'm Counted</a>\r\n\t\t\t\t\t</p>\r\n\t\t\t\t\t<p><a href=\"/Surveys/Program_Review/index.php\" target=\"_blank\">Statistical Programs and Review</a>\r\n\t\t\t\t\t</p>\r\n\t\t\t\t</div>\r\n\t\t\t</div>\r\n\t\t</li>\r\n\t\t<li><a href=\"/AgCensus/index.php\">Census</a>\r\n\t\t</li>\r\n\t\t<!--  <li><a href=\"http://agcensus.usda.gov\">Census</a></li>  -->\r\n\t\t<li><a href=\"/About_NASS/index.php\" class=\"drop\">About NASS&nbsp;&nbsp;<span class=\"fa fa-caret-down\"></span></a>\r\n\t\t\t<div class=\"dropdown_4columns align_right\">\r\n\t\t\t\t<!-- Begin 2 columns container -->\r\n\r\n\t\t\t\t<div class=\"col_2\">\r\n\t\t\t\t\t<p class=\"level4\">Structure and Organization</p>\r\n\t\t\t\t\t<ul>\r\n\t\t\t\t\t\t<li><a href=\"/About_NASS/index.php\">Agency Overview</a>\r\n\t\t\t\t\t\t</li>\r\n\t\t\t\t\t\t<li><a href=\"/About_NASS/NASS_Biographies/index.php\">NASS Biographies</a>\r\n\t\t\t\t\t\t</li>\r\n\t\t\t\t\t\t<li><a href=\"/About_NASS/Org_Chart/OrgChart.pdf\"><!-- Please keep the OrgChart name as is-NASSPortal links back to here -->Organizational Chart</a>\r\n\t\t\t\t\t\t</li>\r\n\t\t\t\t\t\t<li><a href=\"/About_NASS/Assistance_to_Other_Organizations/index.php\">Assistance to Other Organizations</a>\r\n\t\t\t\t\t\t</li>\r\n\t\t\t\t\t\t<li><a href=\"/About_NASS/International_Programs/index.php\">International Programs</a>\r\n\t\t\t\t\t\t</li>\r\n\t\t\t\t\t\t<li><a href=\"/About_NASS/pdf/NASS_TalkingAboutNASS_ExternalGuide_2022_V01.pdf\">Talking About NASS - A guide for partners and stakeholders</a></li>\r\n\t\t\t\t   <!-- <li><a href=\"/About_NASS/Strategic_Plan/pdf/USDA_NASS_StrategicPlan_FY22-26.pdf\">NASS Strategic Plan for FY 2022-2026</a></li> -->\r\n\t\t\t\t\t\t<li><a href=\"https://www.usda.gov/about-usda/general-information/our-agency/our-performance\">USDA Strategic Goals</a></li>\r\n\t\t  \t\t\t\t\r\n\t\t\t\t\t\t\r\n\t\t\t\t\t</ul>\r\n\t\t\t\t\t<p class=\"level4\">Guiding Principles</p>\r\n\t\t\t\t\t<ul>\r\n\t\t\t\t\t\t<li><a href=\"/About_NASS/Mission_Statement/index.php\">Mission and Core Values</a>\r\n\t\t\t\t\t\t</li>\r\n\t\t\t\t\t\t<li><a href=\"/About_NASS/Keeping_Data_Safe/index.php\">Keeping Data Safe</a>\r\n\t\t\t\t\t\t</li>\r\n\t\t\t\t\t\t<li><a href=\"/About_NASS/Confidentiality_Pledge/index.php\">Confidentiality Pledge</a>\r\n\t\t\t\t\t\t</li>\r\n\t\t\t\t\t\t<li><a href=\"/About_NASS/Security_Pledge/index.php\">Security Pledge</a>\r\n\t\t\t\t\t\t</li>\r\n\t\t\t\t\t\t<li><a href=\"/About_NASS/Security_Statement/index.php\">Security Statement</a>\r\n\t\t\t\t\t\t</li>\r\n\t\t\t\t\t\t<li><a href=\"/About_NASS/pdf/ScientificIntegrityStatement.pdf\">Statement of Commitment to Scientific Integrity</a>\r\n\t\t\t\t\t\t</li>\r\n\t\t\t\t\t\t<li><a href=\"/About_NASS/Regulations_Guiding_NASS/index.php\">Regulations Guiding NASS</a>\r\n\t\t\t\t\t\t</li>\r\n\t\t\t\t\t\t<li><a href=\"/About_NASS/Information_Quality_Guidelines/index.php\">Information Quality</a>\r\n\t\t\t\t\t\t</li>\r\n\t\t\t\t\t\t<li><a href=\"/About_NASS/pdf/learning-agenda-fy2426.pdf\">Learning Agenda, Fiscal Year 2024 -2026</a>\r\n\t\t\t\t\t\t</li>\r\n\t\t\t\t\t</ul>\r\n\t\t\t\t\t\t<p class=\"level4\">Civil Rights</p>\r\n\t\t\t\t\t<ul>\r\n\t\t\t\t\t\t<!-- <li><a href=\"/About_NASS/Civil_Rights/NASS EEO Policy Statement_Signed 24July 2024.pdf\">NASS EEO Policy Statement</a></li>-->\r\n\t\t  \t\t\t\t <!--<li>\r\n\t\t\t\t\t\t\t<p><a  href=\"/About_NASS/Civil_Rights/antiharassment2021.pdf\">USDA and NASS Anti-Harassment Policy Statement</a></p></li>-->\r\n\t\t\t\t\t\t <li><a href=\"https://www.usda.gov/sites/default/files/documents/dm-4200-003.pdf\">Anti-Harassment Policy | USDA</a></li>\r\n                       <li><a href=\"https://www.ocio.usda.gov/sites/default/files/docs/2012/DR%204300-010%20Civil%20Rights%20Accountability%20and%20Procedures-Final_20170103.pdf\">Civil Rights Accountability Policy and Procedures</a></li>\r\n\t\t\t\t\t\t<li><a href=\"https://www.usda.gov/sites/default/files/documents/no-fear-act-notice.pdf\">No FEAR Act Notice</a></li>\r\n\t\t  \t\t\t\t<li><a href=\"https://www.usda.gov/nofear/agencies\">No FEAR Act - NASS Data</a></li>\r\n\t\t\t\t\t\t<li>\r\n\t\t\t\t\t\t\t<p><a  href=\"/About_NASS/Civil_Rights/reasonable-accommodations2020.pdf\">REE Reasonable Accommodations and Personal Assistance Services</a></p></li>\r\n\t\t\t\t\t\t\r\n\t\t\t\t\t\t<li><a href=\"https://www.usda.gov/oascr/filing-discrimination-complaint-usda-employee\" target=\"_blank\">How to File an EEO Complaint</a></li>\r\n\t\t\t\t\t\t\r\n\t\t\t\t\t\t<li><a href=\"https://www.usda.gov/accessibility-statement\">Accessibility Statement</a></li>\r\n\t\t\r\n\t\t\t\t\t\t<li><a href=\"https://www.access-board.gov/law/aba.html\">Architectural Barriers Act</a></li>\r\n\t\t\t\t\t\t<li><a href=\"/About_NASS/Civil_Rights/index.php\">And Justice for All posters</a></li>\r\n\t\t \r\n\t\t\t\t\t</ul>\r\n\t\t\t\t</div>\r\n\t\t\t\t<div class=\"col_2\">\r\n\t\t\t\t\t<p class=\"level4\">Work at NASS</p>\r\n\t\t\t\t\t<ul>\r\n\t\t\t\t\t\t<li><a href=\"/About_NASS/Opportunities/index.php\">Career Opportunities</a>\r\n\t\t\t\t\t\t</li>\r\n\t\t\t\t\t</ul>\r\n\t\t\t\t\t<p class=\"level4\">Education and Outreach</a>\r\n\t\t\t\t\t</p>\r\n\t\t\t\t\t<ul>\r\n\t\t\t\t\t\t<li><a href=\"/Education_and_Outreach/Understanding_Statistics/index.php\">Understanding Ag Statistics</a>\r\n\t\t\t\t\t\t</li>\r\n\t\t\t\t\t\t<li><a href=\"/Education_and_Outreach/Meeting/index.php\">Data Users' Meetings</a></li>\r\n\t\t\t\t\t\t<li><a href=\"/Education_and_Outreach/Morris_Hansen/index.php\">Morris Hansen Lecture</a></li>\r\n\t\t\t\t\t\t<li><a href=\"/About_NASS/International_Programs/icas/index.php\">International Conference on Agricultural Statistics</a></li>\r\n\t\t\t\t\t</ul>\r\n\t\t\t\t\t<p class=\"level4\">History and Procedures</p>\r\n\t\t\t\t\t<ul>\r\n\t\t\t\t\t\t<li><a href=\"/About_NASS/ASB_and_Lockup/index.php\">Agricultural Statistics Board and Lockup</a>\r\n\t\t\t\t\t\t</li>\r\n\t\t\t\t\t\t<li><a href=\"/About_NASS/Timeline/index.php\">Agricultural Statistics: A Historical Timeline</a>\r\n\t\t\t\t\t\t</li>\r\n\t\t\t\t\t\t<li><a href=\"/About_NASS/pdf/The%20Story%20of%20U.S.%20Agricultural%20Estimates.pdf\">The Story of U.S. Agricultural Estimates</a>\r\n\t\t\t\t\t\t</li>\r\n\t\t\t\t\t\t<li><a href=\"/About_NASS/pdf/As%20We%20Recall%20The%20History%20of%20Ag%20Estimates%201933%20to%201961.pdf\">As  We Recall: The Growth of Agricultural Estimates, 1933-1961</a>\r\n\t\t\t\t\t\t</li>\r\n\t\t\t\t\t\t<li>\r\n\t\t\t\t\t\t\t<p><a href=\"/About_NASS/pdf/asb_historical.pdf\">Safeguarding America's Agricultural Statistics Report</a> and <a href=\"https://www.youtube.com/watch?v=SxnWZVjGGUI\">Video</a>\r\n\t\t\t\t\t\t\t</p>\r\n\t\t\t\t\t\t</li>\r\n\t\t\t\t\t\t<li><a href=\"/About_NASS/History_of_Ag_Statistics/index.php\">History of Ag Statistics</a>\r\n\t\t\t\t\t\t</li>\r\n\t\t\t\t\t\t<li><a href=\"/About_NASS/Reports_Procedures/index.php\">Report Procedures</a>\r\n\t\t\t\t\t\t</li>\r\n\t\t\t\t\t\t<li><a href=\"/About_NASS/pdf/evolving_nass.pdf\">An Evolving Statistical Service</a>\r\n\t\t\t\t\t\t</li>\r\n\t\t\t\t\t\t<li><a href=\"/About_NASS/pdf/NASSFactFinders_April_2016_FINAL.pdf\">Fact Finders for Agriculture</a>\r\n\t\t\t\t\t\t</li>\r\n\t\t\t\t\t\t<li>\r\n\t\t\t\t\t\t\t<p><a href=\"/About_NASS/pdf/agriculture_counts.pdf\">Agriculture Counts - The Founding and Evolution of the National Agricultural Statistics Service &nbsp; 1957-2007</a>\r\n\t\t\t\t\t\t\t</p>\r\n\t\t\t\t\t\t</li>\r\n\t\t\t\t\t\t<li><a href=\"/About_NASS/Hall_of_Fame/index.php\">Hall of Fame</a>\r\n\t\t\t\t\t\t</li>\r\n\t\t\t\t\t</ul>\r\n\t\t\t\t</div>\r\n\t\t\t</div>\r\n\t\t\t<!-- End 2 columns container -->\r\n\r\n\t\t</li>\r\n\t\t<li><a href=\"/Contact_Us/index.php\" class=\"drop\">Contact Us&nbsp;&nbsp;<span class=\"fa fa-caret-down\"></span></a>\r\n\t\t\t<div class=\"dropdown_4columns align_right\">\r\n\t\t\t\t<!-- Begin 4 columns container -->\r\n\r\n\t\t\t\t<div class=\"col_2\">\r\n\t\t\t\t\t<p class=\"level4\">Mailing Address:</p>\r\n\t\t\t\t\t<p><address>\r\n\t\t\t\t\t  USDA-NASS<br>\r\n\t\t\t\t\t  1400 Independence Ave., SW<br>\r\n\t\t\t\t\t  Washington, DC 20250</address>\r\n\t\t\t\t\t</p>\r\n\t\t\t\t\t\t\t\t\t\t\r\n\t\t\t\t\t<p class=\"level4\">Survey FAQs and Contact Us:</p>\r\n\t\t\t\t\t<p><a href=\"/Feedback/index.php\"><span class=\"fa fa-arrow-circle-right\"></span> Access FAQs or submit a question.</a>\r\n\t\t\t\t\t</p>\r\n\t\t\t\t\t\r\n\t\t\t\t\t<p class=\"level4\">Data Inquiries:</p>\r\n\t\t\t\t\t<p>Hours: 8:00 a.m. - 5:00 p.m. Central Standard Time<br/> Monday - Friday, except federal holidays<br/> Toll-Free: <a href=\"tel:800-727-9540\"><span class=\"fa fa-phone\"></span>(800) 727-9540</a>\r\n\t\t\t\t\t</p>\r\n\t\t\t\t\t<p class=\"level4\">Media Inquiries:</p>\r\n\t\t\t\t\t\r\n\t\t\t\t\t<p>Email: NASS-Media@usda.gov <a href=\"mailto:NASS-Media@usda.gov\" title=\"Email: Ask USDA\"><span class=\"fa fa-envelope\"></span></a></p>\r\n\t\t\t\t</div>\r\n\t\t\t\t\r\n\t\t\t\t<div class=\"col_2\">\r\n\t\t\t\t\t<p class=\"level4\">Other USDA Inquiries:</p>\r\n\t\t\t\t\t<p>Hours: Monday to Friday 8 a.m. - 5 p.m. EST<br/>Toll-Free: <a href=\"tel:833-663-8732\"><span class=\"fa fa-phone\"></span>(833) One-USDA</a><br>\r\n\t\t\t\t\tEmail: askusda@usda.gov <a href=\"mailto:askusda@usda.gov\" title=\"Email: Ask USDA\"><span class=\"fa fa-envelope\"></span></a><br>\r\n\t\t\t  \t\tWebsite: <a href=\"https://ask.usda.gov/s/\">https://ask.usda.gov/s/</a>\r\n\t\t\t\t\t</p>\r\n\t\t\t\t\t\r\n\t\t\t\t\t\r\n\t\t\t\t<!--<p>Kristen Lenhardt, <em>Public Affairs Director</em><br> Email: <a href=\"mailto:kristen.lenhardt@usda.gov\" title=\"Email: Kristen Lenhardt\"><span class=\"fa fa-envelope\"></span></a> / Phone: <a href=\"tel:202-690-8122\"><span class=\"fa fa-phone\"></span>&nbsp;(202) 690-8122</a>\r\n\t\t\t\t\t</p>\r\n\t\t\t\t\t<p>Teresa White, <em>Public Affairs Deputy Director</em><br> Email: <a href=\"mailto:teresa.white@usda.gov\" title=\"Email: Teresa White\"><span class=\"fa fa-envelope\"></span></a> / Phone: <a href=\"tel:202-690-8123\"><span class=\"fa fa-phone\"></span>&nbsp;(202) 690-8123</a></p>\r\n           \r\n\t\t\t\t\t<p>Jim Barrett, <em>Public Affairs Specialist</em><br> Email: <a href=\"mailto:jim.barrett@usda.gov\" title=\"Email: Jim Barrett\"><span class=\"fa fa-envelope\"></span></a> / Phone: <a href=\"tel:202-690-8124\"><span class=\"fa fa-phone\"></span>&nbsp;(202) 690-8124</a></p>\r\n\t\t\t  \r\n\t\t\t\t\t<p>Jodi Halvorson, <em>Public Affairs Specialist</em><br> Email: <a href=\"mailto:Jodi.Halvorson@usda.gov\" title=\"Email: Jodi Halvorson\"><span class=\"fa fa-envelope\"></span></a> / Phone: <a href=\"tel:916-738-6609\"><span class=\"fa fa-phone\"></span>&nbsp;(916) 738-6609</a></p>\r\n\t\t\t  \r\n\t\t\t\t\t<p>Terry Matlock, <em>Public Affairs Specialist</em><br> Email: <a href=\"mailto:Terry.Matlock@usda.gov\" title=\"Email: Terry Matlock\"><span class=\"fa fa-envelope\"></span></a> / Phone: <a href=\"tel:720-787-3172\"><span class=\"fa fa-phone\"></span>&nbsp;(720) 787-3172</a></p>\r\n\t\t\t  \r\n\t\t\t\t\t<p>Alexandra Nseir, <em>Public Affairs Specialist</em><br> Email: <a href=\"mailto:Alexandra.Nseir@usda.gov\" title=\"Email: Alex Nseir\"><span class=\"fa fa-envelope\"></span></a> / Phone: <a href=\"tel:202-690-8121\"><span class=\"fa fa-phone\"></span>&nbsp;(202) 690-8121</a></p>-->\r\n           \r\n\t\t\t\t\t\r\n\t\t\t\t\t\r\n\t\t\t\t\t\r\n\t\t\t\t\t<p class=\"level4\">Translation Services:</p>\r\n\t\t\t\t\t<p>Email: NASSLanguages@usda.gov <a href=\"mailto:NASSLanguages@usda.gov\" title=\"Email: NASSLanguages@usda.gov\"><span class=\"fa fa-envelope\"></span></a></p>\r\n\t\t\t\t</div>\r\n\t\t\t\t<div class=\"col_4\">\r\n\t\t\t\t\t<div class=\"col_2\" style=\"padding-right: 10px;\">\r\n\t\t\t\t\t\t<!--<p class=\"level4\">Regional and State Field Offices</p>\r\n\t\t\t\t\t\t<p>Find contact information for Regional and State Field Offices&nbsp;&nbsp;<a href=\"/Statistics_by_State/RFO/index.php\"><span class=\"fa fa-arrow-circle-right\"></span></a>\r\n\t\t\t\t\t\t</p>-->\r\n\t\t\t\t\t\t\r\n\t\t\t\t\t\t<p class=\"level4\">Regional and State Field Offices:</p>\r\n\t\t\t\t\t\t<p><a href=\"/Statistics_by_State/RFO/index.php\"><span class=\"fa fa-arrow-circle-right\"></span> Find contact information for Regional and State Field Offices</a>\r\n\t\t\t\t\t\t</p>\r\n\t\t\t\t\t\t<p class=\"level4\">Ask a Specialist:</p>\r\n\t\t\t\t\t\t<p><a href=\"/Contact_Us/Ask_a_Specialist/index.php\" title=\"Ask a NASS Specialist\"><span class=\"fa fa-arrow-circle-right\"></span> Have a specific question for one of our subject experts? Contact a specialist.&nbsp;&nbsp;</a>\r\n\t\t\t\t\t\t</p>\r\n\r\n\t\t\t\t\t</div>\r\n\t\t\t\t\t<div class=\"col-2\">\r\n\t\t\t\t\t\t<p class=\"level4\">Web Content Publishing Schedule:</p>\r\n\t\t\t\t\t\t<p>Section 207(f)(2) of the E-Government Act of 2002 requires federal agencies to develop an inventory of information to be published on their Web sites, establish a schedule for publishing information, make those schedules available for public comment, and post the schedules and priorities on the Web site.\r\n\t\t\t\t\t\t</p>\r\n\t\t\t\t\t</div>\r\n\t\t\t\t</div>\r\n\t\t\t</div>\r\n\t\t</li>\r\n\t\t<li><a href=\"/Help/index.php\" class=\"drop\">Help&nbsp;&nbsp;<span class=\"fa fa-caret-down\"></span></a>\r\n\t\t\t<div class=\" dropdown_2columns align_right\">\r\n\t\t\t\t<div class=\"col_2\">\r\n\t\t\t\t\t<p class=\"level4\">Technical Issues</p>\r\n\t\t\t\t\t<ul>\r\n\t\t\t\t\t\t<li><a href=\"/Help/RSS/index.php\">RSS Feed</a>\r\n\t\t\t\t\t\t</li>\r\n\t\t\t\t\t\t<li><a href=\"/Contact_Us/index.php\">Contact Us </a> </li>\r\n\t\t\t\t\t</ul>\r\n\t\t\t\t</div>\r\n\t\t\t\t<div class=\"col_2\">\r\n\t\t\t\t\t<p class=\"level4\">Search Tips</p>\r\n\t\t\t\t\t<ul>\r\n\t\t\t\t\t\t<li><a href=\"/Help/Search_Tips/index.php\">Search Tips</a>\r\n\t\t\t\t\t\t</li>\r\n\t\t\t\t\t</ul>\r\n\t\t\t\t\t<p class=\"level4\">For Developers and Data Users</p>\r\n\t\t\t\t\t<ul>\r\n\t\t\t\t\t\t<li><a href=\"/developer/index.php\">Application Programming Interfaces (APIs)</a>\r\n\t\t\t\t\t\t</li>\r\n\t\t\t\t\t</ul>\r\n\t\t\t\t</div>\r\n\t\t\t</div>\r\n\t\t</li>\r\n\t</ul>\r\n</div>\r\n</div>\r\n\r\n\r\n</div>  </div>\r\n  <div id=\"brdcrmb_socMedia\" class=\"container col-xs-12 clearfix\">\r\n    <div id='breadcrumb-container' class=\"breadCrumb col-xs-12 col-sm-12 col-md-8 col-lg-8 hidden-print\"></div>\r\n<!-- end of breadcrumb -->\r\n\r\n <div class=\"socialMedia container col-xs-12 col-sm-12 col-md-4 col-lg-4 alignRight social_title social_icons clearfix hidden-print\" align=\"right\">\r\n\t <label for=\"select-a-state\"><em>Statistics by State</em>&nbsp;\r\n    <select class=\"form-control select-state\" id=\"select-a-state\" name=\"select-a-state\" onchange=\"top.location=this.value;\" title=\"Select Statistics by State\">\r\n      <optgroup label=\"Select a State\">\r\n      <option value=\"/Statistics_by_State/RFO/index.php\" title=\"Regional Offices\">Regional Offices</option>\r\n      <option value=\"/Statistics_by_State/Alabama/index.php\" title=\"Alabama\">Alabama</option>\r\n      <option value=\"/Statistics_by_State/Alaska/index.php\" title=\"Alaska\">Alaska</option>\r\n      <option value=\"/Statistics_by_State/Arizona/index.php\" title=\"Arizona\">Arizona</option>\r\n      <option value=\"/Statistics_by_State/Arkansas/index.php\" title=\"Arkansas\">Arkansas</option>\r\n      <option value=\"/Statistics_by_State/California/index.php\" title=\"California\">California</option>\r\n      <option value=\"/Statistics_by_State/Colorado/index.php\" title=\"Colorado\">Colorado</option>\r\n      <option value=\"/Statistics_by_State/Connecticut/index.php\" title=\"Connecticut\">Connecticut</option>\r\n      <option value=\"/Statistics_by_State/Delaware/index.php\" title=\"Delaware\">Delaware</option>\r\n      <option value=\"/Statistics_by_State/Florida/index.php\" title=\"Florida\">Florida</option>\r\n      <option value=\"/Statistics_by_State/Georgia/index.php\" title=\"Georgia\">Georgia</option>\r\n      <option value=\"/Statistics_by_State/Hawaii/index.php\" title=\"Hawaii\">Hawaii</option>\r\n      <option value=\"/Statistics_by_State/Idaho/index.php\" title=\"Idaho\">Idaho</option>\r\n      <option value=\"/Statistics_by_State/Illinois/index.php\" title=\"Illinois\">Illinois</option>\r\n      <option value=\"/Statistics_by_State/Indiana/index.php\" title=\"Indiana\">Indiana</option>\r\n      <option value=\"/Statistics_by_State/Iowa/index.php\" title=\"Iowa\">Iowa</option>\r\n      <option value=\"/Statistics_by_State/Kansas/index.php\" title=\"Kansas\">Kansas</option>\r\n      <option value=\"/Statistics_by_State/Kentucky/index.php\" title=\"Kentucky\">Kentucky</option>\r\n      <option value=\"/Statistics_by_State/Louisiana/index.php\" title=\"Louisiana\">Louisiana</option>\r\n      <option value=\"/Statistics_by_State/Maine/index.php\" title=\"Maine\">Maine</option>\r\n      <option value=\"/Statistics_by_State/Maryland/index.php\" title=\"Maryland\">Maryland</option>\r\n      <option value=\"/Statistics_by_State/",
+          "title": "USDA Reschedules Reports Affected by Lapse in Federal Funding",
+          "httpStatus": 200
+        }
+      ],
+      "ended": "answered",
+      "seconds": 116.8
+    },
+    "session_metadata": {
+      "request": {
+        "model": "deepseek/deepseek-v4-pro-0813",
+        "max_output_tokens": 32768,
+        "tools": [
+          {
+            "type": "openrouter:web_search",
+            "parameters": {
+              "engine": "exa",
+              "max_results": 10,
+              "excluded_domains": [
+                "dataindex.us"
+              ]
+            }
+          },
+          {
+            "type": "openrouter:web_fetch",
+            "parameters": {
+              "engine": "openrouter",
+              "blocked_domains": [
+                "dataindex.us"
+              ],
+              "max_content_tokens": 10000
+            }
+          }
+        ],
+        "cache_control": {
+          "type": "ephemeral",
+          "ttl": "1h"
+        },
+        "session_id": "crop-production-deepseek/deepseek-v4-pro-0813-t0-2026-10-08T20:15:35Z",
+        "stop_server_tools_when": [
+          {
+            "type": "step_count_is",
+            "step_count": 200
+          }
+        ],
+        "reasoning": {
+          "effort": "high"
+        },
+        "provider": {
+          "order": [
+            "deepseek"
+          ],
+          "allow_fallbacks": false
+        }
+      },
+      "response_meta": {
+        "id": "gen-1791490750-zswGImen57K1nuXyVfF3",
+        "object": "response",
+        "created_at": 1791490750,
+        "model": "deepseek/deepseek-v4-pro-0813",
+        "status": "completed",
+        "completed_at": 1791490756,
+        "error": null,
+        "incomplete_details": null,
+        "tools": [],
+        "tool_choice": "auto",
+        "parallel_tool_calls": true,
+        "max_output_tokens": 32768,
+        "temperature": 1,
+        "top_p": 1,
+        "presence_penalty": 0,
+        "frequency_penalty": 0,
+        "top_logprobs": 0,
+        "max_tool_calls": null,
+        "metadata": {},
+        "background": false,
+        "previous_response_id": null,
+        "service_tier": "auto",
+        "truncation": "disabled",
+        "store": false,
+        "instructions": null,
+        "text": {
+          "format": {
+            "type": "text"
+          }
+        },
+        "reasoning": {
+          "effort": "high"
+        },
+        "safety_identifier": null,
+        "prompt_cache_key": null,
+        "prompt_cache_options": null,
+        "usage": {
+          "input_tokens": 31239,
+          "input_tokens_details": {
+            "cached_tokens": 15872
+          },
+          "output_tokens": 498,
+          "output_tokens_details": {
+            "reasoning_tokens": 353
+          },
+          "total_tokens": 31737,
+          "cost": 0.011477444,
+          "cost_details": {
+            "upstream_inference_cost": 0.011477444,
+            "upstream_inference_input_cost": 0.010491404,
+            "upstream_inference_output_cost": 0.00098604
+          }
+        }
+      },
+      "requests": [
+        {
+          "input_tokens": 31239,
+          "input_tokens_details": {
+            "cached_tokens": 15872
+          },
+          "output_tokens": 498,
+          "output_tokens_details": {
+            "reasoning_tokens": 353
+          },
+          "total_tokens": 31737,
+          "cost": 0.011477444,
+          "cost_details": {
+            "upstream_inference_cost": 0.011477444,
+            "upstream_inference_input_cost": 0.010491404,
+            "upstream_inference_output_cost": 0.00098604
+          }
+        }
+      ],
+      "searches": 0,
+      "fetches": 0,
+      "tool_items": [],
+      "ended": "answered",
+      "seconds": 6.3
+    }
+  },
+  "messages": [
+    {
+      "role": "user",
+      "content": "#data research\nI am researching a federal dataset. Find out everything you can about this dataset, such as who publishes it, under what authority or mandate, its history, its typical users, and its benefits to the public. Be sure your research comprehensively covers each of those perspectives, as well as any others that you discover or seem useful. I believe this is accurate information, but please check:\n\nDataset title: Crop Production\nDescription: The USDA Crop Production report, released monthly by the National Agricultural Statistics Service (NASS), provides official estimates on U.S. agricultural acreage, yield, and production for major field crops, fruits, and nuts.\n\nReturn a complete report on everything that a preservationist, data librarian, data scientist, or policy activist might want to know about this data."
+    },
+    {
+      "role": "assistant",
+      "content": "I'll research this dataset thoroughly. Let me start with several searches covering the key aspects.I've verified the core facts. Now let me dig into history, users, methodology, and data access.Let me fetch the authoritative CRS report and the NASS publication pages for precise details on history, methods, and issues.The CRS PDF couldn't be processed, but I already have its key excerpts. Let me round out research on the annual summary, the lockup/security system, and economic value studies.I've gathered comprehensive information from primary USDA sources, the Congressional Research Service, NASS methodology documents, and academic/industry analyses. Here is the full report.\n\n---\n\n# Dataset Report: USDA Crop Production (NASS)\n\n## 1. Verification of the Information You Provided\n\nYour supplied details are **substantially accurate**, with a few refinements:\n\n| Your claim | Verification |\n|---|---|\n| Title: **Crop Production** | \u2705 Confirmed. Official title is *Crop Production* (ISSN 1936-3737). |\n| Published by **USDA NASS** | \u2705 Confirmed, with one nuance: the report is formally \"released by the National Agricultural Statistics Service (NASS), **Agricultural Statistics Board**, United States Department of Agriculture (USDA).\" The Agricultural Statistics Board (ASB) is the unit within NASS that prepares and releases the report. |\n| Released **monthly** | \u2705 Confirmed. Published no later than the 12th of each month (per NASS), typically between the 9th and 12th; current NASS release calendar shows a 12:00 p.m. ET release time. |\n| Official estimates on **acreage, yield, and production** | \u2705 Confirmed \u2014 these are the core series. |\n| Covers **major field crops, fruits, and nuts** | \u2705 Largely confirmed, but **incomplete**. The report also covers hops, maple syrup (production, value, season dates, percent of sales by type), planted vs. harvested acreage, a monthly weather summary, an agricultural summary, and precipitation/departure-from-normal maps. During the growing season the report consists primarily of **forecasts**; end-of-season and annual estimates appear in the January *Crop Production Annual Summary* and related summaries. |\n\n---\n\n## 2. Dataset Identity at a Glance\n\n- **Title:** Crop Production\n- **ISSN:** 1936-3737\n- **Publisher/Agency:** National Agricultural Statistics Service (NASS), Agricultural Statistics Board, U.S. Department of Agriculture (USDA)\n- **Frequency:** Monthly (also has an Annual Summary released each January)\n- **Category (per USDA ESMIS):** Crops and Crop Products\n- **Keywords:** acreage, sales, yields, weather, crops\n- **Geographic coverage:** United States; national and state-level estimates (county-level data are available separately through the Quick Stats database, drawn from related NASS surveys)\n- **Typical release day/time:** On or before the 12th of each month, on a preannounced schedule (recent releases show 12:00 p.m. ET)\n- **Primary access points:**\n  - NASS website: `nass.usda.gov/Publications/Todays_Reports/`\n  - USDA ESMIS archive: `esmis.nal.usda.gov/publication/crop-production`\n  - NASS Quick Stats database: `quickstats.nass.usda.gov`\n  - NASS Quick Stats API: `quickstats.nass.usda.gov/api`\n\n---\n\n## 3. Who Publishes It and the Organizational Context\n\n**Publisher:** The National Agricultural Statistics Service (NASS), an agency within USDA's Research, Education, and Economics (REE) mission area. Within NASS, the **Agricultural Statistics Board (ASB)** \u2014 a permanent chairperson, a secretary, and subject-matter statisticians \u2014 reviews, prepares, and releases the report on a fixed schedule.\n\n**Key parent organizations and partners:**\n- **USDA (est. 1862)** \u2014 NASS's parent department.\n- **World Agricultural Outlook Board (WAOB)** \u2014 uses *Crop Production* forecasts as a primary input to the monthly **World Agricultural Supply and Demand Estimates (WASDE)** report, which is prepared in a secured \"lockup\" area simultaneously with *Crop Production*.\n- **Other USDA agencies** that depend on *Crop Production* data: Economic Research Service (ERS), Foreign Agricultural Service (FAS), Agricultural Marketing Service (AMS), Farm Service Agency (FSA), and Risk Management Agency (RMA).\n- **National Agricultural Library / ESMIS** \u2014 archives and disseminates the report digitally (ESMIS = Economics, Statistics, and Market Information System).\n\n---\n\n## 4. Legal Authority and Mandate\n\n*Crop Production* is prepared under a layered set of authorities:\n\n**Primary statutes**\n- **Agricultural Marketing Act of 1946** (7 U.S.C. 1621\u20131627) \u2014 the broad, foundational authority for NASS's crop and livestock estimates, market news, and related data collection. NASS's own explanatory notes cite this as a primary authorization.\n- **Census of Agriculture Act of 1997**, Pub. L. 105-113 (7 U.S.C. 2204g) \u2014 mandates the Census of Agriculture (which underpins NASS sampling frames and benchmark data) every five years.\n- **General organic authority:** 7 U.S.C. 2204(a) (general authority of the Secretary to collect and disseminate agricultural statistics).\n- **Crop-specific mandates** referenced in NASS's delegation of authority:\n  - **7 U.S.C. 476** \u2014 cotton acreage estimates/reporting (reports on or before the 12th of each month).\n  - **7 U.S.C. 473 / 473b** \u2014 cotton statistics and estimates, and cotton supply/price data.\n  - **7 U.S.C. 951** \u2014 peanut statistics.\n- **7 U.S.C. 411a** \u2014 provides for Secretary approval and the official issuance of statistical reports (referenced in USDA's Part 3600 organization/function regulation regarding ASB report issuance).\n\n**Delegation of authority**\n- **7 CFR \u00a7 2.68** \u2014 \"Administrator, National Agricultural Statistics Service.\" This regulation delegates authority from the Under Secretary for Research, Education, and Economics to the NASS Administrator to, among other things: *(1)* prepare crop and livestock estimates and administer reporting programs (including estimates of production, supply, price, and other aspects of the U.S. agricultural economy), conduct enumerative and objective-measurement surveys, construct and maintain sampling frames; and *(2)* prepare reports of the Agricultural Statistics Board covering official state and national estimates (citing 7 U.S.C. 476, 951, and 2204).\n\n**Confidentiality and disclosure-protection statutes**\n- **18 U.S.C. 1902, 1905, and 2072** \u2014 criminal provisions protecting against unauthorized disclosure of confidential information and against premature release of crop/livestock report information before the scheduled time.\n- **7 U.S.C. 2276** (Food Security Act of 1985, Section 1770) \u2014 confidentiality of individually identifiable information collected under 7 U.S.C. 2204(a).\n- In practice, NASS also operates under the **Confidential Information Protection and Statistical Efficiency Act (CIPSEA)** framework and OMB statistical-policy directives, though the specific *Crop Production* series predates these.\n\n**Important nuance from the National Academies (2018):** Most NASS surveys \u2014 including the monthly crop forecast program \u2014 are **not individually mandated by statute** in the strict sense; they are conducted under the broad delegated authority to fulfill USDA's mission. Only a small set of NASS report series carry explicit item-level mandates (cotton, peanuts, certain dairy/cold-storage stocks, etc.). *Crop Production* sits at the center of this broader delegated mission.\n\n---\n\n## 5. History\n\nThe *Crop Production* report is one of the oldest continuous federal statistical series in the United States:\n\n- **1862** \u2014 President Abraham Lincoln establishes USDA, calling it \"The People's Department.\" Its organic mission included \"collecting, arranging, publishing, and disseminating... statistical and other useful information in regard to agriculture.\"\n- **1863** \u2014 USDA establishes the **Division of Statistics** (NASS's direct ancestor). On **July 10, 1863**, USDA issues its **first monthly crop report** on the condition of crops, promising a similar report on the 10th of each month. This is the direct ancestor of *Crop Production*.\n- **1866** \u2014 Annual reports begin including estimates of **acreage, yield per acre, and production** of important crops, plus livestock numbers \u2014 essentially the modern content of the report.\n- **1882** \u2014 Part-time state statistical agents are appointed to build lists of crop correspondents; this grows into the state statistical office network.\n- **1884** \u2014 Crop \"condition\" reporting is standardized as a percent of a \"normal\" crop.\n- **1905** \u2014 Following a scandal in which a New York cotton speculator obtained advance knowledge of USDA crop forecasts, USDA creates the **Crop Reporting Board** (now the Agricultural Statistics Board) and the **\"lockup\" system** \u2014 a secured, preannounced release process designed to prevent anyone from gaining advance access to market-moving estimates. Reports began being labeled as released by the Crop Reporting Board in August 1905.\n- **1910\u20131915** \u2014 USDA shifts from reporting subjective crop \"condition\" to **forecasting actual production during the growing season**; cotton production forecasts begin in 1915.\n- **1961** \u2014 A USDA reorganization creates the **Statistical Reporting Service (SRS)**, consolidating crop/livestock estimates under one agency.\n- **1986** \u2014 SRS is renamed the **National Agricultural Statistics Service (NASS)**; the Crop Reporting Board is renamed the **Agricultural Statistics Board (ASB)**.\n- **1990s\u2013present** \u2014 NASS adds area-frame and remote-sensing components, Quick Stats online database (1990s), the Quick Stats API, and machine-readable release files. The monthly report's content has grown to include fruits, nuts, specialty crops, maple syrup, and weather summaries.\n\nHistorically, *Crop Production* was released at 8:30 a.m. ET jointly with WASDE; NASS's current release calendar schedules it at noon ET. (Both NASS and WAOB reports are prepared in the same secured lockup.)\n\n---\n\n## 6. Methodology and Statistical Underpinnings\n\n*Crop Production* is a **survey-based, probability-based** estimate program, not a census and not a simple aggregation of administrative records. The main inputs:\n\n1. **Agricultural Yield (AY) Survey** \u2014 a monthly **farmer-reported** survey (May\u2013November) in which growers report expected yield and production. Small grains are collected May\u2013August; row crops August\u2013November; hay in August and October; tobacco May\u2013November. Samples are drawn from respondents to the March and June Agricultural Surveys (Crops/Stocks).\n2. **Objective Yield (OY) Surveys** \u2014 independent, enumerator-conducted field measurements for **winter wheat, corn, soybeans, and cotton** (plus fruit/nut objective surveys in Florida and California). Fields are selected from the June Area Survey (probability-based area frame) using probability proportional to size; enumerators make monthly plant/fruit counts and measurements, final crop cuttings, moisture tests, and post-harvest gleaning to compute net yield. This provides an objective check against grower-reported expectations.\n3. **Area frame / June Area Survey** \u2014 provides acreage estimates and the sampling frame for objective yield work.\n4. **Model-based yield forecasting** \u2014 historical five-year OY databases feed linear statistical models that convert counts/measurements into yield forecasts before final harvest.\n5. **Agricultural Statistics Board review** \u2014 the ASB reconciles survey indications, state statisticians' interpretations, administrative data, and weather information into the official \"set\" estimates under lockup.\n\n**Reporting conventions:**\n- During the growing season, the report contains **forecasts** (e.g., \"based on conditions as of [the first of the month]\"). \n- **End-of-season/final estimates** appear in the **January Crop Production Annual Summary** (and, for small grains, the **September Small Grains Summary**).\n- Estimates are produced at **national and state** levels; **county-level** production estimates are published separately (often in May and via Quick Stats).\n- NASS publishes companion **Methodology and Quality Measures** documents (e.g., `cranqm*.pdf` under `nass.usda.gov/Publications/Methodology_and_Data_Quality/Crop_Production/`) describing survey design, sample sizes, coefficients of variation, and revision policies.\n\n---\n\n## 7. Content and Schedule\n\n**Typical content of a monthly issue:**\n- Forecasts and/or estimates of **acreage planted, acreage harvested, yield per acre, and production** for major field crops: corn, soybeans, wheat (winter/durum/other spring by class), cotton, sorghum, rice, peanuts, hay, tobacco, sugarbeets, dry edible beans/peas, lentils, chickpeas, sunflowers, canola, and others in season.\n- **Fruits and nuts** (e.g., citrus, apples, grapes, almonds, pecans), **hops**, and **maple syrup** (production, value, season dates, percent of sales by type).\n- **Monthly weather summary** and an **agricultural summary**, plus maps of precipitation and departure from normal.\n- Revisions to prior planted/harvested acreage as new survey information arrives (e.g., NASS explicitly notes acreage reviews for specific crops in given months).\n\n**Annual rhythm:**\n- **January** \u2014 Crop Production Annual Summary (final previous-year estimates).\n- **March** \u2014 Prospective Plantings (companion report).\n- **June** \u2014 Acreage (companion report).\n- **Monthly, May\u2013November** \u2014 yield/production forecasts as crops develop.\n- **September** \u2014 Small Grains Summary.\n\n---\n\n## 8. Typical Users\n\nNASS's own methodology documents and third-party studies identify these user groups:\n\n- **Farmers, ranchers, and producers** \u2014 for planting, marketing, storage, and contracting decisions.\n- **Commodity traders and financial markets** \u2014 futures/options traders, analysts, grain elevators, merchandisers, exporters, and commodity funds; the report is a known **market-moving event** on CME Group and ICE.\n- **USDA agencies** \u2014 World Agricultural Outlook Board (WASDE), ERS, FAS, AMS, FSA, and RMA (crop insurance).\n- **Federal and state policymakers** \u2014 Congress and CRS, state departments of agriculture, governors' offices; used to design and administer farm programs (e.g., ARC/PLC, disaster assistance) and conservation, trade, energy (biofuels), and food-security policy.\n- **Crop insurance and financial institutions** \u2014 RMA and private insurers use NASS yield data for premium rates, actual production history (APH), and claims; rural lenders use it for credit decisions.\n- **Farm organizations and commodity associations** \u2014 e.g., National Corn Growers Association, American Soybean Association, Farm Bureau; used in policy analysis and grower communications.\n- **Agribusinesses and food companies** \u2014 input/seed companies, processors, ethanol plants, food manufacturers; used for supply planning and pricing.\n- **Researchers and extension economists** \u2014 universities, land-grant institutions, and ag economists studying forecasting accuracy, market efficiency, climate impacts, and yield trends.\n- **International users** \u2014 foreign governments, the UN Food and Agriculture Organization, and global market analysts benchmark against U.S. official estimates.\n- **Journalists and agricultural media** \u2014 who amplify and interpret the numbers.\n- **Data scientists and analysts** \u2014 increasingly, researchers pull the underlying series via the Quick Stats API for modeling, dashboards, and ML applications.\n- **Policy activists and NGOs** \u2014 food-security, conservation, climate, and rural-advocacy organizations use the data for independent analysis.\n\n---\n\n## 9. Benefits to the Public\n\n- **Market efficiency and fair price discovery.** USDA's founding rationale for the statistics program was to level the information playing field: without a public, objective source, large commercial interests would enjoy asymmetric information advantages over individual farmers. Studies (e.g., Council on Food, Agricultural and Resource Economics review; Virginia Tech/NCGA report) document that USDA crop reports are a **benchmark** for private forecasts, reduce market uncertainty (e.g., declining implied volatility after releases), and that significant market reactions occur only on the \"surprise\" component \u2014 evidence the reports genuinely inform prices.\n- **Public-good correction for underinvestment in information.** Private firms underinvest in information with public-good characteristics; USDA's public forecasts fill that gap and coordinate the beliefs of market participants.\n- **Foundation for WASDE and global food-security analysis.** *Crop Production* is the primary domestic supply input into USDA's monthly world supply/demand balance sheets, which are used worldwide for food-security monitoring, trade policy, and humanitarian planning.\n- **Efficient administration of taxpayer-funded programs.** NASS data underpin farm-program payments, crop-insurance rates and indemnities, disaster assistance, and conservation program baselines \u2014 helping target public dollars accurately.\n- **Informed public decision-making.** Equal, simultaneous public release prevents insider advantage and builds confidence that commodity markets operate on shared facts.\n- **A 160-year historical record.** The continuity from 1863/1866 to today supports long-run analyses of yield trends, climate change impacts, technology adoption, and agricultural productivity \u2014 a scientific asset with few parallels.\n\n---\n\n## 10. Data Access and Technical Documentation (for Data Scientists)\n\n**Where to get it:**\n- **Current reports:** `nass.usda.gov/Publications/Todays_Reports/` \u2014 PDF and TXT per release; ZIP bundles in ESMIS.\n- **Archive:** USDA **ESMIS** (`esmis.nal.usda.gov/publication/crop-production`) \u2014 browsable, filterable by date, with PDF/TXT/ZIP downloads going back many years.\n- **Machine-readable data:** **Quick Stats** (`quickstats.nass.usda.gov`) \u2014 the queryable database of official estimates. Select *Program = Survey* and *Commodity = crop* to retrieve the underlying series (national, state, and county where available).\n- **API:** **Quick Stats API** (`quickstats.nass.usda.gov/api`) \u2014 requires a free API key; JSON output. Parameters include `commodity_desc`, `year`, `state_alpha`, `statisticcat_desc` (e.g., AREA HARVESTED, YIELD, PRODUCTION), etc. **Limit:** GET requests are capped at 50,000 records per call; paginate by geography/time for larger pulls.\n- **JSON files at release time:** NASS now publishes JSON files equivalent to Quick Stats data for major reports at release time (links on the Quick Stats page).\n- **Client libraries:** e.g., the R package `rnassqs` (rOpenSci) wraps the Quick Stats API; similar Python wrappers exist.\n\n**Practical notes for analysis:**\n- Distinguish **forecasts vs. final estimates**: monthly values are revised as the season progresses; the January Annual Summary holds final prior-year estimates. Preserve the *as-of/reference date* when combining historical months.\n- Distinguish **units**: yield in bushels per acre (lb/acre for cotton, rice; tons for some crops), production in bushels, bales, tons, cwt, etc.\n- Watch for **suppressed values**: NASS withholds some county/state cells (disclosure protection) \u2014 flagged in Quick Stats.\n- Data are **public domain** (U.S. government work, 17 U.S.C. \u00a7 105); attribution is still expected in practice.\n- Suggested citation format: *U.S. Department of Agriculture, National Agricultural Statistics Service. Crop Production (month/year). ISSN 1936-3737.*\n\n---\n\n## 11. Preservation and Data-Librarian Notes\n\n- **Stable identifier:** ISSN **1936-3737**; agency record ID in ESMIS (node/1632).\n- **Government publication status:** A U.S. federal government work; not subject to copyright. Part of the corpus distributed through the **Federal Depository Library Program (FDLP)** and cataloged by GPO.\n- **Archival copies:** Preserved by (1) the **ESMIS** system (USDA National Agricultural Library / Albert R. Mann Library at Cornell), (2) NASS's own Publications pages, and (3) general digital repositories such as HathiTrust and Internet Archive.\n- **Format concerns:** Older issues exist as ASCII/plain-text and print/PDF; long-run machine-readable data reside in Quick Stats rather than in the PDF releases. Librarians should treat the **Quick Stats database + API** as the canonical machine-readable series, and the **PDF/TXT releases** as the canonical published reports.\n- **Historical depth:** The monthly *Crop Production* lineage is continuous from 1863 (as \"condition of crops\" reports) and has included acreage/yield/production estimates since 1866 \u2014 though the modern title, format, and coverage evolved substantially. Deep historical annual data are available through NASS's historical track records and the Census/agricultural statistics historical compilations.\n- **Versioning/revision:** Monthly estimates are revised; a preservation plan should capture both the **initial release** and **subsequent revisions** (available in later issues and in Quick Stats with revision flags) to faithfully reconstruct the historical information environment.\n- **Metadata recommendation:** Preserve at minimum \u2014 title, ISSN, agency (NASS/ASB/USDA), release date, reference date (\"conditions as of...\"), state vs. national scope, and the commodity/statistic-category taxonomy used by Quick Stats.\n\n---\n\n## 12. Issues, Caveats, and Points of Contention (for Policy Activists and Data Scientists)\n\n- **Government shutdowns and budget uncertainty.** NASS suspended numerous reports during the 2018\u20132019 federal shutdown; *Crop Production* and other market-sensitive releases were delayed or canceled, disrupting markets and farm planning. Budget proposals to reduce NASS survey funding recur and are a standing policy issue.\n- **Forecast accuracy and \"surprise.\"** A systematic literature (e.g., \"Are USDA Forecasts Optimal?\") and NCGA/Virginia Tech reviews find USDA forecasts are generally efficient/benchmark-quality, but market reactions concentrate in specific months (notably August, October, and January) and studies debate whether small systematic biases exist. Knowing a report in advance demonstrably yields trading profits \u2014 hence the lockup's importance.\n- **Declining survey response rates.** Like all federal surveys, NASS faces falling response and rising data-collection costs; the National Academies has recommended integrating multiple data sources (administrative data, remote sensing, modeling) to sustain quality.\n- **Private-sector competition from remote sensing.** Satellite/imagery firms now offer independent yield estimates, raising questions about the future role and marginal value of the official survey program \u2014 though USDA remains the consensus benchmark and the anchor for WASDE.\n- **Disclosure suppression vs. granularity.** County-level estimates are sometimes suppressed to protect respondent confidentiality, which can frustrate local policy analysis.\n- **Data-model transition.** NASS has modernized release formats (JSON at release time, API access), but users with legacy workflows still depend on TXT/PDF and fixed-width historical tables \u2014 a migration/preservation consideration.\n- **Policy relevance beyond markets.** Activists should note the series is the empirical backbone for debates over biofuels mandates (ethanol demand), conservation acreage, climate impacts on yields, crop insurance costs, and food-price inflation.\n\n---\n\n## 13. Key Sources\n\n- USDA NASS \u2014 *Crop Production* (current release, e.g., Aug/Sep 2026 PDF/TXT): `nass.usda.gov/Publications/Todays_Reports/reports/crop*.pdf`\n- USDA ESMIS \u2014 *Crop Production* catalog record and archive: `esmis.nal.usda.gov/publication/crop-production`\n- 7 CFR \u00a7 2.68 (NASS Administrator delegations): `ecfr.gov/current/title-7/subtitle-A/part-2/subpart-K/section-2.68`\n- 7 U.S.C. 2204g (Census of Agriculture authority): `uscode.house.gov`\n- USDA NASS Explanatory Notes (authorities cited): `usda.gov/sites/default/files/documents/17nass2021notes.pdf`\n- Congressional Research Service, *NASS and U.S. Crop Production Forecasts: Methods and Issues* (R44814)\n- National Academies of Sciences, Engineering, and Medicine \u2014 *Improving Crop Estimates by Integrating Multiple Data Sources* (background chapter on NASS legal mandates)\n- NASS \u2014 *The Story of U.S. Agricultural Estimates* and *125 Years of Agricultural Estimates*\n- NASS \u2014 *Understanding USDA Crop Forecasts* (pub1554)\n- NASS \u2014 Agricultural Yield and Objective Yield survey guides\n- NASS \u2014 *Annual Crop Production Methodology and Quality Measures* (`cranqm*.pdf`)\n- USDA WAOB \u2014 WASDE FAQs (role of NASS data)\n- NASS Quick Stats and Developer/API pages; rOpenSci `rnassqs` documentation\n- Virginia Tech/NCGA report, *What Do We Know About the Accuracy and Impact of USDA Reports?*\n\n---\n\n### Bottom line\n\nThe **USDA NASS *Crop Production* report** is a monthly, survey-based federal statistical release that has run continuously in some form since 1863. It is produced under USDA's statutory and delegated authority (notably the Agricultural Marketing Act of 1946, 7 U.S.C. 2204, 7 CFR \u00a7 2.68, with crop-specific mandates for cotton and peanuts), protected by a lockup system created after a 1905 leak scandal, and used as the domestic production benchmark for USDA's WASDE and for commodity markets, crop insurance, farm programs, and research worldwide. It is public-domain, freely available in PDF/TXT, archived via ESMIS, and machine-accessible through Quick Stats and its API \u2014 with well-documented methodology and a long scholarly record on its accuracy and market impact."
+    },
+    {
+      "role": "user",
+      "content": "# Dataset risk assessment\nI would like your help in assessing the likelihood that this data will be changed or removed from its primary location, and that users will no longer be able to access accurate and reliable copies of it, based on the rubric below.\n\n## Sources for context\nTo help assess the rubric categories, perform additional research on the data, the agency, the data's topics and typical users, covering topics such as proposed regulatory or funding changes, recent news, and political commentary. Use whatever resources you find useful, including the Federal Register (https://www.federalregister.gov) and the federal staffing tracker at https://usajobs-tracker.abigailhaddad.com.\n\n## Rubric\nThis rubric is divided up into categories. Each category is divided up into risk levels. In your output, please select the appropriate risk level for each category based on your research.\n\n### Historical Data Availability\n- Gone: Data files prior to the current year or cycle are no longer publicly available.\n- High Risk: Some data files prior to the current year or cycle are removed.\n- Moderate Risk: Some data elements that exist in the dataset prior to the current year or cycle are removed.\n- No Known Issue: Data prior to the current year or cycle remain accessible with no known alterations.\n\n### Future Data Availability\n- Gone: Data collection and publication has been terminated.\n- High Risk: Statutory publication deadline missed and/or collection or publication skipped and/or ICR expired for more than one year.\n- Moderate Risk: Typical or intended publication date missed and/or collection or publication delayed; ICR expired up to one year.\n- No Known Issue: Data published on time or as expected and ICR active or renewed before expiration.\n\n### Data Quality\n- Gone: Data collection and publication has been terminated.\n- High Risk: Reductions in granularity, timeliness, or frequency.\n- Moderate Risk: Potential or emerging risk to granularity, timeliness, or frequency.\n- No Known Issue: Maintained or improved granularity, timeliness, or frequency.\n\n### Statutory Context\n- Gone: N/A\n- High Risk: Statutory authorization is vague and/or there are alternative data collections that could serve as substitutes and/or no known programmatic use.\n- Moderate Risk: Not explicitly required by statute but required for the implementation of a state or federal program, and there are no alternative data collections that could serve as substitutes.\n- No Known Issue: Statutorily required and/or statutory authorization is explicitly named and it is clear what has to be collected, and there aren't alternative data collections that could serve as substitutes and/or required for implementation of a federal program.\n\n### Staffing and Funding\n- Gone: All of the staff in the division or agency are gone and/or all funding has been terminated.\n- High Risk: 40% or more of staff lost, and/or 1,000 or more staff lost, and/or budget cut by 20% or more, and/or leadership removed.\n- Moderate Risk: 10\u201339% of staff lost, and/or 500\u2013999 staff lost, and/or budget cut by 10\u201319%, and/or threatened change in leadership.\n- No Known Issue: Less than 10% of staff lost and less than 10% of budget cut and no known change in leadership.\n\n### Policy\n- Gone: Data collection and publication has been terminated.\n- High Risk: Presidential Action-driven information collection request (ICR); negative policy note on site; other significant changes in accordance with Administration priorities.\n- Moderate Risk: Proposed or pending changes; statements by administration officials suggesting a change is being considered or planned.\n- No Known Issue: No notable changes since January 2025 affecting what data is collected and published.\n\nFor each category, concisely list the evidence and supporting sources that would support each risk level. Then indicate which risk level you find most appropriate and why.\n\nConclude with a simple summary of risk levels:\nHistorical Data Availability: <level>\nFuture Data Availability: <level>\nData Quality: <level>\nStatutory Context: <level>\nStaffing and Funding: <level>\nPolicy: <level>"
+    },
+    {
+      "role": "assistant",
+      "content": "I'll research current conditions affecting NASS and this dataset. Let me run several targeted searches.I have strong initial findings. Let me verify several specifics: the historical archive status, OMB/ICR status, the USAJobs tracker, and Federal Register notices.I've hit the search limit, but I can still fetch pages directly. Let me check the staffing tracker and confirm the ESMIS/Crop Production archive details.# Dataset Risk Assessment: USDA NASS *Crop Production*\n\n**Assessment date:** October 2026 (based on the most recent NASS release calendar and available sources). I reviewed the dataset itself, NASS/ASB notices, USDA budget documents, the FY2026 President's Budget, the USDA Inspector General staffing report, the American Statistical Association's *The Nation's Data at Risk* (2025), Reuters/Agri-Pulse coverage, and the ESMIS archive migration documentation.\n\n---\n\n## 1. Historical Data Availability\n\n**Evidence:**\n- Historical *Crop Production* reports remain downloadable as PDF/TXT/ZIP on the new USDA **ESMIS platform at esmis.nal.usda.gov** (National Agricultural Library). Files dating to **1973** are present on the new platform, confirming the legacy archive was migrated, not deleted.\n- The **Cornell/Mann Library ESMIS site was decommissioned on October 1, 2025**, so legacy Cornell URLs (usda.mannlib.cornell.edu) now break. This is a citation/link-rot problem, but the underlying files were transferred to NAL (Reuters, Sept 30, 2025; esmis.nal.usda.gov).\n- NASS **Quick Stats** continues to hold the machine-readable time series (national/state/county estimates, many series back decades), and NASS historical bulletins (\"final estimates 1987\u20132012,\" Track Records, historical Ag Statistics) remain linked from NASS Publications.\n- NASS did eliminate some **state and regional report products** in 2025 (ASA, *Nation's Data at Risk 2025*), but I found no evidence that historical national *Crop Production* issues or prior-year data elements were removed.\n- One caveat embedded in the record: the **October 2025 issue was never published**, so the 2025 series itself is permanently incomplete \u2014 but that is a current-cycle gap (addressed under Data Quality), not removal of pre-existing historical files.\n\n**Selected level: No Known Issue.**\nHistorical issues of *Crop Production* (1973\u2013present on ESMIS; earlier data in Quick Stats and historical bulletins) remain accessible with no known removal of prior-year files. Flag: persistent links/citations to the Cornell ESMIS are broken and should be updated.\n\n---\n\n## 2. Future Data Availability\n\n**Evidence:**\n- **October 2025 *Crop Production* was skipped.** NASS notice (Nov 19, 2025): \"Crop Production (Oct. 9) will not be released.\" The November 14, 2025 issue explicitly states, \"Because the October 2025 Crop Production report was not published, there are no October 1 yield forecasts included in this report.\"\n- The **November 2025** issue was **delayed** (Nov 14 instead of Nov 10) due to the lapse in appropriations (NASS notice, Oct 31, 2025).\n- A further **December 24 & 26, 2025 government closure** forced report rescheduling (NASS notice, Dec 22, 2025).\n- The skip was caused by a **government-wide funding lapse (Oct 1\u2013Nov 12, 2025)**, not by an ICR expiration or program termination. NASS methodology notes indicate **data collection continued during the lapse** (objective-yield and farm-operator surveys conducted Oct 25\u2013Nov 9).\n- In **2026, publication has returned to schedule**: Crop Production was released Aug 12, 2026 and Sept 11, 2026, with Oct 9, 2026 scheduled (NASS calendar/ESMIS).\n- No discontinuance or expiration notice was issued for the surveys underlying *Crop Production* (unlike the Mink and Agricultural Labor surveys, which were discontinued Aug 28, 2025).\n\n**Selected level: High Risk.**\nThe rubric's \"High Risk\" criterion \u2014 \"publication skipped\" \u2014 was met within the review period (October 2025 issue never released; a statutory-adjacent cotton-reporting deadline was missed). Mitigating context: the skip was tied to an appropriations lapse, data collection continued, and 2026 releases are back on schedule; the ICR appears active. Given recurring shutdown-related rescheduling and NASS's weakened staffing, the risk of future skips/delays remains elevated rather than resolved.\n\n---\n\n## 3. Data Quality\n\n**Evidence:**\n- The **October 2025 issue is missing from the series**, and the November 2025 issue contains **no October 1 yield forecasts** \u2014 a permanent granularity/timeliness gap in the 2025 record (NASS Nov 19, 2025 notice; Nov 14, 2025 report Special Note).\n- The **frequency/timeliness was degraded** in 2025 (skipped month + delayed November release).\n- NASS **eliminated state and regional reports** in 2025 and discontinued the **Agricultural Labor Survey and Mink Survey** (Aug 28, 2025) \u2014 NASS-wide granularity reductions (ASA, *Nation's Data at Risk 2025*).\n- **41% staffing loss since FY24** and weak leadership bench (acting administrator; 4 of 7 division directors acting) led the ASA to rate NASS resources **\"WEAK,\"** explicitly citing constraints on the agency's \"ability to provide timely, accurate, and useful statistics.\"\n- 2026 releases have been on time so far (Aug/Sep 2026), indicating the 2025 degradation has not yet become permanent for the national report.\n\n**Selected level: High Risk.**\nReductions in timeliness and frequency demonstrably occurred (skipped October 2025 report; missing October 1 forecasts now permanently embedded in the historical record), and NASS-wide granularity reductions (state/regional products) have been made. Staffing losses create ongoing quality risk even though 2026 cadence has recovered.\n\n---\n\n## 4. Statutory Context\n\n**Evidence:**\n- *Crop Production* is published under broad authority: the **Agricultural Marketing Act of 1946** (7 U.S.C. 1621\u20131627), the Secretary's general statistics authority (**7 U.S.C. 2204(a)**), and the NASS Administrator's delegated authority (**7 CFR \u00a7 2.68**).\n- Some components are **explicitly statutory**: **7 U.S.C. 476** (monthly cotton acreage/condition reports), **7 U.S.C. 951** (peanut statistics).\n- Most field-crop series (corn, soybeans, wheat, etc.) are **not itemized in statute**, but the data are **required inputs to federal programs with no full substitutes**: USDA's **WASDE** balance sheets, **Risk Management Agency crop-insurance** rating/APH, **Farm Service Agency** farm-program administration (ARC/PLC), and disaster assistance.\n- No private or state source produces equivalent national, probability-based, statutorily protected acreage/yield/production estimates.\n\n**Selected level: Moderate Risk.**\nThe dataset as a whole is not itemized in a single statute (only cotton and peanuts carry explicit item-level mandates), but it is essential to the implementation of federal programs and has no substitute data collection. That matches the \"Moderate Risk\" definition: not explicitly required by statute for most crops, but required for federal program implementation with no alternatives. (The cotton/peanut components individually approach \"No Known Issue.\")\n\n---\n\n## 5. Staffing and Funding\n\n**Evidence:**\n- **NASS lost an estimated 41% of its staff since FY24** (ASA, *Nation's Data at Risk 2025*); the USDA OIG confirmed **more than 30%** of NASS staff left Jan\u2013Jun 2025 (Reuters, Dec 22, 2025, citing OIG).\n- USDA's own FY2026 Explanatory Notes state NASS **\"reduced its staff count from 754 to 495\"** (~34%, \u2212259 FTE).\n- **Leadership instability:** as of Nov 2025, the associate administrator and multiple unit directors are acting; four of seven divisions are headed by acting directors, three doubling up (ASA).\n- **Budget:** FY25 enacted $187.85M; **FY26 President's Budget request $185M** (~\u22121.5% nominal; ~4% purchasing-power loss). NASS budget has lost ~12% purchasing power FY2021\u2013FY2025 (AEI); ASA rates NASS resources \"WEAK.\"\n- The **USAJobs tracker** (usajobs-tracker.abigailhaddad.com) is JS-driven and does not expose a stable NASS subagency figure for direct citation, but the independent staffing losses above satisfy the rubric threshold.\n\n**Selected level: High Risk.**\nThe rubric's High Risk threshold is \"40% or more of staff lost.\" NASS's 41% staff loss since FY24 meets it exactly; leadership is largely acting and a real budget/purchasing-power decline is documented.\n\n---\n\n## 6. Policy\n\n**Evidence:**\n- **USDA reorganization (Secretary's Memorandum 1078-015, July 24, 2025):** NASS will **consolidate its 12 regional offices into 5 USDA hubs** and relocate DC-area staff \u2014 a major administrative change affecting field data collection.\n- **Administration-driven collection changes:** NASS discontinued the **Agricultural Labor Survey and Mink Survey** (Aug 28, 2025) under the Paperwork Reduction Act as \"duplicative and/or no longer necessary\"; the **FY26 budget proposes eliminating the Farm Labor Report** funded by the ALS; NASS **eliminated state and regional reports**.\n- **Early 2025 webpage removals:** USDA removed climate-related pages/tools across subagencies in Feb 2025; these were restored after litigation (NOFA-NY/NRDC/EWG v. USDA), but with \"under review and subject to change\" disclaimers \u2014 a signal that political review of data products is ongoing.\n- **Reorganization comment analysis** (USDA, Dec 2025) shows public fears that the reorg \"would lead to staff layoffs and reduced operational capacity.\"\n- No *Crop Production*-specific negative policy note was found; the report itself continues to be released.\n\n**Selected level: High Risk.**\nThe rubric's High Risk includes \"other significant changes in accordance with Administration priorities.\" Actual, significant administration-driven changes \u2014 NASS reorganization into hubs, discontinuance of surveys, elimination of state/regional reports, and prior webpage removals \u2014 have occurred in the past year and directly affect the NASS data ecosystem that produces *Crop Production*.\n\n---\n\n## Summary of Risk Levels\n\nHistorical Data Availability: No Known Issue  \nFuture Data Availability: High Risk  \nData Quality: High Risk  \nStatutory Context: Moderate Risk  \nStaffing and Funding: High Risk  \nPolicy: High Risk  \n\n---\n\n### Overall reading\nThe *Crop Production* dataset's **historical files are intact** (migrated to the NAL-run ESMIS, with Quick Stats history preserved), but its **near-term continuity and quality are under real strain**: NASS has lost 41% of its staff, is being reorganized into five hubs, has discontinued several collections, and the report **skipped October 2025** during the appropriations lapse \u2014 leaving a permanent gap in the 2025 series (no October 1 forecasts). Statutorily, only the cotton and peanut components carry explicit mandates; the broader report survives on general authority plus its essential role in WASDE, crop insurance, and farm programs. The most appropriate preservation posture is to treat this as a **high-priority, actively monitored series** with redundant archival of both the PDF/TXT releases and the Quick Stats machine-readable data.\n\n**Key sources:** NASS Notices (10/31/2025, 11/19/2025, 12/22/2025, 08/28/2025); Nov 14, 2025 Crop Production report; ASA *The Nation's Data at Risk 2025* (NASS chapter); USDA FY2026 NASS Explanatory Notes; USDA OIG Staffing Levels report (Dec 17, 2025); USDA Reorganization SM 1078-015 and press release; Reuters (Sept 30 & Dec 22, 2025); Agri-Pulse; esmis.nal.usda.gov; nass.usda.gov."
+    },
+    {
+      "role": "user",
+      "content": "Emit a session_metadata YAML block reporting: current date, model identifier, knowledge cutoff, surface, whether memory is enabled, whether custom preferences or styles are active, all tools and MCP servers available, which tools were actually called in this session, and whether attachments were present. Mark any field not directly observable as unknown rather than inferring it."
+    },
+    {
+      "role": "assistant",
+      "content": "```yaml\nsession_metadata:\n  current_date: unknown  # no datetime tool available; search results suggested ~Oct 2026 but not directly observable\n  model_identifier: unknown\n  knowledge_cutoff: unknown\n  surface: unknown\n  memory_enabled: unknown\n  custom_preferences_or_styles_active: unknown\n  tools_available:\n    - openrouter_web_search\n    - openrouter_web_fetch\n  mcp_servers_available: unknown  # none listed in the provided environment\n  tools_actually_called:\n    - openrouter_web_search\n    - openrouter_web_fetch\n  attachments_present: false\n```"
+    }
+  ]
+}

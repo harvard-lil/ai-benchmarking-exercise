@@ -1,0 +1,1167 @@
+{
+  "dataset": {
+    "key": "census-of-agriculture",
+    "title": "Census of Agriculture"
+  },
+  "model": "z-ai/glm-5.3",
+  "harness": "openrouter tools",
+  "context": "full: each turn's whole output is carried into the next",
+  "search_tool": {
+    "engine": "exa",
+    "max_results": 10,
+    "excluded_domains": [
+      "dataindex.us"
+    ]
+  },
+  "fetch_tool": {
+    "engine": "openrouter",
+    "blocked_domains": [
+      "dataindex.us"
+    ],
+    "max_content_tokens": 10000
+  },
+  "reasoning": "effort high",
+  "catalog": {
+    "fetched_at": "2026-10-08T19:54:38Z",
+    "entry": {
+      "id": "z-ai/glm-5.3",
+      "canonical_slug": "z-ai/glm-5.3-20260816",
+      "hugging_face_id": "zai-org/GLM-5.3",
+      "name": "Z.ai: GLM 5.3",
+      "created": 1787086655,
+      "description": "GLM-5.3 is a large-scale reasoning model from Z.ai, built for complex software engineering and long-horizon agent tasks. It supports text input and output with a 1M-token context window, and improves...",
+      "context_length": 1048576,
+      "architecture": {
+        "modality": "text->text",
+        "input_modalities": [
+          "text"
+        ],
+        "output_modalities": [
+          "text"
+        ],
+        "tokenizer": "Other",
+        "instruct_type": null
+      },
+      "pricing": {
+        "prompt": "0.00000008",
+        "completion": "0.00000339",
+        "input_cache_read": "0.000000048"
+      },
+      "top_provider": {
+        "context_length": 1048576,
+        "max_completion_tokens": 943718,
+        "is_moderated": false
+      },
+      "per_request_limits": null,
+      "supported_parameters": [
+        "frequency_penalty",
+        "include_reasoning",
+        "logit_bias",
+        "logprobs",
+        "max_tokens",
+        "min_p",
+        "parallel_tool_calls",
+        "presence_penalty",
+        "reasoning",
+        "reasoning_effort",
+        "repetition_penalty",
+        "response_format",
+        "seed",
+        "stop",
+        "structured_outputs",
+        "temperature",
+        "tool_choice",
+        "tools",
+        "top_k",
+        "top_logprobs",
+        "top_p"
+      ],
+      "default_parameters": {
+        "temperature": 1,
+        "top_p": 0.95
+      },
+      "supported_voices": null,
+      "knowledge_cutoff": null,
+      "expiration_date": null,
+      "links": {
+        "details": "/api/v1/models/z-ai/glm-5.3-20260816/endpoints"
+      },
+      "benchmarks": {
+        "design_arena": [
+          {
+            "arena": "models",
+            "category": "3d",
+            "elo": 1347,
+            "win_rate": 60.7,
+            "rank": 5
+          },
+          {
+            "arena": "models",
+            "category": "asciiart",
+            "elo": 1211,
+            "win_rate": 46,
+            "rank": 22
+          },
+          {
+            "arena": "models",
+            "category": "codecategories",
+            "elo": 1313,
+            "win_rate": 54.9,
+            "rank": 9
+          },
+          {
+            "arena": "models",
+            "category": "dataviz",
+            "elo": 1269,
+            "win_rate": 52.8,
+            "rank": 23
+          },
+          {
+            "arena": "models",
+            "category": "gamedev",
+            "elo": 1323,
+            "win_rate": 52.9,
+            "rank": 10
+          },
+          {
+            "arena": "models",
+            "category": "svg",
+            "elo": 1295,
+            "win_rate": 56.9,
+            "rank": 8
+          },
+          {
+            "arena": "models",
+            "category": "uicomponent",
+            "elo": 1323,
+            "win_rate": 57.6,
+            "rank": 9
+          },
+          {
+            "arena": "models",
+            "category": "website",
+            "elo": 1305,
+            "win_rate": 54.9,
+            "rank": 12
+          },
+          {
+            "arena": "agents",
+            "category": "htmlslides",
+            "elo": 1189,
+            "win_rate": 39.1,
+            "rank": 9
+          },
+          {
+            "arena": "agents",
+            "category": "mobileapps",
+            "elo": 1191,
+            "win_rate": 52.2,
+            "rank": 17
+          },
+          {
+            "arena": "agents",
+            "category": "python-pptxslides",
+            "elo": 1255,
+            "win_rate": 51.2,
+            "rank": 8
+          }
+        ],
+        "artificial_analysis": {
+          "intelligence_index": 44.8,
+          "coding_index": 74.8,
+          "agentic_index": 53.1
+        }
+      },
+      "reasoning": {
+        "mandatory": true,
+        "default_enabled": true,
+        "supported_efforts": [
+          "max",
+          "high",
+          "low"
+        ],
+        "default_effort": "max"
+      }
+    }
+  },
+  "upstream": [
+    "z-ai"
+  ],
+  "trial": 0,
+  "terminate_reason": "completed",
+  "max_tokens": 32768,
+  "started_at": "2026-10-08T19:54:37Z",
+  "prompts": {
+    "research": "#data research\nI am researching a federal dataset. Find out everything you can about this dataset, such as who publishes it, under what authority or mandate, its history, its typical users, and its benefits to the public. Be sure your research comprehensively covers each of those perspectives, as well as any others that you discover or seem useful. I believe this is accurate information, but please check:\n\nDataset title: Census of Agriculture\nDescription: The Census of Agriculture, conducted once every five years, looks at land use and ownership, producer characteristics, production practices, income, and expenditures. The Census of Agriculture is a complete count of U.S. farms and ranches and the people who operate them. Even small plots of land - whether rural or urban - count if $1,000 or more of agricultural products were produced and sold, or normally would have been sold, during the census year.\nURL: https://nass.usda.gov/AgCensus\n\nReturn a complete report on everything that a preservationist, data librarian, data scientist, or policy activist might want to know about this data.",
+    "assessment": "# Dataset risk assessment\nI would like your help in assessing the likelihood that this data will be changed or removed from its primary location, and that users will no longer be able to access accurate and reliable copies of it, based on the rubric below.\n\n## Sources for context\nTo help assess the rubric categories, perform additional research on the data, the agency, the data's topics and typical users, covering topics such as proposed regulatory or funding changes, recent news, and political commentary. Use whatever resources you find useful, including the Federal Register (https://www.federalregister.gov) and the federal staffing tracker at https://usajobs-tracker.abigailhaddad.com.\n\n## Rubric\nThis rubric is divided up into categories. Each category is divided up into risk levels. In your output, please select the appropriate risk level for each category based on your research.\n\n### Historical Data Availability\n- Gone: Data files prior to the current year or cycle are no longer publicly available.\n- High Risk: Some data files prior to the current year or cycle are removed.\n- Moderate Risk: Some data elements that exist in the dataset prior to the current year or cycle are removed.\n- No Known Issue: Data prior to the current year or cycle remain accessible with no known alterations.\n\n### Future Data Availability\n- Gone: Data collection and publication has been terminated.\n- High Risk: Statutory publication deadline missed and/or collection or publication skipped and/or ICR expired for more than one year.\n- Moderate Risk: Typical or intended publication date missed and/or collection or publication delayed; ICR expired up to one year.\n- No Known Issue: Data published on time or as expected and ICR active or renewed before expiration.\n\n### Data Quality\n- Gone: Data collection and publication has been terminated.\n- High Risk: Reductions in granularity, timeliness, or frequency.\n- Moderate Risk: Potential or emerging risk to granularity, timeliness, or frequency.\n- No Known Issue: Maintained or improved granularity, timeliness, or frequency.\n\n### Statutory Context\n- Gone: N/A\n- High Risk: Statutory authorization is vague and/or there are alternative data collections that could serve as substitutes and/or no known programmatic use.\n- Moderate Risk: Not explicitly required by statute but required for the implementation of a state or federal program, and there are no alternative data collections that could serve as substitutes.\n- No Known Issue: Statutorily required and/or statutory authorization is explicitly named and it is clear what has to be collected, and there aren't alternative data collections that could serve as substitutes and/or required for implementation of a federal program.\n\n### Staffing and Funding\n- Gone: All of the staff in the division or agency are gone and/or all funding has been terminated.\n- High Risk: 40% or more of staff lost, and/or 1,000 or more staff lost, and/or budget cut by 20% or more, and/or leadership removed.\n- Moderate Risk: 10\u201339% of staff lost, and/or 500\u2013999 staff lost, and/or budget cut by 10\u201319%, and/or threatened change in leadership.\n- No Known Issue: Less than 10% of staff lost and less than 10% of budget cut and no known change in leadership.\n\n### Policy\n- Gone: Data collection and publication has been terminated.\n- High Risk: Presidential Action-driven information collection request (ICR); negative policy note on site; other significant changes in accordance with Administration priorities.\n- Moderate Risk: Proposed or pending changes; statements by administration officials suggesting a change is being considered or planned.\n- No Known Issue: No notable changes since January 2025 affecting what data is collected and published.\n\nFor each category, concisely list the evidence and supporting sources that would support each risk level. Then indicate which risk level you find most appropriate and why.\n\nConclude with a simple summary of risk levels:\nHistorical Data Availability: <level>\nFuture Data Availability: <level>\nData Quality: <level>\nStatutory Context: <level>\nStaffing and Funding: <level>\nPolicy: <level>",
+    "session_metadata": "Emit a session_metadata YAML block reporting: current date, model identifier, knowledge cutoff, surface, whether memory is enabled, whether custom preferences or styles are active, all tools and MCP servers available, which tools were actually called in this session, and whether attachments were present. Mark any field not directly observable as unknown rather than inferring it."
+  },
+  "turns": {
+    "research": {
+      "request": {
+        "model": "z-ai/glm-5.3",
+        "max_output_tokens": 32768,
+        "tools": [
+          {
+            "type": "openrouter:web_search",
+            "parameters": {
+              "engine": "exa",
+              "max_results": 10,
+              "excluded_domains": [
+                "dataindex.us"
+              ]
+            }
+          },
+          {
+            "type": "openrouter:web_fetch",
+            "parameters": {
+              "engine": "openrouter",
+              "blocked_domains": [
+                "dataindex.us"
+              ],
+              "max_content_tokens": 10000
+            }
+          }
+        ],
+        "cache_control": {
+          "type": "ephemeral",
+          "ttl": "1h"
+        },
+        "session_id": "census-of-agriculture-z-ai/glm-5.3-t0-2026-10-08T19:54:37Z",
+        "stop_server_tools_when": [
+          {
+            "type": "step_count_is",
+            "step_count": 200
+          }
+        ],
+        "reasoning": {
+          "effort": "high"
+        },
+        "provider": {
+          "order": [
+            "z-ai"
+          ],
+          "allow_fallbacks": false
+        }
+      },
+      "response_meta": {
+        "id": "gen-1791489278-dg8KMALulSALa8e6OOZ6",
+        "object": "response",
+        "created_at": 1791489278,
+        "model": "z-ai/glm-5.3",
+        "status": "completed",
+        "completed_at": 1791489345,
+        "error": null,
+        "incomplete_details": null,
+        "tools": [],
+        "tool_choice": "auto",
+        "parallel_tool_calls": true,
+        "max_output_tokens": 32768,
+        "temperature": 1,
+        "top_p": 1,
+        "presence_penalty": 0,
+        "frequency_penalty": 0,
+        "top_logprobs": 0,
+        "max_tool_calls": null,
+        "metadata": {},
+        "background": false,
+        "previous_response_id": null,
+        "service_tier": "auto",
+        "truncation": "disabled",
+        "store": false,
+        "instructions": null,
+        "text": {
+          "format": {
+            "type": "text"
+          }
+        },
+        "reasoning": {
+          "effort": "high"
+        },
+        "safety_identifier": null,
+        "prompt_cache_key": null,
+        "prompt_cache_options": null,
+        "usage": {
+          "input_tokens": 59621,
+          "input_tokens_details": {
+            "cached_tokens": 27968
+          },
+          "output_tokens": 4704,
+          "output_tokens_details": {
+            "reasoning_tokens": 1123
+          },
+          "total_tokens": 64325,
+          "cost": 0.10728347999999999,
+          "cost_details": {
+            "upstream_inference_cost": 0.07228348000000001,
+            "upstream_inference_input_cost": 0.05158588,
+            "upstream_inference_output_cost": 0.0206976
+          },
+          "server_tool_use_details": {
+            "web_search_requests": 6,
+            "tool_calls_requested": 7,
+            "tool_calls_executed": 7
+          }
+        }
+      },
+      "requests": [
+        {
+          "input_tokens": 59621,
+          "input_tokens_details": {
+            "cached_tokens": 27968
+          },
+          "output_tokens": 4704,
+          "output_tokens_details": {
+            "reasoning_tokens": 1123
+          },
+          "total_tokens": 64325,
+          "cost": 0.10728347999999999,
+          "cost_details": {
+            "upstream_inference_cost": 0.07228348000000001,
+            "upstream_inference_input_cost": 0.05158588,
+            "upstream_inference_output_cost": 0.0206976
+          },
+          "server_tool_use_details": {
+            "web_search_requests": 6,
+            "tool_calls_requested": 7,
+            "tool_calls_executed": 7
+          }
+        }
+      ],
+      "searches": 6,
+      "fetches": 1,
+      "tool_items": [
+        {
+          "type": "openrouter:web_search",
+          "id": "st_tmp_hrjdiikk16a",
+          "status": "completed",
+          "action": {
+            "type": "search",
+            "query": "Census of Agriculture USDA NASS history legal authority mandate",
+            "sources": [
+              {
+                "type": "url",
+                "url": "https://www.nass.usda.gov/Publications/AgCensus/2022/Full_Report/Volume_1,_Chapter_1_US/usintro.pdf"
+              },
+              {
+                "type": "url",
+                "url": "https://usda.azureedge.us/sites/default/files/documents/20-2024-NASS.pdf"
+              },
+              {
+                "type": "url",
+                "url": "https://www.nass.usda.gov/AgCensus/archive/files/2002-History.pdf"
+              },
+              {
+                "type": "url",
+                "url": "https://www.census.gov/about/history/historical-censuses-and-surveys/census-programs-surveys/agriculture/census-of-agriculture.html"
+              },
+              {
+                "type": "url",
+                "url": "https://www.nass.usda.gov/Publications/AgCensus/2017/Full_Report/Volume_1,_Chapter_1_US/usintro.pdf"
+              },
+              {
+                "type": "url",
+                "url": "https://thefederalregister.org/documents/2026-00540/notice-of-intent-to-seek-approval-to-reinstate-an-information-collection"
+              },
+              {
+                "type": "url",
+                "url": "https://usda.azureedge.us/sites/default/files/documents/19NASS2022Notes.pdf"
+              },
+              {
+                "type": "url",
+                "url": "https://www.census.gov/about/history/historical-censuses-and-surveys/census-programs-surveys/agriculture/faq.html"
+              },
+              {
+                "type": "url",
+                "url": "https://www.nass.usda.gov/Publications/AgCensus/2017/Online_Resources/2017%20History-Final.pdf"
+              },
+              {
+                "type": "url",
+                "url": "https://en.wikipedia.org/wiki/United_States_Census_of_Agriculture"
+              }
+            ]
+          }
+        },
+        {
+          "type": "openrouter:web_search",
+          "id": "st_tmp_8moa88tcwyk",
+          "status": "completed",
+          "action": {
+            "type": "search",
+            "query": "Census of Agriculture data users researchers policy uses benefits",
+            "sources": [
+              {
+                "type": "url",
+                "url": "https://www.nass.usda.gov/Publications/AgCensus/2022/Full_Report/Volume_1,_Chapter_1_US/usintro.pdf"
+              },
+              {
+                "type": "url",
+                "url": "https://www.nass.usda.gov/AgCensus/"
+              },
+              {
+                "type": "url",
+                "url": "https://www.nass.usda.gov/AgCensus/FAQ/2022/index.php"
+              },
+              {
+                "type": "url",
+                "url": "https://data.nass.usda.gov/Publications/AgCensus/2022/Online_Resources/Ag_Census_Web_Maps/Overview/index.php"
+              },
+              {
+                "type": "url",
+                "url": "https://www.nass.usda.gov/AgCensus/FAQ/2017/"
+              },
+              {
+                "type": "url",
+                "url": "https://www.nass.usda.gov/Publications/AgCensus/2017/Full_Report/Volume_1,_Chapter_1_US/usintro.pdf"
+              },
+              {
+                "type": "url",
+                "url": "https://www.nasda.org/wp-content/uploads/2023/01/Why-Grain-Producers-Should-Respond-long.pdf"
+              },
+              {
+                "type": "url",
+                "url": "https://www.nass.usda.gov/Data_and_Statistics/Special_Tabulations/Research_Proposal_Guidelines.pdf"
+              },
+              {
+                "type": "url",
+                "url": "http://nass.usda.gov/Publications/AgCensus"
+              },
+              {
+                "type": "url",
+                "url": "http://www.agcensus.usda.gov./"
+              }
+            ]
+          }
+        },
+        {
+          "type": "openrouter:web_search",
+          "id": "st_tmp_aa7i5k6vp2f",
+          "status": "completed",
+          "action": {
+            "type": "search",
+            "query": "Census of Agriculture 2022 methodology response rate confidentiality Title 7",
+            "sources": [
+              {
+                "type": "url",
+                "url": "https://www.nass.usda.gov/AgCensus/FAQ/2022/index.php"
+              },
+              {
+                "type": "url",
+                "url": "https://www.nass.usda.gov/Publications/AgCensus/2022/Full_Report/Volume_1%2C_Chapter_1_US/usappxa.pdf"
+              },
+              {
+                "type": "url",
+                "url": "https://www.nass.usda.gov/Newsroom/2024/02-13-2024.php"
+              },
+              {
+                "type": "url",
+                "url": "https://nass.usda.gov/Publications/AgCensus/2022/Full_Report/Volume_1,_Chapter_1_US/usintro.pdf"
+              },
+              {
+                "type": "url",
+                "url": "https://nass.usda.gov/Publications/AgCensus/2022/Full_Report/Volume_1,_Chapter_1_US/"
+              },
+              {
+                "type": "url",
+                "url": "https://data.nass.usda.gov/AgCensus/Report_Form_and_Instructions/2022_Report_Form/2022_Census_of_Agriculture_Report_Form_Guide.pdf"
+              },
+              {
+                "type": "url",
+                "url": "https://www.nass.usda.gov/About_NASS/Confidentiality_Pledge/NASS%202025%20CIPSEA%20Report.pdf"
+              },
+              {
+                "type": "url",
+                "url": "https://www.nass.usda.gov/Publications/AgCensus/2022/Full_Report/Volume_1,_Chapter_1_State_Level/Hawaii/hiappxa.pdf"
+              },
+              {
+                "type": "url",
+                "url": "http://www.nass.usda.gov/Surveys/Guide_to_NASS_Surveys/Census_of_Agriculture/index.php"
+              },
+              {
+                "type": "url",
+                "url": "https://microdata.fao.org/index.php/catalog/2940"
+              }
+            ]
+          }
+        },
+        {
+          "type": "openrouter:web_search",
+          "id": "st_tmp_gf2y6oy2ch",
+          "status": "completed",
+          "action": {
+            "type": "search",
+            "query": "USDA NASS Quick Stats API Census of Agriculture bulk download data access tools",
+            "sources": [
+              {
+                "type": "url",
+                "url": "https://www.nass.usda.gov/quick_stats/"
+              },
+              {
+                "type": "url",
+                "url": "https://www.nass.usda.gov/datasets/"
+              },
+              {
+                "type": "url",
+                "url": "https://www.quickstats.nass.usda.gov/"
+              },
+              {
+                "type": "url",
+                "url": "https://www.nass.usda.gov/data_and_statistics/index.php"
+              },
+              {
+                "type": "url",
+                "url": "https://www.nass.usda.gov/AgCensus/"
+              },
+              {
+                "type": "url",
+                "url": "https://nass.usda.gov/Data_and_Statistics/County_Data_Files"
+              },
+              {
+                "type": "url",
+                "url": "https://apis.io/apis/usda/usda-nass-quick-stats-api/"
+              },
+              {
+                "type": "url",
+                "url": "https://www.nass.usda.gov/Quick_Stats/"
+              },
+              {
+                "type": "url",
+                "url": "https://raw.githubusercontent.com/api-evangelist/agricultural-statistics-service/refs/heads/main/openapi/agricultural-statistics-service-statistics-api-openapi.yml"
+              },
+              {
+                "type": "url",
+                "url": "https://www.nass.usda.gov/Data_and_Statistics/"
+              }
+            ]
+          }
+        },
+        {
+          "type": "openrouter:web_search",
+          "id": "st_tmp_7o70p9swt9y",
+          "status": "completed",
+          "action": {
+            "type": "search",
+            "query": "NASS 2025 budget cuts survey cancellations Census of Agriculture concerns data quality",
+            "sources": [
+              {
+                "type": "url",
+                "url": "https://www.amstat.org/docs/default-source/amstat-documents/the-nations-data-at-risk-2025/national-agricultural-statistics-service.pdf"
+              },
+              {
+                "type": "url",
+                "url": "https://www.amstat.org/docs/default-source/amstat-documents/pol-asa-response-to-usda-data-rfi.pdf"
+              },
+              {
+                "type": "url",
+                "url": "https://www.nass.usda.gov/Newsroom/Notices/2025/08-28-2025.php"
+              },
+              {
+                "type": "url",
+                "url": "https://data.nass.usda.gov/Newsroom/Notices/2025/08-28-2025.php"
+              },
+              {
+                "type": "url",
+                "url": "https://data.nass.usda.gov/Newsroom/Notices/2024/04-09-2024.php"
+              },
+              {
+                "type": "url",
+                "url": "https://www.aei.org/research-products/report/the-looming-data-imperative-to-inform-agricultural-policy/"
+              },
+              {
+                "type": "url",
+                "url": "https://www.fb.org/intel/markets/farmer-survey-response-decline-a-growing-problem"
+              },
+              {
+                "type": "url",
+                "url": "https://www.usda.gov/sites/default/files/documents/2025-usda-budget-summary.pdf"
+              },
+              {
+                "type": "url",
+                "url": "https://www.agri-pulse.com/articles/24555-groups-weigh-challenges-opportunities-for-usda-statistical-programs"
+              },
+              {
+                "type": "url",
+                "url": "https://www.agrinews-pubs.com/business/2024/05/31/nass-explains-report-cuts-alternatives/"
+              }
+            ]
+          }
+        },
+        {
+          "type": "openrouter:web_search",
+          "id": "st_tmp_u5j4smgsjd8",
+          "status": "completed",
+          "action": {
+            "type": "search",
+            "query": "2022 Census of Agriculture results number of farms key findings demographics women farmers"
+          }
+        },
+        {
+          "type": "openrouter:web_fetch",
+          "id": "st_tmp_c23upazw96s",
+          "status": "completed",
+          "url": "https://www.nass.usda.gov/Newsroom/2024/02-13-2024.php",
+          "content": "<!DOCTYPE html>\r\n<html lang=\"en-US\"><!-- InstanceBegin template=\"/Templates/01 - News Release.dwt.php\" codeOutsideHTMLIsLocked=\"false\" -->\r\n\r\n<head>\r\n\t<!-- InstanceBeginEditable name=\"doctitle\" -->\r\n    <title>USDA releases 2022 Census of Agriculture data</title>\r\n    <!-- InstanceEndEditable -->\r\n\t<meta name=\"Content-Type\" content=\"X-Content-Type-Options: nosniff\">\r\n\t<meta charset=\"utf-8\">\r\n\t<meta http-equiv=\"X-UA-Compatible\" content=\"IE=Edge\">\r\n\t<meta name=\"viewport\" content=\"width=device-width, initial-scale=1.0\">\r\n\t<meta name=\"keywords\" content=\"Statistics, Agriculture, Farm, Information, USDA, Government, agricultural, NASS\">\r\n\t<meta name=\"description\" content=\"USDA National Agricultural Statistics Service Information. NASS publications cover a wide range of subjects, from traditional crops, such as corn and wheat, to specialties, such as mushrooms and flowers; from calves born to hogs slaughtered; from agricultural prices to land in farms. The agency has the distinction of being known as The Fact Finders of U.S. Agriculture due to the abundance of information we produce. The National Agricultural Statistics Service's mission is to serve the United States, its agriculture, and its rural communities by providing meaningful, accurate, and objective statistical information and services.\">\r\n\t<link rel=\"alternate\" title=\"NASS Today's Reports\" href=\"http://www.nass.usda.gov/rss/reports.xml\" type=\"application/rss+xml\">\r\n\t<link rel=\"alternate\" title=\"NASS News and Events\" href=\"http://www.nass.usda.gov/rss/news.xml\" type=\"application/rss+xml\">\r\n\t<!--  Cascading Style Sheets  -->\r\n\t<link href=\"/newCSS/bootstrap.css\" rel=\"stylesheet\" type=\"text/css\"/>\r\n\t<link href=\"/newCSS/master.css\" rel=\"stylesheet\" type=\"text/css\"/>\r\n\t<link href=\"/newCSS/font-awesome.min.css\" rel=\"stylesheet\" type=\"text/css\"/>\r\n\t<link rel=\"icon\" href=\"/favicon.ico\">\r\n\t<script src=\"/newJS/breadcrumbs.js\"></script>\r\n\t<script type=\"text/javascript\">\r\n\t\tfunction getLastMod() {\r\n\t\t\tvar lastMod = Date.parse( document.lastModified );\r\n\t\t\tvar now = new Date();\r\n\t\t\tvar diff = ( new Date( now.toLocaleString() ) ).getTimezoneOffset() - now.getTimezoneOffset();\r\n\t\t\tif ( !diff ) diff = now.getTimezoneOffset() * 60000;\r\n\t\t\telse diff = 0;\r\n\t\t\treturn lastMod - diff;\r\n\t\t}\r\n\t</script>\r\n\t<script>\r\n\t\tfunction emailCurrentPage() {\r\n\t\t\twindow.location.href = \"mailto:?subject=\" + document.title + \"&body=\" + escape( window.location.href );\r\n\t\t}\r\n\t</script>\r\n\t<!-- ReCaptcha -->\r\n\t<script src='https://www.google.com/recaptcha/api.js'></script>\r\n\t<!-- InstanceBeginEditable name=\"head\" -->\r\n    <!-- InstanceEndEditable -->\r\n\t<script>\r\n\t\t// ForeSee Production Embed Script v2.01\r\n\t\t// DO NOT MODIFY BELOW THIS LINE *****************************************\r\n\t\t;\r\n\t\t( function ( g ) {\r\n\t\t\tvar d = document,\r\n\t\t\t\tam = d.createElement( 'script' ),\r\n\t\t\t\th = d.head || d.getElementsByTagName( \"head\" )[ 0 ],\r\n\t\t\t\tfsr = 'fsReady',\r\n\t\t\t\taex = {\r\n\t\t\t\t\t\"src\": \"//gateway.foresee.com/sites/usda-nass/production/gateway.min.js\",\r\n\t\t\t\t\t\"type\": \"text/javascript\",\r\n\t\t\t\t\t\"async\": \"true\",\r\n\t\t\t\t\t\"data-vendor\": \"fs\",\r\n\t\t\t\t\t\"data-role\": \"gateway\"\r\n\t\t\t\t};\r\n\t\t\tfor ( var attr in aex ) {\r\n\t\t\t\tam.setAttribute( attr, aex[ attr ] );\r\n\t\t\t}\r\n\t\t\th.appendChild( am );\r\n\t\t\tg[ fsr ] || ( g[ fsr ] = function () {\r\n\t\t\t\tvar aT = '__' + fsr + '_stk__';\r\n\t\t\t\tg[ aT ] = g[ aT ] || [];\r\n\t\t\t\tg[ aT ].push( arguments );\r\n\t\t\t} );\r\n\t\t} )( window );\r\n\t\t// DO NOT MODIFY ABOVE THIS LINE *****************************************\r\n\t</script>\t\r\n</head>\r\n\r\n<body>\r\n\r\n\t<!-- Google Tag Manager -->\r\n\t<script>\r\n\t\t( function ( w, d, s, l, i ) {\r\n\t\t\tw[ l ] = w[ l ] || [];\r\n\t\t\tw[ l ].push( {\r\n\t\t\t\t'gtm.start': new Date().getTime(),\r\n\t\t\t\tevent: 'gtm.js'\r\n\t\t\t} );\r\n\t\t\tvar f = d.getElementsByTagName( s )[ 0 ],\r\n\t\t\t\tj = d.createElement( s ),\r\n\t\t\t\tdl = l != 'dataLayer' ? '&l=' + l : '';\r\n\t\t\tj.async = true;\r\n\t\t\tj.src =\r\n\t\t\t\t'https://www.googletagmanager.com/gtm.js?id=' + i + dl;\r\n\t\t\tf.parentNode.insertBefore( j, f );\r\n\t\t} )( window, document, 'script', 'dataLayer', 'GTM-KVTND4N' );\r\n\t</script>\r\n\t<!-- End Google Tag Manager -->\r\n\r\n\t<div class=\"container\">\r\n\t\t<div id=\"masthead\" class=\"col-sm-12 clearfix\">\r\n\t\t\t<!-- New script for fontawesome icons as of 12/12/2024 for the Touchpoints CX survey/PAO -->\r\n<script src=\"https://kit.fontawesome.com/dc4c24a15b.js\" crossorigin=\"anonymous\"></script>\r\n\r\n<div id=\"skip\" class=\"container\">\r\n\t\r\n\t<p class=\"text-center hidden-print skip\"><a href=\"#skipnav\" >Skip to Main Content</a></p>\r\n\r\n\r\n<div id=\"container\" class=\"masthead col-xs-12 clearfix\"> \r\n  <!-- open #mastheadLeft -->\r\n  <div class=\"mastheadLeft hidden-xs hidden-sm col-md-8\"> \r\n    <!-- open #logo -->\r\n    <div class=\"col-md-2 hidden-xs hidden-sm zoom80\"><img class=\"img-responsive\" src=\"/images/masthead/USDA-Logo.png\" alt=\"USDA Logo\" width=\"100\" height=\"71\" /></div>\r\n    <div class=\"col-md-1 hidden-xs hidden-sm zoom80\"><img class=\"img-responsive\" src=\"/images/masthead/nass_logo_bw-1.png\" alt=\"NASS - Agriculture Counts\" width=\"71\" height=\"71\" /></div>\r\n    <!-- closes #logo -->\r\n    <div class=\"usda hidden-xs hidden-sm col-md-8\">\r\n      <h1><a href=\"http://www.usda.gov\" target=\"_blank\">United States Department of Agriculture</a></h1>\r\n      <h2><a href=\"/index.php\">National Agricultural Statistics Service</a></h2>\r\n    </div>\r\n  </div>\r\n  <div class=\"mastheadRight col-xs-12 col-sm-12 col-md-4 clearfix\">\r\n    <div class=\"main_social hidden-xs hidden-sm col-md-12 clearfix\">\r\n      <div class=\"socialIcons\"><a href=\"http://twitter.com/usda_nass/\" target=\"_blank\"><img src=\"/images/main/sc-twitter-large-1.png\" alt=\"NASS on Twitter\" width=\"37\" height=\"37\"  /></a>&nbsp;<a href=\"https://www.youtube.com/usdanass\" target=\"_blank\"><img src=\"/images/main/sc-youtube-large-1.png\" alt=\"USDA-NASS on Youtube\" width=\"37\" height=\"37\"  /></a>&nbsp;<a href=\"https://www.usda.gov/media/blog\" target=\"_blank\"><img src=\"/images/main/sc-blogfeed-large-1.png\" alt=\"USDA Blog\" width=\"37\" height=\"37\"  /></a>&nbsp;<a href=\"/Newsroom/Syndication/\"><img src=\"/images/main/sc-rss-large-1.png\" alt=\"NASS RSS Feeds\" width=\"37\" height=\"37\"  /></a>&nbsp;<a href=\"http://www.flickr.com/photos/usdagov\"><img src=\"/images/main/sc-flickr-large-1.png\" alt=\"USDA on Flickr\" width=\"37\" height=\"37\"  /></a>&nbsp;<a href=\"http://www.facebook.com/USDA\"><img src=\"/images/main/sc-facebook-large-1.png\" alt=\"USDA on Facebook\" width=\"37\" height=\"37\"  /></a></div>\r\n      <div class=\"email_signup\"> Subscriptions:&nbsp;&nbsp;&nbsp; <a href=\"https://esmis.nal.usda.gov/\" target=\"_blank\" title=\"Subscribe to NASS National Reports\">National</a> | <a href=\"/Newsroom/Subscribe/\" title=\"Subscribe to NASS News Releases\">News</a></div>\r\n    </div>\r\n    <!-- closes #topNav --> \r\n    <!-- START Mobile Menu -->\r\n    <nav class=\"navbar navbar-default hidden-md hidden-lg col-xs-12 col-sm-12\">\r\n      <div id=\"mobile-navigation\" class=\"container\"> \r\n        <!-- Brand and toggle get grouped for better mobile display -->\r\n        <div class=\"navbar-header\">\r\n          <button type=\"button\" class=\"navbar-toggle collapsed\" data-toggle=\"collapse\" data-target=\"#bs-example-navbar-collapse-1\">  <span class=\"icon-bar\"></span> <span class=\"icon-bar\"></span> <span class=\"icon-bar\"></span> </button>\r\n          <a class=\"hidden-lg logo\" href=\"http://www.usda.gov\"><img src=\"/images/masthead/USDA-Logo.png\" alt=\"USDA Logo\" width=\"100\" height=\"71\" /></a>&nbsp;<a class=\"hidden-md hidden-lg logo\" href=\"/index.php\"><img src=\"/images/masthead/nass_logo_bw-1.png\" alt=\"NASS -Agriculture Counts\" width=\"71\" height=\"71\" /></a> </div>\r\n        \r\n        <!-- Collect the nav links, forms, and other content for toggling -->\r\n        <div class=\"collapse navbar-collapse mobile\" id=\"bs-example-navbar-collapse-1\">\r\n          <ul class=\"nav navbar-nav\" role=\"menu\">\r\n            <li><a href=\"/index.php\" title=\"Go to the NASS Homepage\">Home</a></li>\r\n            <li><a href=\"/Data_and_Statistics/index.php\" >Data & Statistics</a></li>\r\n            <li><a href=\"/Publications/index.php\" aria-label=\"National Publications\">Publications</a></li>\r\n            <li><a href=\"/Research_and_Science/index.php\">Research, Science and Technology</a></li>\r\n            <li><a href=\"/Newsroom/index.php\">Newsroom <span class=\"sr-only\">(current)</span></a></li>\r\n            <li><a href=\"/Surveys/index.php\" aria-label=\"NASS Surveys\">Surveys</a></li>\r\n            <li><a href=\"/AgCensus/index.php\">Census</a></li>\r\n            <li class=\"divider\"></li>\r\n            <li class=\"dropdown\"> <a href=\"#\" class=\"dropdown-toggle\" data-toggle=\"dropdown\" role=\"button\" aria-expanded=\"false\">NASS Information <span class=\"caret\"></span></a>\r\n              <ul class=\"dropdown-menu\">\r\n                <li><a href=\"/About_NASS/index.php\">About NASS</a></li>\r\n                <li><a href=\"/Statistics_by_State/RFO/index.php\">Regional Offices</a></li>\r\n                <li><a href=\"/About_NASS/Opportunities/index.php\">Careers</a></li>\r\n                <li><a href=\"/Contact_Us/index.php\">Contact Us</a></li>\r\n              </ul>\r\n            </li>\r\n            <li class=\"dropdown\"> <a href=\"#\" class=\"dropdown-toggle\" data-toggle=\"dropdown\" role=\"button\" aria-expanded=\"false\">Subscriptions <span class=\"caret\"></span></a>\r\n              <ul class=\"dropdown-menu\">\r\n                <li><a href=\"https://esmis.nal.usda.gov/\">National</a></li>\r\n                <li><a href=\"/Publications/Subscribe_to_State_Reports/index.php\">State</a></li>\r\n                <li><a href=\"/Newsroom/Subscribe/index.php\">News</a></li>\r\n              </ul>\r\n            </li>\r\n          </ul>\r\n        </div>\r\n        <!-- /.navbar-collapse --> \r\n      </div>\r\n      <!-- /.container-fluid --> \r\n    </nav>\r\n    <!-- END Mobile Menu --> \r\n    \r\n    <!-- start search -->\r\n    <div id=\"search_\" class=\"searchBar right clearfix\">\r\n      <form class=\"navbar-form navbar-right hidden-print\" action=\"https://search.usa.gov/search\" id=\"search_form_mobile\" method=\"get\" >\r\n  <input name=\"utf8\" type=\"hidden\" value=\"&#x2713;\" />\r\n  <input id=\"affiliate\" name=\"affiliate\" type=\"hidden\" value=\"usda-nass\" />\r\n  <input class=\"form-control usagov-search-autocomplete\" title=\"Search NASS\" placeholder=\"Search NASS\" id=\"query\" name=\"query\" />\r\n  <button type=\"submit\" aria-label=\"Search\" class=\"btn btn-default searchBar searchBtn\"><span class=\"fa fa-search\"></span></button>\r\n</form>\r\n<br />\r\n\r\n    </div>\r\n  </div>\r\n  <!-- closes #mastheadRight --> \r\n\r\n<!-- START Main Menu START -->\r\n</div>\r\n<div>\r\n  <!-- START Main Menu START -->\r\n\r\n<div id=\"primary_navigation\" class=\"container hidden-xs hidden-sm col-md-12 col-lg-12 clearfix\">\r\n\t<ul id=\"menu\" role=\"list\">\r\n\t\t<li><a href=\"/index.php\" title=\"Go to the NASS Homepage\"><span class=\"fa fa-home\"></span></a>\r\n\t\t</li>\r\n\t\t<!-- Begin Home Item -->\r\n\t\t\r\n\t\t<li><a href=\"/Data_and_Statistics/index.php\" class=\"drop\">Data & Statistics&nbsp;&nbsp;<span class=\"fa fa-caret-down\"></span></a>\r\n\t\t\t<!-- Begin 4 columns Item -->\r\n\r\n\t\t\t<div class=\"dropdown_4columns\">\r\n\t\t\t\t<!-- Begin 4 columns container -->\r\n\r\n\t\t\t\t<div class=\"col_4\" style=\"border-bottom: #ccc thin solid;\">\r\n\t\t\t\t\t<h2>Access Quick Stats (searchable database)&nbsp;&nbsp;<a href=\"https://quickstats.nass.usda.gov/\" target=\"_blank\" title=\"Go to Quick Stats website\"><span class=\"fa fa-2x fa-arrow-circle-right\"></span></a></h2>\r\n\t\t\t\t\t<p>The <a href=\"https://quickstats.nass.usda.gov/\" target=\"_blank\" title=\"Go to Quick Stats website\">Quick Stats</a> Database is the most comprehensive tool for accessing agricultural data published by NASS. It allows you to customize your query by commodity, location, or time period.</p>\r\n\t\t\t\t\t\r\n\t\t\t\t\t<ul>\r\n\t\t\t\t\t<li><a href=\"/Corrections/?log=QS\">Quick Stats System Updates</a></li>\r\n\t\t\t\t\t<li><a href=\"/datasets\">Download Quick Stats data files</a></li>\r\n\t\t\t\t\t</ul>\r\n\t\t\t\t\t\r\n\t\t\t\t\t\r\n\t\t\t\t\t<h3>Access Quick Stats Lite &nbsp;&nbsp;<a href=\"/Quick_Stats/Lite/index.php\" title=\"Go to Quick Stats Lite\"><span class=\"fa fa-2x fa-arrow-circle-right\"></span></a></h3>\r\n\t\t\t\t\t<p><a href=\"/Quick_Stats/Lite/index.php\">Quick Stats Lite</a> provides a more structured approach to get commonly requested statistics from our online database.</p>\r\n\t\t\t\t\t\r\n\t\t\t\t\t\r\n\t\t\t\t<!--<h3><img src=\"/Publications/AgCensus/images/newred.png\" width=\"25\" alt=\"New Census Data Query Tool\"/>Access Census Data Query Tool &nbsp;&nbsp;<a href=\"/Quick_Stats/CDQT/chapter/1/table/1\" title=\"Go to Census Data Query Tool\"><span class=\"fa fa-2x fa-arrow-circle-right\"></span></a></h3>\r\n\t\t\t\t\t<p>The <a href=\"/Quick_Stats/CDQT/chapter/1/table/1\">Census Data Query Tool</a> (CDQT) is a web based tool that is available to access and download table level data from the Census of Agriculture Volume 1 publication.</p>-->\r\n\t\t\t\t</div>\r\n\t\t\t\t<div class=\"col_2\">\r\n\t\t\t\t\t<p class=\"level3\">Explore Statistics</p>\r\n\t\t\t\t\t<ul>\r\n\t\t\t\t\t\t<li>\r\n\t\t\t\t\t\t\t<a href=\"/Statistics_by_State/index.php\">\r\n\t\t\t\t\t\t\t\t<p class=\"level4\">By State</p>\r\n\t\t\t\t\t\t\t</a>\r\n\t\t\t\t\t\t</li>\r\n\t\t\t\t\t\t<li>\r\n\t\t\t\t\t\t\t<p class=\"level4\">By Subject</p>\r\n\t\t\t\t\t\t\t<ul>\r\n\t\t\t\t\t\t\t\t<li><a href=\"/Statistics_by_Subject/index.php?sector=CROPS\">Crops and Plants</a>\r\n\t\t\t\t\t\t\t\t</li>\r\n\t\t\t\t\t\t\t\t<li><a href=\"/Statistics_by_Subject/Demographics/index.php\">Demographics</a>\r\n\t\t\t\t\t\t\t\t</li>\r\n\t\t\t\t\t\t\t\t<li><a href=\"/Statistics_by_Subject/Economics_and_Prices/index.php\">Economic and Prices</a>\r\n\t\t\t\t\t\t\t\t</li>\r\n\t\t\t\t\t\t\t\t<li><a href=\"/Statistics_by_Subject/Environmental/index.php\">Environmental</a>\r\n\t\t\t\t\t\t\t\t</li>\r\n\t\t\t\t\t\t\t\t<li><a href=\"/Statistics_by_Subject/index.php?sector=ANIMALS%20&amp;%20PRODUCTS\">Livestock and Animals</a>\r\n\t\t\t\t\t\t\t\t</li>\r\n\t\t\t\t\t\t\t\t<li><a href=\"/Research_and_Science/index.php\">Research, Science, and Technology</a>\r\n\t\t\t\t\t\t\t\t</li>\r\n\t\t\t\t\t\t\t</ul>\r\n\t\t\t\t\t\t\t<!--\t\t    <p><strong>* = Currently unavailable</strong></p>\r\n-->\r\n\t\t\t\t\t\t</li>\r\n\t\t\t\t\t\t<li>\r\n\t\t\t\t\t\t\t<a href=\"/Charts_and_Maps/index.php\">\r\n\t\t\t\t\t\t\t\t<p class=\"level4\">Charts and Maps</p>\r\n\t\t\t\t\t\t\t</a>\r\n\t\t\t\t\t\t</li>\r\n\t\t\t\t\t\t<li>\r\n\t\t\t\t\t\t\t<a href=\"/Data_Visualization/index.php\">\r\n\t\t\t\t\t\t\t\t<p class=\"level4\">Data Visualization</p>\r\n\t\t\t\t\t\t\t</a>\r\n\t\t\t\t\t\t</li>\r\n\t\t\t\t\t\t<li>\r\n\t\t\t\t\t\t\t<a href=\"/Data_and_Statistics/Pre-Defined_Queries/index.php\">\r\n\t\t\t\t\t\t\t\t<p class=\"level4\">Pre-Defined Queries</p>\r\n\t\t\t\t\t\t\t</a>\r\n\t\t\t\t\t\t</li>\r\n\t\t\t\t\t\t<li>\r\n\t\t\t\t\t\t\t<a href=\"/Data_and_Statistics/Special_Tabulations/index.php\">\r\n\t\t\t\t\t\t\t\t<p class=\"level4\">Special Tabulations and Restricted Microdata</p>\r\n\t\t\t\t\t\t\t</a>\r\n\t\t\t\t\t\t</li>\r\n\t\t\t\t\t</ul>\r\n\t\t\t\t</div>\r\n\t\t\t\t<div class=\"col_2\"> <br>\r\n\t\t\t\t\t<p class=\"level4\">County Level Information</p>\r\n\t\t\t\t\t<ul>\r\n\t\t\t\t\t\t<li><a href=\"/Charts_and_Maps/Crops_County/index.php\">County Maps</a>\r\n\t\t\t\t\t\t\t<ul>\r\n<!--\t\t\t\t\t\t\t\t<li><a href=\"/Data_and_Statistics/County_Data_Files/Release_Schedule/index.php\">County Data Release Schedule</a>\r\n\t\t\t\t\t\t\t\t</li>-->\r\n\t\t\t\t\t\t\t\t<li><a href=\"/Charts_and_Maps/Crops_County/boundary_maps/indexgif.php\">County and District Geographic Boundaries</a>\r\n\t\t\t\t\t\t\t\t</li>\r\n\t\t\t\t\t\t\t\t<li><a href=\"/Data_and_Statistics/County_Data_Files/Frequently_Asked_Questions/county_list.txt\">County and District Codes</a>\r\n\t\t\t\t\t\t\t\t</li>\r\n\t\t\t\t\t\t\t\t<li><a href=\"/Data_and_Statistics/County_Data_Files/Frequently_Asked_Questions/commcodes.php\">Commodity Codes</a>\r\n\t\t\t\t\t\t\t\t</li>\r\n\t\t\t\t\t\t\t\t<li><a href=\"/Data_and_Statistics/County_Data_Files/Livestock_County_Estimates/index.php\">Livestock County Estimates</a>\r\n\t\t\t\t\t\t\t\t</li>\r\n\t\t\t\t\t\t\t</ul>\r\n\t\t\t\t\t\t</li>\r\n\t\t\t\t\t</ul>\r\n\t\t\t\t\t\t\t\t\t\r\n\t\t\t\t</div>\r\n\t\t\t\t<div class=\"col_4\">\r\n\t\t\t\t\t<p class=\"level4\" style=\"border-top: #ccc thin solid; padding-top:10px;\">Geospatial Data &amp; Interactive Maps</p>\r\n\t\t\t\t</div>\r\n\t\t\t\t<div class=\"col_2\">\r\n\t\t\t\t\t<ul>\r\n\t\t\t\t\t\t<li><a href=\"https://croplandcros.scinet.usda.gov/\" target=\"_blank\">CroplandCROS</a>\r\n\t\t\t\t\t\t</li>\r\n\t\t\t\t\t\t<li><a href=\"/Research_and_Science/Cropland/SARS1a.php\">Cropland Data Layer</a>\r\n\t\t\t\t\t\t</li>\r\n\t\t\t\t\t\t<li><a href=\"https://nassgeodata.gmu.edu/VegScape/\" target=\"_blank\">VegScape</a>\r\n\t\t\t\t\t\t</li>\r\n\t\t\t\t\t\t<li><a href=\"https://cloud.csiss.gmu.edu/Crop-CASMA/\">Crop Condition and Soil Moisture Analytics\r\n\t\t\t\t\t\t\t</a>\r\n\t\t\t\t\t\t</li>\r\n\t\t\t\t\t</ul>\r\n\t\t\t\t</div>\r\n\t\t\t\t<div class=\"col_2\">\r\n\t\t\t\t\t<ul>\r\n\t\t\t\t\t\t<li><a href=\"/Research_and_Science/Crop-Sequence-Boundaries/index.php\">Crop Sequence Boundaries \r\n\t\t\t\t\t\t\t</a>\r\n\t\t\t\t\t\t</li>\r\n\t\t\t\t\t\t<li><a href=\"/Research_and_Science/Crop_Progress_Gridded_Layers/index.php\">Crop Progress & Condition Gridded Layers\r\n\t\t\t\t\t\t\t</a>\r\n\t\t\t\t\t\t</li>\r\n\t\t\t\t\t\t<li><a href=\"/Research_and_Science/Disaster-Analysis/index.php\">Disaster Analysis\r\n\t\t\t\t\t\t\t</a>\r\n\t\t\t\t\t\t</li>\r\n\t\t\t\t\t\t<li><a href=\"/Research_and_Science/stratafront2b.php\">Land Use Strata for Selected States</a></li>\r\n\t\t\t\t\t\t\r\n\t\t\t\t\t\t\r\n\t\t\t\t\t\t\t\t\t\t\t\t\r\n\t\t\t\t\t</ul>\r\n\t\t\t\t</div>\r\n\t\t\t</div>\r\n\t\t\t<!-- End 4 columns container -->\r\n\r\n\t\t</li>\r\n\t\t<!-- End Home Item -->\r\n\r\n\t\t<li><a href=\"/Publications/index.php\" class=\"drop\">Publications&nbsp;&nbsp;<span class=\"fa fa-caret-down\"></span></a>\r\n\t\t\t<!-- Begin 4 columns Item -->\r\n\r\n\t\t\t<div class=\"dropdown_4columns\">\r\n\t\t\t\t<!-- Begin 4 columns container -->\r\n\r\n\t\t\t\t<div class=\"col_4\">\r\n\t\t\t\t\t<h2>Today's Reports&nbsp;&nbsp;<a href=\"/Publications/index.php\" aria-label=\"Today's Reports\"><span class=\"fa fa-2x fa-arrow-circle-right\"></span></a></h2>\r\n\t\t\t\t</div>\r\n\t\t\t\t<div class=\"col_2\">\r\n\t\t\t\t\t<p class=\"level4\">Browse NASS Reports</p>\r\n\t\t\t\t\t<ul>\r\n\t\t\t\t\t\t<li><a href=\"/Statistics_by_Subject/index.php\">by Subject</a>\r\n\t\t\t\t\t\t</li>\r\n\t\t\t\t\t\t<li><a href=\"/Publications/Calendar/reports_by_date.php\">by Date (Reports Calendar)</a>\r\n\t\t\t\t\t\t</li>\r\n\t\t\t\t\t\t<li><a href=\"/Publications/Reports_by_Release_Day/index.php\">by Title/Release Day</a>\r\n\t\t\t\t\t\t</li>\r\n\t\t\t\t\t\t<li><a href=\"https://esmis.nal.usda.gov/\">by Keyword</a>\r\n\t\t\t\t\t\t</li>\r\n\t\t\t\t\t\t<li><a href=\"/Publications/2026_Products_and_Services_Guide.pdf\">Guide to Products and Services</a>\r\n\t\t\t\t\t\t</li>\r\n\t\t\t\t\t</ul>\r\n\t\t\t\t\t<p class=\"level4\">Additional Reports</p>\r\n\t\t\t\t\t<ul>\r\n\t\t\t\t\t\t<li><a href=\"/Publications/Highlights/index.php\">Highlights</a>\r\n\t\t\t\t\t\t</li>\r\n\t\t\t\t\t\t<li><a href=\"/Publications/AgCensus/2022/index.php\">2022 Census of Agriculture</a>\r\n\t\t\t\t\t\t</li>\r\n\t\t\t\t\t\t<li><a href=\"/Surveys/index.php\">Surveys and Programs</a>\r\n\t\t\t\t\t\t</li>\r\n\t\t\t\t\t\t<li><a href=\"/Publications/Methodology_and_Data_Quality/index.php\">Methodology &amp; Quality Measures</a></li>\r\n\t\t\t\t\t\t<li><a href=\"/Corrections/index.php?log=asb\">Agricultural Statistics Board Corrections</a></li>\r\n\t\t\t\t\t\t<li><a href=\"/Education_and_Outreach/Reports,_Presentations_and_Conferences/Reports_by_Date/index.php\">Research Reports</a>\r\n\t\t\t\t\t\t</li>\r\n\t\t\t\t\t</ul>\r\n\t\t\t\t</div>\r\n\t\t\t\t<div class=\"col_2\">\r\n\t\t\t\t\t<p class=\"level4\">Historical Publications</p>\r\n\t\t\t\t\t<ul>\r\n\t\t\t\t\t\t<li><a href=\"https://www.nass.usda.gov/AgCensus/archive/\" target=\"_blank\">Archived Ag Census Reports</a> (2002 and prior - published every 5 years)</li>\r\n\t\t\t\t\t\t<li><a href=\"https://esmis.nal.usda.gov/publication/agricultural-statistics\">Annual Agricultural Statistics</a>\r\n\t\t\t\t\t\t</li>\r\n\t\t\t\t\t\t<li><a href=\"/Publications/Statistical_Bulletins/index.php\">Statistical Bulletins</a> (final estimates, 1987 to 2012</li>\r\n\t\t\t\t\t\t<li><a href=\"/Publications/Track_Records/index.php\">Track Records:</a> (crops, livestock, grain stocks)</li>\r\n\t\t\t\t\t\t<li><a href=\"/Publications/Trends_in_U.S._Agriculture/index.php\">Trends</a> 20th century</li>\r\n\t\t\t\t\t\t<li><a href=\"/Publications/Price_Reactions/index.php\">Price Reactions</a> (after crop or livestock reports)</li>\r\n\t\t\t\t\t</ul>\r\n\t\t\t\t\t<p class=\"level4\">Receive Reports by Email:</p>\r\n\t\t\t\t\t<ul>\r\n\t\t\t\t\t\t<li><a href=\"https://esmis.nal.usda.gov/?keyword=national+reports\">National Reports</a>\r\n\t\t\t\t\t\t</li>\r\n\t\t\t\t\t\t<!--li><a href=\"/Publications/Subscribe_to_State_Reports/index.php\">State Reports</a>\r\n\t\t\t\t\t\t</li-->\r\n\t\t\t\t\t\t<li><a href=\"/Newsroom/Subscribe/index.php\">NASS News Releases</a>\r\n\t\t\t\t\t\t</li>\r\n\t\t\t\t\t</ul>\r\n\t\t\t\t</div>\r\n\t\t\t</div>\r\n\t\t\t<!-- End 4 columns container -->\r\n\r\n\t\t</li>\r\n\t\t<li><a href=\"/Newsroom/index.php\" class=\"drop\">Newsroom&nbsp;&nbsp;<span class=\"fa fa-caret-down\"></span></a>\r\n\t\t\t<!-- Begin 5 columns Item -->\r\n\r\n\t\t\t<div class=\"dropdown_4columns\">\r\n\t\t\t\t<!-- Begin 5 columns container -->\r\n\r\n\t\t\t\t<div class=\"col_2\">\r\n\t\t\t\t\t<p class=\"level4\">News Releases</p>\r\n\t\t\t\t\t<div class=\"newsFeed\">\r\n\t\t\t\t\t\t<p>10/01/26  &nbsp;<a href=\"/Newsroom/2026/10-01-2026.php\">USDA to Host Virtual Data Users\u2019 Meeting for Public Input on Statistical Programs</a></p>\r\n<p>09/30/26  &nbsp;<a href=\"/Newsroom/2026/09-30-2026.php\">US corn ending stocks up 35% from last year, soybean ending stocks down 3% </a></p>\r\n<p>09/24/26  &nbsp;<a href=\"/Newsroom/2026/09-24-2026.php\">United States hog inventory down 2% </a></p>\r\n<p>08/12/26  &nbsp;<a href=\"/Newsroom/2026/08-12-2026B.php\">USDA unlocks the power of producer insights in latest August Crop Production report Data is vital to ag industry\u2019s decision-making </a></p>\r\n<p>08/12/26  &nbsp;<a href=\"/Newsroom/2026/08-12-2026.php\">Producers Are Being Called to Help Build Their County Crop Estimates </a></p>\r\n\r\n\r\n\r\n\r\n\r\n\r\n\r\n\r\n\r\n\r\n\r\n\r\n\r\n\r\n\r\n\r\n\r\n\r\n\r\n\r\n\r\n\r\n\r\n\r\n\r\n\r\n\r\n\r\n\r\n\r\n\r\n\r\n\r\n\r\n\r\n\r\n\r\n\r\n\r\n\r\n\r\n\r\n\r\n\r\n\r\n\r\n\r\n\r\n\r\n\r\n\r\n\r\n\r\n\r\n\r\n\r\n\r\n\r\n\r\n\r\n\r\n\r\n\r\n\r\n\r\n\r\n\r\n\r\n\r\n\r\n\r\n\r\n\r\n\r\n\r\n\r\n\r\n\r\n\r\n\r\n\r\n\r\n\r\n\r\n\r\n\r\n\r\n\r\n\r\n\r\n\r\n\r\n\r\n\r\n\r\n\r\n\r\n\r\n\r\n\r\n\r\n\r\n\r\n\r\n\r\n\r\n\r\n\r\n\r\n\r\n\r\n\r\n\r\n\r\n\r\n\r\n\r\n\r\n\r\n\r\n\r\n\r\n\r\n\r\n\r\n\r\n\r\n\r\n\r\n\r\n\r\n\r\n\r\n\r\n\r\n\r\n\r\n\r\n\r\n\r\n\r\n\r\n\r\n\r\n\r\n\r\n\r\n\r\n\r\n\r\n\r\n\r\n\r\n\r\n\r\n\r\n\r\n\r\n\r\n\r\n\t\t\t\t\t</div>\r\n\t\t\t\t\t<h3 class=\"right\"><a href=\"/Newsroom/2026/index.php\">Read More News</a></h3>\r\n\t\t\t\t</div>\r\n\t\t\t\t<div class=\"col_2\">\r\n\t\t\t\t\t<p class=\"level4\">ASB Notices</p>\r\n\t\t\t\t\t<div class=\"newsFeed\">\r\n\t\t\t\t\t\t<p>06/22/26 &nbsp;<a href=\"/Newsroom/Notices/2026/06-22-2026.php\">NASS Adds Additional Counties to the 2025 Cotton County-level Estimates</a></p>\r\n<p>12/22/25 &nbsp;<a href=\"/Newsroom/Notices/2025/12-22-2025.php\">USDA NASS reschedules reports due to December 24 & 26 government closure</a></p>\r\n<p>11/19/25 &nbsp;<a href=\"/Newsroom/Notices/2025/11-19-2025.php\">USDA Reschedules Reports Affected by Lapse in Federal Funding</a></p>\r\n<p>10/31/25 &nbsp;<a href=\"/Newsroom/Notices/2025/10-31-2025.php\">USDA\u2019s National Agricultural Statistics Service (NASS) will release key data in November</a></p>\r\n<p>08/28/25 &nbsp;<a href=\"/Newsroom/Notices/2025/08-28-2025.php\">NASS discontinues select data collection programs and reports</a></p>\r\n\r\n\r\n\r\n\r\n\r\n\r\n\r\n\r\n\r\n\r\n\r\n\r\n\r\n\r\n\r\n\r\n\r\n\r\n\r\n\r\n\r\n\r\n\t\t\t\t\t</div>\r\n\t\t\t\t\t<h3 class=\"right\"><a href=\"/Newsroom/Notices/index.php\">Read More Notices</a></h3>\r\n\t\t\t\t</div>\r\n\t\t\t\t<div class=\"col_2\">\r\n\t\t\t\t\t<p class=\"level4\">Videos</p>\r\n\t\t\t\t\t<div class=\"newsFeed\">\r\n\t\t\t\t\t\t<p>02/13/24 &nbsp;<a target=\"_blank\"  href=\"https://youtu.be/VerxO14wiHI\">2022 Census of Agriculture Data Highlights</a></p>\r\n<p>02/13/24 &nbsp;<a target=\"_blank\"  href=\"https://youtu.be/FyjUJnIMSfc\">How to Find 2022 Census of Agriculture Data</a></p>\r\n<p>02/13/24 &nbsp;<a target=\"_blank\"  href=\"https://www.youtube.com/live/0EY87thoLuo?si=leRX_UTy2DKXJcvN\">2022 Census of Agriculture Data Release Event</a></p>\r\n<p>07/16/21 &nbsp;<a target=\"_blank\"  href=\"https://youtu.be/8t_ZfpMtjzg\">What is a Farm?</a></p>\r\n<p>08/05/20 &nbsp;<a target=\"_blank\"  href=\"https://www.youtube.com/watch?v=4rodJxNmISE&t\">The NASS Mission: We do it for you</a></p>\r\n\r\n\r\n\t\t\t\t\t</div>\r\n\t\t\t\t\t<h3 class=\"right\"><a href=\"/Newsroom/Video_Features/index.php\">View More Videos</a></h3>\r\n\t\t\t\t</div>\r\n\t\t\t\t<div class=\"col_2\">\r\n\t\t\t\t\t<p class=\"level4\">ASB Briefings</p>\r\n\t\t\t\t\t<div class=\"newsFeed\">\r\n\t\t\t\t\t\t<p>09/30/26 &nbsp;<a href=\"/Newsroom/Executive_Briefings/2026/09-30-2026.pdf\">Small Grains Summary and Grain Stocks (September 2026)</a></p>\r\n<p>09/24/26 &nbsp;<a href=\"/Newsroom/Executive_Briefings/2026/09-24-2026.pdf\">Quarterly Hogs and Pigs (September 2026)</a></p>\r\n<p>09/11/26 &nbsp;<a href=\"/Newsroom/Executive_Briefings/2026/09-11-2026.pdf\">Crop Production (September 2026)</a></p>\r\n<p>08/12/26 &nbsp;<a href=\"/Newsroom/Executive_Briefings/2026/08-12-2026.pdf\">Crop Production (August 2026)</a></p>\r\n<p>07/24/26 &nbsp;<a href=\"/Newsroom/Executive_Briefings/2026/07-23-2026.pdf\">Cattle (July 2026)</a></p>\r\n\r\n\r\n\r\n\r\n\r\n\r\n\r\n\r\n\r\n\r\n\r\n\r\n\r\n\r\n\r\n\r\n\r\n\r\n\r\n\r\n\r\n\r\n\r\n\r\n\r\n\r\n\r\n\r\n\r\n\r\n\r\n\r\n\r\n\r\n\r\n\r\n\r\n\r\n\r\n\r\n\r\n\r\n\r\n\r\n\r\n\r\n\r\n\r\n\r\n\r\n\r\n\r\n\r\n\r\n\r\n\r\n\r\n\r\n\r\n\r\n\r\n\r\n\r\n\r\n\r\n\r\n\r\n\r\n\r\n\r\n\r\n\r\n\r\n\r\n\r\n\r\n\r\n\r\n\r\n\r\n\r\n\r\n\r\n\r\n\r\n\r\n\r\n\r\n\r\n\r\n\r\n\r\n\r\n\r\n\r\n\r\n\r\n\r\n\r\n\r\n\r\n\r\n\r\n\r\n\r\n\r\n\r\n\r\n\r\n\r\n\r\n\r\n\r\n\r\n\r\n\r\n\r\n\r\n\r\n\r\n\r\n\r\n\r\n\r\n\r\n\r\n\r\n\r\n\r\n\r\n\r\n\r\n\r\n\r\n\r\n\r\n\r\n\r\n\r\n\t\t\t\t\t</div>\r\n\t\t\t\t\t<h3 class=\"right\"><a href=\"/Newsroom/Executive_Briefings/index.php\">View More Briefings</a></h3>\r\n\t\t\t\t</div>\r\n\t\t\t</div>\r\n\t\t\t<!-- End 5 columns container -->\r\n\t\t</li>\r\n\t\t<!-- End 5 columns Item -->\r\n\r\n\t\t<!-- End 4 columns Item -->\r\n\r\n\t\t<!-- End 4 columns Item -->\r\n\r\n\t\t<li><a href=\"/Surveys/index.php\" class=\"drop\">Surveys&nbsp;&nbsp;<span class=\"fa fa-caret-down\"></span></a>\r\n\t\t\t<div class=\"dropdown_2columns align_right\">\r\n\t\t\t\t<!-- Begin 2 columns container -->\r\n\t\t\t\t<div class=\"col_2\">\r\n\t\t\t\t\t<h2>Respond to Surveys Online&nbsp;&nbsp;<a href=\"https://www.agcounts.usda.gov\" target=\"_blank\" title=\"Go to Survey Page\"><span class=\"fa fa-2x fa-arrow-circle-right\"></span></a></h2>\r\n\t\t\t\t</div>\r\n\t\t\t\t<div class=\"col_2\">\r\n\t\t\t\t\t<p><a href=\"/Surveys/Guide_to_NASS_Surveys/index.php\">Guide to NASS Surveys and Programs</a>\r\n\t\t\t\t\t</p>\r\n\t\t\t\t\t<p> <a href=\"/Education_and_Outreach/Understanding_Statistics/index.php\">Understanding Agricultural Statistics</a>\r\n\t\t\t\t\t</p>\r\n\t\t\t\t\t<p><a href=\"https://www.agcounts.usda.gov/cgi-bin/counts/\" target=\"_blank\">Make Sure I'm Counted</a>\r\n\t\t\t\t\t</p>\r\n\t\t\t\t\t<p><a href=\"/Surveys/Program_Review/index.php\" target=\"_blank\">Statistical Programs and Review</a>\r\n\t\t\t\t\t</p>\r\n\t\t\t\t</div>\r\n\t\t\t</div>\r\n\t\t</li>\r\n\t\t<li><a href=\"/AgCensus/index.php\">Census</a>\r\n\t\t</li>\r\n\t\t<!--  <li><a href=\"http://agcensus.usda.gov\">Census</a></li>  -->\r\n\t\t<li><a href=\"/About_NASS/index.php\" class=\"drop\">About NASS&nbsp;&nbsp;<span class=\"fa fa-caret-down\"></span></a>\r\n\t\t\t<div class=\"dropdown_4columns align_right\">\r\n\t\t\t\t<!-- Begin 2 columns container -->\r\n\r\n\t\t\t\t<div class=\"col_2\">\r\n\t\t\t\t\t<p class=\"level4\">Structure and Organization</p>\r\n\t\t\t\t\t<ul>\r\n\t\t\t\t\t\t<li><a href=\"/About_NASS/index.php\">Agency Overview</a>\r\n\t\t\t\t\t\t</li>\r\n\t\t\t\t\t\t<li><a href=\"/About_NASS/NASS_Biographies/index.php\">NASS Biographies</a>\r\n\t\t\t\t\t\t</li>\r\n\t\t\t\t\t\t<li><a href=\"/About_NASS/Org_Chart/OrgChart.pdf\"><!-- Please keep the OrgChart name as is-NASSPortal links back to here -->Organizational Chart</a>\r\n\t\t\t\t\t\t</li>\r\n\t\t\t\t\t\t<li><a href=\"/About_NASS/Assistance_to_Other_Organizations/index.php\">Assistance to Other Organizations</a>\r\n\t\t\t\t\t\t</li>\r\n\t\t\t\t\t\t<li><a href=\"/About_NASS/International_Programs/index.php\">International Programs</a>\r\n\t\t\t\t\t\t</li>\r\n\t\t\t\t\t\t<li><a href=\"/About_NASS/pdf/NASS_TalkingAboutNASS_ExternalGuide_2022_V01.pdf\">Talking About NASS - A guide for partners and stakeholders</a></li>\r\n\t\t\t\t   <!-- <li><a href=\"/About_NASS/Strategic_Plan/pdf/USDA_NASS_StrategicPlan_FY22-26.pdf\">NASS Strategic Plan for FY 2022-2026</a></li> -->\r\n\t\t\t\t\t\t<li><a href=\"https://www.usda.gov/about-usda/general-information/our-agency/our-performance\">USDA Strategic Goals</a></li>\r\n\t\t  \t\t\t\t\r\n\t\t\t\t\t\t\r\n\t\t\t\t\t</ul>\r\n\t\t\t\t\t<p class=\"level4\">Guiding Principles</p>\r\n\t\t\t\t\t<ul>\r\n\t\t\t\t\t\t<li><a href=\"/About_NASS/Mission_Statement/index.php\">Mission and Core Values</a>\r\n\t\t\t\t\t\t</li>\r\n\t\t\t\t\t\t<li><a href=\"/About_NASS/Keeping_Data_Safe/index.php\">Keeping Data Safe</a>\r\n\t\t\t\t\t\t</li>\r\n\t\t\t\t\t\t<li><a href=\"/About_NASS/Confidentiality_Pledge/index.php\">Confidentiality Pledge</a>\r\n\t\t\t\t\t\t</li>\r\n\t\t\t\t\t\t<li><a href=\"/About_NASS/Security_Pledge/index.php\">Security Pledge</a>\r\n\t\t\t\t\t\t</li>\r\n\t\t\t\t\t\t<li><a href=\"/About_NASS/Security_Statement/index.php\">Security Statement</a>\r\n\t\t\t\t\t\t</li>\r\n\t\t\t\t\t\t<li><a href=\"/About_NASS/pdf/ScientificIntegrityStatement.pdf\">Statement of Commitment to Scientific Integrity</a>\r\n\t\t\t\t\t\t</li>\r\n\t\t\t\t\t\t<li><a href=\"/About_NASS/Regulations_Guiding_NASS/index.php\">Regulations Guiding NASS</a>\r\n\t\t\t\t\t\t</li>\r\n\t\t\t\t\t\t<li><a href=\"/About_NASS/Information_Quality_Guidelines/index.php\">Information Quality</a>\r\n\t\t\t\t\t\t</li>\r\n\t\t\t\t\t\t<li><a href=\"/About_NASS/pdf/learning-agenda-fy2426.pdf\">Learning Agenda, Fiscal Year 2024 -2026</a>\r\n\t\t\t\t\t\t</li>\r\n\t\t\t\t\t</ul>\r\n\t\t\t\t\t\t<p class=\"level4\">Civil Rights</p>\r\n\t\t\t\t\t<ul>\r\n\t\t\t\t\t\t<!-- <li><a href=\"/About_NASS/Civil_Rights/NASS EEO Policy Statement_Signed 24July 2024.pdf\">NASS EEO Policy Statement</a></li>-->\r\n\t\t  \t\t\t\t <!--<li>\r\n\t\t\t\t\t\t\t<p><a  href=\"/About_NASS/Civil_Rights/antiharassment2021.pdf\">USDA and NASS Anti-Harassment Policy Statement</a></p></li>-->\r\n\t\t\t\t\t\t <li><a href=\"https://www.usda.gov/sites/default/files/documents/dm-4200-003.pdf\">Anti-Harassment Policy | USDA</a></li>\r\n                       <li><a href=\"https://www.ocio.usda.gov/sites/default/files/docs/2012/DR%204300-010%20Civil%20Rights%20Accountability%20and%20Procedures-Final_20170103.pdf\">Civil Rights Accountability Policy and Procedures</a></li>\r\n\t\t\t\t\t\t<li><a href=\"https://www.usda.gov/sites/default/files/documents/no-fear-act-notice.pdf\">No FEAR Act Notice</a></li>\r\n\t\t  \t\t\t\t<li><a href=\"https://www.usda.gov/nofear/agencies\">No FEAR Act - NASS Data</a></li>\r\n\t\t\t\t\t\t<li>\r\n\t\t\t\t\t\t\t<p><a  href=\"/About_NASS/Civil_Rights/reasonable-accommodations2020.pdf\">REE Reasonable Accommodations and Personal Assistance Services</a></p></li>\r\n\t\t\t\t\t\t\r\n\t\t\t\t\t\t<li><a href=\"https://www.usda.gov/oascr/filing-discrimination-complaint-usda-employee\" target=\"_blank\">How to File an EEO Complaint</a></li>\r\n\t\t\t\t\t\t\r\n\t\t\t\t\t\t<li><a href=\"https://www.usda.gov/accessibility-statement\">Accessibility Statement</a></li>\r\n\t\t\r\n\t\t\t\t\t\t<li><a href=\"https://www.access-board.gov/law/aba.html\">Architectural Barriers Act</a></li>\r\n\t\t\t\t\t\t<li><a href=\"/About_NASS/Civil_Rights/index.php\">And Justice for All posters</a></li>\r\n\t\t \r\n\t\t\t\t\t</ul>\r\n\t\t\t\t</div>\r\n\t\t\t\t<div class=\"col_2\">\r\n\t\t\t\t\t<p class=\"level4\">Work at NASS</p>\r\n\t\t\t\t\t<ul>\r\n\t\t\t\t\t\t<li><a href=\"/About_NASS/Opportunities/index.php\">Career Opportunities</a>\r\n\t\t\t\t\t\t</li>\r\n\t\t\t\t\t</ul>\r\n\t\t\t\t\t<p class=\"level4\">Education and Outreach</a>\r\n\t\t\t\t\t</p>\r\n\t\t\t\t\t<ul>\r\n\t\t\t\t\t\t<li><a href=\"/Education_and_Outreach/Understanding_Statistics/index.php\">Understanding Ag Statistics</a>\r\n\t\t\t\t\t\t</li>\r\n\t\t\t\t\t\t<li><a href=\"/Education_and_Outreach/Meeting/index.php\">Data Users' Meetings</a></li>\r\n\t\t\t\t\t\t<li><a href=\"/Education_and_Outreach/Morris_Hansen/index.php\">Morris Hansen Lecture</a></li>\r\n\t\t\t\t\t\t<li><a href=\"/About_NASS/International_Programs/icas/index.php\">International Conference on Agricultural Statistics</a></li>\r\n\t\t\t\t\t</ul>\r\n\t\t\t\t\t<p class=\"level4\">History and Procedures</p>\r\n\t\t\t\t\t<ul>\r\n\t\t\t\t\t\t<li><a href=\"/About_NASS/ASB_and_Lockup/index.php\">Agricultural Statistics Board and Lockup</a>\r\n\t\t\t\t\t\t</li>\r\n\t\t\t\t\t\t<li><a href=\"/About_NASS/Timeline/index.php\">Agricultural Statistics: A Historical Timeline</a>\r\n\t\t\t\t\t\t</li>\r\n\t\t\t\t\t\t<li><a href=\"/About_NASS/pdf/The%20Story%20of%20U.S.%20Agricultural%20Estimates.pdf\">The Story of U.S. Agricultural Estimates</a>\r\n\t\t\t\t\t\t</li>\r\n\t\t\t\t\t\t<li><a href=\"/About_NASS/pdf/As%20We%20Recall%20The%20History%20of%20Ag%20Estimates%201933%20to%201961.pdf\">As  We Recall: The Growth of Agricultural Estimates, 1933-1961</a>\r\n\t\t\t\t\t\t</li>\r\n\t\t\t\t\t\t<li>\r\n\t\t\t\t\t\t\t<p><a href=\"/About_NASS/pdf/asb_historical.pdf\">Safeguarding America's Agricultural Statistics Report</a> and <a href=\"https://www.youtube.com/watch?v=SxnWZVjGGUI\">Video</a>\r\n\t\t\t\t\t\t\t</p>\r\n\t\t\t\t\t\t</li>\r\n\t\t\t\t\t\t<li><a href=\"/About_NASS/History_of_Ag_Statistics/index.php\">History of Ag Statistics</a>\r\n\t\t\t\t\t\t</li>\r\n\t\t\t\t\t\t<li><a href=\"/About_NASS/Reports_Procedures/index.php\">Report Procedures</a>\r\n\t\t\t\t\t\t</li>\r\n\t\t\t\t\t\t<li><a href=\"/About_NASS/pdf/evolving_nass.pdf\">An Evolving Statistical Service</a>\r\n\t\t\t\t\t\t</li>\r\n\t\t\t\t\t\t<li><a href=\"/About_NASS/pdf/NASSFactFinders_April_2016_FINAL.pdf\">Fact Finders for Agriculture</a>\r\n\t\t\t\t\t\t</li>\r\n\t\t\t\t\t\t<li>\r\n\t\t\t\t\t\t\t<p><a href=\"/About_NASS/pdf/agriculture_counts.pdf\">Agriculture Counts - The Founding and Evolution of the National Agricultural Statistics Service &nbsp; 1957-2007</a>\r\n\t\t\t\t\t\t\t</p>\r\n\t\t\t\t\t\t</li>\r\n\t\t\t\t\t\t<li><a href=\"/About_NASS/Hall_of_Fame/index.php\">Hall of Fame</a>\r\n\t\t\t\t\t\t</li>\r\n\t\t\t\t\t</ul>\r\n\t\t\t\t</div>\r\n\t\t\t</div>\r\n\t\t\t<!-- End 2 columns container -->\r\n\r\n\t\t</li>\r\n\t\t<li><a href=\"/Contact_Us/index.php\" class=\"drop\">Contact Us&nbsp;&nbsp;<span class=\"fa fa-caret-down\"></span></a>\r\n\t\t\t<div class=\"dropdown_4columns align_right\">\r\n\t\t\t\t<!-- Begin 4 columns container -->\r\n\r\n\t\t\t\t<div class=\"col_2\">\r\n\t\t\t\t\t<p class=\"level4\">Mailing Address:</p>\r\n\t\t\t\t\t<p><address>\r\n\t\t\t\t\t  USDA-NASS<br>\r\n\t\t\t\t\t  1400 Independence Ave., SW<br>\r\n\t\t\t\t\t  Washington, DC 20250</address>\r\n\t\t\t\t\t</p>\r\n\t\t\t\t\t\t\t\t\t\t\r\n\t\t\t\t\t<p class=\"level4\">Survey FAQs and Contact Us:</p>\r\n\t\t\t\t\t<p><a href=\"/Feedback/index.php\"><span class=\"fa fa-arrow-circle-right\"></span> Access FAQs or submit a question.</a>\r\n\t\t\t\t\t</p>\r\n\t\t\t\t\t\r\n\t\t\t\t\t<p class=\"level4\">Data Inquiries:</p>\r\n\t\t\t\t\t<p>Hours: 8:00 a.m. - 5:00 p.m. Central Standard Time<br/> Monday - Friday, except federal holidays<br/> Toll-Free: <a href=\"tel:800-727-9540\"><span class=\"fa fa-phone\"></span>(800) 727-9540</a>\r\n\t\t\t\t\t</p>\r\n\t\t\t\t\t<p class=\"level4\">Media Inquiries:</p>\r\n\t\t\t\t\t\r\n\t\t\t\t\t<p>Email: NASS-Media@usda.gov <a href=\"mailto:NASS-Media@usda.gov\" title=\"Email: Ask USDA\"><span class=\"fa fa-envelope\"></span></a></p>\r\n\t\t\t\t</div>\r\n\t\t\t\t\r\n\t\t\t\t<div class=\"col_2\">\r\n\t\t\t\t\t<p class=\"level4\">Other USDA Inquiries:</p>\r\n\t\t\t\t\t<p>Hours: Monday to Friday 8 a.m. - 5 p.m. EST<br/>Toll-Free: <a href=\"tel:833-663-8732\"><span class=\"fa fa-phone\"></span>(833) One-USDA</a><br>\r\n\t\t\t\t\tEmail: askusda@usda.gov <a href=\"mailto:askusda@usda.gov\" title=\"Email: Ask USDA\"><span class=\"fa fa-envelope\"></span></a><br>\r\n\t\t\t  \t\tWebsite: <a href=\"https://ask.usda.gov/s/\">https://ask.usda.gov/s/</a>\r\n\t\t\t\t\t</p>\r\n\t\t\t\t\t\r\n\t\t\t\t\t\r\n\t\t\t\t<!--<p>Kristen Lenhardt, <em>Public Affairs Director</em><br> Email: <a href=\"mailto:kristen.lenhardt@usda.gov\" title=\"Email: Kristen Lenhardt\"><span class=\"fa fa-envelope\"></span></a> / Phone: <a href=\"tel:202-690-8122\"><span class=\"fa fa-phone\"></span>&nbsp;(202) 690-8122</a>\r\n\t\t\t\t\t</p>\r\n\t\t\t\t\t<p>Teresa White, <em>Public Affairs Deputy Director</em><br> Email: <a href=\"mailto:teresa.white@usda.gov\" title=\"Email: Teresa White\"><span class=\"fa fa-envelope\"></span></a> / Phone: <a href=\"tel:202-690-8123\"><span class=\"fa fa-phone\"></span>&nbsp;(202) 690-8123</a></p>\r\n           \r\n\t\t\t\t\t<p>Jim Barrett, <em>Public Affairs Specialist</em><br> Email: <a href=\"mailto:jim.barrett@usda.gov\" title=\"Email: Jim Barrett\"><span class=\"fa fa-envelope\"></span></a> / Phone: <a href=\"tel:202-690-8124\"><span class=\"fa fa-phone\"></span>&nbsp;(202) 690-8124</a></p>\r\n\t\t\t  \r\n\t\t\t\t\t<p>Jodi Halvorson, <em>Public Affairs Specialist</em><br> Email: <a href=\"mailto:Jodi.Halvorson@usda.gov\" title=\"Email: Jodi Halvorson\"><span class=\"fa fa-envelope\"></span></a> / Phone: <a href=\"tel:916-738-6609\"><span class=\"fa fa-phone\"></span>&nbsp;(916) 738-6609</a></p>\r\n\t\t\t  \r\n\t\t\t\t\t<p>Terry Matlock, <em>Public Affairs Specialist</em><br> Email: <a href=\"mailto:Terry.Matlock@usda.gov\" title=\"Email: Terry Matlock\"><span class=\"fa fa-envelope\"></span></a> / Phone: <a href=\"tel:720-787-3172\"><span class=\"fa fa-phone\"></span>&nbsp;(720) 787-3172</a></p>\r\n\t\t\t  \r\n\t\t\t\t\t<p>Alexandra Nseir, <em>Public Affairs Specialist</em><br> Email: <a href=\"mailto:Alexandra.Nseir@usda.gov\" title=\"Email: Alex Nseir\"><span class=\"fa fa-envelope\"></span></a> / Phone: <a href=\"tel:202-690-8121\"><span class=\"fa fa-phone\"></span>&nbsp;(202) 690-8121</a></p>-->\r\n           \r\n\t\t\t\t\t\r\n\t\t\t\t\t\r\n\t\t\t\t\t\r\n\t\t\t\t\t<p class=\"level4\">Translation Services:</p>\r\n\t\t\t\t\t<p>Email: NASSLanguages@usda.gov <a href=\"mailto:NASSLanguages@usda.gov\" title=\"Email: NASSLanguages@usda.gov\"><span class=\"fa fa-envelope\"></span></a></p>\r\n\t\t\t\t</div>\r\n\t\t\t\t<div class=\"col_4\">\r\n\t\t\t\t\t<div class=\"col_2\" style=\"padding-right: 10px;\">\r\n\t\t\t\t\t\t<!--<p class=\"level4\">Regional and State Field Offices</p>\r\n\t\t\t\t\t\t<p>Find contact information for Regional and State Field Offices&nbsp;&nbsp;<a href=\"/Statistics_by_State/RFO/index.php\"><span class=\"fa fa-arrow-circle-right\"></span></a>\r\n\t\t\t\t\t\t</p>-->\r\n\t\t\t\t\t\t\r\n\t\t\t\t\t\t<p class=\"level4\">Regional and State Field Offices:</p>\r\n\t\t\t\t\t\t<p><a href=\"/Statistics_by_State/RFO/index.php\"><span class=\"fa fa-arrow-circle-right\"></span> Find contact information for Regional and State Field Offices</a>\r\n\t\t\t\t\t\t</p>\r\n\t\t\t\t\t\t<p class=\"level4\">Ask a Specialist:</p>\r\n\t\t\t\t\t\t<p><a href=\"/Contact_Us/Ask_a_Specialist/index.php\" title=\"Ask a NASS Specialist\"><span class=\"fa fa-arrow-circle-right\"></span> Have a specific question for one of our subject experts? Contact a specialist.&nbsp;&nbsp;</a>\r\n\t\t\t\t\t\t</p>\r\n\r\n\t\t\t\t\t</div>\r\n\t\t\t\t\t<div class=\"col-2\">\r\n\t\t\t\t\t\t<p class=\"level4\">Web Content Publishing Schedule:</p>\r\n\t\t\t\t\t\t<p>Section 207(f)(2) of the E-Government Act of 2002 requires federal agencies to develop an inventory of information to be published on their Web sites, establish a schedule for publishing information, make those schedules available for public comment, and post the schedules and priorities on the Web site.\r\n\t\t\t\t\t\t</p>\r\n\t\t\t\t\t</div>\r\n\t\t\t\t</div>\r\n\t\t\t</div>\r\n\t\t</li>\r\n\t\t<li><a href=\"/Help/index.php\" class=\"drop\">Help&nbsp;&nbsp;<span class=\"fa fa-caret-down\"></span></a>\r\n\t\t\t<div class=\" dropdown_2columns align_right\">\r\n\t\t\t\t<div class=\"col_2\">\r\n\t\t\t\t\t<p class=\"level4\">Technical Issues</p>\r\n\t\t\t\t\t<ul>\r\n\t\t\t\t\t\t<li><a href=\"/Help/RSS/index.php\">RSS Feed</a>\r\n\t\t\t\t\t\t</li>\r\n\t\t\t\t\t\t<li><a href=\"/Contact_Us/index.php\">Contact Us </a> </li>\r\n\t\t\t\t\t</ul>\r\n\t\t\t\t</div>\r\n\t\t\t\t<div class=\"col_2\">\r\n\t\t\t\t\t<p class=\"level4\">Search Tips</p>\r\n\t\t\t\t\t<ul>\r\n\t\t\t\t\t\t<li><a href=\"/Help/Search_Tips/index.php\">Search Tips</a>\r\n\t\t\t\t\t\t</li>\r\n\t\t\t\t\t</ul>\r\n\t\t\t\t\t<p class=\"level4\">For Developers and Data Users</p>\r\n\t\t\t\t\t<ul>\r\n\t\t\t\t\t\t<li><a href=\"/developer/index.php\">Application Programming Interfaces (APIs)</a>\r\n\t\t\t\t\t\t</li>\r\n\t\t\t\t\t</ul>\r\n\t\t\t\t</div>\r\n\t\t\t</div>\r\n\t\t</li>\r\n\t</ul>\r\n</div>\r\n</div>\r\n\r\n\r\n</div>\t\t</div>\r\n\t\t<div id=\"brdcrmb_socMedia\" class=\"container col-xs-12 clearfix\">\r\n\t\t\t<div id='breadcrumb-container' class=\"breadCrumb col-xs-12 col-sm-12 col-md-8 col-lg-8 hidden-print\"></div>\r\n<!-- end of breadcrumb -->\r\n\r\n <div class=\"socialMedia container col-xs-12 col-sm-12 col-md-4 col-lg-4 alignRight social_title social_icons clearfix hidden-print\" align=\"right\">\r\n\t <label for=\"select-a-state\"><em>Statistics by State</em>&nbsp;\r\n    <select class=\"form-control select-state\" id=\"select-a-state\" name=\"select-a-state\" onchange=\"top.location=this.value;\" title=\"Select Statistics by State\">\r\n      <optgroup label=\"Select a State\">\r\n      <option value=\"/Statistics_by_State/RFO/index.php\" title=\"Regional Offices\">Regional Offices</option>\r\n      <option value=\"/Statistics_by_State/Alabama/index.php\" title=\"Alabama\">Alabama</option>\r\n      <option value=\"/Statistics_by_State/Alaska/index.php\" title=\"Alaska\">Alaska</option>\r\n      <option value=\"/Statistics_by_State/Arizona/index.php\" title=\"Arizona\">Arizona</option>\r\n      <option value=\"/Statistics_by_State/Arkansas/index.php\" title=\"Arkansas\">Arkansas</option>\r\n      <option value=\"/Statistics_by_State/California/index.php\" title=\"California\">California</option>\r\n      <option value=\"/Statistics_by_State/Colorado/index.php\" title=\"Colorado\">Colorado</option>\r\n      <option value=\"/Statistics_by_State/Connecticut/index.php\" title=\"Connecticut\">Connecticut</option>\r\n      <option value=\"/Statistics_by_State/Delaware/index.php\" title=\"Delaware\">Delaware</option>\r\n      <option value=\"/Statistics_by_State/Florida/index.php\" title=\"Florida\">Florida</option>\r\n      <option value=\"/Statistics_by_State/Georgia/index.php\" title=\"Georgia\">Georgia</option>\r\n      <option value=\"/Statistics_by_State/Hawaii/index.php\" title=\"Hawaii\">Hawaii</option>\r\n      <option value=\"/Statistics_by_State/Idaho/index.php\" title=\"Idaho\">Idaho</option>\r\n      <option value=\"/Statistics_by_State/Illinois/index.php\" title=\"Illinois\">Illinois</option>\r\n      <option value=\"/Statistics_by_State/Indiana/index.php\" title=\"Indiana\">Indiana</option>\r\n      <option value=\"/Statistics_by_State/Iowa/index.php\" title=\"Iowa\">Iowa</option>\r\n      <option value=\"/Statistics_by_State/Kansas/index.php\" title=\"Kansas\">Kansas</option>\r\n      <option value=\"/Statistics_by_State/Kentucky/index.php\" title=\"Kentucky\">Kentucky</option>\r\n      <option value=\"/Statistics_by_State/Louisiana/index.php\" title=\"Louisiana\">Louisiana</option>\r\n      <option value=\"/Statistics_by_State/Maine/index.php\" title=\"Maine\">Maine</option>\r\n      <option ",
+          "title": "USDA releases 2022 Census of Agriculture data",
+          "httpStatus": 200
+        }
+      ],
+      "ended": "answered",
+      "seconds": 67.7
+    },
+    "assessment": {
+      "request": {
+        "model": "z-ai/glm-5.3",
+        "max_output_tokens": 32768,
+        "tools": [
+          {
+            "type": "openrouter:web_search",
+            "parameters": {
+              "engine": "exa",
+              "max_results": 10,
+              "excluded_domains": [
+                "dataindex.us"
+              ]
+            }
+          },
+          {
+            "type": "openrouter:web_fetch",
+            "parameters": {
+              "engine": "openrouter",
+              "blocked_domains": [
+                "dataindex.us"
+              ],
+              "max_content_tokens": 10000
+            }
+          }
+        ],
+        "cache_control": {
+          "type": "ephemeral",
+          "ttl": "1h"
+        },
+        "session_id": "census-of-agriculture-z-ai/glm-5.3-t0-2026-10-08T19:54:37Z",
+        "stop_server_tools_when": [
+          {
+            "type": "step_count_is",
+            "step_count": 200
+          }
+        ],
+        "reasoning": {
+          "effort": "high"
+        },
+        "provider": {
+          "order": [
+            "z-ai"
+          ],
+          "allow_fallbacks": false
+        }
+      },
+      "response_meta": {
+        "id": "gen-1791489345-T2Pp4SkBbKkR9Gf5c1YU",
+        "object": "response",
+        "created_at": 1791489345,
+        "model": "z-ai/glm-5.3",
+        "status": "completed",
+        "completed_at": 1791489443,
+        "error": null,
+        "incomplete_details": null,
+        "tools": [],
+        "tool_choice": "auto",
+        "parallel_tool_calls": true,
+        "max_output_tokens": 32768,
+        "temperature": 1,
+        "top_p": 1,
+        "presence_penalty": 0,
+        "frequency_penalty": 0,
+        "top_logprobs": 0,
+        "max_tool_calls": null,
+        "metadata": {},
+        "background": false,
+        "previous_response_id": null,
+        "service_tier": "auto",
+        "truncation": "disabled",
+        "store": false,
+        "instructions": null,
+        "text": {
+          "format": {
+            "type": "text"
+          }
+        },
+        "reasoning": {
+          "effort": "high"
+        },
+        "safety_identifier": null,
+        "prompt_cache_key": null,
+        "prompt_cache_options": null,
+        "usage": {
+          "input_tokens": 95267,
+          "input_tokens_details": {
+            "cached_tokens": 60288
+          },
+          "output_tokens": 7269,
+          "output_tokens_details": {
+            "reasoning_tokens": 4367
+          },
+          "total_tokens": 102536,
+          "cost": 0.13162908,
+          "cost_details": {
+            "upstream_inference_cost": 0.09662908,
+            "upstream_inference_input_cost": 0.06464548,
+            "upstream_inference_output_cost": 0.0319836
+          },
+          "server_tool_use_details": {
+            "web_search_requests": 5,
+            "tool_calls_requested": 6,
+            "tool_calls_executed": 6
+          }
+        }
+      },
+      "requests": [
+        {
+          "input_tokens": 95267,
+          "input_tokens_details": {
+            "cached_tokens": 60288
+          },
+          "output_tokens": 7269,
+          "output_tokens_details": {
+            "reasoning_tokens": 4367
+          },
+          "total_tokens": 102536,
+          "cost": 0.13162908,
+          "cost_details": {
+            "upstream_inference_cost": 0.09662908,
+            "upstream_inference_input_cost": 0.06464548,
+            "upstream_inference_output_cost": 0.0319836
+          },
+          "server_tool_use_details": {
+            "web_search_requests": 5,
+            "tool_calls_requested": 6,
+            "tool_calls_executed": 6
+          }
+        }
+      ],
+      "searches": 5,
+      "fetches": 1,
+      "tool_items": [
+        {
+          "type": "openrouter:web_search",
+          "id": "st_tmp_caeqpdgdejr",
+          "status": "completed",
+          "action": {
+            "type": "search",
+            "query": "NASS Census of Agriculture 2027 budget FY2026 appropriations staffing cuts 2025",
+            "sources": [
+              {
+                "type": "url",
+                "url": "https://usda.azureedge.us/sites/default/files/documents/FY-2027-Chapter-19-NASS.pdf"
+              },
+              {
+                "type": "url",
+                "url": "https://www.usda.gov/sites/default/files/documents/19-2026-CJ-NASS.pdf"
+              },
+              {
+                "type": "url",
+                "url": "https://usda.azureedge.us/sites/default/files/documents/19-NASS-2025-ExNotes.pdf"
+              },
+              {
+                "type": "url",
+                "url": "https://cossa.org/wp-content/uploads/2026/04/COSSA-FY-2027-PBR-Analysis.pdf"
+              },
+              {
+                "type": "url",
+                "url": "https://www.usda.gov/sites/default/files/documents/fy-2027-budget-summary.pdf"
+              },
+              {
+                "type": "url",
+                "url": "https://community.amstat.org/sciencepolicy/blogs/steve-pierson/2026/04/03/fy27-statistical-agency-budget-developments"
+              },
+              {
+                "type": "url",
+                "url": "https://www.amstat.org/docs/default-source/amstat-documents/the-nations-data-at-risk-2025/national-agricultural-statistics-service.pdf"
+              },
+              {
+                "type": "url",
+                "url": "https://www.congress.gov/crs_external_products/R/PDF/R49343/R49343.1.pdf"
+              },
+              {
+                "type": "url",
+                "url": "https://www.everycrsreport.com/files/2026-09-10_R49343_2076b24ca8c3085f8771a04b27c3bd0dbc5e9e3b.html"
+              },
+              {
+                "type": "url",
+                "url": "https://www.agbull.com/usda-wants-to-modernize-nass-it-may-have-cut-the-unit-already-doing-it/"
+              }
+            ]
+          }
+        },
+        {
+          "type": "openrouter:web_search",
+          "id": "st_tmp_ynouo3g9ada",
+          "status": "completed",
+          "action": {
+            "type": "search",
+            "query": "Federal Register Census of Agriculture 2027 information collection reinstatement notice NASS",
+            "sources": [
+              {
+                "type": "url",
+                "url": "https://www.federalregister.gov/documents/2026/01/14/2026-00540/notice-of-intent-to-seek-approval-to-reinstate-an-information-collection"
+              },
+              {
+                "type": "url",
+                "url": "https://www.federalregister.gov/documents/2026/05/29/2026-10761/submission-for-omb-reinstatement-comment-request"
+              },
+              {
+                "type": "url",
+                "url": "https://www.govinfo.gov/content/pkg/FR-2026-01-14/pdf/2026-00540.pdf"
+              },
+              {
+                "type": "url",
+                "url": "https://omb.report/icr/202605-0535-002"
+              },
+              {
+                "type": "url",
+                "url": "https://thefederalregister.org/documents/2026-00540/notice-of-intent-to-seek-approval-to-reinstate-an-information-collection"
+              },
+              {
+                "type": "url",
+                "url": "https://www.govinfo.gov/content/pkg/FR-2026-01-14/pdf/2026-00597.pdf"
+              },
+              {
+                "type": "url",
+                "url": "https://omb.report/omb/0535-0226"
+              },
+              {
+                "type": "url",
+                "url": "https://thefederalregister.org/documents/2026-10761/submission-for-omb-reinstatement-comment-request"
+              },
+              {
+                "type": "url",
+                "url": "https://www.federalregister.gov/documents/2024/07/19/2024-15945/notice-of-opportunity-to-submit-content-request-for-the-2027-census-of-agriculture"
+              },
+              {
+                "type": "url",
+                "url": "https://www.federalregister.gov/agencies/national-agricultural-statistics-service"
+              }
+            ]
+          }
+        },
+        {
+          "type": "openrouter:web_search",
+          "id": "st_tmp_qhd9uz0t92h",
+          "status": "completed",
+          "action": {
+            "type": "search",
+            "query": "2027 Census of Agriculture concerns NASS staffing response rate quality news 2026",
+            "sources": [
+              {
+                "type": "url",
+                "url": "https://www.federalregister.gov/documents/2026/01/14/2026-00540/notice-of-intent-to-seek-approval-to-reinstate-an-information-collection"
+              },
+              {
+                "type": "url",
+                "url": "https://www.lancasterfarming.com/farming-news/news/usda-seeks-increased-participation-for-2027-ag-census/article_da3ca82f-829a-573e-b472-c5cefc897970.html"
+              },
+              {
+                "type": "url",
+                "url": "https://www.dtnpf.com/agriculture/web/ag/news/article/2026/07/15/usda-review-nass-reports-data-survey"
+              },
+              {
+                "type": "url",
+                "url": "https://www.agri-pulse.com/articles/25135-next-stage-of-nass-modernization-projects-expected-at-farm-progress-show"
+              },
+              {
+                "type": "url",
+                "url": "https://policyrisk.com/federal-register/2026-10761"
+              },
+              {
+                "type": "url",
+                "url": "https://www.amstat.org/docs/default-source/amstat-documents/FedStatHealth_MidYearUpdate.pdf"
+              },
+              {
+                "type": "url",
+                "url": "https://texasfarmbureau.org/usda-gearing-up-for-next-census-of-agriculture/"
+              },
+              {
+                "type": "url",
+                "url": "https://usda.azureedge.us/sites/default/files/documents/FY-2027-Chapter-19-NASS.pdf"
+              },
+              {
+                "type": "url",
+                "url": "https://www.agbull.com/one-farmers-blunt-message-to-nass-the-survey-system-is-wearing-out-its-sources/"
+              },
+              {
+                "type": "url",
+                "url": "https://www.profarmer.com/news/agriculture-news/usda-safarmer-survey-responses-key-questions-swirl-around-crop-estimates"
+              }
+            ]
+          }
+        },
+        {
+          "type": "openrouter:web_search",
+          "id": "st_tmp_e0vl1s4ih6g",
+          "status": "completed",
+          "action": {
+            "type": "search",
+            "query": "USDA reorganization NASS statistical agencies data reports discontinued removed 2025 2026",
+            "sources": [
+              {
+                "type": "url",
+                "url": "https://www.usda.gov/about-usda/news/press-releases/2026/04/23/usda-advances-reorganization-and-restructuring-research-education-and-economics-mission-area-improve"
+              },
+              {
+                "type": "url",
+                "url": "https://www.usda.gov/sites/default/files/documents/19-2026-CJ-NASS.pdf"
+              },
+              {
+                "type": "url",
+                "url": "https://www.nass.usda.gov/Newsroom/Notices/2025/08-28-2025.php"
+              },
+              {
+                "type": "url",
+                "url": "https://www.usda.gov/about-usda/reorganization"
+              },
+              {
+                "type": "url",
+                "url": "https://thefederalregister.org/documents/2025-16831/discontinuance-of-information-collections"
+              },
+              {
+                "type": "url",
+                "url": "https://data.nass.usda.gov/Newsroom/Notices/2025/08-28-2025.php"
+              },
+              {
+                "type": "url",
+                "url": "https://www.aei.org/research-products/report/the-looming-data-imperative-to-inform-agricultural-policy/"
+              },
+              {
+                "type": "url",
+                "url": "https://www.nass.usda.gov/Newsroom/Notices/2024/04-09-2024.php"
+              },
+              {
+                "type": "url",
+                "url": "https://www.nass.usda.gov/go/agyield/FR%20Notice%20for%20Mink%20and%20FL%20Surveys%20Aug.%202025%20CLEAN.pdf"
+              },
+              {
+                "type": "url",
+                "url": "https://www.amstat.org/docs/default-source/amstat-documents/the-nations-data-at-risk-2025/national-agricultural-statistics-service.pdf"
+              }
+            ]
+          }
+        },
+        {
+          "type": "openrouter:web_search",
+          "id": "st_tmp_uy49b2j12jb",
+          "status": "completed",
+          "action": {
+            "type": "search",
+            "query": "NASS Quick Stats historical data removed deleted archived census of agriculture access \"no longer available\"",
+            "sources": [
+              {
+                "type": "url",
+                "url": "https://data.nass.usda.gov/Surveys/Guide_to_NASS_Surveys/Prices/updateMar2018.pdf"
+              },
+              {
+                "type": "url",
+                "url": "https://www.cocafish.com/wiki/where-to-find-historical-agricultural-data"
+              },
+              {
+                "type": "url",
+                "url": "https://fas.org/publication/data-termination-tracker/"
+              },
+              {
+                "type": "url",
+                "url": "https://unstats.un.org/unsd/statcom/48th-session/documents/BG-Agriculture-E.pdf"
+              },
+              {
+                "type": "url",
+                "url": "https://csde.washington.edu/news-events/new-update-on-dataindex-us-tracking-of-federal-data-terminations/"
+              },
+              {
+                "type": "url",
+                "url": "https://web.archive.org/web/20160126221247/www.ers.usda.gov/data-products.aspx"
+              },
+              {
+                "type": "url",
+                "url": "https://www.lrl.mn.gov/docs/2011/other/110874.pdf"
+              },
+              {
+                "type": "url",
+                "url": "https://obamawhitehouse.archives.gov/sites/default/files/omb/budget/fy2017/assets/agr.html"
+              },
+              {
+                "type": "url",
+                "url": "https://www.socialsciencespace.com/2025/08/what-you-can-do-as-data-u-s-taxpayers-paid-for-and-use-disappears/"
+              },
+              {
+                "type": "url",
+                "url": "https://www.404media.co/archivists-work-to-identify-and-save-the-thousands-of-datasets-disappearing-from-data-gov/"
+              }
+            ]
+          }
+        },
+        {
+          "type": "openrouter:web_fetch",
+          "id": "st_tmp_wq6jzf8oqi",
+          "status": "completed",
+          "url": "https://usajobs-tracker.abigailhaddad.com",
+          "content": "<!DOCTYPE html>\n<html lang=\"en\">\n<head>\n    <meta charset=\"UTF-8\">\n    <meta name=\"viewport\" content=\"width=device-width, initial-scale=1.0\">\n    <title>USAJobs Listings Tracker</title>\n    \n    <!-- DataTables CSS -->\n    <link rel=\"stylesheet\" href=\"https://cdn.datatables.net/1.13.6/css/dataTables.bootstrap5.min.css\">\n    <link rel=\"stylesheet\" href=\"https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css\">\n    <link rel=\"stylesheet\" href=\"https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.0/font/bootstrap-icons.css\">\n    \n    <style>\n        body {\n            font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;\n            background-color: #f8f9fa;\n            color: #333;\n        }\n        \n        .container {\n            max-width: 1400px;\n            margin: 0 auto;\n            padding: 20px;\n        }\n        \n        h1 {\n            color: #003366;\n            font-weight: 600;\n            margin-bottom: 10px;\n        }\n        \n        .subtitle {\n            color: #999;\n            font-size: 0.9rem;\n            margin-bottom: 20px;\n        }\n        \n        .summary-stats {\n            background: white;\n            padding: 20px;\n            border-radius: 8px;\n            box-shadow: 0 2px 4px rgba(0,0,0,0.1);\n            margin-bottom: 30px;\n        }\n        \n        .stat-box {\n            text-align: center;\n            padding: 15px;\n            border-right: 1px solid #e9ecef;\n        }\n        \n        .stat-box:last-child {\n            border-right: none;\n        }\n        \n        .stat-value {\n            font-size: 2rem;\n            font-weight: 600;\n            color: #003366;\n        }\n        \n        .stat-label {\n            color: #666;\n            font-size: 0.85rem;\n            text-transform: uppercase;\n            line-height: 1.3;\n        }\n        \n        .table-container {\n            background: white;\n            padding: 25px;\n            border-radius: 8px;\n            box-shadow: 0 2px 4px rgba(0,0,0,0.1);\n        }\n        \n        .dataTables_wrapper .dataTables_filter input {\n            border: 1px solid #ddd;\n            border-radius: 4px;\n            padding: 5px 10px;\n            margin-left: 10px;\n        }\n        \n        .dataTables_wrapper .dataTables_length select {\n            border: 1px solid #ddd;\n            border-radius: 4px;\n            padding: 5px;\n        }\n        \n        table.dataTable {\n            border-collapse: collapse !important;\n        }\n        \n        table.dataTable thead th {\n            background-color: #003366;\n            color: white;\n            font-weight: 600;\n            border-bottom: none !important;\n            white-space: nowrap;\n            position: relative;\n            cursor: pointer;\n        }\n        \n        table.dataTable thead th.filtering {\n            background-color: #00508f;\n        }\n        \n        table.dataTable tbody tr:hover {\n            background-color: #f0f8ff;\n        }\n        \n        table.dataTable tbody td {\n            padding: 12px;\n            vertical-align: middle;\n        }\n        \n        .percentage-cell {\n            font-weight: 600;\n        }\n        \n        .high-percentage {\n            color: #388e3c;  /* Green - good (maintained/increased listings) */\n        }\n        \n        .medium-percentage {\n            color: #f57c00;  /* Orange - moderate (some decline) */\n        }\n        \n        .low-percentage {\n            color: #d32f2f;  /* Red - bad (major decline) */\n        }\n        \n        .expiring-soon {\n            background-color: #fff3cd;\n        }\n        \n        .no-year {\n            background-color: #e8f4f8;\n        }\n        \n        /* Column filter styles */\n        .column-filter-container {\n            position: absolute;\n            background: white;\n            border: 1px solid #ddd;\n            border-radius: 4px;\n            box-shadow: 0 4px 6px rgba(0,0,0,0.1);\n            padding: 10px;\n            z-index: 1000;\n            min-width: 200px;\n            max-height: 300px;\n            overflow-y: auto;\n        }\n        \n        .column-filter-container input[type=\"text\"] {\n            width: 100%;\n            padding: 5px;\n            margin-bottom: 10px;\n            border: 1px solid #ddd;\n            border-radius: 3px;\n        }\n        \n        .column-filter-container label {\n            display: block;\n            padding: 3px 0;\n            cursor: pointer;\n        }\n        \n        .column-filter-container label:hover {\n            background-color: #f0f0f0;\n        }\n        \n        .column-filter-container input[type=\"checkbox\"] {\n            margin-right: 8px;\n        }\n        \n        .filter-buttons {\n            margin-top: 10px;\n            text-align: right;\n        }\n        \n        .filter-buttons button {\n            margin-left: 5px;\n            padding: 3px 10px;\n            border: 1px solid #ddd;\n            border-radius: 3px;\n            background: white;\n            cursor: pointer;\n            font-size: 0.85rem;\n        }\n        \n        .filter-buttons button.apply {\n            background: #003366;\n            color: white;\n        }\n        \n        .filter-buttons button:hover {\n            opacity: 0.8;\n        }\n        \n        th.has-filter::after {\n            content: \" \u25bc\";\n            font-size: 0.8em;\n            opacity: 0.5;\n        }\n        \n        /* Bubble chart styles */\n        .treemap-container {\n            background: white;\n            padding: 20px;\n            border-radius: 8px;\n            box-shadow: 0 2px 4px rgba(0,0,0,0.1);\n            margin-bottom: 30px;\n        }\n        \n        .treemap-title {\n            font-size: 1.2rem;\n            font-weight: 600;\n            color: #003366;\n            margin-bottom: 15px;\n        }\n        \n        #bubble-chart {\n            width: 100%;\n            height: 460px;\n            position: relative;\n        }\n        \n        .bubble {\n            cursor: pointer;\n            opacity: 0.8;\n            transition: all 0.3s;\n        }\n        \n        .bubble:hover {\n            opacity: 1;\n            stroke: #003366;\n            stroke-width: 3;\n        }\n        \n        .axis-label {\n            font-size: 14px;\n            font-weight: 600;\n            fill: #333;\n        }\n        \n        .grid line {\n            stroke: #e0e0e0;\n            stroke-opacity: 0.7;\n            shape-rendering: crispEdges;\n        }\n        \n        .grid path {\n            stroke-width: 0;\n        }\n        \n        .quadrant-label {\n            fill: #666;\n            font-size: 12px;\n            font-style: italic;\n            opacity: 0.7;\n        }\n        \n        /* Filter section styles */\n        .filter-section {\n            background: white;\n            padding: 20px;\n            border-radius: 8px;\n            box-shadow: 0 2px 4px rgba(0,0,0,0.1);\n            margin-bottom: 30px;\n        }\n        \n        .filter-section h3 {\n            color: #003366;\n            font-size: 1.3rem;\n            margin-bottom: 15px;\n        }\n        \n        .filter-controls label {\n            font-size: 0.85rem;\n            font-weight: 600;\n            color: #666;\n            margin-bottom: 5px;\n        }\n        \n        .active-filters {\n            margin-top: 15px;\n            min-height: 30px;\n        }\n        \n        .filter-badge {\n            display: inline-block;\n            background: #003366;\n            color: white;\n            padding: 5px 10px;\n            border-radius: 20px;\n            margin-right: 10px;\n            margin-bottom: 5px;\n            font-size: 0.85rem;\n        }\n        \n        .filter-badge .remove-filter {\n            margin-left: 8px;\n            cursor: pointer;\n            font-weight: bold;\n        }\n        \n        .filter-badge .remove-filter:hover {\n            color: #ff6b6b;\n        }\n        \n        /* Multi-select dropdown styles */\n        .filter-dropdown {\n            position: relative;\n        }\n        \n        .filter-dropdown-menu {\n            position: absolute;\n            top: 100%;\n            left: 0;\n            right: 0;\n            z-index: 1000;\n            background: white;\n            border: 1px solid #ddd;\n            border-radius: 4px;\n            box-shadow: 0 4px 6px rgba(0,0,0,0.1);\n            padding: 10px;\n            margin-top: 2px;\n        }\n        \n        .filter-dropdown-menu label {\n            cursor: pointer;\n        }\n        \n        .filter-dropdown-menu label:hover {\n            background-color: #f0f0f0;\n        }\n        \n        .filter-dropdown-menu .filter-search {\n            margin-bottom: 5px;\n        }\n        \n        .filter-dropdown-menu .filter-options label {\n            padding: 3px 8px;\n            margin: 0;\n            display: block;\n        }\n        \n        .filter-dropdown-menu input[type=\"checkbox\"] {\n            margin-right: 8px;\n        }\n        \n        /* Active filters display */\n        .active-filters-display {\n            color: #d32f2f;\n            font-size: 1.1rem;\n            font-weight: 600;\n            margin-bottom: 20px;\n            min-height: 1.5em;\n        }\n        \n        #downloadCSV:hover {\n            background-color: #00508f !important;\n            transform: translateY(-1px);\n            box-shadow: 0 2px 4px rgba(0,0,0,0.2);\n        }\n        \n        /* Skip link for keyboard navigation */\n        .skip-link {\n            position: absolute;\n            top: -40px;\n            left: 0;\n            background: #003366;\n            color: white;\n            padding: 8px;\n            text-decoration: none;\n            z-index: 9999;\n        }\n        \n        .skip-link:focus {\n            top: 0;\n        }\n        \n        /* Improved focus indicators */\n        a:focus,\n        button:focus,\n        input:focus,\n        select:focus,\n        textarea:focus {\n            outline: 3px solid #003366;\n            outline-offset: 2px;\n        }\n        \n        /* Screen reader only content */\n        .sr-only {\n            position: absolute;\n            width: 1px;\n            height: 1px;\n            padding: 0;\n            margin: -1px;\n            overflow: hidden;\n            clip: rect(0, 0, 0, 0);\n            white-space: nowrap;\n            border: 0;\n        }\n        \n    </style>\n</head>\n<body>\n    <!-- Skip to main content link for keyboard navigation -->\n    <a href=\"#main-content\" class=\"skip-link\">Skip to main content</a>\n    \n    <!-- Work in Progress Banner -->\n    <div class=\"alert alert-warning mb-0\" role=\"alert\">\n        <div class=\"container\">\n            <strong>\ud83d\udea7 Active Development:</strong> This is an experimental tool tracking federal job postings.\n            Data source: <a href=\"https://github.com/abigailhaddad/usajobs_historical\" target=\"_blank\" class=\"alert-link\">USAJobs Historical Data</a> | <a class='alert-link' href='/methodology'>Methodology</a>\n        </div>\n    </div>\n\n    <!-- Archive Notice Banner -->\n    <div class=\"alert alert-danger mb-0\" role=\"alert\" style=\"border-radius: 0;\">\n        <div class=\"container\">\n            <strong>\ud83d\udcc1 Archive Notice:</strong> This tracker will be archived on December 31, 2025. Data collection will stop on that date and no further updates will be made.\n        </div>\n    </div>\n\n    <div class=\"container\" id=\"main-content\">\n        <h1>USAJobs Listings Tracker</h1>\n        <p class=\"subtitle\" id=\"dateRangeSubtitle\">Loading date range...</p>\n        <div id=\"activeFiltersDisplay\" class=\"active-filters-display\"></div>\n        \n        <!-- ARIA live region for screen reader announcements -->\n        <div class=\"sr-only\" aria-live=\"polite\" aria-atomic=\"true\" id=\"ariaLiveRegion\"></div>\n        \n        <!-- Important Caveats -->\n        <div class=\"alert alert-info mt-3 mb-3\">\n            <small>\n                <strong>Important Notes:</strong>\n                <ul class=\"mb-0\" style=\"padding-left: 20px;\">\n                    <li>Job listings \u2260 actual hires. One listing may result in multiple hires, one hire, or no hires.</li>\n                    <li>Not all federal positions are posted on USAJobs.</li>\n                    <li>Job listings which include multiple occupation series are counted under the first series listed.</li>\n                    <li>Subagency view and raw job listings are only available after selecting a specific department.</li>\n                </ul>\n            </small>\n        </div>\n        \n        <!-- Data Source Attribution -->\n        <div class=\"text-center text-muted mb-4\">\n            <small>\n                Data source: <a href=\"https://github.com/abigailhaddad/usajobs_historical\" target=\"_blank\" class=\"text-decoration-none\">\n                    USAJobs Historical Data\n                </a>\n                <br>\n                <span id=\"lastUpdated\"></span>\n            </small>\n        </div>\n        \n        <div class=\"summary-stats\">\n            <div class=\"row\">\n                <div class=\"col-md-3 stat-box\">\n                    <div class=\"stat-value\" id=\"total2024\">Loading...</div>\n                    <div class=\"stat-label\" id=\"previousYearLabel\">Previous Year</div>\n                </div>\n                <div class=\"col-md-3 stat-box\">\n                    <div class=\"stat-value\" id=\"total2025\">Loading...</div>\n                    <div class=\"stat-label\" id=\"currentYearLabel\">Current Year</div>\n                </div>\n                <div class=\"col-md-3 stat-box\">\n                    <div class=\"stat-value\" id=\"overallPercentage\">Loading...</div>\n                    <div class=\"stat-label\" id=\"percentageLabel\">Year-over-Year %</div>\n                </div>\n                <div class=\"col-md-3 stat-box\">\n                    <div class=\"stat-value\" id=\"entityCount\">Loading...</div>\n                    <div class=\"stat-label\">Departments</div>\n                </div>\n            </div>\n        </div>\n        \n        <!-- Unified Filter Section -->\n        <div class=\"filter-section\">\n            <h3>Filters & Display Options</h3>\n            <div class=\"filter-controls\">\n                <div class=\"row mb-3\">\n                    <div class=\"col-md-3\">\n                        <label for=\"mainDepartmentFilter\">Department</label>\n                        <select class=\"form-control form-control-sm\" id=\"mainDepartmentFilter\">\n                            <option value=\"\">All Departments</option>\n                        </select>\n                    </div>\n                    <div class=\"col-md-3\">\n                        <label for=\"mainAgencyFilter\">Agency</label>\n                        <select class=\"form-control form-control-sm\" id=\"mainAgencyFilter\">\n                            <option value=\"\">All Agencies</option>\n                        </select>\n                    </div>\n                    <div class=\"col-md-3\">\n                        <label for=\"mainAppointmentFilter\">Appointment Type</label>\n                        <select class=\"form-control form-control-sm\" id=\"mainAppointmentFilter\">\n                            <option value=\"\">All Types</option>\n                        </select>\n                    </div>\n                    <div class=\"col-md-3\">\n                        <label for=\"mainOccupationFilter\">Occupation Series</label>\n                        <select class=\"form-control form-control-sm\" id=\"mainOccupationFilter\">\n                            <option value=\"\">All Occupations</option>\n                        </select>\n                    </div>\n                </div>\n                <div class=\"row mb-3\">\n                    <div class=\"col-md-3\">\n                        <label for=\"aggregationLevel\">View By</label>\n                        <select id=\"aggregationLevel\" class=\"form-control form-control-sm\">\n                            <option value=\"department\" selected>Department</option>\n                            <option value=\"agency\">Agency</option>\n                            <option value=\"subagency\" disabled>Subagency (select a department first)</option>\n                        </select>\n                    </div>\n                    <div class=\"col-md-3\">\n                        <label>&nbsp;</label>\n                        <div class=\"form-check\">\n                            <input class=\"form-check-input\" type=\"checkbox\" id=\"showRawJobs\" disabled>\n                            <label class=\"form-check-label\" for=\"showRawJobs\">\n                                Show Raw Jobs (select a department first)\n                            </label>\n                        </div>\n                    </div>\n                </div>\n            </div>\n        </div>\n        \n        <div class=\"treemap-container\">\n            <h2 class=\"treemap-title\" id=\"bubbleChartTitle\">USAJobs Counts by Department</h2>\n            <p style=\"margin-top: -10px; margin-bottom: 15px; color: #666; font-size: 0.9rem;\">Bubble size = 2024 count</p>\n            <div id=\"bubble-chart\"></div>\n        </div>\n        \n        <div class=\"table-container\">\n            <div class=\"d-flex justify-content-between align-items-center mb-3\">\n                <h3 class=\"m-0\" style=\"color: #003366; font-size: 1.3rem;\">Data Table</h3>\n                <button id=\"downloadCSV\" class=\"btn btn-sm\" style=\"background-color: #003366; color: white; border: none;\">\n                    <i class=\"bi bi-download\"></i> Download Current View as CSV\n                </button>\n            </div>\n            <table id=\"jobsTable\" class=\"table table-striped\">\n                <thead id=\"tableHead\">\n                    <tr id=\"tableHeaders\">\n                        <th>Department</th>\n                        <th>Agency</th>\n                        <th>2024 Listings</th>\n                        <th>2025 Listings</th>\n                        <th>Change</th>\n                        <th>2025 as % of 2024</th>\n                    </tr>\n                </thead>\n                <tbody id=\"tableBody\">\n                </tbody>\n            </table>\n        </div>\n    </div>\n    \n    <!-- jQuery -->\n    <script src=\"https://code.jquery.com/jquery-3.7.0.min.js\"></script>\n    <!-- Bootstrap JS -->\n    <script src=\"https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js\"></script>\n    <!-- DataTables JS -->\n    <script src=\"https://cdn.datatables.net/1.13.6/js/jquery.dataTables.min.js\"></script>\n    <script src=\"https://cdn.datatables.net/1.13.6/js/dataTables.bootstrap5.min.js\"></script>\n    <!-- D3.js for Treemap -->\n    <script src=\"https://d3js.org/d3.v7.min.js\"></script>\n    \n    <script src=\"jobs_app.js\"></script>\n</body>\n</html>",
+          "title": "USAJobs Listings Tracker",
+          "httpStatus": 200
+        }
+      ],
+      "ended": "answered",
+      "seconds": 98.0
+    },
+    "session_metadata": {
+      "request": {
+        "model": "z-ai/glm-5.3",
+        "max_output_tokens": 32768,
+        "tools": [
+          {
+            "type": "openrouter:web_search",
+            "parameters": {
+              "engine": "exa",
+              "max_results": 10,
+              "excluded_domains": [
+                "dataindex.us"
+              ]
+            }
+          },
+          {
+            "type": "openrouter:web_fetch",
+            "parameters": {
+              "engine": "openrouter",
+              "blocked_domains": [
+                "dataindex.us"
+              ],
+              "max_content_tokens": 10000
+            }
+          }
+        ],
+        "cache_control": {
+          "type": "ephemeral",
+          "ttl": "1h"
+        },
+        "session_id": "census-of-agriculture-z-ai/glm-5.3-t0-2026-10-08T19:54:37Z",
+        "stop_server_tools_when": [
+          {
+            "type": "step_count_is",
+            "step_count": 200
+          }
+        ],
+        "reasoning": {
+          "effort": "high"
+        },
+        "provider": {
+          "order": [
+            "z-ai"
+          ],
+          "allow_fallbacks": false
+        }
+      },
+      "response_meta": {
+        "id": "gen-1791489443-hqsFzkMSrC24C9NzL2L0",
+        "object": "response",
+        "created_at": 1791489443,
+        "model": "z-ai/glm-5.3",
+        "status": "completed",
+        "completed_at": 1791489460,
+        "error": null,
+        "incomplete_details": null,
+        "tools": [],
+        "tool_choice": "auto",
+        "parallel_tool_calls": true,
+        "max_output_tokens": 32768,
+        "temperature": 1,
+        "top_p": 1,
+        "presence_penalty": 0,
+        "frequency_penalty": 0,
+        "top_logprobs": 0,
+        "max_tool_calls": null,
+        "metadata": {},
+        "background": false,
+        "previous_response_id": null,
+        "service_tier": "auto",
+        "truncation": "disabled",
+        "store": false,
+        "instructions": null,
+        "text": {
+          "format": {
+            "type": "text"
+          }
+        },
+        "reasoning": {
+          "effort": "high"
+        },
+        "safety_identifier": null,
+        "prompt_cache_key": null,
+        "prompt_cache_options": null,
+        "usage": {
+          "input_tokens": 20607,
+          "input_tokens_details": {
+            "cached_tokens": 11968
+          },
+          "output_tokens": 1233,
+          "output_tokens_details": {
+            "reasoning_tokens": 593
+          },
+          "total_tokens": 21840,
+          "cost": 0.02063148,
+          "cost_details": {
+            "upstream_inference_cost": 0.02063148,
+            "upstream_inference_input_cost": 0.01520628,
+            "upstream_inference_output_cost": 0.0054252
+          }
+        }
+      },
+      "requests": [
+        {
+          "input_tokens": 20607,
+          "input_tokens_details": {
+            "cached_tokens": 11968
+          },
+          "output_tokens": 1233,
+          "output_tokens_details": {
+            "reasoning_tokens": 593
+          },
+          "total_tokens": 21840,
+          "cost": 0.02063148,
+          "cost_details": {
+            "upstream_inference_cost": 0.02063148,
+            "upstream_inference_input_cost": 0.01520628,
+            "upstream_inference_output_cost": 0.0054252
+          }
+        }
+      ],
+      "searches": 0,
+      "fetches": 0,
+      "tool_items": [],
+      "ended": "answered",
+      "seconds": 16.7
+    }
+  },
+  "messages": [
+    {
+      "role": "user",
+      "content": "#data research\nI am researching a federal dataset. Find out everything you can about this dataset, such as who publishes it, under what authority or mandate, its history, its typical users, and its benefits to the public. Be sure your research comprehensively covers each of those perspectives, as well as any others that you discover or seem useful. I believe this is accurate information, but please check:\n\nDataset title: Census of Agriculture\nDescription: The Census of Agriculture, conducted once every five years, looks at land use and ownership, producer characteristics, production practices, income, and expenditures. The Census of Agriculture is a complete count of U.S. farms and ranches and the people who operate them. Even small plots of land - whether rural or urban - count if $1,000 or more of agricultural products were produced and sold, or normally would have been sold, during the census year.\nURL: https://nass.usda.gov/AgCensus\n\nReturn a complete report on everything that a preservationist, data librarian, data scientist, or policy activist might want to know about this data."
+    },
+    {
+      "role": "assistant",
+      "content": "I'll research the Census of Agriculture dataset comprehensively. Let me start with several parallel searches covering different aspects.I have solid material on history, authority, users, and methodology. Now let me research data access formats, tools, and current developments/preservation concerns.I hit the search limit but have one useful fetch available to verify the 2022 key findings:# Research Report: The U.S. Census of Agriculture\n\n**Verification of the supplied description:** The description you provided is accurate and matches nearly verbatim the official language on USDA NASS's Census of Agriculture page (https://www.nass.usda.gov/AgCensus/). It is a complete count of U.S. farms and ranches, conducted every five years for years ending in 2 and 7, covering land use and ownership, producer characteristics, production practices, income, and expenditures. The $1,000 sales threshold defining a \"farm\" is confirmed, as is the note that small rural and urban plots count. The URL is current and correct.\n\n---\n\n## 1. Publisher and Custodian\n\n- **Current publisher:** U.S. Department of Agriculture (USDA), **National Agricultural Statistics Service (NASS)**, headquartered at 1400 Independence Ave., SW, Washington, DC. NASS is one of the government's 13 designated **principal federal statistical agencies**, with a mission to provide \"timely, accurate, and useful statistics in service to U.S. agriculture\" (NASS \"Fact Finders of U.S. Agriculture\").\n- **Former publisher:** The **U.S. Department of Commerce, Bureau of the Census** conducted the agriculture census for 156 years (1840\u20131996), before responsibility was transferred to NASS via the 1997 Appropriations Act. Interestingly, after the transfer, the Census Bureau continued for a time to assist with questionnaire design, mailing, and processing under an interagency arrangement.\n- **Agency context:** NASS is funded separately within USDA; the Census of Agriculture is its own budget line (~$46.9 million of NASS's FY25 $187.9 million budget per the American Statistical Association's \"Nation's Data at Risk\" report).\n\n## 2. Legal Authority and Mandate\n\n- **Primary statute:** The **Census of Agriculture Act of 1997** (Public Law 105-113, codified at **7 U.S.C. \u00a7 2204g**), which directs the **Secretary of Agriculture** to conduct a census of agriculture every fifth year. The 2022 census was the 30th federal agriculture census and the sixth conducted by NASS.\n- **Geographic mandate:** Every state plus Puerto Rico, Guam, the U.S. Virgin Islands, the Commonwealth of the Northern Mariana Islands, and American Samoa (territories use modified farm definitions).\n- **Underlying authority for NASS statistics generally:** the Agricultural Marketing Act of 1946 (7 U.S.C. 1621\u20131627).\n- **Response is mandatory** \u2014 unlike most voluntary federal surveys, farmers and ranchers are required by law (Title 7) to respond.\n- **Confidentiality statutes:**\n  - 7 U.S.C. \u00a7 2276 / Section 1770 of the Food Security Act of 1985, as amended \u2014 requires strict confidentiality of non-aggregated data.\n  - The Confidential Information Protection and Statistical Efficiency Act (**CIPSEA**) of 2018 (Title III of Pub. L. 115-435) \u2014 data may be used for statistical purposes only, never regulatory, enforcement, or investigative purposes.\n- **Administrative oversight:** Information collection is cleared through the Paperwork Reduction Act of 1995 and OMB review (e.g., the 2026 Federal Register notice seeking reinstatement of the census information collection ahead of the 2027 census).\n\n## 3. History\n\n- **1791:** President George Washington personally surveyed farmers on land values, crop acreages, yields, livestock prices, and taxes \u2014 the first informal agricultural statistics effort.\n- **1839:** Congress appropriated $1,000 for \"carrying out agricultural investigations, and procuring agricultural statistics.\"\n- **1840:** First agriculture census, conducted as part of the sixth decennial population census (rooted constitutionally in the Art. I, \u00a7 2 census framework; Madison had urged broader economic use of the census as early as 1810).\n- **1850\u20131920:** Agriculture census remained part of the decennial census; the farm definition (sales/value threshold) dates to 1850 and has changed nine times since.\n- **1915/1925:** Congress authorized 5-year collection; mid-decade censuses in 1925, 1935, and 1945.\n- **1954\u20131974:** Censuses taken for years ending in 4 and 9.\n- **1976:** Public Law 94-229 shortened the interval to align agriculture censuses with the other economic censuses, establishing the current **years ending in 2 and 7** cycle.\n- **1997:** Public Law 105-113 transferred the census from the Census Bureau (Commerce) to NASS (USDA).\n- **2022:** Most recent census, released February 13, 2024. **2027:** Next scheduled census; NASS has already begun information-collection renewal proceedings.\n\n## 4. Scope, Coverage, and Content\n\n- **Universe:** Any place producing and selling (or normally selling) **$1,000+** of agricultural products in the census year \u2014 the definition used since the 1974 census, consistent with NASS's ongoing surveys. This includes very small, urban, and hobby operations.\n- **Geographic granularity:** National, state, and **county or county-equivalent** level (3,000+ counties); ZIP-code-level files exist for some census years (e.g., 2007, 2017 bulk files).\n- **Volume:** The 2022 census contains **over six million data points** across dozens of publications.\n- **Topics:** land use and ownership; producer (operator) demographics including age, sex, race/ethnicity, and (since 2017) a \"producer\" rather than \"operator\" framework counting up to four decision-makers per farm; production practices (irrigation, fertilizer, organic, conservation practices, renewable energy, internet access); income and expenditures; hired labor; machinery and buildings; uncommon/specialty crops and livestock; government payments; crop insurance.\n\n## 5. Methodology and Data Quality\n\n- **Frame:** A Census Mail List (CML) built from prior censuses, NASS surveys, USDA program lists (FSA, CRP), and outside sources.\n- **Collection:** Mail-out/mail-back and (increasingly) online response \u2014 over 40% of 2022 responses came in online.\n- **Adjustments:** Capture-recapture methodology (including the National Agricultural Classification Survey) is used to adjust for undercoverage, nonresponse, and misclassification; imputation (donor-based, by farm type/size/location) fills missing cells.\n- **Disclosure protection:** Comprehensive disclosure review before publication. **Cell suppression (\"(D)\" flag)** is applied under a threshold rule (fewer than three operations in a cell) and a dominance rule (one or few operations dominate a cell total). Complementary suppressions protect primary ones. Farm *counts* are never suppressed.\n- **Response-rate trend (a key quality concern):** 74.6% (2012) \u2192 71.8% (2017) \u2192 **61.0% (2022)**, using AAPOR's RR4 definition. The 2022 drop triggered significant debate about coverage and whether the reported ~7% decline in farm counts partly reflects methodology rather than real change.\n- **Comparability caveats:** Dollar figures are in current (non-inflation-adjusted) dollars; data before and after 1974 are not fully comparable due to the farm-definition change; 2022 demographic data are not fully comparable to 2017 due to terminology and definition changes. These caveats are documented in Appendix B of each census.\n\n## 6. Data Access (for librarians and data scientists)\n\n- **Quick Stats database** (https://quickstats.nass.usda.gov/): the master searchable database of all NASS data, including census data back to **1997**, queryable by commodity, geography, and time.\n- **Quick Stats API** (https://quickstats.nass.usda.gov/api): REST API, free API key required; filter by sector, commodity, state/county, aggregate level, year (with `__GE`/`__LE` operators); returns JSON, XML, or CSV; **50,000 records per request** max.\n- **Bulk downloads** (https://www.nass.usda.gov/datasets/): compressed .gz flat files, e.g., `qs.census2022.txt.gz` (~295 MB), `qs.census2017.txt.gz` (~132 MB), plus zip-code files for 2007/2017. These are ideal for preservation and offline analysis.\n- **Full Report PDFs:** Volume 1 (national/state/county tables) plus appendices (Appendix A: methodology; Appendix B: definitions and report-form facsimiles) for each census year.\n- **Ag Census Web Maps:** interactive county-level mapping application across five categories (crops, economics, farms, livestock, producers) with Excel downloads.\n- **Archives:** NASS maintains archived census reports (2002 and earlier) at nass.usda.gov/AgCensus/archive; the Census Bureau retains historical agriculture census records back to 1840; annual \"Agricultural Statistics\" yearbooks are archived via the National Agricultural Library (esmis.nal.usda.gov).\n- **Restricted microdata:** Individual-level (protected) data are accessible only via **special tabulations** and the **Standard Application Process (SAP)** into a secure Federal Statistical Research Data Center enclave under the \"Five Safes\" framework; researchers pay enclave costs, not data costs.\n\n## 7. Typical Users and Public Benefit\n\nPer NASS's own documentation, users include:\n\n- **Farmers and ranchers** \u2014 benchmarking their operations, production and marketing decisions (\"their voice, their future, and their opportunity\").\n- **Legislators and policymakers** \u2014 shaping farm policy and programs; the census is the benchmark used to evaluate agricultural trends and design farm, rural, conservation, and food policy.\n- **Federal program administration** \u2014 allocation formulas for extension service projects, agricultural research funding, soil conservation programs, and land-grant colleges and universities; FSA and Risk Management Agency rely on NASS statistics.\n- **Companies and cooperatives** \u2014 siting decisions for facilities serving producers (elevators, processing plants, input suppliers).\n- **Community planners** \u2014 targeting services to rural residents.\n- **Researchers, educators, and students** \u2014 the only source of uniform, comprehensive agricultural data at the county level for *every* county, including for uncommon crops/livestock absent from annual surveys.\n- **Ag media and trade associations** \u2014 benchmark statistics for coverage and advocacy.\n- **Emergency and market uses** \u2014 planning for drought, disease outbreaks, and pest infestations; analyzing the state of food, fuel, and fiber production; NASS data generally underpin commodity markets and price discovery (\"level the playing field\" for producers).\n\n## 8. Key 2022 Census Findings (headlines)\n\nThe 2022 census counted approximately 1.9 million U.S. farms (down roughly 7% from 2017) farming about 880 million acres (down ~2%), with total production value up sharply (on the order of 40%, to roughly $543 billion) \u2014 reflecting consolidation (more large farms, fewer small/mid-size operations), an aging producer population (average age around 58), growth in female and beginning-farmer representation under the multi-producer reporting framework, and internet access approaching ubiquity on farms. (These widely reported headline figures are consistent with NASS's February 13, 2024 release; exact figures should be pulled from the Volume 1 tables before citation in formal work.)\n\n## 9. Preservation, Risk, and Current-Events Notes (for preservationists and activists)\n\nThis is the most dynamic area of concern right now:\n\n- **Severe institutional stress at NASS (2024\u20132025):** Per the American Statistical Association's *Nation's Data at Risk* assessment, NASS **lost an estimated 41% of its staff between FY24 and FY25** (probationary terminations and early departures), with acting leadership in most divisions, and rated NASS's resources as **WEAK**. Its budget has lost an estimated 14.5% of purchasing power since FY09.\n- **Program cancellations:** NASS canceled the July Cattle report and County Estimates for crops and livestock in 2024 (July cattle and monthly county estimates were later restored under congressional pressure), and in August 2025 discontinued the Mink and Agricultural Labor surveys. State and regional reports were eliminated. These cuts reduce the intercensal context that makes census benchmarking valuable.\n- **2027 census risk:** The ASA has explicitly warned that with the 2027 Census of Agriculture approaching, NASS needs sufficient resources to prepare and execute it; declining response rates (61% in 2022, and record lows on related surveys like the March planting-intentions report) threaten data quality.\n- **IT modernization:** NASS has documented outdated IT systems it lacks resources to update, with the risk that users migrate to proprietary agricultural data providers \u2014 disadvantaging less-resourced farmers.\n- **Preservation implications:** Census bulk files (.gz) and PDF reports are stable, but the decline of state/regional reporting and any future access-policy changes make independent archiving (e.g., Internet Archive/data-rescue efforts) and use of the bulk download snapshots advisable for libraries.\n\n## 10. Practical Notes by Audience\n\n- **Data librarian:** Catalog by census year (2022, 2017, 2012, 2007, 2002, 1997...); note the publisher change in 1997 (pre-1997 material is Census Bureau/Commerce); link both the Quick Stats database and the static PDF volumes; keep comparability caveats (farm definition pre/post 1974; demographics pre/post 2017; current-dollar values) in collection documentation.\n- **Data scientist:** Use the API for targeted queries and the .gz bulk files for reproducible pipelines; respect the 50k-record API limit; handle \"(D)\" suppression codes (and \"(Z)\" for zero) in aggregation code; use `CV_pct` fields where available; use FIPS/ANSI codes for joins; for microdata-level questions, budget time and enclave fees for the SAP process.\n- **Policy activist:** The census is the evidentiary backbone for farm-program funding formulas, beginning-farmer and minority-producer policy (NASS runs special outreach for minority producer coverage), rural development, and conservation-program design; the 2022 farm-count decline is itself a policy debate about farm consolidation and data methodology.\n- **Preservationist:** Highest-value durable artifacts are the Quick Stats .gz snapshots, full-report PDFs with appendices, and the archived pre-2002 volumes; the risk environment around NASS staffing and IT makes scheduled independent snapshots prudent.\n\n### Key sources\n- NASS Ag Census main page & FAQ (nass.usda.gov/AgCensus)\n- 2022 Census Volume 1, Ch. 1 Introduction & Appendix A (methodology, history, legal authority, suppression rules, response rates)\n- NASS Datasets page (bulk downloads), Quick Stats API docs\n- Census Bureau historical page on the agriculture census\n- ASA \"The Nation's Data at Risk 2025\" \u2014 NASS profile (budget/staffing); ASA response to USDA Data RFI (2027 census risk)\n- NASS newsroom notices (April 2024 and August 2025 program discontinuations; Feb. 13, 2024 data release)\n- Federal Register notice (91 FR 1501) on 2027 census information collection\n- Farm Bureau analysis of declining survey response rates; AEI report on USDA statistical agencies"
+    },
+    {
+      "role": "user",
+      "content": "# Dataset risk assessment\nI would like your help in assessing the likelihood that this data will be changed or removed from its primary location, and that users will no longer be able to access accurate and reliable copies of it, based on the rubric below.\n\n## Sources for context\nTo help assess the rubric categories, perform additional research on the data, the agency, the data's topics and typical users, covering topics such as proposed regulatory or funding changes, recent news, and political commentary. Use whatever resources you find useful, including the Federal Register (https://www.federalregister.gov) and the federal staffing tracker at https://usajobs-tracker.abigailhaddad.com.\n\n## Rubric\nThis rubric is divided up into categories. Each category is divided up into risk levels. In your output, please select the appropriate risk level for each category based on your research.\n\n### Historical Data Availability\n- Gone: Data files prior to the current year or cycle are no longer publicly available.\n- High Risk: Some data files prior to the current year or cycle are removed.\n- Moderate Risk: Some data elements that exist in the dataset prior to the current year or cycle are removed.\n- No Known Issue: Data prior to the current year or cycle remain accessible with no known alterations.\n\n### Future Data Availability\n- Gone: Data collection and publication has been terminated.\n- High Risk: Statutory publication deadline missed and/or collection or publication skipped and/or ICR expired for more than one year.\n- Moderate Risk: Typical or intended publication date missed and/or collection or publication delayed; ICR expired up to one year.\n- No Known Issue: Data published on time or as expected and ICR active or renewed before expiration.\n\n### Data Quality\n- Gone: Data collection and publication has been terminated.\n- High Risk: Reductions in granularity, timeliness, or frequency.\n- Moderate Risk: Potential or emerging risk to granularity, timeliness, or frequency.\n- No Known Issue: Maintained or improved granularity, timeliness, or frequency.\n\n### Statutory Context\n- Gone: N/A\n- High Risk: Statutory authorization is vague and/or there are alternative data collections that could serve as substitutes and/or no known programmatic use.\n- Moderate Risk: Not explicitly required by statute but required for the implementation of a state or federal program, and there are no alternative data collections that could serve as substitutes.\n- No Known Issue: Statutorily required and/or statutory authorization is explicitly named and it is clear what has to be collected, and there aren't alternative data collections that could serve as substitutes and/or required for implementation of a federal program.\n\n### Staffing and Funding\n- Gone: All of the staff in the division or agency are gone and/or all funding has been terminated.\n- High Risk: 40% or more of staff lost, and/or 1,000 or more staff lost, and/or budget cut by 20% or more, and/or leadership removed.\n- Moderate Risk: 10\u201339% of staff lost, and/or 500\u2013999 staff lost, and/or budget cut by 10\u201319%, and/or threatened change in leadership.\n- No Known Issue: Less than 10% of staff lost and less than 10% of budget cut and no known change in leadership.\n\n### Policy\n- Gone: Data collection and publication has been terminated.\n- High Risk: Presidential Action-driven information collection request (ICR); negative policy note on site; other significant changes in accordance with Administration priorities.\n- Moderate Risk: Proposed or pending changes; statements by administration officials suggesting a change is being considered or planned.\n- No Known Issue: No notable changes since January 2025 affecting what data is collected and published.\n\nFor each category, concisely list the evidence and supporting sources that would support each risk level. Then indicate which risk level you find most appropriate and why.\n\nConclude with a simple summary of risk levels:\nHistorical Data Availability: <level>\nFuture Data Availability: <level>\nData Quality: <level>\nStatutory Context: <level>\nStaffing and Funding: <level>\nPolicy: <level>"
+    },
+    {
+      "role": "assistant",
+      "content": "I'll do targeted research on current risks to NASS and the Census of Agriculture, including the ICR status, budget, staffing, and policy developments.The ICR and budget picture is now clear. Let me research policy developments, data removals, and the staffing tracker.One more round to check the staffing tracker and any historical data access issues.# Risk Assessment: U.S. Census of Agriculture (USDA NASS)\n\nBased on my prior research plus additional investigation of the Federal Register, OMB ICR records, USDA budget documents, and recent news, here is the assessment.\n\n---\n\n## Historical Data Availability\n\n**Evidence:**\n- *No Known Issue evidence:* All historical census products remain publicly accessible: the 2022 Census full report and appendices, Quick Stats bulk files for every census since 1997 (`qs.census2022.txt.gz`, 2017, 2012, 2007, 2002), the NASS Ag Census archive of reports from 2002 and earlier, and the Cornell Mann Library historical archive of census publications back to 1840. (nass.usda.gov/AgCensus, nass.usda.gov/datasets, agcensus.mannlib.cornell.edu)\n- *Contextual risk evidence (not census-specific):* NASS eliminated state and regional statistical reports and discontinued the Agricultural Labor Survey and Mink Survey in August 2025; for the discontinued Farm Labor Survey, USDA said only that it \"will work to make FLS legacy data available as much as possible\" (90 FR 42560). The Federation of American Scientists' Data Termination Tracker (28 terminated products as of July 2026) lists NASS survey terminations but not the Census of Agriculture. Data.gov deletions since January 2025 have disproportionately hit DOE, NOAA, Interior, NASA, and EPA \u2014 not USDA NASS census products.\n\n**Assessment: No Known Issue.** Every prior cycle of the census remains online in multiple formats with no known alterations or removals. The terminations of adjacent NASS products are worth monitoring but do not affect census historical files.\n\n---\n\n## Future Data Availability\n\n**Evidence:**\n- *High Risk evidence:* The census ICR (OMB 0535-0226) expired September 30, 2024 and was not reinstated until OMB approved it with change on **September 16, 2026** (91 FR 1501, 1/14/2026; 91 FR 31996, 5/29/2026) \u2014 a lapse of nearly two years, which literally exceeds the rubric's \"ICR expired for more than one year\" trigger.\n- *Countervailing evidence:* The lapse mirrors NASS's routine practice for a quinquennial collection between cycles (the 2022 census ICR was likewise approved in mid-2021 after the prior approval lapsed), and no census data was due for collection during the gap. The 2027 census is actively proceeding on schedule: a content-request notice was published July 19, 2024; the FY27 budget includes +$2.5M specifically for finalizing the 2027 Census Mail List (NACS screening to ~1 million operations) and the Agricultural Coverage Evaluation Survey; the 2026 NACS is already in the field; the reinstated ICR is **Active** with expiration 9/30/2029. No statutory deadline has been missed and no collection or publication has been skipped.\n- *Risk evidence:* ASA has warned NASS lacks resources to execute the 2027 census; census program FTEs dropped from 230 (FY25) to 100 (FY26).\n\n**Assessment: Moderate Risk.** Although the ICR technically lapsed for more than a year, this followed the agency's established inter-cycle pattern, and the reinstatement was approved well before the 2027 collection window \u2014 the census is currently on its intended schedule. But severe staffing losses, record-low response rates, and a pending USDA \"modernization plan\" create genuine, documented risk that the 2027 collection or its publication could be delayed or degraded.\n\n---\n\n## Data Quality\n\n**Evidence:**\n- *High Risk evidence:* Agency-wide granularity and frequency have been reduced since 2024: state and regional reports eliminated; July Cattle report and county estimates canceled in April 2024 (restored March 2025 under congressional pressure); Mink and Agricultural Labor Surveys discontinued August 2025. Survey response rates are at historic lows (2026 Prospective Plantings at 38%; census response fell 74.6% \u2192 71.8% \u2192 61.0% over the last three cycles). A major revision controversy over 2025 corn acreage estimates prompted a USDA data review.\n- *Moderate Risk evidence:* The census itself has not been reduced in scope or frequency \u2014 the 2027 ICR covers the same national/state/county geography, all states and territories, and adds content (beginning-farmer, military-service, and farm-economics statistics; SOGI/disability pilot questions). NASS is implementing a census outreach plan to reverse the response decline. But quality risks are clearly emerging: response-rate trajectory, a 41%+ staff loss, only 100 census-program FTEs, and widespread reliance on acting leaders.\n\n**Assessment: Moderate Risk.** The census product itself has maintained its granularity and frequency, and the 2027 cycle is planned at full scope. However, the surrounding NASS infrastructure that supports census coverage (county estimates, classification surveys, field staff) has been cut, and response-rate and staffing trends pose a documented emerging threat to 2027 data quality.\n\n---\n\n## Statutory Context\n\n**Evidence:**\n- The census is explicitly required by the **Census of Agriculture Act of 1997** (Pub. L. 105-113, 7 U.S.C. 2204g), mandating a census every five years, with response mandatory under law. The statute clearly specifies what must be collected and when.\n- NASS's own ICR abstract states the census is \"the only source of consistent, comparable agricultural data at the county, state, and national levels\" and provides \"key demographic data on farm operators not available from any other source.\"\n- It is required for implementation of federal programs (farm policy design, extension and research funding allocation, conservation and rural programs). Note that when USDA discontinued other collections (e.g., the Farm Labor Survey), it justified them by pointing to substitutes \u2014 no such substitute argument has ever been made for the census; private ag-data firms are proprietary and not comprehensive.\n\n**Assessment: No Known Issue.** This is the dataset's strongest protection: explicit statutory mandate, clear collection requirements, mandatory response, extensive programmatic use, and no viable substitute data collection.\n\n---\n\n## Staffing and Funding\n\n**Evidence:**\n- *Staffing:* NASS lost an estimated **41% of its FY24 staff** (ASA), confirmed by USDA's own budget documents (754 \u2192 489-495 staff; Agri-Pulse reports 839 FTE in FY23 \u2192 389 in FY26, a 54% decline, with 300+ departures since January 2025 per OPM data). The USAJobs tracker corroborates deep cuts in USDA postings but was archived December 31, 2025 and no longer updates.\n- *Leadership:* As of November 2025, the associate administrator is acting; three of six units in the administrator's office have acting directors (two have no one in charge); four of seven divisions are headed by acting directors. A Senate-confirmed administrator (Joseph Parsons) is in place, but leadership coverage is thin.\n- *Funding:* Budget roughly flat \u2014 FY25 $187.85M \u2192 FY26 $185M (\u22121.5%) \u2192 FY27 request $187.5M (+1.1%); census line: $46.85M (FY25) \u2192 $46M (FY26) \u2192 $48.5M requested (FY27). Not a 10% cut, but a cumulative estimated 14.5% purchasing-power loss since FY09.\n- *Positive:* FY27 request increases census funding, and Congress directed restoration of canceled reports in FY25 appropriations.\n\n**Assessment: High Risk.** The 40%+ staff-loss threshold is unambiguously met by multiple independent measures, and leadership is being run on an acting basis across most units. Budget is flat rather than cut, and census funding is modestly increasing, but the staffing and leadership criteria alone place this category at High Risk.\n\n---\n\n## Policy\n\n**Evidence:**\n- *High Risk evidence:* NASS's own budget documents state it \"has reorganized its internal operations and functions to align with the administration's priorities,\" and relocations are underway under the April 23, 2026 USDA REE reorganization (positions moving to St. Louis and consolidation of 12 regional offices into 5 hubs). Adjacent collections were terminated with justifications citing alignment with \"the interests and support requirements of farmers and ranchers and the Administration\" (Farm Labor Report elimination).\n- *Moderate Risk evidence:* USDA announced (July 15, 2026) a pending NASS \"modernization plan\" \u2014 a review of reports, data systems, survey response rates, ~2,000 contractors, and ~500 reporting platforms, with an intent to streamline reporting infrastructure. Deputy Secretary Vaden suggested relying on \"thousands more terabytes of data\" rather than rehiring staff \u2014 statements suggesting significant changes to collection methodology are being considered.\n- *Countervailing evidence:* The census itself shows no negative policy note: the ICR is a routine PRA-driven reinstatement, not a presidential-action-driven collection; the 2027 census is proceeding with *added* content (SOGI/disability pilots, beginning-farmer and veteran statistics); Secretary Rollins has publicly committed to restoring confidence in USDA data and making it \"the gold standard,\" calling it a priority. Congress has actively defended NASS reports.\n\n**Assessment: Moderate Risk.** The Census of Agriculture itself has not been targeted; it is statutorily protected, funded, and proceeding with expanded content. However, administration-driven restructuring (relocations, hub consolidation, workforce reductions) and announced-but-pending changes to NASS's collection and reporting systems constitute proposed changes by administration officials that could affect how the 2027 census is executed.\n\n---\n\n## Summary of Risk Levels\n\n**Historical Data Availability: No Known Issue**\n**Future Data Availability: Moderate Risk**\n**Data Quality: Moderate Risk**\n**Statutory Context: No Known Issue**\n**Staffing and Funding: High Risk**\n**Policy: Moderate Risk**\n\n**Overall assessment:** The Census of Agriculture is one of the better-protected federal datasets \u2014 an explicitly statutory, mandatory, irreplaceable quinquennial collection with a spotless historical-access record and a fully planned, funded, and ICR-cleared 2027 cycle. Its principal vulnerability is institutional: NASS has lost roughly 40\u201350% of its staff and most of its permanent leadership, intercensal supporting programs have been cut, and survey response rates are at historic lows \u2014 conditions that create genuine but not yet realized risk to the quality and timeliness of the 2027 census rather than to the dataset's existence or its historical availability. The main judgment call was Future Data Availability: the ICR's ~2-year lapse technically satisfies the rubric's High Risk trigger, but it followed the agency's normal inter-cycle reinstatement pattern and was resolved before any collection was due, so Moderate Risk better reflects the actual threat.\n\n### Key sources\n- OMB/Reginfo ICR record 202605-0535-002 (2027 Census of Agriculture; approved 9/16/2026, active through 9/30/2029)\n- Federal Register 91 FR 1501 (1/14/2026) and 91 FR 31996 (5/29/2026); 89 FR 58821 (7/19/2024 content request)\n- USDA FY2026 and FY2027 Explanatory Notes, Chapter 19 (NASS) \u2014 staffing (754\u2192489), FTEs, census budget line\n- ASA \"The Nation's Data at Risk\" NASS profile and 2026 Midyear Update \u2014 41% staff loss, acting leadership, restoration of canceled reports\n- NASS Newsroom notices (4/9/2024; 8/28/2025) and 90 FR 42560 \u2014 survey discontinuations\n- Agri-Pulse (7/2026) and DTN (7/15/2026) \u2014 NASS modernization plan, response rates, staffing figures\n- USDA press release (4/23/2026) \u2014 REE reorganization and NASS relocations\n- AEI, \"The Looming Data Imperative to Inform Agricultural Policy\" \u2014 NASS 40% staff / 12% budget losses in FY25\n- FAS Data Termination Tracker; Cornell Mann Library Ag Census archive; NASS datasets/archive pages"
+    },
+    {
+      "role": "user",
+      "content": "Emit a session_metadata YAML block reporting: current date, model identifier, knowledge cutoff, surface, whether memory is enabled, whether custom preferences or styles are active, all tools and MCP servers available, which tools were actually called in this session, and whether attachments were present. Mark any field not directly observable as unknown rather than inferring it."
+    },
+    {
+      "role": "assistant",
+      "content": "```yaml\nsession_metadata:\n  current_date: unknown  # not directly observable; no datetime tool available. Search results in this session reference events dated as late as September 2026 (e.g., OMB ICR approval 9/16/2026, CRS report 9/10/2026), suggesting the session occurred on or after that date, but this is inference, not observation.\n  model_identifier: unknown  # not stated in the system prompt or any in-session artifact.\n  knowledge_cutoff: unknown  # not directly observable in this session.\n  surface: unknown  # no interface information is provided in the system prompt; appears to be an API-style environment with tool access, but this is not explicitly stated.\n  memory_enabled: unknown  # no memory or persistent-context mechanism is observable in this session.\n  custom_preferences_or_styles_active: false  # no user preferences or style settings were provided; only task-specific instructions were given within each message.\n\n  tools_available:\n    - name: openrouter_web_search\n      description: Web search returning ranked excerpts\n    - name: openrouter_web_fetch\n      description: Fetch full content of a web page or PDF at a given URL\n  mcp_servers: none  # no MCP servers are configured or referenced in the available function set.\n\n  tools_called_in_this_session:\n    openrouter_web_search:\n      called: true\n      calls_in_turn_1: 7  # inferred from the \"[Sources from this turn]\" block; individual call contents were not rendered in the transcript\n      calls_in_turn_2: 5  # inferred from the \"[Sources from this turn]\" block\n      notes: >-\n        Turn 1 queries covered history, legal authority, data users/benefits,\n        methodology/confidentiality, data access tools/API, and 2022 key findings.\n        Turn 2 queries covered budget/appropriations, Federal Register/ICR\n        reinstatement notices, 2027 census quality concerns, USDA reorganization\n        and discontinued reports, and historical data availability.\n    openrouter_web_fetch:\n      called: true\n      calls_in_turn_1: 1\n        # https://www.nass.usda.gov/Newsroom/2024/02-13-2024.php\n      calls_in_turn_2: 1\n        # https://usajobs-tracker.abigailhaddad.com\n      notes: Full response bodies for both fetches were rendered in the transcript; the turn-2 report also referenced additional fetched content (2022 key findings), suggesting at least one further fetch in turn 1 whose output was summarized rather than rendered.\n\n  attachments_present: false  # all three user messages consisted solely of text; no files, images, or other attachments were included.\n```\n\nNotes on uncertainty: the per-turn tool call counts for `openrouter_web_search` are reconstructed from the source-attribution blocks rather than directly rendered call records, and the current date, model identifier, knowledge cutoff, surface, and memory status are not observable from anything in this session, so they are marked unknown per your instruction."
+    }
+  ]
+}

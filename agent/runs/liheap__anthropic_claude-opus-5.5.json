@@ -1,0 +1,1144 @@
+{
+  "dataset": {
+    "key": "liheap",
+    "title": "Low Income Home Energy Assistance Program (LIHEAP)"
+  },
+  "model": "anthropic/claude-opus-5.5",
+  "harness": "openrouter tools",
+  "context": "full: each turn's whole output is carried into the next",
+  "search_tool": {
+    "engine": "native",
+    "excluded_domains": [
+      "dataindex.us"
+    ]
+  },
+  "fetch_tool": {
+    "engine": "openrouter",
+    "blocked_domains": [
+      "dataindex.us"
+    ],
+    "max_content_tokens": 10000
+  },
+  "reasoning": "effort medium",
+  "catalog": {
+    "fetched_at": "2026-10-09T00:14:33Z",
+    "entry": {
+      "id": "anthropic/claude-opus-5.5",
+      "canonical_slug": "anthropic/claude-opus-5.5-20260921",
+      "hugging_face_id": null,
+      "name": "Anthropic: Claude Opus 5.5",
+      "created": 1790094732,
+      "description": "Claude Opus 5.5 is Anthropic's flagship model for demanding reasoning, coding, and long-horizon agentic work, succeeding Claude Opus 5. It is particularly strong at multi-step changes in large codebases, code...",
+      "context_length": 1000000,
+      "architecture": {
+        "modality": "text+image+file->text",
+        "input_modalities": [
+          "text",
+          "image",
+          "file"
+        ],
+        "output_modalities": [
+          "text"
+        ],
+        "tokenizer": "Claude",
+        "instruct_type": null
+      },
+      "pricing": {
+        "prompt": "0.000004",
+        "completion": "0.00002",
+        "web_search": "0.01",
+        "input_cache_read": "0.0000002",
+        "input_cache_write": "0.000005",
+        "input_cache_write_1h": "0.000008"
+      },
+      "top_provider": {
+        "context_length": 1000000,
+        "max_completion_tokens": 128000,
+        "is_moderated": true
+      },
+      "per_request_limits": null,
+      "supported_parameters": [
+        "include_reasoning",
+        "max_completion_tokens",
+        "max_tokens",
+        "reasoning",
+        "reasoning_effort",
+        "response_format",
+        "stop",
+        "structured_outputs",
+        "tool_choice",
+        "tools",
+        "verbosity"
+      ],
+      "default_parameters": {},
+      "supported_voices": null,
+      "knowledge_cutoff": null,
+      "expiration_date": null,
+      "links": {
+        "details": "/api/v1/models/anthropic/claude-opus-5.5-20260921/endpoints"
+      },
+      "benchmarks": {
+        "design_arena": [
+          {
+            "arena": "agents",
+            "category": "mobileapps",
+            "elo": 1328,
+            "win_rate": 64.3,
+            "rank": 2
+          },
+          {
+            "arena": "models",
+            "category": "3d",
+            "elo": 1487,
+            "win_rate": 72.3,
+            "rank": 1
+          },
+          {
+            "arena": "models",
+            "category": "codecategories",
+            "elo": 1407,
+            "win_rate": 65.3,
+            "rank": 1
+          },
+          {
+            "arena": "models",
+            "category": "dataviz",
+            "elo": 1403,
+            "win_rate": 64.6,
+            "rank": 1
+          },
+          {
+            "arena": "models",
+            "category": "gamedev",
+            "elo": 1464,
+            "win_rate": 72.5,
+            "rank": 1
+          },
+          {
+            "arena": "models",
+            "category": "svg",
+            "elo": 1332,
+            "win_rate": 50.5,
+            "rank": 1
+          },
+          {
+            "arena": "models",
+            "category": "uicomponent",
+            "elo": 1396,
+            "win_rate": 65.5,
+            "rank": 1
+          },
+          {
+            "arena": "models",
+            "category": "website",
+            "elo": 1340,
+            "win_rate": 57.6,
+            "rank": 3
+          }
+        ],
+        "artificial_analysis": {
+          "intelligence_index": 57.6,
+          "coding_index": null,
+          "agentic_index": null
+        }
+      },
+      "reasoning": {
+        "mandatory": true,
+        "supported_efforts": [
+          "max",
+          "xhigh",
+          "high",
+          "medium",
+          "low"
+        ],
+        "default_effort": "high"
+      }
+    }
+  },
+  "upstream": [
+    "anthropic"
+  ],
+  "trial": 0,
+  "terminate_reason": "completed",
+  "max_tokens": 32768,
+  "started_at": "2026-10-09T00:14:32Z",
+  "prompts": {
+    "research": "#data research\nI am researching a federal dataset. Find out everything you can about this dataset, such as who publishes it, under what authority or mandate, its history, its typical users, and its benefits to the public. Be sure your research comprehensively covers each of those perspectives, as well as any others that you discover or seem useful. I believe this is accurate information, but please check:\n\nDataset title: Low Income Home Energy Assistance Program (LIHEAP)\nDescription: The Low Income Home Energy Assistance Program (LIHEAP), managed by the Administration for Children and Families (ACF), helps keep families safe and healthy through initiatives that assist families with energy costs. The LIHEAP compiles national- and state-level program data reported by grant recipients and tracks information on the funding, usage, and effectiveness of federal block grants that help low-income households cover home heating and cooling costs. It provides comprehensive statistics on home energy assistance, household demographics, and the performance measures of grant recipients.\n\nReturn a complete report on everything that a preservationist, data librarian, data scientist, or policy activist might want to know about this data.",
+    "assessment": "# Dataset risk assessment\nI would like your help in assessing the likelihood that this data will be changed or removed from its primary location, and that users will no longer be able to access accurate and reliable copies of it, based on the rubric below.\n\n## Sources for context\nTo help assess the rubric categories, perform additional research on the data, the agency, the data's topics and typical users, covering topics such as proposed regulatory or funding changes, recent news, and political commentary. Use whatever resources you find useful, including the Federal Register (https://www.federalregister.gov) and the federal staffing tracker at https://usajobs-tracker.abigailhaddad.com.\n\n## Rubric\nThis rubric is divided up into categories. Each category is divided up into risk levels. In your output, please select the appropriate risk level for each category based on your research.\n\n### Historical Data Availability\n- Gone: Data files prior to the current year or cycle are no longer publicly available.\n- High Risk: Some data files prior to the current year or cycle are removed.\n- Moderate Risk: Some data elements that exist in the dataset prior to the current year or cycle are removed.\n- No Known Issue: Data prior to the current year or cycle remain accessible with no known alterations.\n\n### Future Data Availability\n- Gone: Data collection and publication has been terminated.\n- High Risk: Statutory publication deadline missed and/or collection or publication skipped and/or ICR expired for more than one year.\n- Moderate Risk: Typical or intended publication date missed and/or collection or publication delayed; ICR expired up to one year.\n- No Known Issue: Data published on time or as expected and ICR active or renewed before expiration.\n\n### Data Quality\n- Gone: Data collection and publication has been terminated.\n- High Risk: Reductions in granularity, timeliness, or frequency.\n- Moderate Risk: Potential or emerging risk to granularity, timeliness, or frequency.\n- No Known Issue: Maintained or improved granularity, timeliness, or frequency.\n\n### Statutory Context\n- Gone: N/A\n- High Risk: Statutory authorization is vague and/or there are alternative data collections that could serve as substitutes and/or no known programmatic use.\n- Moderate Risk: Not explicitly required by statute but required for the implementation of a state or federal program, and there are no alternative data collections that could serve as substitutes.\n- No Known Issue: Statutorily required and/or statutory authorization is explicitly named and it is clear what has to be collected, and there aren't alternative data collections that could serve as substitutes and/or required for implementation of a federal program.\n\n### Staffing and Funding\n- Gone: All of the staff in the division or agency are gone and/or all funding has been terminated.\n- High Risk: 40% or more of staff lost, and/or 1,000 or more staff lost, and/or budget cut by 20% or more, and/or leadership removed.\n- Moderate Risk: 10\u201339% of staff lost, and/or 500\u2013999 staff lost, and/or budget cut by 10\u201319%, and/or threatened change in leadership.\n- No Known Issue: Less than 10% of staff lost and less than 10% of budget cut and no known change in leadership.\n\n### Policy\n- Gone: Data collection and publication has been terminated.\n- High Risk: Presidential Action-driven information collection request (ICR); negative policy note on site; other significant changes in accordance with Administration priorities.\n- Moderate Risk: Proposed or pending changes; statements by administration officials suggesting a change is being considered or planned.\n- No Known Issue: No notable changes since January 2025 affecting what data is collected and published.\n\nFor each category, concisely list the evidence and supporting sources that would support each risk level. Then indicate which risk level you find most appropriate and why.\n\nConclude with a simple summary of risk levels:\nHistorical Data Availability: <level>\nFuture Data Availability: <level>\nData Quality: <level>\nStatutory Context: <level>\nStaffing and Funding: <level>\nPolicy: <level>",
+    "session_metadata": "Emit a session_metadata YAML block reporting: current date, model identifier, knowledge cutoff, surface, whether memory is enabled, whether custom preferences or styles are active, all tools and MCP servers available, which tools were actually called in this session, and whether attachments were present. Mark any field not directly observable as unknown rather than inferring it."
+  },
+  "turns": {
+    "research": {
+      "request": {
+        "model": "anthropic/claude-opus-5.5",
+        "max_output_tokens": 32768,
+        "tools": [
+          {
+            "type": "openrouter:web_search",
+            "parameters": {
+              "engine": "native",
+              "excluded_domains": [
+                "dataindex.us"
+              ]
+            }
+          },
+          {
+            "type": "openrouter:web_fetch",
+            "parameters": {
+              "engine": "openrouter",
+              "blocked_domains": [
+                "dataindex.us"
+              ],
+              "max_content_tokens": 10000
+            }
+          }
+        ],
+        "cache_control": {
+          "type": "ephemeral",
+          "ttl": "1h"
+        },
+        "session_id": "liheap-anthropic/claude-opus-5.5-t0-2026-10-09T00:14:32Z",
+        "stop_server_tools_when": [
+          {
+            "type": "step_count_is",
+            "step_count": 200
+          }
+        ],
+        "reasoning": {
+          "effort": "medium"
+        },
+        "provider": {
+          "order": [
+            "anthropic"
+          ],
+          "allow_fallbacks": false
+        }
+      },
+      "response_meta": {
+        "id": "gen-1791504873-H0E4tvFrBREnEBeLQVrO",
+        "object": "response",
+        "created_at": 1791504873,
+        "model": "anthropic/claude-opus-5.5",
+        "status": "completed",
+        "completed_at": 1791504982,
+        "error": null,
+        "incomplete_details": null,
+        "tools": [],
+        "tool_choice": "auto",
+        "parallel_tool_calls": true,
+        "max_output_tokens": 32768,
+        "temperature": 1,
+        "top_p": 1,
+        "presence_penalty": 0,
+        "frequency_penalty": 0,
+        "top_logprobs": 0,
+        "max_tool_calls": null,
+        "metadata": {},
+        "background": false,
+        "previous_response_id": null,
+        "service_tier": "auto",
+        "truncation": "disabled",
+        "store": false,
+        "instructions": null,
+        "text": {
+          "format": {
+            "type": "text"
+          }
+        },
+        "reasoning": {
+          "effort": "medium"
+        },
+        "safety_identifier": null,
+        "prompt_cache_key": null,
+        "prompt_cache_options": null,
+        "usage": {
+          "input_tokens": 194441,
+          "input_tokens_details": {
+            "cached_tokens": 143443,
+            "cache_write_tokens": 50982
+          },
+          "output_tokens": 8637,
+          "output_tokens_details": {
+            "reasoning_tokens": 2555
+          },
+          "total_tokens": 203078,
+          "cost": 0.6793486,
+          "cost_details": {
+            "upstream_inference_cost": 0.6093486,
+            "upstream_inference_input_cost": 0.4366086,
+            "upstream_inference_output_cost": 0.17274
+          },
+          "server_tool_use_details": {
+            "web_search_requests": 11,
+            "tool_calls_requested": 12,
+            "tool_calls_executed": 12
+          }
+        }
+      },
+      "requests": [
+        {
+          "input_tokens": 194441,
+          "input_tokens_details": {
+            "cached_tokens": 143443,
+            "cache_write_tokens": 50982
+          },
+          "output_tokens": 8637,
+          "output_tokens_details": {
+            "reasoning_tokens": 2555
+          },
+          "total_tokens": 203078,
+          "cost": 0.6793486,
+          "cost_details": {
+            "upstream_inference_cost": 0.6093486,
+            "upstream_inference_input_cost": 0.4366086,
+            "upstream_inference_output_cost": 0.17274
+          },
+          "server_tool_use_details": {
+            "web_search_requests": 11,
+            "tool_calls_requested": 12,
+            "tool_calls_executed": 12
+          }
+        }
+      ],
+      "searches": 11,
+      "fetches": 1,
+      "tool_items": [
+        {
+          "type": "openrouter:web_search",
+          "id": "st_tmp_tew5vg3h4qo",
+          "status": "completed",
+          "action": {
+            "type": "search",
+            "query": "LIHEAP Data Warehouse Performance Management website liheappm.acf.gov",
+            "sources": [
+              {
+                "type": "url",
+                "url": "https://liheappm.acf.gov/datawarehouse"
+              },
+              {
+                "type": "url",
+                "url": "https://liheappm.acf.gov/"
+              },
+              {
+                "type": "url",
+                "url": "https://liheappm.acf.gov/data-warehouse-help"
+              },
+              {
+                "type": "url",
+                "url": "https://liheappm.acf.gov/navigator.php"
+              },
+              {
+                "type": "url",
+                "url": "https://liheappm.acf.gov/help"
+              }
+            ]
+          }
+        },
+        {
+          "type": "openrouter:web_search",
+          "id": "st_tmp_gtv7773bnga",
+          "status": "completed",
+          "action": {
+            "type": "search",
+            "query": "LIHEAP staff laid off HHS reduction in force 2025 data reports",
+            "sources": [
+              {
+                "type": "url",
+                "url": "https://www.nytimes.com/2025/04/02/climate/trump-layoffs-energy-assistance-liheap.html"
+              },
+              {
+                "type": "url",
+                "url": "https://thehill.com/policy/energy-environment/5228186-hhs-fires-entire-staff-of-program-that-helps-low-income-people-afford-heat-and-air-conditioning/"
+              },
+              {
+                "type": "url",
+                "url": "https://hernandez.house.gov/sites/evo-subsites/hernandez.house.gov/files/evo-media-document/quill-letter-l25733-fy26-liheap-staffing-bill-language.pdf"
+              },
+              {
+                "type": "url",
+                "url": "https://www.kcur.org/news/2025-04-14/liheap-federal-layoffs-utility-assistance-funding"
+              },
+              {
+                "type": "url",
+                "url": "https://www.seattletimes.com/nation-world/entire-staff-fired-at-office-that-helps-poor-americans-pay-for-heating/"
+              }
+            ]
+          }
+        },
+        {
+          "type": "openrouter:web_search",
+          "id": "st_tmp_gluc8wfjm9w",
+          "status": "completed",
+          "action": {
+            "type": "search",
+            "query": "LIHEAP FY2026 funding released states shutdown budget proposal eliminate appropriations January 2026",
+            "sources": [
+              {
+                "type": "url",
+                "url": "https://stage.liheapch.acf.gov/news/dec_25/first-funding-release-fy2026"
+              },
+              {
+                "type": "url",
+                "url": "https://acf.gov/sites/default/files/documents/ocs/LIHEAP-FY26-States-Reallotment-Table.pdf"
+              },
+              {
+                "type": "url",
+                "url": "https://liheapch.acf.gov/Funding/funding.htm"
+              },
+              {
+                "type": "url",
+                "url": "https://www.congress.gov/crs-product/R48970"
+              },
+              {
+                "type": "url",
+                "url": "https://apnews.com/article/government-shutdown-heating-assistance-liheap-winter-7bcec80a167bd01f442d6dabe1149b71"
+              }
+            ]
+          }
+        },
+        {
+          "type": "openrouter:web_search",
+          "id": "st_tmp_y1kjtubbvq",
+          "status": "completed",
+          "action": {
+            "type": "search",
+            "query": "catalog.data.gov \"Low Income Home Energy Assistance Program (LIHEAP)\" dataset ACF",
+            "sources": [
+              {
+                "type": "url",
+                "url": "https://catalog.data.gov/?q=income+eligibility"
+              },
+              {
+                "type": "url",
+                "url": "https://www.reginfo.gov/public/do/PRAViewICR?ref_nbr=202502-0970-009"
+              },
+              {
+                "type": "url",
+                "url": "https://acf.gov/sites/default/files/documents/ocs/ATT.3.COMM_LIHEAP_AT2025_HHR_LongFormInstr_FY26.pdf"
+              },
+              {
+                "type": "url",
+                "url": "https://acf.gov/sites/default/files/documents/ocs/ATT.4.COMM_LIHEAP_AT2025_HHR_ShortFormInstr_FY26.pdf"
+              },
+              {
+                "type": "url",
+                "url": "https://acf.gov/sites/default/files/documents/ocs/ATT.3.COMM_LIHEAP_AT2025_HHR_LongFormInstr_FY25.pdf"
+              }
+            ]
+          }
+        },
+        {
+          "type": "openrouter:web_search",
+          "id": "st_tmp_csunfwn8u64",
+          "status": "completed",
+          "action": {
+            "type": "search",
+            "query": "LIHEAP 2026 staff rehired OR FY2027 budget proposal LIHEAP elimination NEADA",
+            "sources": [
+              {
+                "type": "url",
+                "url": "https://neada.org/press/liheap-under-threat/"
+              },
+              {
+                "type": "url",
+                "url": "https://neada.org/wp-content/uploads/2026/04/PresidentBudget2027Response.pdf"
+              },
+              {
+                "type": "url",
+                "url": "https://www.whitehouse.gov/wp-content/uploads/2026/04/budget_fy2027.pdf"
+              },
+              {
+                "type": "url",
+                "url": "https://neada.org/wp-content/uploads/2026/07/housetestimonyFY27.pdf"
+              },
+              {
+                "type": "url",
+                "url": "https://neada.org/wp-content/uploads/2025/04/LIHEAPReleaseofFundsApr2025.pdf"
+              }
+            ]
+          }
+        },
+        {
+          "type": "openrouter:web_search",
+          "id": "st_tmp_okggpe8wz7",
+          "status": "completed",
+          "action": {
+            "type": "search",
+            "query": "LIHEAP Report to Congress fiscal year 2022 OR 2023 households served average benefit",
+            "sources": [
+              {
+                "type": "url",
+                "url": "https://acf.gov/sites/default/files/documents/ocs/RPT_LIHEAP_RTC01BodyTTAProjects_FY2022-compliant.pdf"
+              },
+              {
+                "type": "url",
+                "url": "https://acf.gov/sites/default/files/documents/ocs/RPT_LIHEAP_RTC07TblAvgBenefitsFNs_FY2022-compliant.pdf"
+              },
+              {
+                "type": "url",
+                "url": "https://www.acf.hhs.gov/ocs/resource/liheap-reports-to-congress"
+              },
+              {
+                "type": "url",
+                "url": "https://www.liheappm.acf.gov/reports_to_congress/"
+              },
+              {
+                "type": "url",
+                "url": "https://acf.gov/sites/default/files/documents/ocs/RPT_LIHEAP_RTC03TblEnergyPgms_FY2022-compliant.pdf"
+              }
+            ]
+          }
+        },
+        {
+          "type": "openrouter:web_fetch",
+          "id": "st_tmp_tovsf2a1yq",
+          "status": "completed",
+          "url": "https://acf.gov/ocs/resource/liheap-reports-to-congress",
+          "content": "<!DOCTYPE html>\n<html lang=\"en\">\n<head>\n    <meta charset=\"utf-8\">\n    <meta name=\"viewport\" content=\"width=device-width, initial-scale=1\">\n    <title></title>\n    <style>\n        body {\n            font-family: \"Arial\";\n        }\n    </style>\n    <script type=\"text/javascript\">\n    window.awsWafCookieDomainList = [];\n    window.gokuProps = {\n\"key\":\"AQIDAHjcYu/GjX+QlghicBgQ/7bFaQZ+m5FKCMDnO+vTbNg96AH2sDcNZIbyseuIXV1scx69AAAAfjB8BgkqhkiG9w0BBwagbzBtAgEAMGgGCSqGSIb3DQEHATAeBglghkgBZQMEAS4wEQQMsitKfjMWWwUJsgrUAgEQgDsffbjH5ZVd93DBUS5/r53VfcfjvMpyCNq+6WICnN/5KJ/9vBRy4TuEh9BblOnoDlBbyPf9HcsqgmTw4g==\",\n          \"iv\":\"CgAEyjIi6QAAD6dA\",\n          \"context\":\"+LEFvrYDBKlrzkcJ3/WcFM1CiAm/uV1vzXcBXZI14yG69107jlJIy6RDdRKuIctyuJzKLEz1Hhm09DdsdleaO41DOID+WqCJcdKoxiW6UpP/pbDpwhw7RIyj8TYtGNd4+4Ul5a5rF2H4kqQRFGv/KmKkRkeDP7iRR9EtmUk9+giiutYIe6lK1sdsM98tqlLp7IiCR0axE5MhQfOcZdPT2lCwJWtDpIKa/8QNGMlzVZNaXAHU1KZT3wHYLPqUlJl68Nu2EKJQBS8tVkLWN4PSt6Ju08SpdBk6rLkIpRzA/iVn2wlA7mFLw/348ZyjoocFRdxO9XQ08+wYY23i5SsleuOwPvslcSpza6/caHXRT7BP1NstFwrEtdr96x3KuDOqhXHST3/oaEHIQDJ6snuGQTPtpBPDk9h/CCmx4tYQgqbyClJti/DrEt/Hra5acxxhXFA7ZtwmigmZDvNCbKXJWR1QAQuuFpYY1pa60kca+urDtGht3O+ZpOyNOxGUWnsIia9i9pOIOWa8cqven5yvBaPfRqRQfIhszrEbYFl4WEbzdKKpFNEaN7mD7r1/0+0mSyelExpnFtdfaHAUbQCk3IQ0LkDhodGZhpGG7Yf0oGeGxHeEYxeZTFxUq0rHYRa6qT5y62aldLk5+dvVHGwQAH2oFnUAqwpDzaEXddChryF7xne9M0mrsCfUEcB1gyi56+sz6Sk0t8ErQa73K4EmPG+22UCAfyrHGKs4ZbYVpt4opJjYt1/hmSqrshJrRRLoZIZbFir8jiwT4/8aIy9vVfVLYHfiN7KxSEsthD4cQiEbN1gjprr5cnczsfv5iXuzTXptKEYuPETM5jR0FXa6\"\n};\n    </script>\n    <script src=\"https://87f72f0370aa.a73a3ed2.us-east-1.token.awswaf.com/87f72f0370aa/e89fd9b9c25c/2b28378d6273/challenge.js\"></script>\n</head>\n<body>\n    <div id=\"challenge-container\"></div>\n    <script type=\"text/javascript\">\n        AwsWafIntegration.saveReferrer();\n        AwsWafIntegration.checkForceRefresh().then((forceRefresh) => {\n            if (forceRefresh) {\n                AwsWafIntegration.forceRefreshToken().then(() => {\n                    window.location.reload(true);\n                });\n            } else {\n                AwsWafIntegration.getToken().then(() => {\n                    window.location.reload(true);\n                });\n            }\n        });\n    </script>\n    <noscript>\n        <h1>JavaScript is disabled</h1>\n        In order to continue, we need to verify that you're not a robot.\n        This requires JavaScript. Enable JavaScript and then reload the page.\n    </noscript>\n</body>\n</html>",
+          "httpStatus": 202
+        },
+        {
+          "type": "openrouter:web_search",
+          "id": "st_tmp_4q7snfnd12v",
+          "status": "completed",
+          "action": {
+            "type": "search",
+            "query": "data.gov Low Income Home Energy Assistance Program LIHEAP Administration for Children and Families \"compiles national- and state-level\"",
+            "sources": [
+              {
+                "type": "url",
+                "url": "https://www.urbanemissions.info/wp-content/uploads/delhi19902022/SIM-41-2021-Data-Resources-for-Energy-Emissions-Analysis.pdf"
+              },
+              {
+                "type": "url",
+                "url": "https://www.childtrends.org/wp-content/uploads/2020/07/Rural-health-iniquities_ChildTrends_July2020.pdf"
+              },
+              {
+                "type": "url",
+                "url": "https://www.dhs.wisconsin.gov/publications/p03169.pdf"
+              },
+              {
+                "type": "url",
+                "url": "https://www.sellersdorsey.com/insights/sellers-dorsey-digest/issue-277/"
+              },
+              {
+                "type": "url",
+                "url": "https://www.childtrends.org/publications/health-care-access-for-infants-and-toddlers-in-rural-areas"
+              }
+            ]
+          }
+        },
+        {
+          "type": "openrouter:web_search",
+          "id": "st_tmp_0nn8okjh5mre",
+          "status": "completed",
+          "action": {
+            "type": "search",
+            "query": "LIHEAP FY 2026 funding formula change eight states did not receive IIJA funding",
+            "sources": [
+              {
+                "type": "url",
+                "url": "https://acf.gov/ocs/programs/liheap/funding-releases/final-block-grant-funding-release-ffy-2026"
+              },
+              {
+                "type": "url",
+                "url": "https://acf.gov/ocs/programs/liheap/funding-releases/first-block-grant-funding-release-2026"
+              },
+              {
+                "type": "url",
+                "url": "https://acf.gov/sites/default/files/documents/ocs/LIHEAP-FY26-States-Reallotment-Table.pdf"
+              },
+              {
+                "type": "url",
+                "url": "https://www.govinfo.gov/content/pkg/FR-2026-03-31/html/2026-06130.htm"
+              },
+              {
+                "type": "url",
+                "url": "https://acf.gov/ocs/programs/liheap/funding-releases/liheap-fy26-reallotment-release"
+              }
+            ]
+          }
+        },
+        {
+          "type": "openrouter:web_search",
+          "id": "st_tmp_hg3hd9korts",
+          "status": "completed",
+          "action": {
+            "type": "search",
+            "query": "LIHEAP performance measures energy burden targeting index restoration of home energy service prevented loss Performance Data Form",
+            "sources": [
+              {
+                "type": "url",
+                "url": "https://liheappm.acf.gov/sites/default/files/private/grantee_tools/requirements/LIHEAP_Performance_Data_Form-PM_Section_Calculations.pdf"
+              },
+              {
+                "type": "url",
+                "url": "https://www.acf.hhs.gov/ocs/policy-guidance/liheap-performance-data-form-federal-fiscal-year-2025-fy25"
+              },
+              {
+                "type": "url",
+                "url": "https://liheappm.acf.gov/sites/default/files/private/grantee_tools/requirements/FY2025_Performance_Measures.pdf"
+              },
+              {
+                "type": "url",
+                "url": "https://acf.gov/sites/default/files/documents/ocs/ADMIN_LIHEAP_LPDFInstructions_FY2024.pdf"
+              },
+              {
+                "type": "url",
+                "url": "https://liheappm.acf.gov/what-are-pm/"
+              }
+            ]
+          }
+        },
+        {
+          "type": "openrouter:web_search",
+          "id": "st_tmp_4x05zlmxd5",
+          "status": "completed",
+          "action": {
+            "type": "search",
+            "query": "\"LIHEAP Report to Congress\" \"FY 2023\" OR \"Fiscal Year 2023\" acf.gov",
+            "sources": [
+              {
+                "type": "url",
+                "url": "https://acf.gov/ocs/report/liheap-reports-congress"
+              },
+              {
+                "type": "url",
+                "url": "https://liheappm.acf.gov/reports_to_congress"
+              },
+              {
+                "type": "url",
+                "url": "https://acf.gov/sites/default/files/documents/ocs/COMM_LIHEAP_AT2024-01_PerformanceDataFormInstructions_FY23_1.pdf"
+              },
+              {
+                "type": "url",
+                "url": "https://www.liheappm.acf.gov/sites/default/files/private/webinars/2023/FY%202023%20Household%20Report%20Long%20Form%20-%20What's%20New.pdf"
+              },
+              {
+                "type": "url",
+                "url": "https://www.federalregister.gov/documents/2022/07/01/2022-14057/proposed-information-collection-activity-annual-report-on-households-assisted-by-the-low-income-home"
+              }
+            ]
+          }
+        },
+        {
+          "type": "openrouter:web_search",
+          "id": "st_tmp_yka6vnqtze",
+          "status": "completed",
+          "action": {
+            "type": "search",
+            "query": "LIHEAP Clearinghouse NCAT history contract Home Energy Notebook Residential Energy Consumption Survey LIHEAP data"
+          }
+        }
+      ],
+      "ended": "answered",
+      "seconds": 109.7
+    },
+    "assessment": {
+      "request": {
+        "model": "anthropic/claude-opus-5.5",
+        "max_output_tokens": 32768,
+        "tools": [
+          {
+            "type": "openrouter:web_search",
+            "parameters": {
+              "engine": "native",
+              "excluded_domains": [
+                "dataindex.us"
+              ]
+            }
+          },
+          {
+            "type": "openrouter:web_fetch",
+            "parameters": {
+              "engine": "openrouter",
+              "blocked_domains": [
+                "dataindex.us"
+              ],
+              "max_content_tokens": 10000
+            }
+          }
+        ],
+        "cache_control": {
+          "type": "ephemeral",
+          "ttl": "1h"
+        },
+        "session_id": "liheap-anthropic/claude-opus-5.5-t0-2026-10-09T00:14:32Z",
+        "stop_server_tools_when": [
+          {
+            "type": "step_count_is",
+            "step_count": 200
+          }
+        ],
+        "reasoning": {
+          "effort": "medium"
+        },
+        "provider": {
+          "order": [
+            "anthropic"
+          ],
+          "allow_fallbacks": false
+        }
+      },
+      "response_meta": {
+        "id": "gen-1791504982-apKjVprPZDDzhwn8ZzAH",
+        "object": "response",
+        "created_at": 1791504982,
+        "model": "anthropic/claude-opus-5.5",
+        "status": "completed",
+        "completed_at": 1791505046,
+        "error": null,
+        "incomplete_details": null,
+        "tools": [],
+        "tool_choice": "auto",
+        "parallel_tool_calls": true,
+        "max_output_tokens": 32768,
+        "temperature": 1,
+        "top_p": 1,
+        "presence_penalty": 0,
+        "frequency_penalty": 0,
+        "top_logprobs": 0,
+        "max_tool_calls": null,
+        "metadata": {},
+        "background": false,
+        "previous_response_id": null,
+        "service_tier": "auto",
+        "truncation": "disabled",
+        "store": false,
+        "instructions": null,
+        "text": {
+          "format": {
+            "type": "text"
+          }
+        },
+        "reasoning": {
+          "effort": "medium"
+        },
+        "safety_identifier": null,
+        "prompt_cache_key": null,
+        "prompt_cache_options": null,
+        "usage": {
+          "input_tokens": 218487,
+          "input_tokens_details": {
+            "cached_tokens": 147111,
+            "cache_write_tokens": 71364
+          },
+          "output_tokens": 5138,
+          "output_tokens_details": {
+            "reasoning_tokens": 1836
+          },
+          "total_tokens": 223625,
+          "cost": 0.7451422000000001,
+          "cost_details": {
+            "upstream_inference_cost": 0.7031421999999999,
+            "upstream_inference_input_cost": 0.6003822,
+            "upstream_inference_output_cost": 0.10275999999999999
+          },
+          "server_tool_use_details": {
+            "web_search_requests": 6,
+            "tool_calls_requested": 9,
+            "tool_calls_executed": 9
+          }
+        }
+      },
+      "requests": [
+        {
+          "input_tokens": 218487,
+          "input_tokens_details": {
+            "cached_tokens": 147111,
+            "cache_write_tokens": 71364
+          },
+          "output_tokens": 5138,
+          "output_tokens_details": {
+            "reasoning_tokens": 1836
+          },
+          "total_tokens": 223625,
+          "cost": 0.7451422000000001,
+          "cost_details": {
+            "upstream_inference_cost": 0.7031421999999999,
+            "upstream_inference_input_cost": 0.6003822,
+            "upstream_inference_output_cost": 0.10275999999999999
+          },
+          "server_tool_use_details": {
+            "web_search_requests": 6,
+            "tool_calls_requested": 9,
+            "tool_calls_executed": 9
+          }
+        }
+      ],
+      "searches": 6,
+      "fetches": 3,
+      "tool_items": [
+        {
+          "type": "openrouter:web_search",
+          "id": "st_tmp_p9a7lfwojq8",
+          "status": "completed",
+          "action": {
+            "type": "search",
+            "query": "Federal Register 2025 LIHEAP Household Report information collection 0970-0060 sex gender executive order",
+            "sources": [
+              {
+                "type": "url",
+                "url": "https://acf.gov/sites/default/files/documents/ocs/COMM_LIHEAP_AT-HHR_AT_FY25_Rev.09.09.2025.pdf"
+              },
+              {
+                "type": "url",
+                "url": "https://acf.gov/ocs/policy-guidance/liheap-household-report-long-form-and-short-form-federal-fiscal-year-ffy-2025"
+              },
+              {
+                "type": "url",
+                "url": "https://www.liheappm.acf.gov/sites/default/files/private/webinars/2025/FY2025_Household_Report_Long_Form_Webinar%20(508%20Compliant).pdf"
+              },
+              {
+                "type": "url",
+                "url": "https://acf.gov/sites/default/files/documents/ocs/ATT.3.COMM_LIHEAP_AT2025_HHR_LongFormInstr_FY25.pdf"
+              },
+              {
+                "type": "url",
+                "url": "https://www.reginfo.gov/public/do/PRAViewICR?ref_nbr=202502-0970-009"
+              }
+            ]
+          }
+        },
+        {
+          "type": "openrouter:web_search",
+          "id": "st_tmp_b9xmro1ep6",
+          "status": "completed",
+          "action": {
+            "type": "search",
+            "query": "LIHEAP Report to Congress FY2023 released",
+            "sources": [
+              {
+                "type": "url",
+                "url": "https://www.liheappm.acf.gov/reports_to_congress/"
+              },
+              {
+                "type": "url",
+                "url": "https://www.acf.hhs.gov/ocs/resource/liheap-reports-to-congress"
+              },
+              {
+                "type": "url",
+                "url": "https://ocsannualreport.acf.hhs.gov/annual-report-fy23/liheap-fact-sheet"
+              },
+              {
+                "type": "url",
+                "url": "https://liheappm.acf.gov/whats-new"
+              },
+              {
+                "type": "url",
+                "url": "https://acf.gov/sites/default/files/documents/ocs/TTA_LIHEAP_FY%202023%20LIHEAP%20Funding%20and%20Reporting_040423.pdf"
+              }
+            ]
+          }
+        },
+        {
+          "type": "openrouter:web_fetch",
+          "id": "st_tmp_wb11lgpc5h",
+          "status": "completed",
+          "url": "https://usajobs-tracker.abigailhaddad.com",
+          "content": "<!DOCTYPE html>\n<html lang=\"en\">\n<head>\n    <meta charset=\"UTF-8\">\n    <meta name=\"viewport\" content=\"width=device-width, initial-scale=1.0\">\n    <title>USAJobs Listings Tracker</title>\n    \n    <!-- DataTables CSS -->\n    <link rel=\"stylesheet\" href=\"https://cdn.datatables.net/1.13.6/css/dataTables.bootstrap5.min.css\">\n    <link rel=\"stylesheet\" href=\"https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css\">\n    <link rel=\"stylesheet\" href=\"https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.0/font/bootstrap-icons.css\">\n    \n    <style>\n        body {\n            font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;\n            background-color: #f8f9fa;\n            color: #333;\n        }\n        \n        .container {\n            max-width: 1400px;\n            margin: 0 auto;\n            padding: 20px;\n        }\n        \n        h1 {\n            color: #003366;\n            font-weight: 600;\n            margin-bottom: 10px;\n        }\n        \n        .subtitle {\n            color: #999;\n            font-size: 0.9rem;\n            margin-bottom: 20px;\n        }\n        \n        .summary-stats {\n            background: white;\n            padding: 20px;\n            border-radius: 8px;\n            box-shadow: 0 2px 4px rgba(0,0,0,0.1);\n            margin-bottom: 30px;\n        }\n        \n        .stat-box {\n            text-align: center;\n            padding: 15px;\n            border-right: 1px solid #e9ecef;\n        }\n        \n        .stat-box:last-child {\n            border-right: none;\n        }\n        \n        .stat-value {\n            font-size: 2rem;\n            font-weight: 600;\n            color: #003366;\n        }\n        \n        .stat-label {\n            color: #666;\n            font-size: 0.85rem;\n            text-transform: uppercase;\n            line-height: 1.3;\n        }\n        \n        .table-container {\n            background: white;\n            padding: 25px;\n            border-radius: 8px;\n            box-shadow: 0 2px 4px rgba(0,0,0,0.1);\n        }\n        \n        .dataTables_wrapper .dataTables_filter input {\n            border: 1px solid #ddd;\n            border-radius: 4px;\n            padding: 5px 10px;\n            margin-left: 10px;\n        }\n        \n        .dataTables_wrapper .dataTables_length select {\n            border: 1px solid #ddd;\n            border-radius: 4px;\n            padding: 5px;\n        }\n        \n        table.dataTable {\n            border-collapse: collapse !important;\n        }\n        \n        table.dataTable thead th {\n            background-color: #003366;\n            color: white;\n            font-weight: 600;\n            border-bottom: none !important;\n            white-space: nowrap;\n            position: relative;\n            cursor: pointer;\n        }\n        \n        table.dataTable thead th.filtering {\n            background-color: #00508f;\n        }\n        \n        table.dataTable tbody tr:hover {\n            background-color: #f0f8ff;\n        }\n        \n        table.dataTable tbody td {\n            padding: 12px;\n            vertical-align: middle;\n        }\n        \n        .percentage-cell {\n            font-weight: 600;\n        }\n        \n        .high-percentage {\n            color: #388e3c;  /* Green - good (maintained/increased listings) */\n        }\n        \n        .medium-percentage {\n            color: #f57c00;  /* Orange - moderate (some decline) */\n        }\n        \n        .low-percentage {\n            color: #d32f2f;  /* Red - bad (major decline) */\n        }\n        \n        .expiring-soon {\n            background-color: #fff3cd;\n        }\n        \n        .no-year {\n            background-color: #e8f4f8;\n        }\n        \n        /* Column filter styles */\n        .column-filter-container {\n            position: absolute;\n            background: white;\n            border: 1px solid #ddd;\n            border-radius: 4px;\n            box-shadow: 0 4px 6px rgba(0,0,0,0.1);\n            padding: 10px;\n            z-index: 1000;\n            min-width: 200px;\n            max-height: 300px;\n            overflow-y: auto;\n        }\n        \n        .column-filter-container input[type=\"text\"] {\n            width: 100%;\n            padding: 5px;\n            margin-bottom: 10px;\n            border: 1px solid #ddd;\n            border-radius: 3px;\n        }\n        \n        .column-filter-container label {\n            display: block;\n            padding: 3px 0;\n            cursor: pointer;\n        }\n        \n        .column-filter-container label:hover {\n            background-color: #f0f0f0;\n        }\n        \n        .column-filter-container input[type=\"checkbox\"] {\n            margin-right: 8px;\n        }\n        \n        .filter-buttons {\n            margin-top: 10px;\n            text-align: right;\n        }\n        \n        .filter-buttons button {\n            margin-left: 5px;\n            padding: 3px 10px;\n            border: 1px solid #ddd;\n            border-radius: 3px;\n            background: white;\n            cursor: pointer;\n            font-size: 0.85rem;\n        }\n        \n        .filter-buttons button.apply {\n            background: #003366;\n            color: white;\n        }\n        \n        .filter-buttons button:hover {\n            opacity: 0.8;\n        }\n        \n        th.has-filter::after {\n            content: \" \u25bc\";\n            font-size: 0.8em;\n            opacity: 0.5;\n        }\n        \n        /* Bubble chart styles */\n        .treemap-container {\n            background: white;\n            padding: 20px;\n            border-radius: 8px;\n            box-shadow: 0 2px 4px rgba(0,0,0,0.1);\n            margin-bottom: 30px;\n        }\n        \n        .treemap-title {\n            font-size: 1.2rem;\n            font-weight: 600;\n            color: #003366;\n            margin-bottom: 15px;\n        }\n        \n        #bubble-chart {\n            width: 100%;\n            height: 460px;\n            position: relative;\n        }\n        \n        .bubble {\n            cursor: pointer;\n            opacity: 0.8;\n            transition: all 0.3s;\n        }\n        \n        .bubble:hover {\n            opacity: 1;\n            stroke: #003366;\n            stroke-width: 3;\n        }\n        \n        .axis-label {\n            font-size: 14px;\n            font-weight: 600;\n            fill: #333;\n        }\n        \n        .grid line {\n            stroke: #e0e0e0;\n            stroke-opacity: 0.7;\n            shape-rendering: crispEdges;\n        }\n        \n        .grid path {\n            stroke-width: 0;\n        }\n        \n        .quadrant-label {\n            fill: #666;\n            font-size: 12px;\n            font-style: italic;\n            opacity: 0.7;\n        }\n        \n        /* Filter section styles */\n        .filter-section {\n            background: white;\n            padding: 20px;\n            border-radius: 8px;\n            box-shadow: 0 2px 4px rgba(0,0,0,0.1);\n            margin-bottom: 30px;\n        }\n        \n        .filter-section h3 {\n            color: #003366;\n            font-size: 1.3rem;\n            margin-bottom: 15px;\n        }\n        \n        .filter-controls label {\n            font-size: 0.85rem;\n            font-weight: 600;\n            color: #666;\n            margin-bottom: 5px;\n        }\n        \n        .active-filters {\n            margin-top: 15px;\n            min-height: 30px;\n        }\n        \n        .filter-badge {\n            display: inline-block;\n            background: #003366;\n            color: white;\n            padding: 5px 10px;\n            border-radius: 20px;\n            margin-right: 10px;\n            margin-bottom: 5px;\n            font-size: 0.85rem;\n        }\n        \n        .filter-badge .remove-filter {\n            margin-left: 8px;\n            cursor: pointer;\n            font-weight: bold;\n        }\n        \n        .filter-badge .remove-filter:hover {\n            color: #ff6b6b;\n        }\n        \n        /* Multi-select dropdown styles */\n        .filter-dropdown {\n            position: relative;\n        }\n        \n        .filter-dropdown-menu {\n            position: absolute;\n            top: 100%;\n            left: 0;\n            right: 0;\n            z-index: 1000;\n            background: white;\n            border: 1px solid #ddd;\n            border-radius: 4px;\n            box-shadow: 0 4px 6px rgba(0,0,0,0.1);\n            padding: 10px;\n            margin-top: 2px;\n        }\n        \n        .filter-dropdown-menu label {\n            cursor: pointer;\n        }\n        \n        .filter-dropdown-menu label:hover {\n            background-color: #f0f0f0;\n        }\n        \n        .filter-dropdown-menu .filter-search {\n            margin-bottom: 5px;\n        }\n        \n        .filter-dropdown-menu .filter-options label {\n            padding: 3px 8px;\n            margin: 0;\n            display: block;\n        }\n        \n        .filter-dropdown-menu input[type=\"checkbox\"] {\n            margin-right: 8px;\n        }\n        \n        /* Active filters display */\n        .active-filters-display {\n            color: #d32f2f;\n            font-size: 1.1rem;\n            font-weight: 600;\n            margin-bottom: 20px;\n            min-height: 1.5em;\n        }\n        \n        #downloadCSV:hover {\n            background-color: #00508f !important;\n            transform: translateY(-1px);\n            box-shadow: 0 2px 4px rgba(0,0,0,0.2);\n        }\n        \n        /* Skip link for keyboard navigation */\n        .skip-link {\n            position: absolute;\n            top: -40px;\n            left: 0;\n            background: #003366;\n            color: white;\n            padding: 8px;\n            text-decoration: none;\n            z-index: 9999;\n        }\n        \n        .skip-link:focus {\n            top: 0;\n        }\n        \n        /* Improved focus indicators */\n        a:focus,\n        button:focus,\n        input:focus,\n        select:focus,\n        textarea:focus {\n            outline: 3px solid #003366;\n            outline-offset: 2px;\n        }\n        \n        /* Screen reader only content */\n        .sr-only {\n            position: absolute;\n            width: 1px;\n            height: 1px;\n            padding: 0;\n            margin: -1px;\n            overflow: hidden;\n            clip: rect(0, 0, 0, 0);\n            white-space: nowrap;\n            border: 0;\n        }\n        \n    </style>\n</head>\n<body>\n    <!-- Skip to main content link for keyboard navigation -->\n    <a href=\"#main-content\" class=\"skip-link\">Skip to main content</a>\n    \n    <!-- Work in Progress Banner -->\n    <div class=\"alert alert-warning mb-0\" role=\"alert\">\n        <div class=\"container\">\n            <strong>\ud83d\udea7 Active Development:</strong> This is an experimental tool tracking federal job postings.\n            Data source: <a href=\"https://github.com/abigailhaddad/usajobs_historical\" target=\"_blank\" class=\"alert-link\">USAJobs Historical Data</a> | <a class='alert-link' href='/methodology'>Methodology</a>\n        </div>\n    </div>\n\n    <!-- Archive Notice Banner -->\n    <div class=\"alert alert-danger mb-0\" role=\"alert\" style=\"border-radius: 0;\">\n        <div class=\"container\">\n            <strong>\ud83d\udcc1 Archive Notice:</strong> This tracker will be archived on December 31, 2025. Data collection will stop on that date and no further updates will be made.\n        </div>\n    </div>\n\n    <div class=\"container\" id=\"main-content\">\n        <h1>USAJobs Listings Tracker</h1>\n        <p class=\"subtitle\" id=\"dateRangeSubtitle\">Loading date range...</p>\n        <div id=\"activeFiltersDisplay\" class=\"active-filters-display\"></div>\n        \n        <!-- ARIA live region for screen reader announcements -->\n        <div class=\"sr-only\" aria-live=\"polite\" aria-atomic=\"true\" id=\"ariaLiveRegion\"></div>\n        \n        <!-- Important Caveats -->\n        <div class=\"alert alert-info mt-3 mb-3\">\n            <small>\n                <strong>Important Notes:</strong>\n                <ul class=\"mb-0\" style=\"padding-left: 20px;\">\n                    <li>Job listings \u2260 actual hires. One listing may result in multiple hires, one hire, or no hires.</li>\n                    <li>Not all federal positions are posted on USAJobs.</li>\n                    <li>Job listings which include multiple occupation series are counted under the first series listed.</li>\n                    <li>Subagency view and raw job listings are only available after selecting a specific department.</li>\n                </ul>\n            </small>\n        </div>\n        \n        <!-- Data Source Attribution -->\n        <div class=\"text-center text-muted mb-4\">\n            <small>\n                Data source: <a href=\"https://github.com/abigailhaddad/usajobs_historical\" target=\"_blank\" class=\"text-decoration-none\">\n                    USAJobs Historical Data\n                </a>\n                <br>\n                <span id=\"lastUpdated\"></span>\n            </small>\n        </div>\n        \n        <div class=\"summary-stats\">\n            <div class=\"row\">\n                <div class=\"col-md-3 stat-box\">\n                    <div class=\"stat-value\" id=\"total2024\">Loading...</div>\n                    <div class=\"stat-label\" id=\"previousYearLabel\">Previous Year</div>\n                </div>\n                <div class=\"col-md-3 stat-box\">\n                    <div class=\"stat-value\" id=\"total2025\">Loading...</div>\n                    <div class=\"stat-label\" id=\"currentYearLabel\">Current Year</div>\n                </div>\n                <div class=\"col-md-3 stat-box\">\n                    <div class=\"stat-value\" id=\"overallPercentage\">Loading...</div>\n                    <div class=\"stat-label\" id=\"percentageLabel\">Year-over-Year %</div>\n                </div>\n                <div class=\"col-md-3 stat-box\">\n                    <div class=\"stat-value\" id=\"entityCount\">Loading...</div>\n                    <div class=\"stat-label\">Departments</div>\n                </div>\n            </div>\n        </div>\n        \n        <!-- Unified Filter Section -->\n        <div class=\"filter-section\">\n            <h3>Filters & Display Options</h3>\n            <div class=\"filter-controls\">\n                <div class=\"row mb-3\">\n                    <div class=\"col-md-3\">\n                        <label for=\"mainDepartmentFilter\">Department</label>\n                        <select class=\"form-control form-control-sm\" id=\"mainDepartmentFilter\">\n                            <option value=\"\">All Departments</option>\n                        </select>\n                    </div>\n                    <div class=\"col-md-3\">\n                        <label for=\"mainAgencyFilter\">Agency</label>\n                        <select class=\"form-control form-control-sm\" id=\"mainAgencyFilter\">\n                            <option value=\"\">All Agencies</option>\n                        </select>\n                    </div>\n                    <div class=\"col-md-3\">\n                        <label for=\"mainAppointmentFilter\">Appointment Type</label>\n                        <select class=\"form-control form-control-sm\" id=\"mainAppointmentFilter\">\n                            <option value=\"\">All Types</option>\n                        </select>\n                    </div>\n                    <div class=\"col-md-3\">\n                        <label for=\"mainOccupationFilter\">Occupation Series</label>\n                        <select class=\"form-control form-control-sm\" id=\"mainOccupationFilter\">\n                            <option value=\"\">All Occupations</option>\n                        </select>\n                    </div>\n                </div>\n                <div class=\"row mb-3\">\n                    <div class=\"col-md-3\">\n                        <label for=\"aggregationLevel\">View By</label>\n                        <select id=\"aggregationLevel\" class=\"form-control form-control-sm\">\n                            <option value=\"department\" selected>Department</option>\n                            <option value=\"agency\">Agency</option>\n                            <option value=\"subagency\" disabled>Subagency (select a department first)</option>\n                        </select>\n                    </div>\n                    <div class=\"col-md-3\">\n                        <label>&nbsp;</label>\n                        <div class=\"form-check\">\n                            <input class=\"form-check-input\" type=\"checkbox\" id=\"showRawJobs\" disabled>\n                            <label class=\"form-check-label\" for=\"showRawJobs\">\n                                Show Raw Jobs (select a department first)\n                            </label>\n                        </div>\n                    </div>\n                </div>\n            </div>\n        </div>\n        \n        <div class=\"treemap-container\">\n            <h2 class=\"treemap-title\" id=\"bubbleChartTitle\">USAJobs Counts by Department</h2>\n            <p style=\"margin-top: -10px; margin-bottom: 15px; color: #666; font-size: 0.9rem;\">Bubble size = 2024 count</p>\n            <div id=\"bubble-chart\"></div>\n        </div>\n        \n        <div class=\"table-container\">\n            <div class=\"d-flex justify-content-between align-items-center mb-3\">\n                <h3 class=\"m-0\" style=\"color: #003366; font-size: 1.3rem;\">Data Table</h3>\n                <button id=\"downloadCSV\" class=\"btn btn-sm\" style=\"background-color: #003366; color: white; border: none;\">\n                    <i class=\"bi bi-download\"></i> Download Current View as CSV\n                </button>\n            </div>\n            <table id=\"jobsTable\" class=\"table table-striped\">\n                <thead id=\"tableHead\">\n                    <tr id=\"tableHeaders\">\n                        <th>Department</th>\n                        <th>Agency</th>\n                        <th>2024 Listings</th>\n                        <th>2025 Listings</th>\n                        <th>Change</th>\n                        <th>2025 as % of 2024</th>\n                    </tr>\n                </thead>\n                <tbody id=\"tableBody\">\n                </tbody>\n            </table>\n        </div>\n    </div>\n    \n    <!-- jQuery -->\n    <script src=\"https://code.jquery.com/jquery-3.7.0.min.js\"></script>\n    <!-- Bootstrap JS -->\n    <script src=\"https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js\"></script>\n    <!-- DataTables JS -->\n    <script src=\"https://cdn.datatables.net/1.13.6/js/jquery.dataTables.min.js\"></script>\n    <script src=\"https://cdn.datatables.net/1.13.6/js/dataTables.bootstrap5.min.js\"></script>\n    <!-- D3.js for Treemap -->\n    <script src=\"https://d3js.org/d3.v7.min.js\"></script>\n    \n    <script src=\"jobs_app.js\"></script>\n</body>\n</html>",
+          "title": "USAJobs Listings Tracker",
+          "httpStatus": 200
+        },
+        {
+          "type": "openrouter:web_search",
+          "id": "st_tmp_4cbvc9u4jhl",
+          "status": "completed",
+          "action": {
+            "type": "search",
+            "query": "Federal Register proposed information collection LIHEAP Annual Report on Households Assisted 2025 OR 2026 renewal",
+            "sources": [
+              {
+                "type": "url",
+                "url": "https://thefederalregister.org/documents/2026-11834/submission-for-office-of-management-and-budget-review-annual-report-on-households-assisted-by-the-low-income-home-energy"
+              },
+              {
+                "type": "url",
+                "url": "https://omb.report/icr/202606-0970-007"
+              },
+              {
+                "type": "url",
+                "url": "https://www.govinfo.gov/content/pkg/FR-2026-04-09/pdf/2026-06809.pdf"
+              },
+              {
+                "type": "url",
+                "url": "https://www.reginfo.gov/public/do/PRAViewICR?ref_nbr=202502-0970-009"
+              },
+              {
+                "type": "url",
+                "url": "https://acf.gov/sites/default/files/documents/ocs/ATT.4.COMM_LIHEAP_AT2025_HHR_ShortFormInstr_FY26.pdf"
+              }
+            ]
+          }
+        },
+        {
+          "type": "openrouter:web_search",
+          "id": "st_tmp_auq6xm0skim",
+          "status": "completed",
+          "action": {
+            "type": "search",
+            "query": "LIHEAP Performance Data Form OMB 0970-0449 expiration",
+            "sources": [
+              {
+                "type": "url",
+                "url": "https://www.acf.hhs.gov/ocs/policy-guidance/liheap-performance-data-form-federal-fiscal-year-2025-fy25"
+              },
+              {
+                "type": "url",
+                "url": "https://acf.gov/ocs/policy-guidance/liheap-2025-02-liheap-performance-data-form-fiscal-year-fy-2024"
+              },
+              {
+                "type": "url",
+                "url": "https://www.govinfo.gov/content/pkg/FR-2025-04-29/html/2025-07375.htm"
+              },
+              {
+                "type": "url",
+                "url": "https://www.federalregister.gov/documents/2024/12/02/2024-28152/proposed-information-collection-activity-low-income-home-energy-assistance-program-liheap"
+              },
+              {
+                "type": "url",
+                "url": "https://acf.gov/sites/default/files/documents/ocs/ADMIN_LIHEAP_LPDFInstructions_FY2024.pdf"
+              }
+            ]
+          }
+        },
+        {
+          "type": "openrouter:web_search",
+          "id": "st_tmp_kx60oqtr27e",
+          "status": "completed",
+          "action": {
+            "type": "search",
+            "query": "LIHEAP federal staff 2026 Office of Community Services Division of Energy Assistance staffing rehired",
+            "sources": [
+              {
+                "type": "url",
+                "url": "https://www.sanders.senate.gov/wp-content/uploads/Letter-to-HHS-Secretary-Kennedy-re-LIHEAP-FINAL.pdf"
+              },
+              {
+                "type": "url",
+                "url": "https://www.theguardian.com/us-news/2025/apr/15/rfk-jr-energy-assistance-heat"
+              },
+              {
+                "type": "url",
+                "url": "https://pappas.house.gov/sites/evo-subsites/pappas.house.gov/files/evo-media-document/04.04.2025-letter-to-sec-kennedy-on-liheap-staff-firings_0.pdf"
+              },
+              {
+                "type": "url",
+                "url": "https://pappas.house.gov/media/press-releases/pappas-leads-bipartisan-house-effort-pushing-hhs-to-distribute-liheap-funds"
+              },
+              {
+                "type": "url",
+                "url": "https://taggs.hhs.gov/Detail/AwardDetail?arg_AwardNum=2601KYLIEA&arg_ProgOfficeCode=31"
+              }
+            ]
+          }
+        },
+        {
+          "type": "openrouter:web_fetch",
+          "id": "st_tmp_zt2bdrui1tc",
+          "status": "completed",
+          "url": "https://liheappm.acf.gov/whats-new",
+          "content": "<!DOCTYPE html>\n<html  lang=\"en\" dir=\"ltr\">\n  <head>\n    <meta charset=\"utf-8\" />\n<meta name=\"Generator\" content=\"Drupal 10 (https://www.drupal.org)\" />\n<meta name=\"MobileOptimized\" content=\"width\" />\n<meta name=\"HandheldFriendly\" content=\"true\" />\n<meta name=\"viewport\" content=\"width=device-width, initial-scale=1.0\" />\n<link rel=\"canonical\" href=\"https://liheappm.acf.gov/whats-new\" />\n<link rel=\"shortlink\" href=\"https://liheappm.acf.gov/node/3\" />\n\n    <title>What&#039;s New? | LIHEAP Performance Management</title>\n    <link rel=\"stylesheet\" media=\"all\" href=\"/core/modules/system/css/components/align.module.css?tmlnpp\" />\n<link rel=\"stylesheet\" media=\"all\" href=\"/core/modules/system/css/components/fieldgroup.module.css?tmlnpp\" />\n<link rel=\"stylesheet\" media=\"all\" href=\"/core/modules/system/css/components/container-inline.module.css?tmlnpp\" />\n<link rel=\"stylesheet\" media=\"all\" href=\"/core/modules/system/css/components/clearfix.module.css?tmlnpp\" />\n<link rel=\"stylesheet\" media=\"all\" href=\"/core/modules/system/css/components/details.module.css?tmlnpp\" />\n<link rel=\"stylesheet\" media=\"all\" href=\"/core/modules/system/css/components/hidden.module.css?tmlnpp\" />\n<link rel=\"stylesheet\" media=\"all\" href=\"/core/modules/system/css/components/item-list.module.css?tmlnpp\" />\n<link rel=\"stylesheet\" media=\"all\" href=\"/core/modules/system/css/components/js.module.css?tmlnpp\" />\n<link rel=\"stylesheet\" media=\"all\" href=\"/core/modules/system/css/components/nowrap.module.css?tmlnpp\" />\n<link rel=\"stylesheet\" media=\"all\" href=\"/core/modules/system/css/components/position-container.module.css?tmlnpp\" />\n<link rel=\"stylesheet\" media=\"all\" href=\"/core/modules/system/css/components/reset-appearance.module.css?tmlnpp\" />\n<link rel=\"stylesheet\" media=\"all\" href=\"/core/modules/system/css/components/resize.module.css?tmlnpp\" />\n<link rel=\"stylesheet\" media=\"all\" href=\"/core/modules/system/css/components/system-status-counter.css?tmlnpp\" />\n<link rel=\"stylesheet\" media=\"all\" href=\"/core/modules/system/css/components/system-status-report-counters.css?tmlnpp\" />\n<link rel=\"stylesheet\" media=\"all\" href=\"/core/modules/system/css/components/system-status-report-general-info.css?tmlnpp\" />\n<link rel=\"stylesheet\" media=\"all\" href=\"/core/modules/system/css/components/tablesort.module.css?tmlnpp\" />\n<link rel=\"stylesheet\" media=\"all\" href=\"/themes/electra/dist/css/styles.css?tmlnpp\" />\n<link rel=\"stylesheet\" media=\"all\" href=\"/themes/electra/dist/vendors/css/fontawesome.css?tmlnpp\" />\n<link rel=\"stylesheet\" media=\"all\" href=\"/themes/electra/custom/custom.css?tmlnpp\" />\n\n    \t\n    <script src=\"/data_warehouse/js/knockout-3.5.3.js\"></script>\n    <script type='text/javascript' src=\"//code.jquery.com/jquery-4.0.0.min.js\"></script>\n    <script type='text/javascript' src=\"//code.jquery.com/ui/1.14.2/jquery-ui.min.js\"></script>\n\t\t\n    <script type='text/javascript' src=\"/sites/default/libraries/flexslider/jquery.flexslider-min.js\"></script>\n    <link rel=\"stylesheet\" media=\"all\" href=\"/sites/default/libraries/flexslider/flexslider.css\" />\n  </head>\n  \n  <body class=\"path-node page-node-type-article\">\n    <a href=\"#main-content\" class=\"visually-hidden focusable skip-link\">\n      Skip to main content\n    </a>\n    \n      <div class=\"dialog-off-canvas-main-canvas\" data-off-canvas-main-canvas>\n    \n\n\n  <!-- =============================== header ===============================-->\n\n<div class=\"container\">\n<div class=\"row\">\n<div class=\"col-md-12\">\n<!-- main div -->\n\n<div class=\"container mt-3\">\n    <div class=\"row no-gutters\">\n        <div class=\"col-sm-8\">\n            <div class=\"main-content\">\n\t\t\t<a href=\"/\"><img src=\"/sites/default/files/img/LIHEAPPM-primary-logo.png\" alt=\"Administration for Children and Families - LIHEAP Performance Management\" title=\"Administration for Children and Families - LIHEAP Performance Management\" style=\"max-width:705px; width:100% !important; padding-left:-15px !important; margin-left:-15px !important\"></a></div>\n        </div>\n\t\t\n        <div class=\"col-sm-4\">\n            <!--Nested rows within a column-->\n\t\t\t<div class=\"row\">\n\t\t\t\n\t\t\t\n<form style=\"width:320px; max-width:450px; max-height:50px !important; z-index:100; margin:30px 0 0 70px !important; padding:0 !important\" action=\"/search/node\" method=\"get\" id=\"search-block-form\" accept-charset=\"UTF-8\">\n<div style=\"margin-top:0 !important; padding-top:0 !important\">\n<input placeholder=\"Search this site...\" title=\"Search this site\" data-drupal-selector=\"edit-keys\" type=\"search\" id=\"edit-keys\" name=\"keys\" value=\"\" size=\"15\" maxlength=\"128\" class=\"form-search form-control form-control-search\" />\n</div>\n<div data-drupal-selector=\"edit-actions\" class=\"form-actions js-form-wrapper form-wrapper\" id=\"edit-actions\">\n<input data-drupal-selector=\"edit-submit\" type=\"submit\" id=\"edit-submit\" value=\"Go\" class=\"button js-form-submit form-submit\" style=\"float:right; margin-top:-34px\" />\n</div>\n</form>\n\t\t\t\n</div>\n\t\t\t\n        </div>\n\t\t\n\t\t\t<br>\n            <div class=\"row\">\n                <div class=\"col-12\">\n                    <div class=\"sidebar-content\">\n\t\n\t\t\t\t\t</div>\n                </div>\n            </div>\n\t\t\n        </div>\n    </div>\n</div>\n\n<!-- /main div -->\n</div>\n</div>\n</div>\n\n\n<nav  class=\"top-header navbar navbar-expand-lg navbar-dark header-menu standard header-top\"  class=\"top-header navbar navbar-expand-lg navbar-dark header-menu standard header-top\" data-bgcolor=\"#336a90\">\n  <div class=\"container\">\n            <div class=\"region region-header-left\">\n    <section  id=\"block-electra-branding\" class=\"settings-tray-editable block block-system block-system-branding-block\" data-drupal-settingstray=\"editable\">\n  \n    \n        \n</section>\n\n  </div>\n\n        <!-- end of navbar-brand -->\n    <button class=\"navbar-toggler\" type=\"button\" data-toggle=\"collapse\" data-target=\"#navigation-group\" aria-controls=\"navigation-group\" aria-expanded=\"false\" aria-label=\"Toggle navigation\">\n      <span class=\"navbar-toggler-icon\"></span>\n    </button>\n    <!-- end of navbar-toggler -->\n    <div class=\"collapse navbar-collapse\" id=\"navigation-group\">\n\n      <div class=\"navbar-right m-nav\">\n                      <nav  id=\"block-electra-main-menu\" class=\"settings-tray-editable navbar navbar-expand-lg\" data-drupal-settingstray=\"editable\" role=\"navigation\" aria-labelledby=\"block-electra-main-menu-menu\" id=\"block-electra-main-menu\" class=\"settings-tray-editable navbar navbar-expand-lg\" data-drupal-settingstray=\"editable\">\n            <h2 class=\"sr-only\" id=\"block-electra-main-menu-menu\">Main navigation</h2>\n\n      \n                            <ul class=\"menu menu--main navbar-nav\">\n                                                                    <li class=\"nav-item\">\n                            <a href=\"/\" class=\"nav-link\">Home\n                            </a>\n                                                                            </li>\n                                                                        <li class=\"nav-item dropdown\">\n                        <a href=\"/publications\" class=\"nav-link dropdown-toggle\" data-toggle=\"dropdown\">Publications\n                        </a>\n                        <span class=\"fa fa-caret-down\"></span>\n                                                                                            <ul class=\"dropdown-menu dropdown-list\">\n                                                                        <li>\n                            <a href=\"/reports_to_congress\" class=\"dropdown-item\">Reports to Congress\n                            </a>\n                                                                                </li>\n                                                                                <li>\n                            <a href=\"/notebooks\" class=\"dropdown-item\">Home Energy Notebooks\n                            </a>\n                                                                                </li>\n                                    </ul>\n                    \n                                                    </li>\n                                                                            <li class=\"nav-item\">\n                            <a href=\"https://liheappm.acf.gov/datawarehouse\" class=\"nav-link\">Data Warehouse\n                            </a>\n                                                                            </li>\n                                                                            <li class=\"nav-item\">\n                            <a href=\"/performance-measures\" class=\"nav-link\">Performance Measures\n                            </a>\n                                                                            </li>\n                                                                            <li class=\"nav-item\">\n                            <a href=\"/program-resources\" class=\"nav-link\">Program Resources\n                            </a>\n                                                                            </li>\n                                                                            <li class=\"nav-item\">\n                            <a href=\"/important-links\" class=\"nav-link\">Important Links\n                            </a>\n                                                                            </li>\n                                                                            <li class=\"nav-item active\">\n                            <a href=\"/whats-new\" class=\"nav-link\">What&#039;s New?\n                            </a>\n                                                                            </li>\n                                                                        <li class=\"nav-item dropdown\">\n                        <a href=\"/help\" class=\"nav-link dropdown-toggle\" data-toggle=\"dropdown\">HELP\n                        </a>\n                        <span class=\"fa fa-caret-down\"></span>\n                                                                                            <ul class=\"dropdown-menu dropdown-list\">\n                                                                        <li>\n                            <a href=\"/help-desk\" class=\"dropdown-item\">Help Desk\n                            </a>\n                                                                                </li>\n                                    </ul>\n                    \n                                                    </li>\n                                    </ul>\n                    \n\n  </nav>\n\n\n              </div>\n\n      <div class=\"navbar-right m-account\">\n\n                    <div class=\"region region-header-right\">\n    <nav  id=\"block-usermenu\" class=\"settings-tray-editable navbar navbar-expand-lg\" data-drupal-settingstray=\"editable\" role=\"navigation\" aria-labelledby=\"block-usermenu-menu\" id=\"block-usermenu\" class=\"settings-tray-editable navbar navbar-expand-lg\" data-drupal-settingstray=\"editable\">\n            <h2 class=\"sr-only\" id=\"block-usermenu-menu\">User menu</h2>\n\n      \n                            <ul class=\"menu menu--account navbar-nav\">\n                                                                    <li class=\"nav-item\">\n                            <a href=\"/user/login\" class=\"nav-link\">Log in\n                            </a>\n                                                                            </li>\n                                    </ul>\n                    \n\n  </nav>\n\n  </div>\n\n        \n      </div>\n      <!-- end of navbar-right -->\n    </div>\n    <!-- end of collapse -->\n  </div>\n  <!-- end of container -->\n</nav>\n<!-- end of nav -->\n\n\n  <!-- If header position is left then add wrapper div -->\n  \n    <!-- If sample blocks enable -->\n        <!-- end sample blocks enable -->\n                          \n  <section   class=\"region region-content-header page-header\">\n    <div class=\"container\">\n      <div class=\"banner-content page-header-content\">\n        <section  id=\"block-pagetitle\" class=\"block block-core block-page-title-block\">\n  \n    \n      <div class=\"content\">\n      \n  <h1 class=\"page-title\">\n<span>What&#039;s New?</span>\n</h1>\n\n\n    </div>\n  </section>\n\n      </div>\n    </div>\n  </section>\n\n                  \n    <!-- top Fluid section -->\n        <!-- end top fluid section -->\n\n    \n    <section class=\"content-wrapper\">\n      <div class=\"container\">\n        <div class=\"row\">\n          <div  class=\"col-md-9\">\n\n            <!-- page top section -->\n                        <!-- page top section -->\n\n            <div class=\"region region-content\">\n    <div data-drupal-messages-fallback class=\"hidden\"></div>\n\n<article data-history-node-id=\"3\">\n\n  \n    \n\n  \n  <div>\n           \n            <div class=\"field field--name-body field--type-text-with-summary field--label-hidden field--item\"><div class=\"row\">\n    <div class=\"col-md-12 title-bar\">\n        <div class=\"d-flex bd-highlight\">\n            <div class=\"mr-auto px-2 bd-highlight\">\n                <h2>What's New?</h2>\n            </div>\n            <div class=\"p-2 bd-highlight\"><a href=\"/data_warehouse/doc/LIHEAP_PM_Glossary.pdf\">LIHEAP Glossary</a></div>\n            <div class=\"p-2 bd-highlight\"><a href=\"/data-feedback\">Site Feedback</a></div>\n        </div>\n    </div>\n</div>\n<p>This section of the LIHEAP Performance Management website includes information on recent updates to the website and\n    new developments related to LIHEAP Performance Management.</p>\n\n<div style=\"background-color:#ccc\">\n                            <h3>What's New in July 2026</h3>\n                        </div>\n                        <br>\n<ul type=\"disc\">\n    <li><em><strong>New for July</strong></em></li>\n    <ul type=\"circle\">\n <li>APPRISE conducted a webinar on June 16th about the FY26 Quarterly Reports that reviewed the changes made to this year's reports.</li>\n        <ul type=\"square\">\n            <li>The slide deck and webinar video will be uploaded to the <a href=\"/required-reports/\">Required Reports</a> and the <a href=\"/training-webinars\">LIHEAP Training Webinars</a> pages.</li>    \n        </ul>\n <li>Preliminary Fiscal Year 2025 state data have been uploaded to the <a href=\"/datawarehouse\">LIHEAP Data Warehouse</a>.</li>\n <li>Fiscal Year 2025 Grant Recipient Profiles and Performance Measures Executive Summaries are uploaded on the <a href=\"/performance-measures\">Performance Measures</a> page and the <a href=\"/datawarehouse\">Data Warehouse</a>.</li>\n    </ul>\n</ul>\n<hr>\n\n<div style=\"background-color:#ccc\">\n                            <h3>What's New in March 2026</h3>\n                        </div>\n                        <br>\n<ul type=\"disc\">\n    <li><em><strong>New for March</strong></em></li>\n    <ul type=\"circle\">\n        <li>The most recent LIHEAP report training webinars are now available on the ACF YouTube channel:</li>\n        <li>There is also a new Help form button that allows users to look for website related assistance.</li>\n    \n        <ul type=\"square\">\n            <li><a href=\"https://www.youtube.com/watch?v=kg1TUIQf9lU&list=PLypiJrod4Dehsnl9LXaPkah8pBz51HSJX&index=27\">Completing the FY2025 Household Report \u2013 Long Form</a> \u2013 December 4th, 2025</li>\n            <li><a href=\"https://www.youtube.com/watch?v=T_NAhsRPNFs&list=PLypiJrod4Dehsnl9LXaPkah8pBz51HSJX&index=28\" target=\"_blank\">Completing the FY2025 Household Report \u2013 Short Form </a>\u2013 December 4th, 2025</li>\n            <li><a href=\"https://www.youtube.com/watch?v=rfESL8HnG2w&list=PLypiJrod4Dehsnl9LXaPkah8pBz51HSJX&index=26\" target=\"_blank\">Completing the FY2025 Carryover and Reallotment Report </a>\u2013 December 11th, 2025</li>\n            <li><a href=\"https://www.youtube.com/watch?v=fPag76xenXk&list=PLypiJrod4Dehsnl9LXaPkah8pBz51HSJX&index=29\" target=\"_blank\">Completing the FY2025 Performance Data Form Module 1: Grant Recipient Survey</a> \u2013 December 18th, 2025</li>\n            <li><a href=\"https://www.youtube.com/watch?v=y8SiVlJ-CDA&list=PLypiJrod4Dehsnl9LXaPkah8pBz51HSJX&index=30\" target=\"_blank\">Completing the FY2025 Performance Data Form Module 2: Performance Measures </a>\u2013 January 6th, 2026</li>     \n        </ul>\n    </ul>\n</ul>\n<ul type=\"disc\">\n    <li><em><strong>Coming Soon</strong></em></li>\n    <ul type=\"circle\">\n        <li>Preliminary Fiscal Year 2025 state data is expected to be added to the <a href=\"/datawarehouse\">LIHEAP Data Warehouse</a> this spring.</li>\n        <li>Fiscal Year 2025 Grant Recipient Profiles and Performance Measures Executive Summaries are also expected to be uploaded on the <a href=\"/performance-measures\">Performance Measures page</a> and the <a href=\"/datawarehouse\">Data Warehouse</a> this spring.</li>\n    </ul>\n</ul>\n<hr>\n\n    <div style=\"background-color:#ccc;\">\n    <h3>What's New in January 2026</h3>\n</div>\n<ul type=\"disc\">\n    <li><em><strong>New for January</strong></em></li>\n    <ul type=\"circle\">\n        <li>The \"<a href=\"/dashboard\">Status</a>\" tab has been updated to be able to reflect the FY24 reporting</a>.</li>\n        <li>There is also a new Help form button that allows users to look for website related assistance.</li>\n    </ul>\n</ul>\n<ul type=\"disc\">\n    <li><em><strong>Recent Reports Training Webinars</strong></em></li>\n    <ul type=\"circle\">\n        <li>APPRISE conducted several OCS Reports Training Webinars in December and January. All the completed slide decks have been uploaded to the <a href=\"/required-reports/\">Required Reports</a> and <a href=\"/training-webinars/\">LIHEAP Training Webinar</a> pages:</li>\n        <ul type=\"square\">\n<li><a href=\"/sites/default/files/private/webinars/2025/FY2025_Household_Report_Long_Form_Webinar%20(508%20Compliant).pdf\" target=\"_blank\">FY2025 Household Report Long Form Webinar</a></li>\n<li><a href=\"/sites/default/files/private/webinars/2025/FY2025_Household_Report_Short_Form_Webinar%20(508%20Compliant).pdf\" target=\"_blank\">FY2025 Household Report Short Form</a></li>\n<li><a href=\"/sites/default/files/private/webinars/2025/FY2025%20Carryover%20Report%20Webinar%2012.11.25%20(508%20Compliant).pdf\" target=\"_blank\">FY2025 Carryover and Reallotment Report Webinar</a></li>\n<li><a href=\"/sites/default/files/private/grantee_tools/requirements/FY2025%20Grant%20Recipient%20Survey%20Webinar%20-%20Final%20-%2012.18.25%20-%20508.pdf\" target=\"_blank\">FY2025 Grant Recipient Survey Webinar</a></li>\n<li><a href=\"/sites/default/files/private/grantee_tools/requirements/FY2025_Performance_Measures.pdf\" target=\"_blank\">FY2025 Performance Measures Webinar</a></li>     \n        </ul>\n    </ul>\n</ul>\n<hr>\n\n\n\n<div style=\"background-color:#ccc;\">\n    <h3>What's New in December 2025</h3>\n</div>\n<ul type=\"disc\">\n    <li><em><strong>New Data Case Study Video \u2013 Examining Software Automation in Kansas</strong></em></li>\n    <ul type=\"circle\">\n        <li>Watch this short vignette video of the Kansas Department of Children and Families discussing their efforts\n            to automate their software in an effort to improve LIHEAP application processing available on the&nbsp;<a\n                href=\"/data_case_studies/Kansas_Vignette\">LIHEAP Data Case Studies page</a></li>\n    </ul>\n</ul>\n<ul type=\"disc\">\n    <li><em><strong>Coming Soon</strong></em></li>\n    <ul type=\"circle\">\n        <li>The following webinars are planned for December 2025 and January 2026</li>\n        <ul type=\"square\">\n            <li><em><strong>December:</strong></em></li>\n            <ul type=\"square\">\n                <li><strong>Thursday, December 4th, 2025 (1:00pm-2:00pm ET):</strong>&nbsp;Completing the Household\n                    Report Long Form</li>\n                <ul type=\"square\">\n                    <li><a href=\"https://attendee.gotowebinar.com/register/906834760976125440\"\n                            target=\"_blank\"><u>Registration Link</u></a></li>\n                </ul>\n                <li><strong>Thursday, December 4th, 2025 (2:30pm-3:30pm ET):</strong>&nbsp;Completing the Household\n                    Report Short Form</li>\n                <ul type=\"square\">\n                    <li><a href=\"https://attendee.gotowebinar.com/register/325495475582224987\"\n                            target=\"_blank\"><u>Registration Link</u></a></li>\n                </ul>\n                <li><strong>Thursday, December 11th, 2025 (2:00pm-3:00pm ET):</strong>&nbsp;Completing the Carryover and\n                    Reallotment Report</li>\n                <ul type=\"square\">\n                    <li><a href=\"https://attendee.gotowebinar.com/register/1525990649411604316\"\n                            target=\"_blank\"><u>Registration Link</u></a></li>\n                </ul>\n                <li><strong>Thursday, December 18th, 2025 (2:00pm-3:00pm ET):</strong>&nbsp;Completing the Performance\n                    Data Form, Module 1</li>\n                <ul type=\"square\">\n                    <li><a href=\"https://attendee.gotowebinar.com/register/3794113812722928223\"\n                            target=\"_blank\"><u>Registration Link</u></a></li>\n                </ul>\n            </ul>\n        </ul>\n        <li>The following webinars are planned for January 2026, and dates will be announced soon:</li>\n        <ul type=\"square\">\n            <li>Completing the Performance Data Form, Module 2</li>\n            <li>Completing the FY26 Quarterly Report</li>\n        </ul>\n    </ul>\n</ul>\n<hr>\n<div style=\"background-color:#ccc;\">\n    <h3>What's New in August 2025</h3>\n</div>\n<ul>\n    <li>Fiscal Year 2024 state data is now available in the <a href=\"/datawarehouse\">LIHEAP Data Warehouse</a>.</li>\n    <li>Fiscal Year 2024 Grant Recipient Profiles are now available in the <a href=\"/datawarehouse\">LIHEAP Data\n            Warehouse</a>.</li>\n    <li>Fiscal Year 2024 Performance Measures Executive Summaries are now available on the <a\n            href=\"/performance-measures\">Performance Measures</a> and <a\n            href=\"https://liheappm.acf.hhs.gov/grantee-resources\">Program Resources</a>&nbsp;pages.</li>\n    <li>The <a href=\"/required-reports/\">Required Reports</a> page has been updated with the most recent reporting\n        information for LIHEAP grant recipients.</li>\n</ul>\n<hr>\n<div style=\"background-color:#ccc;\">\n    <h3>What's New in January 2025</h3>\n</div>\n<h5>\u2192 Recent Training Webinars</h5>\n<p><strong>APPRISE conducted the following webinars:</strong></p>\n<p>Completing the Performance Data Form - Module 2 (Performance Measures)<br><a href=\"https://youtu.be/5dwy4USSdLc\"\n        target=\"_blank\">Webinar for State Grant Recipients and D.C.</a></p>\n<p>Completing the FY2025 LIHEAP Quarterly Report<br><a href=\"https://www.youtube.com/watch?v=6-H86d0no4k\"\n        target=\"_blank\">Webinar for State, Territory, and Tribal Grant Recipients</a></p>\n<p><br>&nbsp;</p>\n<h5>\u2192 Coming Soon</h5>\n<p>The LIHEAP FY23 Tribal Grant Recipient Profiles and ARPA Grant Recipient Profiles on the <a\n        href=\"/performance-measures/\">Performance Measures</a>, <a href=\"/datawarehouse\">Data Warehouse</a>, and <a\n        href=\"/grantee-resources\">Grantee Resources</a> pages.</p>\n<p>APPRISE is working with the PMIWG to develop Part 2 of the <a href=\"/datawarehouse/pmi\">Next Steps Tool</a> using\n    current data.</p>\n<p>The following webinars are planned for January:<br><strong>Thursday, January 16 (2pm-3pm ET)</strong> - LIHEAP\n    Monitoring, How to Prepare for a Monitoring Visit - <strong>for State, Territory, and Tribal Grant\n        Recipients</strong></p>\n<hr>\n<div style=\"background-color:#ccc;\">\n    <h3>What's New in December 2024</h3>\n</div>\n<ul>\n    <li><em><strong>New Published LIHEAP Reports</strong></em></li>\n    <ul>\n        <li>HHS recently published additional LIHEAP Reports to Congress and Home Energy Notebooks. You can access\n            reports through Fiscal Year 2022 by visiting the pages below:</li>\n        <ul>\n            <li><a href=\"/reports_to_congress/\" target=\"_blank\">LIHEAP Reports to Congress</a> \u2013 These reports summarize\n                LIHEAP program activity in a fiscal year.</li>\n            <li><a href=\"/notebooks\" target=\"_blank\">Home Energy Notebooks</a> \u2013 These reports furnish information on\n                the home energy mission of LIHEAP, including providing statistics on low-income home energy needs,\n                trends over time, and LIHEAP performance measures.</li>\n        </ul>\n    </ul>\n</ul>\n<p><br>&nbsp;</p>\n<ul>\n    <li><em><strong>Recent Training Webinars</strong></em></li>\n    <ul>\n        <li>APPRISE conducted the following webinars:</li>\n        <ul>\n            <li><a href=\"https://youtu.be/1n4aJHNhf1g\" target=\"_blank\">Long Form Webinar (States and Select\n                    Territories)</a></li>\n            <li><a href=\"https://youtu.be/_OaV1SpPNdY\" target=\"_blank\">Short Form Webinar (Tribes and Select\n                    Territories)</a></li>\n        </ul>\n        <li>Completing the Performance Data Form - Module 1 (Grantee Survey)</li>\n        <ul>\n            <li><a href=\"https://www.youtube.com/watch?v=2gt9OtWN-KU\" target=\"_blank\">Webinar for State Grant Recipients\n                    and D.C.</a></li>\n        </ul>\n        <li>OCS conducted the following webinar:</li>\n        <ul>\n            <li>LIHEAP Financial Reporting Strategies and the Payment Management System (PMS)</li>\n            <ul>\n                <li><a href=\"https://www.youtube.com/watch?v=h7oRfsPCLZk\" target=\"_blank\">Webinar for Grant\n                        Recipients</a></li>\n            </ul>\n        </ul>\n    </ul>\n</ul>\n<p><br>&nbsp;</p>\n<ul>\n    <li><em><strong>Coming Soon</strong></em></li>\n    <ul>\n        <li>The LIHEAP FY23 Tribal Grant Recipient Profiles and ARPA Grant Recipient Profiles on the <a\n                href=\"/performance-measures/\">Performance Measures</a>, <a href=\"/datawarehouse\">Data Warehouse</a>, and\n            <a href=\"/grantee-resources\">Grantee Resources</a> pages.</li>\n        <li>APPRISE is working with the PMIWG to develop Part 2 of the <a href=\"/datawarehouse/pmi\">Next Steps Tool</a>\n            using current data.</li>\n        <li>The following webinars are planned for December:</li>\n        <ul>\n            <li><strong>Tuesday, December 10th (2pm-3pm EST)</strong> - Completing the Performance Data Form - Module 2\n                (Performance Measures) - <strong>for State Grant Recipients (and D.C.)</strong></li>\n            <li><strong>Tuesday, December 17th (2pm-3pm EST)</strong> - Completing Quarterly Reports - <strong>for all\n                    Grant Recipients</strong></li>\n        </ul>\n    </ul>\n</ul>\n<hr>\n<div style=\"background-color:#ccc;\">\n    <h3>What's New in November 2024</h3>\n</div>\n<ul style=\"margin-left:5px !important;\">\n    <li><em><strong>Recent Training Webinars</strong></em></li>\n    <ul>\n        <li>APPRISE conducted the following webinars:</li>\n        <ul>\n            <li>Using the LIHEAP Performance Management Website (PMW) to Access LIHEAP Data and Performance Resources\n            </li>\n            <ul>\n                <li><a href=\"https://www.youtube.com/watch?v=rk4HIAFYS6k&amp;t=1s\" target=\"_blank\">Webinar for Grant\n                        Recipients</a></li>\n                <li><a href=\"https://www.youtube.com/watch?v=MvVLDQMtpys\" target=\"_blank\">Webinar for Stakeholders</a>\n                </li>\n            </ul>\n            <li>Using the LIHEAP Clearinghouse to Access Program Resources</li>\n            <ul>\n                <li><a href=\"https://www.youtube.com/watch?v=z4-lg-gLoH0&amp;t=8s\" target=\"_blank\">Webinar for Grant\n                        Recipients</a></li>\n                <li><a href=\"https://www.youtube.com/watch?v=OE1QR5k2Aak\" target=\"_blank\">Webinar for Stakeholders</a>\n                </li>\n            </ul>\n            <li>Completing the FY24 Household Report</li>\n            <ul>\n                <li>Short Form Webinar&nbsp; - A recording will be made available soon on the ACF YouTube Channel.</li>\n                <li>Long Form Webinar - A recording will be made available soon on the ACF YouTube Channel.</li>\n            </ul>\n            <li>Completing the Carryover and Reallotment Report and the Federal Financial Report</li>\n            <ul>\n                <li>Webinar - A recording will be made available soon on the ACF YouTube Channel.</li>\n            </ul>\n        </ul>\n        <li><br>&nbsp;</li>\n        <li><em><strong>Coming Soon</strong></em></li>\n        <ul>\n            <li>The LIHEAP FY23 Tribal Grant Recipient Profiles and ARPA Grant Recipient Profiles on the <a\n                    href=\"/performance-measures/\">Performance Measures</a>, <a href=\"/datawarehouse\">Data Warehouse</a>,\n                and <a href=\"/grantee-resources\">Grantee Resources</a> pages.</li>\n            <li>APPRISE is working with the PMIWG to develop Part 2 of the <a href=\"/datawarehouse/pmi\">Next Steps\n                    Tool</a> using current data.</li>\n            <li>The following webinars are planned for November and December</li>\n            <ul>\n                <li><strong>Tuesday, November 19th (2pm-3pm EST)</strong>&nbsp;- Completing the Performance Data Form -\n                    Module 1 (Grantee Survey)&nbsp;- <strong>for State Grant Recipients (and D.C.)</strong></li>\n                <li><strong>Tuesday, December 10th (2pm-3pm EST)</strong> - Completing the Performance Data Form -\n                    Module 2 (Performance Measures) - <strong>for State Grant Recipients (and D.C.)</strong></li>\n                <li><strong>Tuesday, December 17th (2pm-3pm EST)</strong> - Completing Quarterly Reports - <strong>for\n                        all Grant Recipients</strong></li>\n            </ul>\n        </ul>\n    </ul>\n</ul>\n<hr>\n<div style=\"background-color:#ccc;\">\n    <h3>What's New in October 2024</h3>\n</div>\n<ul style=\"margin-left:5px !important;\">\n    <ul style=\"margin-left:5px !important;\">\n        <li><em><strong>New for October</strong></em></li>\n        <ul>\n            <li>A \"Most Common Links\" box was added to the right-side of the website, where you can find links to the\n                most useful resources and training materials.</li>\n        </ul>\n    </ul>\n</ul>\n<p><br>&nbsp;</p>\n<ul style=\"margin-left:5px !important;\">\n    <ul>\n        <li><em><strong>Recent Training Webinars</strong></em></li>\n        <ul>\n            <li>APPRISE conducted the following two webinars that will be posted soon:</li>\n            <ul>\n                <li>Using the LIHEAP Clearinghouse to Access Program Resources - for Grant Recipients. (A recording will\n                    be made available soon on the ACF YouTube Channel.)</li>\n                <li>Using the LIHEAP Clearinghouse to Access Program Resources - for Stakeholders. (A recording will be\n                    made available soon on the ACF YouTube Channel.)</li>\n            </ul>\n        </ul>\n    </ul>\n</ul>\n<p><br>&nbsp;</p>\n<ul style=\"margin-left:5px !important;\">\n    <ul style=\"margin-left:5px !important;\">\n        <li><em><strong>Coming Soon</strong></em></li>\n        <ul>\n            <li>The LIHEAP FY23 Tribal Grant Recipient Profiles and ARPA Grant Recipient Profiles on the <a\n                    href=\"/performance-measures/\">Performance Measures</a>, <a href=\"/datawarehouse\">Data Warehouse</a>,\n                and <a href=\"/program-resources\">Program Resources</a> pages.</li>\n            <li>APPRISE is working with the PMIWG to develop Part 2 of the <a href=\"/datawarehouse/pmi\">Next Steps\n                    Tool</a> using current data.</li>\n            <li>The following webinars are planned for October</li>\n            <ul>\n                <li><strong>Wednesday, October 9th&nbsp;(3pm - 3:45pm EDT)</strong>&nbsp;- Using the LIHEAP Performance\n                    Management Website (PMW) to Access LIHEAP Data and Performance Resources - <strong>for Grant\n                        Recipients</strong></li>\n                <li><strong>Tuesday, October 22nd&nbsp;(3pm - 3:45pm EDT)</strong> - Using the LIHEAP Performance\n                    Management Website (PMW) to Access LIHEAP Data and Performance Resources - <strong>for\n                        Stakeholders</strong></li>\n                <li><strong>Thursday, October 31st&nbsp;(1pm-2pm EDT)</strong> - Completing the FY 2024 LIHEAP Household\n                    Report - <strong>Long Form for States and Select Territories</strong></li>\n                <li><strong>Thursday, October 31st&nbsp;(2:30pm - 3:30pm EDT)</strong> - Completing the FY 2024 LIHEAP\n                    Household Report - <strong>Short Form for Tribes and Select Territories</strong></li>\n            </ul>\n        </ul>\n    </ul>\n</ul>\n<hr>\n<div style=\"background-color:#ccc;\">\n    <h3>What's New in September 2024</h3>\n</div>\n<ul style=\"margin-left:5px !important;\">\n    <ul style=\"margin-left:5px !important;\">\n        <li><em><strong>New for September</strong></em></li>\n        <ul>\n            <li>Remaining preliminary (Performance Measures) data from FY23 was added to the <a href=\"/datawarehouse\"\n                    target=\"_blank\">Data Warehouse</a>.</li>\n            <ul>\n                <li>Updated <a href=\"/required-reports/\" target=\"_blank\">Required Reports Page</a> with recent\n                    publications, including the FY24 Household Report Action Transmittal and Instructions.</li>\n            </ul>\n        </ul>\n    </ul>\n</ul>\n<p><br>&nbsp;</p>\n<ul style=\"margin-left:5px !important;\">\n    <ul>\n        <li><em><strong>Recent Training Webinars</strong></em></li>\n        <ul>\n            <li>Using the LIHEAP Clearinghouse to Access Program Resources - for Grant Recipients. (A recording will be\n                made available soon on the ACF YouTube Channel.)</li>\n        </ul>\n    </ul>\n</ul>\n<p><br>&nbsp;</p>\n<ul style=\"margin-left:5px !important;\">\n    <ul style=\"margin-left:5px !important;\">\n        <li><em><strong>Coming Soon</strong></em></li>\n        <ul>\n            <li>The LIHEAP FY23 Tribal Grant Recipient Profiles on the <a href=\"/performance-measures/\">Performance\n                    Measures</a>, <a href=\"/datawarehouse\">Data Warehouse</a>, and <a href=\"/program-resources\">Program\n                    Resources</a> pages.</li>\n            <li>APPRISE is working with contractors to develop Part 2 of the <a href=\"/datawarehouse/pmi\">Next Steps\n                    Tool</a> using current data.</li>\n            <li>The following webinars are planned for September and October</li>\n            <ul>\n                <li><strong>September 24</strong> - Using the LIHEAP Clearinghouse Website to Access Program Resources -\n                    for all stakeholders. <a href=\"https://register.gotowebinar.com/register/4662666416410082393\"\n                        target=\"_blank\">Register here</a>.</li>\n                <li><strong>Mid/Early October</strong> - Using the Performance Management Website to Access Program\n                    Resources - for Grant Recipients. (Registration coming soon.)</li>\n                <li><strong>Mid/Early October</strong> - Using the Performance Management Website to Access Program\n                    Resources - for all stakeholders. (Registration coming soon.)</li>\n                <li><strong>October 31</strong> - Completing the FY2024 LIHEAP Household Report \u2013 Long Form.\n                    (Registration coming soon.)</li>\n                <li><strong>October 31</strong> - Completing the FY2024 LIHEAP Household Report \u2013 Short Form.\n                    (Registration coming soon.)</li>\n            </ul>\n        </ul>\n    </ul>\n</ul>\n<hr>\n<div style=\"background-color:#ccc;\">\n    <h3>What's New in June 2024</h3>\n</div>\n<ul style=\"margin-left:5px !important;\">\n    <ul style=\"margin-left:5px !important;\">\n        <li><em><strong>New for June</strong></em></li>\n        <ul>\n            <li>Added FY23 Grant Recipient Profiles to the <a href=\"/performance-measures/\" target=\"_blank\">Performance\n                    Measures</a>, <a href=\"/datawarehouse\" target=\"_blank\">Data Warehouse</a> and <a\n                    href=\"/program-resources\" target=\"_blank\">Program Resources</a> pages</li>\n            <ul>\n                <li>Added PMIWG Presentations from 2024 NEUAC Conference to the ACF YouTube channel</li>\n                <ul>\n                    <li><a href=\"https://www.youtube.com/watch?v=X3A7-8iARJY\" target=\"_blank\">LIHEAP 101: Serving\n                            Clients &amp; Empowering Staff</a></li>\n                    <li><a href=\"https://www.youtube.com/watch?v=LcvTpZS8mJ4\" target=\"_blank\">LIHEAP 102: Delivering\n                            Benefits that Match Clients' Needs</a></li>\n                    <li><a href=\"https://www.youtube.com/watch?v=Mind8JMLDzM\" target=\"_blank\">LIHEAP State-Tribe\n                            Agreements: Building Effective Relationships</a></li>\n                </ul>\n                <li>Updated <a href=\"/required-reports/\" target=\"_blank\">Required Reports Page</a> with recent\n                    publications and updates, including the FY25 Model Plan materials and HHS Federal Poverty Guidelines\n                </li>\n            </ul>\n        </ul>\n    </ul>\n</ul>\n<p><br>&nbsp;</p>\n<ul style=\"margin-left:5px !important;\">\n    <ul style=\"margin-left:5px !important;\">\n        <li><em><strong>Data Release: Coming Soon</strong></em></li>\n        <ul>\n            <li>Remaining preliminary data from FY23 on the <a href=\"/datawarehouse\" target=\"_blank\">Data Warehouse</a>\n            </li>\n        </ul>\n    </ul>\n</ul>\n<hr>\n<div style=\"background-color:#ccc;\">\n    <h3>What's New in May 2024</h3>\n</div>\n<ul style=\"margin-left:5px !important;\">\n    <ul style=\"margin-left:5px !important;\">\n        <li><em><strong>New for May</strong></em></li>\n        <ul>\n            <li>Preliminary household counts from FY 2023 were recently added to the <a href=\"/datawarehouse\"\n                    target=\"_blank\">Data Warehouse</a></li>\n            <ul>\n                <li>The LIHEAP FY23 Executive Summaries on the <a href=\"/performance-measures/\"\n                        target=\"_blank\">Performance Measures</a> and <a href=\"/program-resources\"\n                        target=\"_blank\">Program Resources</a> pages.</li>\n                <li>APPRISE Presented a Webinar on Using the LIHEAP Data Warehouse to Inform Program Planning. The\n                    recording is now available on the ACF YouTube Channel:</li>\n                <ul>\n                    <li><a href=\"https://www.youtube.com/watch?v=EPbX7QWqrfE\" target=\"_blank\">Using the LIHEAP Data\n                            Warehouse to Inform Program Planning</a></li>\n                </ul>\n            </ul>\n        </ul>\n    </ul>\n</ul>\n<p><br>&nbsp;</p>\n<ul style=\"margin-left:5px !important;\">\n    <ul style=\"margin-left:5px !important;\">\n        <li><em><strong>Data Release: Coming Soon</strong></em></li>\n        <ul>\n            <li>Remaining preliminary data from FY23 on the <a href=\"/datawarehouse\" target=\"_blank\">Data Warehouse</a>\n            </li>\n            <ul>\n                <li>The LIHEAP FY23 State Grant Recipient Profiles on the <a href=\"/performance-measures/\"\n                        target=\"_blank\">Performance Measures</a>, <a href=\"/datawarehouse\" target=\"_blank\">Data\n                        Warehouse</a> and <a href=\"/program-resources\" target=\"_blank\">Program Resources pages</a>.</li>\n            </ul>\n        </ul>\n    </ul>\n</ul>\n<hr>\n<div style=\"background-color:#ccc;\">\n    <h3>What's New in February 2024</h3>\n</div>\n<ul style=\"margin-left:5px !important;\">\n    <ul style=\"margin-left:5px !important;\">\n        <li><em><strong>Recent Training Webinars</strong></em></li>\n        <ul>\n            <li>APPRISE conducted a recent LIHEAP Report Training Webinar on Completing the FY 2024 Quarterly Reports.\n                The recording is now available on the ACF YouTube Channel:</li>\n            <ul>\n                <li><a href=\"https://www.youtube.com/watch?v=4Skjx2_OuHg\" target=\"_blank\">Completing the LIHEAP\n                        Quarterly Reports for FY 2024</a></li>\n            </ul>\n        </ul>\n    </ul>\n</ul>\n<p><br>&nbsp;</p>\n<ul style=\"margin-left:5px !important;\">\n    <ul style=\"margin-left:5px !important;\">\n        <li><em><strong",
+          "title": "What's New? | LIHEAP Performance Management",
+          "httpStatus": 200
+        },
+        {
+          "type": "openrouter:web_fetch",
+          "id": "st_tmp_c9l0nng1gtu",
+          "status": "completed",
+          "url": "https://thefederalregister.org/documents/2026-11834/submission-for-office-of-management-and-budget-review-annual-report-on-households-assisted-by-the-low-income-home-energy",
+          "content": "<!DOCTYPE html>\n<html lang=\"en\">\n<head>\n  <meta charset=\"utf-8\">\n  <meta name=\"viewport\" content=\"width=device-width, initial-scale=1\">\n  <meta name=\"theme-color\" content=\"#8e2b1f\">\n  <meta name=\"color-scheme\" content=\"light\">\n  <meta name=\"format-detection\" content=\"telephone=no\">\n  <meta name=\"referrer\" content=\"strict-origin-when-cross-origin\">\n  \n  <title>Submission for Office of Management and Budget Review; Annual Report on Households Assisted by the Low Income Home Energy Assistance Program (LIHEAP) | 91 FR 35691</title>\n  <meta name=\"description\" content=\"The Office of Community Services (OCS), Division of Energy Assistance, is requesting to reinstate the Annual Report on Households Assisted by the Low Income Home Energy Assistan...\">\n  <meta name=\"robots\" content=\"index,follow\">\n  <meta property=\"og:type\" content=\"article\">\n  <meta property=\"og:title\" content=\"Submission for Office of Management and Budget Review; Annual Report on Households Assisted by the Low Income Home Energy Assistance Program (LIHEAP) | 91 FR 35691\">\n  <meta property=\"og:description\" content=\"The Office of Community Services (OCS), Division of Energy Assistance, is requesting to reinstate the Annual Report on Households Assisted by the Low Income Home Energy Assistan...\">\n  <meta property=\"og:url\" content=\"https://thefederalregister.org/documents/2026-11834/submission-for-office-of-management-and-budget-review-annual-report-on-households-assisted-by-the-low-income-home-energy\">\n  <meta property=\"og:site_name\" content=\"thefederalregister.org\">\n  <meta name=\"twitter:card\" content=\"summary\">\n  <meta name=\"twitter:title\" content=\"Submission for Office of Management and Budget Review; Annual Report on Households Assisted by the Low Income Home Energy Assistance Program (LIHEAP) | 91 FR 35691\">\n  <meta name=\"twitter:description\" content=\"The Office of Community Services (OCS), Division of Energy Assistance, is requesting to reinstate the Annual Report on Households Assisted by the Low Income Home Energy Assistan...\">\n  <link rel=\"icon\" href=\"/assets/favicon.svg\" type=\"image/svg+xml\">\n  <link rel=\"apple-touch-icon\" href=\"/assets/apple-touch-icon.svg\">\n  <link rel=\"manifest\" href=\"/site.webmanifest\">\n  <style data-critical>:root{--bg:#f4efe5;--paper:#fffdf8;--ink:#1d1a17;--muted:#6f665a;--border:#d8cbbb;--accent:#8e2b1f;--accent-deep:#5b170f}*{box-sizing:border-box}html{background:var(--bg);color:var(--ink);font-family:\"Iowan Old Style\",\"Palatino Linotype\",\"Book Antiqua\",Palatino,Georgia,serif;-webkit-text-size-adjust:100%}body{margin:0;min-height:100vh;background:linear-gradient(180deg,#f7f1e8 0%,#f2ebe1 42%,#f4efe5 100%)}.shell{width:min(1180px,calc(100vw - 2rem));margin:0 auto}.site-header{position:sticky;top:0;z-index:20;background:rgba(244,239,229,.96);border-bottom:1px solid rgba(216,203,187,.9)}.header-shell{display:flex;justify-content:space-between;align-items:center;gap:1rem;padding:1rem 0}.brand{display:flex;flex-direction:column;gap:.2rem;color:var(--accent-deep);text-decoration:none}.link-list a{display:flex;align-items:center;min-height:44px}.main-shell{padding:2rem 0 4rem}@media (prefers-color-scheme:dark){:root{--bg:#161310;--paper:#211c17;--ink:#f5ede2;--muted:#c7b8a6;--border:#5c4d40;--accent:#e99b8c;--accent-deep:#f2b0a4}html,body{background:#161310;color:var(--ink)}.site-header{background:rgba(22,19,16,.96)}}</style>\n  <link rel=\"preload\" href=\"/assets/site.css?v=20260717d\" as=\"style\">\n  <link rel=\"stylesheet\" href=\"/assets/site.css?v=20260717d\">\n  <link rel=\"stylesheet\" href=\"/assets/print.css?v=20260717d\" media=\"print\">\n  <link rel=\"alternate\" type=\"application/rss+xml\" title=\"Latest Documents\" href=\"/feeds/latest.xml\">\n  <link rel=\"alternate\" type=\"application/rss+xml\" title=\"Latest Changes\" href=\"/feeds/changes.xml\">\n  <link rel=\"alternate\" href=\"https://thefederalregister.org/pdf/documents/2026-11834.pdf\" type=\"application/pdf\" title=\"Submission for Office of Management and Budget Review; Annual Report on Households Assisted by the Low Income Home Energy Assistance Program (LIHEAP) PDF\">\n  <link rel=\"canonical\" href=\"https://thefederalregister.org/documents/2026-11834/submission-for-office-of-management-and-budget-review-annual-report-on-households-assisted-by-the-low-income-home-energy\">\n  <script type=\"application/ld+json\">{\"@context\":\"https://schema.org\",\"@type\":\"BreadcrumbList\",\"itemListElement\":[{\"@type\":\"ListItem\",\"position\":1,\"name\":\"Home\",\"item\":\"https://thefederalregister.org/\"},{\"@type\":\"ListItem\",\"position\":2,\"name\":\"2026\",\"item\":\"https://thefederalregister.org/issues/2026\"},{\"@type\":\"ListItem\",\"position\":3,\"name\":\"June\",\"item\":\"https://thefederalregister.org/issues/2026/06\"},{\"@type\":\"ListItem\",\"position\":4,\"name\":\"Friday, June 12, 2026\",\"item\":\"https://thefederalregister.org/issues/2026/06/12\"},{\"@type\":\"ListItem\",\"position\":5,\"name\":\"Submission for Office of Management and Budget Review; Annual Report on Households Assisted by the Low Income Home Energy Assistance Program (LIHEAP)\",\"item\":\"https://thefederalregister.org/documents/2026-11834/submission-for-office-of-management-and-budget-review-annual-report-on-households-assisted-by-the-low-income-home-energy\"}]}</script>\n  <script type=\"application/ld+json\">{\"@context\":\"https://schema.org\",\"@type\":\"Article\",\"headline\":\"Submission for Office of Management and Budget Review; Annual Report on Households Assisted by the Low Income Home Energy Assistance Program (LIHEAP)\",\"url\":\"https://thefederalregister.org/documents/2026-11834/submission-for-office-of-management-and-budget-review-annual-report-on-households-assisted-by-the-low-income-home-energy\",\"datePublished\":\"2026-06-12T00:00:00Z\",\"dateModified\":\"2026-06-12 11:32:04.74+00\",\"description\":\"The Office of Community Services (OCS), Division of Energy Assistance, is requesting to reinstate the Annual Report on Households Assisted by the Low Income Home Energy Assistan...\",\"identifier\":\"2026-11834\",\"author\":[{\"@type\":\"Organization\",\"name\":\"Health and Human Services Department\"},{\"@type\":\"Organization\",\"name\":\"Children and Families Administration\"}],\"isPartOf\":{\"@type\":\"CollectionPage\",\"name\":\"Federal Register issue for Friday, June 12, 2026\",\"url\":\"https://thefederalregister.org/issues/2026/06/12\"},\"mainEntityOfPage\":\"https://thefederalregister.org/documents/2026-11834/submission-for-office-of-management-and-budget-review-annual-report-on-households-assisted-by-the-low-income-home-energy\"}</script>\n<meta name=\"google-adsense-account\" content=\"ca-pub-0545639743190253\"><link rel=\"preconnect\" href=\"https://pagead2.googlesyndication.com\" crossorigin><link rel=\"dns-prefetch\" href=\"//pagead2.googlesyndication.com\"></head>\n<body>\n  <a class=\"skip-link\" href=\"#main-content\">Skip to main content</a>\n  <header class=\"site-header\">\n    <div class=\"shell header-shell\">\n      <a class=\"brand\" href=\"/\">\n        <span class=\"brand-kicker\">thefederalregister.org</span>\n        <span class=\"brand-title\">Federal Register Research Archive</span>\n      </a>\n      <nav class=\"site-nav\" aria-label=\"Primary navigation\">\n        <a href=\"/feeds/latest.xml\">Latest RSS</a>\n        <a href=\"/feeds/changes.xml\">Changes RSS</a>\n        <a href=\"/search\">Search</a>\n        <a href=\"/status\">Status</a>\n      </nav>\n    </div>\n  </header>\n  <main id=\"main-content\" class=\"shell main-shell\" tabindex=\"-1\">\n    <nav class=\"breadcrumbs\" aria-label=\"Breadcrumbs\"><a href=\"/\">Home</a><span class=\"breadcrumb-separator\">/</span><a href=\"/issues/2026\">2026</a><span class=\"breadcrumb-separator\">/</span><a href=\"/issues/2026/06\">June</a><span class=\"breadcrumb-separator\">/</span><a href=\"/issues/2026/06/12\">Friday, June 12, 2026</a><span class=\"breadcrumb-separator\">/</span><span aria-current=\"page\">Submission for Office of Management and Budget Review; Annual Report on Households Assisted by the Low Income Home Energy Assistance Program (LIHEAP)</span></nav>\n    \n    <section class=\"page-head\">\n      <p class=\"eyebrow\">Document</p>\n      <h1>Submission for Office of Management and Budget Review; Annual Report on Households Assisted by the Low Income Home Energy Assistance Program (LIHEAP)</h1>\n      <p class=\"lede\">The Office of Community Services (OCS), Division of Energy Assistance, is requesting to reinstate the Annual Report on Households Assisted by the Low Income Home Energy Assistan...</p>\n      <div class=\"hero-actions\"><a class=\"button\" href=\"/pdf/documents/2026-11834.pdf\" rel=\"alternate\" type=\"application/pdf\">PDF version</a><a class=\"button\" href=\"https://www.federalregister.gov/documents/2026/06/12/2026-11834/submission-for-office-of-management-and-budget-review-annual-report-on-households-assisted-by-the\">FederalRegister.gov</a></div>\n    </section>\n    <div class=\"grid-document\">\n      <aside class=\"card sticky-card\">\n        <ul class=\"meta-list\"><li><span>Published</span><strong><time datetime=\"2026-06-12\">Friday, June 12, 2026</time></strong></li><li><span>Document Number</span><strong>2026-11834</strong></li><li><span>Type</span><strong>Notice</strong></li><li><span>Citation</span><strong>91 FR 35691</strong></li><li><span>Pages</span><strong>35691-35692</strong></li><li><span>Agencies</span><strong>Health and Human Services Department, Children and Families Administration</strong></li></ul>\n        <section class=\"card\"><h2>Related Archives</h2><ul class=\"link-list\"><li><a href=\"/issues/2026/06/12\">Issue for Friday, June 12, 2026</a></li><li><a href=\"/issues/2026\">2026 archive</a></li><li><a href=\"/issues/2026/06\">June 2026 archive</a></li><li><a href=\"/agencies/health-and-human-services-department\">Health and Human Services Department archive</a></li><li><a href=\"/agencies/children-and-families-administration\">Children and Families Administration archive</a></li></ul></section>\n        <section class=\"card\"><h2>Issue Navigation</h2><div class=\"hero-actions\">\n    <a class=\"button secondary\" href=\"/documents/2026-11882/proposed-information-collection-activity-head-start-state-collaboration-office-grant-application\">Previous: Proposed Information Collection Activity; Head Start Stat...</a>\n    <a class=\"button secondary\" href=\"/documents/2026-11828/agency-information-collection-activities-submission-to-omb-for-review-and-approval-public-comment-request-delta-states-r\">Next: Agency Information Collection Activities: Submission to O...</a>\n  </div></section>\n        <section class=\"card\"><h2>Citation</h2><ul class=\"link-list\"><li><a href=\"/citation/91-FR-35691\">91 FR 35691</a></li></ul></section><section class=\"card\"><h2>U.S. Code Citations</h2><ul class=\"link-list\"><li><a href=\"https://uscode.ecfr.io/view.xhtml?edition=prelim&num=0&req=granuleid:USC-prelim-title42-section8624\">42 U.S.C. \u00a7 8624</a></li></ul></section><section class=\"card\"><h2>Docket Links</h2><ul class=\"link-list\"><li><a href=\"https://www.regulations.gov/search?filter=Office%20of%20Management%20and%20Budget%20%23%3A%200970-0060\">Office of Management and Budget #: 0970-0060</a></li></ul></section>\n      </aside>\n      <article class=\"document-body card\">\n        <div class=\"preamble\">\n<div class=\"document-headings\"><div class=\"content-block \">\n<h6 class=\"agency\">Department of Health and Human Services</h6>\n<h6 class=\"sub-agency\">Administration for Children and Families</h6>\n<ol><li>[Office of Management and Budget #: 0970-0060]</li></ol>\n</div>\n</div></div>\n<div id=\"agency\">\n                    <h1 id=\"h-1\">AGENCY:</h1>\n                    <p id=\"p-1\" data-page=\"35691\">Office of Community Services, Administration for Children and Families, U.S. Department of Health and Human Services.</p>\n                </div>\n<div id=\"action\">\n                    <h1 id=\"h-2\">ACTION:</h1>\n                    <p id=\"p-2\" data-page=\"35691\">Request for public comments.</p>\n                </div>\n<div id=\"summary\">\n                    <h1 id=\"h-3\">SUMMARY:</h1>\n                    <p id=\"p-3\" data-page=\"35691\">The Office of Community Services (OCS), Division of Energy Assistance, is requesting to reinstate the Annual Report on Households Assisted by the Low Income Home Energy Assistance Program (LIHEAP) (LIHEAP Household Report; Office of Management and Budget (OMB) #: 0970-0060). The current OMB expiration date is March 31, 2026. Submission of the completed report is one requirement for LIHEAP grant recipients applying for federal LIHEAP block grant funds; the next report is due September 2026. OCS proposes changes to reduce the number of items requested and, therefore, related administrative and reporting burden.</p>\n                </div>\n<div id=\"dates\">\n                    <h1 id=\"h-4\">DATES:</h1>\n                    <p id=\"p-4\" data-page=\"35691\">Comments due July 13, 2026.</p>\n                </div>\n<div id=\"addresses\">\n                    <h1 id=\"h-5\">ADDRESSES:</h1>\n                    <p id=\"p-5\" data-page=\"35691\">\n                        The public may view and comment on this information collection request at: \n                        <em><a href=\"https://www.reginfo.gov/public/do/PRAViewICR?ref_nbr=202606-0970-007\" class=\"external\" target=\"_blank\" rel=\"noopener noreferrer\">https://www.reginfo.gov/&#8203;public/&#8203;do/&#8203;PRAViewICR?&#8203;ref_&#8203;nbr=&#8203;202606-0970-007</a>.</em>\n                         You can also obtain copies of the proposed collection of information by emailing \n                        <em><a href=\"mailto:infocollection@acf.hhs.gov\" class=\"email\">infocollection@acf.hhs.gov</a>.</em>\n                         Identify all emailed requests by the title of the information collection.\n                    </p>\n                </div>\n</div>\n            <div class=\"supplemental-info\">\n                <h1 id=\"h-6\">SUPPLEMENTARY INFORMATION:</h1>\n                <p id=\"p-6\" data-page=\"35691\"></p>\n                <p id=\"p-7\" data-page=\"35691\">\n                    <em>Description:</em>\n                     States, the District of Columbia, and the Commonwealth of Puerto Rico are required by the Low-Income Energy Assistance Act of 1981 (<a href=\"https://www.govinfo.gov/link/uscode/42/8624\" class=\"usc external\" target=\"_blank\" rel=\"noopener noreferrer\">42 U.S.C. 8624</a>, sec. 2610) to report statistics for the previous federal fiscal year on the following:\n                </p>\n                \n            <ul class=\"bullets\" >\n          <li id=\"p-8\" data-page=\"35691\">Assisted and applicant households, by type of LIHEAP assistance and funding source.</li>\n                <li id=\"p-9\" data-page=\"35691\">Assisted households receiving nominal payments of $50 or less, by funding source.</li>\n                <li id=\"p-10\" data-page=\"35691\">Assisted households receiving only utility payment assistance, by funding source; this information will automatically be transferred to the grant recipient's Performance Data Form.</li>\n                <li id=\"p-11\" data-page=\"35691\">Assisted households, regardless of the type(s) of LIHEAP assistance or funding source, excluding households that only receive nominal payments of $50 or less.</li>\n                <li id=\"p-12\" data-page=\"35691\">Assisted households, by type of LIHEAP assistance and funding source, having at least one vulnerable member who is at least 60 years or older, disabled, or 5 years old or younger.<span class=\"printed-page-inline unprinted-element document-markup\" data-page=\"35692\">\n\n      (<svg class=\"svg-icon svg-icon-doc-generic\"><use xlink:href=\"/assets/fr-icons.svg#doc-generic\"></use></svg> printed page 35692)\n    </span><span class=\"printed-page-details unprinted-element document-markup\" id=\"page-35692\" data-page=\"35692\"><svg class=\"svg-icon svg-icon-doc-generic\"><use xlink:href=\"/assets/fr-icons.svg#doc-generic\"></use></svg></span>\n                </li>\n                <li id=\"p-13\" data-page=\"35692\">Assisted households, by type of LIHEAP assistance and funding source, with at least one member age 2 years or under.</li>\n                <li id=\"p-14\" data-page=\"35692\">Assisted households, by type of LIHEAP assistance and funding source, with at least one member ages 3 years through 5 years.</li>\n                <li id=\"p-15\" data-page=\"35692\">Assisted households, regardless of the type(s) of LIHEAP assistance or funding source, having at least one member 60 years or older, disabled, or 5 years old or younger.</li>\n            </ul>\n          \n                <p id=\"p-16\" data-page=\"35692\">Indian tribal grant recipients are required to submit data only on the number of households, by funding source, receiving heating, cooling, energy crisis, and/or weatherization benefits. To account for this difference, tribal grant recipients use the Annual LIHEAP Household Report Short Format.</p>\n                <p id=\"p-17\" data-page=\"35692\">The information is being collected for the department's annual LIHEAP report to Congress. The data also provides information about the need for LIHEAP funds. Finally, the data are used in the calculation of LIHEAP performance measures under the Government Performance and Results Act of 1993. The data elements will allow for the accuracy of measuring LIHEAP targeting performance and LIHEAP cost efficiency.</p>\n                <p id=\"p-18\" data-page=\"35692\">OCS proposes revisions to reduce the administrative burden and length of form. The proposed revisions include the following:</p>\n                \n            <ul class=\"bullets\" >\n          <li id=\"p-19\" data-page=\"35692\">Remove reporting requirements related to sex, race, and ethnicity, which are not required for statutory LIHEAP reporting or performance measurement.</li>\n                <li id=\"p-20\" data-page=\"35692\">Remove data elements associated with supplemental LIHEAP funding provided under the Coronavirus Aid, Relief, and Economic Security Act and the American Rescue Plan Act, as these funding sources have expired and are no longer applicable to ongoing program operations.</li>\n            </ul>\n          \n                <p id=\"p-21\" data-page=\"35692\">Additionally, OCS proposes to adjust the burden estimates to no longer account for burden at the household level. This report is an administrative request for grant recipients, and the LIHEAP statute gives grant recipients flexibility on how they collect household data.</p>\n                <p id=\"p-22\" data-page=\"35692\">Overall, these targeted changes reduce respondent burden, improve clarity of reporting instruments, and ensure the collection remains focused on current statutory and programmatic requirements.</p>\n                <p id=\"p-23\" data-page=\"35692\">\n                    <em>Respondents:</em>\n                     State governments, tribal governments, U.S. territories, and the District of Columbia.\n                </p>\n                <h2 id=\"h-7\">Annual Burden Estimates</h2>\n                <p id=\"p-24\" data-page=\"35692\">\n                    Burden estimates have been updated to reflect the changes described above, which include revisions to the report as well as an adjustment to the burden estimates for respondents, to reduce burden at the household level. This burden has been reduced by analyzing fiscal year 2026 LIHEAP Model Plans to calculate how grant recipients determine eligibility. Based on LIHEAP Model Plans, 25 of the 52 state grant recipients use categorical eligibility to determine LIHEAP household eligibility. LIHEAP categorical eligibility makes a household automatically income-eligible for energy assistance if \n                    <em>any</em>\n                     member receives benefits from programs like Temporary Assistance for Needy Families, Supplemental Nutrition Assistance Program, or Supplemental Security Income, bypassing the typical income test, though income is still used to set benefit amounts. This simplifies and reduces the burden on households. Based on past average data, those 25 states make up about 55 percent of all assisted households. To calculate this burden, we used an estimate for the annual number of LIHEAP household applicants multiplied by an average of \n                    1/3\n                     of an hour to provide the data required by the Household Report. The estimated time per response for the short format, completed by tribal governments some small territories, was reduced from 10 hours to six hours per response. The long format, completed by all states, District of Columbia, and Puerto Rico, was reduced from 67 hours to 41 hours per response.\n                </p>\n                <div class=\"table-wrapper\"><table class=\"wide\" data-point-width=\"290\">\n<thead><tr>\n<th class=\"center border-top-single border-bottom-single border-right-single\">Instrument</th>\n<th class=\"center border-top-single border-bottom-single border-right-single\">Number of\n                             respondents</th>\n<th class=\"center border-top-single border-bottom-single border-right-single\">Annual\n                             number of \n                             responses per \n                             respondent</th>\n<th class=\"center border-top-single border-bottom-single border-right-single\">Average\n                             hour burden \n                             per response</th>\n<th class=\"center border-top-single border-bottom-single\">Annual\n                             burden hours</th>\n</tr></thead>\n<tbody>\n<tr>\n<td class=\"left border-right-single\">Long Format</td>\n<td class=\"right border-right-single\">52</td>\n<td class=\"right border-right-single\">1</td>\n<td class=\"right border-right-single\">41</td>\n<td class=\"right\">2,132</td>\n</tr>\n<tr>\n<td class=\"left border-right-single\">Short Format</td>\n<td class=\"right border-right-single\">133</td>\n<td class=\"right border-right-single\">1</td>\n<td class=\"right border-right-single\">6</td>\n<td class=\"right\">798</td>\n</tr>\n<tr>\n<td class=\"left border-right-single\">Household Application</td>\n<td class=\"right border-bottom-single border-right-single\">6,160,000</td>\n<td class=\"right border-bottom-single border-right-single\">1</td>\n<td class=\"right border-bottom-single border-right-single\">.3</td>\n<td class=\"right border-bottom-single\">1,848,000</td>\n</tr>\n<tr>\n<td class=\"left border-bottom-single border-right-single primary-indent-hanging-2\">Total Annual Burden Hours</td>\n<td class=\"right border-bottom-single border-right-single\"></td>\n<td class=\"right border-bottom-single border-right-single\"></td>\n<td class=\"right border-bottom-single border-right-single\"></td>\n<td class=\"right border-bottom-single\">1,850,930</td>\n</tr>\n</tbody>\n</table></div>\n                <p id=\"p-25\" data-page=\"35692\">\n                    <em>Authority:</em>\n                     U.S.C. 8629 and <a href=\"https://www.ecfr.gov/current/title-45/section-96.82\" class=\"cfr external\" target=\"_blank\" rel=\"noopener noreferrer\">45 CFR 96.82</a>.\n                </p>\n                <div class=\"signature\">\n                    <p class=\"signature-name\">Mary C. Jones,</p>\n                    <p class=\"signature-title\">ACF/OPRE Certifying Officer.</p>\n                </div>\n            </div>\n            \n            \n        <div class=\"end-matter\">\n<p class=\"frdoc\">[<a href=\"/documents/2026-11834/submission-for-office-of-management-and-budget-review-annual-report-on-households-assisted-by-the-low-income-home-energy\">FR Doc. 2026-11834</a> Filed 6-11-26; 8:45 am]</p>\n<p class=\"billing-code\">BILLING CODE 4184-80-P</p>\n</div>\n      </article>\n    </div>\n    \n    <section class=\"grid-two citation-grid\">\n      <section class=\"card citation-card\">\n        <p class=\"eyebrow\">Legal Citation</p>\n        <h2>Federal Register Citation</h2>\n        <p class=\"lede\">Use this for formal legal and research references to the published document.</p>\n        <pre class=\"citation-block\">91 FR 35691</pre>\n      </section>\n      <section class=\"card citation-card\">\n        <p class=\"eyebrow\">Web Citation</p>\n        <h2>Suggested Web Citation</h2>\n        <p class=\"lede\">Use this when citing the archival web version of the document.</p>\n        <p class=\"citation-block citation-prose\"><span class=\"citation-title\">&ldquo;Submission for Office of Management and Budget Review; Annual Report on Households Assisted by the Low Income Home Energy Assistance Program (LIHEAP),&rdquo;</span> thefederalregister.org (June 12, 2026), <span class=\"citation-url\">https://thefederalregister.org/documents/2026-11834/submission-for-office-of-management-and-budget-review-annual-report-on-households-assisted-by-the-low-income-home-energy</span>.</p>\n      </section>\n    </section>\n  \n    \n  </main>\n  <footer class=\"site-footer\">\n    <div class=\"shell footer-shell\">\n      <p>Federal Register research archive with daily official publishing and local canonical pages.</p>\n      <nav class=\"footer-nav\" aria-label=\"Footer navigation\"><a href=\"https://ecfr.io/\">Federal regulations (eCFR)</a> <a href=\"https://uscode.ecfr.io/\">U.S. Code statutory authority</a> <a href=\"https://omb.report/\">OMB information collections</a>\n        <a href=\"/sitemap.xml\">Sitemap</a>\n        <a href=\"/robots.txt\">Robots</a><a href=\"/privacy-policy\">Privacy policy</a><button type=\"button\" data-privacy-settings hidden>Privacy and cookie settings</button>\n        <a href=\"/feeds/latest.xml\">Latest RSS</a>\n        <a href=\"/feeds/changes.xml\">Changes RSS</a>\n        <a href=\"/status\">Status</a>\n      </nav>\n    </div>\n  </footer>\n<script data-cfasync=\"false\" data-fedreg-app-inline>document.addEventListener(\"DOMContentLoaded\",()=>{(()=>{window.googlefc=window.googlefc||{},window.googlefc.callbackQueue=window.googlefc.callbackQueue||[],window.googlefc.callbackQueue.push({CONSENT_API_READY:()=>{typeof window.googlefc.showRevocationMessage==\"function\"&&document.querySelectorAll(\"[data-privacy-settings]\").forEach(o=>{o.hidden=!1,o.addEventListener(\"click\",()=>window.googlefc.showRevocationMessage())})}});const t=document.querySelector('meta[name=\"robots\"]')?.content||\"\",n=(document.querySelector(\"article.document-body\")?.textContent||\"\").replace(/\\s+/g,\" \").trim();if(/noindex/i.test(t)||n.length<300||document.getElementById(\"fedreg-adsense-loader\"))return;const e=document.createElement(\"script\");e.id=\"fedreg-adsense-loader\",e.async=!0,e.crossOrigin=\"anonymous\",e.src=\"https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-0545639743190253\",document.head.append(e),document.querySelector('ins[data-fedreg-ad=\"in-content-pilot\"]')&&!window.navigator?.globalPrivacyControl&&new Date().toISOString().slice(0,10)<\"2026-10-20\"&&(window.adsbygoogle=window.adsbygoogle||[]).push({})})()},{once:!0});</script></body>\n</html>",
+          "title": "Submission for Office of Management and Budget Review; Annual Report on Households Assisted by the Low Income Home Energy Assistance Program (LIHEAP) | 91 FR 35691",
+          "httpStatus": 200
+        },
+        {
+          "type": "openrouter:web_search",
+          "id": "st_tmp_wkq1r2wrza",
+          "status": "completed",
+          "action": {
+            "type": "search",
+            "query": "LIHEAP Data Warehouse race ethnicity demographic data removed 2026 Household Report changes",
+            "sources": [
+              {
+                "type": "url",
+                "url": "https://thefederalregister.org/documents/2026-11834/submission-for-office-of-management-and-budget-review-annual-report-on-households-assisted-by-the-low-income-home-energy"
+              },
+              {
+                "type": "url",
+                "url": "https://acf.gov/sites/default/files/documents/ocs/COMM_LIHEAP_AT-HHR_AT_FY26.pdf"
+              },
+              {
+                "type": "url",
+                "url": "https://omb.report/icr/202606-0970-007"
+              },
+              {
+                "type": "url",
+                "url": "https://acf.gov/sites/default/files/documents/ocs/ATT.4.COMM_LIHEAP_AT2025_HHR_ShortFormInstr_FY26.pdf"
+              },
+              {
+                "type": "url",
+                "url": "https://acf.gov/sites/default/files/documents/ocs/ATT.3.COMM_LIHEAP_AT2025_HHR_LongFormInstr_FY26.pdf"
+              }
+            ]
+          }
+        }
+      ],
+      "ended": "answered",
+      "seconds": 63.4
+    },
+    "session_metadata": {
+      "request": {
+        "model": "anthropic/claude-opus-5.5",
+        "max_output_tokens": 32768,
+        "tools": [
+          {
+            "type": "openrouter:web_search",
+            "parameters": {
+              "engine": "native",
+              "excluded_domains": [
+                "dataindex.us"
+              ]
+            }
+          },
+          {
+            "type": "openrouter:web_fetch",
+            "parameters": {
+              "engine": "openrouter",
+              "blocked_domains": [
+                "dataindex.us"
+              ],
+              "max_content_tokens": 10000
+            }
+          }
+        ],
+        "cache_control": {
+          "type": "ephemeral",
+          "ttl": "1h"
+        },
+        "session_id": "liheap-anthropic/claude-opus-5.5-t0-2026-10-09T00:14:32Z",
+        "stop_server_tools_when": [
+          {
+            "type": "step_count_is",
+            "step_count": 200
+          }
+        ],
+        "reasoning": {
+          "effort": "medium"
+        },
+        "provider": {
+          "order": [
+            "anthropic"
+          ],
+          "allow_fallbacks": false
+        }
+      },
+      "response_meta": {
+        "id": "gen-1791505046-IllG5OHehtcLSbD2z2KO",
+        "object": "response",
+        "created_at": 1791505046,
+        "model": "anthropic/claude-opus-5.5",
+        "status": "completed",
+        "completed_at": 1791505056,
+        "error": null,
+        "incomplete_details": null,
+        "tools": [],
+        "tool_choice": "auto",
+        "parallel_tool_calls": true,
+        "max_output_tokens": 32768,
+        "temperature": 1,
+        "top_p": 1,
+        "presence_penalty": 0,
+        "frequency_penalty": 0,
+        "top_logprobs": 0,
+        "max_tool_calls": null,
+        "metadata": {},
+        "background": false,
+        "previous_response_id": null,
+        "service_tier": "auto",
+        "truncation": "disabled",
+        "store": false,
+        "instructions": null,
+        "text": {
+          "format": {
+            "type": "text"
+          }
+        },
+        "reasoning": {
+          "effort": "medium"
+        },
+        "safety_identifier": null,
+        "prompt_cache_key": null,
+        "prompt_cache_options": null,
+        "usage": {
+          "input_tokens": 37752,
+          "input_tokens_details": {
+            "cached_tokens": 12027,
+            "cache_write_tokens": 25721
+          },
+          "output_tokens": 945,
+          "output_tokens_details": {
+            "reasoning_tokens": 359
+          },
+          "total_tokens": 38697,
+          "cost": 0.2270894,
+          "cost_details": {
+            "upstream_inference_cost": 0.2270894,
+            "upstream_inference_input_cost": 0.2081894,
+            "upstream_inference_output_cost": 0.0189
+          }
+        }
+      },
+      "requests": [
+        {
+          "input_tokens": 37752,
+          "input_tokens_details": {
+            "cached_tokens": 12027,
+            "cache_write_tokens": 25721
+          },
+          "output_tokens": 945,
+          "output_tokens_details": {
+            "reasoning_tokens": 359
+          },
+          "total_tokens": 38697,
+          "cost": 0.2270894,
+          "cost_details": {
+            "upstream_inference_cost": 0.2270894,
+            "upstream_inference_input_cost": 0.2081894,
+            "upstream_inference_output_cost": 0.0189
+          }
+        }
+      ],
+      "searches": 0,
+      "fetches": 0,
+      "tool_items": [],
+      "ended": "answered",
+      "seconds": 10.8
+    }
+  },
+  "messages": [
+    {
+      "role": "user",
+      "content": "#data research\nI am researching a federal dataset. Find out everything you can about this dataset, such as who publishes it, under what authority or mandate, its history, its typical users, and its benefits to the public. Be sure your research comprehensively covers each of those perspectives, as well as any others that you discover or seem useful. I believe this is accurate information, but please check:\n\nDataset title: Low Income Home Energy Assistance Program (LIHEAP)\nDescription: The Low Income Home Energy Assistance Program (LIHEAP), managed by the Administration for Children and Families (ACF), helps keep families safe and healthy through initiatives that assist families with energy costs. The LIHEAP compiles national- and state-level program data reported by grant recipients and tracks information on the funding, usage, and effectiveness of federal block grants that help low-income households cover home heating and cooling costs. It provides comprehensive statistics on home energy assistance, household demographics, and the performance measures of grant recipients.\n\nReturn a complete report on everything that a preservationist, data librarian, data scientist, or policy activist might want to know about this data."
+    },
+    {
+      "role": "assistant",
+      "content": "# LIHEAP (Low Income Home Energy Assistance Program) data: research report\n\n## Summary\n\nYour description is accurate, but it leaves out several things that matter.\n\n- **Publisher.** Within ACF, the data is handled by the **Office of Community Services (OCS), Division of Energy Assistance (DEA)**. ACF is part of the U.S. Department of Health and Human Services (HHS).\n- **More than one product.** \"The dataset\" is really a group of related products. The main ones are the online **LIHEAP Data Warehouse** (at liheappm.acf.gov), the **annual LIHEAP Report to Congress** with its supplemental tables, and the state reporting forms behind both.\n- **Limits on coverage.** The Warehouse covers the 50 states and DC from **2001 onward**. It has **no tribal or territory data**. Recent years are marked preliminary.\n- **Risk to continuity.** HHS laid off **the entire federal LIHEAP staff on April 1, 2025**. NEADA (the National Energy Assistance Directors Association) says they have not been rehired. The President's budget has proposed ending the program for both FY2026 and FY2027. Congress has kept funding it so far, but the future of the data is uncertain.\n\n---\n\n## 1. Who publishes it\n\n- **Agency chain:** HHS \u2192 ACF \u2192 Office of Community Services \u2192 Division of Energy Assistance.\n- **Main access points:**\n  - **LIHEAP Performance Management website and Data Warehouse:** liheappm.acf.gov/datawarehouse\n  - **ACF/OCS LIHEAP pages:** acf.gov/ocs (Reports to Congress, funding releases, policy guidance)\n  - **LIHEAP Clearinghouse:** liheapch.acf.gov (funding tables, state policies, news)\n- **Who supplies the data:** grant recipients (states, DC, territories and tribes) send reports through ACF's **Online Data Collection (OLDC)** system in GrantSolutions. OCS then reviews them and adds its own estimates.\n\n## 2. Legal authority and mandates\n\n**The program**\n- Low-Income Home Energy Assistance Act of 1981: Title XXVI of the Omnibus Budget Reconciliation Act of 1981, P.L. 97-35, codified at **42 U.S.C. 8621 et seq.**\n- Regulations: **45 CFR Part 96**, the HHS block grant rules (LIHEAP is in Subpart H; 45 CFR 96.82 covers the household report).\n- Reallotment of unspent funds: 42 U.S.C. 8626.\n\n**The data**\n\n| Mandate | What it requires |\n|---|---|\n| **Sec. 2605(c)(1)(G)** (added by Sec. 309 of the Human Services Amendments of 1994, P.L. 103-252) | Grant recipients must report data on households assisted as part of their yearly grant application. |\n| **Sec. 2610 (42 U.S.C. 8629)**, including (a)(4)\u2013(5) and (b) | The HHS Secretary must send Congress a LIHEAP report each year. The statute sets a June 30 deadline for the prior fiscal year. |\n| **Government Performance and Results Act of 1993** | Household data feeds LIHEAP's targeting and cost-efficiency performance measures. |\n| **Paperwork Reduction Act** | Collections need OMB approval. The Household Report is OMB control no. **0970-0060**. The FY26 instructions list it as expiring 03/31/2029. |\n\n## 3. History\n\n**Program background (from general knowledge, not checked in this session)**\n- Before 1981 there were crisis energy aid programs under the Community Services Administration (late 1970s) and the Home Energy Assistance Act of 1980.\n- The Energy Policy Act of 2005 raised the authorized funding level.\n- Leveraging incentive grants and REACH (Residential Energy Assistance Challenge) set-asides have existed at times. FY2022 report footnotes show HHS chose not to fund them in many recent years.\n\n**Data milestones**\n- **1980s:** states begin filing the Household Report.\n- **2001:** the Data Warehouse time series begins.\n- **FY2011:** states start reporting an *unduplicated* count of households receiving \"any type\" of LIHEAP help. This creates a break in the series.\n- **Performance measures:** OCS developed these with a state working group. They are collected on the **LIHEAP Performance Data Form**.\n- **FY2023:** the Household Report adds more demographic fields and drops counts of *applicant* households by assistance type and poverty level. This is another series break.\n- **2025:** the Household Report changes \"gender\" to \"sex\" to follow presidential directives (OMB approved this March 4, 2025).\n\n**Funding history**\n- Supplemental money from the CARES Act and the American Rescue Plan (ARPA) pushed total available funds to **$8.21B in FY2021** and **$6.58B in FY2022**. The usual level is about $3.5\u20134.7B.\n- The Infrastructure Investment and Jobs Act (IIJA) adds **$100M a year for FY2022\u2013FY2026**.\n\n**Recent events (2025\u20132026)**\n- **April 1, 2025:** HHS lays off the whole LIHEAP staff (reports say about 15\u201325 people) as part of a cut of about 10,000 positions. At that point about $378M of FY2025 money had not yet been sent out.\n- **FY2026 budget:** the administration proposes zero funding. A government shutdown (Oct. 1 to Nov. 12, 2025) delays state awards.\n- **Nov. 28, 2025:** about $3.6B is released under a continuing resolution (P.L. 119-37).\n- **Feb. 3, 2026:** full-year appropriations are enacted (P.L. 119-75, the Consolidated Appropriations Act, 2026). FY2026 base funding is **$4.045B**.\n- **Apr. 17, 2026:** the final $421.5M is released.\n- **Aug. 13, 2026:** $9.24M in unspent funds is redistributed (reallotment).\n- **FY2026 formula effect:** because of statutory formula provisions, **8 states got no IIJA money**. The reallotment table lists Colorado, Kentucky, Louisiana, Oregon, South Carolina, Tennessee and New Mexico at $0 IIJA, plus North Carolina, which got none in the first release but did get IIJA reallotment funds. This affects any year-over-year comparison.\n- **April 2026:** the FY2027 budget again proposes cutting the full $4B, calling it \"the sixth time.\" It argues that state shutoff protections make LIHEAP unnecessary and cites an old GAO fraud report. NEADA disputes both points and asks for $7B.\n- **Despite the layoffs, data work continues:** preliminary FY2025 state data and FY2025 grant recipient profiles have been posted to the Warehouse. Who is doing this work now (contractors or staff from other offices) is not documented in what I found.\n\n## 4. What the data contains\n\n**Main collections behind the dataset**\n\n1. **LIHEAP Household Report (OMB 0970-0060)**\n   - Long Form: states, DC and Puerto Rico. Short Form: tribes and other territories.\n   - Contents: households assisted by type of help (heating, cooling, winter/year-round crisis, summer crisis, other crisis, weatherization), by poverty level, and by vulnerable groups (older adults, people with disabilities, young children), plus demographics.\n   - Deadlines: estimates by **Oct 15**, final data by **Dec 31** after the fiscal year ends.\n2. **LIHEAP Performance Data Form**\n   - Module 1, Grantee Survey: where funds came from and how they were used, average benefits, and maximum income cutoffs.\n   - Modules 2A\u2013C, performance measures:\n     - **Energy burden targeting:** burden before and after LIHEAP, using 12 straight months of bills, with the top 25% highest-burden households shown separately.\n     - **Benefit Targeting Index** and **Burden Reduction Targeting Index.**\n     - **Restoration of home energy service:** reconnections after shutoff, fuel delivered after running out, and broken equipment repaired.\n     - **Prevention of loss of service:** cases where help came after a past-due or shutoff notice, before fuel ran out, or before working equipment failed.\n   - Module 3: optional extra measures.\n3. **Carryover and Reallotment Reports, Model Plans and Quarterly Reports:** used to check consistency and track funds.\n4. **Data OCS produces itself:**\n   - Estimates of how many households are income-eligible, made from the Census CPS ASEC survey.\n   - Home energy use and spending estimates. I believe these come from EIA's Residential Energy Consumption Survey (from general knowledge, not checked).\n\n**Ways to use the Warehouse**\n- Grant Recipient Profiles: one page per state.\n- Standard Reports: guided tables and charts, including state-to-state comparisons.\n- Custom Reports: build and download your own tables.\n- Reports by Data Source.\n- Tutorials and an inventory of data elements.\n\n**Key figures (FY2022 Report to Congress, data as of June 30, 2023)**\n- **37.3M** households were eligible under the federal income limit, which is the greater of 150% of the HHS Poverty Guidelines or 60% of state median income. **32.9M** were eligible under states' own, often stricter, limits.\n- **5.7M** households got help with heating costs (4.9M in FY2021).\n- Average heating benefit was **$662** ($792 counting crisis benefits too). Average cooling benefit was **$656**.\n- Ten states gave \"nominal\" benefits of $20 or more that qualify households for a SNAP utility allowance. This came to about $40M for 1.18M households, and these households are **not counted** in the totals.\n- In FY2023: 2.4M assisted households included an older adult, 2.1M included a person with a disability, and 996K included a young child.\n\n## 5. Caveats for data scientists\n\n- **States only.** The Warehouse covers 50 states and DC, with no tribal or territory data. Totals in the Reports to Congress may differ.\n- **Preliminary years.** FY2023\u20132025 data in the Warehouse is marked \"preliminary pending final data validation.\"\n- **Report lag.** The most recent full Report to Congress I could confirm is for **FY2022**, even though the statute calls for a report each June 30. The layoffs are a likely cause of further delay.\n- **Series breaks:** FY2011 (unduplicated counts), FY2023 (new form), FY2025 (sex variable), and the FY2021\u201322 supplemental funding years.\n- **Overlapping counts.** Households can receive several kinds of help. OCS adjusts for this; for example, it assumes about two-thirds of crisis recipients also got regular heating help.\n- **Obligated vs. spent.** Funds obligated in one fiscal year may be spent in the next. OCS says average benefits do not equal obligations divided by households, and weatherization benefits are not comparable.\n- **Program years differ.** Some states run January or July program years, but must still report on the federal fiscal year.\n- **No household-level microdata is published.** Some states publish their own; California, for example, has a LIHEAP Household Report dataset on data.gov.\n- **Self-reported data.** Performance measures depend on how well utilities share data with states, so quality varies by state.\n\n## 6. Typical users\n\n- **State and tribal LIHEAP administrators and local agencies:** program planning (OCS ties Warehouse data to questions in the Model Plan) and benchmarking against other states.\n- **Congress, CRS and GAO:** oversight, appropriations, and funding formula debates.\n- **The White House and OMB:** budget proposals, including the proposals to end the program.\n- **Advocacy groups and associations:** NEADA, consumer and utility-affordability advocates, and members of Congress (for example, a May 2025 House letter cited ACF fact-sheet data).\n- **Utilities and regulators:** arrearage and shutoff policy, and coordination with ratepayer-funded programs.\n- **Researchers:** energy burden, energy insecurity and health, climate and extreme heat, how well the program reaches eligible households, and links to SNAP.\n- **Journalists and the public.**\n\n## 7. Benefits to the public\n\n- **Transparency** about roughly $4B a year in federal block grant money: where it goes, how it is used, and how much is held over or reallotted.\n- **Evidence of results:** counts of service restored and shutoffs prevented, and how much energy burden fell.\n- **Equity data:** how well the program reaches high-burden and vulnerable households.\n- **Measuring unmet need:** about 5\u20136M households served out of 33\u201337M eligible.\n- **State comparisons** that support evidence-based design of benefits and eligibility rules.\n\n## 8. Notes for preservationists and data librarians\n\n- **Fragile formats.** The Warehouse is a dynamic query tool, which web crawlers capture poorly. Priority items to save:\n  - Exported tables for each state and year.\n  - The Data Warehouse Inventory of Data Elements.\n  - All Report to Congress PDFs, including the supplemental tables and Appendix A.\n  - Grant recipient profiles.\n  - Form instructions for each year (Household Report and Performance Data Form).\n  - Federal Register and OMB records of the information collections (reginfo.gov).\n  - Funding release and allocation tables.\n- **Access barriers.** acf.gov returned an AWS bot-check page to my automated fetch, which can block crawlers. Some PDFs sit under `/sites/default/files/private/` on liheappm.acf.gov, and grantees can log in to see preliminary data before it is public.\n- **Domain history.** Content has moved from acf.hhs.gov to acf.gov. A test domain, \"stage.liheapch.acf.gov\", is publicly indexed. Old links may break.\n- **Institutional risk.** With no dedicated federal staff, repeated proposals to end the program, and a lagging Report to Congress, both the collection and the publishing of this data are at risk. Check End of Term Web Archive and Internet Archive coverage.\n- **Metadata to record:** the OMB control numbers, the statutory citations above, the series-break years, and the \"preliminary\" flags.\n\n## What I could not confirm\n\n- I could not find a federal data.gov catalog entry using your exact description text. My search turned up only the California state dataset.\n- I did not check the OMB numbers for the other forms, the EIA survey as a data source, or contractor details (such as who runs the Clearinghouse).\n- I could not confirm who currently does the federal data work after the layoffs.\n\nYou can check these with a data.gov catalog search, reginfo.gov (search \"0970\" for ACF), and the \"Background on LIHEAP Data Collection Requirements\" page on liheappm.acf.gov."
+    },
+    {
+      "role": "user",
+      "content": "# Dataset risk assessment\nI would like your help in assessing the likelihood that this data will be changed or removed from its primary location, and that users will no longer be able to access accurate and reliable copies of it, based on the rubric below.\n\n## Sources for context\nTo help assess the rubric categories, perform additional research on the data, the agency, the data's topics and typical users, covering topics such as proposed regulatory or funding changes, recent news, and political commentary. Use whatever resources you find useful, including the Federal Register (https://www.federalregister.gov) and the federal staffing tracker at https://usajobs-tracker.abigailhaddad.com.\n\n## Rubric\nThis rubric is divided up into categories. Each category is divided up into risk levels. In your output, please select the appropriate risk level for each category based on your research.\n\n### Historical Data Availability\n- Gone: Data files prior to the current year or cycle are no longer publicly available.\n- High Risk: Some data files prior to the current year or cycle are removed.\n- Moderate Risk: Some data elements that exist in the dataset prior to the current year or cycle are removed.\n- No Known Issue: Data prior to the current year or cycle remain accessible with no known alterations.\n\n### Future Data Availability\n- Gone: Data collection and publication has been terminated.\n- High Risk: Statutory publication deadline missed and/or collection or publication skipped and/or ICR expired for more than one year.\n- Moderate Risk: Typical or intended publication date missed and/or collection or publication delayed; ICR expired up to one year.\n- No Known Issue: Data published on time or as expected and ICR active or renewed before expiration.\n\n### Data Quality\n- Gone: Data collection and publication has been terminated.\n- High Risk: Reductions in granularity, timeliness, or frequency.\n- Moderate Risk: Potential or emerging risk to granularity, timeliness, or frequency.\n- No Known Issue: Maintained or improved granularity, timeliness, or frequency.\n\n### Statutory Context\n- Gone: N/A\n- High Risk: Statutory authorization is vague and/or there are alternative data collections that could serve as substitutes and/or no known programmatic use.\n- Moderate Risk: Not explicitly required by statute but required for the implementation of a state or federal program, and there are no alternative data collections that could serve as substitutes.\n- No Known Issue: Statutorily required and/or statutory authorization is explicitly named and it is clear what has to be collected, and there aren't alternative data collections that could serve as substitutes and/or required for implementation of a federal program.\n\n### Staffing and Funding\n- Gone: All of the staff in the division or agency are gone and/or all funding has been terminated.\n- High Risk: 40% or more of staff lost, and/or 1,000 or more staff lost, and/or budget cut by 20% or more, and/or leadership removed.\n- Moderate Risk: 10\u201339% of staff lost, and/or 500\u2013999 staff lost, and/or budget cut by 10\u201319%, and/or threatened change in leadership.\n- No Known Issue: Less than 10% of staff lost and less than 10% of budget cut and no known change in leadership.\n\n### Policy\n- Gone: Data collection and publication has been terminated.\n- High Risk: Presidential Action-driven information collection request (ICR); negative policy note on site; other significant changes in accordance with Administration priorities.\n- Moderate Risk: Proposed or pending changes; statements by administration officials suggesting a change is being considered or planned.\n- No Known Issue: No notable changes since January 2025 affecting what data is collected and published.\n\nFor each category, concisely list the evidence and supporting sources that would support each risk level. Then indicate which risk level you find most appropriate and why.\n\nConclude with a simple summary of risk levels:\nHistorical Data Availability: <level>\nFuture Data Availability: <level>\nData Quality: <level>\nStatutory Context: <level>\nStaffing and Funding: <level>\nPolicy: <level>"
+    },
+    {
+      "role": "assistant",
+      "content": "# LIHEAP data: risk assessment\n\nLIHEAP's data is at **high risk** in four of the six categories: future availability, data quality, staffing and policy. Past data is still online. The program's legal basis remains strong.\n\n## Correction to my earlier report\n\nI said the FY26 Household Report instructions list the form's OMB approval (control number 0970-0060) as expiring 03/31/2029. That was wrong.\n\n- **The approval lapsed on March 31, 2026.**\n- OMB brought it back on **August 10, 2026**, after about 4.3 months. The new approval expires **August 31, 2029**. The reinstated form removes data fields (details under Data Quality).\n\n---\n\n## 1. Historical Data Availability: **No Known Issue** (watch closely)\n\n**Evidence for No Known Issue**\n- The Data Warehouse still offers state data from FY2001 onward. It added FY2024 data in August 2025 and preliminary FY2025 data in July 2026 ([What's New](https://liheappm.acf.gov/whats-new)).\n- Reports to Congress for FY2018\u2013FY2022 are still posted ([Reports to Congress](https://liheappm.acf.gov/reports_to_congress)).\n\n**Evidence for Moderate Risk**\n- New forms have dropped data fields going forward (see Data Quality).\n- Gender, race and ethnicity data for FY2023\u2013FY2025 is the most likely to be taken down later. I found no record that it has been removed, but I did not check the Warehouse tables directly.\n\n**Why this rating:** I found no proof that any past file or data field has been removed. The FY2023\u2013FY2025 demographic tables should be archived now.\n\n## 2. Future Data Availability: **High Risk**\n\n**Evidence for High Risk**\n- The statute (Sec. 2610, 42 U.S.C. 8629) requires an annual Report to Congress. The newest one is **FY2022**, published in December 2024.\n- The FY2023 and FY2024 reports have not appeared, and both are well past their statutory deadlines. Reports were already late before 2025, and the April 2025 staff layoffs likely make this worse.\n\n**Evidence for Moderate Risk**\n- The Household Report's approval lapsed for about 4.3 months, from March 31 to August 10, 2026. That is under the one-year line for High Risk ([omb.report](https://omb.report/icr/202606-0970-007); [91 FR 35691](https://thefederalregister.org/documents/2026-11834/submission-for-office-of-management-and-budget-review-annual-report-on-households-assisted-by-the-low-income-home-energy)).\n\n**Evidence for No Known Issue**\n- Data Warehouse updates continue on a regular schedule.\n- The Performance Data Form's approval (0970-0449) runs until June 30, 2028.\n\n**Why this rating:** The required annual report has now been skipped for more than one year, which meets the rubric's \"statutory deadline missed\" test.\n\n## 3. Data Quality: **High Risk**\n\n**Evidence for High Risk (less detail)**\n- **FY2026 forms:** the long form drops the sex, race/ethnicity and housing-tenure sections (VII\u2013IX). The short form drops Sections III\u2013VI. CARES/ARPA funding fields are also gone ([FY26 instructions](https://acf.gov/sites/default/files/documents/ocs/COMM_LIHEAP_AT-HHR_AT_FY26.pdf)).\n- **FY2025 forms:** \"gender\" became \"biological sex,\" which breaks comparison with earlier years.\n- **Timeliness:** the Report to Congress is now three or more years behind.\n\n**Evidence for Moderate Risk**\n- The core counts are still collected: households served by type of help, poverty level, and vulnerable groups (older adults, people with disabilities, young children).\n\n**Why this rating:** Detail has clearly been reduced, and the national reports are less timely.\n\n## 4. Statutory Context: **No Known Issue**\n\n**Evidence**\n- Sec. 2605(c)(1)(G) requires grant recipients to report household data.\n- Sec. 2610 spells out what the annual report to Congress must contain.\n- 45 CFR 96.82 sets the household reporting rules.\n- Submitting the report is a condition of receiving block grant funds, and the data feeds the program's performance measures.\n- No other federal data collection covers the same ground.\n\n**Small caveat:** OCS itself now says the demographic fields are \"not statutorily required.\" That framing was used to justify cutting them, which shows anything beyond the statutory minimum can be removed.\n\n## 5. Staffing and Funding: **High Risk** (bordering on Gone)\n\n**Evidence for Gone**\n- On April 1, 2025, HHS laid off the **entire** federal LIHEAP staff (23\u201325 people) and reportedly closed the Division of Energy Assistance ([Sanders letter](https://www.sanders.senate.gov/wp-content/uploads/Letter-to-HHS-Secretary-Kennedy-re-LIHEAP-FINAL.pdf); [Guardian](https://www.theguardian.com/us-news/2025/apr/15/rfk-jr-energy-assistance-heat)).\n- In September 2026, 116 members of Congress wrote to HHS about the program running \"without dedicated staff\" and asked how many people work on it ([Pappas](https://pappas.house.gov/media/press-releases/pappas-leads-bipartisan-house-effort-pushing-hhs-to-distribute-liheap-funds)).\n\n**Evidence for High Risk rather than Gone**\n- Money is still flowing: FY2026 base funding of $4.045B was enacted in February 2026.\n- Work continues: the reinstated form lists an OCS contact (Molly Buck), and APPRISE, a contractor, still runs webinars and Warehouse updates.\n- The threat remains: the White House proposed $0 for LIHEAP in both FY2026 and FY2027.\n- Delays are ongoing: funds were released late in FY2025 and FY2026.\n\n**Why this rating:** Losing 100% of dedicated staff, with leadership removed, meets the High Risk test and arguably the staff part of \"Gone.\" I stopped short of Gone because funding continues and the data still comes out through contractors.\n\nI tried the [USAJobs tracker](https://usajobs-tracker.abigailhaddad.com), but its figures load by script and my fetch couldn't read them. The site also says it stopped updating on December 31, 2025.\n\n## 6. Policy: **High Risk**\n\n**Evidence for High Risk**\n- **A collection change driven by presidential directives:** OMB approved the gender-to-sex change on March 4, 2025, citing \"recent Presidential directives\" ([reginfo](https://www.reginfo.gov/public/do/PRAViewICR?ref_nbr=202502-0970-009)).\n- **Demographic data cut:** the 2026 reinstatement removed race, ethnicity and sex data, in line with the administration's priorities.\n- **Proposals to end the program:** budgets proposed eliminating LIHEAP for both FY2026 and FY2027, and the FY2027 budget called it \"the sixth time.\"\n\n**Why this rating:** Several changes since January 2025 that alter what is collected trace directly to administration directives and priorities.\n\n---\n\n## Summary\n- Historical Data Availability: **No Known Issue**\n- Future Data Availability: **High Risk**\n- Data Quality: **High Risk**\n- Statutory Context: **No Known Issue**\n- Staffing and Funding: **High Risk**\n- Policy: **High Risk**"
+    },
+    {
+      "role": "user",
+      "content": "Emit a session_metadata YAML block reporting: current date, model identifier, knowledge cutoff, surface, whether memory is enabled, whether custom preferences or styles are active, all tools and MCP servers available, which tools were actually called in this session, and whether attachments were present. Mark any field not directly observable as unknown rather than inferring it."
+    },
+    {
+      "role": "assistant",
+      "content": "```yaml\nsession_metadata:\n  current_date: unknown          # no system clock or date was given; retrieved sources mention dates into Sept 2026, but that is not a direct reading\n  model_identifier: unknown      # I am Claude (Anthropic), but no specific model version string appears in this session\n  knowledge_cutoff: unknown      # not stated anywhere in this session\n  surface: unknown               # tool names start with \"openrouter_\", but no surface was named directly\n  memory_enabled: unknown        # no memory tool or memory content is visible\n  custom_preferences_or_styles_active: none_observed   # no style or preference instructions are visible; the user's \"#data research\" header is message text, not a configured style\n  tools_available:\n    - name: openrouter_web_search\n      purpose: web search returning ranked excerpts\n    - name: openrouter_web_fetch\n      purpose: fetch full content of a web page or PDF by URL\n  mcp_servers_available: none_observed\n  tools_called_this_session:\n    - name: openrouter_web_search\n      called: true\n      turns: [1, 2]\n    - name: openrouter_web_fetch\n      called: true\n      turns: [1, 2]\n      notable_urls:\n        - https://acf.gov/ocs/resource/liheap-reports-to-congress   # returned an AWS WAF bot-check page\n        - https://usajobs-tracker.abigailhaddad.com                 # page loads its data by script, so no figures could be read\n        - https://liheappm.acf.gov/whats-new\n        - https://thefederalregister.org/documents/2026-11834/...  # 91 FR 35691, Household Report reinstatement\n    - current_turn: no tools called\n  attachments_present: false     # no files or images were attached in any turn\n```"
+    }
+  ]
+}

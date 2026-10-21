@@ -1,0 +1,1162 @@
+{
+  "dataset": {
+    "key": "aies",
+    "title": "Annual Integrated Economic Survey (AIES)"
+  },
+  "model": "anthropic/claude-opus-5.5",
+  "harness": "openrouter tools",
+  "context": "full: each turn's whole output is carried into the next",
+  "search_tool": {
+    "engine": "native",
+    "excluded_domains": [
+      "dataindex.us"
+    ]
+  },
+  "fetch_tool": {
+    "engine": "openrouter",
+    "blocked_domains": [
+      "dataindex.us"
+    ],
+    "max_content_tokens": 10000
+  },
+  "reasoning": "effort medium",
+  "catalog": {
+    "fetched_at": "2026-10-08T19:47:46Z",
+    "entry": {
+      "id": "anthropic/claude-opus-5.5",
+      "canonical_slug": "anthropic/claude-opus-5.5-20260921",
+      "hugging_face_id": null,
+      "name": "Anthropic: Claude Opus 5.5",
+      "created": 1790094732,
+      "description": "Claude Opus 5.5 is Anthropic's flagship model for demanding reasoning, coding, and long-horizon agentic work, succeeding Claude Opus 5. It is particularly strong at multi-step changes in large codebases, code...",
+      "context_length": 1000000,
+      "architecture": {
+        "modality": "text+image+file->text",
+        "input_modalities": [
+          "text",
+          "image",
+          "file"
+        ],
+        "output_modalities": [
+          "text"
+        ],
+        "tokenizer": "Claude",
+        "instruct_type": null
+      },
+      "pricing": {
+        "prompt": "0.000004",
+        "completion": "0.00002",
+        "web_search": "0.01",
+        "input_cache_read": "0.0000002",
+        "input_cache_write": "0.000005",
+        "input_cache_write_1h": "0.000008"
+      },
+      "top_provider": {
+        "context_length": 1000000,
+        "max_completion_tokens": 128000,
+        "is_moderated": true
+      },
+      "per_request_limits": null,
+      "supported_parameters": [
+        "include_reasoning",
+        "max_completion_tokens",
+        "max_tokens",
+        "reasoning",
+        "reasoning_effort",
+        "response_format",
+        "stop",
+        "structured_outputs",
+        "tool_choice",
+        "tools",
+        "verbosity"
+      ],
+      "default_parameters": {},
+      "supported_voices": null,
+      "knowledge_cutoff": null,
+      "expiration_date": null,
+      "links": {
+        "details": "/api/v1/models/anthropic/claude-opus-5.5-20260921/endpoints"
+      },
+      "benchmarks": {
+        "design_arena": [
+          {
+            "arena": "agents",
+            "category": "mobileapps",
+            "elo": 1328,
+            "win_rate": 64.3,
+            "rank": 2
+          },
+          {
+            "arena": "models",
+            "category": "3d",
+            "elo": 1487,
+            "win_rate": 72.3,
+            "rank": 1
+          },
+          {
+            "arena": "models",
+            "category": "codecategories",
+            "elo": 1407,
+            "win_rate": 65.3,
+            "rank": 1
+          },
+          {
+            "arena": "models",
+            "category": "dataviz",
+            "elo": 1403,
+            "win_rate": 64.6,
+            "rank": 1
+          },
+          {
+            "arena": "models",
+            "category": "gamedev",
+            "elo": 1464,
+            "win_rate": 72.5,
+            "rank": 1
+          },
+          {
+            "arena": "models",
+            "category": "svg",
+            "elo": 1334,
+            "win_rate": 50.5,
+            "rank": 1
+          },
+          {
+            "arena": "models",
+            "category": "uicomponent",
+            "elo": 1396,
+            "win_rate": 65.5,
+            "rank": 1
+          },
+          {
+            "arena": "models",
+            "category": "website",
+            "elo": 1340,
+            "win_rate": 57.6,
+            "rank": 3
+          }
+        ],
+        "artificial_analysis": {
+          "intelligence_index": 57.6,
+          "coding_index": null,
+          "agentic_index": null
+        }
+      },
+      "reasoning": {
+        "mandatory": true,
+        "supported_efforts": [
+          "max",
+          "xhigh",
+          "high",
+          "medium",
+          "low"
+        ],
+        "default_effort": "high"
+      }
+    }
+  },
+  "upstream": [
+    "anthropic"
+  ],
+  "trial": 0,
+  "terminate_reason": "completed",
+  "max_tokens": 32768,
+  "started_at": "2026-10-08T19:47:45Z",
+  "prompts": {
+    "research": "#data research\nI am researching a federal dataset. Find out everything you can about this dataset, such as who publishes it, under what authority or mandate, its history, its typical users, and its benefits to the public. Be sure your research comprehensively covers each of those perspectives, as well as any others that you discover or seem useful. I believe this is accurate information, but please check:\n\nDataset title: Annual Integrated Economic Survey (AIES)\nDescription: The Annual Integrated Economic Survey (AIES) replaced and integrated seven annual business surveys (Annual Retail Trade Survey, Annual Wholesale Survey, Service Annual Survey, Annual Survey of Manufactures, Annual Capital Expenditures Survey, Manufacturer's Unfilled Orders Survey , Report of Organization) into one survey. The AIES provides the most comprehensive national and subnational data on business revenues, expenses, payroll, and employment on an annual basis.\n\nReturn a complete report on everything that a preservationist, data librarian, data scientist, or policy activist might want to know about this data.",
+    "assessment": "# Dataset risk assessment\nI would like your help in assessing the likelihood that this data will be changed or removed from its primary location, and that users will no longer be able to access accurate and reliable copies of it, based on the rubric below.\n\n## Sources for context\nTo help assess the rubric categories, perform additional research on the data, the agency, the data's topics and typical users, covering topics such as proposed regulatory or funding changes, recent news, and political commentary. Use whatever resources you find useful, including the Federal Register (https://www.federalregister.gov) and the federal staffing tracker at https://usajobs-tracker.abigailhaddad.com.\n\n## Rubric\nThis rubric is divided up into categories. Each category is divided up into risk levels. In your output, please select the appropriate risk level for each category based on your research.\n\n### Historical Data Availability\n- Gone: Data files prior to the current year or cycle are no longer publicly available.\n- High Risk: Some data files prior to the current year or cycle are removed.\n- Moderate Risk: Some data elements that exist in the dataset prior to the current year or cycle are removed.\n- No Known Issue: Data prior to the current year or cycle remain accessible with no known alterations.\n\n### Future Data Availability\n- Gone: Data collection and publication has been terminated.\n- High Risk: Statutory publication deadline missed and/or collection or publication skipped and/or ICR expired for more than one year.\n- Moderate Risk: Typical or intended publication date missed and/or collection or publication delayed; ICR expired up to one year.\n- No Known Issue: Data published on time or as expected and ICR active or renewed before expiration.\n\n### Data Quality\n- Gone: Data collection and publication has been terminated.\n- High Risk: Reductions in granularity, timeliness, or frequency.\n- Moderate Risk: Potential or emerging risk to granularity, timeliness, or frequency.\n- No Known Issue: Maintained or improved granularity, timeliness, or frequency.\n\n### Statutory Context\n- Gone: N/A\n- High Risk: Statutory authorization is vague and/or there are alternative data collections that could serve as substitutes and/or no known programmatic use.\n- Moderate Risk: Not explicitly required by statute but required for the implementation of a state or federal program, and there are no alternative data collections that could serve as substitutes.\n- No Known Issue: Statutorily required and/or statutory authorization is explicitly named and it is clear what has to be collected, and there aren't alternative data collections that could serve as substitutes and/or required for implementation of a federal program.\n\n### Staffing and Funding\n- Gone: All of the staff in the division or agency are gone and/or all funding has been terminated.\n- High Risk: 40% or more of staff lost, and/or 1,000 or more staff lost, and/or budget cut by 20% or more, and/or leadership removed.\n- Moderate Risk: 10\u201339% of staff lost, and/or 500\u2013999 staff lost, and/or budget cut by 10\u201319%, and/or threatened change in leadership.\n- No Known Issue: Less than 10% of staff lost and less than 10% of budget cut and no known change in leadership.\n\n### Policy\n- Gone: Data collection and publication has been terminated.\n- High Risk: Presidential Action-driven information collection request (ICR); negative policy note on site; other significant changes in accordance with Administration priorities.\n- Moderate Risk: Proposed or pending changes; statements by administration officials suggesting a change is being considered or planned.\n- No Known Issue: No notable changes since January 2025 affecting what data is collected and published.\n\nFor each category, concisely list the evidence and supporting sources that would support each risk level. Then indicate which risk level you find most appropriate and why.\n\nConclude with a simple summary of risk levels:\nHistorical Data Availability: <level>\nFuture Data Availability: <level>\nData Quality: <level>\nStatutory Context: <level>\nStaffing and Funding: <level>\nPolicy: <level>",
+    "session_metadata": "Emit a session_metadata YAML block reporting: current date, model identifier, knowledge cutoff, surface, whether memory is enabled, whether custom preferences or styles are active, all tools and MCP servers available, which tools were actually called in this session, and whether attachments were present. Mark any field not directly observable as unknown rather than inferring it."
+  },
+  "turns": {
+    "research": {
+      "request": {
+        "model": "anthropic/claude-opus-5.5",
+        "max_output_tokens": 32768,
+        "tools": [
+          {
+            "type": "openrouter:web_search",
+            "parameters": {
+              "engine": "native",
+              "excluded_domains": [
+                "dataindex.us"
+              ]
+            }
+          },
+          {
+            "type": "openrouter:web_fetch",
+            "parameters": {
+              "engine": "openrouter",
+              "blocked_domains": [
+                "dataindex.us"
+              ],
+              "max_content_tokens": 10000
+            }
+          }
+        ],
+        "cache_control": {
+          "type": "ephemeral",
+          "ttl": "1h"
+        },
+        "session_id": "aies-anthropic/claude-opus-5.5-t0-2026-10-08T19:47:45Z",
+        "stop_server_tools_when": [
+          {
+            "type": "step_count_is",
+            "step_count": 200
+          }
+        ],
+        "reasoning": {
+          "effort": "medium"
+        },
+        "provider": {
+          "order": [
+            "anthropic"
+          ],
+          "allow_fallbacks": false
+        }
+      },
+      "response_meta": {
+        "id": "gen-1791488866-7grpGxmlEwCL7GCdFQ94",
+        "object": "response",
+        "created_at": 1791488866,
+        "model": "anthropic/claude-opus-5.5",
+        "status": "completed",
+        "completed_at": 1791488977,
+        "error": null,
+        "incomplete_details": null,
+        "tools": [],
+        "tool_choice": "auto",
+        "parallel_tool_calls": true,
+        "max_output_tokens": 32768,
+        "temperature": 1,
+        "top_p": 1,
+        "presence_penalty": 0,
+        "frequency_penalty": 0,
+        "top_logprobs": 0,
+        "max_tool_calls": null,
+        "metadata": {},
+        "background": false,
+        "previous_response_id": null,
+        "service_tier": "auto",
+        "truncation": "disabled",
+        "store": false,
+        "instructions": null,
+        "text": {
+          "format": {
+            "type": "text"
+          }
+        },
+        "reasoning": {
+          "effort": "medium"
+        },
+        "safety_identifier": null,
+        "prompt_cache_key": null,
+        "prompt_cache_options": null,
+        "usage": {
+          "input_tokens": 459438,
+          "input_tokens_details": {
+            "cached_tokens": 373066,
+            "cache_write_tokens": 86352
+          },
+          "output_tokens": 9141,
+          "output_tokens_details": {
+            "reasoning_tokens": 3251
+          },
+          "total_tokens": 468579,
+          "cost": 1.0183292000000002,
+          "cost_details": {
+            "upstream_inference_cost": 0.9483292000000001,
+            "upstream_inference_input_cost": 0.7655091999999999,
+            "upstream_inference_output_cost": 0.18282
+          },
+          "server_tool_use_details": {
+            "web_search_requests": 12,
+            "tool_calls_requested": 16,
+            "tool_calls_executed": 16
+          }
+        }
+      },
+      "requests": [
+        {
+          "input_tokens": 459438,
+          "input_tokens_details": {
+            "cached_tokens": 373066,
+            "cache_write_tokens": 86352
+          },
+          "output_tokens": 9141,
+          "output_tokens_details": {
+            "reasoning_tokens": 3251
+          },
+          "total_tokens": 468579,
+          "cost": 1.0183292000000002,
+          "cost_details": {
+            "upstream_inference_cost": 0.9483292000000001,
+            "upstream_inference_input_cost": 0.7655091999999999,
+            "upstream_inference_output_cost": 0.18282
+          },
+          "server_tool_use_details": {
+            "web_search_requests": 12,
+            "tool_calls_requested": 16,
+            "tool_calls_executed": 16
+          }
+        }
+      ],
+      "searches": 12,
+      "fetches": 4,
+      "tool_items": [
+        {
+          "type": "openrouter:web_search",
+          "id": "st_tmp_tllv4h7mfgq",
+          "status": "completed",
+          "action": {
+            "type": "search",
+            "query": "Annual Integrated Economic Survey AIES Census Bureau replaced seven surveys first release",
+            "sources": [
+              {
+                "type": "url",
+                "url": "https://www.census.gov/newsroom/blogs/random-samplings/2026/02/first-aies-data-release.html"
+              },
+              {
+                "type": "url",
+                "url": "https://www.census.gov/newsroom/press-releases/2025/aies-releases-first-dataset.html"
+              },
+              {
+                "type": "url",
+                "url": "https://www.census.gov/newsroom/press-releases/2024/annual-integrated-economic-survey-launches.html"
+              },
+              {
+                "type": "url",
+                "url": "https://www.census.gov/programs-surveys/aies/about.html"
+              },
+              {
+                "type": "url",
+                "url": "https://www.census.gov/programs-surveys/aies.html"
+              }
+            ]
+          }
+        },
+        {
+          "type": "openrouter:web_search",
+          "id": "st_tmp_ujqtzsnokf",
+          "status": "completed",
+          "action": {
+            "type": "search",
+            "query": "AIES Title 13 U.S. Code sections 131 182 224 225 mandatory OMB control number",
+            "sources": [
+              {
+                "type": "url",
+                "url": "https://www.census.gov/programs-surveys/aies/faq.html"
+              },
+              {
+                "type": "url",
+                "url": "https://www.census.gov/programs-surveys/aies/information.html"
+              },
+              {
+                "type": "url",
+                "url": "https://www.census.gov/programs-surveys/aies/about.html"
+              },
+              {
+                "type": "url",
+                "url": "https://omb.report/icr/202603-0607-006/doc/167390500"
+              },
+              {
+                "type": "url",
+                "url": "https://www.federalregister.gov/documents/2023/10/30/2023-23908/agency-information-collection-activities-submission-to-the-office-of-management-and-budget-omb-for"
+              }
+            ]
+          }
+        },
+        {
+          "type": "openrouter:web_fetch",
+          "id": "st_tmp_jpm989mi9e",
+          "status": "completed",
+          "url": "https://unblock.federalregister.gov/",
+          "content": "<!DOCTYPE html>\n<html>\n  <head>\n    <meta http-equiv=\"content-type\" content=\"text/html; charset=UTF-8\" />\n\n    <title>Federal Register :: Request Access</title>\n\n    <meta name=\"viewport\" content=\"width=device-width,initial-scale=1\">\n    <meta name=\"apple-mobile-web-app-capable\" content=\"yes\">\n    <meta name=\"mobile-web-app-capable\" content=\"yes\">\n    <meta name=\"csrf-param\" content=\"authenticity_token\" />\n<meta name=\"csrf-token\" content=\"dyxVLWgzoq_1JjAko4g7Co3m75OuRtWzVTreNeu28tOxMdVBFSjmbtP-yZLiyX0dOksaWngZFZKa--ZZSKNePQ\" />\n    <meta name=\"csp-nonce\" content=\"uHCKU8I62puLJIxyXYqghg==\" />\n\n    <link rel=\"preconnect\" href=\"https://fonts.googleapis.com\">\n<link rel=\"preconnect\" href=\"https://fonts.gstatic.com\" crossorigin>\n\n<link\nhref=\"https://fonts.googleapis.com/css2?family=Roboto:ital,wght@0,400;0,500;0,600;0,700;1,400;1,500;1,700&family=Bitter:ital,wght@0,400;0,500;0,700;1,400;1,500;1,700&display=swap\"\nrel=\"preload\"\nas=\"style\">\n<link\nhref=\"https://fonts.googleapis.com/css2?family=Roboto:ital,wght@0,400;0,500;0,600;0,700;1,400;1,500;1,700&family=Bitter:ital,wght@0,400;0,500;0,700;1,400;1,500;1,700&display=swap\"\nrel=\"stylesheet\">\n\n\n    <link rel=\"stylesheet\" href=\"/assets/application-cafaf2e0.css\" data-turbo-track=\"reload\" />\n    <script type=\"importmap\" data-turbo-track=\"reload\" nonce=\"uHCKU8I62puLJIxyXYqghg==\">{\n  \"imports\": {\n    \"application\": \"/assets/application-cc464116.js\",\n    \"@hotwired/turbo-rails\": \"/assets/turbo.min-86bf8853.js\",\n    \"@hotwired/stimulus\": \"/assets/stimulus.min-7ea3d58b.js\",\n    \"@hotwired/stimulus-loading\": \"/assets/stimulus-loading-25917588.js\",\n    \"controllers/application\": \"/assets/controllers/application-e5a449db.js\",\n    \"controllers/site_feedback_controller\": \"/assets/controllers/site_feedback_controller-a99fc93f.js\",\n    \"controllers/unblock_controller\": \"/assets/controllers/unblock_controller-9520f896.js\"\n  }\n}</script>\n<link rel=\"modulepreload\" href=\"/assets/application-cc464116.js\" nonce=\"uHCKU8I62puLJIxyXYqghg==\">\n<link rel=\"modulepreload\" href=\"/assets/turbo.min-86bf8853.js\" nonce=\"uHCKU8I62puLJIxyXYqghg==\">\n<link rel=\"modulepreload\" href=\"/assets/stimulus.min-7ea3d58b.js\" nonce=\"uHCKU8I62puLJIxyXYqghg==\">\n<link rel=\"modulepreload\" href=\"/assets/stimulus-loading-25917588.js\" nonce=\"uHCKU8I62puLJIxyXYqghg==\">\n<link rel=\"modulepreload\" href=\"/assets/controllers/application-e5a449db.js\" nonce=\"uHCKU8I62puLJIxyXYqghg==\">\n<link rel=\"modulepreload\" href=\"/assets/controllers/site_feedback_controller-a99fc93f.js\" nonce=\"uHCKU8I62puLJIxyXYqghg==\">\n<link rel=\"modulepreload\" href=\"/assets/controllers/unblock_controller-9520f896.js\" nonce=\"uHCKU8I62puLJIxyXYqghg==\">\n<script type=\"module\" nonce=\"uHCKU8I62puLJIxyXYqghg==\">import \"application\"</script>\n\n    <link rel=\"alternate icon\" type=\"image/png\" href=\"/assets/fr-favicon-95da23c0.png\">\n    <link rel=\"icon\" type=\"image/svg+xml\" href=\"/assets/fr-favicon-d1d6c1b7.svg\">\n    <link rel=\"apple-touch-icon\" href=\"/assets/fr-favicon-95da23c0.png\">\n  </head>\n\n  <body>\n    <div class=\"container\">\n      <div class=\"header\" id=\"header_refresh\">\n        <div class=\"header_wrapper\">\n          <div class=\"logo\">\n            <div class=\"hgroup official\">\n              <a href=\"/\" title=\"Federal Register Home - The Daily Journal of the United States Government\">\n                <svg class=\"masthead\">\n                  <use xlink:href=\"/assets/fr-mastheads-9d875438.svg#official-masthead\">\n                    </use>\n                </svg>\n              </a>\n            </div>\n          </div>\n        </div>\n      </div>\n\n      <div id=\"main\">\n        <div class=\"main-title-bar\">\n          <div class=\"bar left-extender\"></div>\n          <div class=\"bar left\"></div>\n          <h1 class=\"\">Request Access</h1>\n          <div class=\"bar right\"></div>\n        </div>\n\n        <div class=\"dialog\">\n\n          <p>\n  Due to aggressive automated scraping of FederalRegister.gov and eCFR.gov,\n  programmatic access to these sites is limited to access to our extensive\n  developer APIs. Please visit\n  <a href=\"https://www.federalregister.gov/developers/documentation/api/v1\">\n    FederalRegister.gov API\n  </a>\n  documentation or\n  <a href=\"https://www.ecfr.gov/developers/documentation/api/v1\">\n    eCFR.gov API\n  </a>\n  documentation to learn more about how to access the API.\n</p>\n\n<p>\n  Your request has been flagged as potentially automated. If you are human user\n  receiving this message, please complete the CAPTCHA (bot test) below and\n  click \"Request Access\". You may occassionally be asked to complete the\n  CAPTCHA again, this is normal and part of our security measures.\n</p>\n\n\n<form action=\"/unblock\"\n      method=\"post\"\n      class=\"unblock-form\"\n      data-controller=\"unblock\"\n      data-action=\"submit->unblock#handleSubmit\">\n  <script src=\"https://www.recaptcha.net/recaptcha/api.js\" async defer ></script>\n<div data-sitekey=\"6LfpbQcUAAAAAMw_vbtM1IRqq7Dvf-AftcZHp_OK\" class=\"g-recaptcha \"></div>\n          <noscript>\n            <div>\n              <div style=\"width: 302px; height: 422px; position: relative;\">\n                <div style=\"width: 302px; height: 422px; position: absolute;\">\n                  <iframe\n                    src=\"https://www.recaptcha.net/recaptcha/api/fallback?k=6LfpbQcUAAAAAMw_vbtM1IRqq7Dvf-AftcZHp_OK\"\n                    name=\"ReCAPTCHA\"\n                    style=\"width: 302px; height: 422px; border-style: none; border: 0; overflow: hidden;\">\n                  </iframe>\n                </div>\n              </div>\n              <div style=\"width: 300px; height: 60px; border-style: none;\n                bottom: 12px; left: 25px; margin: 0px; padding: 0px; right: 25px;\n                background: #f9f9f9; border: 1px solid #c1c1c1; border-radius: 3px;\">\n                <textarea name=\"g-recaptcha-response\"\n                  class=\"g-recaptcha-response\"\n                  style=\"width: 250px; height: 40px; border: 1px solid #c1c1c1;\n                  margin: 10px 25px; padding: 0px; resize: none;\">\n                </textarea>\n              </div>\n            </div>\n          </noscript>\n\n  <button type=\"submit\"\n          class=\"btn btn-disabled btn-large unblock-button\"\n          data-unblock-target=\"button\"\n          disabled>\n    Request Access\n  </button>\n</form>\n\n<p class=\"small-text\">\n  <em>An official website of the United States government.</em>\n</p>\n\n<p class=\"small-text\">\n  If you experiencing issues with the CAPTCHA or want to request a wider IP range,\n  you can use the \"Site Help\" button found in the lower, right of this page\n  to make a request.\n</p>\n\n        </div>\n      </div>\n    </div>\n\n    <div id=\"site-feedback\" data-controller=\"site-feedback\">\n      <div class=\"modal-backdrop\" data-site-feedback-target=\"backdrop\"></div>\n      <div class=\"modal-container\" data-site-feedback-target=\"modal\">\n        <div class=\"modal-content\" data-site-feedback-target=\"modalContent\">\n          <div id=\"feedback-modal-content\">\n  <div class=\"modal-content feedback-modal-content\">\n    <div class=\"modal-header\">\n      <button type=\"button\" class=\"modal-close\" data-site-feedback-target=\"closeButton\" aria-label=\"Close\">\n        <span aria-hidden=\"true\">\u00d7</span>\n      </button>\n      <h3>IP Access Help</h3>\n    </div>\n\n    <div class=\"modal-body\">\n      <div class=\"form-container\">\n        <p class=\"info\">\n          This contact form is only for IP Access help.\n          Please do not provide confidential information or personal data.\n        </p>\n\n        <form data-site-feedback-target=\"form\" data-action=\"submit-&gt;site-feedback#submitForm\" novalidate=\"novalidate\" class=\"simple_form site_feedback\" enctype=\"multipart/form-data\" action=\"/site_feedback\" accept-charset=\"UTF-8\" method=\"post\">\n\n          <div class=\"input string required site_feedback_name\"><label class=\"string required\" for=\"site_feedback_name\"><abbr title=\"required\">*</abbr> Your Name</label><input class=\"string required\" required=\"required\" type=\"text\" name=\"site_feedback[name]\" id=\"site_feedback_name\" /></div>\n\n          <div class=\"input email required site_feedback_email\"><label class=\"email required\" for=\"site_feedback_email\"><abbr title=\"required\">*</abbr> Email</label><input data-site-feedback-target=\"emailField\" class=\"string email required\" required=\"required\" type=\"email\" name=\"site_feedback[email]\" id=\"site_feedback_email\" /></div>\n\n          <div class=\"input text required site_feedback_comment\"><label class=\"text required\" for=\"site_feedback_comment\"><abbr title=\"required\">*</abbr> How can we help you?</label><textarea class=\"text required\" required=\"required\" name=\"site_feedback[comment]\" id=\"site_feedback_comment\">\n</textarea></div>\n\n          <div class=\"slide-left\" aria-hidden=\"true\">\n            <input tabindex=\"-1\" autocomplete=\"off\" placeholder=\"Your website URL\" data-required=\"true\" type=\"text\" name=\"site_feedback[website]\" id=\"site_feedback_website\" />\n          </div>\n\n          <div class=\"input file optional site_feedback_attachment\"><label class=\"file optional\" for=\"site_feedback_attachment\">Upload Attachment</label><input class=\"file optional\" type=\"file\" name=\"site_feedback[attachment]\" id=\"site_feedback_attachment\" /></div>\n\n          <div class=\"input boolean required site_feedback_technical_help\"><input value=\"0\" autocomplete=\"off\" type=\"hidden\" name=\"site_feedback[technical_help]\" /><label class=\"boolean required checkbox\" for=\"site_feedback_technical_help\"><input class=\"boolean required\" required=\"required\" type=\"checkbox\" value=\"1\" name=\"site_feedback[technical_help]\" id=\"site_feedback_technical_help\" /><abbr title=\"required\">*</abbr> I am requesting technical help.</label></div>\n\n          <div class=\"actions\">\n            <input type=\"submit\" name=\"commit\" value=\"Request Help\" class=\"btn btn-primary btn-medium\" data-site-feedback-target=\"submitButton\" data-disable-with=\"Request Help\" />\n          </div>\n</form>      </div>\n\n      <div class=\"loader-container\"\n        data-site-feedback-target=\"loaderContainer\">\n        <div class=\"loader-wrapper\">\n          <img src=\"/assets/orange-loader-275e1783.svg\"\n            alt=\"Loading...\" class=\"loader-image\">\n        </div>\n      </div>\n    </div>\n  </div>\n</div>\n\n        </div>\n      </div>\n\n      <button type=\"button\"\n        class=\"btn btn-secondary btn-medium site-feedback-button\"\n        data-action=\"click->site-feedback#openModal\"\n        aria-label=\"Open site help form\">\n\n        <svg class=\"svg-icon svg-icon-chat \"><use xlink:href=\"/assets/ofr-icons-5f5559c5.svg#chat\"></use></svg>\n        <span class=\"desktop-only\">Site Help</span>\n      </button>\n    </div>\n\n  </body>\n</html>\n",
+          "title": "Federal Register :: Request Access",
+          "httpStatus": 200
+        },
+        {
+          "type": "openrouter:web_fetch",
+          "id": "st_tmp_ljez5l16gim",
+          "status": "completed",
+          "url": "https://www.census.gov/newsroom/blogs/random-samplings/2026/02/first-aies-data-release.html",
+          "content": "\n<!DOCTYPE HTML>\n<!-- /*Per CMS-3223 we need the line below to have a 301 redirect capability*/ -->\n\n\n<html lang=\"en\">\n    <head>\r\n    \n    <link rel=\"icon\" sizes=\"192x192\" href=\"/etc.clientlibs/census/clientlibs/common-site/resources/icons/android-chrome-192x192.png\"/>\n    <link rel=\"icon\" sizes=\"256x256\" href=\"/etc.clientlibs/census/clientlibs/common-site/resources/icons/android-chrome-256x256.png\"/>\n    <link rel=\"shortcut icon\" sizes=\"32x32\" href=\"/etc.clientlibs/census/clientlibs/common-site/resources/icons/favicon.ico\"/>\n    <link rel=\"apple-touch-icon\" sizes=\"180x180\" href=\"/etc.clientlibs/census/clientlibs/common-site/resources/icons/apple-touch-icon-180x180.png\"/>     \n    <meta name=\"msapplication-square150x150logo\" content=\"/etc.clientlibs/census/clientlibs/common-site/resources/icons/mstile-150x150.png\"/>    \n\r\n    <meta charset=\"UTF-8\"/>\r\n    <title>A More Timely, Comprehensive Look at the Economy: First Main Release of the Annual Integrated Economic Survey</title>\r\n    \r\n    <meta name=\"keywords\" content=\"Annual Integrated Economic Survey (AIES),Inventories,Value of Sales, Receipts, Revenue, or Shipments,Business Characteristics,Capital Expenditures,Detailed Operating Expenses,NAICS,Industry,Business and Economy,Employment,Random Samplings Blog\"/>\r\n    <meta name=\"article:tag\" content=\"Annual Integrated Economic Survey (AIES),Inventories,Value of Sales, Receipts, Revenue, or Shipments,Business Characteristics,Capital Expenditures,Detailed Operating Expenses,NAICS,Industry,Business and Economy,Employment,Random Samplings Blog\"/>\r\n    <meta name=\"description\" property=\"og:description\" content=\"The Census Bureau announced the first-ever main release of data from the Annual Integrated Economic Survey (AIES).\"/>\r\n    <meta name=\"template\" content=\"template-detail3colleftright\"/>\r\n    <meta name=\"viewport\" content=\"width=device-width, initial-scale=1\"/>\r\n    \r\n    <link rel=\"canonical\" href=\"https://www.census.gov/newsroom/blogs/random-samplings/2026/02/first-aies-data-release.html\"/>\r\n\r\n    \r\n    \r\n    \r\n\r\n    \n\n\n  \n    <meta name=\"DC.title\" property=\"og:title\" content=\"A More Timely, Comprehensive Look at the Economy: First Main Release of the Annual Integrated Economic Survey\"/>\n    <meta name=\"DC.creator\" content=\"US Census Bureau\"/>\n    \n      <meta name=\"DC.date.created\" property=\"article:published_time\" scheme=\"ISO8601\" content=\"2026-02-26T00:00:00.000-05:00\"/>\n    \n    <meta name=\"DC.date.reviewed\" property=\"article:modified_time\" scheme=\"ISO8601\" content=\"2026-03-03T08:13:38.952-05:00\"/>\n    <meta name=\"DC.language\" scheme=\"DCTERMS.RFC1766\" content=\"en\"/>\n  \t<meta name=\"robots\" content=\"noodp, noydir\"/>\n  \t<meta name=\"author\" content=\"US Census Bureau\"/>\n  \t<meta http-equiv=\"content-type\" content=\"text/html; charset=UTF-8\"/>\n  \t<meta property=\"og:locale\" content=\"en\"/>\n  \t<meta property=\"og:site_name\" content=\"Census.gov\"/>\n  \t<meta property=\"og:type\" content=\"article\"/>\n  \t<meta property=\"og:url\" content=\"https://www.census.gov/newsroom/blogs/random-samplings/2026/02/first-aies-data-release.html\"/>\n  \t<meta property=\"og:image\" content=\"https://www.census.gov/content/dam/Census/gs-imports/social-media-sharing-images/social-image-blogs.png\"/>\n  \t<meta name=\"twitter:image\" content=\"https://www.census.gov/content/dam/Census/gs-imports/social-media-sharing-images/social-image-blogs.png\"/>\n  \t<meta name=\"twitter:card\" content=\"summary_large_image\"/>\n  \t<meta name=\"twitter:site\" content=\"@uscensusbureau\"/>\n  \t<meta name=\"twitter:creator\" content=\"@uscensusbureau\"/>\n  \t<meta name=\"twitter:title\" content=\"A More Timely, Comprehensive Look at the Economy: First Main Release of the Annual Integrated Economic Survey\"/>\n  \t<meta property=\"article:publisher\" content=\"https://census.gov/\"/>\n  \t<meta property=\"article:section\" content=\"Government\"/>\n  \r\n    <script type=\"text/javascript\" src=\"https://www.google.com/jsapi\"></script>\r\n    \r\n    \n    \n    \n    \n    \n<script src=\"/etc.clientlibs/clientlibs/granite/jquery.min.cee8557e8779d371fe722bbcdd3b3eb7.js\"></script>\n<script src=\"/etc.clientlibs/clientlibs/granite/utils.min.899004cc02c33efc1f6694b1aee587fd.js\"></script>\n<script src=\"/etc.clientlibs/clientlibs/granite/jquery/granite.min.543d214c88dfa6f4a3233b630c82d875.js\"></script>\n<script src=\"/etc.clientlibs/foundation/clientlibs/jquery.min.dd9b395c741ce2784096e26619e14910.js\"></script>\n<script src=\"/etc.clientlibs/census/clientlibs/modernizr.min.33837f3aff33e7a40a760d767866141e.js\"></script>\n\n\n\n\t\n    \n<script src=\"/etc.clientlibs/clientlibs/granite/jquery-ui.min.000478df169ef08edfb24d7502acb3c1.js\"></script>\n<script src=\"/etc.clientlibs/foundation/clientlibs/jquery-ui.min.3cc462ae7fb48fa3949850e903137f14.js\"></script>\n\n\n\n    \n    \n<link rel=\"stylesheet\" href=\"/etc.clientlibs/census-core/clientlibs.min.9556bf894a0d404c4e4f4bf83ef3c63b.css\" type=\"text/css\">\n<link rel=\"stylesheet\" href=\"/etc.clientlibs/census/clientlibs/bootstrap.min.3e7d159faa40f5cdf7d02fbe2b1bb215.css\" type=\"text/css\">\n<link rel=\"stylesheet\" href=\"/etc.clientlibs/census/clientlibs/census-fonts.min.9ebcbfc417b8006268ac47b61f6ebfba.css\" type=\"text/css\">\n<link rel=\"stylesheet\" href=\"/etc.clientlibs/census/clientlibs/common-site.min.8e92f508ecd83720ca5ccc6c8f0637d4.css\" type=\"text/css\">\n<link rel=\"stylesheet\" href=\"/etc.clientlibs/clientlibs/granite/jquery-ui.min.48e542f529ebea7475d83a20a3394c1e.css\" type=\"text/css\">\n<link rel=\"stylesheet\" href=\"/etc.clientlibs/census/clientlibs/orionicons.min.2ffd39f8bfe972a21504ca49f50084ec.css\" type=\"text/css\">\n<link rel=\"stylesheet\" href=\"/etc.clientlibs/census/clientlibs/uswds-init.min.c213ff96bc721c3e7977bc763c809e0a.css\" type=\"text/css\">\n<link rel=\"stylesheet\" href=\"/etc.clientlibs/census/clientlibs/core-overrides.min.95bca97fbd3ca07d6424f7fbbe926450.css\" type=\"text/css\">\n<link rel=\"stylesheet\" href=\"/etc.clientlibs/census/clientlibs/clientlib-dependencies.min.d41d8cd98f00b204e9800998ecf8427e.css\" type=\"text/css\">\n<link rel=\"stylesheet\" href=\"/etc.clientlibs/census/clientlibs/clientlib-site.min.25c805315eb4f3f64da0cc62097979ea.css\" type=\"text/css\">\n<link rel=\"stylesheet\" href=\"/etc.clientlibs/census/clientlibs/census-fonts-multilang.min.e7ca9bab4d61ddbda89ed7b2948bf2b6.css\" type=\"text/css\">\n<link rel=\"stylesheet\" href=\"/etc.clientlibs/census/clientlibs/census-pattern-library.min.a89a57ffc2832e0526e9000bfe5d3b7f.css\" type=\"text/css\">\n<link rel=\"stylesheet\" href=\"/etc.clientlibs/census/clientlibs/census-css.min.eea51f80edbde7164c45da04901e3b7f.css\" type=\"text/css\">\n<link rel=\"stylesheet\" href=\"/etc.clientlibs/census/clientlibs/aemgrid.min.be57a8c9b7d09f61725fd419ae4495cb.css\" type=\"text/css\">\n\n\n\n    \n    \n    \n\t\n    \n<link rel=\"stylesheet\" href=\"/etc.clientlibs/census/clientlibs/census-disabled.min.d002d8837bb961541a62e1a6402d7e2b.css\" type=\"text/css\">\n<script src=\"/etc.clientlibs/census/clientlibs/census-disabled.min.42535f152edc257f3458c8e1d559866c.js\"></script>\n\n\n\n    <link href=\"/etc.clientlibs/census/clientlibs/census-css/resources/print.css\" rel=\"stylesheet\" type=\"text/css\" media=\"print\"/> \n\n\t  <!-- Conditional CSS -->\n\t\n\t\t\n\t\n\t\n\n\t\n\n\t\t\n\t \n\t\n\n\t\n\n    \n\n\n        <script type=\"text/javascript\" src=\"//assets.adobedtm.com/launch-ENdc1ca6bab15e46a5b880a2c3f9d462ab.min.js\"></script>\n\n \n\t<!-- /*Data Layer*/ -->\t\n\t<div><script type=\"text/javascript\">\r\n\tvar d = new Date();\r\n\tvar days = [\"Sunday\",\"Monday\",\"Tuesday\",\"Wednesday\",\"Thursday\",\"Friday\",\"Saturday\"];\r\n\tvar digitalData = digitalData || {};\r\n    digitalData = {\r\n       \t\"page\" : {\r\n            \"pageInfo\" : {                \r\n                \"pageName\" \t\t\t: \"A More Timely, Comprehensive Look at the Economy: First Main Release of the Annual Integrated Economic Survey_664378\",\r\n                \"legacyPageName\" \t: \"en>newsroom>blogs>random\\u002DsRSPS>2026>02>A More Timely, Comprehensive Look at the Economy: First Main \",\r\n                \"pageURL\" \t\t\t: window.location.href,\r\n                \"language\" \t\t\t: \"en\",\r\n                \"pageTemplate\" \t\t: \"template\\u002Ddetail3colleftright\",\r\n                \"topic\" \t\t\t: \"Inventories,Value of Sales, Receipts, Revenue, or Shipments,Business Characteristics,Capital Expenditures,Detailed Operating Expenses,NAICS,Industry,Business and Economy,Employment\",\r\n                \"programTag\" \t\t: \"Annual Integrated Economic Survey (AIES)\",\r\n                \"collectionYear\" \t: \"\",\r\n                \"AEMtopic\" \t\t\t: \"Inventories,Value of Sales, Receipts, Revenue, or Shipments,Business Characteristics,Capital Expenditures,Detailed Operating Expenses,NAICS,Industry,Business and Economy,Employment\",\r\n                \"contentType\" \t\t: \"Random Samplings Blog\",\r\n                \"geoTag\" \t\t\t: \"\",\r\n                \"seriesTag\" \t\t: \"\",\r\n                \"publishDate\" \t\t: \"February 26, 2026\",\r\n                \"timeOfDay\" \t\t: twoDigits(d.getHours()) + \":\" + twoDigits(d.getMinutes()),\r\n                \"tool\" \t\t\t\t: \"aem\",\r\n                \"dayOfWeek\" \t\t: days[d.getDay()],\r\n                \"siteSection\" : \"newsroom\",\"subSectionOne\" : \"blogs\",\"subSectionTwo\" : \"random-samplings\",\"subSectionThree\" : \"2026\"\r\n            },\r\n            \"pageTag\" : {\r\n                \"program\" : \"Annual Integrated Economic Survey (AIES)\",\"topic\" : \"Inventories\",\"topic\" : \"Inventories|Value of Sales, Receipts, Revenue, or Shipments\",\"topic\" : \"Inventories|Value of Sales, Receipts, Revenue, or Shipments|Business Characteristics\",\"topic\" : \"Inventories|Value of Sales, Receipts, Revenue, or Shipments|Business Characteristics|Capital Expenditures\",\"topic\" : \"Inventories|Value of Sales, Receipts, Revenue, or Shipments|Business Characteristics|Capital Expenditures|Detailed Operating Expenses\",\"topic\" : \"Inventories|Value of Sales, Receipts, Revenue, or Shipments|Business Characteristics|Capital Expenditures|Detailed Operating Expenses|NAICS\",\"topic\" : \"Inventories|Value of Sales, Receipts, Revenue, or Shipments|Business Characteristics|Capital Expenditures|Detailed Operating Expenses|NAICS|Industry\",\"topic\" : \"Inventories|Value of Sales, Receipts, Revenue, or Shipments|Business Characteristics|Capital Expenditures|Detailed Operating Expenses|NAICS|Industry|Business and Economy\",\"topic\" : \"Inventories|Value of Sales, Receipts, Revenue, or Shipments|Business Characteristics|Capital Expenditures|Detailed Operating Expenses|NAICS|Industry|Business and Economy|Employment\",\"contentType\" : \"Random Samplings Blog\",\"publicationDate\" : \"February 26, 2026\"                \r\n            }\r\n        },\r\n        \"event\" : {\r\n        \t\"eventName\" : {},\r\n          \t\"eventInfo\" : {\r\n\t            \"share\" \t\t\t : {},\r\n\t            \"download\" \t\t\t : {},\r\n\t            \"search\" \t\t\t : {},\r\n\t            \"expandCollapseList\" : {},\r\n\t            \"language\" \t\t\t : {\r\n\t            \tpageLanguage\t : \"en\"\r\n\t            },\r\n\t            \"landingPageTab\" \t : {}\r\n          }\r\n        },\r\n        \"browserInfo\" : {\r\n        \t\"browserWidth\" : getBrowserWidth()\r\n        }\r\n    };    \r\n\r\n    if ( typeof(Storage) !== \"undefined\" ) {\r\n      if ( localStorage.getItem(\"pageLanguage\") != null ) {\r\n        digitalData.event.eventInfo.language.pageLanguage = localStorage.getItem(\"pageLanguage\");\r\n      }\r\n      if ( localStorage.getItem(\"langEventName\") != null ) {\r\n        digitalData.event.eventName = localStorage.getItem(\"langEventName\");\r\n      }\r\n      if ( localStorage.getItem(\"clickValue\") != null ) {\r\n        digitalData.event.eventInfo.search.clickValue = localStorage.getItem(\"clickValue\");\r\n      }\r\n      if ( localStorage.getItem(\"searchEventName\") != null ) {\r\n        digitalData.event.eventInfo.eventName = localStorage.getItem(\"searchEventName\");\r\n      }       \r\n      if ( localStorage.getItem(\"tabEventName\") != null ) {\r\n        digitalData.event.eventName = localStorage.getItem(\"tabEventName\");\r\n      } \r\n      if ( localStorage.getItem(\"pageName\") != null ) {\r\n        digitalData.page.pageInfo.pageName = localStorage.getItem(\"pageName\");\r\n      } \r\n      if ( localStorage.getItem(\"eventInfoEventName\") != null ) {\r\n    \t  digitalData.event.eventInfo.eventName = localStorage.getItem(\"eventInfoEventName\");  \t  \r\n      }\r\n      if ( localStorage.getItem(\"eventInfoLanguage\") != null ) {\r\n    \t  digitalData.event.eventInfo.language.pageLanguage = localStorage.getItem(\"eventInfoLanguage\");\r\n      }\r\n      if ( localStorage.getItem(\"searchTerm\") != null ) {\r\n    \t  digitalData.event.eventInfo.search.term = localStorage.getItem(\"searchTerm\");\r\n      }\r\n      if ( localStorage.getItem(\"blogSearchPhrase\") != null ) {\r\n    \t  digitalData.event.eventInfo.blogSearchPhrase = localStorage.getItem(\"blogSearchPhrase\");\r\n      }\r\n      if ( localStorage.getItem(\"blogEventName\") != null ) {\r\n    \t  digitalData.event.eventInfo.eventName = localStorage.getItem(\"blogEventName\");\r\n      }      \r\n      if ( localStorage.getItem(\"blogName\") != null ) {\r\n    \t  digitalData.event.eventInfo.blogName = localStorage.getItem(\"blogName\");\r\n      }\r\n      if ( localStorage.getItem(\"buttonClickCount\") != null ) {\r\n    \t  digitalData.event.eventInfo.buttonClickCount = localStorage.getItem(\"buttonClickCount\");\r\n      }\r\n      //After assigning the value to digitalData, clear the localStorage variable's content\r\n      localStorage.removeItem(\"pageLanguage\");\r\n      localStorage.removeItem(\"langEventName\");\r\n      localStorage.removeItem(\"clickValue\");\r\n      localStorage.removeItem(\"searchEventName\");\r\n      localStorage.removeItem(\"landingPageTabClickValue\");\r\n      localStorage.removeItem(\"tabEventName\");\r\n      localStorage.removeItem(\"pageName\");\r\n      localStorage.removeItem(\"eventInfoEventName\");\r\n      localStorage.removeItem(\"eventInfoLanguage\");\r\n      localStorage.removeItem(\"searchTerm\");\r\n      localStorage.removeItem(\"blogSearchPhrase\");\r\n      localStorage.removeItem(\"blogEventName\");\r\n      localStorage.removeItem(\"blogName\");\r\n      localStorage.removeItem(\"buttonClickCount\");\r\n    } else {\r\n      if ( getCookie(\"pageLanguage\") != \"\" ) {\r\n        digitalData.event.eventInfo.language.pageLanguage = getCookie(\"pageLanguage\");\r\n      }\r\n      if ( getCookie(\"langEventName\") != \"\" ) {\r\n        digitalData.event.eventName = getCookie(\"langEventName\");\r\n      }\r\n      if ( getCookie(\"clickValue\") != \"\" ) {\r\n        digitalData.event.eventInfo.search.clickValue = getCookie(\"clickValue\");\r\n      }\r\n      if ( getCookie(\"searchEventName\") != \"\" ) {\r\n        digitalData.event.eventInfo.eventName = getCookie(\"searchEventName\");\r\n      }\r\n      if ( getCookie(\"landingPageTabClickValue\") != \"\" ) {\r\n        digitalData.event.eventInfo.landingPageTab.clickValue = getCookie(\"landingPageTabClickValue\");\r\n      }\r\n      if ( getCookie(\"tabEventName\") != \"\" ) {\r\n        digitalData.event.eventName = getCookie(\"tabEventName\");\r\n      }\r\n      if ( getCookie(\"pageName\") != \"\" ) {\r\n        digitalData.page.pageInfo.pageName = getCookie(\"pageName\");\r\n      }\r\n      if ( getCookie(\"eventInfoEventName\") != \"\" ) {\r\n    \t  digitalData.event.eventInfo.eventName = getCookie(\"eventInfoEventName\");  \r\n      }\r\n      if ( getCookie(\"eventInfoLanguage\") ) {\r\n    \t  digitalData.event.eventInfo.language.pageLanguage = getCookie(\"eventInfoLanguage\");\r\n      }\r\n      if ( getCookie(\"searchTerm\") ) {\r\n    \t  digitalData.event.eventInfo.search.term = getCookie(\"searchTerm\");\r\n      }\r\n      if ( getCookie(\"blogSearchPhrase\") ) {\r\n    \t  digitalData.event.eventInfo.blogSearchPhrase = getCookie(\"blogSearchPhrase\");\r\n      }\r\n      if ( getCookie(\"blogEventName\") ) {\r\n    \t  digitalData.event.eventInfo.eventName = getCookie(\"blogEventName\");\r\n      }\r\n      if ( getCookie(\"blogName\") ) {\r\n    \t  digitalData.event.eventInfo.blogName = getCookie(\"blogName\");\r\n      }\r\n      if ( getCookie(\"buttonClickCount\") ) {\r\n    \t  digitalData.event.eventInfo.buttonClickCount = getCookie(\"buttonClickCount\");\r\n      }\r\n      //After assigning the value to digitalData, clear the localStorage variable's content\r\n      setCookie(\"pageLanguage\", \"\");\r\n      setCookie(\"langEventName\", \"\");\r\n      setCookie(\"clickValue\", \"\");\r\n      setCookie(\"searchEventName\", \"\");\r\n      setCookie(\"landingPageTabClickValue\", \"\");\r\n      setCookie(\"pageName\", \"\");\r\n      setCookie(\"eventInfoEventName\", \"\");\r\n      setCookie(\"eventInfoLanguage\", \"\");\r\n      setCookie(\"searchTerm\", \"\");\r\n      setCookie(\"blogSearchPhrase\", \"\");\r\n      setCookie(\"blogName\", \"\");\r\n      setCookie(\"buttonClickCount\", \"\");\r\n    }\r\n\r\n    function setCookie(cname, cvalue, exdays) {\r\n       var d = new Date();\r\n       d.setTime(d.getTime() + (exdays*24*60*60*1000));\r\n       var expires = \"expires=\"+d.toUTCString();\r\n       document.cookie = cname + \"=\" + cvalue + \";\" + expires + \";path=/\";\r\n    }\r\n\r\n    function getCookie(cname) {\r\n       var name = cname + \"=\";\r\n       var ca = document.cookie.split(';');\r\n       for(var i = 0; i < ca.length; i++) {\r\n           var c = ca[i];\r\n           while (c.charAt(0) == ' ') {\r\n               c = c.substring(1);\r\n           }\r\n           if (c.indexOf(name) == 0) {\r\n               return c.substring(name.length, c.length);\r\n           }\r\n       }\r\n       return \"\";\r\n    }\r\n    \r\n    function getBrowserWidth() {         \r\n   \t  \treturn window.innerWidth;\r\n   \t}\r\n    \r\n    function twoDigits(n){\r\n        return n > 9 ? \"\" + n: \"0\" + n;\r\n    }\r\n    \r\n    document.addEventListener('click', function (event) {    \t\r\n    \tif (typeof(event.target.href) !== 'undefined' && event.target.href.toLowerCase().indexOf('tel:') >= 0) {\r\n    \t\tdigitalData.event.eventName = 'phoneNumber';\r\n    \t\tdigitalData.event.eventInfo.eventName = 'Telephone Click';\r\n    \t\tvar splittedData = event.target.href.toLowerCase().split(':');\r\n    \t\tif (splittedData.length > 0) {\r\n    \t\t\tdigitalData.event.eventInfo.telephoneNumber = splittedData[splittedData.length - 1];\t\r\n    \t\t}    \t\t\r\n    \t}\r\n    \t\r\n    \tif (typeof(event.target.href) !== 'undefined' && event.target.href.toLowerCase().indexOf('mailto:') >= 0) {\r\n    \t\tdigitalData.event.eventName = 'emailClick';\r\n    \t\tdigitalData.event.eventInfo.eventName = 'Email Click';\r\n    \t\tvar splittedData = event.target.href.toLowerCase().split(':');\r\n    \t\tif (splittedData.length > 0) {\r\n    \t\t\tdigitalData.event.eventInfo.emailAddress = splittedData[splittedData.length - 1 ]\r\n    \t\t}\r\n    \t}\r\n    \t\r\n    \t//For non-download links that are added via RTE\r\n    \tif (typeof(event.target.href) !== 'undefined') {\r\n    \t\tvar extension = event.target.href.split('.').pop();\r\n    \t\tif (extension == event.target.href || extension == \"html\")\r\n    \t\t\tlinkClick(event.target, 'RTE');    \t\t\r\n    \t}\r\n    });\r\n    \r\n    document.addEventListener(\"DOMContentLoaded\", function() {   \t\t\r\n   \t  \tif (typeof(getCookie('visitor')) !== 'undefined' && getCookie('visitor') !== '') {\r\n   \t  \t    date = new Date();   \t  \t    \r\n   \t\t\tdigitalData.event.eventInfo.newVsRepeat = 'repeat';\r\n   \t\t\tvar dateLastVisited = Date.parse(getCookie('dateLastVisited'));   \t\t\t\r\n   \t\t\tvar differenceInTime = date.getTime() - dateLastVisited;   \t\t\t\r\n   \t\t\tvar seconds = (differenceInTime * .001) >> 0;\r\n   \t\t\t\r\n   \t\t\tif (seconds > 0) {   \t\t\t\t\r\n\t   \t        var minutes = seconds / 60;\r\n\t   \t        var hours = minutes / 60;\t   \t        \r\n\t   \t        var days = hours / 24;\t   \t        \r\n   \t        \tdigitalData.event.eventInfo.secondsSinceLastVisit = seconds.toFixed(2);\r\n   \t        \tdigitalData.event.eventInfo.minutesSinceLastVisit = minutes.toFixed(2);\r\n   \t        \tdigitalData.event.eventInfo.hoursSinceLastVisit = hours.toFixed(2);\r\n   \t        \tdigitalData.event.eventInfo.daysSinceLastVisit = days.toFixed(2);\r\n   \t        }   \t\t\t\r\n   \t\t\t\r\n   \t\t\tsetCookie('dateLastVisited', date, 365); \r\n   \t\t\tvar visitNumber = parseInt(getCookie('visitNumber')) + 1;\r\n   \t\t\tsetCookie('visitNumber', visitNumber, 365);\r\n   \t\t\tdigitalData.event.eventInfo.visitNumber = visitNumber;\r\n   \t  \t} else {\r\n   \t  \t\tdate = new Date();\r\n   \t  \t\tsetCookie('visitor', 'census website visitor', 365);\r\n   \t  \t\tsetCookie('dateLastVisited', date, 365);\r\n   \t  \t\tsetCookie('visitNumber', 1, 365);\r\n   \t  \t\tdigitalData.event.eventInfo.newVsRepeat = 'new';\r\n   \t  \t\tdigitalData.event.eventInfo.visitNumber = 1;\r\n   \t  \t}\r\n   \t});\r\n    \r\n\t$(document).ready(function () { // ensure we wait for listeners to connect to dataLayerReady instead of just firing immediately\r\n    \t$(document).trigger({type: \"dataLayerReady\"});\r\n  });\r\n</script></div>\n\t<script type=\"text/javascript\" src=\"https://www.google.com/jsapi\"></script>\n\t<!-- /*Asset Ref, Content-Language*/-->\n\t<div><script type=\"text/javascript\">    \r\n   \t'use strict';\r\n   \t\r\n   \tdocument.addEventListener('click', function (event) {\r\n    \tif (typeof(event.target.href) !== 'undefined' && event.target.href.toLowerCase().indexOf('pdf') >= 0) {\r\n    \t\tvar pdfXhr = new XMLHttpRequest();\r\n    \t\tpdfXhr.open('GET', '/bin/custom/header/asset?pdfPath=' + event.target.href, true);\r\n    \t\tpdfXhr.send();\r\n    \t}\r\n   \t});\r\n   \t\r\n</script></div>\n\r\n\r\n    \r\n\r\n    \r\n        <style>.uscb-tag__census{background-color: #bbddff;border-color: #bbddff;--icon-class:o-news-1;}.uscb-tag__census_type{background-color: #bbddff;border-color: #bbddff;--icon-class:o-news-1;}.uscb-tag__census_type_publication{background-color: #d0dce1;border-color: #d0dce1;--icon-class:o-book-1;}.uscb-tag__census_type_publication_atlas{background-color: #d0dce1;border-color: #d0dce1;--icon-class:o-book-1;}.uscb-tag__census_type_about{background-color: #bbddff;border-color: #bbddff;--icon-class:o-news-1;}.uscb-tag__census_type_about_biography{background-color: #bbddff;border-color: #bbddff;--icon-class:o-news-1;}.uscb-tag__census_type_about_survey-respondent-information{background-color: #bbddff;border-color: #bbddff;--icon-class:o-news-1;}.uscb-tag__census_type_data{background-color: #ffccbc;border-color: #ffccbc;--icon-class:o-news-1;}.uscb-tag__census_type_data_table{background-color: #ffccbc;border-color: #ffccbc;--icon-class:o-news-1;}.uscb-tag__census_type_data_table_comp-tab{background-color: #ffccbc;border-color: #ffccbc;--icon-class:o-news-1;}.uscb-tag__census_type_data_table_rank-tab{background-color: #ffccbc;border-color: #ffccbc;--icon-class:o-news-1;}.uscb-tag__census_type_data_table_summary-table{background-color: #ffccbc;border-color: #ffccbc;--icon-class:o-news-1;}.uscb-tag__census_type_data_errata-note{background-color: #ffccbc;border-color: #ffccbc;--icon-class:o-news-1;}.uscb-tag__census_type_data_dataset{background-color: #ffccbc;border-color: #ffccbc;--icon-class:o-news-1;}.uscb-tag__census_type_data_dataset_pums-puf-microdata{background-color: #ffccbc;border-color: #ffccbc;--icon-class:o-news-1;}.uscb-tag__census_type_data_dataset_pums-puf-microdata_puf{background-color: #ffccbc;border-color: #ffccbc;--icon-class:o-news-1;}.uscb-tag__census_type_data_dataset_pums-puf-microdata_pums{background-color: #ffccbc;border-color: #ffccbc;--icon-class:o-news-1;}.uscb-tag__census_type_data_dataset_summary-file{background-color: #ffccbc;border-color: #ffccbc;--icon-class:o-news-1;}.uscb-tag__census_type_data_dataset_api{background-color: #ffccbc;border-color: #ffccbc;--icon-class:o-news-1;}.uscb-tag__census_type_data_indicator{background-color: #ffccbc;border-color: #ffccbc;--icon-class:o-news-1;}.uscb-tag__census_type_data_experimental-data-product{background-color: #ffccbc;border-color: #ffccbc;--icon-class:o-news-1;}.uscb-tag__census_type_event{background-color: #e0d2e3;border-color: #e0d2e3;--icon-class:o-news-1;}.uscb-tag__census_type_event_conference{background-color: #e0d2e3;border-color: #e0d2e3;--icon-class:o-news-1;}.uscb-tag__census_type_event_c-span{background-color: #e0d2e3;border-color: #e0d2e3;--icon-class:o-news-1;}.uscb-tag__census_type_event_media-event{background-color: #e0d2e3;border-color: #e0d2e3;--icon-class:o-news-1;}.uscb-tag__census_type_event_seminar{background-color: #e0d2e3;border-color: #e0d2e3;--icon-class:o-news-1;}.uscb-tag__census_type_event_training{background-color: #e0d2e3;border-color: #e0d2e3;--icon-class:o-news-1;}.uscb-tag__census_type_event_training_courses{background-color: #e0d2e3;border-color: #e0d2e3;--icon-class:o-news-1;}.uscb-tag__census_type_event_training_webinar{background-color: #e0d2e3;border-color: #e0d2e3;--icon-class:o-news-1;}.uscb-tag__census_type_event_training_tutorial{background-color: #e0d2e3;border-color: #e0d2e3;--icon-class:o-news-1;}.uscb-tag__census_type_event_u-stream{background-color: #e0d2e3;border-color: #e0d2e3;--icon-class:o-news-1;}.uscb-tag__census_type_event_presentation{background-color: #e0d2e3;border-color: #e0d2e3;--icon-class:o-news-1;}.uscb-tag__census_type_event_disasters{background-color: #e0d2e3;border-color: #e0d2e3;--icon-class:o-news-1;}.uscb-tag__census_type_event_disasters_earthquake{background-color: #e0d2e3;border-color: #e0d2e3;--icon-class:o-news-1;}.uscb-tag__census_type_event_disasters_flood{background-color: #e0d2e3;border-color: #e0d2e3;--icon-class:o-news-1;}.uscb-tag__census_type_event_disasters_hurricane{background-color: #e0d2e3;border-color: #e0d2e3;--icon-class:o-news-1;}.uscb-tag__census_type_event_disasters_pandemic{background-color: #e0d2e3;border-color: #e0d2e3;--icon-class:o-news-1;}.uscb-tag__census_type_event_disasters_tornado{background-color: #e0d2e3;border-color: #e0d2e3;--icon-class:o-news-1;}.uscb-tag__census_type_event_disasters_wildfire{background-color: #e0d2e3;border-color: #e0d2e3;--icon-class:o-news-1;}.uscb-tag__census_type_event_disasters_storm{background-color: #e0d2e3;border-color: #e0d2e3;--icon-class:o-news-1;}.uscb-tag__census_type_event_disasters_incident{background-color: #e0d2e3;border-color: #e0d2e3;--icon-class:o-news-1;}.uscb-tag__census_type_event_disasters_air-quality{background-color: #e0d2e3;border-color: #e0d2e3;--icon-class:o-news-1;}.uscb-tag__census_type_event_disasters_extreme-heat{background-color: #e0d2e3;border-color: #e0d2e3;--icon-class:o-news-1;}.uscb-tag__census_type_media-resource{background-color: #bbddff;border-color: #bbddff;--icon-class:o-news-1;}.uscb-tag__census_type_media-resource_press-release{background-color: #7ad4e2;border-color: #7ad4e2;--icon-class:o-news-2;}.uscb-tag__census_type_media-resource_press-kit{background-color: #7ad4e2;border-color: #7ad4e2;--icon-class:o-documents-1;}.uscb-tag__census_type_media-resource_tip-sheet{background-color: #7ad4e2;border-color: #7ad4e2;--icon-class:o-data-file-1;}.uscb-tag__census_type_media-resource_facts-for-features-special-editions{background-color: #7ad4e2;border-color: #7ad4e2;--icon-class:o-image-saved-1;}.uscb-tag__census_type_media-resource_local-area-pr{background-color: #7ad4e2;border-color: #7ad4e2;--icon-class:o-news-2;}.uscb-tag__census_type_media-resource_stories{background-color: #7ad4e2;border-color: #7ad4e2;--icon-class:o-statistic-1;}.uscb-tag__census_type_multimedia{background-color: #bbddff;border-color: #bbddff;--icon-class:o-news-1;}.uscb-tag__census_type_multimedia_audio{background-color: #ffe434;border-color: #ffe434;--icon-class:o-volume-1;}.uscb-tag__census_type_multimedia_video{background-color: #ffe434;border-color: #ffe434;--icon-class:o-play-1;}.uscb-tag__census_type_multimedia_photograph{background-color: #ffe434;border-color: #ffe434;--icon-class:o-image-1;}.uscb-tag__census_type_working-paper{background-color: #d0dce1;border-color: #d0dce1;--icon-class:o-multiple-files-1;}.uscb-tag__census_type_visualization{background-color: #ffe434;border-color: #ffe434;--icon-class:o-bar-chart-1;}.uscb-tag__census_type_visualization_figure{background-color: #ffe434;border-color: #ffe434;--icon-class:o-bar-chart-1;}.uscb-tag__census_type_visualization_infographic{background-color: #ffe434;border-color: #ffe434;--icon-class:o-bar-chart-1;}.uscb-tag__census_type_visualization_thematic-map{background-color: #ffe434;border-color: #ffe434;--icon-class:o-bar-chart-1;}.uscb-tag__census_type_technical-documentation{background-color: #bbddff;border-color: #bbddff;--icon-class:o-news-1;}.uscb-tag__census_type_technical-documentation_data-dictionary{background-color: #bbddff;border-color: #bbddff;--icon-class:o-news-1;}.uscb-tag__census_type_technical-documentation_user-notes{background-color: #bbddff;border-color: #bbddff;--icon-class:o-news-1;}.uscb-tag__census_type_technical-documentation_questionnaire{background-color: #bbddff;border-color: #bbddff;--icon-class:o-news-1;}.uscb-tag__census_type_technical-documentation_sampling-weighting{background-color: #bbddff;border-color: #bbddff;--icon-class:o-news-1;}.uscb-tag__census_type_technical-documentation_quality-measures{background-color: #bbddff;border-color: #bbddff;--icon-class:o-news-1;}.uscb-tag__census_type_technical-documentation_source-accuracy-statements{background-color: #bbddff;border-color: #bbddff;--icon-class:o-news-1;}.uscb-tag__census_type_technical-documentation_subject-definitions{background-color: #bbddff;border-color: #bbddff;--icon-class:o-news-1;}.uscb-tag__census_type_technical-documentation_statistical-testing{background-color: #bbddff;border-color: #bbddff;--icon-class:o-news-1;}.uscb-tag__census_type_updates{background-color: #bbddff;border-color: #bbddff;--icon-class:o-news-1;}.uscb-tag__census_type_updates_newsletter{background-color: #bbddff;border-color: #bbddff;--icon-class:o-news-1;}.uscb-tag__census_type_methodology{background-color: #bbddff;border-color: #bbddff;--icon-class:o-news-1;}.uscb-tag__census_type_data-tool{background-color: #ffccbc;border-color: #ffccbc;--icon-class:o-news-1;}.uscb-tag__census_type_data-tool_api{background-color: #ffccbc;border-color: #ffccbc;--icon-class:o-news-1;}.uscb-tag__census_type_data-tool_software{background-color: #ffccbc;border-color: #ffccbc;--icon-class:o-news-1;}.uscb-tag__census_type_data-tool_mobile-app{background-color: #ffccbc;border-color: #ffccbc;--icon-class:o-news-1;}.uscb-tag__census_type_data-tool_web-app{background-color: #ffccbc;border-color: #ffccbc;--icon-class:o-news-1;}.uscb-tag__census_type_transcript{background-color: #bbddff;border-color: #bbddff;--icon-class:o-news-1;}.uscb-tag__census_type_blog{background-color: #7ad4e2;border-color: #7ad4e2;--icon-class:o-news-website-1;}.uscb-tag__census_type_blog_directors-blog{background-color: #7ad4e2;border-color: #7ad4e2;--icon-class:o-news-website-1;}.uscb-tag__census_type_blog_global-reach-blog{background-color: #7ad4e2;border-color: #7ad4e2;--icon-class:o-news-website-1;}.uscb-tag__census_type_blog_random-samplings-blog{background-color: #7ad4e2;border-color: #7ad4e2;--icon-class:o-news-website-1;}.uscb-tag__census_type_blog_research-blog{background-color: #7ad4e2;border-color: #7ad4e2;--icon-class:o-news-website-1;}.uscb-tag__census_type_blog_deputy-directors-blog{background-color: #7ad4e2;border-color: #7ad4e2;--icon-class:o-news-website-1;}.uscb-tag__census_type_blog_previous-directors-blogs{background-color: #7ad4e2;border-color: #7ad4e2;--icon-class:o-news-website-1;}.uscb-tag__census_type_story{background-color: #bdf;border-color: #bdf;--icon-class:o-news-1;}.uscb-tag__census_type_story_story-map{background-color: #bdf;border-color: #bdf;--icon-class:o-news-1;}.uscb-tag__census_type_geographic{background-color: #bbddff;border-color: #bbddff;--icon-class:o-news-1;}.uscb-tag__census_type_geographic_geo-profile{background-color: #bbddff;border-color: #bbddff;--icon-class:o-news-1;}.uscb-tag__census_type_geographic_mapping-file{background-color: #bbddff;border-color: #bbddff;--icon-class:o-news-1;}.uscb-tag__census_type_geographic_reference-file{background-color: #bbddff;border-color: #bbddff;--icon-class:o-news-1;}.uscb-tag__census_type_geographic_reference-map{background-color: #bbddff;border-color: #bbddff;--icon-class:o-news-1;}.uscb-tag__census_type_geographic_mapping-tool{background-color: #bbddff;border-color: #bbddff;--icon-class:o-news-1;}.uscb-tag__census_type_forms{background-color: #bbddff;border-color: #bbddff;--icon-class:o-news-1;}.uscb-tag__census_type_forms_request-form{background-color: #bbddff;border-color: #bbddff;--icon-class:o-news-1;}.uscb-tag__census_type_contact{background-color: #bbddff;border-color: #bbddff;--icon-class:o-news-1;}.uscb-tag__census_type_indicator{background-color: #bbddff;border-color: #bbddff;--icon-class:o-news-1;}.uscb-tag__census_type_job{background-color: #bbddff;border-color: #bbddff;--icon-class:o-news-1;}.uscb-tag__census_type_fact-sheet{background-color: #d0dce1;border-color: #d0dce1;--icon-class:o-find-notes-1;}.uscb-tag__census_type_faq{background-color: #bbddff;border-color: #bbddff;--icon-class:o-news-1;}.uscb-tag__census_type_faq_faq-feature{background-color: #bbddff;border-color: #bbddff;--icon-class:o-news-1;}.uscb-tag__census_type_outreach-materials{background-color: #bbddff;border-color: #bbddff;--icon-class:o-news-1;}.uscb-tag__census_type_spotlight{background-color: #d0dce1;border-color: #d0dce1;--icon-class:o-find-notes-1;}.uscb-tag__census_type_census-reference-materials{background-color: #bbddff;border-color: #bbddff;--icon-class:o-news-1;}.uscb-tag__census_type_census-reference-materials_code-lists{background-color: #bbddff;border-color: #bbddff;--icon-class:o-news-1;}.uscb-tag__census_type_monthly-history-story{background-color: #d0dce1;border-color: #d0dce1;--icon-class:o-find-notes-1;}.uscb-tag__census_type_flyer{background-color: #d0dce1;border-color: #d0dce1;--icon-class:o-find-notes-1;}.uscb-tag__census_program{background-color: #bbddff;border-color: #bbddff;--icon-class:o-news-1;}.uscb-tag__census_program_demo-survey{background-color: #c0e4be;border-color: #c0e4be;--icon-class:o-news-1;}.uscb-tag__census_program_demo-survey_atus{background-color: #c0e4be;border-color: #c0e4be;--icon-class:o-news-1;}.uscb-tag__census_program_demo-survey_ce{background-color: #c0e4be;border-color: #c0e4be;--icon-class:o-news-1;}.uscb-tag__census_program_demo-survey_ncvs{background-color: #c0e4be;border-color: #c0e4be;--icon-class:o-news-1;}.uscb-tag__census_program_demo-survey_namcs{background-color: #c0e4be;border-color: #c0e4be;--icon-class:o-news-1;}.uscb-tag__census_program_demo-survey_nhis{background-color: #c0e4be;border-color: #c0e4be;--icon-class:o-news-1;}.uscb-tag__census_program_demo-survey_nhamcs{background-color: #c0e4be;border-color: #c0e4be;--icon-class:o-news-1;}.uscb-tag__census_program_demo-survey_nhes{background-color: #c0e4be;border-color: #c0e4be;--icon-class:o-news-1;}.uscb-tag__census_program_demo-survey_nscg{background-color: #c0e4be;border-color: #c0e4be;--icon-class:o-news-1;}.uscb-tag__census_program_demo-survey_fhwar{background-color: #c0e4be;border-color: #c0e4be;--icon-class:o-news-1;}.uscb-tag__census_program_demo-survey_nychvs{background-color: #c0e4be;border-color: #c0e4be;--icon-class:o-news-1;}.uscb-tag__census_program_demo-survey_prcs{background-color: #c0e4be;border-color: #c0e4be;--icon-class:o-news-1;}.uscb-tag__census_program_demo-survey_rfs{background-color: #c0e4be;border-color: #c0e4be;--icon-class:o-news-1;}.uscb-tag__census_program_demo-survey_scs{background-color: #c0e4be;border-color: #c0e4be;--icon-class:o-news-1;}.uscb-tag__census_program_demo-survey_sass{background-color: #c0e4be;border-color: #c0e4be;--icon-class:o-news-1;}.uscb-tag__census_program_demo-survey_soma{background-color: #c0e4be;border-color: #c0e4be;--icon-class:o-news-1;}.uscb-tag__census_program_demo-survey_spd{background-color: #c0e4be;border-color: #c0e4be;--icon-class:o-news-1;}.uscb-tag__census_program_demo-survey_tfs{background-color: #c0e4be;border-color: #c0e4be;--icon-class:o-news-1;}.uscb-tag__census_program_demo-survey_tpops{background-color: #c0e4be;border-color: #c0e4be;--icon-class:o-news-1;}.uscb-tag__census_program_demo-survey_decennial{background-color: #c0e4be;border-color: #c0e4be;--icon-class:o-news-1;}.uscb-tag__census_program_demo-survey_decennial_2010census{background-color: #c0e4be;border-color: #c0e4be;--icon-class:o-news-1;}.uscb-tag__census_program_demo-survey_decennial_2000-census{background-color: #c0e4be;border-color: #c0e4be;--icon-class:o-news-1;}.uscb-tag__census_program_demo-survey_decennial_1990-census{background-color: #c0e4be;border-color: #c0e4be;--icon-class:o-news-1;}.uscb-tag__census_program_demo-survey_decennial_2020-census{background-color: #c0e4be;border-color: #c0e4be;--icon-class:o-news-1;}.uscb-tag__census_program_demo-survey_decennial_2020-census_2015-test{background-color: #c0e4be;border-color: #c0e4be;--icon-class:o-news-1;}.uscb-tag__census_program_demo-survey_decennial_2020-census_2016-test{background-color: #c0e4be;border-color: #c0e4be;--icon-class:o-news-1;}.uscb-tag__census_program_demo-survey_decennial_2020-census_2017-test{background-color: #c0e4be;border-color: #c0e4be;--icon-class:o-news-1;}.uscb-tag__census_program_demo-survey_decennial_2020-census_2018-test{background-color: #c0e4be;border-color: #c0e4be;--icon-class:o-news-1;}.uscb-tag__census_program_demo-survey_decennial_census-population{background-color: #c0e4be;border-color: #c0e4be;--icon-class:o-news-1;}.uscb-tag__census_program_demo-survey_decennial_census-housing{background-color: #c0e4be;border-color: #c0e4be;--icon-class:o-news-1;}.uscb-tag__census_program_demo-survey_decennial_voting-rights{background-color: #c0e4be;border-color: #c0e4be;--icon-class:o-news-1;}.uscb-tag__census_program_demo-survey_decennial_pes{background-color: #c0e4be;border-color: #c0e4be;--icon-class:o-news-1;}.uscb-tag__census_program_demo-survey_decennial_2030-census{background-color: #c0e4be;border-color: #c0e4be;--icon-class:o-news-1;}.uscb-tag__census_program_demo-survey_decennial_2030-census_2023-census-test{background-color: #c0e4be;border-color: #c0e4be;--icon-class:o-news-1;}.uscb-tag__census_program_demo-survey_decennial_2030-census_2024-census-survey{background-color: #c0e4be;border-color: #c0e4be;--icon-class:o-news-1;}.uscb-tag__census_program_demo-survey_decennial_2030-census_2026-census-test{background-color: #c0e4be;border-color: #c0e4be;--icon-class:o-news-1;}.uscb-tag__census_program_demo-survey_hvs{background-color: #c0e4be;border-color: #c0e4be;--icon-class:o-news-1;}.uscb-tag__census_program_demo-survey_ahs{background-color: #c0e4be;border-color: #c0e4be;--icon-class:o-news-1;}.uscb-tag__census_program_demo-survey_cps{background-color: #c0e4be;border-color: #c0e4be;--icon-class:o-news-1;}.uscb-tag__census_program_demo-survey_acs{background-color: #c0e4be;border-color: #c0e4be;--icon-class:o-news-1;}.uscb-tag__census_program_demo-survey_sipp{background-color: #c0e4be;border-color: #c0e4be;--icon-class:o-news-1;}.uscb-tag__census_program_demo-survey_popest{background-color: #c0e4be;border-color: #c0e4be;--icon-class:o-news-1;}.uscb-tag__census_program_demo-survey_popproj{background-color: #c0e4be;border-color: #c0e4be;--icon-class:o-news-1;}.uscb-tag__census_program_demo-survey_bas{background-color: #c0e4be;border-color: #c0e4be;--icon-class:o-news-1;}.uscb-tag__census_program_demo-survey_tsap{background-color: #c0e4be;border-color: #c0e4be;--icon-class:o-news-1;}.uscb-tag__census_program_demo-survey_sdrp{background-color: #c0e4be;border-color: #c0e4be;--icon-class:o-news-1;}.uscb-tag__census_program_demo-survey_luca{background-color: #c0e4be;border-color: #c0e4be;--icon-class:o-news-1;}.uscb-tag__census_program_demo-survey_psap{background-color: #c0e4be;border-color: #c0e4be;--icon-class:o-news-1;}.uscb-tag__census_program_demo-survey_gupcp{background-color: #c0e4be;border-color: #c0e4be;--icon-class:o-news-1;}.uscb-tag__census_program_demo-survey_gss-i{background-color: #c0e4be;border-color: #c0e4be;--icon-class:o-news-1;}.uscb-tag__census_program_demo-survey_metro-micro{background-color: #c0e4be;border-color: #c0e4be;--icon-class:o-news-1;}.uscb-tag__census_program_demo-survey_aian{background-color: #c0e4be;border-color: #c0e4be;--icon-class:o-news-1;}.uscb-tag__census_program_demo-survey_rdo{background-color: #c0e4be;border-color: #c0e4be;--icon-class:o-news-1;}.uscb-tag__census_program_demo-survey_nshapc{background-color: #c0e4be;border-color: #c0e4be;--icon-class:o-news-1;}.uscb-tag__census_program_demo-survey_ip{background-color: #c0e4be;border-color: #c0e4be;--icon-class:o-news-1;}.uscb-tag__census_program_demo-survey_sahie{background-color: #c0e4be;border-color: #c0e4be;--icon-class:o-news-1;}.uscb-tag__c",
+          "title": "A More Timely, Comprehensive Look at the Economy: First Main Release of the Annual Integrated Economic Survey",
+          "httpStatus": 200
+        },
+        {
+          "type": "openrouter:web_search",
+          "id": "st_tmp_eh7nh6s2xwm",
+          "status": "completed",
+          "action": {
+            "type": "search",
+            "query": "2024 Annual Integrated Economic Survey data release 2026 schedule First Look",
+            "sources": [
+              {
+                "type": "url",
+                "url": "https://www2.census.gov/about/training-workshops/2026/2026-03-19-aies-streamlined-approach-to-business-statistics-presentation.pdf"
+              },
+              {
+                "type": "url",
+                "url": "https://www.census.gov/newsroom/press-releases/2026/2024-aies-data-release.html"
+              },
+              {
+                "type": "url",
+                "url": "https://www.census.gov/programs-surveys/aies.html"
+              },
+              {
+                "type": "url",
+                "url": "https://www.census.gov/newsroom/blogs/random-samplings/2026/02/first-aies-data-release.html"
+              },
+              {
+                "type": "url",
+                "url": "https://www.census.gov/newsroom/press-releases/2026/aies-time-series-data.html"
+              }
+            ]
+          }
+        },
+        {
+          "type": "openrouter:web_search",
+          "id": "st_tmp_l32cyiaboc",
+          "status": "completed",
+          "action": {
+            "type": "search",
+            "query": "National Academies \"Reengineering the Census Bureau's Annual Economic Surveys\" 2018 recommendations integrated survey",
+            "sources": [
+              {
+                "type": "url",
+                "url": "https://www.nationalacademies.org/read/25098"
+              },
+              {
+                "type": "url",
+                "url": "https://www.nationalacademies.org/projects/DBASSE-CNSTAT-15-06/publication/25098"
+              },
+              {
+                "type": "url",
+                "url": "https://www.nationalacademies.org/read/25098/chapter/10"
+              },
+              {
+                "type": "url",
+                "url": "https://www.nationalacademies.org/read/25098/chapter/8"
+              },
+              {
+                "type": "url",
+                "url": "https://nap.nationalacademies.org/nap-cgi/skimchap.cgi?chap=149%E2%80%93178&recid=25098"
+              }
+            ]
+          }
+        },
+        {
+          "type": "openrouter:web_fetch",
+          "id": "st_tmp_q89v8bcvc4b",
+          "status": "incomplete",
+          "url": "https://www2.census.gov/about/training-workshops/2026/2026-03-19-aies-streamlined-approach-to-business-statistics-presentation.pdf",
+          "httpStatus": 200,
+          "error": "PDF content cannot be processed by the OpenRouter engine. Use engine: \"native\" (Anthropic models only) or engine: \"firecrawl\" for PDF support."
+        },
+        {
+          "type": "openrouter:web_fetch",
+          "id": "st_tmp_rck9q1zthdi",
+          "status": "completed",
+          "url": "https://www.census.gov/newsroom/press-releases/2026/2024-aies-data-release.html",
+          "content": "\n<!DOCTYPE HTML>\n<!-- /*Per CMS-3223 we need the line below to have a 301 redirect capability*/ -->\n\n\n<html lang=\"en\">\n    <head>\r\n    \n    <link rel=\"icon\" sizes=\"192x192\" href=\"/etc.clientlibs/census/clientlibs/common-site/resources/icons/android-chrome-192x192.png\"/>\n    <link rel=\"icon\" sizes=\"256x256\" href=\"/etc.clientlibs/census/clientlibs/common-site/resources/icons/android-chrome-256x256.png\"/>\n    <link rel=\"shortcut icon\" sizes=\"32x32\" href=\"/etc.clientlibs/census/clientlibs/common-site/resources/icons/favicon.ico\"/>\n    <link rel=\"apple-touch-icon\" sizes=\"180x180\" href=\"/etc.clientlibs/census/clientlibs/common-site/resources/icons/apple-touch-icon-180x180.png\"/>     \n    <meta name=\"msapplication-square150x150logo\" content=\"/etc.clientlibs/census/clientlibs/common-site/resources/icons/mstile-150x150.png\"/>    \n\r\n    <meta charset=\"UTF-8\"/>\r\n    <title>Census Bureau Releases New Annual Integrated Economic Survey Data</title>\r\n    \r\n    <meta name=\"keywords\" content=\"Industry,Annual Integrated Economic Survey (AIES),Press Release,Business and Economy,NAICS Sector 44-45 Retail Trade\"/>\r\n    <meta name=\"article:tag\" content=\"Industry,Annual Integrated Economic Survey (AIES),Press Release,Business and Economy,NAICS Sector 44-45 Retail Trade\"/>\r\n    <meta name=\"description\" property=\"og:description\" content=\"New economic data available, including business revenue, expenses, payroll and employment at the national and state level.\"/>\r\n    <meta name=\"template\" content=\"template-detail3colleftright\"/>\r\n    <meta name=\"viewport\" content=\"width=device-width, initial-scale=1\"/>\r\n    \r\n    <link rel=\"canonical\" href=\"https://www.census.gov/newsroom/press-releases/2026/2024-aies-data-release.html\"/>\r\n\r\n    \r\n    \r\n    \r\n\r\n    \n\n\n  \n    <meta name=\"DC.title\" property=\"og:title\" content=\"Census Bureau Releases New Annual Integrated Economic Survey Data\"/>\n    <meta name=\"DC.creator\" content=\"US Census Bureau\"/>\n    \n      <meta name=\"DC.date.created\" property=\"article:published_time\" scheme=\"ISO8601\" content=\"2026-09-03T00:00:00.000-04:00\"/>\n    \n    <meta name=\"DC.date.reviewed\" property=\"article:modified_time\" scheme=\"ISO8601\" content=\"2026-09-03T08:40:35.300-04:00\"/>\n    <meta name=\"DC.language\" scheme=\"DCTERMS.RFC1766\" content=\"en\"/>\n  \t<meta name=\"robots\" content=\"noodp, noydir\"/>\n  \t<meta name=\"author\" content=\"US Census Bureau\"/>\n  \t<meta http-equiv=\"content-type\" content=\"text/html; charset=UTF-8\"/>\n  \t<meta property=\"og:locale\" content=\"en\"/>\n  \t<meta property=\"og:site_name\" content=\"Census.gov\"/>\n  \t<meta property=\"og:type\" content=\"article\"/>\n  \t<meta property=\"og:url\" content=\"https://www.census.gov/newsroom/press-releases/2026/2024-aies-data-release.html\"/>\n  \t<meta property=\"og:image\" content=\"https://www.census.gov/content/dam/Census/gs-imports/social-media-sharing-images/social-image-newsroom.png\"/>\n  \t<meta name=\"twitter:image\" content=\"https://www.census.gov/content/dam/Census/gs-imports/social-media-sharing-images/social-image-newsroom.png\"/>\n  \t<meta name=\"twitter:card\" content=\"summary_large_image\"/>\n  \t<meta name=\"twitter:site\" content=\"@uscensusbureau\"/>\n  \t<meta name=\"twitter:creator\" content=\"@uscensusbureau\"/>\n  \t<meta name=\"twitter:title\" content=\"Census Bureau Releases New Annual Integrated Economic Survey Data\"/>\n  \t<meta property=\"article:publisher\" content=\"https://census.gov/\"/>\n  \t<meta property=\"article:section\" content=\"Government\"/>\n  \r\n    <script type=\"text/javascript\" src=\"https://www.google.com/jsapi\"></script>\r\n    \r\n    \n    \n    \n    \n    \n<script src=\"/etc.clientlibs/clientlibs/granite/jquery.min.cee8557e8779d371fe722bbcdd3b3eb7.js\"></script>\n<script src=\"/etc.clientlibs/clientlibs/granite/utils.min.899004cc02c33efc1f6694b1aee587fd.js\"></script>\n<script src=\"/etc.clientlibs/clientlibs/granite/jquery/granite.min.543d214c88dfa6f4a3233b630c82d875.js\"></script>\n<script src=\"/etc.clientlibs/foundation/clientlibs/jquery.min.dd9b395c741ce2784096e26619e14910.js\"></script>\n<script src=\"/etc.clientlibs/census/clientlibs/modernizr.min.33837f3aff33e7a40a760d767866141e.js\"></script>\n\n\n\n\t\n    \n<script src=\"/etc.clientlibs/clientlibs/granite/jquery-ui.min.000478df169ef08edfb24d7502acb3c1.js\"></script>\n<script src=\"/etc.clientlibs/foundation/clientlibs/jquery-ui.min.3cc462ae7fb48fa3949850e903137f14.js\"></script>\n\n\n\n    \n    \n<link rel=\"stylesheet\" href=\"/etc.clientlibs/census-core/clientlibs.min.9556bf894a0d404c4e4f4bf83ef3c63b.css\" type=\"text/css\">\n<link rel=\"stylesheet\" href=\"/etc.clientlibs/census/clientlibs/bootstrap.min.3e7d159faa40f5cdf7d02fbe2b1bb215.css\" type=\"text/css\">\n<link rel=\"stylesheet\" href=\"/etc.clientlibs/census/clientlibs/census-fonts.min.9ebcbfc417b8006268ac47b61f6ebfba.css\" type=\"text/css\">\n<link rel=\"stylesheet\" href=\"/etc.clientlibs/census/clientlibs/common-site.min.8e92f508ecd83720ca5ccc6c8f0637d4.css\" type=\"text/css\">\n<link rel=\"stylesheet\" href=\"/etc.clientlibs/clientlibs/granite/jquery-ui.min.48e542f529ebea7475d83a20a3394c1e.css\" type=\"text/css\">\n<link rel=\"stylesheet\" href=\"/etc.clientlibs/census/clientlibs/orionicons.min.2ffd39f8bfe972a21504ca49f50084ec.css\" type=\"text/css\">\n<link rel=\"stylesheet\" href=\"/etc.clientlibs/census/clientlibs/uswds-init.min.c213ff96bc721c3e7977bc763c809e0a.css\" type=\"text/css\">\n<link rel=\"stylesheet\" href=\"/etc.clientlibs/census/clientlibs/core-overrides.min.95bca97fbd3ca07d6424f7fbbe926450.css\" type=\"text/css\">\n<link rel=\"stylesheet\" href=\"/etc.clientlibs/census/clientlibs/clientlib-dependencies.min.d41d8cd98f00b204e9800998ecf8427e.css\" type=\"text/css\">\n<link rel=\"stylesheet\" href=\"/etc.clientlibs/census/clientlibs/clientlib-site.min.25c805315eb4f3f64da0cc62097979ea.css\" type=\"text/css\">\n<link rel=\"stylesheet\" href=\"/etc.clientlibs/census/clientlibs/census-fonts-multilang.min.e7ca9bab4d61ddbda89ed7b2948bf2b6.css\" type=\"text/css\">\n<link rel=\"stylesheet\" href=\"/etc.clientlibs/census/clientlibs/census-pattern-library.min.a89a57ffc2832e0526e9000bfe5d3b7f.css\" type=\"text/css\">\n<link rel=\"stylesheet\" href=\"/etc.clientlibs/census/clientlibs/census-css.min.eea51f80edbde7164c45da04901e3b7f.css\" type=\"text/css\">\n<link rel=\"stylesheet\" href=\"/etc.clientlibs/census/clientlibs/aemgrid.min.be57a8c9b7d09f61725fd419ae4495cb.css\" type=\"text/css\">\n\n\n\n    \n    \n    \n\t\n    \n<link rel=\"stylesheet\" href=\"/etc.clientlibs/census/clientlibs/census-disabled.min.d002d8837bb961541a62e1a6402d7e2b.css\" type=\"text/css\">\n<script src=\"/etc.clientlibs/census/clientlibs/census-disabled.min.42535f152edc257f3458c8e1d559866c.js\"></script>\n\n\n\n    <link href=\"/etc.clientlibs/census/clientlibs/census-css/resources/print.css\" rel=\"stylesheet\" type=\"text/css\" media=\"print\"/> \n\n\t  <!-- Conditional CSS -->\n\t\n\t\t\n\t\n\t\n\n\t\n\n\t\t\n\t \n\t\n\n\t\n\n    \n\n\n        <script type=\"text/javascript\" src=\"//assets.adobedtm.com/launch-ENdc1ca6bab15e46a5b880a2c3f9d462ab.min.js\"></script>\n\n \n\t<!-- /*Data Layer*/ -->\t\n\t<div><script type=\"text/javascript\">\r\n\tvar d = new Date();\r\n\tvar days = [\"Sunday\",\"Monday\",\"Tuesday\",\"Wednesday\",\"Thursday\",\"Friday\",\"Saturday\"];\r\n\tvar digitalData = digitalData || {};\r\n    digitalData = {\r\n       \t\"page\" : {\r\n            \"pageInfo\" : {                \r\n                \"pageName\" \t\t\t: \"Census Bureau Releases New Annual Integrated Economic Survey Data_329323\",\r\n                \"legacyPageName\" \t: \"en>newsroom>press\\u002DreSSSS>2026>Census Bureau Releases New Annual Integrated Economic Survey Data\",\r\n                \"pageURL\" \t\t\t: window.location.href,\r\n                \"language\" \t\t\t: \"en\",\r\n                \"pageTemplate\" \t\t: \"template\\u002Ddetail3colleftright\",\r\n                \"topic\" \t\t\t: \"Industry,Business and Economy,NAICS Sector 44\\u002D45 Retail Trade\",\r\n                \"programTag\" \t\t: \"Annual Integrated Economic Survey (AIES)\",\r\n                \"collectionYear\" \t: \"\",\r\n                \"AEMtopic\" \t\t\t: \"Industry,Business and Economy,NAICS Sector 44\\u002D45 Retail Trade\",\r\n                \"contentType\" \t\t: \"Press Release\",\r\n                \"geoTag\" \t\t\t: \"\",\r\n                \"seriesTag\" \t\t: \"\",\r\n                \"publishDate\" \t\t: \"September 03, 2026\",\r\n                \"timeOfDay\" \t\t: twoDigits(d.getHours()) + \":\" + twoDigits(d.getMinutes()),\r\n                \"tool\" \t\t\t\t: \"aem\",\r\n                \"dayOfWeek\" \t\t: days[d.getDay()],\r\n                \"siteSection\" : \"newsroom\",\"subSectionOne\" : \"press-releases\",\"subSectionTwo\" : \"2026\",\"subSectionThree\" : \"2024-aies-data-release\"\r\n            },\r\n            \"pageTag\" : {\r\n                \"topic\" : \"Industry\",\"program\" : \"Annual Integrated Economic Survey (AIES)\",\"contentType\" : \"Press Release\",\"topic\" : \"Industry|Business and Economy\",\"topic\" : \"Industry|Business and Economy|NAICS Sector 44-45 Retail Trade\",\"publicationDate\" : \"September 03, 2026\"                \r\n            }\r\n        },\r\n        \"event\" : {\r\n        \t\"eventName\" : {},\r\n          \t\"eventInfo\" : {\r\n\t            \"share\" \t\t\t : {},\r\n\t            \"download\" \t\t\t : {},\r\n\t            \"search\" \t\t\t : {},\r\n\t            \"expandCollapseList\" : {},\r\n\t            \"language\" \t\t\t : {\r\n\t            \tpageLanguage\t : \"en\"\r\n\t            },\r\n\t            \"landingPageTab\" \t : {}\r\n          }\r\n        },\r\n        \"browserInfo\" : {\r\n        \t\"browserWidth\" : getBrowserWidth()\r\n        }\r\n    };    \r\n\r\n    if ( typeof(Storage) !== \"undefined\" ) {\r\n      if ( localStorage.getItem(\"pageLanguage\") != null ) {\r\n        digitalData.event.eventInfo.language.pageLanguage = localStorage.getItem(\"pageLanguage\");\r\n      }\r\n      if ( localStorage.getItem(\"langEventName\") != null ) {\r\n        digitalData.event.eventName = localStorage.getItem(\"langEventName\");\r\n      }\r\n      if ( localStorage.getItem(\"clickValue\") != null ) {\r\n        digitalData.event.eventInfo.search.clickValue = localStorage.getItem(\"clickValue\");\r\n      }\r\n      if ( localStorage.getItem(\"searchEventName\") != null ) {\r\n        digitalData.event.eventInfo.eventName = localStorage.getItem(\"searchEventName\");\r\n      }       \r\n      if ( localStorage.getItem(\"tabEventName\") != null ) {\r\n        digitalData.event.eventName = localStorage.getItem(\"tabEventName\");\r\n      } \r\n      if ( localStorage.getItem(\"pageName\") != null ) {\r\n        digitalData.page.pageInfo.pageName = localStorage.getItem(\"pageName\");\r\n      } \r\n      if ( localStorage.getItem(\"eventInfoEventName\") != null ) {\r\n    \t  digitalData.event.eventInfo.eventName = localStorage.getItem(\"eventInfoEventName\");  \t  \r\n      }\r\n      if ( localStorage.getItem(\"eventInfoLanguage\") != null ) {\r\n    \t  digitalData.event.eventInfo.language.pageLanguage = localStorage.getItem(\"eventInfoLanguage\");\r\n      }\r\n      if ( localStorage.getItem(\"searchTerm\") != null ) {\r\n    \t  digitalData.event.eventInfo.search.term = localStorage.getItem(\"searchTerm\");\r\n      }\r\n      if ( localStorage.getItem(\"blogSearchPhrase\") != null ) {\r\n    \t  digitalData.event.eventInfo.blogSearchPhrase = localStorage.getItem(\"blogSearchPhrase\");\r\n      }\r\n      if ( localStorage.getItem(\"blogEventName\") != null ) {\r\n    \t  digitalData.event.eventInfo.eventName = localStorage.getItem(\"blogEventName\");\r\n      }      \r\n      if ( localStorage.getItem(\"blogName\") != null ) {\r\n    \t  digitalData.event.eventInfo.blogName = localStorage.getItem(\"blogName\");\r\n      }\r\n      if ( localStorage.getItem(\"buttonClickCount\") != null ) {\r\n    \t  digitalData.event.eventInfo.buttonClickCount = localStorage.getItem(\"buttonClickCount\");\r\n      }\r\n      //After assigning the value to digitalData, clear the localStorage variable's content\r\n      localStorage.removeItem(\"pageLanguage\");\r\n      localStorage.removeItem(\"langEventName\");\r\n      localStorage.removeItem(\"clickValue\");\r\n      localStorage.removeItem(\"searchEventName\");\r\n      localStorage.removeItem(\"landingPageTabClickValue\");\r\n      localStorage.removeItem(\"tabEventName\");\r\n      localStorage.removeItem(\"pageName\");\r\n      localStorage.removeItem(\"eventInfoEventName\");\r\n      localStorage.removeItem(\"eventInfoLanguage\");\r\n      localStorage.removeItem(\"searchTerm\");\r\n      localStorage.removeItem(\"blogSearchPhrase\");\r\n      localStorage.removeItem(\"blogEventName\");\r\n      localStorage.removeItem(\"blogName\");\r\n      localStorage.removeItem(\"buttonClickCount\");\r\n    } else {\r\n      if ( getCookie(\"pageLanguage\") != \"\" ) {\r\n        digitalData.event.eventInfo.language.pageLanguage = getCookie(\"pageLanguage\");\r\n      }\r\n      if ( getCookie(\"langEventName\") != \"\" ) {\r\n        digitalData.event.eventName = getCookie(\"langEventName\");\r\n      }\r\n      if ( getCookie(\"clickValue\") != \"\" ) {\r\n        digitalData.event.eventInfo.search.clickValue = getCookie(\"clickValue\");\r\n      }\r\n      if ( getCookie(\"searchEventName\") != \"\" ) {\r\n        digitalData.event.eventInfo.eventName = getCookie(\"searchEventName\");\r\n      }\r\n      if ( getCookie(\"landingPageTabClickValue\") != \"\" ) {\r\n        digitalData.event.eventInfo.landingPageTab.clickValue = getCookie(\"landingPageTabClickValue\");\r\n      }\r\n      if ( getCookie(\"tabEventName\") != \"\" ) {\r\n        digitalData.event.eventName = getCookie(\"tabEventName\");\r\n      }\r\n      if ( getCookie(\"pageName\") != \"\" ) {\r\n        digitalData.page.pageInfo.pageName = getCookie(\"pageName\");\r\n      }\r\n      if ( getCookie(\"eventInfoEventName\") != \"\" ) {\r\n    \t  digitalData.event.eventInfo.eventName = getCookie(\"eventInfoEventName\");  \r\n      }\r\n      if ( getCookie(\"eventInfoLanguage\") ) {\r\n    \t  digitalData.event.eventInfo.language.pageLanguage = getCookie(\"eventInfoLanguage\");\r\n      }\r\n      if ( getCookie(\"searchTerm\") ) {\r\n    \t  digitalData.event.eventInfo.search.term = getCookie(\"searchTerm\");\r\n      }\r\n      if ( getCookie(\"blogSearchPhrase\") ) {\r\n    \t  digitalData.event.eventInfo.blogSearchPhrase = getCookie(\"blogSearchPhrase\");\r\n      }\r\n      if ( getCookie(\"blogEventName\") ) {\r\n    \t  digitalData.event.eventInfo.eventName = getCookie(\"blogEventName\");\r\n      }\r\n      if ( getCookie(\"blogName\") ) {\r\n    \t  digitalData.event.eventInfo.blogName = getCookie(\"blogName\");\r\n      }\r\n      if ( getCookie(\"buttonClickCount\") ) {\r\n    \t  digitalData.event.eventInfo.buttonClickCount = getCookie(\"buttonClickCount\");\r\n      }\r\n      //After assigning the value to digitalData, clear the localStorage variable's content\r\n      setCookie(\"pageLanguage\", \"\");\r\n      setCookie(\"langEventName\", \"\");\r\n      setCookie(\"clickValue\", \"\");\r\n      setCookie(\"searchEventName\", \"\");\r\n      setCookie(\"landingPageTabClickValue\", \"\");\r\n      setCookie(\"pageName\", \"\");\r\n      setCookie(\"eventInfoEventName\", \"\");\r\n      setCookie(\"eventInfoLanguage\", \"\");\r\n      setCookie(\"searchTerm\", \"\");\r\n      setCookie(\"blogSearchPhrase\", \"\");\r\n      setCookie(\"blogName\", \"\");\r\n      setCookie(\"buttonClickCount\", \"\");\r\n    }\r\n\r\n    function setCookie(cname, cvalue, exdays) {\r\n       var d = new Date();\r\n       d.setTime(d.getTime() + (exdays*24*60*60*1000));\r\n       var expires = \"expires=\"+d.toUTCString();\r\n       document.cookie = cname + \"=\" + cvalue + \";\" + expires + \";path=/\";\r\n    }\r\n\r\n    function getCookie(cname) {\r\n       var name = cname + \"=\";\r\n       var ca = document.cookie.split(';');\r\n       for(var i = 0; i < ca.length; i++) {\r\n           var c = ca[i];\r\n           while (c.charAt(0) == ' ') {\r\n               c = c.substring(1);\r\n           }\r\n           if (c.indexOf(name) == 0) {\r\n               return c.substring(name.length, c.length);\r\n           }\r\n       }\r\n       return \"\";\r\n    }\r\n    \r\n    function getBrowserWidth() {         \r\n   \t  \treturn window.innerWidth;\r\n   \t}\r\n    \r\n    function twoDigits(n){\r\n        return n > 9 ? \"\" + n: \"0\" + n;\r\n    }\r\n    \r\n    document.addEventListener('click', function (event) {    \t\r\n    \tif (typeof(event.target.href) !== 'undefined' && event.target.href.toLowerCase().indexOf('tel:') >= 0) {\r\n    \t\tdigitalData.event.eventName = 'phoneNumber';\r\n    \t\tdigitalData.event.eventInfo.eventName = 'Telephone Click';\r\n    \t\tvar splittedData = event.target.href.toLowerCase().split(':');\r\n    \t\tif (splittedData.length > 0) {\r\n    \t\t\tdigitalData.event.eventInfo.telephoneNumber = splittedData[splittedData.length - 1];\t\r\n    \t\t}    \t\t\r\n    \t}\r\n    \t\r\n    \tif (typeof(event.target.href) !== 'undefined' && event.target.href.toLowerCase().indexOf('mailto:') >= 0) {\r\n    \t\tdigitalData.event.eventName = 'emailClick';\r\n    \t\tdigitalData.event.eventInfo.eventName = 'Email Click';\r\n    \t\tvar splittedData = event.target.href.toLowerCase().split(':');\r\n    \t\tif (splittedData.length > 0) {\r\n    \t\t\tdigitalData.event.eventInfo.emailAddress = splittedData[splittedData.length - 1 ]\r\n    \t\t}\r\n    \t}\r\n    \t\r\n    \t//For non-download links that are added via RTE\r\n    \tif (typeof(event.target.href) !== 'undefined') {\r\n    \t\tvar extension = event.target.href.split('.').pop();\r\n    \t\tif (extension == event.target.href || extension == \"html\")\r\n    \t\t\tlinkClick(event.target, 'RTE');    \t\t\r\n    \t}\r\n    });\r\n    \r\n    document.addEventListener(\"DOMContentLoaded\", function() {   \t\t\r\n   \t  \tif (typeof(getCookie('visitor')) !== 'undefined' && getCookie('visitor') !== '') {\r\n   \t  \t    date = new Date();   \t  \t    \r\n   \t\t\tdigitalData.event.eventInfo.newVsRepeat = 'repeat';\r\n   \t\t\tvar dateLastVisited = Date.parse(getCookie('dateLastVisited'));   \t\t\t\r\n   \t\t\tvar differenceInTime = date.getTime() - dateLastVisited;   \t\t\t\r\n   \t\t\tvar seconds = (differenceInTime * .001) >> 0;\r\n   \t\t\t\r\n   \t\t\tif (seconds > 0) {   \t\t\t\t\r\n\t   \t        var minutes = seconds / 60;\r\n\t   \t        var hours = minutes / 60;\t   \t        \r\n\t   \t        var days = hours / 24;\t   \t        \r\n   \t        \tdigitalData.event.eventInfo.secondsSinceLastVisit = seconds.toFixed(2);\r\n   \t        \tdigitalData.event.eventInfo.minutesSinceLastVisit = minutes.toFixed(2);\r\n   \t        \tdigitalData.event.eventInfo.hoursSinceLastVisit = hours.toFixed(2);\r\n   \t        \tdigitalData.event.eventInfo.daysSinceLastVisit = days.toFixed(2);\r\n   \t        }   \t\t\t\r\n   \t\t\t\r\n   \t\t\tsetCookie('dateLastVisited', date, 365); \r\n   \t\t\tvar visitNumber = parseInt(getCookie('visitNumber')) + 1;\r\n   \t\t\tsetCookie('visitNumber', visitNumber, 365);\r\n   \t\t\tdigitalData.event.eventInfo.visitNumber = visitNumber;\r\n   \t  \t} else {\r\n   \t  \t\tdate = new Date();\r\n   \t  \t\tsetCookie('visitor', 'census website visitor', 365);\r\n   \t  \t\tsetCookie('dateLastVisited', date, 365);\r\n   \t  \t\tsetCookie('visitNumber', 1, 365);\r\n   \t  \t\tdigitalData.event.eventInfo.newVsRepeat = 'new';\r\n   \t  \t\tdigitalData.event.eventInfo.visitNumber = 1;\r\n   \t  \t}\r\n   \t});\r\n    \r\n\t$(document).ready(function () { // ensure we wait for listeners to connect to dataLayerReady instead of just firing immediately\r\n    \t$(document).trigger({type: \"dataLayerReady\"});\r\n  });\r\n</script></div>\n\t<script type=\"text/javascript\" src=\"https://www.google.com/jsapi\"></script>\n\t<!-- /*Asset Ref, Content-Language*/-->\n\t<div><script type=\"text/javascript\">    \r\n   \t'use strict';\r\n   \t\r\n   \tdocument.addEventListener('click', function (event) {\r\n    \tif (typeof(event.target.href) !== 'undefined' && event.target.href.toLowerCase().indexOf('pdf') >= 0) {\r\n    \t\tvar pdfXhr = new XMLHttpRequest();\r\n    \t\tpdfXhr.open('GET', '/bin/custom/header/asset?pdfPath=' + event.target.href, true);\r\n    \t\tpdfXhr.send();\r\n    \t}\r\n   \t});\r\n   \t\r\n</script></div>\n\r\n\r\n    \r\n\r\n    \r\n        <style>.uscb-tag__census{background-color: #bbddff;border-color: #bbddff;--icon-class:o-news-1;}.uscb-tag__census_type{background-color: #bbddff;border-color: #bbddff;--icon-class:o-news-1;}.uscb-tag__census_type_publication{background-color: #d0dce1;border-color: #d0dce1;--icon-class:o-book-1;}.uscb-tag__census_type_publication_atlas{background-color: #d0dce1;border-color: #d0dce1;--icon-class:o-book-1;}.uscb-tag__census_type_about{background-color: #bbddff;border-color: #bbddff;--icon-class:o-news-1;}.uscb-tag__census_type_about_biography{background-color: #bbddff;border-color: #bbddff;--icon-class:o-news-1;}.uscb-tag__census_type_about_survey-respondent-information{background-color: #bbddff;border-color: #bbddff;--icon-class:o-news-1;}.uscb-tag__census_type_data{background-color: #ffccbc;border-color: #ffccbc;--icon-class:o-news-1;}.uscb-tag__census_type_data_table{background-color: #ffccbc;border-color: #ffccbc;--icon-class:o-news-1;}.uscb-tag__census_type_data_table_comp-tab{background-color: #ffccbc;border-color: #ffccbc;--icon-class:o-news-1;}.uscb-tag__census_type_data_table_rank-tab{background-color: #ffccbc;border-color: #ffccbc;--icon-class:o-news-1;}.uscb-tag__census_type_data_table_summary-table{background-color: #ffccbc;border-color: #ffccbc;--icon-class:o-news-1;}.uscb-tag__census_type_data_errata-note{background-color: #ffccbc;border-color: #ffccbc;--icon-class:o-news-1;}.uscb-tag__census_type_data_dataset{background-color: #ffccbc;border-color: #ffccbc;--icon-class:o-news-1;}.uscb-tag__census_type_data_dataset_pums-puf-microdata{background-color: #ffccbc;border-color: #ffccbc;--icon-class:o-news-1;}.uscb-tag__census_type_data_dataset_pums-puf-microdata_puf{background-color: #ffccbc;border-color: #ffccbc;--icon-class:o-news-1;}.uscb-tag__census_type_data_dataset_pums-puf-microdata_pums{background-color: #ffccbc;border-color: #ffccbc;--icon-class:o-news-1;}.uscb-tag__census_type_data_dataset_summary-file{background-color: #ffccbc;border-color: #ffccbc;--icon-class:o-news-1;}.uscb-tag__census_type_data_dataset_api{background-color: #ffccbc;border-color: #ffccbc;--icon-class:o-news-1;}.uscb-tag__census_type_data_indicator{background-color: #ffccbc;border-color: #ffccbc;--icon-class:o-news-1;}.uscb-tag__census_type_data_experimental-data-product{background-color: #ffccbc;border-color: #ffccbc;--icon-class:o-news-1;}.uscb-tag__census_type_event{background-color: #e0d2e3;border-color: #e0d2e3;--icon-class:o-news-1;}.uscb-tag__census_type_event_conference{background-color: #e0d2e3;border-color: #e0d2e3;--icon-class:o-news-1;}.uscb-tag__census_type_event_c-span{background-color: #e0d2e3;border-color: #e0d2e3;--icon-class:o-news-1;}.uscb-tag__census_type_event_media-event{background-color: #e0d2e3;border-color: #e0d2e3;--icon-class:o-news-1;}.uscb-tag__census_type_event_seminar{background-color: #e0d2e3;border-color: #e0d2e3;--icon-class:o-news-1;}.uscb-tag__census_type_event_training{background-color: #e0d2e3;border-color: #e0d2e3;--icon-class:o-news-1;}.uscb-tag__census_type_event_training_courses{background-color: #e0d2e3;border-color: #e0d2e3;--icon-class:o-news-1;}.uscb-tag__census_type_event_training_webinar{background-color: #e0d2e3;border-color: #e0d2e3;--icon-class:o-news-1;}.uscb-tag__census_type_event_training_tutorial{background-color: #e0d2e3;border-color: #e0d2e3;--icon-class:o-news-1;}.uscb-tag__census_type_event_u-stream{background-color: #e0d2e3;border-color: #e0d2e3;--icon-class:o-news-1;}.uscb-tag__census_type_event_presentation{background-color: #e0d2e3;border-color: #e0d2e3;--icon-class:o-news-1;}.uscb-tag__census_type_event_disasters{background-color: #e0d2e3;border-color: #e0d2e3;--icon-class:o-news-1;}.uscb-tag__census_type_event_disasters_earthquake{background-color: #e0d2e3;border-color: #e0d2e3;--icon-class:o-news-1;}.uscb-tag__census_type_event_disasters_flood{background-color: #e0d2e3;border-color: #e0d2e3;--icon-class:o-news-1;}.uscb-tag__census_type_event_disasters_hurricane{background-color: #e0d2e3;border-color: #e0d2e3;--icon-class:o-news-1;}.uscb-tag__census_type_event_disasters_pandemic{background-color: #e0d2e3;border-color: #e0d2e3;--icon-class:o-news-1;}.uscb-tag__census_type_event_disasters_tornado{background-color: #e0d2e3;border-color: #e0d2e3;--icon-class:o-news-1;}.uscb-tag__census_type_event_disasters_wildfire{background-color: #e0d2e3;border-color: #e0d2e3;--icon-class:o-news-1;}.uscb-tag__census_type_event_disasters_storm{background-color: #e0d2e3;border-color: #e0d2e3;--icon-class:o-news-1;}.uscb-tag__census_type_event_disasters_incident{background-color: #e0d2e3;border-color: #e0d2e3;--icon-class:o-news-1;}.uscb-tag__census_type_event_disasters_air-quality{background-color: #e0d2e3;border-color: #e0d2e3;--icon-class:o-news-1;}.uscb-tag__census_type_event_disasters_extreme-heat{background-color: #e0d2e3;border-color: #e0d2e3;--icon-class:o-news-1;}.uscb-tag__census_type_media-resource{background-color: #bbddff;border-color: #bbddff;--icon-class:o-news-1;}.uscb-tag__census_type_media-resource_press-release{background-color: #7ad4e2;border-color: #7ad4e2;--icon-class:o-news-2;}.uscb-tag__census_type_media-resource_press-kit{background-color: #7ad4e2;border-color: #7ad4e2;--icon-class:o-documents-1;}.uscb-tag__census_type_media-resource_tip-sheet{background-color: #7ad4e2;border-color: #7ad4e2;--icon-class:o-data-file-1;}.uscb-tag__census_type_media-resource_facts-for-features-special-editions{background-color: #7ad4e2;border-color: #7ad4e2;--icon-class:o-image-saved-1;}.uscb-tag__census_type_media-resource_local-area-pr{background-color: #7ad4e2;border-color: #7ad4e2;--icon-class:o-news-2;}.uscb-tag__census_type_media-resource_stories{background-color: #7ad4e2;border-color: #7ad4e2;--icon-class:o-statistic-1;}.uscb-tag__census_type_multimedia{background-color: #bbddff;border-color: #bbddff;--icon-class:o-news-1;}.uscb-tag__census_type_multimedia_audio{background-color: #ffe434;border-color: #ffe434;--icon-class:o-volume-1;}.uscb-tag__census_type_multimedia_video{background-color: #ffe434;border-color: #ffe434;--icon-class:o-play-1;}.uscb-tag__census_type_multimedia_photograph{background-color: #ffe434;border-color: #ffe434;--icon-class:o-image-1;}.uscb-tag__census_type_working-paper{background-color: #d0dce1;border-color: #d0dce1;--icon-class:o-multiple-files-1;}.uscb-tag__census_type_visualization{background-color: #ffe434;border-color: #ffe434;--icon-class:o-bar-chart-1;}.uscb-tag__census_type_visualization_figure{background-color: #ffe434;border-color: #ffe434;--icon-class:o-bar-chart-1;}.uscb-tag__census_type_visualization_infographic{background-color: #ffe434;border-color: #ffe434;--icon-class:o-bar-chart-1;}.uscb-tag__census_type_visualization_thematic-map{background-color: #ffe434;border-color: #ffe434;--icon-class:o-bar-chart-1;}.uscb-tag__census_type_technical-documentation{background-color: #bbddff;border-color: #bbddff;--icon-class:o-news-1;}.uscb-tag__census_type_technical-documentation_data-dictionary{background-color: #bbddff;border-color: #bbddff;--icon-class:o-news-1;}.uscb-tag__census_type_technical-documentation_user-notes{background-color: #bbddff;border-color: #bbddff;--icon-class:o-news-1;}.uscb-tag__census_type_technical-documentation_questionnaire{background-color: #bbddff;border-color: #bbddff;--icon-class:o-news-1;}.uscb-tag__census_type_technical-documentation_sampling-weighting{background-color: #bbddff;border-color: #bbddff;--icon-class:o-news-1;}.uscb-tag__census_type_technical-documentation_quality-measures{background-color: #bbddff;border-color: #bbddff;--icon-class:o-news-1;}.uscb-tag__census_type_technical-documentation_source-accuracy-statements{background-color: #bbddff;border-color: #bbddff;--icon-class:o-news-1;}.uscb-tag__census_type_technical-documentation_subject-definitions{background-color: #bbddff;border-color: #bbddff;--icon-class:o-news-1;}.uscb-tag__census_type_technical-documentation_statistical-testing{background-color: #bbddff;border-color: #bbddff;--icon-class:o-news-1;}.uscb-tag__census_type_updates{background-color: #bbddff;border-color: #bbddff;--icon-class:o-news-1;}.uscb-tag__census_type_updates_newsletter{background-color: #bbddff;border-color: #bbddff;--icon-class:o-news-1;}.uscb-tag__census_type_methodology{background-color: #bbddff;border-color: #bbddff;--icon-class:o-news-1;}.uscb-tag__census_type_data-tool{background-color: #ffccbc;border-color: #ffccbc;--icon-class:o-news-1;}.uscb-tag__census_type_data-tool_api{background-color: #ffccbc;border-color: #ffccbc;--icon-class:o-news-1;}.uscb-tag__census_type_data-tool_software{background-color: #ffccbc;border-color: #ffccbc;--icon-class:o-news-1;}.uscb-tag__census_type_data-tool_mobile-app{background-color: #ffccbc;border-color: #ffccbc;--icon-class:o-news-1;}.uscb-tag__census_type_data-tool_web-app{background-color: #ffccbc;border-color: #ffccbc;--icon-class:o-news-1;}.uscb-tag__census_type_transcript{background-color: #bbddff;border-color: #bbddff;--icon-class:o-news-1;}.uscb-tag__census_type_blog{background-color: #7ad4e2;border-color: #7ad4e2;--icon-class:o-news-website-1;}.uscb-tag__census_type_blog_directors-blog{background-color: #7ad4e2;border-color: #7ad4e2;--icon-class:o-news-website-1;}.uscb-tag__census_type_blog_global-reach-blog{background-color: #7ad4e2;border-color: #7ad4e2;--icon-class:o-news-website-1;}.uscb-tag__census_type_blog_random-samplings-blog{background-color: #7ad4e2;border-color: #7ad4e2;--icon-class:o-news-website-1;}.uscb-tag__census_type_blog_research-blog{background-color: #7ad4e2;border-color: #7ad4e2;--icon-class:o-news-website-1;}.uscb-tag__census_type_blog_deputy-directors-blog{background-color: #7ad4e2;border-color: #7ad4e2;--icon-class:o-news-website-1;}.uscb-tag__census_type_blog_previous-directors-blogs{background-color: #7ad4e2;border-color: #7ad4e2;--icon-class:o-news-website-1;}.uscb-tag__census_type_story{background-color: #bdf;border-color: #bdf;--icon-class:o-news-1;}.uscb-tag__census_type_story_story-map{background-color: #bdf;border-color: #bdf;--icon-class:o-news-1;}.uscb-tag__census_type_geographic{background-color: #bbddff;border-color: #bbddff;--icon-class:o-news-1;}.uscb-tag__census_type_geographic_geo-profile{background-color: #bbddff;border-color: #bbddff;--icon-class:o-news-1;}.uscb-tag__census_type_geographic_mapping-file{background-color: #bbddff;border-color: #bbddff;--icon-class:o-news-1;}.uscb-tag__census_type_geographic_reference-file{background-color: #bbddff;border-color: #bbddff;--icon-class:o-news-1;}.uscb-tag__census_type_geographic_reference-map{background-color: #bbddff;border-color: #bbddff;--icon-class:o-news-1;}.uscb-tag__census_type_geographic_mapping-tool{background-color: #bbddff;border-color: #bbddff;--icon-class:o-news-1;}.uscb-tag__census_type_forms{background-color: #bbddff;border-color: #bbddff;--icon-class:o-news-1;}.uscb-tag__census_type_forms_request-form{background-color: #bbddff;border-color: #bbddff;--icon-class:o-news-1;}.uscb-tag__census_type_contact{background-color: #bbddff;border-color: #bbddff;--icon-class:o-news-1;}.uscb-tag__census_type_indicator{background-color: #bbddff;border-color: #bbddff;--icon-class:o-news-1;}.uscb-tag__census_type_job{background-color: #bbddff;border-color: #bbddff;--icon-class:o-news-1;}.uscb-tag__census_type_fact-sheet{background-color: #d0dce1;border-color: #d0dce1;--icon-class:o-find-notes-1;}.uscb-tag__census_type_faq{background-color: #bbddff;border-color: #bbddff;--icon-class:o-news-1;}.uscb-tag__census_type_faq_faq-feature{background-color: #bbddff;border-color: #bbddff;--icon-class:o-news-1;}.uscb-tag__census_type_outreach-materials{background-color: #bbddff;border-color: #bbddff;--icon-class:o-news-1;}.uscb-tag__census_type_spotlight{background-color: #d0dce1;border-color: #d0dce1;--icon-class:o-find-notes-1;}.uscb-tag__census_type_census-reference-materials{background-color: #bbddff;border-color: #bbddff;--icon-class:o-news-1;}.uscb-tag__census_type_census-reference-materials_code-lists{background-color: #bbddff;border-color: #bbddff;--icon-class:o-news-1;}.uscb-tag__census_type_monthly-history-story{background-color: #d0dce1;border-color: #d0dce1;--icon-class:o-find-notes-1;}.uscb-tag__census_type_flyer{background-color: #d0dce1;border-color: #d0dce1;--icon-class:o-find-notes-1;}.uscb-tag__census_program{background-color: #bbddff;border-color: #bbddff;--icon-class:o-news-1;}.uscb-tag__census_program_demo-survey{background-color: #c0e4be;border-color: #c0e4be;--icon-class:o-news-1;}.uscb-tag__census_program_demo-survey_atus{background-color: #c0e4be;border-color: #c0e4be;--icon-class:o-news-1;}.uscb-tag__census_program_demo-survey_ce{background-color: #c0e4be;border-color: #c0e4be;--icon-class:o-news-1;}.uscb-tag__census_program_demo-survey_ncvs{background-color: #c0e4be;border-color: #c0e4be;--icon-class:o-news-1;}.uscb-tag__census_program_demo-survey_namcs{background-color: #c0e4be;border-color: #c0e4be;--icon-class:o-news-1;}.uscb-tag__census_program_demo-survey_nhis{background-color: #c0e4be;border-color: #c0e4be;--icon-class:o-news-1;}.uscb-tag__census_program_demo-survey_nhamcs{background-color: #c0e4be;border-color: #c0e4be;--icon-class:o-news-1;}.uscb-tag__census_program_demo-survey_nhes{background-color: #c0e4be;border-color: #c0e4be;--icon-class:o-news-1;}.uscb-tag__census_program_demo-survey_nscg{background-color: #c0e4be;border-color: #c0e4be;--icon-class:o-news-1;}.uscb-tag__census_program_demo-survey_fhwar{background-color: #c0e4be;border-color: #c0e4be;--icon-class:o-news-1;}.uscb-tag__census_program_demo-survey_nychvs{background-color: #c0e4be;border-color: #c0e4be;--icon-class:o-news-1;}.uscb-tag__census_program_demo-survey_prcs{background-color: #c0e4be;border-color: #c0e4be;--icon-class:o-news-1;}.uscb-tag__census_program_demo-survey_rfs{background-color: #c0e4be;border-color: #c0e4be;--icon-class:o-news-1;}.uscb-tag__census_program_demo-survey_scs{background-color: #c0e4be;border-color: #c0e4be;--icon-class:o-news-1;}.uscb-tag__census_program_demo-survey_sass{background-color: #c0e4be;border-color: #c0e4be;--icon-class:o-news-1;}.uscb-tag__census_program_demo-survey_soma{background-color: #c0e4be;border-color: #c0e4be;--icon-class:o-news-1;}.uscb-tag__census_program_demo-survey_spd{background-color: #c0e4be;border-color: #c0e4be;--icon-class:o-news-1;}.uscb-tag__census_program_demo-survey_tfs{background-color: #c0e4be;border-color: #c0e4be;--icon-class:o-news-1;}.uscb-tag__census_program_demo-survey_tpops{background-color: #c0e4be;border-color: #c0e4be;--icon-class:o-news-1;}.uscb-tag__census_program_demo-survey_decennial{background-color: #c0e4be;border-color: #c0e4be;--icon-class:o-news-1;}.uscb-tag__census_program_demo-survey_decennial_2010census{background-color: #c0e4be;border-color: #c0e4be;--icon-class:o-news-1;}.uscb-tag__census_program_demo-survey_decennial_2000-census{background-color: #c0e4be;border-color: #c0e4be;--icon-class:o-news-1;}.uscb-tag__census_program_demo-survey_decennial_1990-census{background-color: #c0e4be;border-color: #c0e4be;--icon-class:o-news-1;}.uscb-tag__census_program_demo-survey_decennial_2020-census{background-color: #c0e4be;border-color: #c0e4be;--icon-class:o-news-1;}.uscb-tag__census_program_demo-survey_decennial_2020-census_2015-test{background-color: #c0e4be;border-color: #c0e4be;--icon-class:o-news-1;}.uscb-tag__census_program_demo-survey_decennial_2020-census_2016-test{background-color: #c0e4be;border-color: #c0e4be;--icon-class:o-news-1;}.uscb-tag__census_program_demo-survey_decennial_2020-census_2017-test{background-color: #c0e4be;border-color: #c0e4be;--icon-class:o-news-1;}.uscb-tag__census_program_demo-survey_decennial_2020-census_2018-test{background-color: #c0e4be;border-color: #c0e4be;--icon-class:o-news-1;}.uscb-tag__census_program_demo-survey_decennial_census-population{background-color: #c0e4be;border-color: #c0e4be;--icon-class:o-news-1;}.uscb-tag__census_program_demo-survey_decennial_census-housing{background-color: #c0e4be;border-color: #c0e4be;--icon-class:o-news-1;}.uscb-tag__census_program_demo-survey_decennial_voting-rights{background-color: #c0e4be;border-color: #c0e4be;--icon-class:o-news-1;}.uscb-tag__census_program_demo-survey_decennial_pes{background-color: #c0e4be;border-color: #c0e4be;--icon-class:o-news-1;}.uscb-tag__census_program_demo-survey_decennial_2030-census{background-color: #c0e4be;border-color: #c0e4be;--icon-class:o-news-1;}.uscb-tag__census_program_demo-survey_decennial_2030-census_2023-census-test{background-color: #c0e4be;border-color: #c0e4be;--icon-class:o-news-1;}.uscb-tag__census_program_demo-survey_decennial_2030-census_2024-census-survey{background-color: #c0e4be;border-color: #c0e4be;--icon-class:o-news-1;}.uscb-tag__census_program_demo-survey_decennial_2030-census_2026-census-test{background-color: #c0e4be;border-color: #c0e4be;--icon-class:o-news-1;}.uscb-tag__census_program_demo-survey_hvs{background-color: #c0e4be;border-color: #c0e4be;--icon-class:o-news-1;}.uscb-tag__census_program_demo-survey_ahs{background-color: #c0e4be;border-color: #c0e4be;--icon-class:o-news-1;}.uscb-tag__census_program_demo-survey_cps{background-color: #c0e4be;border-color: #c0e4be;--icon-class:o-news-1;}.uscb-tag__census_program_demo-survey_acs{background-color: #c0e4be;border-color: #c0e4be;--icon-class:o-news-1;}.uscb-tag__census_program_demo-survey_sipp{background-color: #c0e4be;border-color: #c0e4be;--icon-class:o-news-1;}.uscb-tag__census_program_demo-survey_popest{background-color: #c0e4be;border-color: #c0e4be;--icon-class:o-news-1;}.uscb-tag__census_program_demo-survey_popproj{background-color: #c0e4be;border-color: #c0e4be;--icon-class:o-news-1;}.uscb-tag__census_program_demo-survey_bas{background-color: #c0e4be;border-color: #c0e4be;--icon-class:o-news-1;}.uscb-tag__census_program_demo-survey_tsap{background-color: #c0e4be;border-color: #c0e4be;--icon-class:o-news-1;}.uscb-tag__census_program_demo-survey_sdrp{background-color: #c0e4be;border-color: #c0e4be;--icon-class:o-news-1;}.uscb-tag__census_program_demo-survey_luca{background-color: #c0e4be;border-color: #c0e4be;--icon-class:o-news-1;}.uscb-tag__census_program_demo-survey_psap{background-color: #c0e4be;border-color: #c0e4be;--icon-class:o-news-1;}.uscb-tag__census_program_demo-survey_gupcp{background-color: #c0e4be;border-color: #c0e4be;--icon-class:o-news-1;}.uscb-tag__census_program_demo-survey_gss-i{background-color: #c0e4be;border-color: #c0e4be;--icon-class:o-news-1;}.uscb-tag__census_program_demo-survey_metro-micro{background-color: #c0e4be;border-color: #c0e4be;--icon-class:o-news-1;}.uscb-tag__census_program_demo-survey_aian{background-color: #c0e4be;border-color: #c0e4be;--icon-class:o-news-1;}.uscb-tag__census_program_demo-survey_rdo{background-color: #c0e4be;border-color: #c0e4be;--icon-class:o-news-1;}.uscb-tag__census_program_demo-survey_nshapc{background-color: #c0e4be;border-color: #c0e4be;--icon-class:o-news-1;}.uscb-tag__census_program_demo-survey_ip{background-color: #c0e4be;border-color: #c0e4be;--icon-class:o-news-1;}.uscb-tag__census_program_demo-survey_sahie{background-color: #c0e4be;border-color: #c0e4be;--icon-class:o-news-1;}.uscb-tag__census_program_demo-survey_saipe{background-color: #c0e4be;border-color: #c0e4be;--icon-class:o-news-1;}.uscb-tag__census_program_demo-survey_nssrn{background-color: #c0e4be;border-color: #c0e4be;--icon-class:o-news-1;}.uscb-tag__census_program_demo-survey_ntps{background-color: #c0e4be;border-color: #c0e4be;--icon-class:o-news-1;}.uscb-tag__census_program_demo-survey_sis{background-color: #c0e4be;border-color: #c0e4be;--icon-class:o-news-1;}.uscb-tag__census_program_demo-survey_hh-pulse-survey{background-color: #c0e4be;border-color: #c0e4be;--icon-class:o-news-1;}.uscb-tag__census_program_demo-survey_ehealth{background-color: #c0e4be;border-color: #c0e4be;--icon-class:o-news-1;}.uscb-tag__census_program_demo-survey_cre{background-color: #c0e4be;border-color: #c0e4be;--icon-class:o-news-1;}.uscb-tag__census_program_demo-survey_school-pulse-panel{background-color: #c0e4be;border-color: #c0e4be;--icon-class:o-news-1;}.uscb-tag__census_program_demo-survey_dcdl{background-color: #c0e4be;border-color: #c0e4be;--icon-class:o-news-1;}.uscb-tag__census_program_demo-survey_ntews{background-color: #c0e4be;border-color: #c0e4be;--icon-class:o-news-1;}.uscb-tag__census_program_demo-survey_pfs{background-color: #c0e4be;border-color: #c0e4be;--icon-class:o-news-1;}.uscb-tag__census_program_demo-survey_ssocs{background-color: #c0e4be;border-color: #c0e4be;--icon-class:o-news-1;}.uscb-tag__census_program_demo-survey_special-census-program{background-color: #c0e4be;border-color: #c0e4be;--icon-class:o-news-1;}.uscb-tag__census_program_demo-survey_nsch{background-color: #c0e4be;border-color: #c0e4be;--icon-class:o-news-1;}.uscb-tag__census_program_demo-survey_pss{backgro",
+          "title": "Census Bureau Releases New Annual Integrated Economic Survey Data",
+          "httpStatus": 200
+        },
+        {
+          "type": "openrouter:web_search",
+          "id": "st_tmp_r59wfeqhwi",
+          "status": "completed",
+          "action": {
+            "type": "search",
+            "query": "AIES methodology sample design establishment company \"reporting unit\" Business Register sample size 2024 AIES",
+            "sources": [
+              {
+                "type": "url",
+                "url": "https://www2.census.gov/programs-surveys/aies/technical-documentation/methodology/2024-aies-methodology-final.pdf"
+              },
+              {
+                "type": "url",
+                "url": "https://www2.census.gov/programs-surveys/aies/technical-documentation/methodology/2023-aies-methodology.pdf"
+              },
+              {
+                "type": "url",
+                "url": "https://www2.census.gov/about/partners/cac/sac/meetings/2024-09/presentation-aies-utilizing-enterprise-solutions.pdf"
+              },
+              {
+                "type": "url",
+                "url": "https://www.census.gov/newsroom/blogs/random-samplings/2024/integrating-business-statistics-for-economy.html"
+              },
+              {
+                "type": "url",
+                "url": "https://www2.census.gov/programs-surveys/aies/information-respondents/aies_instruction_manual.pdf"
+              }
+            ]
+          }
+        },
+        {
+          "type": "openrouter:web_search",
+          "id": "st_tmp_im0y0nb433",
+          "status": "completed",
+          "action": {
+            "type": "search",
+            "query": "Annual Survey of Manufactures last year 2021 replaced by AIES; Annual Retail Trade Survey final 2022 data; transition to AIES",
+            "sources": [
+              {
+                "type": "url",
+                "url": "https://www.census.gov/programs-surveys/asm/about.html"
+              },
+              {
+                "type": "url",
+                "url": "https://www.census.gov/newsroom/press-releases/2023/annual-integrated-economic-survey.html"
+              },
+              {
+                "type": "url",
+                "url": "https://www.census.gov/programs-surveys/aies/about.html"
+              },
+              {
+                "type": "url",
+                "url": "https://www.federalregister.gov/documents/2024/03/25/2024-06226/current-mandatory-business-surveys"
+              },
+              {
+                "type": "url",
+                "url": "https://www.federalregister.gov/documents/2022/11/04/2022-24035/annual-integrated-economic-survey"
+              }
+            ]
+          }
+        },
+        {
+          "type": "openrouter:web_search",
+          "id": "st_tmp_9qzgr3zpp6r",
+          "status": "completed",
+          "action": {
+            "type": "search",
+            "query": "AIES response rate concerns data users BEA GDP annual update Annual Integrated Economic Survey impact time series break",
+            "sources": [
+              {
+                "type": "url",
+                "url": "https://www.bea.gov/information-updates-national-economic-accounts-2025"
+              },
+              {
+                "type": "url",
+                "url": "https://www2.census.gov/about/partners/sdc-cic-ddtb/meetings/2024/presentations/presentation-aies.pdf"
+              },
+              {
+                "type": "url",
+                "url": "https://apps.bea.gov/scb/issues/2026/06-june/0626-nea-preview.htm"
+              },
+              {
+                "type": "url",
+                "url": "https://apps.bea.gov/scb/issues/2025/11-november/1125-nea-annual-update.htm"
+              },
+              {
+                "type": "url",
+                "url": "https://www2.census.gov/about/training-workshops/2026/2026-03-19-aies-streamlined-approach-to-business-statistics-presentation.pdf"
+              }
+            ]
+          }
+        },
+        {
+          "type": "openrouter:web_search",
+          "id": "st_tmp_t2lvowet19",
+          "status": "completed",
+          "action": {
+            "type": "search",
+            "query": "AIES 2023 First Look release July 2025 estimates revenue total $ trillion employer businesses response rate",
+            "sources": [
+              {
+                "type": "url",
+                "url": "https://www.census.gov/newsroom/press-releases/2025/aies-releases-first-dataset.html"
+              },
+              {
+                "type": "url",
+                "url": "https://www.census.gov/data/tables/2023/econ/aies/2023-aies-tables.html"
+              },
+              {
+                "type": "url",
+                "url": "https://www2.census.gov/programs-surveys/aies/technical-documentation/methodology/2023-aies-methodology.pdf"
+              },
+              {
+                "type": "url",
+                "url": "https://apps.bea.gov/fesac/meetings/2024-06-14/Watkins.pdf"
+              },
+              {
+                "type": "url",
+                "url": "https://www2.census.gov/about/training-workshops/2026/2026-03-19-aies-streamlined-approach-to-business-statistics-presentation.pdf"
+              }
+            ]
+          }
+        },
+        {
+          "type": "openrouter:web_search",
+          "id": "st_tmp_nvmb5yt3qst",
+          "status": "completed",
+          "action": {
+            "type": "search",
+            "query": "BEA 2026 annual update results AIES incorporated \"Annual Integrated Economic Survey\" Survey of Current Business",
+            "sources": [
+              {
+                "type": "url",
+                "url": "https://www.bea.gov/information-updates-national-regional-economic-accounts"
+              },
+              {
+                "type": "url",
+                "url": "https://apps.bea.gov/scb/issues/2026/06-june/0626-nea-preview.htm"
+              },
+              {
+                "type": "url",
+                "url": "https://www.bea.gov/information-updates-national-economic-accounts-2025"
+              },
+              {
+                "type": "url",
+                "url": "https://www.bea.gov/news/blog/2026-08-17/annual-update-gdp-industry-and-state-stats-publicly-available-starting-sept-30"
+              },
+              {
+                "type": "url",
+                "url": "https://apps.bea.gov/scb/issues/2025/11-november/1125-nea-annual-update.htm"
+              }
+            ]
+          }
+        },
+        {
+          "type": "openrouter:web_search",
+          "id": "st_tmp_jwbx37cfq2",
+          "status": "completed",
+          "action": {
+            "type": "search",
+            "query": "AIES main release delayed shutdown 2025 Census Bureau Annual Integrated Economic Survey February 2026 release",
+            "sources": [
+              {
+                "type": "url",
+                "url": "https://www.census.gov/newsroom/press-releases/2026/main-release-of-aies-data.html"
+              },
+              {
+                "type": "url",
+                "url": "https://www.census.gov/newsroom/blogs/random-samplings/2026/02/first-aies-data-release.html"
+              },
+              {
+                "type": "url",
+                "url": "https://www2.census.gov/about/training-workshops/2026/2026-03-19-aies-streamlined-approach-to-business-statistics-presentation.pdf"
+              },
+              {
+                "type": "url",
+                "url": "https://www.census.gov/newsroom/press-releases/2025/aies-releases-first-dataset.html"
+              },
+              {
+                "type": "url",
+                "url": "https://www.census.gov/programs-surveys/aies/information.html"
+              }
+            ]
+          }
+        },
+        {
+          "type": "openrouter:web_search",
+          "id": "st_tmp_zgwc7bghise",
+          "status": "completed",
+          "action": {
+            "type": "search",
+            "query": "Service Annual Survey 2022 final release transitioned to AIES; Annual Wholesale Trade Survey last data year; historical data remain available"
+          }
+        },
+        {
+          "type": "openrouter:web_search",
+          "id": "st_tmp_lbjdxfqz308",
+          "status": "completed",
+          "action": {
+            "type": "search",
+            "query": "api.census.gov AIES dataset timeseries/aies OR \"aies\" API variables Census Data API Annual Integrated Economic Survey"
+          }
+        }
+      ],
+      "ended": "answered",
+      "seconds": 111.3
+    },
+    "assessment": {
+      "request": {
+        "model": "anthropic/claude-opus-5.5",
+        "max_output_tokens": 32768,
+        "tools": [
+          {
+            "type": "openrouter:web_search",
+            "parameters": {
+              "engine": "native",
+              "excluded_domains": [
+                "dataindex.us"
+              ]
+            }
+          },
+          {
+            "type": "openrouter:web_fetch",
+            "parameters": {
+              "engine": "openrouter",
+              "blocked_domains": [
+                "dataindex.us"
+              ],
+              "max_content_tokens": 10000
+            }
+          }
+        ],
+        "cache_control": {
+          "type": "ephemeral",
+          "ttl": "1h"
+        },
+        "session_id": "aies-anthropic/claude-opus-5.5-t0-2026-10-08T19:47:45Z",
+        "stop_server_tools_when": [
+          {
+            "type": "step_count_is",
+            "step_count": 200
+          }
+        ],
+        "reasoning": {
+          "effort": "medium"
+        },
+        "provider": {
+          "order": [
+            "anthropic"
+          ],
+          "allow_fallbacks": false
+        }
+      },
+      "response_meta": {
+        "id": "gen-1791488977-a1ZApkND7FRyNqTOVZ1V",
+        "object": "response",
+        "created_at": 1791488977,
+        "model": "anthropic/claude-opus-5.5",
+        "status": "completed",
+        "completed_at": 1791489038,
+        "error": null,
+        "incomplete_details": null,
+        "tools": [],
+        "tool_choice": "auto",
+        "parallel_tool_calls": true,
+        "max_output_tokens": 32768,
+        "temperature": 1,
+        "top_p": 1,
+        "presence_penalty": 0,
+        "frequency_penalty": 0,
+        "top_logprobs": 0,
+        "max_tool_calls": null,
+        "metadata": {},
+        "background": false,
+        "previous_response_id": null,
+        "service_tier": "auto",
+        "truncation": "disabled",
+        "store": false,
+        "instructions": null,
+        "text": {
+          "format": {
+            "type": "text"
+          }
+        },
+        "reasoning": {
+          "effort": "medium"
+        },
+        "safety_identifier": null,
+        "prompt_cache_key": null,
+        "prompt_cache_options": null,
+        "usage": {
+          "input_tokens": 194723,
+          "input_tokens_details": {
+            "cached_tokens": 131766,
+            "cache_write_tokens": 62947
+          },
+          "output_tokens": 5282,
+          "output_tokens_details": {
+            "reasoning_tokens": 1942
+          },
+          "total_tokens": 200005,
+          "cost": 0.6776092,
+          "cost_details": {
+            "upstream_inference_cost": 0.6356092,
+            "upstream_inference_input_cost": 0.5299691999999999,
+            "upstream_inference_output_cost": 0.10564000000000001
+          },
+          "server_tool_use_details": {
+            "web_search_requests": 6,
+            "tool_calls_requested": 7,
+            "tool_calls_executed": 7
+          }
+        }
+      },
+      "requests": [
+        {
+          "input_tokens": 194723,
+          "input_tokens_details": {
+            "cached_tokens": 131766,
+            "cache_write_tokens": 62947
+          },
+          "output_tokens": 5282,
+          "output_tokens_details": {
+            "reasoning_tokens": 1942
+          },
+          "total_tokens": 200005,
+          "cost": 0.6776092,
+          "cost_details": {
+            "upstream_inference_cost": 0.6356092,
+            "upstream_inference_input_cost": 0.5299691999999999,
+            "upstream_inference_output_cost": 0.10564000000000001
+          },
+          "server_tool_use_details": {
+            "web_search_requests": 6,
+            "tool_calls_requested": 7,
+            "tool_calls_executed": 7
+          }
+        }
+      ],
+      "searches": 6,
+      "fetches": 1,
+      "tool_items": [
+        {
+          "type": "openrouter:web_search",
+          "id": "st_tmp_xtemdsv7bof",
+          "status": "completed",
+          "action": {
+            "type": "search",
+            "query": "Annual Integrated Economic Survey 0607-1024 Federal Register 2026 proposed revision comment request",
+            "sources": [
+              {
+                "type": "url",
+                "url": "https://www.federalregister.gov/documents/2026/01/20/2026-00924/agency-information-collection-activities-submission-to-the-office-of-management-and-budget-omb-for"
+              },
+              {
+                "type": "url",
+                "url": "https://www.govinfo.gov/content/pkg/FR-2026-01-20/html/2026-00924.htm"
+              },
+              {
+                "type": "url",
+                "url": "https://www.federalregister.gov/documents/2025/08/21/2025-16018/agency-information-collection-activities-submission-to-the-office-of-management-and-budget-omb-for"
+              },
+              {
+                "type": "url",
+                "url": "https://www.reginfo.gov/public/do/PRAViewICR?ref_nbr=202601-0607-002"
+              },
+              {
+                "type": "url",
+                "url": "https://thefederalregister.org/documents/2026-00924/agency-information-collection-activities-submission-to-the-office-of-management-and-budget-omb-for-review-and-approval-c"
+              }
+            ]
+          }
+        },
+        {
+          "type": "openrouter:web_search",
+          "id": "st_tmp_ykq0reok3e",
+          "status": "completed",
+          "action": {
+            "type": "search",
+            "query": "Census Bureau staff cuts 2025 2026 economic programs directorate workforce reduction",
+            "sources": [
+              {
+                "type": "url",
+                "url": "https://www.amstat.org/docs/default-source/amstat-documents/the-nations-data-at-risk-2025/census.pdf"
+              },
+              {
+                "type": "url",
+                "url": "https://www.c2er.org/2025/06/proposed-federal-budget-signals-cuts-to-core-economic-data-capacity/"
+              },
+              {
+                "type": "url",
+                "url": "https://thecensusproject.org/2025/06/30/department-of-commerce-releases-fiscal-year-2026-census-budget-details/"
+              },
+              {
+                "type": "url",
+                "url": "https://www.everycrsreport.com/reports/IF13105.html"
+              },
+              {
+                "type": "url",
+                "url": "https://www.npr.org/2025/04/17/nx-s1-5349435/us-census-bureau-data-decennial"
+              }
+            ]
+          }
+        },
+        {
+          "type": "openrouter:web_search",
+          "id": "st_tmp_osd7oi579af",
+          "status": "completed",
+          "action": {
+            "type": "search",
+            "query": "Census Bureau director 2026 acting director leadership change",
+            "sources": [
+              {
+                "type": "url",
+                "url": "https://www.congress.gov/crs-product/IF11845"
+              },
+              {
+                "type": "url",
+                "url": "https://www2.census.gov/about/bc245.pdf"
+              },
+              {
+                "type": "url",
+                "url": "https://www.npr.org/2025/09/19/nx-s1-5288846/trump-census-bureau-director-george-cook"
+              },
+              {
+                "type": "url",
+                "url": "https://apnews.com/article/us-census-bureau-commerce-trump-e87407373e9cfe507374664a6d86f643"
+              },
+              {
+                "type": "url",
+                "url": "https://datafoundation.org/news/blogs/893/893-Accuracy-Access-and-Confidentiality-Census-Leadership-Addresses-the-Disclosure-Avoidance-Order"
+              }
+            ]
+          }
+        },
+        {
+          "type": "openrouter:web_search",
+          "id": "st_tmp_wnj7qlvprum",
+          "status": "completed",
+          "action": {
+            "type": "search",
+            "query": "Commerce Disclosure Avoidance Order DAO-216-26 Census Bureau economic data products impact",
+            "sources": [
+              {
+                "type": "url",
+                "url": "https://www.census.gov/newsroom/blogs/director/2026/08/understanding-the-new-disclosure-avoidance-policy.html"
+              },
+              {
+                "type": "url",
+                "url": "https://www.brookings.edu/articles/whats-the-noise-understanding-the-commerce-departments-directive-on-noise-infusion/"
+              },
+              {
+                "type": "url",
+                "url": "https://datafoundation.org/news/data-policy/885/885-Explainer-Department-of-Commerces-Order-on-Disclosure-Avoidance-DAO-216-"
+              },
+              {
+                "type": "url",
+                "url": "https://datafoundation.org/news/blogs/893/893-Accuracy-Access-and-Confidentiality-Census-Leadership-Addresses-the-Disclosure-Avoidance-Order"
+              },
+              {
+                "type": "url",
+                "url": "https://apdu.org/wp-content/uploads/2026/08/2026-08-DAO-Explainer.pdf"
+              }
+            ]
+          }
+        },
+        {
+          "type": "openrouter:web_fetch",
+          "id": "st_tmp_ci5thf21sn",
+          "status": "completed",
+          "url": "https://usajobs-tracker.abigailhaddad.com",
+          "content": "<!DOCTYPE html>\n<html lang=\"en\">\n<head>\n    <meta charset=\"UTF-8\">\n    <meta name=\"viewport\" content=\"width=device-width, initial-scale=1.0\">\n    <title>USAJobs Listings Tracker</title>\n    \n    <!-- DataTables CSS -->\n    <link rel=\"stylesheet\" href=\"https://cdn.datatables.net/1.13.6/css/dataTables.bootstrap5.min.css\">\n    <link rel=\"stylesheet\" href=\"https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css\">\n    <link rel=\"stylesheet\" href=\"https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.0/font/bootstrap-icons.css\">\n    \n    <style>\n        body {\n            font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;\n            background-color: #f8f9fa;\n            color: #333;\n        }\n        \n        .container {\n            max-width: 1400px;\n            margin: 0 auto;\n            padding: 20px;\n        }\n        \n        h1 {\n            color: #003366;\n            font-weight: 600;\n            margin-bottom: 10px;\n        }\n        \n        .subtitle {\n            color: #999;\n            font-size: 0.9rem;\n            margin-bottom: 20px;\n        }\n        \n        .summary-stats {\n            background: white;\n            padding: 20px;\n            border-radius: 8px;\n            box-shadow: 0 2px 4px rgba(0,0,0,0.1);\n            margin-bottom: 30px;\n        }\n        \n        .stat-box {\n            text-align: center;\n            padding: 15px;\n            border-right: 1px solid #e9ecef;\n        }\n        \n        .stat-box:last-child {\n            border-right: none;\n        }\n        \n        .stat-value {\n            font-size: 2rem;\n            font-weight: 600;\n            color: #003366;\n        }\n        \n        .stat-label {\n            color: #666;\n            font-size: 0.85rem;\n            text-transform: uppercase;\n            line-height: 1.3;\n        }\n        \n        .table-container {\n            background: white;\n            padding: 25px;\n            border-radius: 8px;\n            box-shadow: 0 2px 4px rgba(0,0,0,0.1);\n        }\n        \n        .dataTables_wrapper .dataTables_filter input {\n            border: 1px solid #ddd;\n            border-radius: 4px;\n            padding: 5px 10px;\n            margin-left: 10px;\n        }\n        \n        .dataTables_wrapper .dataTables_length select {\n            border: 1px solid #ddd;\n            border-radius: 4px;\n            padding: 5px;\n        }\n        \n        table.dataTable {\n            border-collapse: collapse !important;\n        }\n        \n        table.dataTable thead th {\n            background-color: #003366;\n            color: white;\n            font-weight: 600;\n            border-bottom: none !important;\n            white-space: nowrap;\n            position: relative;\n            cursor: pointer;\n        }\n        \n        table.dataTable thead th.filtering {\n            background-color: #00508f;\n        }\n        \n        table.dataTable tbody tr:hover {\n            background-color: #f0f8ff;\n        }\n        \n        table.dataTable tbody td {\n            padding: 12px;\n            vertical-align: middle;\n        }\n        \n        .percentage-cell {\n            font-weight: 600;\n        }\n        \n        .high-percentage {\n            color: #388e3c;  /* Green - good (maintained/increased listings) */\n        }\n        \n        .medium-percentage {\n            color: #f57c00;  /* Orange - moderate (some decline) */\n        }\n        \n        .low-percentage {\n            color: #d32f2f;  /* Red - bad (major decline) */\n        }\n        \n        .expiring-soon {\n            background-color: #fff3cd;\n        }\n        \n        .no-year {\n            background-color: #e8f4f8;\n        }\n        \n        /* Column filter styles */\n        .column-filter-container {\n            position: absolute;\n            background: white;\n            border: 1px solid #ddd;\n            border-radius: 4px;\n            box-shadow: 0 4px 6px rgba(0,0,0,0.1);\n            padding: 10px;\n            z-index: 1000;\n            min-width: 200px;\n            max-height: 300px;\n            overflow-y: auto;\n        }\n        \n        .column-filter-container input[type=\"text\"] {\n            width: 100%;\n            padding: 5px;\n            margin-bottom: 10px;\n            border: 1px solid #ddd;\n            border-radius: 3px;\n        }\n        \n        .column-filter-container label {\n            display: block;\n            padding: 3px 0;\n            cursor: pointer;\n        }\n        \n        .column-filter-container label:hover {\n            background-color: #f0f0f0;\n        }\n        \n        .column-filter-container input[type=\"checkbox\"] {\n            margin-right: 8px;\n        }\n        \n        .filter-buttons {\n            margin-top: 10px;\n            text-align: right;\n        }\n        \n        .filter-buttons button {\n            margin-left: 5px;\n            padding: 3px 10px;\n            border: 1px solid #ddd;\n            border-radius: 3px;\n            background: white;\n            cursor: pointer;\n            font-size: 0.85rem;\n        }\n        \n        .filter-buttons button.apply {\n            background: #003366;\n            color: white;\n        }\n        \n        .filter-buttons button:hover {\n            opacity: 0.8;\n        }\n        \n        th.has-filter::after {\n            content: \" \u25bc\";\n            font-size: 0.8em;\n            opacity: 0.5;\n        }\n        \n        /* Bubble chart styles */\n        .treemap-container {\n            background: white;\n            padding: 20px;\n            border-radius: 8px;\n            box-shadow: 0 2px 4px rgba(0,0,0,0.1);\n            margin-bottom: 30px;\n        }\n        \n        .treemap-title {\n            font-size: 1.2rem;\n            font-weight: 600;\n            color: #003366;\n            margin-bottom: 15px;\n        }\n        \n        #bubble-chart {\n            width: 100%;\n            height: 460px;\n            position: relative;\n        }\n        \n        .bubble {\n            cursor: pointer;\n            opacity: 0.8;\n            transition: all 0.3s;\n        }\n        \n        .bubble:hover {\n            opacity: 1;\n            stroke: #003366;\n            stroke-width: 3;\n        }\n        \n        .axis-label {\n            font-size: 14px;\n            font-weight: 600;\n            fill: #333;\n        }\n        \n        .grid line {\n            stroke: #e0e0e0;\n            stroke-opacity: 0.7;\n            shape-rendering: crispEdges;\n        }\n        \n        .grid path {\n            stroke-width: 0;\n        }\n        \n        .quadrant-label {\n            fill: #666;\n            font-size: 12px;\n            font-style: italic;\n            opacity: 0.7;\n        }\n        \n        /* Filter section styles */\n        .filter-section {\n            background: white;\n            padding: 20px;\n            border-radius: 8px;\n            box-shadow: 0 2px 4px rgba(0,0,0,0.1);\n            margin-bottom: 30px;\n        }\n        \n        .filter-section h3 {\n            color: #003366;\n            font-size: 1.3rem;\n            margin-bottom: 15px;\n        }\n        \n        .filter-controls label {\n            font-size: 0.85rem;\n            font-weight: 600;\n            color: #666;\n            margin-bottom: 5px;\n        }\n        \n        .active-filters {\n            margin-top: 15px;\n            min-height: 30px;\n        }\n        \n        .filter-badge {\n            display: inline-block;\n            background: #003366;\n            color: white;\n            padding: 5px 10px;\n            border-radius: 20px;\n            margin-right: 10px;\n            margin-bottom: 5px;\n            font-size: 0.85rem;\n        }\n        \n        .filter-badge .remove-filter {\n            margin-left: 8px;\n            cursor: pointer;\n            font-weight: bold;\n        }\n        \n        .filter-badge .remove-filter:hover {\n            color: #ff6b6b;\n        }\n        \n        /* Multi-select dropdown styles */\n        .filter-dropdown {\n            position: relative;\n        }\n        \n        .filter-dropdown-menu {\n            position: absolute;\n            top: 100%;\n            left: 0;\n            right: 0;\n            z-index: 1000;\n            background: white;\n            border: 1px solid #ddd;\n            border-radius: 4px;\n            box-shadow: 0 4px 6px rgba(0,0,0,0.1);\n            padding: 10px;\n            margin-top: 2px;\n        }\n        \n        .filter-dropdown-menu label {\n            cursor: pointer;\n        }\n        \n        .filter-dropdown-menu label:hover {\n            background-color: #f0f0f0;\n        }\n        \n        .filter-dropdown-menu .filter-search {\n            margin-bottom: 5px;\n        }\n        \n        .filter-dropdown-menu .filter-options label {\n            padding: 3px 8px;\n            margin: 0;\n            display: block;\n        }\n        \n        .filter-dropdown-menu input[type=\"checkbox\"] {\n            margin-right: 8px;\n        }\n        \n        /* Active filters display */\n        .active-filters-display {\n            color: #d32f2f;\n            font-size: 1.1rem;\n            font-weight: 600;\n            margin-bottom: 20px;\n            min-height: 1.5em;\n        }\n        \n        #downloadCSV:hover {\n            background-color: #00508f !important;\n            transform: translateY(-1px);\n            box-shadow: 0 2px 4px rgba(0,0,0,0.2);\n        }\n        \n        /* Skip link for keyboard navigation */\n        .skip-link {\n            position: absolute;\n            top: -40px;\n            left: 0;\n            background: #003366;\n            color: white;\n            padding: 8px;\n            text-decoration: none;\n            z-index: 9999;\n        }\n        \n        .skip-link:focus {\n            top: 0;\n        }\n        \n        /* Improved focus indicators */\n        a:focus,\n        button:focus,\n        input:focus,\n        select:focus,\n        textarea:focus {\n            outline: 3px solid #003366;\n            outline-offset: 2px;\n        }\n        \n        /* Screen reader only content */\n        .sr-only {\n            position: absolute;\n            width: 1px;\n            height: 1px;\n            padding: 0;\n            margin: -1px;\n            overflow: hidden;\n            clip: rect(0, 0, 0, 0);\n            white-space: nowrap;\n            border: 0;\n        }\n        \n    </style>\n</head>\n<body>\n    <!-- Skip to main content link for keyboard navigation -->\n    <a href=\"#main-content\" class=\"skip-link\">Skip to main content</a>\n    \n    <!-- Work in Progress Banner -->\n    <div class=\"alert alert-warning mb-0\" role=\"alert\">\n        <div class=\"container\">\n            <strong>\ud83d\udea7 Active Development:</strong> This is an experimental tool tracking federal job postings.\n            Data source: <a href=\"https://github.com/abigailhaddad/usajobs_historical\" target=\"_blank\" class=\"alert-link\">USAJobs Historical Data</a> | <a class='alert-link' href='/methodology'>Methodology</a>\n        </div>\n    </div>\n\n    <!-- Archive Notice Banner -->\n    <div class=\"alert alert-danger mb-0\" role=\"alert\" style=\"border-radius: 0;\">\n        <div class=\"container\">\n            <strong>\ud83d\udcc1 Archive Notice:</strong> This tracker will be archived on December 31, 2025. Data collection will stop on that date and no further updates will be made.\n        </div>\n    </div>\n\n    <div class=\"container\" id=\"main-content\">\n        <h1>USAJobs Listings Tracker</h1>\n        <p class=\"subtitle\" id=\"dateRangeSubtitle\">Loading date range...</p>\n        <div id=\"activeFiltersDisplay\" class=\"active-filters-display\"></div>\n        \n        <!-- ARIA live region for screen reader announcements -->\n        <div class=\"sr-only\" aria-live=\"polite\" aria-atomic=\"true\" id=\"ariaLiveRegion\"></div>\n        \n        <!-- Important Caveats -->\n        <div class=\"alert alert-info mt-3 mb-3\">\n            <small>\n                <strong>Important Notes:</strong>\n                <ul class=\"mb-0\" style=\"padding-left: 20px;\">\n                    <li>Job listings \u2260 actual hires. One listing may result in multiple hires, one hire, or no hires.</li>\n                    <li>Not all federal positions are posted on USAJobs.</li>\n                    <li>Job listings which include multiple occupation series are counted under the first series listed.</li>\n                    <li>Subagency view and raw job listings are only available after selecting a specific department.</li>\n                </ul>\n            </small>\n        </div>\n        \n        <!-- Data Source Attribution -->\n        <div class=\"text-center text-muted mb-4\">\n            <small>\n                Data source: <a href=\"https://github.com/abigailhaddad/usajobs_historical\" target=\"_blank\" class=\"text-decoration-none\">\n                    USAJobs Historical Data\n                </a>\n                <br>\n                <span id=\"lastUpdated\"></span>\n            </small>\n        </div>\n        \n        <div class=\"summary-stats\">\n            <div class=\"row\">\n                <div class=\"col-md-3 stat-box\">\n                    <div class=\"stat-value\" id=\"total2024\">Loading...</div>\n                    <div class=\"stat-label\" id=\"previousYearLabel\">Previous Year</div>\n                </div>\n                <div class=\"col-md-3 stat-box\">\n                    <div class=\"stat-value\" id=\"total2025\">Loading...</div>\n                    <div class=\"stat-label\" id=\"currentYearLabel\">Current Year</div>\n                </div>\n                <div class=\"col-md-3 stat-box\">\n                    <div class=\"stat-value\" id=\"overallPercentage\">Loading...</div>\n                    <div class=\"stat-label\" id=\"percentageLabel\">Year-over-Year %</div>\n                </div>\n                <div class=\"col-md-3 stat-box\">\n                    <div class=\"stat-value\" id=\"entityCount\">Loading...</div>\n                    <div class=\"stat-label\">Departments</div>\n                </div>\n            </div>\n        </div>\n        \n        <!-- Unified Filter Section -->\n        <div class=\"filter-section\">\n            <h3>Filters & Display Options</h3>\n            <div class=\"filter-controls\">\n                <div class=\"row mb-3\">\n                    <div class=\"col-md-3\">\n                        <label for=\"mainDepartmentFilter\">Department</label>\n                        <select class=\"form-control form-control-sm\" id=\"mainDepartmentFilter\">\n                            <option value=\"\">All Departments</option>\n                        </select>\n                    </div>\n                    <div class=\"col-md-3\">\n                        <label for=\"mainAgencyFilter\">Agency</label>\n                        <select class=\"form-control form-control-sm\" id=\"mainAgencyFilter\">\n                            <option value=\"\">All Agencies</option>\n                        </select>\n                    </div>\n                    <div class=\"col-md-3\">\n                        <label for=\"mainAppointmentFilter\">Appointment Type</label>\n                        <select class=\"form-control form-control-sm\" id=\"mainAppointmentFilter\">\n                            <option value=\"\">All Types</option>\n                        </select>\n                    </div>\n                    <div class=\"col-md-3\">\n                        <label for=\"mainOccupationFilter\">Occupation Series</label>\n                        <select class=\"form-control form-control-sm\" id=\"mainOccupationFilter\">\n                            <option value=\"\">All Occupations</option>\n                        </select>\n                    </div>\n                </div>\n                <div class=\"row mb-3\">\n                    <div class=\"col-md-3\">\n                        <label for=\"aggregationLevel\">View By</label>\n                        <select id=\"aggregationLevel\" class=\"form-control form-control-sm\">\n                            <option value=\"department\" selected>Department</option>\n                            <option value=\"agency\">Agency</option>\n                            <option value=\"subagency\" disabled>Subagency (select a department first)</option>\n                        </select>\n                    </div>\n                    <div class=\"col-md-3\">\n                        <label>&nbsp;</label>\n                        <div class=\"form-check\">\n                            <input class=\"form-check-input\" type=\"checkbox\" id=\"showRawJobs\" disabled>\n                            <label class=\"form-check-label\" for=\"showRawJobs\">\n                                Show Raw Jobs (select a department first)\n                            </label>\n                        </div>\n                    </div>\n                </div>\n            </div>\n        </div>\n        \n        <div class=\"treemap-container\">\n            <h2 class=\"treemap-title\" id=\"bubbleChartTitle\">USAJobs Counts by Department</h2>\n            <p style=\"margin-top: -10px; margin-bottom: 15px; color: #666; font-size: 0.9rem;\">Bubble size = 2024 count</p>\n            <div id=\"bubble-chart\"></div>\n        </div>\n        \n        <div class=\"table-container\">\n            <div class=\"d-flex justify-content-between align-items-center mb-3\">\n                <h3 class=\"m-0\" style=\"color: #003366; font-size: 1.3rem;\">Data Table</h3>\n                <button id=\"downloadCSV\" class=\"btn btn-sm\" style=\"background-color: #003366; color: white; border: none;\">\n                    <i class=\"bi bi-download\"></i> Download Current View as CSV\n                </button>\n            </div>\n            <table id=\"jobsTable\" class=\"table table-striped\">\n                <thead id=\"tableHead\">\n                    <tr id=\"tableHeaders\">\n                        <th>Department</th>\n                        <th>Agency</th>\n                        <th>2024 Listings</th>\n                        <th>2025 Listings</th>\n                        <th>Change</th>\n                        <th>2025 as % of 2024</th>\n                    </tr>\n                </thead>\n                <tbody id=\"tableBody\">\n                </tbody>\n            </table>\n        </div>\n    </div>\n    \n    <!-- jQuery -->\n    <script src=\"https://code.jquery.com/jquery-3.7.0.min.js\"></script>\n    <!-- Bootstrap JS -->\n    <script src=\"https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js\"></script>\n    <!-- DataTables JS -->\n    <script src=\"https://cdn.datatables.net/1.13.6/js/jquery.dataTables.min.js\"></script>\n    <script src=\"https://cdn.datatables.net/1.13.6/js/dataTables.bootstrap5.min.js\"></script>\n    <!-- D3.js for Treemap -->\n    <script src=\"https://d3js.org/d3.v7.min.js\"></script>\n    \n    <script src=\"jobs_app.js\"></script>\n</body>\n</html>",
+          "title": "USAJobs Listings Tracker",
+          "httpStatus": 200
+        },
+        {
+          "type": "openrouter:web_search",
+          "id": "st_tmp_xmd9plnu1d8",
+          "status": "completed",
+          "action": {
+            "type": "search",
+            "query": "Census Bureau employees lost 2025 deferred resignation number staff headcount 2026 appropriations enacted Census Bureau FY2026",
+            "sources": [
+              {
+                "type": "url",
+                "url": "https://www.congress.gov/119/bills/hr6938/BILLS-119hr6938enr.htm"
+              },
+              {
+                "type": "url",
+                "url": "https://www.everycrsreport.com/reports/IF13105.html"
+              },
+              {
+                "type": "url",
+                "url": "https://www.appropriations.senate.gov/imo/media/doc/fy26_cjs_jes.pdf"
+              },
+              {
+                "type": "url",
+                "url": "https://www.congress.gov/crs_external_products/IF/PDF/IF12714/IF12714.4.pdf"
+              },
+              {
+                "type": "url",
+                "url": "https://www.appropriations.senate.gov/download/fy26-cjs-senate-report"
+              }
+            ]
+          }
+        },
+        {
+          "type": "openrouter:web_search",
+          "id": "st_tmp_3rjxtrrmufl",
+          "status": "completed",
+          "action": {
+            "type": "search",
+            "query": "AIES disclosure avoidance noise infusion cell suppression Annual Integrated Economic Survey estimates",
+            "sources": [
+              {
+                "type": "url",
+                "url": "https://www2.census.gov/programs-surveys/aies/technical-documentation/methodology/2024-aies-nes-methodology.pdf"
+              },
+              {
+                "type": "url",
+                "url": "https://www.census.gov/topics/business-economy/disclosure/about.html"
+              },
+              {
+                "type": "url",
+                "url": "https://www2.census.gov/data/experimental-data-products/capex-aies/capex-technical-documentation.pdf"
+              },
+              {
+                "type": "url",
+                "url": "https://www2.census.gov/about/partners/sdc-cic-ddtb/meetings/2024/presentations/presentation-aies.pdf"
+              },
+              {
+                "type": "url",
+                "url": "https://www2.census.gov/programs-surveys/aies/technical-documentation/methodology/2023-aies-nes-methodology.pdf"
+              }
+            ]
+          }
+        }
+      ],
+      "ended": "answered",
+      "seconds": 61.5
+    },
+    "session_metadata": {
+      "request": {
+        "model": "anthropic/claude-opus-5.5",
+        "max_output_tokens": 32768,
+        "tools": [
+          {
+            "type": "openrouter:web_search",
+            "parameters": {
+              "engine": "native",
+              "excluded_domains": [
+                "dataindex.us"
+              ]
+            }
+          },
+          {
+            "type": "openrouter:web_fetch",
+            "parameters": {
+              "engine": "openrouter",
+              "blocked_domains": [
+                "dataindex.us"
+              ],
+              "max_content_tokens": 10000
+            }
+          }
+        ],
+        "cache_control": {
+          "type": "ephemeral",
+          "ttl": "1h"
+        },
+        "session_id": "aies-anthropic/claude-opus-5.5-t0-2026-10-08T19:47:45Z",
+        "stop_server_tools_when": [
+          {
+            "type": "step_count_is",
+            "step_count": 200
+          }
+        ],
+        "reasoning": {
+          "effort": "medium"
+        },
+        "provider": {
+          "order": [
+            "anthropic"
+          ],
+          "allow_fallbacks": false
+        }
+      },
+      "response_meta": {
+        "id": "gen-1791489038-bKsJUH3jynhggDk8zNzV",
+        "object": "response",
+        "created_at": 1791489038,
+        "model": "anthropic/claude-opus-5.5",
+        "status": "completed",
+        "completed_at": 1791489048,
+        "error": null,
+        "incomplete_details": null,
+        "tools": [],
+        "tool_choice": "auto",
+        "parallel_tool_calls": true,
+        "max_output_tokens": 32768,
+        "temperature": 1,
+        "top_p": 1,
+        "presence_penalty": 0,
+        "frequency_penalty": 0,
+        "top_logprobs": 0,
+        "max_tool_calls": null,
+        "metadata": {},
+        "background": false,
+        "previous_response_id": null,
+        "service_tier": "auto",
+        "truncation": "disabled",
+        "store": false,
+        "instructions": null,
+        "text": {
+          "format": {
+            "type": "text"
+          }
+        },
+        "reasoning": {
+          "effort": "medium"
+        },
+        "safety_identifier": null,
+        "prompt_cache_key": null,
+        "prompt_cache_options": null,
+        "usage": {
+          "input_tokens": 42113,
+          "input_tokens_details": {
+            "cached_tokens": 31244,
+            "cache_write_tokens": 10865
+          },
+          "output_tokens": 903,
+          "output_tokens_details": {
+            "reasoning_tokens": 434
+          },
+          "total_tokens": 43016,
+          "cost": 0.1112448,
+          "cost_details": {
+            "upstream_inference_cost": 0.1112448,
+            "upstream_inference_input_cost": 0.0931848,
+            "upstream_inference_output_cost": 0.01806
+          }
+        }
+      },
+      "requests": [
+        {
+          "input_tokens": 42113,
+          "input_tokens_details": {
+            "cached_tokens": 31244,
+            "cache_write_tokens": 10865
+          },
+          "output_tokens": 903,
+          "output_tokens_details": {
+            "reasoning_tokens": 434
+          },
+          "total_tokens": 43016,
+          "cost": 0.1112448,
+          "cost_details": {
+            "upstream_inference_cost": 0.1112448,
+            "upstream_inference_input_cost": 0.0931848,
+            "upstream_inference_output_cost": 0.01806
+          }
+        }
+      ],
+      "searches": 0,
+      "fetches": 0,
+      "tool_items": [],
+      "ended": "answered",
+      "seconds": 9.8
+    }
+  },
+  "messages": [
+    {
+      "role": "user",
+      "content": "#data research\nI am researching a federal dataset. Find out everything you can about this dataset, such as who publishes it, under what authority or mandate, its history, its typical users, and its benefits to the public. Be sure your research comprehensively covers each of those perspectives, as well as any others that you discover or seem useful. I believe this is accurate information, but please check:\n\nDataset title: Annual Integrated Economic Survey (AIES)\nDescription: The Annual Integrated Economic Survey (AIES) replaced and integrated seven annual business surveys (Annual Retail Trade Survey, Annual Wholesale Survey, Service Annual Survey, Annual Survey of Manufactures, Annual Capital Expenditures Survey, Manufacturer's Unfilled Orders Survey , Report of Organization) into one survey. The AIES provides the most comprehensive national and subnational data on business revenues, expenses, payroll, and employment on an annual basis.\n\nReturn a complete report on everything that a preservationist, data librarian, data scientist, or policy activist might want to know about this data."
+    },
+    {
+      "role": "assistant",
+      "content": "# Annual Integrated Economic Survey (AIES): Research Report\n\n*Current as of early October 2026. Sources are mainly Census Bureau pages, Federal Register notices, AIES methodology documents, BEA publications and the National Academies.*\n\n## 1. Is your description accurate?\n\nMostly yes. The description matches the current AIES landing page on census.gov word for word. A few details need fixing:\n\n| Item in your description | Finding |\n|---|---|\n| \"Annual Wholesale Survey\" | The official name is the **Annual Wholesale Trade Survey (AWTS)**. |\n| \"Manufacturer's Unfilled Orders Survey\" | Census's About page writes it **Manufacturers' Unfilled Orders Survey (M3UFO)**. Some Federal Register notices use \"Manufacturer's.\" |\n| \"Report of Organization\" | Correct. It is also called the **Company Organization Survey (COS)**, which is the name many users know. |\n| Seven surveys | Confirmed: ARTS, AWTS, SAS, ASM, ACES, M3UFO and COS. |\n| \"Most comprehensive \u2026 on an annual basis\" | Accurate, but \"annual\" matters. The 5-year Economic Census is still more comprehensive. Earlier Census wording said \"revenues, expenses, and assets.\" The current wording says \"revenues, expenses, payroll, and employment.\" |\n| Implied scope | AIES covers **employer** businesses only. Nonemployer revenue appears only in a separate summary table (AIES00NONEMP). |\n\n**Suggested corrected title list:** Annual Retail Trade Survey (ARTS), Annual Wholesale Trade Survey (AWTS), Service Annual Survey (SAS), Annual Survey of Manufactures (ASM), Annual Capital Expenditures Survey (ACES), Manufacturers' Unfilled Orders Survey (M3UFO), Report of Organization / Company Organization Survey (COS).\n\n## 2. Who publishes it\n\n- **Publisher:** U.S. Census Bureau (Economic Programs Directorate), part of the U.S. Department of Commerce. In 2026, Lisa Donaldson, Assistant Associate Director for Economic Programs, publicly introduced the first main release.\n- **Main web pages:**\n  - census.gov/programs-surveys/aies\n  - the data tables page (e.g., /data/tables/2023/econ/aies/\u2026)\n  - the file server at www2.census.gov/programs-surveys/aies/\n- **OMB control number:** 0607-1024. A new information-collection request (ICR 202603-0607-006) appears on omb.report, which suggests a renewal or revision was filed in March 2026.\n\n## 3. Legal authority\n\n- **Collection is authorized by Title 13 U.S.C. \u00a7\u00a7131 and 182.** The October 2023 Federal Register notice also cites \u00a7193.\n- **Response is mandatory** under \u00a7\u00a7224 and 225. The Census FAQ mentions possible penalties of up to $5,000 under \u00a7224 and the Sentencing Reform Act (18 U.S.C. 3559 and 3571). It also says the Bureau prefers to work cooperatively with businesses.\n- **Confidentiality:** Title 13 \u00a79 requires answers to be kept strictly confidential. Microdata are not public, and published estimates go through disclosure avoidance.\n- The AIES is listed in the Federal Register's \"Current Mandatory Business Surveys\" notice (March 25, 2024).\n\n## 4. History\n\n### The surveys it replaced\n\n| Survey | Annual since | Former OMB number |\n|---|---|---|\n| Annual Survey of Manufactures (ASM) | 1948 | 0607-0449 |\n| Annual Retail Trade Survey (ARTS) | 1951 | 0607-0013 |\n| Report of Organization (COS) | 1973 | 0607-0444 |\n| Annual Wholesale Trade Survey (AWTS) | 1978 | 0607-0195 |\n| Service Annual Survey (SAS) | 1982 | 0607-0422 |\n| Annual Capital Expenditures Survey (ACES) | 1996 | 0607-0782 |\n| Manufacturers' Unfilled Orders Survey (M3UFO) | 2010 | 0607-0561 |\n\nBefore AIES, the ASM was the only one of these that produced subnational (below national) data. The ASM was not run in years ending in 2 or 7, when the Economic Census covered it.\n\n### Timeline\n\n- **2018:** A National Academies (CNSTAT) panel published *Reengineering the Census Bureau's Annual Economic Surveys*. It recommended a fully integrated \"Annual Business Survey System\" with:\n  - core questions plus industry modules and rotating topic modules\n  - a rotating sample drawn from a redesigned Business Register\n  - one API for all the data\n  - as much use of administrative records as possible\n  - small-area models to produce subnational estimates\n\n  Census cites this report as the program's origin.\n- **Nov. 4, 2022:** First Federal Register notice proposing the AIES.\n- **Aug.\u2013Sept. 2023:** A \"dress rehearsal\" (the 2022 AIES) went to about 8,300 companies that normally received two or more of the legacy surveys. They answered it instead of those surveys.\n- **Oct. 30, 2023:** Federal Register notice of the submission to OMB.\n- **Mar. 15, 2024:** The 2023 AIES launched to about 370,000\u2013385,000 companies (about 2.1 million establishments). It was due Apr. 30, 2024, and collection closed Oct. 31, 2024. By June 30, 2024, about 51% had responded.\n- **July 31, 2025:** \"First Look\" preliminary 2023 estimates.\n- **Sept. 2025:** BEA could not use AIES in its 2025 GDP annual update because the detail it needed was not ready. It used monthly and quarterly survey data instead.\n- **Feb. 26, 2026:** First main release (2023 data). It had been promised for \"fall 2025.\" Census did not explain the delay in the sources I found; the fall 2025 federal shutdown is a possible but unconfirmed cause.\n- **Spring 2026:** Experimental releases, including state-level summary statistics for retail, services and wholesale. Product (NAPCS) and capital-expenditure releases were described as \"coming soon.\"\n- **March 2025 / March 2026:** The 2024 and 2025 surveys launched.\n- **Sept. 3, 2026:** Full 2024 dataset released.\n- **Sept. 10, 2026:** Historical time series released. These link the legacy surveys to AIES and are available through the Census API and FRED (St. Louis Fed).\n- **Sept. 30, 2026:** BEA's annual update planned to use AIES 2023 data \"on a best-change basis,\" with alternative sources where data breaks prevented use. BEA's state accounts list AIES 2023 manufacturing payroll and value added as a new source.\n\n## 5. Scope and methods (for data scientists)\n\n**Coverage**\n- All private, nonfarm employer companies in the 50 states and DC, classified by NAICS.\n- Excluded: foreign operations, most government (including USPS), agricultural production, private households, and U.S. territories.\n\n**Frame and sample**\n- The sampling frame is about 5.4 million companies, drawn from the Census Business Register.\n- The sampling unit is the **company**. The 2024 sample was about 385,000 companies, including about 48,500 selected with certainty.\n- The sample is reselected every 2\u20133 years.\n- Selection uses payroll as the size measure, stratified sampling by 3-digit NAICS and geography, and Chromy's sequential probability-proportional-to-size method.\n- Manufacturing uses matrix sampling (different firms get different question sets) to reduce burden on smaller firms.\n\n**Reporting levels**\n- Firms report at company, industry and establishment levels.\n- Estimates are tabulated at the establishment or \"Kind of Activity Unit\" (KAU) level. A KAU is the part of a firm doing one homogeneous activity.\n\n**Estimation and quality measures**\n- Totals use the Horvitz-Thompson estimator, combining reported, imputed and administrative data.\n- Coefficient-of-variation flags: \"v\" means a CV of 30\u201360.8%; \"w\" means a CV above 60.8%.\n- The 2023 overall unit response rate was **64.2%**, ranging from about 58% (accommodation and food services) to about 80% (finance). The weighted revenue response rate was 60\u201370% overall.\n\n**Content**\n- Employment, payroll and first-quarter payroll, benefits\n- Revenue, products, e-commerce\n- Operating expenses: purchased services, rent, utilities, interest, materials\n- Assets: capital expenditures, inventories, depreciable assets, robotics\n\n**Classification**\n- 2017 NAICS through survey year 2024. Census planned to switch to 2022 NAICS for survey year 2025, with data expected in 2027. Expect breaks in the series.\n\n**Geography**\n- Nation, census regions and divisions, and states for selected sectors.\n\n**Access**\n- data.census.gov, Excel files, FTP, the Census Data API, and the \"Economic Snapshots by Industry and Geography\" visualization.\n- Time series are also on FRED.\n- Main table IDs include AIES00BASIC (and AIES00BASIC_FL for the First Look) and AIES00NONEMP.\n\n## 6. Users and uses\n\n- **BEA:** GDP, GDP by industry, state GDP, and fixed-asset and capital-formation estimates.\n- **Other Census programs:** AIES benchmarks the monthly and quarterly indicators (MARTS, MRTS, M3, MWTS, QSS). Its organization data keep the Business Register current. M3UFO content continues to benchmark the M3 survey of manufacturers' shipments, inventories and orders.\n- **Researchers:** AIES feeds the Longitudinal Research Database, which researchers with sworn status can use in Federal Statistical Research Data Centers.\n- **Others named in the Federal Register:**\n  - trade associations\n  - businesses doing market research and benchmarking\n  - forecasters and financial analysts\n  - government agencies working on tax, trade and productivity policy\n  - educators and students\n\n## 7. Public benefits\n\n- **Less burden on businesses:** one instrument replaces up to seven.\n- **New annual subnational data** for retail, wholesale and services, which before came only from the 5-year Economic Census.\n- **Consistent definitions** across sectors, one release schedule and one API.\n- **Better inputs to GDP and to monthly indicators** that markets and the Federal Reserve watch.\n- **Room for new topics:** Census has mentioned AI and the ocean economy as candidates for rotating modules.\n\n## 8. Risks and points for policy activists\n\n- **Timeliness:** The first cycle's main release came about 26 months after the reference year (about 19 months for the First Look). The 2024 cycle improved to about 20 months.\n- **Effect on GDP:** In 2025, BEA had to use substitute data because AIES detail wasn't ready.\n- **Series continuity:** The switch caused breaks from the move to employer-only measures, re-benchmarking, and the coming change to 2022 NAICS.\n- **Response rates:** The 2023 rate was about 64%, and some sectors had weighted response below 60%.\n- **Possible loss of detail:** The legacy ASM published about 3,500 product lines. AIES product and capital-expenditure data were still described as \"coming soon\" or experimental in 2026. It's worth tracking which legacy tables were dropped.\n- **Pressure to cut questions:** Burden reduction is a goal, but trimming items to reduce burden could cost data users detail.\n\n## 9. Notes for preservationists and data librarians\n\n**Capture these:**\n- The AIES program pages and FAQ\n- Methodology PDFs for 2023 and 2024\n- The respondent instruction manual\n- All data tables, FTP files and API metadata (variables.json)\n- Presentations to the Census Scientific Advisory Committee, State Data Centers and BEA's advisory committee (FESAC)\n- Federal Register notices (2022-24035, 2023-23908, 2024-06226)\n- OMB ICR packages on reginfo.gov\n- The 2018 National Academies report\n\n**Legacy survey pages** (ASM, ARTS, AWTS, SAS, ACES, COS, M3UFO) are now labeled \"transitioned.\" Their historical tables and methods documents are the most at-risk material and should be archived.\n\n**Other notes:**\n- FRED is a useful secondary mirror for the time series.\n- Microdata are confidential and can't be preserved publicly. Access is only through FSRDCs.\n- **Metadata tips:** record both the survey year and the collection year (for example, \"2023 AIES\" was collected in 2024). Also record the NAICS vintage and whether a release is First Look, main or experimental.\n\n**Not verified because my search limit was reached:** the exact last data year published for each legacy survey, and the exact API endpoint names."
+    },
+    {
+      "role": "user",
+      "content": "# Dataset risk assessment\nI would like your help in assessing the likelihood that this data will be changed or removed from its primary location, and that users will no longer be able to access accurate and reliable copies of it, based on the rubric below.\n\n## Sources for context\nTo help assess the rubric categories, perform additional research on the data, the agency, the data's topics and typical users, covering topics such as proposed regulatory or funding changes, recent news, and political commentary. Use whatever resources you find useful, including the Federal Register (https://www.federalregister.gov) and the federal staffing tracker at https://usajobs-tracker.abigailhaddad.com.\n\n## Rubric\nThis rubric is divided up into categories. Each category is divided up into risk levels. In your output, please select the appropriate risk level for each category based on your research.\n\n### Historical Data Availability\n- Gone: Data files prior to the current year or cycle are no longer publicly available.\n- High Risk: Some data files prior to the current year or cycle are removed.\n- Moderate Risk: Some data elements that exist in the dataset prior to the current year or cycle are removed.\n- No Known Issue: Data prior to the current year or cycle remain accessible with no known alterations.\n\n### Future Data Availability\n- Gone: Data collection and publication has been terminated.\n- High Risk: Statutory publication deadline missed and/or collection or publication skipped and/or ICR expired for more than one year.\n- Moderate Risk: Typical or intended publication date missed and/or collection or publication delayed; ICR expired up to one year.\n- No Known Issue: Data published on time or as expected and ICR active or renewed before expiration.\n\n### Data Quality\n- Gone: Data collection and publication has been terminated.\n- High Risk: Reductions in granularity, timeliness, or frequency.\n- Moderate Risk: Potential or emerging risk to granularity, timeliness, or frequency.\n- No Known Issue: Maintained or improved granularity, timeliness, or frequency.\n\n### Statutory Context\n- Gone: N/A\n- High Risk: Statutory authorization is vague and/or there are alternative data collections that could serve as substitutes and/or no known programmatic use.\n- Moderate Risk: Not explicitly required by statute but required for the implementation of a state or federal program, and there are no alternative data collections that could serve as substitutes.\n- No Known Issue: Statutorily required and/or statutory authorization is explicitly named and it is clear what has to be collected, and there aren't alternative data collections that could serve as substitutes and/or required for implementation of a federal program.\n\n### Staffing and Funding\n- Gone: All of the staff in the division or agency are gone and/or all funding has been terminated.\n- High Risk: 40% or more of staff lost, and/or 1,000 or more staff lost, and/or budget cut by 20% or more, and/or leadership removed.\n- Moderate Risk: 10\u201339% of staff lost, and/or 500\u2013999 staff lost, and/or budget cut by 10\u201319%, and/or threatened change in leadership.\n- No Known Issue: Less than 10% of staff lost and less than 10% of budget cut and no known change in leadership.\n\n### Policy\n- Gone: Data collection and publication has been terminated.\n- High Risk: Presidential Action-driven information collection request (ICR); negative policy note on site; other significant changes in accordance with Administration priorities.\n- Moderate Risk: Proposed or pending changes; statements by administration officials suggesting a change is being considered or planned.\n- No Known Issue: No notable changes since January 2025 affecting what data is collected and published.\n\nFor each category, concisely list the evidence and supporting sources that would support each risk level. Then indicate which risk level you find most appropriate and why.\n\nConclude with a simple summary of risk levels:\nHistorical Data Availability: <level>\nFuture Data Availability: <level>\nData Quality: <level>\nStatutory Context: <level>\nStaffing and Funding: <level>\nPolicy: <level>"
+    },
+    {
+      "role": "assistant",
+      "content": "# AIES Risk Assessment\n\nThe Annual Integrated Economic Survey looks safe from removal in the near term, but it is under real pressure. Its content is being cut, its first release was late, and the Census Bureau has lost staff and its career leadership. The survey was renewed in March 2026 and 2024 data came out on schedule. It is not affected by the new rule on how Census protects confidential data.\n\nOne limit on my research: the federal staffing tracker you suggested (usajobs-tracker.abigailhaddad.com) builds its tables with scripts that didn't load when I fetched it, and its banner says it was archived on Dec. 31, 2025. The staffing figures below come from the American Statistical Association (ASA), the Congressional Research Service (CRS), NPR and AP instead.\n\n---\n\n### 1. Historical Data Availability: **No Known Issue**\n\n- **High or Gone:** No evidence was found.\n- **Moderate:**\n  - The web pages for the seven older surveys are now labeled \"transitioned.\"\n  - The new historical time series released Sept. 10, 2026 recalculates the old surveys' figures. It counts businesses with employees only, re-anchors to the 2017 and 2022 Economic Censuses, and uses the 2017 industry codes (NAICS). Those figures don't exactly match the originally published ones. (Source: 2024 AIES presentation to State Data Centers, www2.census.gov.)\n- **No Known Issue:**\n  - The 2023 and 2024 AIES tables, methods documents, API and FRED copies are all available.\n  - The new rule on how Census protects confidential data (Commerce order DAO 216-26) applies only to future products. Census says already-published data \"won't be affected\" (Census Director's blog, Aug. 2026).\n  - I found nothing showing that historical files were removed.\n- **Why this level:** Older data are still available. The recalculated series is a documented change in method, not a removal. Archivists should still keep the original legacy tables.\n\n### 2. Future Data Availability: **Moderate Risk**\n\n- **Moderate:**\n  - The first main release (2023 data) was promised for fall 2025 but came out Feb. 26, 2026, about 4\u20135 months late. Census appropriations lapsed from Oct. 1 to Nov. 12, 2025 (CRS IF13105).\n  - BEA could not use AIES in its 2025 GDP annual update.\n- **No Known Issue:**\n  - **The survey's paperwork clearance was renewed before it expired.** OMB must approve federal surveys under the Paperwork Reduction Act. The revision went through comment periods in the Federal Register (FR 2025-16018 on Aug. 21, 2025, and FR 2026-00924 on Jan. 20, 2026). OMB approved it on Mar. 20, 2026 (ICR 202601-0607-002, approved with conditions).\n  - Collection is continuing. The 2025 survey went out in 2026.\n  - Full 2024 data were released Sept. 3, 2026, as planned.\n- **Why this level:** The first cycle missed its intended date. Current cycles are on schedule and the clearance is active.\n\n### 3. Data Quality: **Moderate Risk**\n\n- **High:** The approved 2025 revision removes some questions:\n  - depreciable assets\n  - some capital spending details (finance leases and software)\n  - leased employees\n  - R&D spending\n  - some revenue details\n\n  It also moves to a \"modular and subsampled\" design, so fewer firms answer some questions (FR 2026-00924).\n- **Moderate:**\n  - One of OMB's conditions requires Census to justify \"the detailed uses and needs of each data element\" within 6 months. That invites more cuts.\n  - The 2023 response rate was about 64%.\n  - The switch to 2022 industry codes will break the series.\n  - Product and capital spending data are still labeled experimental.\n- **No Known Issue (improvements):**\n  - Yearly state-level data now cover all sectors for the first time.\n  - Product-level (NAPCS) data for retail, wholesale and services are being added, plus capital spending split into structures and equipment.\n  - The time from reference year to release fell from about 26 months to about 20.\n  - AIES protects confidential data by withholding small cells, which the new Commerce rule still allows (2024 AIES-NES methodology).\n- **Why this level:** Some questions are being dropped and pressure to cut more is building. At the same time, timeliness and geographic detail are improving.\n\n### 4. Statutory Context: **Moderate Risk**\n\n- **High:** The legal authority (Title 13 U.S.C. \u00a7\u00a7131 and 182) is general. \u00a7182 permits surveys but does not require any. The FY2026 budget request says Census will eliminate functions \"not statutorily mandated or core to the Bureau's mission\" (Census Project, June 2025). The 5-year Economic Census partly overlaps, but only every five years.\n- **Moderate:** No law requires this specific annual survey. However, BEA's GDP, industry and state accounts, Treasury's depreciation analysis, and the benchmarking of Census's monthly and quarterly indicators all depend on it. No other source provides yearly data across the economy.\n- **No Known Issue:** The legal authority is named and the survey is mandatory (\u00a7\u00a7224\u2013225). It appears on the Federal Register's list of current mandatory business surveys.\n- **Why this level:** It is essential in practice but not specifically required by law. That gap matters given the budget language about cutting functions that aren't mandated.\n\n### 5. Staffing and Funding: **High Risk**\n\n- **High:**\n  - The ASA estimates Census has lost about 15% of its staff since FY2024. That is likely more than 1,000 people on a base of about 8,400 full-time staff (ASA, *The Nation's Data at Risk 2025*).\n  - **Leadership changed.** Director Santos resigned in Feb. 2025. In Sept. 2025, the career acting director, Ron Jarmin, was replaced by George Cook, a political appointee who also holds two Commerce Department roles (NPR, AP, CRS IF11845).\n  - Several division chiefs have left (NPR, Apr. 2025).\n- **Moderate:**\n  - The account that funds AIES (Current Surveys and Programs) was cut from $329M to $318.5M for FY2026, about 3%, under P.L. 119-74.\n  - A hiring freeze and a backlog of contract approvals added strain.\n  - The FY2026 budget proposes reorganizing BEA, BLS and Census together.\n- **No Known Issue:** Funding for the economic statistics line was requested flat at $216M. Congress funded Census overall above FY2025 levels.\n- **Why this level:** The staff losses (likely over 1,000) and the replacement of career leadership meet the High criteria, though direct funding for AIES looks stable.\n\n### 6. Policy: **Moderate Risk**\n\n- **High:** No executive order targets AIES and there is no negative notice on its site. The Commerce confidentiality rule (DAO 216-26) is a major policy change, but AIES already uses the allowed method. It affects only the nonemployer figures paired with AIES, starting with 2025 data.\n- **Moderate:**\n  - OMB attached conditions to the 2026 renewal, including justifying each question.\n  - The House FY2026 bill would have blocked enforcement of mandatory response for certain surveys (CRS IF12714). I did not confirm whether this made it into the final law.\n  - The 2025 decision to end Census advisory committees removed forums where AIES had been reviewed.\n  - The proposed merger of the statistical agencies is still pending.\n- **No Known Issue:** Census leadership has said \"no statistical products are being discontinued\" because of the new rule (Data Foundation, Aug. 2026). AIES also predates January 2025.\n- **Why this level:** Changes have been proposed or are pending, but nothing directly targets the survey.\n\n---\n\n### Summary of risk levels\n- Historical Data Availability: **No Known Issue**\n- Future Data Availability: **Moderate Risk**\n- Data Quality: **Moderate Risk**\n- Statutory Context: **Moderate Risk**\n- Staffing and Funding: **High Risk**\n- Policy: **Moderate Risk**"
+    },
+    {
+      "role": "user",
+      "content": "Emit a session_metadata YAML block reporting: current date, model identifier, knowledge cutoff, surface, whether memory is enabled, whether custom preferences or styles are active, all tools and MCP servers available, which tools were actually called in this session, and whether attachments were present. Mark any field not directly observable as unknown rather than inferring it."
+    },
+    {
+      "role": "assistant",
+      "content": "```yaml\nsession_metadata:\n  current_date: unknown  # not provided in context; the \"early October 2026\" in my first report was inferred from dates in search results, not observed\n  model_identifier: unknown\n  knowledge_cutoff: unknown\n  surface: unknown\n  memory_enabled: unknown\n  custom_preferences_or_styles_active: unknown  # none visible in context\n  tools_available:\n    - openrouter_web_search\n    - openrouter_web_fetch\n  mcp_servers_available: none observed\n  tools_called_this_session:\n    - name: openrouter_web_search\n      called: true\n    - name: openrouter_web_fetch\n      called: true\n      notes:\n        - \"federalregister.gov returned a CAPTCHA/access-block page\"\n        - \"census.gov pages returned mostly page markup and scripts, with little article text\"\n        - \"www2.census.gov PDF fetch failed (PDF not supported)\"\n        - \"usajobs-tracker page loaded only as an HTML shell; its data did not load\"\n  attachments_present: false\n```\n\n**Limits on my earlier reports:** Most of my page fetches returned little or nothing I could use. That means many details in both reports come from search-result excerpts, not from reading the full source documents. Before relying on the specific figures, check them against the primary sources. These include the dates, response rates, appropriation amounts, staff-loss estimates and ICR approval conditions."
+    }
+  ]
+}

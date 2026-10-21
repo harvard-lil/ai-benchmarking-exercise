@@ -1,0 +1,1193 @@
+{
+  "dataset": {
+    "key": "fevs",
+    "title": "Federal Employment Viewpoint Survey (FEVS)"
+  },
+  "model": "z-ai/glm-5.3",
+  "harness": "openrouter tools",
+  "context": "full: each turn's whole output is carried into the next",
+  "search_tool": {
+    "engine": "exa",
+    "max_results": 10,
+    "excluded_domains": [
+      "dataindex.us"
+    ]
+  },
+  "fetch_tool": {
+    "engine": "openrouter",
+    "blocked_domains": [
+      "dataindex.us"
+    ],
+    "max_content_tokens": 10000
+  },
+  "reasoning": "effort high",
+  "catalog": {
+    "fetched_at": "2026-10-08T23:49:55Z",
+    "entry": {
+      "id": "z-ai/glm-5.3",
+      "canonical_slug": "z-ai/glm-5.3-20260816",
+      "hugging_face_id": "zai-org/GLM-5.3",
+      "name": "Z.ai: GLM 5.3",
+      "created": 1787086655,
+      "description": "GLM-5.3 is a large-scale reasoning model from Z.ai, built for complex software engineering and long-horizon agent tasks. It supports text input and output with a 1M-token context window, and improves...",
+      "context_length": 1048576,
+      "architecture": {
+        "modality": "text->text",
+        "input_modalities": [
+          "text"
+        ],
+        "output_modalities": [
+          "text"
+        ],
+        "tokenizer": "Other",
+        "instruct_type": null
+      },
+      "pricing": {
+        "prompt": "0.000000039",
+        "completion": "0.00000339",
+        "input_cache_read": "0.000000038"
+      },
+      "top_provider": {
+        "context_length": 1048576,
+        "max_completion_tokens": 943718,
+        "is_moderated": false
+      },
+      "per_request_limits": null,
+      "supported_parameters": [
+        "frequency_penalty",
+        "include_reasoning",
+        "logit_bias",
+        "logprobs",
+        "max_tokens",
+        "min_p",
+        "parallel_tool_calls",
+        "presence_penalty",
+        "reasoning",
+        "reasoning_effort",
+        "repetition_penalty",
+        "response_format",
+        "seed",
+        "stop",
+        "structured_outputs",
+        "temperature",
+        "tool_choice",
+        "tools",
+        "top_k",
+        "top_logprobs",
+        "top_p"
+      ],
+      "default_parameters": {
+        "temperature": 1,
+        "top_p": 0.95
+      },
+      "supported_voices": null,
+      "knowledge_cutoff": null,
+      "expiration_date": null,
+      "links": {
+        "details": "/api/v1/models/z-ai/glm-5.3-20260816/endpoints"
+      },
+      "benchmarks": {
+        "design_arena": [
+          {
+            "arena": "models",
+            "category": "3d",
+            "elo": 1347,
+            "win_rate": 60.7,
+            "rank": 5
+          },
+          {
+            "arena": "models",
+            "category": "asciiart",
+            "elo": 1211,
+            "win_rate": 46,
+            "rank": 22
+          },
+          {
+            "arena": "models",
+            "category": "codecategories",
+            "elo": 1313,
+            "win_rate": 54.9,
+            "rank": 9
+          },
+          {
+            "arena": "models",
+            "category": "dataviz",
+            "elo": 1269,
+            "win_rate": 52.8,
+            "rank": 23
+          },
+          {
+            "arena": "models",
+            "category": "gamedev",
+            "elo": 1323,
+            "win_rate": 52.9,
+            "rank": 10
+          },
+          {
+            "arena": "models",
+            "category": "svg",
+            "elo": 1295,
+            "win_rate": 56.9,
+            "rank": 8
+          },
+          {
+            "arena": "models",
+            "category": "uicomponent",
+            "elo": 1323,
+            "win_rate": 57.6,
+            "rank": 9
+          },
+          {
+            "arena": "models",
+            "category": "website",
+            "elo": 1305,
+            "win_rate": 54.9,
+            "rank": 12
+          },
+          {
+            "arena": "agents",
+            "category": "htmlslides",
+            "elo": 1189,
+            "win_rate": 39.1,
+            "rank": 9
+          },
+          {
+            "arena": "agents",
+            "category": "mobileapps",
+            "elo": 1191,
+            "win_rate": 52.2,
+            "rank": 17
+          },
+          {
+            "arena": "agents",
+            "category": "python-pptxslides",
+            "elo": 1255,
+            "win_rate": 51.2,
+            "rank": 8
+          }
+        ],
+        "artificial_analysis": {
+          "intelligence_index": 44.8,
+          "coding_index": 74.8,
+          "agentic_index": 53.1
+        }
+      },
+      "reasoning": {
+        "mandatory": true,
+        "default_enabled": true,
+        "supported_efforts": [
+          "max",
+          "high",
+          "low"
+        ],
+        "default_effort": "max"
+      }
+    }
+  },
+  "upstream": [
+    "z-ai"
+  ],
+  "trial": 0,
+  "terminate_reason": "completed",
+  "max_tokens": 32768,
+  "started_at": "2026-10-08T23:49:55Z",
+  "prompts": {
+    "research": "#data research\nI am researching a federal dataset. Find out everything you can about this dataset, such as who publishes it, under what authority or mandate, its history, its typical users, and its benefits to the public. Be sure your research comprehensively covers each of those perspectives, as well as any others that you discover or seem useful. I believe this is accurate information, but please check:\n\nDataset title: Federal Employment Viewpoint Survey (FEVS)\nDescription: The Office of Personnel Management Federal Employee Viewpoint Survey (OPM FEVS) is an organizational climate survey and assesses how employees jointly experience the policies, practices, and procedures characteristic of their agency and its leadership. Results from the OPM FEVS offers insights into whether, and to what extent, workplace conditions characterizing successful organizations are present in Federal agencies, information important to successful organizational change and development initiatives.\nURL: https://opm.gov/fevs\n\nReturn a complete report on everything that a preservationist, data librarian, data scientist, or policy activist might want to know about this data.",
+    "assessment": "# Dataset risk assessment\nI would like your help in assessing the likelihood that this data will be changed or removed from its primary location, and that users will no longer be able to access accurate and reliable copies of it, based on the rubric below.\n\n## Sources for context\nTo help assess the rubric categories, perform additional research on the data, the agency, the data's topics and typical users, covering topics such as proposed regulatory or funding changes, recent news, and political commentary. Use whatever resources you find useful, including the Federal Register (https://www.federalregister.gov) and the federal staffing tracker at https://usajobs-tracker.abigailhaddad.com.\n\n## Rubric\nThis rubric is divided up into categories. Each category is divided up into risk levels. In your output, please select the appropriate risk level for each category based on your research.\n\n### Historical Data Availability\n- Gone: Data files prior to the current year or cycle are no longer publicly available.\n- High Risk: Some data files prior to the current year or cycle are removed.\n- Moderate Risk: Some data elements that exist in the dataset prior to the current year or cycle are removed.\n- No Known Issue: Data prior to the current year or cycle remain accessible with no known alterations.\n\n### Future Data Availability\n- Gone: Data collection and publication has been terminated.\n- High Risk: Statutory publication deadline missed and/or collection or publication skipped and/or ICR expired for more than one year.\n- Moderate Risk: Typical or intended publication date missed and/or collection or publication delayed; ICR expired up to one year.\n- No Known Issue: Data published on time or as expected and ICR active or renewed before expiration.\n\n### Data Quality\n- Gone: Data collection and publication has been terminated.\n- High Risk: Reductions in granularity, timeliness, or frequency.\n- Moderate Risk: Potential or emerging risk to granularity, timeliness, or frequency.\n- No Known Issue: Maintained or improved granularity, timeliness, or frequency.\n\n### Statutory Context\n- Gone: N/A\n- High Risk: Statutory authorization is vague and/or there are alternative data collections that could serve as substitutes and/or no known programmatic use.\n- Moderate Risk: Not explicitly required by statute but required for the implementation of a state or federal program, and there are no alternative data collections that could serve as substitutes.\n- No Known Issue: Statutorily required and/or statutory authorization is explicitly named and it is clear what has to be collected, and there aren't alternative data collections that could serve as substitutes and/or required for implementation of a federal program.\n\n### Staffing and Funding\n- Gone: All of the staff in the division or agency are gone and/or all funding has been terminated.\n- High Risk: 40% or more of staff lost, and/or 1,000 or more staff lost, and/or budget cut by 20% or more, and/or leadership removed.\n- Moderate Risk: 10\u201339% of staff lost, and/or 500\u2013999 staff lost, and/or budget cut by 10\u201319%, and/or threatened change in leadership.\n- No Known Issue: Less than 10% of staff lost and less than 10% of budget cut and no known change in leadership.\n\n### Policy\n- Gone: Data collection and publication has been terminated.\n- High Risk: Presidential Action-driven information collection request (ICR); negative policy note on site; other significant changes in accordance with Administration priorities.\n- Moderate Risk: Proposed or pending changes; statements by administration officials suggesting a change is being considered or planned.\n- No Known Issue: No notable changes since January 2025 affecting what data is collected and published.\n\nFor each category, concisely list the evidence and supporting sources that would support each risk level. Then indicate which risk level you find most appropriate and why.\n\nConclude with a simple summary of risk levels:\nHistorical Data Availability: <level>\nFuture Data Availability: <level>\nData Quality: <level>\nStatutory Context: <level>\nStaffing and Funding: <level>\nPolicy: <level>",
+    "session_metadata": "Emit a session_metadata YAML block reporting: current date, model identifier, knowledge cutoff, surface, whether memory is enabled, whether custom preferences or styles are active, all tools and MCP servers available, which tools were actually called in this session, and whether attachments were present. Mark any field not directly observable as unknown rather than inferring it."
+  },
+  "turns": {
+    "research": {
+      "request": {
+        "model": "z-ai/glm-5.3",
+        "max_output_tokens": 32768,
+        "tools": [
+          {
+            "type": "openrouter:web_search",
+            "parameters": {
+              "engine": "exa",
+              "max_results": 10,
+              "excluded_domains": [
+                "dataindex.us"
+              ]
+            }
+          },
+          {
+            "type": "openrouter:web_fetch",
+            "parameters": {
+              "engine": "openrouter",
+              "blocked_domains": [
+                "dataindex.us"
+              ],
+              "max_content_tokens": 10000
+            }
+          }
+        ],
+        "cache_control": {
+          "type": "ephemeral",
+          "ttl": "1h"
+        },
+        "session_id": "fevs-z-ai/glm-5.3-t0-2026-10-08T23:49:55Z",
+        "stop_server_tools_when": [
+          {
+            "type": "step_count_is",
+            "step_count": 200
+          }
+        ],
+        "reasoning": {
+          "effort": "high"
+        },
+        "provider": {
+          "order": [
+            "z-ai"
+          ],
+          "allow_fallbacks": false
+        }
+      },
+      "response_meta": {
+        "id": "gen-1791503396-suUprfFGNR6hRiFeNRyY",
+        "object": "response",
+        "created_at": 1791503396,
+        "model": "z-ai/glm-5.3",
+        "status": "completed",
+        "completed_at": 1791503501,
+        "error": null,
+        "incomplete_details": null,
+        "tools": [],
+        "tool_choice": "auto",
+        "parallel_tool_calls": true,
+        "max_output_tokens": 32768,
+        "temperature": 1,
+        "top_p": 1,
+        "presence_penalty": 0,
+        "frequency_penalty": 0,
+        "top_logprobs": 0,
+        "max_tool_calls": null,
+        "metadata": {},
+        "background": false,
+        "previous_response_id": null,
+        "service_tier": "auto",
+        "truncation": "disabled",
+        "store": false,
+        "instructions": null,
+        "text": {
+          "format": {
+            "type": "text"
+          }
+        },
+        "reasoning": {
+          "effort": "high"
+        },
+        "safety_identifier": null,
+        "prompt_cache_key": null,
+        "prompt_cache_options": null,
+        "usage": {
+          "input_tokens": 159729,
+          "input_tokens_details": {
+            "cached_tokens": 107776
+          },
+          "output_tokens": 7179,
+          "output_tokens_details": {
+            "reasoning_tokens": 3084
+          },
+          "total_tokens": 166908,
+          "cost": 0.16734356,
+          "cost_details": {
+            "upstream_inference_cost": 0.13234356,
+            "upstream_inference_input_cost": 0.10075596,
+            "upstream_inference_output_cost": 0.0315876
+          },
+          "server_tool_use_details": {
+            "web_search_requests": 6,
+            "tool_calls_requested": 10,
+            "tool_calls_executed": 10
+          }
+        }
+      },
+      "requests": [
+        {
+          "input_tokens": 159729,
+          "input_tokens_details": {
+            "cached_tokens": 107776
+          },
+          "output_tokens": 7179,
+          "output_tokens_details": {
+            "reasoning_tokens": 3084
+          },
+          "total_tokens": 166908,
+          "cost": 0.16734356,
+          "cost_details": {
+            "upstream_inference_cost": 0.13234356,
+            "upstream_inference_input_cost": 0.10075596,
+            "upstream_inference_output_cost": 0.0315876
+          },
+          "server_tool_use_details": {
+            "web_search_requests": 6,
+            "tool_calls_requested": 10,
+            "tool_calls_executed": 10
+          }
+        }
+      ],
+      "searches": 6,
+      "fetches": 4,
+      "tool_items": [
+        {
+          "type": "openrouter:web_search",
+          "id": "st_tmp_dg6k3dqejxk",
+          "status": "completed",
+          "action": {
+            "type": "search",
+            "query": "OPM Federal Employee Viewpoint Survey FEVS history methodology",
+            "sources": [
+              {
+                "type": "url",
+                "url": "https://www.opm.gov/fevs/about/"
+              },
+              {
+                "type": "url",
+                "url": "https://www.opm.gov/fevs/reports/technical-reports/technical-report/technical-report/2024/2024-technical-report.pdf"
+              },
+              {
+                "type": "url",
+                "url": "https://www.opm.gov/fevs/reports/technical-reports/technical-report/technical-report/2023/2023-technical-report.pdf"
+              },
+              {
+                "type": "url",
+                "url": "https://www.opm.gov/fevs/reports/technical-reports/technical-report/technical-report/2022/2022-technical-report.pdf"
+              },
+              {
+                "type": "url",
+                "url": "https://onlinelibrary.wiley.com/doi/10.1111/puar.12368"
+              },
+              {
+                "type": "url",
+                "url": "https://www.opm.gov/fevs/reports/technical-reports/technical-report/technical-report/2021/2021-technical-report.pdf"
+              },
+              {
+                "type": "url",
+                "url": "https://www.opm.gov/fevs/reports/technical-reports/technical-report/technical-report/2017/2017-technical-report.pdf"
+              },
+              {
+                "type": "url",
+                "url": "https://www.opm.gov/fevs/reports/technical-reports/technical-report/technical-report/2016/2016-technical-report.pdf"
+              },
+              {
+                "type": "url",
+                "url": "https://www.opm.gov/fevs/reports/technical-reports/technical-report/technical-report/2020/2020-technical-report.pdf"
+              },
+              {
+                "type": "url",
+                "url": "https://www.opm.gov/fevs/reports/technical-reports/technical-report/technical-report/2019/2019-technical-report.pdf"
+              }
+            ]
+          }
+        },
+        {
+          "type": "openrouter:web_search",
+          "id": "st_tmp_qgmqd8eduqr",
+          "status": "completed",
+          "action": {
+            "type": "search",
+            "query": "Federal Employee Viewpoint Survey legal authority mandate GPRA executive order",
+            "sources": [
+              {
+                "type": "url",
+                "url": "https://www.govinfo.gov/content/pkg/CRPT-115hrpt403/html/CRPT-115hrpt403.htm"
+              },
+              {
+                "type": "url",
+                "url": "https://www.opm.gov/policy-data-oversight/data-analysis-documentation/employee-surveys/surveyguidance.pdf"
+              },
+              {
+                "type": "url",
+                "url": "https://www.federalregister.gov/documents/2026/07/02/2026-13443/agency-information-collection-request-federal-employee-viewpoint-survey-omb-control-number-3206-new"
+              },
+              {
+                "type": "url",
+                "url": "https://www.federalregister.gov/documents/2016/02/08/2016-02112/personnel-management-in-agencies"
+              },
+              {
+                "type": "url",
+                "url": "https://www.dcpas.osd.mil/sites/default/files/2021-04/FEVS_Overview.pdf"
+              },
+              {
+                "type": "url",
+                "url": "https://www.opm.gov/chcoc/latest-memos/annual-employee-survey-administration-requirements-2026-and-beyond.pdf"
+              },
+              {
+                "type": "url",
+                "url": "https://www.stb.gov/wp-content/uploads/opm-2023-gwide-508.pdf"
+              },
+              {
+                "type": "url",
+                "url": "https://www.govinfo.gov/content/pkg/FR-2006-08-24/pdf/E6-14037.pdf"
+              },
+              {
+                "type": "url",
+                "url": "https://www.govinfo.gov/content/pkg/FR-2026-09-17/html/2026-19042.htm"
+              },
+              {
+                "type": "url",
+                "url": "https://www.dcpas.osd.mil/sites/default/files/2021-04/5_CFR_Part_250_Final_Rule_2016.pdf"
+              }
+            ]
+          }
+        },
+        {
+          "type": "openrouter:web_fetch",
+          "id": "st_tmp_3sznhggippm",
+          "status": "completed",
+          "url": "https://www.opm.gov/fevs",
+          "content": "\r\n\r\n\r\n\r\n<!DOCTYPE html>\r\n\r\n<html   xmlns=\"http://www.w3.org/1999/xhtml\"      xmlns:og=\"http://opengraphprotocol.org/schema/\"      xmlns:fb=\"http://www.facebook.com/2008/fbml\"      lang=\"en\"      xml:lang=\"en\"    >\r\n<head>\r\n\t<meta http-equiv=\"X-UA-Compatible\" content=\"IE=edge\" />\r\n\t<link rel=\"shortcut icon\" href=\"/favicon.ico\" />\r\n\r\n\t\r\n\t\r\n\t\t<title>FEVS - OPM.gov</title>\r\n\t<meta http-equiv=\"Content-Type\" content=\"text/html; charset=utf-8\" />\r\n\t<meta name=\"description\" content=\"Welcome to opm.gov\" />\r\n\t<meta name=\"keywords\" content=\"OPM,Office of Personnel Management,opm.gov\" />\r\n\t<meta name=\"Expires\" content=\"\" />\r\n\t<meta name=\"TemplateVersion\" content=\"3.0\" />\r\n\t<meta name=\"viewport\" content=\"width=device-width\" />\r\n\r\n\t\r\n    \r\n\r\n\r\n\t<meta property=\"fb:admins\" content=\"568256384\" />\r\n\t<meta property=\"fb:app_id\" content=\"121223957945585\" />\r\n\t<meta property=\"og:type\" content=\"article\" />\r\n\t<meta property=\"og:site_name\" content=\"U.S. Office of Personnel Management\" />\r\n\t<meta property=\"og:image\" content=\"https://www.opm.gov/img/global/opm-seal-share.png\" />\r\n\t<meta property=\"og:url\" content=\"https://www.opm.gov/fevs\" />\r\n\r\n<link href=\"/cdn/css/themes/opm-uswds/styles.css?v=20250213\"  type=\"text/css\" rel=\"stylesheet\" media=\"screen,projection\"/>\r\n<link href=\"/cdn/css/responsive/global-medium.css\"  type=\"text/css\" rel=\"stylesheet\" media=\"screen,projection\"/>\r\n<link href=\"/cdn/css/responsive/global-small.css\"  type=\"text/css\" rel=\"stylesheet\" media=\"screen,projection\"/>\r\n<link href=\"/cdn/lib/font-awesome/6.2.0/css/all.min.css\"  type=\"text/css\" rel=\"stylesheet\" media=\"screen,projection\"/>\r\n<link href=\"/cdn/lib/font-awesome/6.2.0/css/v5-font-face.min.css\"  type=\"text/css\" rel=\"stylesheet\" media=\"screen,projection\"/>\r\n<link href=\"//use.typekit.net/vgn7vpt.css\"  type=\"text/css\" rel=\"stylesheet\" media=\"screen,projection\"/>\r\n<link href=\"/cdn/css/lib/colorbox/colorbox.css\"  type=\"text/css\" rel=\"stylesheet\" media=\"screen,projection\"/>\r\n<link href=\"/css/print.css\"  type=\"text/css\" rel=\"stylesheet\" media=\"print\"/>\r\n<link href=\"/cdn/css/print.css\"  type=\"text/css\" rel=\"stylesheet\" media=\"print\"/>\r\n\r\n\r\n\t<script type=\"text/javascript\" language=\"javascript\">\r\n            var primaryServer = \"www.opm.gov\";\r\n\t</script>\r\n\r\n<script src=\"//ajax.googleapis.com/ajax/libs/jquery/3.6.3/jquery.min.js\" type=\"text/javascript\" ></script><script type=\"text/javascript\">\r\nif( !window.jQuery ) {document.write('<script src=\"\\/cdn\\/js\\/lib\\/jquery\\/jquery-3.6.3.min.js\" type=\"text/javascript\" ><\\/script>');}\r\n</script>\r\n<!--[if lt IE 9]><script src=\"/js/jquery.json-2.3.min.js\" type=\"text/javascript\" ></script><![endif]-->\r\n<!--[if lt IE 9]><script src=\"//html5shiv.googlecode.com/svn/trunk/html5.js\" type=\"text/javascript\" ></script><![endif]-->\r\n<script src=\"/js/jstorage.min.js\" type=\"text/javascript\" ></script>\r\n<script src=\"/js/core/webmethods.setup.js\" type=\"text/javascript\" ></script>\r\n\r\n\r\n\r\n\t<script type=\"text/javascript\" language=\"javascript\">\r\n\t\tvar AccessibilityMode = false;\r\n\t</script>\r\n\r\n\t\r\n    \r\n\t<meta name=\"viewport\" content=\"width=device-width,initial-scale=1\">\r\n    <link href=\"https://fonts.googleapis.com/css?family=Source+Sans+Pro\" rel=\"stylesheet\">\r\n\t\t<link href=\"/css/fevs/fevs-USWDS.css\"  type=\"text/css\" rel=\"stylesheet\" media=\"screen,projection\"/>\r\n\t\t<link href=\"/css/fevs/mainLanding-USWDS.css\"  type=\"text/css\" rel=\"stylesheet\" media=\"screen,projection\"/>\r\n\t\t<link href=\"/css/fevs/fevs-responsive-USWDS.css\"  type=\"text/css\" rel=\"stylesheet\" media=\"screen,projection\"/>\r\n\r\n\r\n\t\r\n    \r\n\r\n\r\n\r\n\r\n\t<script type=\"text/javascript\" src=\"/js/jstorage.min.js\"></script>\r\n</head>\r\n<body id=\"htmBody\" class=\"\" >\r\n\t<!-- Google Tag Manager (noscript) -->\r\n\t<noscript>\r\n\t\t<iframe src=\"https://www.googletagmanager.com/ns.html?id=GTM-WGTWNGX\"\r\n\t\t\t\theight=\"0\" width=\"0\" style=\"display:none;visibility:hidden\"></iframe>\r\n\t</noscript>\r\n\t<!-- End Google Tag Manager (noscript) -->\r\n\t<a class=\"usa-skipnav skipnav\" href=\"#main-main-content\">Skip to main content</a>\r\n\r\n\t<script type=\"text/javascript\">\r\n\t\tvar optInResponsive = true;\r\n\t\tvar enableFeedTemplateData = true; //enables the remote loading of top/left/footer navigation using JSON (see core.standard.js)\r\n\t\tif (window.document.documentMode) { //testing for IE, if visiting in IE, disable the remote loading of nav and responsive\r\n\t\t\tenableFeedTemplateData = false;\r\n\t\t\toptInResponsive = false;\r\n\t\t}\r\n\r\n\t\t$(\".ChangeValidationSettings\").click(function (e) {\r\n\t\t\te.preventDefault();\r\n\t\t\tcore.toggleAccessibilityMode();\r\n\t\t});\r\n\r\n\t\tcore.setAccessibilityInfo();\r\n\t</script>\r\n\t<section class=\"usa-banner\" id=\"USWDS-usa-banner\" aria-label=\"Official government website\">\r\n\t\t<div class=\"usa-accordion\">\r\n\t\t\t<header class=\"usa-banner__header\">\r\n\t\t\t\t<div class=\"usa-banner__inner\">\r\n\t\t\t\t\t<div class=\"grid-col-auto\">\r\n\t\t\t\t\t\t<img class=\"usa-banner__header-flag\" src=\"/cdn/img/us_flag_small.png\"\r\n\t\t\t\t\t\t\t alt=\"U.S. flag\">\r\n\t\t\t\t\t</div>\r\n\t\t\t\t\t<div class=\"grid-col-fill tablet:grid-col-auto\">\r\n\t\t\t\t\t\t<p class=\"usa-banner__header-text\">An official website of the United States government</p>\r\n\t\t\t\t\t\t<p class=\"usa-banner__header-action\" aria-hidden=\"true\">Here's how you know</p>\r\n\t\t\t\t\t</div>\r\n\t\t\t\t\t<button class=\"usa-accordion__button usa-banner__button\" aria-expanded=\"false\"\r\n\t\t\t\t\t\t\taria-controls=\"gov-banner\">\r\n\t\t\t\t\t\t<span class=\"usa-banner__button-text\">Here's how you know</span>\r\n\t\t\t\t\t</button>\r\n\t\t\t\t</div>\r\n\t\t\t</header>\r\n\t\t\t<div class=\"usa-banner__content usa-accordion__content\" id=\"gov-banner\">\r\n\t\t\t\t<div class=\"grid-row grid-gap-lg\">\r\n\t\t\t\t\t<div class=\"usa-banner__guidance tablet:grid-col-6\">\r\n\t\t\t\t\t\t<img class=\"usa-banner__icon usa-media-block__img\" src=\"/cdn/img/icon-dot-gov.svg\"\r\n\t\t\t\t\t\t\t alt=\"Federal building icon\" role=\"img\" aria-hidden=\"true\">\r\n\t\t\t\t\t\t<div class=\"usa-media-block__body\">\r\n\t\t\t\t\t\t\t<p>\r\n\t\t\t\t\t\t\t\t<strong>Official websites use .gov</strong>\r\n\t\t\t\t\t\t\t\t<br />A <strong>.gov</strong> website belongs to an official government\r\n\t\t\t\t\t\t\t\torganization in the United States.\r\n\t\t\t\t\t\t\t</p>\r\n\t\t\t\t\t\t</div>\r\n\t\t\t\t\t</div>\r\n\t\t\t\t\t<div class=\"usa-banner__guidance tablet:grid-col-6\">\r\n\t\t\t\t\t\t<img class=\"usa-banner__icon usa-media-block__img\" src=\"/cdn/img/icon-https.svg\" role=\"img\" alt=\"Lock icon\" aria-hidden=\"true\">\r\n\t\t\t\t\t\t<div class=\"usa-media-block__body\">\r\n\t\t\t\t\t\t\t<p>\r\n\t\t\t\t\t\t\t\t<strong>Secure .gov websites use HTTPS</strong>\r\n\t\t\t\t\t\t\t\t<br>A <strong>lock</strong> (\r\n\t\t\t\t\t\t\t\t<span class=\"icon-lock\">\r\n\t\t\t\t\t\t\t\t\t<svg xmlns=\"http://www.w3.org/2000/svg\"\r\n\t\t\t\t\t\t\t\t\t\t width=\"52\"\r\n\t\t\t\t\t\t\t\t\t\t height=\"64\"\r\n\t\t\t\t\t\t\t\t\t\t viewBox=\"0 0 52 64\"\r\n\t\t\t\t\t\t\t\t\t\t class=\"usa-banner__lock-image\"\r\n\t\t\t\t\t\t\t\t\t\t role=\"img\"\r\n\t\t\t\t\t\t\t\t\t\t aria-labelledby=\"banner-lock-title-default banner-lock-description-default\"\r\n\t\t\t\t\t\t\t\t\t\t focusable=\"false\">\r\n\t\t\t\t\t\t\t\t\t\t<title id=\"banner-lock-title-default\">Lock</title>\r\n\t\t\t\t\t\t\t\t\t\t<desc id=\"banner-lock-description-default\">A locked padlock</desc>\r\n\t\t\t\t\t\t\t\t\t\t<path fill=\"#000000\"\r\n\t\t\t\t\t\t\t\t\t\t\t  fill-rule=\"evenodd\"\r\n\t\t\t\t\t\t\t\t\t\t\t  d=\"M26 0c10.493 0 19 8.507 19 19v9h3a4 4 0 0 1 4 4v28a4 4 0 0 1-4 4H4a4 4 0 0 1-4-4V32a4 4 0 0 1 4-4h3v-9C7 8.507 15.507 0 26 0zm0 8c-5.979 0-10.843 4.77-10.996 10.712L15 19v9h22v-9c0-6.075-4.925-11-11-11z\" />\r\n\t\t\t\t\t\t\t\t\t</svg>\r\n\t\t\t\t\t\t\t\t</span>\r\n\t\t\t\t\t\t\t\t) or <strong>https://</strong> means you\u2019ve safely connected to\r\n\t\t\t\t\t\t\t\tthe .gov website. Share sensitive information only on official,\r\n\t\t\t\t\t\t\t\tsecure websites.\r\n\t\t\t\t\t\t\t</p>\r\n\t\t\t\t\t\t</div>\r\n\t\t\t\t\t</div>\r\n\t\t\t\t</div>\r\n\t\t\t</div>\r\n\t\t</div>\r\n\t</section>\r\n\t<div class=\"usa-overlay\"></div>\r\n\r\n\t<header class=\"usa-header usa-header--extended\">\r\n\t\t<div class=\"usa-navbar\">\r\n\t\t\t<div class=\"usa-logo\" id=\"-logo\">\r\n\t\t\t\t<a href=\"/\" title=\"home\"><img class=\"usa-header__logo-img\" src=\"/cdn/img/opm-uswds/opm_logo.svg\" alt=\"U.S. Office of Personnel Management logo\"></a>\r\n\t\t\t</div>\r\n\t\t\t<button type=\"button\" class=\"usa-menu-btn\">Menu</button>\r\n\t\t</div>\r\n\t\t<nav aria-label=\"Primary navigation\" class=\"usa-nav\">\r\n\t\t\t<div class=\"usa-nav__inner\">\r\n\t\t\t\t<div class=\"usa-nav__secondary usa-header--extended\">\r\n\t\t\t\t\t<button type=\"button\" class=\"usa-nav__close\">\r\n\t\t\t\t\t\t<img src=\"/cdn/img/close-white.svg\" role=\"img\" alt=\"\">\r\n\t\t\t\t\t</button>\r\n\t\t\t\t\t<section aria-label=\"Search component\">\r\n\t\t\t\t\t\t<form class=\"usa-search usa-search--small \" role=\"search\" action=\"/search\" method=\"GET\" name=\"gs\">\r\n\t\t\t\t\t\t\t<label id=\"SearchAllofOPM\" class=\"usa-sr-only\" for=\"basic-search-field-small\">Search all of OPM</label>\r\n\t\t\t\t\t\t\t<input class=\"usa-input search\" id=\"basic-search-field-small\" type=\"search\" name=\"q\">\r\n\t\t\t\t\t\t\t<button class=\"usa-button\" type=\"submit\"><span class=\"usa-sr-only\">Submit</span></button>\r\n\t\t\t\t\t\t</form>\r\n\t\t\t\t\t</section>\r\n\t\t\t\t</div>\r\n\t\t\t\t<div class=\"left-panel-top-2\">\r\n\t\t\t\t\t<span class=\"nav-header\">Sections</span>\r\n\t\t\t\t\t<ul class=\"usa-nav__primary usa-accordion\">\r\n\t\t\t\t\t\t<li class=\"usa-nav__primary-item\">\r\n\t\t\t\t\t\t\t<a tabindex=\"0\" class=\"\" aria-controls=\"about-control-id\">\r\n\t\t\t\t\t\t\t\t<span>About</span>\r\n\t\t\t\t\t\t\t</a>\r\n\t\t\t\t\t\t\t<span class=\"nav-toggle\" title=\"toggle about subnavigation\" tabindex=\"0\">\r\n\t\t\t\t\t\t\t\t<span class=\"AccessibilityInfo\">Toggle submenu</span>\r\n\t\t\t\t\t\t\t</span>\r\n\t\t\t\t\t\t\t<div id=\"about-control-id\" class=\"usa-nav__submenu usa-megamenu\" style=\"display: none;\">\r\n\t\t\t\t\t\t\t\t<ul class=\"usa-nav__submenu__inner\">\r\n\t\t\t\t\t\t\t\t\t<li class=\"usa-nav__submenu-item\">\r\n\t\t\t\t\t\t\t\t\t\t<a href=\"/about-us/\"><span>Our Agency</span></a>\r\n\t\t\t\t\t\t\t\t\t</li>\r\n\t\t\t\t\t\t\t\t\t<li class=\"usa-nav__submenu-item\">\r\n\t\t\t\t\t\t\t\t\t\t<a href=\"/about-us/who-we-are/\"><span>Who We Are</span></a>\r\n\t\t\t\t\t\t\t\t\t</li>\r\n\t\t\t\t\t\t\t\t\t<li class=\"usa-nav__submenu-item\">\r\n\t\t\t\t\t\t\t\t\t\t<a href=\"/about-us/our-work/\"><span>Our Work</span></a>\r\n\t\t\t\t\t\t\t\t\t</li>\r\n\t\t\t\t\t\t\t\t\t<li class=\"usa-nav__submenu-item\">\r\n\t\t\t\t\t\t\t\t\t\t<a href=\"/about-us/mission-history/\"><span>Mission &amp; History</span></a>\r\n\t\t\t\t\t\t\t\t\t</li>\r\n\t\t\t\t\t\t\t\t\t<li class=\"usa-nav__submenu-item\">\r\n\t\t\t\t\t\t\t\t\t\t<a href=\"/about-us/careers-at-opm/\"><span>Careers at OPM</span></a>\r\n\t\t\t\t\t\t\t\t\t</li>\r\n\t\t\t\t\t\t\t\t\t<li class=\"usa-nav__submenu-item\">\r\n\t\t\t\t\t\t\t\t\t\t<a href=\"/about-us/doing-business-with-opm/\"><span>Doing Business with OPM</span></a>\r\n\t\t\t\t\t\t\t\t\t</li>\r\n\t\t\t\t\t\t\t\t\t<li class=\"usa-nav__submenu-item\">\r\n\t\t\t\t\t\t\t\t\t\t<a href=\"/about-us/reports-publications/\"><span>Reports &amp; Publications</span></a>\r\n\t\t\t\t\t\t\t\t\t</li>\r\n\t\t\t\t\t\t\t\t\t<li class=\"usa-nav__submenu-item\">\r\n\t\t\t\t\t\t\t\t\t\t<a href=\"/about-us/open-government/\"><span>Open Government</span></a>\r\n\t\t\t\t\t\t\t\t\t</li>\r\n\t\t\t\t\t\t\t\t\t<li class=\"usa-nav__submenu-item\">\r\n\t\t\t\t\t\t\t\t\t\t<a href=\"/about-us/get-help/\"><span>Get Help</span></a>\r\n\t\t\t\t\t\t\t\t\t</li>\r\n\t\t\t\t\t\t\t\t\t<li class=\"usa-nav__submenu-item\">\r\n\t\t\t\t\t\t\t\t\t\t<a href=\"/about-us/contact-us/\"><span>Contact Us</span></a>\r\n\t\t\t\t\t\t\t\t\t</li>\r\n\t\t\t\t\t\t\t\t\t<li class=\"usa-nav__submenu-item\">\r\n\t\t\t\t\t\t\t\t\t\t<a href=\"/about-us/news/\"><span>News</span></a>\r\n\t\t\t\t\t\t\t\t\t</li>\r\n\t\t\t\t\t\t\t\t\t<li class=\"usa-nav__submenu-item\">\r\n\t\t\t\t\t\t\t\t\t\t<a href=\"/data/\"><span>Data</span></a>\r\n\t\t\t\t\t\t\t\t\t</li>\r\n\t\t\t\t\t\t\t\t\t<li class=\"usa-nav__submenu-item\">\r\n\t\t\t\t\t\t\t\t\t\t<a href=\"/about-us/2023-agency-financial-report/\"><span>2023 Agency Financial Report</span></a>\r\n\t\t\t\t\t\t\t\t\t</li>\r\n\t\t\t\t\t\t\t\t\t<li class=\"usa-nav__submenu-item\">\r\n\t\t\t\t\t\t\t\t\t\t<a href=\"/about-us/combined-federal-campaign/\"><span>Combined Federal Campaign</span></a>\r\n\t\t\t\t\t\t\t\t\t</li>\r\n\t\t\t\t\t\t\t\t\t<li class=\"usa-nav__submenu-item\">\r\n\t\t\t\t\t\t\t\t\t\t<a href=\"/about-us/2023-annual-performance-report/\"><span>2023 Annual Performance Report</span></a>\r\n\t\t\t\t\t\t\t\t\t</li>\r\n\t\t\t\t\t\t\t\t\t<li class=\"usa-nav__submenu-item\">\r\n\t\t\t\t\t\t\t\t\t\t<a href=\"/about-us/fy-2025-congressional-budget-justification-and-annual-performance-plan/\"><span>FY 2025 Congressional Budget Justification</span></a>\r\n\t\t\t\t\t\t\t\t\t</li>\r\n\t\t\t\t\t\t\t\t\t<li class=\"usa-nav__submenu-item\">\r\n\t\t\t\t\t\t\t\t\t\t<a href=\"/about-us/2024-agency-financial-report/\"><span>2024 Agency Financial Report</span></a>\r\n\t\t\t\t\t\t\t\t\t</li>\r\n\t\t\t\t\t\t\t\t\t<li class=\"usa-nav__submenu-item\">\r\n\t\t\t\t\t\t\t\t\t\t<a href=\"/about-us/2025-agency-financial-report/\"><span>2024 Agency Financial Report</span></a>\r\n\t\t\t\t\t\t\t\t\t</li>\r\n\t\t\t\t\t\t\t\t\t<li class=\"usa-nav__submenu-item\">\r\n\t\t\t\t\t\t\t\t\t\t<a href=\"/about-us/2024-annual-performance-report/\"><span>2024 Annual Performance Report</span></a>\r\n\t\t\t\t\t\t\t\t\t</li>\r\n\t\t\t\t\t\t\t\t\t<li class=\"usa-nav__submenu-item\">\r\n\t\t\t\t\t\t\t\t\t\t<a href=\"/about-us/fy-2026-congressional-budget-justification/\"><span>FY 2026 Congressional Budget Justification</span></a>\r\n\t\t\t\t\t\t\t\t\t</li>\r\n\t\t\t\t\t\t\t\t\t<li class=\"usa-nav__submenu-item\">\r\n\t\t\t\t\t\t\t\t\t\t<a href=\"/about-us/fork/\"><span>Fork</span></a>\r\n\t\t\t\t\t\t\t\t\t</li>\r\n\t\t\t\t\t\t\t\t\t<li class=\"usa-nav__submenu-item\">\r\n\t\t\t\t\t\t\t\t\t\t<a href=\"/hr-practitioners/hr-career-compass/\"><span>HR Career Compass</span></a>\r\n\t\t\t\t\t\t\t\t\t</li>\r\n\t\t\t\t\t\t\t\t\t<li class=\"usa-nav__submenu-item\">\r\n\t\t\t\t\t\t\t\t\t\t<a href=\"/about-us/fy-2027-congressional-budget-justification/\"><span>FY 2027 Congressional Budget Justification</span></a>\r\n\t\t\t\t\t\t\t\t\t</li>\r\n\t\t\t\t\t\t\t\t\t<li class=\"usa-nav__submenu-item\">\r\n\t\t\t\t\t\t\t\t\t\t<a href=\"/about-us/office-of-equal-employment-opportunity/\"><span>Office of Equal Employment Opportunity</span></a>\r\n\t\t\t\t\t\t\t\t\t</li>\r\n\t\t\t\t\t\t\t\t</ul>\r\n\t\t\t\t\t\t\t</div>\r\n\t\t\t\t\t\t</li>\r\n\t\t\t\t\t\t<li class=\"usa-nav__primary-item\">\r\n\t\t\t\t\t\t\t<a tabindex=\"0\" class=\"\" aria-controls=\"policy-control-id\">\r\n\t\t\t\t\t\t\t\t<span>Policy</span>\r\n\t\t\t\t\t\t\t</a>\r\n\t\t\t\t\t\t\t<span class=\"nav-toggle\" title=\"toggle policy subnavigation\" tabindex=\"0\">\r\n\t\t\t\t\t\t\t\t<span class=\"AccessibilityInfo\">Toggle submenu</span>\r\n\t\t\t\t\t\t\t</span>\r\n\t\t\t\t\t\t\t<div id=\"policy-control-id\" class=\"usa-nav__submenu usa-megamenu\" style=\"display: none;\">\r\n\t\t\t\t\t\t\t\t<ul class=\"usa-nav__submenu__inner\">\r\n\t\t\t\t\t\t\t\t\t<li class=\"usa-nav__submenu-item\">\r\n\t\t\t\t\t\t\t\t\t\t<a href=\"/policy-data-oversight/chco-council/\"><span>CHCO Council</span></a>\r\n\t\t\t\t\t\t\t\t\t</li>\r\n\t\t\t\t\t\t\t\t\t<li class=\"usa-nav__submenu-item\">\r\n\t\t\t\t\t\t\t\t\t\t<a href=\"https://www.opm.gov/policy-data-oversight/workforce-restructuring/reductions-in-force/\"><span>Reductions in Force</span></a>\r\n\t\t\t\t\t\t\t\t\t</li>\r\n\t\t\t\t\t\t\t\t\t<li class=\"usa-nav__submenu-item\">\r\n\t\t\t\t\t\t\t\t\t\t<a href=\"/policy-data-oversight/assessment-and-selection/\"><span>Assessment &amp; Selection</span></a>\r\n\t\t\t\t\t\t\t\t\t</li>\r\n\t\t\t\t\t\t\t\t\t<li class=\"usa-nav__submenu-item\">\r\n\t\t\t\t\t\t\t\t\t\t<a href=\"/policy-data-oversight/classification-qualifications/\"><span>Classification &amp; Qualifications</span></a>\r\n\t\t\t\t\t\t\t\t\t</li>\r\n\t\t\t\t\t\t\t\t\t<li class=\"usa-nav__submenu-item\">\r\n\t\t\t\t\t\t\t\t\t\t<a href=\"/policy-data-oversight/data-analysis-documentation/\"><span>Data, Analysis &amp; Documentation</span></a>\r\n\t\t\t\t\t\t\t\t\t</li>\r\n\t\t\t\t\t\t\t\t\t<li class=\"usa-nav__submenu-item\">\r\n\t\t\t\t\t\t\t\t\t\t<a href=\"/policy-data-oversight/disability-employment/\"><span>Disability Employment</span></a>\r\n\t\t\t\t\t\t\t\t\t</li>\r\n\t\t\t\t\t\t\t\t\t<li class=\"usa-nav__submenu-item\">\r\n\t\t\t\t\t\t\t\t\t\t<a href=\"/policy-data-oversight/employee-relations/\"><span>Employee Relations</span></a>\r\n\t\t\t\t\t\t\t\t\t</li>\r\n\t\t\t\t\t\t\t\t\t<li class=\"usa-nav__submenu-item\">\r\n\t\t\t\t\t\t\t\t\t\t<a href=\"/policy-data-oversight/enterprise-risk-management-program-old/\"><span>Enterprise Risk Management Program</span></a>\r\n\t\t\t\t\t\t\t\t\t</li>\r\n\t\t\t\t\t\t\t\t\t<li class=\"usa-nav__submenu-item\">\r\n\t\t\t\t\t\t\t\t\t\t<a href=\"/policy-data-oversight/hiring-information/\"><span>Hiring Information</span></a>\r\n\t\t\t\t\t\t\t\t\t</li>\r\n\t\t\t\t\t\t\t\t\t<li class=\"usa-nav__submenu-item\">\r\n\t\t\t\t\t\t\t\t\t\t<a href=\"/policy-data-oversight/human-capital-management/\"><span>Human Capital Management</span></a>\r\n\t\t\t\t\t\t\t\t\t</li>\r\n\t\t\t\t\t\t\t\t\t<li class=\"usa-nav__submenu-item\">\r\n\t\t\t\t\t\t\t\t\t\t<a href=\"/policy-data-oversight/human-capital-framework/\"><span>Human Capital Framework</span></a>\r\n\t\t\t\t\t\t\t\t\t</li>\r\n\t\t\t\t\t\t\t\t\t<li class=\"usa-nav__submenu-item\">\r\n\t\t\t\t\t\t\t\t\t\t<a href=\"/policy-data-oversight/labor-relations/\"><span>Labor Management Relations</span></a>\r\n\t\t\t\t\t\t\t\t\t</li>\r\n\t\t\t\t\t\t\t\t\t<li class=\"usa-nav__submenu-item\">\r\n\t\t\t\t\t\t\t\t\t\t<a href=\"/policy-data-oversight/oversight-and-effectiveness/\"><span>Oversight and Effectiveness</span></a>\r\n\t\t\t\t\t\t\t\t\t</li>\r\n\t\t\t\t\t\t\t\t\t<li class=\"usa-nav__submenu-item\">\r\n\t\t\t\t\t\t\t\t\t\t<a href=\"/policy-data-oversight/pay-leave/\"><span>Pay &amp; Leave</span></a>\r\n\t\t\t\t\t\t\t\t\t</li>\r\n\t\t\t\t\t\t\t\t\t<li class=\"usa-nav__submenu-item\">\r\n\t\t\t\t\t\t\t\t\t\t<a href=\"/policy-data-oversight/performance-management/\"><span>Performance Management</span></a>\r\n\t\t\t\t\t\t\t\t\t</li>\r\n\t\t\t\t\t\t\t\t\t<li class=\"usa-nav__submenu-item\">\r\n\t\t\t\t\t\t\t\t\t\t<a href=\"/policy-data-oversight/senior-executive-service/\"><span>Senior Executive Service</span></a>\r\n\t\t\t\t\t\t\t\t\t</li>\r\n\t\t\t\t\t\t\t\t\t<li class=\"usa-nav__submenu-item\">\r\n\t\t\t\t\t\t\t\t\t\t<a href=\"/policy-data-oversight/settlement-guidelines/\"><span>Settlement Guidelines</span></a>\r\n\t\t\t\t\t\t\t\t\t</li>\r\n\t\t\t\t\t\t\t\t\t<li class=\"usa-nav__submenu-item\">\r\n\t\t\t\t\t\t\t\t\t\t<a href=\"/policy-data-oversight/snow-dismissal-procedures/\"><span>Snow &amp; Dismissal Procedures</span></a>\r\n\t\t\t\t\t\t\t\t\t</li>\r\n\t\t\t\t\t\t\t\t\t<li class=\"usa-nav__submenu-item\">\r\n\t\t\t\t\t\t\t\t\t\t<a href=\"/policy-data-oversight/training-and-development/\"><span>Training &amp; Development</span></a>\r\n\t\t\t\t\t\t\t\t\t</li>\r\n\t\t\t\t\t\t\t\t\t<li class=\"usa-nav__submenu-item\">\r\n\t\t\t\t\t\t\t\t\t\t<a href=\"/policy-data-oversight/tribal-consultation/\"><span>Tribal Consultation</span></a>\r\n\t\t\t\t\t\t\t\t\t</li>\r\n\t\t\t\t\t\t\t\t\t<li class=\"usa-nav__submenu-item\">\r\n\t\t\t\t\t\t\t\t\t\t<a href=\"/policy-data-oversight/veterans-services/\"><span>Veterans Services</span></a>\r\n\t\t\t\t\t\t\t\t\t</li>\r\n\t\t\t\t\t\t\t\t\t<li class=\"usa-nav__submenu-item\">\r\n\t\t\t\t\t\t\t\t\t\t<a href=\"/policy-data-oversight/worklife/\"><span>Work-Life</span></a>\r\n\t\t\t\t\t\t\t\t\t</li>\r\n\t\t\t\t\t\t\t\t\t<li class=\"usa-nav__submenu-item\">\r\n\t\t\t\t\t\t\t\t\t\t<a href=\"/policy-data-oversight/workforce-restructuring/\"><span>Workforce Restructuring</span></a>\r\n\t\t\t\t\t\t\t\t\t</li>\r\n\t\t\t\t\t\t\t\t\t<li class=\"usa-nav__submenu-item\">\r\n\t\t\t\t\t\t\t\t\t\t<a href=\"/policy-data-oversight/policy-faqs/\"><span>Policy FAQs</span></a>\r\n\t\t\t\t\t\t\t\t\t</li>\r\n\t\t\t\t\t\t\t\t\t<li class=\"usa-nav__submenu-item\">\r\n\t\t\t\t\t\t\t\t\t\t<a href=\"/policy-data-oversight/contact-policymakers/\"><span>Contact Policymakers</span></a>\r\n\t\t\t\t\t\t\t\t\t</li>\r\n\t\t\t\t\t\t\t\t\t<li class=\"usa-nav__submenu-item\">\r\n\t\t\t\t\t\t\t\t\t\t<a href=\"/policy-data-oversight/career-paths-for-federal-program-and-project-management-guide/\"><span>Career Paths for Federal Program and Project Management Guide</span></a>\r\n\t\t\t\t\t\t\t\t\t</li>\r\n\t\t\t\t\t\t\t\t\t<li class=\"usa-nav__submenu-item\">\r\n\t\t\t\t\t\t\t\t\t\t<a href=\"/policy-data-oversight/federal-hiring-and-selection-outcome-dashboard/\"><span>Federal Hiring and Selection Outcome Dashboard</span></a>\r\n\t\t\t\t\t\t\t\t\t</li>\r\n\t\t\t\t\t\t\t\t</ul>\r\n\t\t\t\t\t\t\t</div>\r\n\t\t\t\t\t\t</li>\r\n\t\t\t\t\t\t<li class=\"usa-nav__primary-item\">\r\n\t\t\t\t\t\t\t<a tabindex=\"0\" class=\"\" aria-controls=\"compliance-control-id\">\r\n\t\t\t\t\t\t\t\t<span>Compliance</span>\r\n\t\t\t\t\t\t\t</a>\r\n\t\t\t\t\t\t\t<span class=\"nav-toggle\" title=\"toggle compliance subnavigation\" tabindex=\"0\">\r\n\t\t\t\t\t\t\t\t<span class=\"AccessibilityInfo\">Toggle submenu</span>\r\n\t\t\t\t\t\t\t</span>\r\n\t\t\t\t\t\t\t<div id=\"compliance-control-id\" class=\"usa-nav__submenu usa-megamenu\" style=\"display: none;\">\r\n\t\t\t\t\t\t\t\t<ul class=\"usa-nav__submenu__inner\">\r\n\t\t\t\t\t\t\t\t\t<li class=\"usa-nav__submenu-item\">\r\n\t\t\t\t\t\t\t\t\t\t<a href=\"/compliance/adjudications/\"><span>Adjudications</span></a>\r\n\t\t\t\t\t\t\t\t\t</li>\r\n\t\t\t\t\t\t\t\t\t<li class=\"usa-nav__submenu-item\">\r\n\t\t\t\t\t\t\t\t\t\t<a href=\"/compliance/political-conversions/\"><span>Political Conversions</span></a>\r\n\t\t\t\t\t\t\t\t\t</li>\r\n\t\t\t\t\t\t\t\t</ul>\r\n\t\t\t\t\t\t\t</div>\r\n\t\t\t\t\t\t</li>\r\n\t\t\t\t\t\t<li class=\"usa-nav__primary-item\">\r\n\t\t\t\t\t\t\t<a tabindex=\"0\" class=\"\" aria-controls=\"insurance-control-id\">\r\n\t\t\t\t\t\t\t\t<span>Insurance</span>\r\n\t\t\t\t\t\t\t</a>\r\n\t\t\t\t\t\t\t<span class=\"nav-toggle\" title=\"toggle insurance subnavigation\" tabindex=\"0\">\r\n\t\t\t\t\t\t\t\t<span class=\"AccessibilityInfo\">Toggle submenu</span>\r\n\t\t\t\t\t\t\t</span>\r\n\t\t\t\t\t\t\t<div id=\"insurance-control-id\" class=\"usa-nav__submenu usa-megamenu\" style=\"display: none;\">\r\n\t\t\t\t\t\t\t\t<ul class=\"usa-nav__submenu__inner\">\r\n\t\t\t\t\t\t\t\t\t<li class=\"usa-nav__submenu-item\">\r\n\t\t\t\t\t\t\t\t\t\t<a href=\"/healthcare-insurance/open-season/\"><span>Open Season</span></a>\r\n\t\t\t\t\t\t\t\t\t</li>\r\n\t\t\t\t\t\t\t\t\t<li class=\"usa-nav__submenu-item\">\r\n\t\t\t\t\t\t\t\t\t\t<a href=\"/healthcare-insurance/healthcare/\"><span>Healthcare</span></a>\r\n\t\t\t\t\t\t\t\t\t</li>\r\n\t\t\t\t\t\t\t\t\t<li class=\"usa-nav__submenu-item\">\r\n\t\t\t\t\t\t\t\t\t\t<a href=\"/healthcare-insurance/healthcare/plan-information/compare-plans/\"><span>FEHB Plan Comparison Tool</span></a>\r\n\t\t\t\t\t\t\t\t\t</li>\r\n\t\t\t\t\t\t\t\t\t<li class=\"usa-nav__submenu-item\">\r\n\t\t\t\t\t\t\t\t\t\t<a href=\"/healthcare-insurance/tribal-employers/\"><span>Tribal Employers</span></a>\r\n\t\t\t\t\t\t\t\t\t</li>\r\n\t\t\t\t\t\t\t\t\t<li class=\"usa-nav__submenu-item\">\r\n\t\t\t\t\t\t\t\t\t\t<a href=\"/healthcare-insurance/pshb/\"><span>Postal Service Health Benefits Program</span></a>\r\n\t\t\t\t\t\t\t\t\t</li>\r\n\t\t\t\t\t\t\t\t\t<li class=\"usa-nav__submenu-item\">\r\n\t\t\t\t\t\t\t\t\t\t<a href=\"/healthcare-insurance/medicare/\"><span>Medicare</span></a>\r\n\t\t\t\t\t\t\t\t\t</li>\r\n\t\t\t\t\t\t\t\t\t<li class=\"usa-nav__submenu-item\">\r\n\t\t\t\t\t\t\t\t\t\t<a href=\"/healthcare-insurance/dental-vision/\"><span>Dental &amp; Vision</span></a>\r\n\t\t\t\t\t\t\t\t\t</li>\r\n\t\t\t\t\t\t\t\t\t<li class=\"usa-nav__submenu-item\">\r\n\t\t\t\t\t\t\t\t\t\t<a href=\"/healthcare-insurance/healthcare/plan-information/compare-plans/fedvip/\"><span>FEDVIP Plan Comparison Tool</span></a>\r\n\t\t\t\t\t\t\t\t\t</li>\r\n\t\t\t\t\t\t\t\t\t<li class=\"usa-nav__submenu-item\">\r\n\t\t\t\t\t\t\t\t\t\t<a href=\"/healthcare-insurance/carriers/\"><span>Carriers</span></a>\r\n\t\t\t\t\t\t\t\t\t</li>\r\n\t\t\t\t\t\t\t\t\t<li class=\"usa-nav__submenu-item\">\r\n\t\t\t\t\t\t\t\t\t\t<a href=\"/healthcare-insurance/flexible-spending-accounts/\"><span>Flexible Spending Accounts</span></a>\r\n\t\t\t\t\t\t\t\t\t</li>\r\n\t\t\t\t\t\t\t\t\t<li class=\"usa-nav__submenu-item\">\r\n\t\t\t\t\t\t\t\t\t\t<a href=\"/healthcare-insurance/life-insurance/\"><span>Life Insurance</span></a>\r\n\t\t\t\t\t\t\t\t\t</li>\r\n\t\t\t\t\t\t\t\t\t<li class=\"usa-nav__submenu-item\">\r\n\t\t\t\t\t\t\t\t\t\t<a href=\"/healthcare-insurance/long-term-care/\"><span>Long Term Care</span></a>\r\n\t\t\t\t\t\t\t\t\t</li>\r\n\t\t\t\t\t\t\t\t\t<li class=\"usa-nav__submenu-item\">\r\n\t\t\t\t\t\t\t\t\t\t<a href=\"/healthcare-insurance/insurance-glossary/\"><span>Insurance Glossary</span></a>\r\n\t\t\t\t\t\t\t\t\t</li>\r\n\t\t\t\t\t\t\t\t\t<li class=\"usa-nav__submenu-item\">\r\n\t\t\t\t\t\t\t\t\t\t<a href=\"/healthcare-insurance/insurance-faqs/\"><span>Insurance FAQs</span></a>\r\n\t\t\t\t\t\t\t\t\t</li>\r\n\t\t\t\t\t\t\t\t\t<li class=\"usa-nav__submenu-item\">\r\n\t\t\t\t\t\t\t\t\t\t<a href=\"/healthcare-insurance/contact-healthcare-insurance/\"><span>Contact Healthcare &amp; Insurance</span></a>\r\n\t\t\t\t\t\t\t\t\t</li>\r\n\t\t\t\t\t\t\t\t\t<li class=\"usa-nav__submenu-item\">\r\n\t\t\t\t\t\t\t\t\t\t<a href=\"/healthcare-insurance/special-initiatives/\"><span>Special Initiatives</span></a>\r\n\t\t\t\t\t\t\t\t\t</li>\r\n\t\t\t\t\t\t\t\t\t<li class=\"usa-nav__submenu-item\">\r\n\t\t\t\t\t\t\t\t\t\t<a href=\"/healthcare-insurance/changes-in-health-coverage/\"><span>Changes in Health Coverage</span></a>\r\n\t\t\t\t\t\t\t\t\t</li>\r\n\t\t\t\t\t\t\t\t\t<li class=\"usa-nav__submenu-item\">\r\n\t\t\t\t\t\t\t\t\t\t<a href=\"/healthcare-insurance/multi-state-plan-program/issuer/\"><span>Issuer</span></a>\r\n\t\t\t\t\t\t\t\t\t</li>\r\n\t\t\t\t\t\t\t\t\t<li class=\"usa-nav__submenu-item\">\r\n\t\t\t\t\t\t\t\t\t\t<a href=\"/healthcare-insurance/life-events/\"><span>Life Events</span></a>\r\n\t\t\t\t\t\t\t\t\t</li>\r\n\t\t\t\t\t\t\t\t\t<li class=\"usa-nav__submenu-item\">\r\n\t\t\t\t\t\t\t\t\t\t<a href=\"/healthcare-insurance/affordable-care-act/\"><span>The Affordable Care Act</span></a>\r\n\t\t\t\t\t\t\t\t\t</li>\r\n\t\t\t\t\t\t\t\t</ul>\r\n\t\t\t\t\t\t\t</div>\r\n\t\t\t\t\t\t</li>\r\n\t\t\t\t\t\t<li class=\"usa-nav__primary-item\">\r\n\t\t\t\t\t\t\t<a tabindex=\"0\" class=\"\" aria-controls=\"retirement-control-id\">\r\n\t\t\t\t\t\t\t\t<span>Retirement</span>\r\n\t\t\t\t\t\t\t</a>\r\n\t\t\t\t\t\t\t<span class=\"nav-toggle\" title=\"toggle retirement subnavigation\" tabindex=\"0\">\r\n\t\t\t\t\t\t\t\t<span class=\"AccessibilityInfo\">Toggle submenu</span>\r\n\t\t\t\t\t\t\t</span>\r\n\t\t\t\t\t\t\t<div id=\"retirement-control-id\" class=\"usa-nav__submenu usa-megamenu\" style=\"display: none;\">\r\n\t\t\t\t\t\t\t\t<ul class=\"usa-nav__submenu__inner\">\r\n\t\t\t\t\t\t\t\t\t<li class=\"usa-nav__submenu-item\">\r\n\t\t\t\t\t\t\t\t\t\t<a href=\"/retirement-center/apply/\"><span>Apply for Retirement</span></a>\r\n\t\t\t\t\t\t\t\t\t</li>\r\n\t\t\t\t\t\t\t\t\t<li class=\"usa-nav__submenu-item\">\r\n\t\t\t\t\t\t\t\t\t\t<a href=\"/retirement-center/my-annuity-and-benefits/\"><span>My Annuity and Benefits</span></a>\r\n\t\t\t\t\t\t\t\t\t</li>\r\n\t\t\t\t\t\t\t\t\t<li class=\"usa-nav__submenu-item\">\r\n\t\t\t\t\t\t\t\t\t\t<a href=\"/retirement-center/csrs-information/\"><span>CSRS Information</span></a>\r\n\t\t\t\t\t\t\t\t\t</li>\r\n\t\t\t\t\t\t\t\t\t<li class=\"usa-nav__submenu-item\">\r\n\t\t\t\t\t\t\t\t\t\t<a href=\"/retirement-center/fers-information/\"><span>FERS Information</span></a>\r\n\t\t\t\t\t\t\t\t\t</li>\r\n\t\t\t\t\t\t\t\t\t<li class=\"usa-nav__submenu-item\">\r\n\t\t\t\t\t\t\t\t\t\t<a href=\"/retirement-center/phased-retirement/\"><span>Phased Retirement</span></a>\r\n\t\t\t\t\t\t\t\t\t</li>\r\n\t\t\t\t\t\t\t\t\t<li class=\"usa-nav__submenu-item\">\r\n\t\t\t\t\t\t\t\t\t\t<a href=\"/retirement-center/retirement-statistics/\"><span>Retirement Statistics</span></a>\r\n\t\t\t\t\t\t\t\t\t</li>\r\n\t\t\t\t\t\t\t\t\t<li class=\"usa-nav__submenu-item\">\r\n\t\t\t\t\t\t\t\t\t\t<a href=\"/retirement-center/special-notices/\"><span>Special Notices</span></a>\r\n\t\t\t\t\t\t\t\t\t</li>\r\n\t\t\t\t\t\t\t\t\t<li class=\"usa-nav__submenu-item\">\r\n\t\t\t\t\t\t\t\t\t\t<a href=\"/retirement-center/calculators/\"><span>Calculators</span></a>\r\n\t\t\t\t\t\t\t\t\t</li>\r\n\t\t\t\t\t\t\t\t\t<li class=\"usa-nav__submenu-item\">\r\n\t\t\t\t\t\t\t\t\t\t<a href=\"/retirement-center/tax-information-for-annuitants/\"><span>Tax Information for Annuitants</span></a>\r\n\t\t\t\t\t\t\t\t\t</li>\r\n\t\t\t\t\t\t\t\t\t<li class=\"usa-nav__submenu-item\">\r\n\t\t\t\t\t\t\t\t\t\t<a href=\"/retirement-center/publications-forms/\"><span>Publications &amp; Forms</span></a>\r\n\t\t\t\t\t\t\t\t\t</li>\r\n\t\t\t\t\t\t\t\t\t<li class=\"usa-nav__submenu-item\">\r\n\t\t\t\t\t\t\t\t\t\t<a href=\"/retirement-center/benefits-officers-center/\"><span>Benefits Officers Center</span></a>\r\n\t\t\t\t\t\t\t\t\t</li>\r\n\t\t\t\t\t\t\t\t\t<li class=\"usa-nav__submenu-item\">\r\n\t\t\t\t\t\t\t\t\t\t<a href=\"/retirement-center/retirement-faqs/\"><span>Retirement FAQs</span></a>\r\n\t\t\t\t\t\t\t\t\t</li>\r\n\t\t\t\t\t\t\t\t\t<li class=\"usa-nav__submenu-item\">\r\n\t\t\t\t\t\t\t\t\t\t<a href=\"/retirement-center/survivor-benefits/\"><span>Survivor Benefits</span></a>\r\n\t\t\t\t\t\t\t\t\t</li>\r\n\t\t\t\t\t\t\t\t\t<li class=\"usa-nav__submenu-item\">\r\n\t\t\t\t\t\t\t\t\t\t<a href=\"/retirement-center/how-to-make-a-payment/\"><span>How to Make a Payment</span></a>\r\n\t\t\t\t\t\t\t\t\t</li>\r\n\t\t\t\t\t\t\t\t\t<li class=\"usa-nav__submenu-item\">\r\n\t\t\t\t\t\t\t\t\t\t<a href=\"/support/retirement/contact/\"><span>Contact Retirement</span></a>\r\n\t\t\t\t\t\t\t\t\t</li>\r\n\t\t\t\t\t\t\t\t\t<li class=\"usa-nav__submenu-item\">\r\n\t\t\t\t\t\t\t\t\t\t<a href=\"https://www.opm.gov/Blogs/Retire/\"><span>Retirement Information Center</span></a>\r\n\t\t\t\t\t\t\t\t\t</li>\r\n\t\t\t\t\t\t\t\t</ul>\r\n\t\t\t\t\t\t\t</div>\r\n\t\t\t\t\t\t</li>\r\n\t\t\t\t\t\t<li class=\"usa-nav__primary-item\">\r\n\t\t\t\t\t\t\t<a tabindex=\"0\" class=\"\" aria-controls=\"suitability-control-id\">\r\n\t\t\t\t\t\t\t\t<span>Suitability</span>\r\n\t\t\t\t\t\t\t</a>\r\n\t\t\t\t\t\t\t<span class=\"nav-toggle\" title=\"toggle suitability subnavigation\" tabindex=\"0\">\r\n\t\t\t\t\t\t\t\t<span class=\"AccessibilityInfo\">Toggle submenu</span>\r\n\t\t\t\t\t\t\t</span>\r\n\t\t\t\t\t\t\t<div id=\"suitability-control-id\" class=\"usa-nav__submenu usa-megamenu\" style=\"display: none;\">\r\n\t\t\t\t\t\t\t\t<ul class=\"usa-nav__submenu__inner\">\r\n\t\t\t\t\t\t\t\t\t<li class=\"usa-nav__submenu-item\">\r\n\t\t\t\t\t\t\t\t\t\t<a href=\"/suitability/suitability-executive-agent/\"><span>Suitability Executive Agent</span></a>\r\n\t\t\t\t\t\t\t\t\t</li>\r\n\t\t\t\t\t\t\t\t\t<li class=\"usa-nav__submenu-item\">\r\n\t\t\t\t\t\t\t\t\t\t<a href=\"/suitability/suitability-executive-agent/position-designation-tool/\"><span>Position Designation Tool</span></a>\r\n\t\t\t\t\t\t\t\t\t</li>\r\n\t\t\t\t\t\t\t\t\t<li class=\"usa-nav__submenu-item\">\r\n\t\t\t\t\t\t\t\t\t\t<a href=\"/suitability/suitability-executive-agent/suitability-adjudications/\"><span>Suitability Adjudications</span></a>\r\n\t\t\t\t\t\t\t\t\t</li>\r\n\t\t\t\t\t\t\t\t\t<li class=\"usa-nav__submenu-item\">\r\n\t\t\t\t\t\t\t\t\t\t<a href=\"/suitability/suitability-executive-agent/suitability-training/\"><span>Suitability Training</span></a>\r\n\t\t\t\t\t\t\t\t\t</li>\r\n\t\t\t\t\t\t\t\t\t<li class=\"usa-nav__submenu-item\">\r\n\t\t\t\t\t\t\t\t\t\t<a href=\"/suitability/suitability-executive-agent/oversight/\"><span>Oversight</span></a>\r\n\t\t\t\t\t\t\t\t\t</li>\r\n\t\t\t\t\t\t\t\t\t<li class=\"usa-nav__submenu-item\">\r\n\t\t\t\t\t\t\t\t\t\t<a href=\"/suitability/suitability-executive-agent/policy/\"><span>Policy</span></a>\r\n\t\t\t\t\t\t\t\t\t</li>\r\n\t\t\t\t\t\t\t\t\t<li class=\"usa-nav__submenu-item\">\r\n\t\t\t\t\t\t\t\t\t\t<a href=\"/suitability/suitability-and-credentialing-faqs/\"><span>Frequently Asked Questions</span></a>\r\n\t\t\t\t\t\t\t\t\t</li>\r\n\t\t\t\t\t\t\t\t\t<li class=\"usa-nav__submenu-item\">\r\n\t\t\t\t\t\t\t\t\t\t<a href=\"/suitability/contact-suitea/\"><span>Contact SuitEA</span></a>\r\n\t\t\t\t\t\t\t\t\t</li>\r\n\t\t\t\t\t\t\t\t\t<li class=\"usa-nav__submenu-item\">\r\n\t\t\t\t\t\t\t\t\t\t<a href=\"/suitability/suitability-executive-agent/suitability-action-appeals/\"><span>Suitability Action Appeals</span></a>\r\n\t\t\t\t\t\t\t\t\t</li>\r\n\t\t\t\t\t\t\t\t</ul>\r\n\t\t\t\t\t\t\t</div>\r\n\t\t\t\t\t\t</li>\r\n\t\t\t\t\t\t<li class=\"usa-nav__primary-item\">\r\n\t\t\t\t\t\t\t<a tabindex=\"0\" class=\"\" aria-controls=\"agency-services-control-id\">\r\n\t\t\t\t\t\t\t\t<span>Agency Services</span>\r\n\t\t\t\t\t\t\t</a>\r\n\t\t\t\t\t\t\t<span class=\"nav-toggle\" title=\"toggle agency-services subnavigation\" tabindex=\"0\">\r\n\t\t\t\t\t\t\t\t<span class=\"AccessibilityInfo\">Toggle submenu</span>\r\n\t\t\t\t\t\t\t</span>\r\n\t\t\t\t\t\t\t<div id=\"agency-services-control-id\" class=\"usa-nav__submenu usa-megamenu\" style=\"display: none;\">\r\n\t\t\t\t\t\t\t\t<ul class=\"usa-nav__submenu__inner\">\r\n\t\t\t\t\t\t\t\t\t<li class=\"usa-nav__submenu-item\">\r\n\t\t\t\t\t\t\t\t\t\t<a href=\"/agency-services/talent-management-services/\"><span>Talent Management Services</span></a>\r\n\t\t\t\t\t\t\t\t\t</li>\r\n\t\t\t\t\t\t\t\t\t<li class=\"usa-nav__submenu-item\">\r\n\t\t\t\t\t\t\t\t\t\t<a href=\"/agency-services/talent-systems/\"><span>Talent Systems</span></a>\r\n\t\t\t\t\t\t\t\t\t</li>\r\n\t\t\t\t\t\t\t\t\t<li class=\"usa-nav__submenu-item\">\r\n\t\t\t\t\t\t\t\t\t\t<a href=\"/agency-services/training-and-development/\"><span>Training and Development</span></a>\r\n\t\t\t\t\t\t\t\t\t</li>\r\n\t\t\t\t\t\t\t\t\t<li class=\"usa-nav__submenu-item\">\r\n\t\t\t\t\t\t\t\t\t\t<a href=\"/agency-services/hr-governance/\"><span>HR Governance</span></a>\r\n\t\t\t\t\t\t\t\t\t</li>\r\n\t\t\t\t\t\t\t\t\t<li class=\"usa-nav__submenu-item\">\r\n\t\t\t\t\t\t\t\t\t\t<a href=\"https://data.opm.gov/\"><span>Workforce Data</span></a>\r\n\t\t\t\t\t\t\t\t\t</li>\r\n\t\t\t\t\t\t\t\t\t<li class=\"usa-nav__submenu-item\">\r\n\t\t\t\t\t\t\t\t\t\t<a href=\"/agency-services/contact/\"><span>Contact</span></a>\r\n\t\t\t\t\t\t\t\t\t</li>\r\n\t\t\t\t\t\t\t\t</ul>\r\n\t\t\t\t\t\t\t</div>\r\n\t\t\t\t\t\t</li>\r\n\t\t\t\t\t\t<li class=\"usa-nav__primary-item\">\r\n\t\t\t\t\t\t\t<a tabindex=\"0\" class=\"\" aria-controls=\"news-control-id\">\r\n\t\t\t\t\t\t\t\t<span>News</span>\r\n\t\t\t\t\t\t\t</a>\r\n\t\t\t\t\t\t\t<span class=\"nav-toggle\" title=\"toggle news subnavigation\" tabindex=\"0\">\r\n\t\t\t\t\t\t\t\t<span class=\"AccessibilityInfo\">Toggle submenu</span>\r\n\t\t\t\t\t\t\t</span>\r\n\t\t\t\t\t\t\t<div id=\"news-control-id\" class=\"usa-nav__submenu usa-megamenu\" style=\"display: none;\">\r\n\t\t\t\t\t\t\t\t<ul class=\"usa-nav__submenu__inner\">\r\n\t\t\t\t\t\t\t\t\t<li class=\"usa-nav__submenu-item\">\r\n\t\t\t\t\t\t\t\t\t\t<a href=\"/news/secrets-of-opm/\"><span>Secrets of OPM</span></a>\r\n\t\t\t\t\t\t\t\t\t</li>\r\n\t\t\t\t\t\t\t\t\t<li class=\"usa-nav__submenu-item\">\r\n\t\t\t\t\t\t\t\t\t\t<a href=\"/news/from-the-director-s-desk/\"><span>From the Director\u2019s Desk</span></a>\r\n\t\t\t\t\t\t\t\t\t</li>\r\n\t\t\t\t\t\t\t\t\t<li class=\"usa-nav__submenu-item\">\r\n\t\t\t\t\t\t\t\t\t\t<a href=\"/news/news-releases/\"><span>News Releases</span></a>\r\n\t\t\t\t\t\t\t\t\t</li>\r\n\t\t\t\t\t\t\t\t</ul>\r\n\t\t\t\t\t\t\t</div>\r\n\t\t\t\t\t\t</li>\r\n\t\t\t\t\t</ul>\r\n\t\t\t\t</div>\r\n\t\t\t\t<div class=\"left-panel-bottom-2\">\r\n\t\t\t\t\t<span class=\"nav-header\">In this section</span>\r\n\t\t\t\t</div>\r\n\t\t\t</div>\r\n\t\t</nav>\r\n\t</header>\r\n\r\n\t<header>\r\n\t\t<div id=\"Top_Wrapper\" style=\"display:none;\">\r\n\t\t\t<div class=\"MaxWidth_Container\">\r\n\t\t\t\t<div id=\"VersionPlaceholder\" class=\"DevBanner\">\r\n\r\n\t\t\t\t</div>\r\n\t\t\t\t<div id=\"Top_Container\">\r\n\t\t\t\t\t<ul id=\"SocialIcons\">\r\n\t\t\t\t\t\t<li><a href=\"/leaving/index.aspx?link=http://www.facebook.com/USOPM\" class=\"social_facebook\" title=\"Fan us on Facebook\">Facebook</a></li>\r\n\t\t\t\t\t\t<li><a href=\"/leaving/index.aspx?link=http://twitter.com/USOPM\" class=\"social_twitter\" title=\"Follow us on Twitter\">Twitter</a></li>\r\n\t\t\t\t\t</ul>\r\n\t\t\t\t\t<ul id=\"TopLinks\">\r\n\t\t\t\t\t\t<li class=\"First\"><a href=\"/a-z-index/\">A&#8211;Z Index</a></li>\r\n\t\t\t\t\t\t<li><a href=\"/about-us/contact-us/\">Contact Us</a></li>\r\n\t\t\t\t\t\t<li><a href=\"/forms/\">Forms</a></li>\r\n\t\t\t\t\t\t<li class=\"Last\"><a href=\"/FAQs/\">FAQs</a></li>\r\n\t\t\t\t\t</ul>\r\n\t\t\t\t\t<div id=\"container_operatingstatus\" tabindex=\"-1\">\r\n\t\t\t\t\t\t<div class=\"label\"><a href=\"/policy-data-oversight/snow-dismissal-procedures/current-status/\">Operating Status:</a></div>\r\n\t\t\t\t\t\t<div class=\"message loading\" tabindex=\"-1\"><a href=\"/policy-data-oversight/snow-dismissal-procedures/current-status/\" tabindex=\"-1\"><span tabindex=\"-1\">Loading</span></a></div>\r\n\t\t\t\t\t</div>\r\n\t\t\t\t\t<div class=\"SearchBox\">\r\n\t\t\t\t\t\t<form>\r\n\t\t\t\t\t\t\t<label id=\"SearchFor\" for=\"SiteSearchString\" class=\"SearchFor\">Search for</label>\r\n\t\t\t\t\t\t\t<input type=\"text\" name=\"SiteSearchString\" id=\"SiteSearchString\" class=\"txtSearch default\" />\r\n\t\t\t\t\t\t\t<span>\r\n\t\t\t\t\t\t\t\t<input type=\"button\" name=\"GoSearch\" id=\"GoSearch\" class=\"go\" value=\"Go\" onclick=\"return performSearch('SiteSearchString');\" />\r\n\t\t\t\t\t\t\t</span>\r\n\t\t\t\t\t\t</form>\r\n\t\t\t\t\t</div>\r\n\t\t\t\t\t<a id=\"USBanner\" href=\"/leaving/index.aspx?link=http://www.whitehouse.gov\"><img src=\"/img/global/Flag.gif\" alt=\"An official website of the United States Government.\" title=\"An official website of the United States Government.\" /></a>\r\n\t\t\t\t</div>\r\n\t\t\t</div>\r\n\t\t</div>\r\n\t\t<div id=\"Navigation_Container\" style=\"display:none;\">\r\n\t\t\t<div id=\"OPMLogo\">\r\n\t\t\t\t<a href=\"/\"><span>U.S. Office of Personnel Management</span></a>\r\n\t\t\t</div>\r\n\t\t\t<nav id=\"ContentPlaceHolderDefault_MainNavigation\">\r\n<ul id=\"MainNavigationList\"><li class=\"about-us\"><a href=\"/about-us/\"><span>About</span></a><a class=\"toggleNavShow\" href=\"#\" tabindex=\"-1\">\r\n                Open \"About\" Submenu\r\n              </a><div class=\"ddNavWrapper\"><table cellpadding=\"0\" cellspacing=\"0\"><tr><td class=\"ddNavCorner ddNavCornerTL\" /><td class=\"ddNavEdge ddNavEdgeTop\" /><td class=\"ddNavCorner ddNavCornerTR\" /></tr><tr><td class=\"ddNavEdge ddNavEdgeLeft\" /><td class=\"ddNavBody HasFeaturedContent&#xD;&#xA;&#x9;&#x9;&#x9;&#x9;&#x9;&#x9;\"><div class=\"SecondaryNav_Wrapper\" parentnavitem=\"/about-us/\"><ul class=\"SecondaryNav FirstColumn\">\r\n\t\t\r\n\t\t\r\n\t\t\r\n\t\t\r\n\t\t\r\n\t\t\r\n\t\t\r\n\t\t\r\n\t\t\r\n\t\t\r\n\t\t\r\n\t\t\r\n\t\t\r\n\t\t\r\n\t\t\r\n\t\t\r\n\t\t\r\n\t\t\r\n\t\t\r\n\t\t\r\n\t\t\r\n\t\t\r\n\t\t\r\n\t\t</ul><ul class=\"SecondaryNav SecondColumn\">\r\n\t\t\r\n\t\t\r\n\t\t\r\n\t\t\r\n\t\t\r\n\t\t\r\n\t\t\r\n\t\t\r\n\t\t\r\n\t\t\r\n\t\t\r\n\t\t\r\n\t\t\r\n\t\t\r\n\t\t\r\n\t\t\r\n\t\t\r\n\t\t\r\n\t\t\r\n\t\t\r\n\t\t\r\n\t\t\r\n\t\t\r\n\t\t</ul></div><div class=\"Featured_Container\" parentpath=\"/about-us/\" /></td><td class=\"ddNavEdge ddNavEdgeRight\" /></tr><tr><td class=\"ddNavCorner ddNavCornerBL\" /><td class=\"ddNavEdge ddNavEdgeBottom\"><a class=\"toggleNavHide\" href=\"#\" tabindex=\"-1\">Close Menu</a></td><td class=\"ddNavCorner ddNavCornerBR\" /></tr></table></div>\r\n\t\t\t\t\t</li>\r\n\t\t<li class=\"policy\"><a href=\"/policy-data-oversight/\"><span>Policy</span></a><a class=\"toggleNavShow\" href=\"#\" tabindex=\"-1\">\r\n                Open \"Policy\" Submenu\r\n              </a><div class=\"ddNavWrapper\"><table cellpadding=\"0\" cellspacing=\"0\"><tr><td class=\"ddNavCorner ddNavCornerTL\" /><td class=\"ddNavEdge ddNavEdgeTop\" /><td class=\"ddNavCorner ddNavCornerTR\" /></tr><tr><td class=\"ddNavEdge ddNavEdgeLeft\" /><td class=\"ddNavBody HasFeaturedContent&#xD;&#xA;&#x9;&#x9;&#x9;&#x9;&#x9;&#x9;\"><div class=\"SecondaryNav_Wrapper\" parentnavitem=\"/policy-data-oversight/\"><ul class=\"SecondaryNav FirstColumn\">\r\n\t\t\r\n\t\t\r\n\t\t\r\n\t\t\r\n\t\t\r\n\t\t\r\n\t\t\r\n\t\t\r\n\t\t\r\n\t\t\r\n\t\t\r\n\t\t\r\n\t\t\r\n\t\t\r\n\t\t\r\n\t\t\r\n\t\t\r\n\t\t\r\n\t\t\r\n\t\t\r\n\t\t\r\n\t\t\r\n\t\t\r\n\t\t\r\n\t\t\r\n\t\t\r\n\t\t</ul><ul class=\"SecondaryNav SecondColumn\">\r\n\t\t\r\n\t\t\r\n\t\t\r\n\t\t\r\n\t\t\r\n\t\t\r\n\t\t\r\n\t\t\r\n\t\t\r\n\t\t\r\n\t\t\r\n\t\t\r\n\t\t\r\n\t\t\r\n\t\t\r\n\t\t\r\n\t\t\r\n\t\t\r\n\t\t\r\n\t\t\r\n\t\t\r\n\t\t\r\n\t\t\r\n\t\t\r\n\t\t\r\n\t\t\r\n\t\t</ul></div><div class=\"Featured_Container\" parentpath=\"/policy-data-oversight/\" /></td><td class=\"ddNavEdge ddNavEdgeRight\" /></tr><tr><td class=\"ddNavCorner ddNavCornerBL\" /><td class=\"ddNavEdge ddNavEdgeBottom\"><a class=\"toggleNavHide\" href=\"#\" tabindex=\"-1\">Close Menu</a></td><td class=\"ddNavCorner ddNavCornerBR\" /></tr></table></div>\r\n\t\t\t\t\t</li>\r\n\t\t<li class=\"compliance\"><a href=\"/compliance/\"><span>Compliance</span></a><a class=\"toggleNavShow\" href=\"#\" tabindex=\"-1\">\r\n                Open \"Compliance\" Submenu\r\n              </a><div class=\"ddNavWrapper\"><table cellpadding=\"0\" cellspacing=\"0\"><tr><td class=\"ddNavCorner ddNavCornerTL\" /><td class=\"ddNavEdge ddNavEdgeTop\" /><td class=\"ddNavCorner ddNavCornerTR\" /></tr><tr><td class=\"ddNavEdge ddNavEdgeLeft\" /><td class=\"ddNavBody HasFeaturedContent&#xD;&#xA;&#x9;&#x9;&#x9;&#x9;&#x9;&#x9;\"><div class=\"SecondaryNav_Wrapper\" parentnavitem=\"/compliance/\"><ul class=\"SecondaryNav\">\r\n\t\t\r\n\t\t</ul></div><div class=\"Featured_Container\" parentpath=\"/compliance/\" /></td><td class=\"ddNavEdge ddNavEdgeRight\" /></tr><tr><td class=\"ddNavCorner ddNavCornerBL\" /><td class=\"ddNavEdge ddNavEdgeBottom\"><a class=\"toggleNavHide\" href=\"#\" tabindex=\"-1\">Close Menu</a></td><td class=\"ddNavCorner ddNavCornerBR\" /></tr></table></div>\r\n\t\t\t\t\t</li>\r\n\t\t\r\n\t\t<li class=\"insurance\"><a href=\"/healthcare-insurance/\"><span>Insurance</span></a><a class=\"toggleNavShow\" href=\"#\" tabindex=\"-1\">\r\n                Open \"Insurance\" Submenu\r\n              </a><div class=\"ddNavWrapper\"><table cellpadding=\"0\" cellspacing=\"0\"><tr><td class=\"ddNavCorner ddNavCornerTL\" /><td class=\"ddNavEdge ddNavEdgeTop\" /><td class=\"ddNavCorner ddNavCornerTR\" /></tr><tr><td class=\"ddNavEdge ddNavEdgeLeft\" /><td class=\"ddNavBody HasFeaturedContent&#xD;&#xA;&#x9;&#x9;&#x9;&#x9;&#x9;&#x9;\"><div class=\"SecondaryNav_Wrapper\" parentnavitem=\"/healthcare-insurance/\"><ul class=\"SecondaryNav FirstColumn\">\r\n\t\t\r\n\t\t\r\n\t\t\r\n\t\t\r\n\t\t\r\n\t\t\r\n\t\t\r\n\t\t\r\n\t\t\r\n\t\t\r\n\t\t\r\n\t\t\r\n\t\t\r\n\t\t\r\n\t\t\r\n\t\t\r\n\t\t\r\n\t\t\r\n\t\t\r\n\t\t\r\n\t\t\r\n\t\t</ul><ul class=\"SecondaryNav SecondColumn\">\r\n\t\t\r\n\t\t\r\n\t\t\r\n\t\t\r\n\t\t\r\n\t\t\r\n\t\t\r\n\t\t\r\n\t\t\r\n\t\t\r\n\t\t\r\n\t\t\r\n\t\t\r\n\t\t\r\n\t\t\r\n\t\t\r\n\t\t\r\n\t\t\r\n\t\t\r\n\t\t\r\n\t\t\r\n\t\t</ul></div><div class=\"Featured_Container\" parentpath=\"/healthcare-insurance/\" /></td><td class=\"ddNavEdge ddNavEdgeRight\" /></tr><tr><td class=\"ddNavCorner ddNavCornerBL\" /><td class=\"ddNavEdge ddNavEdgeBottom\"><a class=\"toggleNavHide\" href=\"#\" tabindex=\"-1\">Close Menu</a></td><td class=\"ddNavCorner ddNavCornerBR\" /></tr></table></div>\r\n\t\t\t\t\t</li>\r\n\t\t<li class=\"retirement\"><a href=\"/retirement-center/\"><span>Retirement</span></a><a class=\"toggleNavShow\" href=\"#\" tabindex=\"-1\">\r\n                Open \"Retirement\" Submenu\r\n              </a><div class=\"ddNavWrapper\"><table cellpadding=\"0\" cellspacing=\"0\"><tr><td class=\"ddNavCorner ddNavCornerTL\" /><td class=\"ddNavEdge ddNavEdgeTop\" /><td class=\"ddNavCorner ddNavCornerTR\" /></tr><tr><td class=\"ddNavEdge ddNavEdgeLeft\" /><td class=\"ddNavBody HasFeaturedContent&#xD;&#xA;&#x9;&#x9;&#x9;&#x9;&#x9;&#x9;\"><div class=\"SecondaryNav_Wrapper\" parentnavitem=\"/retirement-center/\"><ul class=\"SecondaryNav FirstColumn\">\r\n\t\t\r\n\t\t\r\n\t\t\r\n\t\t\r\n\t\t\r\n\t\t\r\n\t\t\r\n\t\t\r\n\t\t\r\n\t\t\r\n\t\t\r\n\t\t\r\n\t\t\r\n\t\t\r\n\t\t\r\n\t\t</ul><ul class=\"SecondaryNav SecondColumn\">\r\n\t\t\r\n\t\t\r\n\t\t\r\n\t\t\r\n\t\t\r\n\t\t\r\n\t\t\r\n\t\t\r\n\t\t\r\n\t\t\r\n\t\t\r\n\t\t\r\n\t\t\r\n\t\t\r\n\t\t\r\n\t\t</ul></div><div class=\"Featured_Container\" parentpath=\"/retirement-center/\" /></td><td class=\"ddNavEdge ddNavEdgeRight\" /></tr><tr><td class=\"ddNavCorner ddNavCornerBL\" /><td class=\"ddNavEdge ddNavEdgeBottom\"><a class=\"toggleNavHide\" href=\"#\" tabindex=\"-1\">Close Menu</a></td><td class=\"ddNavCorner ddNavCornerBR\" /></tr></table></div>\r\n\t\t\t\t\t</li>\r\n\t\t<li class=\"investigations\"><a href=\"/suitability/\"><span>Suitability</span></a><a class=\"toggleNavShow\" href=\"#\" tabindex=\"-1\">\r\n                Open \"Suitability\" Submenu\r\n              </a><div class=\"ddNavWrapper\"><table cellpadding=\"0\" cellspacing=\"0\"><tr><td class=\"ddNavCorner ddNavCornerTL\" /><td class=\"ddNavEdge ddNavEdgeTop\" /><td class=\"ddNavCorner ddNavCornerTR\" /></tr><tr><td class=\"ddNavEdge ddNavEdgeLeft\" /><td class=\"ddNavBody HasFeaturedContent&#xD;&#xA;&#x9;&#x9;&#x9;&#x9;&#x9;&#x9;\"><div class=\"SecondaryNav_Wrapper\" parentnavitem=\"/suitability/\"><ul class=\"SecondaryNav\">\r\n\t\t\r\n\t\t\r\n\t\t\r\n\t\t\r\n\t\t\r\n\t\t\r\n\t\t\r\n\t\t\r\n\t\t</ul></div><div class=\"Featured_Container\" parentpath=\"/suitability/\" /></td><td class=\"ddNavEdge ddNavEdgeRight\" /></tr><tr><td class=\"ddNavCorner ddNavCornerBL\" /><td class=\"ddNavEdge ddNavEdgeBottom\"><a class=\"toggleNavHide\" href=\"#\" tabindex=\"-1\">Close Menu</a></td><td class=\"ddNavCorner ddNavCornerBR\" /></tr></table></div>\r\n\t\t\t\t\t</li>\r\n\t\t<li class=\"services\"><a href=\"/agency-services/\"><span>Agency Services</span></a><a class=\"toggleNavShow\" href=\"#\" tabindex=\"-1\">\r\n                Open \"Agency Services\" Submenu\r\n              </a><div class=\"ddNavWrapper\"><table cellpadding=\"0\" cellspacing=\"0\"><tr><td class=\"ddNavCorner ddNavCornerTL\" /><td class=\"ddNavEdge ddNavEdgeTop\" /><td class=\"ddNavCorner ddNavCornerTR\" /></tr><tr><td class=\"ddNavEdge ddNavEdgeLeft\" /><td class=\"ddNavBody HasFeaturedContent&#xD;&#xA;&#x9;&#x9;&#x9;&#x9;&#x9;&#x9;\"><div class=\"SecondaryNav_Wrapper\" parentnavitem=\"/agency-services/\"><ul class=\"SecondaryNav\">\r\n\t\t\r\n\t\t\r\n\t\t\r\n\t\t\r\n\t\t\r\n\t\t</ul></div><div class=\"Featured_Container\" parentpath=\"/agency-services/\" /></td><td class=\"ddNavEdge ddNavEdgeRight\" /></tr><tr><td class=\"ddNavCorner ddNavCornerBL\" /><td class=\"ddNavEdge ddNavEdgeBottom\"><a class=\"toggleNavHide\" href=\"#\" tabindex=\"-1\">Close Menu</a></td><td class=\"ddNavCorner ddNavCornerBR",
+          "title": "FEVS - OPM.gov",
+          "httpStatus": 200
+        },
+        {
+          "type": "openrouter:web_search",
+          "id": "st_tmp_zu5nkn02c3p",
+          "status": "completed",
+          "action": {
+            "type": "search",
+            "query": "FEVS raw data CSV download archive public use file years 2020 2021 2022 2023 2024",
+            "sources": [
+              {
+                "type": "url",
+                "url": "https://www.opm.gov/fevs/public-data-file/"
+              },
+              {
+                "type": "url",
+                "url": "https://catalog.data.gov/harvest_record/533660b3-c0f5-4781-a4ae-5162acf4a22c/raw"
+              },
+              {
+                "type": "url",
+                "url": "https://www.icpsr.umich.edu/sites/datalumos/view/studies/251636/versions/V1.0"
+              },
+              {
+                "type": "url",
+                "url": "https://www.datalumos.org/datalumos/project/248623/version/V1/view"
+              },
+              {
+                "type": "url",
+                "url": "https://www.opm.gov/fevs/reports/technical-reports/technical-report/technical-report/2024/2024-technical-report.pdf"
+              },
+              {
+                "type": "url",
+                "url": "https://www.opm.gov/fevs/reports/"
+              },
+              {
+                "type": "url",
+                "url": "http://catalog.data.gov/dataset/federal-employee-viewpoint-survey-fevs-global-satisfaction-index-results-by-agency"
+              },
+              {
+                "type": "url",
+                "url": "https://github.laiyagushi.com/ebmgt/FEVS"
+              },
+              {
+                "type": "url",
+                "url": "https://www.opm.gov/fevs/reports/governmentwide-reports/"
+              },
+              {
+                "type": "url",
+                "url": "https://exa.ai/library/publication/090sy7y513c"
+              }
+            ]
+          }
+        },
+        {
+          "type": "openrouter:web_search",
+          "id": "st_tmp_jrs6mnlo2f",
+          "status": "completed",
+          "action": {
+            "type": "search",
+            "query": "FEVS 2025 changes OPM discontinuing survey questions removed controversy",
+            "sources": [
+              {
+                "type": "url",
+                "url": "https://content.govdelivery.com/accounts/USOPM/bulletins/3ede04d"
+              },
+              {
+                "type": "url",
+                "url": "https://www.opm.gov/chcoc/latest-memos/2025-federal-employee-viewpoint-survey-and-compliance-with-recent-executive-orders.pdf"
+              },
+              {
+                "type": "url",
+                "url": "https://federalnewsnetwork.com/workforce/2025/08/after-months-of-postponing-opm-opts-to-fully-cancel-2025-fevs/"
+              },
+              {
+                "type": "url",
+                "url": "https://federalnewsnetwork.com/workforce/2025/02/opm-delays-fevs-timeline-removes-deia-survey-questions/"
+              },
+              {
+                "type": "url",
+                "url": "https://www.govexec.com/oversight/2025/08/opm-will-forego-fevs-2025-despite-law-requiring-it/407584/"
+              },
+              {
+                "type": "url",
+                "url": "https://www.fedweek.com/fedweek/opm-calls-off-viewpoint-survey-next-edition-to-be-revised/"
+              },
+              {
+                "type": "url",
+                "url": "https://www.vanhollen.senate.gov/news/press-releases/van-hollen-colleagues-press-administration-for-answers-on-cancellation-of-federal-employee-survey-essential-for-government-oversight"
+              },
+              {
+                "type": "url",
+                "url": "https://www.opm.gov/chcoc/transmittals/2025/Memo%20on%20FEVS%20ReportsFINAL.pdf"
+              },
+              {
+                "type": "url",
+                "url": "https://federalnewsnetwork.com/federal-report/2025/09/without-fevs-this-year-whats-next-for-agencies/"
+              },
+              {
+                "type": "url",
+                "url": "https://www.fedsmith.com/2025/08/21/federal-employees-doubt-surveys-impact-as-opm-cancels-2025-fevs/"
+              }
+            ]
+          }
+        },
+        {
+          "type": "openrouter:web_search",
+          "id": "st_tmp_w11lofvv9or",
+          "status": "completed",
+          "action": {
+            "type": "search",
+            "query": "\"Best Places to Work in the Federal Government\" Partnership for Public Service FEVS rankings uses",
+            "sources": [
+              {
+                "type": "url",
+                "url": "https://bestplacestowork.org/about/2025-public-service-viewpoint-survey-methodology/"
+              },
+              {
+                "type": "url",
+                "url": "https://bestplacestowork.org/15-editions-of-best-places-to-work-report/"
+              },
+              {
+                "type": "url",
+                "url": "https://bestplacestowork.org/about/frequently-asked-questions/"
+              },
+              {
+                "type": "url",
+                "url": "https://bestplacestowork.org/historical-information-by-agency/"
+              },
+              {
+                "type": "url",
+                "url": "https://oversight.house.gov/hearing/best-worst-places-work-federal-government/"
+              },
+              {
+                "type": "url",
+                "url": "https://bestplacestowork.org/data-dashboard/"
+              },
+              {
+                "type": "url",
+                "url": "https://ourpublicservice.org/press-release/2020-best-places-to-work-in-the-federal-government-rankings-show-impact-of-covid-19-pandemic-on-the-federal-workforce/"
+              },
+              {
+                "type": "url",
+                "url": "https://www.washingtonpost.com/business/interactive/2023/top-workplaces-federal-government/"
+              },
+              {
+                "type": "url",
+                "url": "https://bestplacestowork.org/wp-content/uploads/sites/11/2025/03/BPTW24_Rankings.pdf"
+              },
+              {
+                "type": "url",
+                "url": "https://dev.bestplacestowork.org/rankings/"
+              }
+            ]
+          }
+        },
+        {
+          "type": "openrouter:web_search",
+          "id": "st_tmp_cma4ql56val",
+          "status": "completed",
+          "action": {
+            "type": "search",
+            "query": "Federal Employee Viewpoint Survey research uses academic public management engagement index Best Places to Work methodology"
+          }
+        },
+        {
+          "type": "openrouter:web_fetch",
+          "id": "st_tmp_pm47psf6yc",
+          "status": "incomplete",
+          "url": "https://www.opm.gov/chcoc/latest-memos/annual-employee-survey-administration-requirements-2026-and-beyond.pdf",
+          "httpStatus": 200,
+          "error": "PDF content cannot be processed by the OpenRouter engine. Use engine: \"native\" (Anthropic models only) or engine: \"firecrawl\" for PDF support."
+        },
+        {
+          "type": "openrouter:web_fetch",
+          "id": "st_tmp_thla1vro0c",
+          "status": "completed",
+          "url": "https://www.opm.gov/fevs/public-data-file/",
+          "content": "\r\n\r\n\r\n\r\n<!DOCTYPE html>\r\n\r\n<html   xmlns=\"http://www.w3.org/1999/xhtml\"      xmlns:og=\"http://opengraphprotocol.org/schema/\"      xmlns:fb=\"http://www.facebook.com/2008/fbml\"      lang=\"en\"      xml:lang=\"en\"    >\r\n<head>\r\n\t<meta http-equiv=\"X-UA-Compatible\" content=\"IE=edge\" />\r\n\t<link rel=\"shortcut icon\" href=\"/favicon.ico\" />\r\n\r\n\t\r\n\t\r\n\t\t<title>Public Data File</title>\r\n\t<meta http-equiv=\"Content-Type\" content=\"text/html; charset=utf-8\" />\r\n\t<meta name=\"description\" content=\"Welcome to opm.gov\" />\r\n\t<meta name=\"keywords\" content=\"OPM,Office of Personnel Management,opm.gov\" />\r\n\t<meta name=\"Expires\" content=\"\" />\r\n\t<meta name=\"TemplateVersion\" content=\"3.0\" />\r\n\t<meta name=\"viewport\" content=\"width=device-width\" />\r\n\r\n\t\r\n    \r\n\r\n\r\n\t<meta property=\"fb:admins\" content=\"568256384\" />\r\n\t<meta property=\"fb:app_id\" content=\"121223957945585\" />\r\n\t<meta property=\"og:type\" content=\"article\" />\r\n\t<meta property=\"og:site_name\" content=\"U.S. Office of Personnel Management\" />\r\n\t<meta property=\"og:image\" content=\"https://www.opm.gov/img/global/opm-seal-share.png\" />\r\n\t<meta property=\"og:url\" content=\"https://www.opm.gov/fevs/public-data-file/\" />\r\n\r\n<link href=\"/cdn/css/themes/opm-uswds/styles.css?v=20250213\"  type=\"text/css\" rel=\"stylesheet\" media=\"screen,projection\"/>\r\n<link href=\"/cdn/css/responsive/global-medium.css\"  type=\"text/css\" rel=\"stylesheet\" media=\"screen,projection\"/>\r\n<link href=\"/cdn/css/responsive/global-small.css\"  type=\"text/css\" rel=\"stylesheet\" media=\"screen,projection\"/>\r\n<link href=\"/cdn/lib/font-awesome/6.2.0/css/all.min.css\"  type=\"text/css\" rel=\"stylesheet\" media=\"screen,projection\"/>\r\n<link href=\"/cdn/lib/font-awesome/6.2.0/css/v5-font-face.min.css\"  type=\"text/css\" rel=\"stylesheet\" media=\"screen,projection\"/>\r\n<link href=\"//use.typekit.net/vgn7vpt.css\"  type=\"text/css\" rel=\"stylesheet\" media=\"screen,projection\"/>\r\n<link href=\"/cdn/css/lib/colorbox/colorbox.css\"  type=\"text/css\" rel=\"stylesheet\" media=\"screen,projection\"/>\r\n<link href=\"/css/print.css\"  type=\"text/css\" rel=\"stylesheet\" media=\"print\"/>\r\n<link href=\"/cdn/css/print.css\"  type=\"text/css\" rel=\"stylesheet\" media=\"print\"/>\r\n\r\n\r\n\t<script type=\"text/javascript\" language=\"javascript\">\r\n            var primaryServer = \"www.opm.gov\";\r\n\t</script>\r\n\r\n<script src=\"//ajax.googleapis.com/ajax/libs/jquery/3.6.3/jquery.min.js\" type=\"text/javascript\" ></script><script type=\"text/javascript\">\r\nif( !window.jQuery ) {document.write('<script src=\"\\/cdn\\/js\\/lib\\/jquery\\/jquery-3.6.3.min.js\" type=\"text/javascript\" ><\\/script>');}\r\n</script>\r\n<!--[if lt IE 9]><script src=\"/js/jquery.json-2.3.min.js\" type=\"text/javascript\" ></script><![endif]-->\r\n<!--[if lt IE 9]><script src=\"//html5shiv.googlecode.com/svn/trunk/html5.js\" type=\"text/javascript\" ></script><![endif]-->\r\n<script src=\"/js/jstorage.min.js\" type=\"text/javascript\" ></script>\r\n<script src=\"/js/jquery-ui.min.js\" type=\"text/javascript\" ></script>\r\n<script src=\"/js/jquery.validate.min.js\" type=\"text/javascript\" ></script>\r\n<script src=\"/js/core/webmethods.setup.js\" type=\"text/javascript\" ></script>\r\n\r\n\r\n\r\n\t<script type=\"text/javascript\" language=\"javascript\">\r\n\t\tvar AccessibilityMode = false;\r\n\t</script>\r\n\r\n\t\r\n    \r\n    <meta name=\"viewport\" content=\"width=device-width,initial-scale=1\">\r\n    <link href=\"https://fonts.googleapis.com/css?family=Source+Sans+Pro\" rel=\"stylesheet\">\r\n        <link href=\"/css/fevs/fevs-USWDS.css\" type=\"text/css\" rel=\"stylesheet\" media=\"screen,projection\" />\r\n        <link href=\"/css/fevs/fevs-responsive-USWDS.css\" type=\"text/css\" rel=\"stylesheet\" media=\"screen,projection\" />\r\n\r\n\r\n\t\r\n    \r\n\r\n\r\n\r\n\r\n\t<script type=\"text/javascript\" src=\"/js/jstorage.min.js\"></script>\r\n</head>\r\n<body id=\"htmBody\" class=\"\" >\r\n\t<!-- Google Tag Manager (noscript) -->\r\n\t<noscript>\r\n\t\t<iframe src=\"https://www.googletagmanager.com/ns.html?id=GTM-WGTWNGX\"\r\n\t\t\t\theight=\"0\" width=\"0\" style=\"display:none;visibility:hidden\"></iframe>\r\n\t</noscript>\r\n\t<!-- End Google Tag Manager (noscript) -->\r\n\t<a class=\"usa-skipnav skipnav\" href=\"#main-main-content\">Skip to main content</a>\r\n\r\n\t<script type=\"text/javascript\">\r\n\t\tvar optInResponsive = true;\r\n\t\tvar enableFeedTemplateData = true; //enables the remote loading of top/left/footer navigation using JSON (see core.standard.js)\r\n\t\tif (window.document.documentMode) { //testing for IE, if visiting in IE, disable the remote loading of nav and responsive\r\n\t\t\tenableFeedTemplateData = false;\r\n\t\t\toptInResponsive = false;\r\n\t\t}\r\n\r\n\t\t$(\".ChangeValidationSettings\").click(function (e) {\r\n\t\t\te.preventDefault();\r\n\t\t\tcore.toggleAccessibilityMode();\r\n\t\t});\r\n\r\n\t\tcore.setAccessibilityInfo();\r\n\t</script>\r\n\t<section class=\"usa-banner\" id=\"USWDS-usa-banner\" aria-label=\"Official government website\">\r\n\t\t<div class=\"usa-accordion\">\r\n\t\t\t<header class=\"usa-banner__header\">\r\n\t\t\t\t<div class=\"usa-banner__inner\">\r\n\t\t\t\t\t<div class=\"grid-col-auto\">\r\n\t\t\t\t\t\t<img class=\"usa-banner__header-flag\" src=\"/cdn/img/us_flag_small.png\"\r\n\t\t\t\t\t\t\t alt=\"U.S. flag\">\r\n\t\t\t\t\t</div>\r\n\t\t\t\t\t<div class=\"grid-col-fill tablet:grid-col-auto\">\r\n\t\t\t\t\t\t<p class=\"usa-banner__header-text\">An official website of the United States government</p>\r\n\t\t\t\t\t\t<p class=\"usa-banner__header-action\" aria-hidden=\"true\">Here's how you know</p>\r\n\t\t\t\t\t</div>\r\n\t\t\t\t\t<button class=\"usa-accordion__button usa-banner__button\" aria-expanded=\"false\"\r\n\t\t\t\t\t\t\taria-controls=\"gov-banner\">\r\n\t\t\t\t\t\t<span class=\"usa-banner__button-text\">Here's how you know</span>\r\n\t\t\t\t\t</button>\r\n\t\t\t\t</div>\r\n\t\t\t</header>\r\n\t\t\t<div class=\"usa-banner__content usa-accordion__content\" id=\"gov-banner\">\r\n\t\t\t\t<div class=\"grid-row grid-gap-lg\">\r\n\t\t\t\t\t<div class=\"usa-banner__guidance tablet:grid-col-6\">\r\n\t\t\t\t\t\t<img class=\"usa-banner__icon usa-media-block__img\" src=\"/cdn/img/icon-dot-gov.svg\"\r\n\t\t\t\t\t\t\t alt=\"Federal building icon\" role=\"img\" aria-hidden=\"true\">\r\n\t\t\t\t\t\t<div class=\"usa-media-block__body\">\r\n\t\t\t\t\t\t\t<p>\r\n\t\t\t\t\t\t\t\t<strong>Official websites use .gov</strong>\r\n\t\t\t\t\t\t\t\t<br />A <strong>.gov</strong> website belongs to an official government\r\n\t\t\t\t\t\t\t\torganization in the United States.\r\n\t\t\t\t\t\t\t</p>\r\n\t\t\t\t\t\t</div>\r\n\t\t\t\t\t</div>\r\n\t\t\t\t\t<div class=\"usa-banner__guidance tablet:grid-col-6\">\r\n\t\t\t\t\t\t<img class=\"usa-banner__icon usa-media-block__img\" src=\"/cdn/img/icon-https.svg\" role=\"img\" alt=\"Lock icon\" aria-hidden=\"true\">\r\n\t\t\t\t\t\t<div class=\"usa-media-block__body\">\r\n\t\t\t\t\t\t\t<p>\r\n\t\t\t\t\t\t\t\t<strong>Secure .gov websites use HTTPS</strong>\r\n\t\t\t\t\t\t\t\t<br>A <strong>lock</strong> (\r\n\t\t\t\t\t\t\t\t<span class=\"icon-lock\">\r\n\t\t\t\t\t\t\t\t\t<svg xmlns=\"http://www.w3.org/2000/svg\"\r\n\t\t\t\t\t\t\t\t\t\t width=\"52\"\r\n\t\t\t\t\t\t\t\t\t\t height=\"64\"\r\n\t\t\t\t\t\t\t\t\t\t viewBox=\"0 0 52 64\"\r\n\t\t\t\t\t\t\t\t\t\t class=\"usa-banner__lock-image\"\r\n\t\t\t\t\t\t\t\t\t\t role=\"img\"\r\n\t\t\t\t\t\t\t\t\t\t aria-labelledby=\"banner-lock-title-default banner-lock-description-default\"\r\n\t\t\t\t\t\t\t\t\t\t focusable=\"false\">\r\n\t\t\t\t\t\t\t\t\t\t<title id=\"banner-lock-title-default\">Lock</title>\r\n\t\t\t\t\t\t\t\t\t\t<desc id=\"banner-lock-description-default\">A locked padlock</desc>\r\n\t\t\t\t\t\t\t\t\t\t<path fill=\"#000000\"\r\n\t\t\t\t\t\t\t\t\t\t\t  fill-rule=\"evenodd\"\r\n\t\t\t\t\t\t\t\t\t\t\t  d=\"M26 0c10.493 0 19 8.507 19 19v9h3a4 4 0 0 1 4 4v28a4 4 0 0 1-4 4H4a4 4 0 0 1-4-4V32a4 4 0 0 1 4-4h3v-9C7 8.507 15.507 0 26 0zm0 8c-5.979 0-10.843 4.77-10.996 10.712L15 19v9h22v-9c0-6.075-4.925-11-11-11z\" />\r\n\t\t\t\t\t\t\t\t\t</svg>\r\n\t\t\t\t\t\t\t\t</span>\r\n\t\t\t\t\t\t\t\t) or <strong>https://</strong> means you\u2019ve safely connected to\r\n\t\t\t\t\t\t\t\tthe .gov website. Share sensitive information only on official,\r\n\t\t\t\t\t\t\t\tsecure websites.\r\n\t\t\t\t\t\t\t</p>\r\n\t\t\t\t\t\t</div>\r\n\t\t\t\t\t</div>\r\n\t\t\t\t</div>\r\n\t\t\t</div>\r\n\t\t</div>\r\n\t</section>\r\n\t<div class=\"usa-overlay\"></div>\r\n\r\n\t<header class=\"usa-header usa-header--extended\">\r\n\t\t<div class=\"usa-navbar\">\r\n\t\t\t<div class=\"usa-logo\" id=\"-logo\">\r\n\t\t\t\t<a href=\"/\" title=\"home\"><img class=\"usa-header__logo-img\" src=\"/cdn/img/opm-uswds/opm_logo.svg\" alt=\"U.S. Office of Personnel Management logo\"></a>\r\n\t\t\t</div>\r\n\t\t\t<button type=\"button\" class=\"usa-menu-btn\">Menu</button>\r\n\t\t</div>\r\n\t\t<nav aria-label=\"Primary navigation\" class=\"usa-nav\">\r\n\t\t\t<div class=\"usa-nav__inner\">\r\n\t\t\t\t<div class=\"usa-nav__secondary usa-header--extended\">\r\n\t\t\t\t\t<button type=\"button\" class=\"usa-nav__close\">\r\n\t\t\t\t\t\t<img src=\"/cdn/img/close-white.svg\" role=\"img\" alt=\"\">\r\n\t\t\t\t\t</button>\r\n\t\t\t\t\t<section aria-label=\"Search component\">\r\n\t\t\t\t\t\t<form class=\"usa-search usa-search--small \" role=\"search\" action=\"/search\" method=\"GET\" name=\"gs\">\r\n\t\t\t\t\t\t\t<label id=\"SearchAllofOPM\" class=\"usa-sr-only\" for=\"basic-search-field-small\">Search all of OPM</label>\r\n\t\t\t\t\t\t\t<input class=\"usa-input search\" id=\"basic-search-field-small\" type=\"search\" name=\"q\">\r\n\t\t\t\t\t\t\t<button class=\"usa-button\" type=\"submit\"><span class=\"usa-sr-only\">Submit</span></button>\r\n\t\t\t\t\t\t</form>\r\n\t\t\t\t\t</section>\r\n\t\t\t\t</div>\r\n\t\t\t\t<div class=\"left-panel-top-2\">\r\n\t\t\t\t\t<span class=\"nav-header\">Sections</span>\r\n\t\t\t\t\t<ul class=\"usa-nav__primary usa-accordion\">\r\n\t\t\t\t\t\t<li class=\"usa-nav__primary-item\">\r\n\t\t\t\t\t\t\t<a tabindex=\"0\" class=\"\" aria-controls=\"about-control-id\">\r\n\t\t\t\t\t\t\t\t<span>About</span>\r\n\t\t\t\t\t\t\t</a>\r\n\t\t\t\t\t\t\t<span class=\"nav-toggle\" title=\"toggle about subnavigation\" tabindex=\"0\">\r\n\t\t\t\t\t\t\t\t<span class=\"AccessibilityInfo\">Toggle submenu</span>\r\n\t\t\t\t\t\t\t</span>\r\n\t\t\t\t\t\t\t<div id=\"about-control-id\" class=\"usa-nav__submenu usa-megamenu\" style=\"display: none;\">\r\n\t\t\t\t\t\t\t\t<ul class=\"usa-nav__submenu__inner\">\r\n\t\t\t\t\t\t\t\t\t<li class=\"usa-nav__submenu-item\">\r\n\t\t\t\t\t\t\t\t\t\t<a href=\"/about-us/\"><span>Our Agency</span></a>\r\n\t\t\t\t\t\t\t\t\t</li>\r\n\t\t\t\t\t\t\t\t\t<li class=\"usa-nav__submenu-item\">\r\n\t\t\t\t\t\t\t\t\t\t<a href=\"/about-us/who-we-are/\"><span>Who We Are</span></a>\r\n\t\t\t\t\t\t\t\t\t</li>\r\n\t\t\t\t\t\t\t\t\t<li class=\"usa-nav__submenu-item\">\r\n\t\t\t\t\t\t\t\t\t\t<a href=\"/about-us/our-work/\"><span>Our Work</span></a>\r\n\t\t\t\t\t\t\t\t\t</li>\r\n\t\t\t\t\t\t\t\t\t<li class=\"usa-nav__submenu-item\">\r\n\t\t\t\t\t\t\t\t\t\t<a href=\"/about-us/mission-history/\"><span>Mission &amp; History</span></a>\r\n\t\t\t\t\t\t\t\t\t</li>\r\n\t\t\t\t\t\t\t\t\t<li class=\"usa-nav__submenu-item\">\r\n\t\t\t\t\t\t\t\t\t\t<a href=\"/about-us/careers-at-opm/\"><span>Careers at OPM</span></a>\r\n\t\t\t\t\t\t\t\t\t</li>\r\n\t\t\t\t\t\t\t\t\t<li class=\"usa-nav__submenu-item\">\r\n\t\t\t\t\t\t\t\t\t\t<a href=\"/about-us/doing-business-with-opm/\"><span>Doing Business with OPM</span></a>\r\n\t\t\t\t\t\t\t\t\t</li>\r\n\t\t\t\t\t\t\t\t\t<li class=\"usa-nav__submenu-item\">\r\n\t\t\t\t\t\t\t\t\t\t<a href=\"/about-us/reports-publications/\"><span>Reports &amp; Publications</span></a>\r\n\t\t\t\t\t\t\t\t\t</li>\r\n\t\t\t\t\t\t\t\t\t<li class=\"usa-nav__submenu-item\">\r\n\t\t\t\t\t\t\t\t\t\t<a href=\"/about-us/open-government/\"><span>Open Government</span></a>\r\n\t\t\t\t\t\t\t\t\t</li>\r\n\t\t\t\t\t\t\t\t\t<li class=\"usa-nav__submenu-item\">\r\n\t\t\t\t\t\t\t\t\t\t<a href=\"/about-us/get-help/\"><span>Get Help</span></a>\r\n\t\t\t\t\t\t\t\t\t</li>\r\n\t\t\t\t\t\t\t\t\t<li class=\"usa-nav__submenu-item\">\r\n\t\t\t\t\t\t\t\t\t\t<a href=\"/about-us/contact-us/\"><span>Contact Us</span></a>\r\n\t\t\t\t\t\t\t\t\t</li>\r\n\t\t\t\t\t\t\t\t\t<li class=\"usa-nav__submenu-item\">\r\n\t\t\t\t\t\t\t\t\t\t<a href=\"/about-us/news/\"><span>News</span></a>\r\n\t\t\t\t\t\t\t\t\t</li>\r\n\t\t\t\t\t\t\t\t\t<li class=\"usa-nav__submenu-item\">\r\n\t\t\t\t\t\t\t\t\t\t<a href=\"/data/\"><span>Data</span></a>\r\n\t\t\t\t\t\t\t\t\t</li>\r\n\t\t\t\t\t\t\t\t\t<li class=\"usa-nav__submenu-item\">\r\n\t\t\t\t\t\t\t\t\t\t<a href=\"/about-us/2023-agency-financial-report/\"><span>2023 Agency Financial Report</span></a>\r\n\t\t\t\t\t\t\t\t\t</li>\r\n\t\t\t\t\t\t\t\t\t<li class=\"usa-nav__submenu-item\">\r\n\t\t\t\t\t\t\t\t\t\t<a href=\"/about-us/combined-federal-campaign/\"><span>Combined Federal Campaign</span></a>\r\n\t\t\t\t\t\t\t\t\t</li>\r\n\t\t\t\t\t\t\t\t\t<li class=\"usa-nav__submenu-item\">\r\n\t\t\t\t\t\t\t\t\t\t<a href=\"/about-us/2023-annual-performance-report/\"><span>2023 Annual Performance Report</span></a>\r\n\t\t\t\t\t\t\t\t\t</li>\r\n\t\t\t\t\t\t\t\t\t<li class=\"usa-nav__submenu-item\">\r\n\t\t\t\t\t\t\t\t\t\t<a href=\"/about-us/fy-2025-congressional-budget-justification-and-annual-performance-plan/\"><span>FY 2025 Congressional Budget Justification</span></a>\r\n\t\t\t\t\t\t\t\t\t</li>\r\n\t\t\t\t\t\t\t\t\t<li class=\"usa-nav__submenu-item\">\r\n\t\t\t\t\t\t\t\t\t\t<a href=\"/about-us/2024-agency-financial-report/\"><span>2024 Agency Financial Report</span></a>\r\n\t\t\t\t\t\t\t\t\t</li>\r\n\t\t\t\t\t\t\t\t\t<li class=\"usa-nav__submenu-item\">\r\n\t\t\t\t\t\t\t\t\t\t<a href=\"/about-us/2025-agency-financial-report/\"><span>2024 Agency Financial Report</span></a>\r\n\t\t\t\t\t\t\t\t\t</li>\r\n\t\t\t\t\t\t\t\t\t<li class=\"usa-nav__submenu-item\">\r\n\t\t\t\t\t\t\t\t\t\t<a href=\"/about-us/2024-annual-performance-report/\"><span>2024 Annual Performance Report</span></a>\r\n\t\t\t\t\t\t\t\t\t</li>\r\n\t\t\t\t\t\t\t\t\t<li class=\"usa-nav__submenu-item\">\r\n\t\t\t\t\t\t\t\t\t\t<a href=\"/about-us/fy-2026-congressional-budget-justification/\"><span>FY 2026 Congressional Budget Justification</span></a>\r\n\t\t\t\t\t\t\t\t\t</li>\r\n\t\t\t\t\t\t\t\t\t<li class=\"usa-nav__submenu-item\">\r\n\t\t\t\t\t\t\t\t\t\t<a href=\"/about-us/fork/\"><span>Fork</span></a>\r\n\t\t\t\t\t\t\t\t\t</li>\r\n\t\t\t\t\t\t\t\t\t<li class=\"usa-nav__submenu-item\">\r\n\t\t\t\t\t\t\t\t\t\t<a href=\"/hr-practitioners/hr-career-compass/\"><span>HR Career Compass</span></a>\r\n\t\t\t\t\t\t\t\t\t</li>\r\n\t\t\t\t\t\t\t\t\t<li class=\"usa-nav__submenu-item\">\r\n\t\t\t\t\t\t\t\t\t\t<a href=\"/about-us/fy-2027-congressional-budget-justification/\"><span>FY 2027 Congressional Budget Justification</span></a>\r\n\t\t\t\t\t\t\t\t\t</li>\r\n\t\t\t\t\t\t\t\t\t<li class=\"usa-nav__submenu-item\">\r\n\t\t\t\t\t\t\t\t\t\t<a href=\"/about-us/office-of-equal-employment-opportunity/\"><span>Office of Equal Employment Opportunity</span></a>\r\n\t\t\t\t\t\t\t\t\t</li>\r\n\t\t\t\t\t\t\t\t</ul>\r\n\t\t\t\t\t\t\t</div>\r\n\t\t\t\t\t\t</li>\r\n\t\t\t\t\t\t<li class=\"usa-nav__primary-item\">\r\n\t\t\t\t\t\t\t<a tabindex=\"0\" class=\"\" aria-controls=\"policy-control-id\">\r\n\t\t\t\t\t\t\t\t<span>Policy</span>\r\n\t\t\t\t\t\t\t</a>\r\n\t\t\t\t\t\t\t<span class=\"nav-toggle\" title=\"toggle policy subnavigation\" tabindex=\"0\">\r\n\t\t\t\t\t\t\t\t<span class=\"AccessibilityInfo\">Toggle submenu</span>\r\n\t\t\t\t\t\t\t</span>\r\n\t\t\t\t\t\t\t<div id=\"policy-control-id\" class=\"usa-nav__submenu usa-megamenu\" style=\"display: none;\">\r\n\t\t\t\t\t\t\t\t<ul class=\"usa-nav__submenu__inner\">\r\n\t\t\t\t\t\t\t\t\t<li class=\"usa-nav__submenu-item\">\r\n\t\t\t\t\t\t\t\t\t\t<a href=\"/policy-data-oversight/chco-council/\"><span>CHCO Council</span></a>\r\n\t\t\t\t\t\t\t\t\t</li>\r\n\t\t\t\t\t\t\t\t\t<li class=\"usa-nav__submenu-item\">\r\n\t\t\t\t\t\t\t\t\t\t<a href=\"https://www.opm.gov/policy-data-oversight/workforce-restructuring/reductions-in-force/\"><span>Reductions in Force</span></a>\r\n\t\t\t\t\t\t\t\t\t</li>\r\n\t\t\t\t\t\t\t\t\t<li class=\"usa-nav__submenu-item\">\r\n\t\t\t\t\t\t\t\t\t\t<a href=\"/policy-data-oversight/assessment-and-selection/\"><span>Assessment &amp; Selection</span></a>\r\n\t\t\t\t\t\t\t\t\t</li>\r\n\t\t\t\t\t\t\t\t\t<li class=\"usa-nav__submenu-item\">\r\n\t\t\t\t\t\t\t\t\t\t<a href=\"/policy-data-oversight/classification-qualifications/\"><span>Classification &amp; Qualifications</span></a>\r\n\t\t\t\t\t\t\t\t\t</li>\r\n\t\t\t\t\t\t\t\t\t<li class=\"usa-nav__submenu-item\">\r\n\t\t\t\t\t\t\t\t\t\t<a href=\"/policy-data-oversight/data-analysis-documentation/\"><span>Data, Analysis &amp; Documentation</span></a>\r\n\t\t\t\t\t\t\t\t\t</li>\r\n\t\t\t\t\t\t\t\t\t<li class=\"usa-nav__submenu-item\">\r\n\t\t\t\t\t\t\t\t\t\t<a href=\"/policy-data-oversight/disability-employment/\"><span>Disability Employment</span></a>\r\n\t\t\t\t\t\t\t\t\t</li>\r\n\t\t\t\t\t\t\t\t\t<li class=\"usa-nav__submenu-item\">\r\n\t\t\t\t\t\t\t\t\t\t<a href=\"/policy-data-oversight/employee-relations/\"><span>Employee Relations</span></a>\r\n\t\t\t\t\t\t\t\t\t</li>\r\n\t\t\t\t\t\t\t\t\t<li class=\"usa-nav__submenu-item\">\r\n\t\t\t\t\t\t\t\t\t\t<a href=\"/policy-data-oversight/enterprise-risk-management-program-old/\"><span>Enterprise Risk Management Program</span></a>\r\n\t\t\t\t\t\t\t\t\t</li>\r\n\t\t\t\t\t\t\t\t\t<li class=\"usa-nav__submenu-item\">\r\n\t\t\t\t\t\t\t\t\t\t<a href=\"/policy-data-oversight/hiring-information/\"><span>Hiring Information</span></a>\r\n\t\t\t\t\t\t\t\t\t</li>\r\n\t\t\t\t\t\t\t\t\t<li class=\"usa-nav__submenu-item\">\r\n\t\t\t\t\t\t\t\t\t\t<a href=\"/policy-data-oversight/human-capital-management/\"><span>Human Capital Management</span></a>\r\n\t\t\t\t\t\t\t\t\t</li>\r\n\t\t\t\t\t\t\t\t\t<li class=\"usa-nav__submenu-item\">\r\n\t\t\t\t\t\t\t\t\t\t<a href=\"/policy-data-oversight/human-capital-framework/\"><span>Human Capital Framework</span></a>\r\n\t\t\t\t\t\t\t\t\t</li>\r\n\t\t\t\t\t\t\t\t\t<li class=\"usa-nav__submenu-item\">\r\n\t\t\t\t\t\t\t\t\t\t<a href=\"/policy-data-oversight/labor-relations/\"><span>Labor Management Relations</span></a>\r\n\t\t\t\t\t\t\t\t\t</li>\r\n\t\t\t\t\t\t\t\t\t<li class=\"usa-nav__submenu-item\">\r\n\t\t\t\t\t\t\t\t\t\t<a href=\"/policy-data-oversight/oversight-and-effectiveness/\"><span>Oversight and Effectiveness</span></a>\r\n\t\t\t\t\t\t\t\t\t</li>\r\n\t\t\t\t\t\t\t\t\t<li class=\"usa-nav__submenu-item\">\r\n\t\t\t\t\t\t\t\t\t\t<a href=\"/policy-data-oversight/pay-leave/\"><span>Pay &amp; Leave</span></a>\r\n\t\t\t\t\t\t\t\t\t</li>\r\n\t\t\t\t\t\t\t\t\t<li class=\"usa-nav__submenu-item\">\r\n\t\t\t\t\t\t\t\t\t\t<a href=\"/policy-data-oversight/performance-management/\"><span>Performance Management</span></a>\r\n\t\t\t\t\t\t\t\t\t</li>\r\n\t\t\t\t\t\t\t\t\t<li class=\"usa-nav__submenu-item\">\r\n\t\t\t\t\t\t\t\t\t\t<a href=\"/policy-data-oversight/senior-executive-service/\"><span>Senior Executive Service</span></a>\r\n\t\t\t\t\t\t\t\t\t</li>\r\n\t\t\t\t\t\t\t\t\t<li class=\"usa-nav__submenu-item\">\r\n\t\t\t\t\t\t\t\t\t\t<a href=\"/policy-data-oversight/settlement-guidelines/\"><span>Settlement Guidelines</span></a>\r\n\t\t\t\t\t\t\t\t\t</li>\r\n\t\t\t\t\t\t\t\t\t<li class=\"usa-nav__submenu-item\">\r\n\t\t\t\t\t\t\t\t\t\t<a href=\"/policy-data-oversight/snow-dismissal-procedures/\"><span>Snow &amp; Dismissal Procedures</span></a>\r\n\t\t\t\t\t\t\t\t\t</li>\r\n\t\t\t\t\t\t\t\t\t<li class=\"usa-nav__submenu-item\">\r\n\t\t\t\t\t\t\t\t\t\t<a href=\"/policy-data-oversight/training-and-development/\"><span>Training &amp; Development</span></a>\r\n\t\t\t\t\t\t\t\t\t</li>\r\n\t\t\t\t\t\t\t\t\t<li class=\"usa-nav__submenu-item\">\r\n\t\t\t\t\t\t\t\t\t\t<a href=\"/policy-data-oversight/tribal-consultation/\"><span>Tribal Consultation</span></a>\r\n\t\t\t\t\t\t\t\t\t</li>\r\n\t\t\t\t\t\t\t\t\t<li class=\"usa-nav__submenu-item\">\r\n\t\t\t\t\t\t\t\t\t\t<a href=\"/policy-data-oversight/veterans-services/\"><span>Veterans Services</span></a>\r\n\t\t\t\t\t\t\t\t\t</li>\r\n\t\t\t\t\t\t\t\t\t<li class=\"usa-nav__submenu-item\">\r\n\t\t\t\t\t\t\t\t\t\t<a href=\"/policy-data-oversight/worklife/\"><span>Work-Life</span></a>\r\n\t\t\t\t\t\t\t\t\t</li>\r\n\t\t\t\t\t\t\t\t\t<li class=\"usa-nav__submenu-item\">\r\n\t\t\t\t\t\t\t\t\t\t<a href=\"/policy-data-oversight/workforce-restructuring/\"><span>Workforce Restructuring</span></a>\r\n\t\t\t\t\t\t\t\t\t</li>\r\n\t\t\t\t\t\t\t\t\t<li class=\"usa-nav__submenu-item\">\r\n\t\t\t\t\t\t\t\t\t\t<a href=\"/policy-data-oversight/policy-faqs/\"><span>Policy FAQs</span></a>\r\n\t\t\t\t\t\t\t\t\t</li>\r\n\t\t\t\t\t\t\t\t\t<li class=\"usa-nav__submenu-item\">\r\n\t\t\t\t\t\t\t\t\t\t<a href=\"/policy-data-oversight/contact-policymakers/\"><span>Contact Policymakers</span></a>\r\n\t\t\t\t\t\t\t\t\t</li>\r\n\t\t\t\t\t\t\t\t\t<li class=\"usa-nav__submenu-item\">\r\n\t\t\t\t\t\t\t\t\t\t<a href=\"/policy-data-oversight/career-paths-for-federal-program-and-project-management-guide/\"><span>Career Paths for Federal Program and Project Management Guide</span></a>\r\n\t\t\t\t\t\t\t\t\t</li>\r\n\t\t\t\t\t\t\t\t\t<li class=\"usa-nav__submenu-item\">\r\n\t\t\t\t\t\t\t\t\t\t<a href=\"/policy-data-oversight/federal-hiring-and-selection-outcome-dashboard/\"><span>Federal Hiring and Selection Outcome Dashboard</span></a>\r\n\t\t\t\t\t\t\t\t\t</li>\r\n\t\t\t\t\t\t\t\t</ul>\r\n\t\t\t\t\t\t\t</div>\r\n\t\t\t\t\t\t</li>\r\n\t\t\t\t\t\t<li class=\"usa-nav__primary-item\">\r\n\t\t\t\t\t\t\t<a tabindex=\"0\" class=\"\" aria-controls=\"compliance-control-id\">\r\n\t\t\t\t\t\t\t\t<span>Compliance</span>\r\n\t\t\t\t\t\t\t</a>\r\n\t\t\t\t\t\t\t<span class=\"nav-toggle\" title=\"toggle compliance subnavigation\" tabindex=\"0\">\r\n\t\t\t\t\t\t\t\t<span class=\"AccessibilityInfo\">Toggle submenu</span>\r\n\t\t\t\t\t\t\t</span>\r\n\t\t\t\t\t\t\t<div id=\"compliance-control-id\" class=\"usa-nav__submenu usa-megamenu\" style=\"display: none;\">\r\n\t\t\t\t\t\t\t\t<ul class=\"usa-nav__submenu__inner\">\r\n\t\t\t\t\t\t\t\t\t<li class=\"usa-nav__submenu-item\">\r\n\t\t\t\t\t\t\t\t\t\t<a href=\"/compliance/adjudications/\"><span>Adjudications</span></a>\r\n\t\t\t\t\t\t\t\t\t</li>\r\n\t\t\t\t\t\t\t\t\t<li class=\"usa-nav__submenu-item\">\r\n\t\t\t\t\t\t\t\t\t\t<a href=\"/compliance/political-conversions/\"><span>Political Conversions</span></a>\r\n\t\t\t\t\t\t\t\t\t</li>\r\n\t\t\t\t\t\t\t\t</ul>\r\n\t\t\t\t\t\t\t</div>\r\n\t\t\t\t\t\t</li>\r\n\t\t\t\t\t\t<li class=\"usa-nav__primary-item\">\r\n\t\t\t\t\t\t\t<a tabindex=\"0\" class=\"\" aria-controls=\"insurance-control-id\">\r\n\t\t\t\t\t\t\t\t<span>Insurance</span>\r\n\t\t\t\t\t\t\t</a>\r\n\t\t\t\t\t\t\t<span class=\"nav-toggle\" title=\"toggle insurance subnavigation\" tabindex=\"0\">\r\n\t\t\t\t\t\t\t\t<span class=\"AccessibilityInfo\">Toggle submenu</span>\r\n\t\t\t\t\t\t\t</span>\r\n\t\t\t\t\t\t\t<div id=\"insurance-control-id\" class=\"usa-nav__submenu usa-megamenu\" style=\"display: none;\">\r\n\t\t\t\t\t\t\t\t<ul class=\"usa-nav__submenu__inner\">\r\n\t\t\t\t\t\t\t\t\t<li class=\"usa-nav__submenu-item\">\r\n\t\t\t\t\t\t\t\t\t\t<a href=\"/healthcare-insurance/open-season/\"><span>Open Season</span></a>\r\n\t\t\t\t\t\t\t\t\t</li>\r\n\t\t\t\t\t\t\t\t\t<li class=\"usa-nav__submenu-item\">\r\n\t\t\t\t\t\t\t\t\t\t<a href=\"/healthcare-insurance/healthcare/\"><span>Healthcare</span></a>\r\n\t\t\t\t\t\t\t\t\t</li>\r\n\t\t\t\t\t\t\t\t\t<li class=\"usa-nav__submenu-item\">\r\n\t\t\t\t\t\t\t\t\t\t<a href=\"/healthcare-insurance/healthcare/plan-information/compare-plans/\"><span>FEHB Plan Comparison Tool</span></a>\r\n\t\t\t\t\t\t\t\t\t</li>\r\n\t\t\t\t\t\t\t\t\t<li class=\"usa-nav__submenu-item\">\r\n\t\t\t\t\t\t\t\t\t\t<a href=\"/healthcare-insurance/tribal-employers/\"><span>Tribal Employers</span></a>\r\n\t\t\t\t\t\t\t\t\t</li>\r\n\t\t\t\t\t\t\t\t\t<li class=\"usa-nav__submenu-item\">\r\n\t\t\t\t\t\t\t\t\t\t<a href=\"/healthcare-insurance/pshb/\"><span>Postal Service Health Benefits Program</span></a>\r\n\t\t\t\t\t\t\t\t\t</li>\r\n\t\t\t\t\t\t\t\t\t<li class=\"usa-nav__submenu-item\">\r\n\t\t\t\t\t\t\t\t\t\t<a href=\"/healthcare-insurance/medicare/\"><span>Medicare</span></a>\r\n\t\t\t\t\t\t\t\t\t</li>\r\n\t\t\t\t\t\t\t\t\t<li class=\"usa-nav__submenu-item\">\r\n\t\t\t\t\t\t\t\t\t\t<a href=\"/healthcare-insurance/dental-vision/\"><span>Dental &amp; Vision</span></a>\r\n\t\t\t\t\t\t\t\t\t</li>\r\n\t\t\t\t\t\t\t\t\t<li class=\"usa-nav__submenu-item\">\r\n\t\t\t\t\t\t\t\t\t\t<a href=\"/healthcare-insurance/healthcare/plan-information/compare-plans/fedvip/\"><span>FEDVIP Plan Comparison Tool</span></a>\r\n\t\t\t\t\t\t\t\t\t</li>\r\n\t\t\t\t\t\t\t\t\t<li class=\"usa-nav__submenu-item\">\r\n\t\t\t\t\t\t\t\t\t\t<a href=\"/healthcare-insurance/carriers/\"><span>Carriers</span></a>\r\n\t\t\t\t\t\t\t\t\t</li>\r\n\t\t\t\t\t\t\t\t\t<li class=\"usa-nav__submenu-item\">\r\n\t\t\t\t\t\t\t\t\t\t<a href=\"/healthcare-insurance/flexible-spending-accounts/\"><span>Flexible Spending Accounts</span></a>\r\n\t\t\t\t\t\t\t\t\t</li>\r\n\t\t\t\t\t\t\t\t\t<li class=\"usa-nav__submenu-item\">\r\n\t\t\t\t\t\t\t\t\t\t<a href=\"/healthcare-insurance/life-insurance/\"><span>Life Insurance</span></a>\r\n\t\t\t\t\t\t\t\t\t</li>\r\n\t\t\t\t\t\t\t\t\t<li class=\"usa-nav__submenu-item\">\r\n\t\t\t\t\t\t\t\t\t\t<a href=\"/healthcare-insurance/long-term-care/\"><span>Long Term Care</span></a>\r\n\t\t\t\t\t\t\t\t\t</li>\r\n\t\t\t\t\t\t\t\t\t<li class=\"usa-nav__submenu-item\">\r\n\t\t\t\t\t\t\t\t\t\t<a href=\"/healthcare-insurance/insurance-glossary/\"><span>Insurance Glossary</span></a>\r\n\t\t\t\t\t\t\t\t\t</li>\r\n\t\t\t\t\t\t\t\t\t<li class=\"usa-nav__submenu-item\">\r\n\t\t\t\t\t\t\t\t\t\t<a href=\"/healthcare-insurance/insurance-faqs/\"><span>Insurance FAQs</span></a>\r\n\t\t\t\t\t\t\t\t\t</li>\r\n\t\t\t\t\t\t\t\t\t<li class=\"usa-nav__submenu-item\">\r\n\t\t\t\t\t\t\t\t\t\t<a href=\"/healthcare-insurance/contact-healthcare-insurance/\"><span>Contact Healthcare &amp; Insurance</span></a>\r\n\t\t\t\t\t\t\t\t\t</li>\r\n\t\t\t\t\t\t\t\t\t<li class=\"usa-nav__submenu-item\">\r\n\t\t\t\t\t\t\t\t\t\t<a href=\"/healthcare-insurance/special-initiatives/\"><span>Special Initiatives</span></a>\r\n\t\t\t\t\t\t\t\t\t</li>\r\n\t\t\t\t\t\t\t\t\t<li class=\"usa-nav__submenu-item\">\r\n\t\t\t\t\t\t\t\t\t\t<a href=\"/healthcare-insurance/changes-in-health-coverage/\"><span>Changes in Health Coverage</span></a>\r\n\t\t\t\t\t\t\t\t\t</li>\r\n\t\t\t\t\t\t\t\t\t<li class=\"usa-nav__submenu-item\">\r\n\t\t\t\t\t\t\t\t\t\t<a href=\"/healthcare-insurance/multi-state-plan-program/issuer/\"><span>Issuer</span></a>\r\n\t\t\t\t\t\t\t\t\t</li>\r\n\t\t\t\t\t\t\t\t\t<li class=\"usa-nav__submenu-item\">\r\n\t\t\t\t\t\t\t\t\t\t<a href=\"/healthcare-insurance/life-events/\"><span>Life Events</span></a>\r\n\t\t\t\t\t\t\t\t\t</li>\r\n\t\t\t\t\t\t\t\t\t<li class=\"usa-nav__submenu-item\">\r\n\t\t\t\t\t\t\t\t\t\t<a href=\"/healthcare-insurance/affordable-care-act/\"><span>The Affordable Care Act</span></a>\r\n\t\t\t\t\t\t\t\t\t</li>\r\n\t\t\t\t\t\t\t\t</ul>\r\n\t\t\t\t\t\t\t</div>\r\n\t\t\t\t\t\t</li>\r\n\t\t\t\t\t\t<li class=\"usa-nav__primary-item\">\r\n\t\t\t\t\t\t\t<a tabindex=\"0\" class=\"\" aria-controls=\"retirement-control-id\">\r\n\t\t\t\t\t\t\t\t<span>Retirement</span>\r\n\t\t\t\t\t\t\t</a>\r\n\t\t\t\t\t\t\t<span class=\"nav-toggle\" title=\"toggle retirement subnavigation\" tabindex=\"0\">\r\n\t\t\t\t\t\t\t\t<span class=\"AccessibilityInfo\">Toggle submenu</span>\r\n\t\t\t\t\t\t\t</span>\r\n\t\t\t\t\t\t\t<div id=\"retirement-control-id\" class=\"usa-nav__submenu usa-megamenu\" style=\"display: none;\">\r\n\t\t\t\t\t\t\t\t<ul class=\"usa-nav__submenu__inner\">\r\n\t\t\t\t\t\t\t\t\t<li class=\"usa-nav__submenu-item\">\r\n\t\t\t\t\t\t\t\t\t\t<a href=\"/retirement-center/apply/\"><span>Apply for Retirement</span></a>\r\n\t\t\t\t\t\t\t\t\t</li>\r\n\t\t\t\t\t\t\t\t\t<li class=\"usa-nav__submenu-item\">\r\n\t\t\t\t\t\t\t\t\t\t<a href=\"/retirement-center/my-annuity-and-benefits/\"><span>My Annuity and Benefits</span></a>\r\n\t\t\t\t\t\t\t\t\t</li>\r\n\t\t\t\t\t\t\t\t\t<li class=\"usa-nav__submenu-item\">\r\n\t\t\t\t\t\t\t\t\t\t<a href=\"/retirement-center/csrs-information/\"><span>CSRS Information</span></a>\r\n\t\t\t\t\t\t\t\t\t</li>\r\n\t\t\t\t\t\t\t\t\t<li class=\"usa-nav__submenu-item\">\r\n\t\t\t\t\t\t\t\t\t\t<a href=\"/retirement-center/fers-information/\"><span>FERS Information</span></a>\r\n\t\t\t\t\t\t\t\t\t</li>\r\n\t\t\t\t\t\t\t\t\t<li class=\"usa-nav__submenu-item\">\r\n\t\t\t\t\t\t\t\t\t\t<a href=\"/retirement-center/phased-retirement/\"><span>Phased Retirement</span></a>\r\n\t\t\t\t\t\t\t\t\t</li>\r\n\t\t\t\t\t\t\t\t\t<li class=\"usa-nav__submenu-item\">\r\n\t\t\t\t\t\t\t\t\t\t<a href=\"/retirement-center/retirement-statistics/\"><span>Retirement Statistics</span></a>\r\n\t\t\t\t\t\t\t\t\t</li>\r\n\t\t\t\t\t\t\t\t\t<li class=\"usa-nav__submenu-item\">\r\n\t\t\t\t\t\t\t\t\t\t<a href=\"/retirement-center/special-notices/\"><span>Special Notices</span></a>\r\n\t\t\t\t\t\t\t\t\t</li>\r\n\t\t\t\t\t\t\t\t\t<li class=\"usa-nav__submenu-item\">\r\n\t\t\t\t\t\t\t\t\t\t<a href=\"/retirement-center/calculators/\"><span>Calculators</span></a>\r\n\t\t\t\t\t\t\t\t\t</li>\r\n\t\t\t\t\t\t\t\t\t<li class=\"usa-nav__submenu-item\">\r\n\t\t\t\t\t\t\t\t\t\t<a href=\"/retirement-center/tax-information-for-annuitants/\"><span>Tax Information for Annuitants</span></a>\r\n\t\t\t\t\t\t\t\t\t</li>\r\n\t\t\t\t\t\t\t\t\t<li class=\"usa-nav__submenu-item\">\r\n\t\t\t\t\t\t\t\t\t\t<a href=\"/retirement-center/publications-forms/\"><span>Publications &amp; Forms</span></a>\r\n\t\t\t\t\t\t\t\t\t</li>\r\n\t\t\t\t\t\t\t\t\t<li class=\"usa-nav__submenu-item\">\r\n\t\t\t\t\t\t\t\t\t\t<a href=\"/retirement-center/benefits-officers-center/\"><span>Benefits Officers Center</span></a>\r\n\t\t\t\t\t\t\t\t\t</li>\r\n\t\t\t\t\t\t\t\t\t<li class=\"usa-nav__submenu-item\">\r\n\t\t\t\t\t\t\t\t\t\t<a href=\"/retirement-center/retirement-faqs/\"><span>Retirement FAQs</span></a>\r\n\t\t\t\t\t\t\t\t\t</li>\r\n\t\t\t\t\t\t\t\t\t<li class=\"usa-nav__submenu-item\">\r\n\t\t\t\t\t\t\t\t\t\t<a href=\"/retirement-center/survivor-benefits/\"><span>Survivor Benefits</span></a>\r\n\t\t\t\t\t\t\t\t\t</li>\r\n\t\t\t\t\t\t\t\t\t<li class=\"usa-nav__submenu-item\">\r\n\t\t\t\t\t\t\t\t\t\t<a href=\"/retirement-center/how-to-make-a-payment/\"><span>How to Make a Payment</span></a>\r\n\t\t\t\t\t\t\t\t\t</li>\r\n\t\t\t\t\t\t\t\t\t<li class=\"usa-nav__submenu-item\">\r\n\t\t\t\t\t\t\t\t\t\t<a href=\"/support/retirement/contact/\"><span>Contact Retirement</span></a>\r\n\t\t\t\t\t\t\t\t\t</li>\r\n\t\t\t\t\t\t\t\t\t<li class=\"usa-nav__submenu-item\">\r\n\t\t\t\t\t\t\t\t\t\t<a href=\"https://www.opm.gov/Blogs/Retire/\"><span>Retirement Information Center</span></a>\r\n\t\t\t\t\t\t\t\t\t</li>\r\n\t\t\t\t\t\t\t\t</ul>\r\n\t\t\t\t\t\t\t</div>\r\n\t\t\t\t\t\t</li>\r\n\t\t\t\t\t\t<li class=\"usa-nav__primary-item\">\r\n\t\t\t\t\t\t\t<a tabindex=\"0\" class=\"\" aria-controls=\"suitability-control-id\">\r\n\t\t\t\t\t\t\t\t<span>Suitability</span>\r\n\t\t\t\t\t\t\t</a>\r\n\t\t\t\t\t\t\t<span class=\"nav-toggle\" title=\"toggle suitability subnavigation\" tabindex=\"0\">\r\n\t\t\t\t\t\t\t\t<span class=\"AccessibilityInfo\">Toggle submenu</span>\r\n\t\t\t\t\t\t\t</span>\r\n\t\t\t\t\t\t\t<div id=\"suitability-control-id\" class=\"usa-nav__submenu usa-megamenu\" style=\"display: none;\">\r\n\t\t\t\t\t\t\t\t<ul class=\"usa-nav__submenu__inner\">\r\n\t\t\t\t\t\t\t\t\t<li class=\"usa-nav__submenu-item\">\r\n\t\t\t\t\t\t\t\t\t\t<a href=\"/suitability/suitability-executive-agent/\"><span>Suitability Executive Agent</span></a>\r\n\t\t\t\t\t\t\t\t\t</li>\r\n\t\t\t\t\t\t\t\t\t<li class=\"usa-nav__submenu-item\">\r\n\t\t\t\t\t\t\t\t\t\t<a href=\"/suitability/suitability-executive-agent/position-designation-tool/\"><span>Position Designation Tool</span></a>\r\n\t\t\t\t\t\t\t\t\t</li>\r\n\t\t\t\t\t\t\t\t\t<li class=\"usa-nav__submenu-item\">\r\n\t\t\t\t\t\t\t\t\t\t<a href=\"/suitability/suitability-executive-agent/suitability-adjudications/\"><span>Suitability Adjudications</span></a>\r\n\t\t\t\t\t\t\t\t\t</li>\r\n\t\t\t\t\t\t\t\t\t<li class=\"usa-nav__submenu-item\">\r\n\t\t\t\t\t\t\t\t\t\t<a href=\"/suitability/suitability-executive-agent/suitability-training/\"><span>Suitability Training</span></a>\r\n\t\t\t\t\t\t\t\t\t</li>\r\n\t\t\t\t\t\t\t\t\t<li class=\"usa-nav__submenu-item\">\r\n\t\t\t\t\t\t\t\t\t\t<a href=\"/suitability/suitability-executive-agent/oversight/\"><span>Oversight</span></a>\r\n\t\t\t\t\t\t\t\t\t</li>\r\n\t\t\t\t\t\t\t\t\t<li class=\"usa-nav__submenu-item\">\r\n\t\t\t\t\t\t\t\t\t\t<a href=\"/suitability/suitability-executive-agent/policy/\"><span>Policy</span></a>\r\n\t\t\t\t\t\t\t\t\t</li>\r\n\t\t\t\t\t\t\t\t\t<li class=\"usa-nav__submenu-item\">\r\n\t\t\t\t\t\t\t\t\t\t<a href=\"/suitability/suitability-and-credentialing-faqs/\"><span>Frequently Asked Questions</span></a>\r\n\t\t\t\t\t\t\t\t\t</li>\r\n\t\t\t\t\t\t\t\t\t<li class=\"usa-nav__submenu-item\">\r\n\t\t\t\t\t\t\t\t\t\t<a href=\"/suitability/contact-suitea/\"><span>Contact SuitEA</span></a>\r\n\t\t\t\t\t\t\t\t\t</li>\r\n\t\t\t\t\t\t\t\t\t<li class=\"usa-nav__submenu-item\">\r\n\t\t\t\t\t\t\t\t\t\t<a href=\"/suitability/suitability-executive-agent/suitability-action-appeals/\"><span>Suitability Action Appeals</span></a>\r\n\t\t\t\t\t\t\t\t\t</li>\r\n\t\t\t\t\t\t\t\t</ul>\r\n\t\t\t\t\t\t\t</div>\r\n\t\t\t\t\t\t</li>\r\n\t\t\t\t\t\t<li class=\"usa-nav__primary-item\">\r\n\t\t\t\t\t\t\t<a tabindex=\"0\" class=\"\" aria-controls=\"agency-services-control-id\">\r\n\t\t\t\t\t\t\t\t<span>Agency Services</span>\r\n\t\t\t\t\t\t\t</a>\r\n\t\t\t\t\t\t\t<span class=\"nav-toggle\" title=\"toggle agency-services subnavigation\" tabindex=\"0\">\r\n\t\t\t\t\t\t\t\t<span class=\"AccessibilityInfo\">Toggle submenu</span>\r\n\t\t\t\t\t\t\t</span>\r\n\t\t\t\t\t\t\t<div id=\"agency-services-control-id\" class=\"usa-nav__submenu usa-megamenu\" style=\"display: none;\">\r\n\t\t\t\t\t\t\t\t<ul class=\"usa-nav__submenu__inner\">\r\n\t\t\t\t\t\t\t\t\t<li class=\"usa-nav__submenu-item\">\r\n\t\t\t\t\t\t\t\t\t\t<a href=\"/agency-services/talent-management-services/\"><span>Talent Management Services</span></a>\r\n\t\t\t\t\t\t\t\t\t</li>\r\n\t\t\t\t\t\t\t\t\t<li class=\"usa-nav__submenu-item\">\r\n\t\t\t\t\t\t\t\t\t\t<a href=\"/agency-services/talent-systems/\"><span>Talent Systems</span></a>\r\n\t\t\t\t\t\t\t\t\t</li>\r\n\t\t\t\t\t\t\t\t\t<li class=\"usa-nav__submenu-item\">\r\n\t\t\t\t\t\t\t\t\t\t<a href=\"/agency-services/training-and-development/\"><span>Training and Development</span></a>\r\n\t\t\t\t\t\t\t\t\t</li>\r\n\t\t\t\t\t\t\t\t\t<li class=\"usa-nav__submenu-item\">\r\n\t\t\t\t\t\t\t\t\t\t<a href=\"/agency-services/hr-governance/\"><span>HR Governance</span></a>\r\n\t\t\t\t\t\t\t\t\t</li>\r\n\t\t\t\t\t\t\t\t\t<li class=\"usa-nav__submenu-item\">\r\n\t\t\t\t\t\t\t\t\t\t<a href=\"https://data.opm.gov/\"><span>Workforce Data</span></a>\r\n\t\t\t\t\t\t\t\t\t</li>\r\n\t\t\t\t\t\t\t\t\t<li class=\"usa-nav__submenu-item\">\r\n\t\t\t\t\t\t\t\t\t\t<a href=\"/agency-services/contact/\"><span>Contact</span></a>\r\n\t\t\t\t\t\t\t\t\t</li>\r\n\t\t\t\t\t\t\t\t</ul>\r\n\t\t\t\t\t\t\t</div>\r\n\t\t\t\t\t\t</li>\r\n\t\t\t\t\t\t<li class=\"usa-nav__primary-item\">\r\n\t\t\t\t\t\t\t<a tabindex=\"0\" class=\"\" aria-controls=\"news-control-id\">\r\n\t\t\t\t\t\t\t\t<span>News</span>\r\n\t\t\t\t\t\t\t</a>\r\n\t\t\t\t\t\t\t<span class=\"nav-toggle\" title=\"toggle news subnavigation\" tabindex=\"0\">\r\n\t\t\t\t\t\t\t\t<span class=\"AccessibilityInfo\">Toggle submenu</span>\r\n\t\t\t\t\t\t\t</span>\r\n\t\t\t\t\t\t\t<div id=\"news-control-id\" class=\"usa-nav__submenu usa-megamenu\" style=\"display: none;\">\r\n\t\t\t\t\t\t\t\t<ul class=\"usa-nav__submenu__inner\">\r\n\t\t\t\t\t\t\t\t\t<li class=\"usa-nav__submenu-item\">\r\n\t\t\t\t\t\t\t\t\t\t<a href=\"/news/secrets-of-opm/\"><span>Secrets of OPM</span></a>\r\n\t\t\t\t\t\t\t\t\t</li>\r\n\t\t\t\t\t\t\t\t\t<li class=\"usa-nav__submenu-item\">\r\n\t\t\t\t\t\t\t\t\t\t<a href=\"/news/from-the-director-s-desk/\"><span>From the Director\u2019s Desk</span></a>\r\n\t\t\t\t\t\t\t\t\t</li>\r\n\t\t\t\t\t\t\t\t\t<li class=\"usa-nav__submenu-item\">\r\n\t\t\t\t\t\t\t\t\t\t<a href=\"/news/news-releases/\"><span>News Releases</span></a>\r\n\t\t\t\t\t\t\t\t\t</li>\r\n\t\t\t\t\t\t\t\t</ul>\r\n\t\t\t\t\t\t\t</div>\r\n\t\t\t\t\t\t</li>\r\n\t\t\t\t\t</ul>\r\n\t\t\t\t</div>\r\n\t\t\t\t<div class=\"left-panel-bottom-2\">\r\n\t\t\t\t\t<span class=\"nav-header\">In this section</span>\r\n\t\t\t\t</div>\r\n\t\t\t</div>\r\n\t\t</nav>\r\n\t</header>\r\n\r\n\t<header>\r\n\t\t<div id=\"Top_Wrapper\" style=\"display:none;\">\r\n\t\t\t<div class=\"MaxWidth_Container\">\r\n\t\t\t\t<div id=\"VersionPlaceholder\" class=\"DevBanner\">\r\n\r\n\t\t\t\t</div>\r\n\t\t\t\t<div id=\"Top_Container\">\r\n\t\t\t\t\t<ul id=\"SocialIcons\">\r\n\t\t\t\t\t\t<li><a href=\"/leaving/index.aspx?link=http://www.facebook.com/USOPM\" class=\"social_facebook\" title=\"Fan us on Facebook\">Facebook</a></li>\r\n\t\t\t\t\t\t<li><a href=\"/leaving/index.aspx?link=http://twitter.com/USOPM\" class=\"social_twitter\" title=\"Follow us on Twitter\">Twitter</a></li>\r\n\t\t\t\t\t</ul>\r\n\t\t\t\t\t<ul id=\"TopLinks\">\r\n\t\t\t\t\t\t<li class=\"First\"><a href=\"/a-z-index/\">A&#8211;Z Index</a></li>\r\n\t\t\t\t\t\t<li><a href=\"/about-us/contact-us/\">Contact Us</a></li>\r\n\t\t\t\t\t\t<li><a href=\"/forms/\">Forms</a></li>\r\n\t\t\t\t\t\t<li class=\"Last\"><a href=\"/FAQs/\">FAQs</a></li>\r\n\t\t\t\t\t</ul>\r\n\t\t\t\t\t<div id=\"container_operatingstatus\" tabindex=\"-1\">\r\n\t\t\t\t\t\t<div class=\"label\"><a href=\"/policy-data-oversight/snow-dismissal-procedures/current-status/\">Operating Status:</a></div>\r\n\t\t\t\t\t\t<div class=\"message loading\" tabindex=\"-1\"><a href=\"/policy-data-oversight/snow-dismissal-procedures/current-status/\" tabindex=\"-1\"><span tabindex=\"-1\">Loading</span></a></div>\r\n\t\t\t\t\t</div>\r\n\t\t\t\t\t<div class=\"SearchBox\">\r\n\t\t\t\t\t\t<form>\r\n\t\t\t\t\t\t\t<label id=\"SearchFor\" for=\"SiteSearchString\" class=\"SearchFor\">Search for</label>\r\n\t\t\t\t\t\t\t<input type=\"text\" name=\"SiteSearchString\" id=\"SiteSearchString\" class=\"txtSearch default\" />\r\n\t\t\t\t\t\t\t<span>\r\n\t\t\t\t\t\t\t\t<input type=\"button\" name=\"GoSearch\" id=\"GoSearch\" class=\"go\" value=\"Go\" onclick=\"return performSearch('SiteSearchString');\" />\r\n\t\t\t\t\t\t\t</span>\r\n\t\t\t\t\t\t</form>\r\n\t\t\t\t\t</div>\r\n\t\t\t\t\t<a id=\"USBanner\" href=\"/leaving/index.aspx?link=http://www.whitehouse.gov\"><img src=\"/img/global/Flag.gif\" alt=\"An official website of the United States Government.\" title=\"An official website of the United States Government.\" /></a>\r\n\t\t\t\t</div>\r\n\t\t\t</div>\r\n\t\t</div>\r\n\t\t<div id=\"Navigation_Container\" style=\"display:none;\">\r\n\t\t\t<div id=\"OPMLogo\">\r\n\t\t\t\t<a href=\"/\"><span>U.S. Office of Personnel Management</span></a>\r\n\t\t\t</div>\r\n\t\t\t<nav id=\"ContentPlaceHolderDefault_MainNavigation\">\r\n<ul id=\"MainNavigationList\"><li class=\"about-us\"><a href=\"/about-us/\"><span>About</span></a><a class=\"toggleNavShow\" href=\"#\" tabindex=\"-1\">\r\n                Open \"About\" Submenu\r\n              </a><div class=\"ddNavWrapper\"><table cellpadding=\"0\" cellspacing=\"0\"><tr><td class=\"ddNavCorner ddNavCornerTL\" /><td class=\"ddNavEdge ddNavEdgeTop\" /><td class=\"ddNavCorner ddNavCornerTR\" /></tr><tr><td class=\"ddNavEdge ddNavEdgeLeft\" /><td class=\"ddNavBody HasFeaturedContent&#xD;&#xA;&#x9;&#x9;&#x9;&#x9;&#x9;&#x9;\"><div class=\"SecondaryNav_Wrapper\" parentnavitem=\"/about-us/\"><ul class=\"SecondaryNav FirstColumn\">\r\n\t\t\r\n\t\t\r\n\t\t\r\n\t\t\r\n\t\t\r\n\t\t\r\n\t\t\r\n\t\t\r\n\t\t\r\n\t\t\r\n\t\t\r\n\t\t\r\n\t\t\r\n\t\t\r\n\t\t\r\n\t\t\r\n\t\t\r\n\t\t\r\n\t\t\r\n\t\t\r\n\t\t\r\n\t\t\r\n\t\t\r\n\t\t</ul><ul class=\"SecondaryNav SecondColumn\">\r\n\t\t\r\n\t\t\r\n\t\t\r\n\t\t\r\n\t\t\r\n\t\t\r\n\t\t\r\n\t\t\r\n\t\t\r\n\t\t\r\n\t\t\r\n\t\t\r\n\t\t\r\n\t\t\r\n\t\t\r\n\t\t\r\n\t\t\r\n\t\t\r\n\t\t\r\n\t\t\r\n\t\t\r\n\t\t\r\n\t\t\r\n\t\t</ul></div><div class=\"Featured_Container\" parentpath=\"/about-us/\" /></td><td class=\"ddNavEdge ddNavEdgeRight\" /></tr><tr><td class=\"ddNavCorner ddNavCornerBL\" /><td class=\"ddNavEdge ddNavEdgeBottom\"><a class=\"toggleNavHide\" href=\"#\" tabindex=\"-1\">Close Menu</a></td><td class=\"ddNavCorner ddNavCornerBR\" /></tr></table></div>\r\n\t\t\t\t\t</li>\r\n\t\t<li class=\"policy\"><a href=\"/policy-data-oversight/\"><span>Policy</span></a><a class=\"toggleNavShow\" href=\"#\" tabindex=\"-1\">\r\n                Open \"Policy\" Submenu\r\n              </a><div class=\"ddNavWrapper\"><table cellpadding=\"0\" cellspacing=\"0\"><tr><td class=\"ddNavCorner ddNavCornerTL\" /><td class=\"ddNavEdge ddNavEdgeTop\" /><td class=\"ddNavCorner ddNavCornerTR\" /></tr><tr><td class=\"ddNavEdge ddNavEdgeLeft\" /><td class=\"ddNavBody HasFeaturedContent&#xD;&#xA;&#x9;&#x9;&#x9;&#x9;&#x9;&#x9;\"><div class=\"SecondaryNav_Wrapper\" parentnavitem=\"/policy-data-oversight/\"><ul class=\"SecondaryNav FirstColumn\">\r\n\t\t\r\n\t\t\r\n\t\t\r\n\t\t\r\n\t\t\r\n\t\t\r\n\t\t\r\n\t\t\r\n\t\t\r\n\t\t\r\n\t\t\r\n\t\t\r\n\t\t\r\n\t\t\r\n\t\t\r\n\t\t\r\n\t\t\r\n\t\t\r\n\t\t\r\n\t\t\r\n\t\t\r\n\t\t\r\n\t\t\r\n\t\t\r\n\t\t\r\n\t\t\r\n\t\t</ul><ul class=\"SecondaryNav SecondColumn\">\r\n\t\t\r\n\t\t\r\n\t\t\r\n\t\t\r\n\t\t\r\n\t\t\r\n\t\t\r\n\t\t\r\n\t\t\r\n\t\t\r\n\t\t\r\n\t\t\r\n\t\t\r\n\t\t\r\n\t\t\r\n\t\t\r\n\t\t\r\n\t\t\r\n\t\t\r\n\t\t\r\n\t\t\r\n\t\t\r\n\t\t\r\n\t\t\r\n\t\t\r\n\t\t\r\n\t\t</ul></div><div class=\"Featured_Container\" parentpath=\"/policy-data-oversight/\" /></td><td class=\"ddNavEdge ddNavEdgeRight\" /></tr><tr><td class=\"ddNavCorner ddNavCornerBL\" /><td class=\"ddNavEdge ddNavEdgeBottom\"><a class=\"toggleNavHide\" href=\"#\" tabindex=\"-1\">Close Menu</a></td><td class=\"ddNavCorner ddNavCornerBR\" /></tr></table></div>\r\n\t\t\t\t\t</li>\r\n\t\t<li class=\"compliance\"><a href=\"/compliance/\"><span>Compliance</span></a><a class=\"toggleNavShow\" href=\"#\" tabindex=\"-1\">\r\n                Open \"Compliance\" Submenu\r\n              </a><div class=\"ddNavWrapper\"><table cellpadding=\"0\" cellspacing=\"0\"><tr><td class=\"ddNavCorner ddNavCornerTL\" /><td class=\"ddNavEdge ddNavEdgeTop\" /><td class=\"ddNavCorner ddNavCornerTR\" /></tr><tr><td class=\"ddNavEdge ddNavEdgeLeft\" /><td class=\"ddNavBody HasFeaturedContent&#xD;&#xA;&#x9;&#x9;&#x9;&#x9;&#x9;&#x9;\"><div class=\"SecondaryNav_Wrapper\" parentnavitem=\"/compliance/\"><ul class=\"SecondaryNav\">\r\n\t\t\r\n\t\t</ul></div><div class=\"Featured_Container\" parentpath=\"/compliance/\" /></td><td class=\"ddNavEdge ddNavEdgeRight\" /></tr><tr><td class=\"ddNavCorner ddNavCornerBL\" /><td class=\"ddNavEdge ddNavEdgeBottom\"><a class=\"toggleNavHide\" href=\"#\" tabindex=\"-1\">Close Menu</a></td><td class=\"ddNavCorner ddNavCornerBR\" /></tr></table></div>\r\n\t\t\t\t\t</li>\r\n\t\t\r\n\t\t<li class=\"insurance\"><a href=\"/healthcare-insurance/\"><span>Insurance</span></a><a class=\"toggleNavShow\" href=\"#\" tabindex=\"-1\">\r\n                Open \"Insurance\" Submenu\r\n              </a><div class=\"ddNavWrapper\"><table cellpadding=\"0\" cellspacing=\"0\"><tr><td class=\"ddNavCorner ddNavCornerTL\" /><td class=\"ddNavEdge ddNavEdgeTop\" /><td class=\"ddNavCorner ddNavCornerTR\" /></tr><tr><td class=\"ddNavEdge ddNavEdgeLeft\" /><td class=\"ddNavBody HasFeaturedContent&#xD;&#xA;&#x9;&#x9;&#x9;&#x9;&#x9;&#x9;\"><div class=\"SecondaryNav_Wrapper\" parentnavitem=\"/healthcare-insurance/\"><ul class=\"SecondaryNav FirstColumn\">\r\n\t\t\r\n\t\t\r\n\t\t\r\n\t\t\r\n\t\t\r\n\t\t\r\n\t\t\r\n\t\t\r\n\t\t\r\n\t\t\r\n\t\t\r\n\t\t\r\n\t\t\r\n\t\t\r\n\t\t\r\n\t\t\r\n\t\t\r\n\t\t\r\n\t\t\r\n\t\t\r\n\t\t\r\n\t\t</ul><ul class=\"SecondaryNav SecondColumn\">\r\n\t\t\r\n\t\t\r\n\t\t\r\n\t\t\r\n\t\t\r\n\t\t\r\n\t\t\r\n\t\t\r\n\t\t\r\n\t\t\r\n\t\t\r\n\t\t\r\n\t\t\r\n\t\t\r\n\t\t\r\n\t\t\r\n\t\t\r\n\t\t\r\n\t\t\r\n\t\t\r\n\t\t\r\n\t\t</ul></div><div class=\"Featured_Container\" parentpath=\"/healthcare-insurance/\" /></td><td class=\"ddNavEdge ddNavEdgeRight\" /></tr><tr><td class=\"ddNavCorner ddNavCornerBL\" /><td class=\"ddNavEdge ddNavEdgeBottom\"><a class=\"toggleNavHide\" href=\"#\" tabindex=\"-1\">Close Menu</a></td><td class=\"ddNavCorner ddNavCornerBR\" /></tr></table></div>\r\n\t\t\t\t\t</li>\r\n\t\t<li class=\"retirement\"><a href=\"/retirement-center/\"><span>Retirement</span></a><a class=\"toggleNavShow\" href=\"#\" tabindex=\"-1\">\r\n                Open \"Retirement\" Submenu\r\n              </a><div class=\"ddNavWrapper\"><table cellpadding=\"0\" cellspacing=\"0\"><tr><td class=\"ddNavCorner ddNavCornerTL\" /><td class=\"ddNavEdge ddNavEdgeTop\" /><td class=\"ddNavCorner ddNavCornerTR\" /></tr><tr><td class=\"ddNavEdge ddNavEdgeLeft\" /><td class=\"ddNavBody HasFeaturedContent&#xD;&#xA;&#x9;&#x9;&#x9;&#x9;&#x9;&#x9;\"><div class=\"SecondaryNav_Wrapper\" parentnavitem=\"/retirement-center/\"><ul class=\"SecondaryNav FirstColumn\">\r\n\t\t\r\n\t\t\r\n\t\t\r\n\t\t\r\n\t\t\r\n\t\t\r\n\t\t\r\n\t\t\r\n\t\t\r\n\t\t\r\n\t\t\r\n\t\t\r\n\t\t\r\n\t\t\r\n\t\t\r\n\t\t</ul><ul class=\"SecondaryNav SecondColumn\">\r\n\t\t\r\n\t\t\r\n\t\t\r\n\t\t\r\n\t\t\r\n\t\t\r\n\t\t\r\n\t\t\r\n\t\t\r\n\t\t\r\n\t\t\r\n\t\t\r\n\t\t\r\n\t\t\r\n\t\t\r\n\t\t</ul></div><div class=\"Featured_Container\" parentpath=\"/retirement-center/\" /></td><td class=\"ddNavEdge ddNavEdgeRight\" /></tr><tr><td class=\"ddNavCorner ddNavCornerBL\" /><td class=\"ddNavEdge ddNavEdgeBottom\"><a class=\"toggleNavHide\" href=\"#\" tabindex=\"-1\">Close Menu</a></td><td class=\"ddNavCorner ddNavCornerBR\" /></tr></table></div>\r\n\t\t\t\t\t</li>\r\n\t\t<li class=\"investigations\"><a href=\"/suitability/\"><span>Suitability</span></a><a class=\"toggleNavShow\" href=\"#\" tabindex=\"-1\">\r\n                Open \"Suitability\" Submenu\r\n              </a><div class=\"ddNavWrapper\"><table cellpadding=\"0\" cellspacing=\"0\"><tr><td class=\"ddNavCorner ddNavCornerTL\" /><td class=\"ddNavEdge ddNavEdgeTop\" /><td class=\"ddNavCorner ddNavCornerTR\" /></tr><tr><td class=\"ddNavEdge ddNavEdgeLeft\" /><td class=\"ddNavBody HasFeaturedContent&#xD;&#xA;&#x9;&#x9;&#x9;&#x9;&#x9;&#x9;\"><div class=\"SecondaryNav_Wrapper\" parentnavitem=\"/suitability/\"><ul class=\"SecondaryNav\">\r\n\t\t\r\n\t\t\r\n\t\t\r\n\t\t\r\n\t\t\r\n\t\t\r\n\t\t\r\n\t\t\r\n\t\t</ul></div><div class=\"Featured_Container\" parentpath=\"/suitability/\" /></td><td class=\"ddNavEdge ddNavEdgeRight\" /></tr><tr><td class=\"ddNavCorner ddNavCornerBL\" /><td class=\"ddNavEdge ddNavEdgeBottom\"><a class=\"toggleNavHide\" href=\"#\" tabindex=\"-1\">Close Menu</a></td><td class=\"ddNavCorner ddNavCornerBR\" /></tr></table></div>\r\n\t\t\t\t\t</li>\r\n\t\t<li class=\"services\"><a href=\"/agency-services/\"><span>Agency Services</span></a><a class=\"toggleNavShow\" href=\"#\" tabindex=\"-1\">\r\n                Open \"Agency Services\" Submenu\r\n              </a><div class=\"ddNavWrapper\"><table cellpadding=\"0\" cellspacing=\"0\"><tr><td class=\"ddNavCorner ddNavCornerTL\" /><td class=\"ddNavEdge ddNavEdgeTop\" /><td class=\"ddNavCorner ddNavCornerTR\" /></tr><tr><td class=\"ddNavEdge ddNavEdgeLeft\" /><td class=\"ddNavBody HasFeaturedContent&#xD;&#xA;&#x9;&#x9;&#x9;&#x9;&#x9;&#x9;\"><div class=\"SecondaryNav_Wrapper\" parentnavitem=\"/agency-services/\"><ul class=\"SecondaryNav\">\r\n\t\t\r\n\t\t\r\n\t\t\r\n\t\t\r\n\t\t\r\n\t\t</ul></div><div class=\"Featured_Container\" parentpath=\"/agency-services/\" /></td><td class=\"ddNavEdge ddNavEdgeRight\" /></tr><tr><td class=\"ddNavCorner ddNavCornerBL\" /><td class=\"ddNavEdge ddNavEdgeBottom\"><a class=\"toggleNavHide\" href=\"#",
+          "title": "Public Data File",
+          "httpStatus": 200
+        },
+        {
+          "type": "openrouter:web_fetch",
+          "id": "st_tmp_h3y01ghdz7",
+          "status": "completed",
+          "url": "https://www.govinfo.gov/content/pkg/FR-2026-09-17/html/2026-19042.htm",
+          "content": "<html>\n<head>\n<title>Federal Register, Volume 91 Issue 179 (Thursday, September 17, 2026)</title>\n</head>\n<body><pre>\n[Federal Register Volume 91, Number 179 (Thursday, September 17, 2026)]\n[Notices]\n[Page 58921]\nFrom the Federal Register Online via the Government Publishing Office [<a href=\"http://www.gpo.gov\">www.gpo.gov</a>]\n[FR Doc No: 2026-19042]\n\n\n=======================================================================\n-----------------------------------------------------------------------\n\nOFFICE OF PERSONNEL MANAGEMENT\n\n\nAgency Information Collection Request: Annual Employee Survey \n(3206-NEW)\n\nAGENCY: Office of Personnel Management.\n\nACTION: 30-Day notice and request for comments.\n\n-----------------------------------------------------------------------\n\nSUMMARY: The Office of Personnel Management (OPM) invites the public \nand Federal agencies to comment on its new Annual Employee Survey (AES) \ninformation collection request (ICR). The AES includes survey items \npreviously administered through the Federal Employee Viewpoint Survey \n(FEVS) and fulfills statutory and regulatory employee-survey \nrequirements.\n\nDATES: Comments are encouraged and will be accepted until October 19, \n2026. This process is conducted in accordance with 5 CFR 1320.8(d)(1).\n\nADDRESSES: Written comments and recommendations for the proposed \ninformation collection should be sent within 30 days of publication of \nthis notice to <a href=\"http://www.reginfo.gov/public/do/PRAMain\">http://www.reginfo.gov/public/do/PRAMain</a>. Find this \nparticular information collection request by selecting ``Office of \nPersonnel Management'' under ``Currently Under Review,'' then check \n``Only Show ICR for Public Comment'' checkbox.\n\nFOR FURTHER INFORMATION CONTACT: Employee Viewpoint Survey Team, \nAttention: Makisha Brown, via electronic mail to <a href=\"/cdn-cgi/l/email-protection#aaeffcf9eac5dac784cdc5dc\"><span class=\"__cf_email__\" data-cfemail=\"a4e1f2f7e4cbd4c98ac3cbd2\">[email&#160;protected]</span></a> or via \ntelephone at (202) 606-1800.\n\nSUPPLEMENTARY INFORMATION: As required by the Paperwork Reduction Act \nof 1995, 44 U.S.C. 3506(c)(2), OPM is soliciting comments for this \ncollection. The Office of Management and Budget is particularly \ninterested in comments that:\n    1. Evaluate whether the proposed collection of information is \nnecessary for the proper performance of functions of the agency, \nincluding whether the information will have practical utility;\n    2. Evaluate the accuracy of the agency's estimate of the burden of \nthe proposed collection of information, including the validity of the \nmethodology and assumptions used;\n    3. Enhance the quality, utility, and clarity of the information to \nbe collected; and\n    4. Minimize the burden of the collection of information on those \nwho are to respond, including through the use of appropriate automated, \nelectronic, mechanical, or other technological collection techniques or \nother forms of information technology, e.g., permitting electronic \nsubmissions of responses.\n\nBackground\n\n    Section 1128 of the National Defense Authorization Act for Fiscal \nYear 2004 (Pub. L. 108-136, 5 U.S.C. 7101 note) requires executive \nagencies to conduct an annual employee survey and directs OPM to issue \nregulations prescribing the survey questions that must appear on all \nagency surveys to allow for comparison across agencies. The survey is \nthe instrument through which agencies meet the statutory requirement to \nassess (1) leadership and management practices that contribute to \nagency performance and (2) employee satisfaction with leadership \npolicies and practices, the work environment, rewards and recognition \nfor professional accomplishment and personal contributions to achieving \nthe organizational mission, opportunity for professional development \nand growth, and opportunity to contribute to achieving the \norganizational mission. OPM implemented this requirement through \nregulations at 5 CFR part 250, subpart C, to provide comparable \ngovernmentwide data and centrally administered the annual survey, the \nAnnual Employee Survey (formerly Federal Employee Viewpoint Survey \n(FEVS)), on behalf of agencies. Agencies participating in the AES \nsatisfy the annual employee survey requirement by including the \nprescribed core survey questions, while retaining limited flexibility \nto add agency-specific items consistent with OPM guidance.\n    In a proposed rule (91 FR 40435) issued July 2, 2026, OPM proposed \nto reduce the number of prescribed annual employee survey questions \nfrom 16 to 10, retaining the most probative items to better serve \nworkforce planning needs. In addition, OPM would no longer centrally \nadminister the survey on behalf of agencies. Instead, each agency would \nadminister the survey to its employees. The survey consists of Likert-\ntype, mark-one, and mark-all-that-apply items. The information \ncollection consists of the responses provided by the employees who \ncomplete the survey. The OPM survey will be available to agencies as a \ncommon form. An agency would submit the resulting data for the \nprescribed questions to OPM and OMB once per year to enable \ngovernmentwide comparison. Should agencies add questions to the common \nform, agencies would be responsible for their own collections separate \nfrom the OPM common form and would need to seek their own OMB control \nnumber.\n\nAnalysis\n\n    Agency: Office of Personnel Management.\n    Title: Annual Employee Survey (AES).\n    OMB Number: 3206-NEW.\n    Frequency: Annually.\n    Affected Public: Federal Government.\n    Number of Respondents: 1,990.\n    Estimated Time per Respondent: 5 minutes.\n    Total Burden Hours: 166 hours.\n\nAlexys Stanley,\nFederal Register Liaison.\n[FR Doc. 2026-19042 Filed 9-16-26; 8:45 am]\nBILLING CODE 6325-39-P\n\n\n</pre><script data-cfasync=\"false\" src=\"/cdn-cgi/scripts/5c5dd728/cloudflare-static/email-decode.min.js\"></script></body>\n</html>",
+          "title": "Federal Register, Volume 91 Issue 179 (Thursday, September 17, 2026)",
+          "httpStatus": 200
+        }
+      ],
+      "ended": "answered",
+      "seconds": 105.6
+    },
+    "assessment": {
+      "request": {
+        "model": "z-ai/glm-5.3",
+        "max_output_tokens": 32768,
+        "tools": [
+          {
+            "type": "openrouter:web_search",
+            "parameters": {
+              "engine": "exa",
+              "max_results": 10,
+              "excluded_domains": [
+                "dataindex.us"
+              ]
+            }
+          },
+          {
+            "type": "openrouter:web_fetch",
+            "parameters": {
+              "engine": "openrouter",
+              "blocked_domains": [
+                "dataindex.us"
+              ],
+              "max_content_tokens": 10000
+            }
+          }
+        ],
+        "cache_control": {
+          "type": "ephemeral",
+          "ttl": "1h"
+        },
+        "session_id": "fevs-z-ai/glm-5.3-t0-2026-10-08T23:49:55Z",
+        "stop_server_tools_when": [
+          {
+            "type": "step_count_is",
+            "step_count": 200
+          }
+        ],
+        "reasoning": {
+          "effort": "high"
+        },
+        "provider": {
+          "order": [
+            "z-ai"
+          ],
+          "allow_fallbacks": false
+        }
+      },
+      "response_meta": {
+        "id": "gen-1791503501-5YTWUrs71GMHCTftEKRC",
+        "object": "response",
+        "created_at": 1791503501,
+        "model": "z-ai/glm-5.3",
+        "status": "completed",
+        "completed_at": 1791503575,
+        "error": null,
+        "incomplete_details": null,
+        "tools": [],
+        "tool_choice": "auto",
+        "parallel_tool_calls": true,
+        "max_output_tokens": 32768,
+        "temperature": 1,
+        "top_p": 1,
+        "presence_penalty": 0,
+        "frequency_penalty": 0,
+        "top_logprobs": 0,
+        "max_tool_calls": null,
+        "metadata": {},
+        "background": false,
+        "previous_response_id": null,
+        "service_tier": "auto",
+        "truncation": "disabled",
+        "store": false,
+        "instructions": null,
+        "text": {
+          "format": {
+            "type": "text"
+          }
+        },
+        "reasoning": {
+          "effort": "high"
+        },
+        "safety_identifier": null,
+        "prompt_cache_key": null,
+        "prompt_cache_options": null,
+        "usage": {
+          "input_tokens": 113003,
+          "input_tokens_details": {
+            "cached_tokens": 77632
+          },
+          "output_tokens": 5096,
+          "output_tokens_details": {
+            "reasoning_tokens": 1595
+          },
+          "total_tokens": 118099,
+          "cost": 0.12712612,
+          "cost_details": {
+            "upstream_inference_cost": 0.09212612,
+            "upstream_inference_input_cost": 0.06970372,
+            "upstream_inference_output_cost": 0.0224224
+          },
+          "server_tool_use_details": {
+            "web_search_requests": 6,
+            "tool_calls_requested": 6,
+            "tool_calls_executed": 6
+          }
+        }
+      },
+      "requests": [
+        {
+          "input_tokens": 113003,
+          "input_tokens_details": {
+            "cached_tokens": 77632
+          },
+          "output_tokens": 5096,
+          "output_tokens_details": {
+            "reasoning_tokens": 1595
+          },
+          "total_tokens": 118099,
+          "cost": 0.12712612,
+          "cost_details": {
+            "upstream_inference_cost": 0.09212612,
+            "upstream_inference_input_cost": 0.06970372,
+            "upstream_inference_output_cost": 0.0224224
+          },
+          "server_tool_use_details": {
+            "web_search_requests": 6,
+            "tool_calls_requested": 6,
+            "tool_calls_executed": 6
+          }
+        }
+      ],
+      "searches": 6,
+      "fetches": 0,
+      "tool_items": [
+        {
+          "type": "openrouter:web_search",
+          "id": "st_tmp_qln5pcui99d",
+          "status": "completed",
+          "action": {
+            "type": "search",
+            "query": "OPM workforce reduction layoffs 2025 staff cuts deferred resignation employees lost",
+            "sources": [
+              {
+                "type": "url",
+                "url": "https://data.opm.gov/explore-data/analytics/workforce-changes"
+              },
+              {
+                "type": "url",
+                "url": "https://www.gao.gov/products/gao-26-108583"
+              },
+              {
+                "type": "url",
+                "url": "https://www.opm.gov/news/secrets-of-opm/last-year-s-workforce-reductions-were-real"
+              },
+              {
+                "type": "url",
+                "url": "https://www.opm.gov/news/secrets-of-opm/right-sizing-with-purpose/"
+              },
+              {
+                "type": "url",
+                "url": "https://www.govexec.com/workforce/2025/12/opm-says-92-fed-departures-year-were-voluntary-those-who-left-disagree/410076/"
+              },
+              {
+                "type": "url",
+                "url": "https://www.opm.gov/about-us/fork/original-email-to-employees"
+              },
+              {
+                "type": "url",
+                "url": "https://federalnewsnetwork.com/workforce/2025/11/317000-feds-have-left-the-government-this-year-surpassing-opms-goal/"
+              },
+              {
+                "type": "url",
+                "url": "https://www.congress.gov/crs-product/IN12505"
+              },
+              {
+                "type": "url",
+                "url": "https://en.wikipedia.org/wiki/2025_United_States_federal_mass_layoffs"
+              },
+              {
+                "type": "url",
+                "url": "https://federalnewsnetwork.com/management/2025/07/opm-on-track-to-eliminate-1000-positions-by-the-end-of-the-year/"
+              }
+            ]
+          }
+        },
+        {
+          "type": "openrouter:web_search",
+          "id": "st_tmp_w822l5es3mh",
+          "status": "completed",
+          "action": {
+            "type": "search",
+            "query": "OPM FEVS historical data files removed from website 2025 archive DEIA reports scrubbed",
+            "sources": [
+              {
+                "type": "url",
+                "url": "https://www.opm.gov/fevs/reports/data-reports/"
+              },
+              {
+                "type": "url",
+                "url": "https://www.opm.gov/fevs/reports/"
+              },
+              {
+                "type": "url",
+                "url": "https://marylandmatters.org/2026/06/04/disappearing-demographic-data-hurts-efforts-to-track-laid-off-federal-workers/"
+              },
+              {
+                "type": "url",
+                "url": "https://www.opm.gov/fevs/reports/governmentwide-reports"
+              },
+              {
+                "type": "url",
+                "url": "https://www.opm.gov/chcoc/latest-memos/2025-federal-employee-viewpoint-survey-and-compliance-with-recent-executive-orders.pdf"
+              },
+              {
+                "type": "url",
+                "url": "https://federalnewsnetwork.com/wp-content/uploads/2025/02/Memo-on-FEVS-Reports-2-28-2025final.pdf"
+              },
+              {
+                "type": "url",
+                "url": "https://www.opm.gov/fevs/reports/technical-reports/technical-report/technical-report/2024/2024-technical-report.pdf"
+              },
+              {
+                "type": "url",
+                "url": "https://www.opm.gov/chcoc/transmittals/2025/Memo%20on%20FEVS%20ReportsFINAL.pdf"
+              },
+              {
+                "type": "url",
+                "url": "https://data.amerigeoss.org/dataset/federal-employee-viewpoint-survey-fevs-deia-index-results-by-agency-07fca"
+              },
+              {
+                "type": "url",
+                "url": "https://federalnewsnetwork.com/workforce/2025/02/opm-delays-fevs-timeline-removes-deia-survey-questions/"
+              }
+            ]
+          }
+        },
+        {
+          "type": "openrouter:web_search",
+          "id": "st_tmp_t5z6kxur8a",
+          "status": "completed",
+          "action": {
+            "type": "search",
+            "query": "OPM Annual Employee Survey 2026 agencies administer December 31 final rule status FEVS successor",
+            "sources": [
+              {
+                "type": "url",
+                "url": "https://www.opm.gov/chcoc/latest-memos/annual-employee-survey-administration-requirements-2026-and-beyond.pdf"
+              },
+              {
+                "type": "url",
+                "url": "https://www.govinfo.gov/content/pkg/FR-2026-09-17/html/2026-19042.htm"
+              },
+              {
+                "type": "url",
+                "url": "https://www.federalregister.gov/documents/2026/07/02/2026-13443/agency-information-collection-request-federal-employee-viewpoint-survey-omb-control-number-3206-new"
+              },
+              {
+                "type": "url",
+                "url": "https://www.opm.gov/chcoc/latest-memos/employee-survey-playbook.pdf"
+              },
+              {
+                "type": "url",
+                "url": "https://www.opm.gov/policy-data-oversight/data-analysis-documentation/employee-surveys/surveyguidance.pdf"
+              },
+              {
+                "type": "url",
+                "url": "https://www.govinfo.gov/content/pkg/FR-2026-07-02/pdf/2026-13441.pdf"
+              },
+              {
+                "type": "url",
+                "url": "https://www.fedtools.com/blog/fevs-decentralization-comment-guide-2026"
+              },
+              {
+                "type": "url",
+                "url": "https://www.govinfo.gov/content/pkg/FR-2026-07-02/html/2026-13443.htm"
+              },
+              {
+                "type": "url",
+                "url": "https://www.lexfed.com/federal-register/2026-19042"
+              },
+              {
+                "type": "url",
+                "url": "https://federalnewsnetwork.com/workforce/2026/09/opms-overhauls-to-fevs-pose-both-opportunities-and-risks-workforce-experts-say/"
+              }
+            ]
+          }
+        },
+        {
+          "type": "openrouter:web_search",
+          "id": "st_tmp_2w6xtcvgjdh",
+          "status": "completed",
+          "action": {
+            "type": "search",
+            "query": "FEVS public data file 2024 redacted DEIA items removed download CSV",
+            "sources": [
+              {
+                "type": "url",
+                "url": "https://www.opm.gov/fevs/reports/technical-reports/technical-report/technical-report/2024/2024-technical-report.pdf"
+              },
+              {
+                "type": "url",
+                "url": "https://www.sba.gov/document/report-federal-employee-viewpoint-survey-results"
+              },
+              {
+                "type": "url",
+                "url": "https://www.opm.gov/fevs/reports/governmentwide-reports/governmentwide-reports/governmentwide-management-report/2024/2024-governmentwide-management-report.pdf"
+              },
+              {
+                "type": "url",
+                "url": "https://www.datalumos.org/datalumos/project/248623/version/V1/view"
+              },
+              {
+                "type": "url",
+                "url": "https://piv.opm.gov/fevs/reports/data-reports"
+              },
+              {
+                "type": "url",
+                "url": "https://www.opm.gov/policy-data-oversight/data-analysis-documentation/employee-surveys/results/2024-federal-employee-survey-results.pdf"
+              },
+              {
+                "type": "url",
+                "url": "https://github.laiyagushi.com/ebmgt/FEVS"
+              },
+              {
+                "type": "url",
+                "url": "https://exa.ai/library/publication/nvnq0chl9bz"
+              },
+              {
+                "type": "url",
+                "url": "https://data.amerigeoss.org/dataset/federal-employee-viewpoint-survey-fevs-deia-index-results-by-agency-07fca"
+              },
+              {
+                "type": "url",
+                "url": "https://piv.opm.gov/fevs/reports/governmentwide-reports/governmentwide-reports/governmentwide-management-report/2024/2024-governmentwide-management-report.pdf"
+              }
+            ]
+          }
+        },
+        {
+          "type": "openrouter:web_search",
+          "id": "st_tmp_0tnihg56pfv",
+          "status": "completed",
+          "action": {
+            "type": "search",
+            "query": "OPM 2025 public data file FEVS items 73-85 removed DEIA redacted researchers lost data",
+            "sources": [
+              {
+                "type": "url",
+                "url": "https://www.opm.gov/chcoc/latest-memos/2025-federal-employee-viewpoint-survey-and-compliance-with-recent-executive-orders.pdf"
+              },
+              {
+                "type": "url",
+                "url": "https://marylandmatters.org/2026/06/04/disappearing-demographic-data-hurts-efforts-to-track-laid-off-federal-workers/"
+              },
+              {
+                "type": "url",
+                "url": "https://www.opm.gov/fevs/reports/data-reports/"
+              },
+              {
+                "type": "url",
+                "url": "https://www.opm.gov/chcoc/transmittals/2025/Memo%20on%20FEVS%20ReportsFINAL.pdf"
+              },
+              {
+                "type": "url",
+                "url": "https://federalnewsnetwork.com/workforce/2025/02/opm-delays-fevs-timeline-removes-deia-survey-questions/"
+              },
+              {
+                "type": "url",
+                "url": "https://federalnewsnetwork.com/workforce/2025/08/after-months-of-postponing-opm-opts-to-fully-cancel-2025-fevs/"
+              },
+              {
+                "type": "url",
+                "url": "https://www.govexec.com/oversight/2025/08/opm-will-forego-fevs-2025-despite-law-requiring-it/407584/"
+              },
+              {
+                "type": "url",
+                "url": "https://www.opm.gov/fevs/reports/technical-reports/technical-report/technical-report/2024/2024-technical-report.pdf"
+              },
+              {
+                "type": "url",
+                "url": "https://civilservicearchive.org/update/178"
+              },
+              {
+                "type": "url",
+                "url": "https://federalnewsnetwork.com/federal-report/2025/09/without-fevs-this-year-whats-next-for-agencies/"
+              }
+            ]
+          }
+        },
+        {
+          "type": "openrouter:web_search",
+          "id": "st_tmp_onzwxn49ba",
+          "status": "completed",
+          "action": {
+            "type": "search",
+            "query": "Scott Kupor OPM director confirmed budget cut fiscal 2026 OPM funding"
+          }
+        }
+      ],
+      "ended": "answered",
+      "seconds": 73.8
+    },
+    "session_metadata": {
+      "request": {
+        "model": "z-ai/glm-5.3",
+        "max_output_tokens": 32768,
+        "tools": [
+          {
+            "type": "openrouter:web_search",
+            "parameters": {
+              "engine": "exa",
+              "max_results": 10,
+              "excluded_domains": [
+                "dataindex.us"
+              ]
+            }
+          },
+          {
+            "type": "openrouter:web_fetch",
+            "parameters": {
+              "engine": "openrouter",
+              "blocked_domains": [
+                "dataindex.us"
+              ],
+              "max_content_tokens": 10000
+            }
+          }
+        ],
+        "cache_control": {
+          "type": "ephemeral",
+          "ttl": "1h"
+        },
+        "session_id": "fevs-z-ai/glm-5.3-t0-2026-10-08T23:49:55Z",
+        "stop_server_tools_when": [
+          {
+            "type": "step_count_is",
+            "step_count": 200
+          }
+        ],
+        "reasoning": {
+          "effort": "high"
+        },
+        "provider": {
+          "order": [
+            "z-ai"
+          ],
+          "allow_fallbacks": false
+        }
+      },
+      "response_meta": {
+        "id": "gen-1791503575-JI6O9yBr4ZWIavBFsspe",
+        "object": "response",
+        "created_at": 1791503575,
+        "model": "z-ai/glm-5.3",
+        "status": "completed",
+        "completed_at": 1791503588,
+        "error": null,
+        "incomplete_details": null,
+        "tools": [],
+        "tool_choice": "auto",
+        "parallel_tool_calls": true,
+        "max_output_tokens": 32768,
+        "temperature": 1,
+        "top_p": 1,
+        "presence_penalty": 0,
+        "frequency_penalty": 0,
+        "top_logprobs": 0,
+        "max_tool_calls": null,
+        "metadata": {},
+        "background": false,
+        "previous_response_id": null,
+        "service_tier": "auto",
+        "truncation": "disabled",
+        "store": false,
+        "instructions": null,
+        "text": {
+          "format": {
+            "type": "text"
+          }
+        },
+        "reasoning": {
+          "effort": "high"
+        },
+        "safety_identifier": null,
+        "prompt_cache_key": null,
+        "prompt_cache_options": null,
+        "usage": {
+          "input_tokens": 24042,
+          "input_tokens_details": {
+            "cached_tokens": 19136
+          },
+          "output_tokens": 856,
+          "output_tokens_details": {
+            "reasoning_tokens": 558
+          },
+          "total_tokens": 24898,
+          "cost": 0.01561016,
+          "cost_details": {
+            "upstream_inference_cost": 0.01561016,
+            "upstream_inference_input_cost": 0.01184376,
+            "upstream_inference_output_cost": 0.0037664
+          }
+        }
+      },
+      "requests": [
+        {
+          "input_tokens": 24042,
+          "input_tokens_details": {
+            "cached_tokens": 19136
+          },
+          "output_tokens": 856,
+          "output_tokens_details": {
+            "reasoning_tokens": 558
+          },
+          "total_tokens": 24898,
+          "cost": 0.01561016,
+          "cost_details": {
+            "upstream_inference_cost": 0.01561016,
+            "upstream_inference_input_cost": 0.01184376,
+            "upstream_inference_output_cost": 0.0037664
+          }
+        }
+      ],
+      "searches": 0,
+      "fetches": 0,
+      "tool_items": [],
+      "ended": "answered",
+      "seconds": 12.8
+    }
+  },
+  "messages": [
+    {
+      "role": "user",
+      "content": "#data research\nI am researching a federal dataset. Find out everything you can about this dataset, such as who publishes it, under what authority or mandate, its history, its typical users, and its benefits to the public. Be sure your research comprehensively covers each of those perspectives, as well as any others that you discover or seem useful. I believe this is accurate information, but please check:\n\nDataset title: Federal Employment Viewpoint Survey (FEVS)\nDescription: The Office of Personnel Management Federal Employee Viewpoint Survey (OPM FEVS) is an organizational climate survey and assesses how employees jointly experience the policies, practices, and procedures characteristic of their agency and its leadership. Results from the OPM FEVS offers insights into whether, and to what extent, workplace conditions characterizing successful organizations are present in Federal agencies, information important to successful organizational change and development initiatives.\nURL: https://opm.gov/fevs\n\nReturn a complete report on everything that a preservationist, data librarian, data scientist, or policy activist might want to know about this data."
+    },
+    {
+      "role": "assistant",
+      "content": "I'll research this dataset comprehensively. Let me start with several searches covering different angles.I have a strong foundation. Now let me dig into data access, recent developments, users, and research applications.I've hit the search tool's result limit, but I can still fetch specific pages. Let me get details on the 2026 rule change and the data files.Let me get the final rule text from the Federal Register to confirm the 2026 changes.# Research Report: The Federal Employee Viewpoint Survey (FEVS)\n\n## Verification of the Supplied Information\n\nThe dataset information you provided is **accurate**. A few refinements:\n\n- The canonical URL is `https://www.opm.gov/FEVS` (the site resolves from opm.gov/fevs, but \"www\" is the standard form).\n- The description you quoted matches OPM's official framing of the FEVS as an \"organizational climate survey.\"\n- One important caveat: the title \"Federal Employee Viewpoint Survey\" now describes the survey's **historical** form. As detailed below, OPM canceled the 2025 administration and, beginning with the 2026 cycle, replaced the centrally administered FEVS with a decentralized \"Annual Employee Survey (AES).\" The FEVS proper now exists as a 2002\u20132024 archive.\n\n---\n\n## 1. Identity and Provenance\n\n| Attribute | Detail |\n|---|---|\n| **Title** | Federal Employee Viewpoint Survey (FEVS); predecessor: Federal Human Capital Survey (FHCS, 2002\u20132008); successor: Annual Employee Survey (AES, 2026\u2013) |\n| **Publisher** | U.S. Office of Personnel Management (OPM), the federal government's central HR agency and workforce data steward |\n| **Contractor** | Westat (Rockville, MD), primary technical contractor since 2004, including the WesDaX online analysis platform for agency users |\n| **Contact** | OPM Employee Viewpoint Survey Team (evs@opm.gov); data contact: datadrivenworkforce@opm.gov; (202) 606-1800 |\n| **Data.gov identifiers** | e.g., OPM-ES-0019 (Public Data File), OPM-ES-0014 (Global Satisfaction Index results by agency); bureau code 027:00 |\n| **License** | U.S. public domain (USA.gov public domain label 1.0) |\n| **Cadence** | Biennial 2002\u20132008; annual 2010\u20132024; **not administered in 2025**; redesigned/decentralized from 2026 |\n\n## 2. Legal Authority and Mandate\n\nThe FEVS is one of the relatively few federal datasets with an explicit statutory foundation:\n\n- **Section 1128 of the National Defense Authorization Act for FY2004 (Pub. L. 108-136, codified at 5 U.S.C. 7101 note).** This provision requires every executive agency to conduct an **annual employee survey** assessing (1) leadership and management practices that contribute to agency performance, and (2) employee satisfaction with leadership policies and practices, the work environment, rewards and recognition, professional development opportunities, and opportunity to contribute to the mission. It directs OPM to prescribe the survey questions appearing on all agency surveys to enable cross-agency comparison, and \u2014 notably \u2014 **requires agencies to make results publicly available and post them on their websites** (unless the agency head determines this would jeopardize national security).\n- **5 CFR Part 250, Subpart C (\"Employee Surveys\").** OPM's implementing regulation, first finalized in 2006 (proposed 2005) and substantially revised by a final rule in February 2016 that established the Human Capital Framework and the HRStat data-review process. The rule prescribes **16 core \"Annual Employee Survey\" (AES) questions** that were embedded in the FEVS \u2014 participation in the FEVS satisfied agencies' statutory obligation.\n- **Paperwork Reduction Act.** Each administration operates under OMB information-collection clearance; the successor AES received a new OMB control number (3206-NEW) via notices in July and September 2026.\n- **Related framework laws:** the GPRA Modernization Act of 2010 (Pub. L. 111-352), which folded strategic human-capital planning into agency strategic plans and made FEVS-type metrics central to HRStat reviews.\n- **Unenacted codification:** H.R. 3244 in the 115th Congress (House Report 115-403) would have written the annual FEVS directly into title 5, U.S. Code; it did not become law, leaving the FEVS as a regulation-based program.\n\n## 3. History and Evolution\n\n| Period | Milestone |\n|---|---|\n| **2002** | First administration as the **Federal Human Capital Survey (FHCS)** |\n| **2002\u20132008** | Administered biennially (2002, 2004, 2006, 2008); Westat becomes contractor in 2004 |\n| **2006** | OPM finalizes 5 CFR 250 subpart C implementing the NDAA survey mandate |\n| **2010** | Renamed **Federal Employee Viewpoint Survey**; instrument revised toward actionable items; becomes **annual** |\n| **2012** | Census administration of the full workforce |\n| **2013\u20132018** | Switch to **Graduated Proportional Sampling** (probability samples with a minimum 25% selection probability, small agencies and SES censused) to cut cost/burden |\n| **2016** | Revised 5 CFR Part 250 final rule; 16 prescribed AES questions formalized; PRDF disclosure-masking methods introduced |\n| **2020** | Administration delayed by COVID-19 to September\u2013November |\n| **2022** | 13 DEIA (diversity, equity, inclusion, accessibility) questions added; instrument grows to ~100+ items (111 in 2023) |\n| **2024** | Final full FEVS administration: census of ~1.65 million eligible employees |\n| **Feb 2025** | OPM delays 2025 FEVS; announces removal of the 13 DEIA questions and \"gender ideology\" questions per EOs 14151 and 14168; reinstates the \"poor performers\" question; says prior-year (2012\u20132024) reports will be marked as containing EO-inconsistent content |\n| **Aug 2025** | OPM **fully cancels the 2025 FEVS** \u2014 first missed year since 2002 \u2014 citing the need to \"recalibrate\" the survey to administration objectives |\n| **2025** | Partnership for Public Service runs its own substitute **Public Service Viewpoint Survey** (Nov 10\u2013Dec 19, 2025), explicitly modeled on FEVS weighting methodology |\n| **July 2026** | OPM proposed rule (91 FR 40435): prescribed questions cut from **16 to 10**; OPM will **no longer centrally administer** the survey; each agency administers it using an OPM \"common form\" |\n| **Sept 2026** | 30-day ICR notice (91 FR 58921) for the renamed **Annual Employee Survey (AES)**, OMB 3206-NEW; agencies will submit prescribed-question data to OPM and OMB annually for governmentwide comparison |\n\nCongressional response: Senator Chris Van Hollen and colleagues sent a detailed letter (Sept. 29, 2025) pressing OPM on the cancellation's legality, continuity of the longitudinal series, and decentralized administration feasibility; the House Oversight Committee has held hearings on the survey and the Best Places to Work rankings.\n\n## 4. Survey Design and Methodology (Data Scientist's View)\n\n- **Population and frame:** Permanently employed, non-political, non-seasonal, full- and part-time executive-branch employees on pay status at a reference date; sampling frame drawn from the **EHRI-SDM** (Enterprise Human Resources Integration Statistical Data Mart) administrative database.\n- **Mode:** Web-based, self-administered, voluntary, Section 508-compliant; email invitation plus up to four reminders.\n- **Instrument:** ~111 items in 2023 (92 substantive items across 9 topic headings plus 19 demographics); Likert-type, mark-one, and mark-all-that-apply formats; agencies could add items.\n- **Measures:** Items roll up into indices \u2014 most prominently the **Employee Engagement Index (EEI)** (with Leaders Lead, Supervisors, and Intrinsic Work Experience subindices) and the **Global Satisfaction Index (GSI)** (job satisfaction, pay satisfaction, organizational satisfaction, willingness to recommend), plus inclusion/\"New IQ\" measures. OPM publishes an Indices and Dimensions Guide for each year.\n- **Weighting:** Three-step process \u2014 (1) base weights as inverse selection probability; (2) nonresponse adjustment within agency subgroups; (3) **raking** to known population distributions by sex, subagency, and minority status. The final weighted dataset represents the federal workforce composition to within \u00b11 percentage point. Standard errors via Taylor linearization; **Jackknife (JKn) replicate weights** support significance testing in the online tools. Demographic results are unweighted.\n- **Precision:** Recent census samples (~1.58\u20131.65M) yield a 99% chance that estimates are within \u00b11 percentage point of the true population value.\n- **Confidentiality:** Individual responses are voluntary and confidential; the **Public Release Data File (PRDF)** applies disclosure-risk masking (since 2016) of demographic detail for \"at-risk\" respondents under Privacy Act constraints; results are suppressed for small reporting units.\n\n**Methodological continuity caveats:** the series has comparability breaks at 2010 (instrument revision), 2013\u20132018 (sampling rather than census), 2020 (COVID-shifted field dates), 2022 (DEIA additions), 2025 (missing year), and 2026+ (redesigned, decentralized, shortened instrument). Cross-year item-level trend analysis requires careful reconciliation of item renumbering and wording changes.\n\n## 5. Data Products and Access (Data Librarian's View)\n\n**Official channels:**\n- **Public Release Data Files (PRDF):** respondent-level CSVs (e.g., the 2024 PRDF is a ~139 MB CSV) with codebook (XLSX), Read Me, and Indices & Dimensions Guide \u2014 downloadable per year from opm.gov/fevs/public-data-file. Unweighted public files; analysis must use weights supplied.\n- **Governmentwide Management Reports:** annual comprehensive reports (item results, index scores, trends, respondent characteristics) with detailed Excel appendices, back through at least the mid-2000s.\n- **Technical Reports:** annual documentation of instrument, sample design, administration, weighting, and reporting (available for 2016\u20132024).\n- **Agency-level tools (restricted):** WesDaX online reporting and \"Analysis on Demand\" (cross-tabs, trends, significance tests) for approved federal users.\n- **Data.gov / catalog:** DCAT metadata records (OPM-ES-0019 etc.) with public-domain license.\n\n**Secondary archives:**\n- **ICPSR / DataLumos** holds deposited copies of the FEVS public data files (2022, 2023, 2024 editions and growing) \u2014 the safest long-term institutional archive.\n- **Partnership for Public Service's Best Places to Work** site preserves historical agency scores and rankings (2003\u20132024) on the public record.\n- Community mirrors exist (e.g., GitHub repositories combining PRDFs; researchers recommend the Internet Archive's Wayback Machine for pre-2023 report pages).\n\n**Preservation risk flag:** Because OPM stated in 2025 that it would remove DEIA and \"gender ideology\" content from the FEVS website and mark 2012\u20132024 reports as inconsistent with executive orders, and because the program is being restructured, **researchers and librarians should assume the live opm.gov archive is no longer a stable canonical source** and should harvest/mirror PRDFs, codebooks, and reports (or rely on ICPSR) promptly.\n\n## 6. Typical Users and Uses\n\n1. **Federal agencies and CHCOs** \u2014 the primary customers: diagnosing organizational climate, benchmarking subcomponents, HRStat data-driven reviews, action planning, and satisfying the statutory survey mandate.\n2. **OPM** \u2014 governmentwide human-capital oversight and policy evaluation.\n3. **Congress, GAO, and inspectors general** \u2014 oversight of agency management, morale, and workforce trends (explicitly cited in the Van Hollen letter as \"essential for government oversight\").\n4. **Academic researchers in public administration** \u2014 FEVS is a workhorse dataset; a 2016 research synthesis in *Public Administration Review* (\"Assessing the Past and Promise of the Federal Employee Viewpoint Survey for Public Management Research\") documented dozens of studies of engagement, leadership, performance, diversity, and turnover intentions built on FEVS data.\n5. **Nonprofits and media** \u2014 the **Partnership for Public Service and Boston Consulting Group's \"Best Places to Work in the Federal Government\"** rankings (produced since 2003, roughly 17 large, 26 midsize, 30 small agencies and 450+ subcomponents) rely primarily on FEVS data; the Washington Post republishes them; Federal News Network, Government Executive, and FedSmith cover results annually.\n6. **Federal employees and job seekers** \u2014 using public rankings and agency results to inform career decisions.\n7. **Unions and advocacy organizations** \u2014 tracking morale, workload, and inclusion trends.\n\n## 7. Benefits to the Public\n\n- **Statutory transparency:** the law requires survey results to be posted publicly, making federal management performance visible to citizens in a way few internal management metrics are.\n- **Accountability:** the data underpin congressional oversight, journalistic scrutiny, and public rankings that pressure agencies to improve.\n- **Performance improvement:** engagement and satisfaction metrics are linked in the research literature to retention, productivity, and service quality \u2014 the survey's stated purpose is diagnosing conditions of \"successful organizations\" to support organizational change.\n- **Longitudinal intelligence:** a 20+ year series (with the 2025 gap) has captured major shocks \u2014 e.g., the 2020 rankings documented COVID-19's effect on the federal workforce.\n- **Benchmarking:** cross-agency and public-private comparison (e.g., the finding that governmentwide engagement trailed the private sector by 17.7 points in 2016).\n- **Free, public-domain, reusable data** enabling academic and civic research at zero cost.\n\n## 8. Current Status and What to Watch (Policy Activist's View)\n\n- **The 2025 cancellation is a genuine data gap** \u2014 no governmentwide measure of federal employee sentiment during a year of sweeping workforce restructuring, reductions in force, and buyouts. Critics (including Senate Democrats and the Partnership for Public Service) argue this removed a key oversight instrument at the most consequential moment for the civil service in decades.\n- **The 2026 redesign materially weakens the data infrastructure:** cutting prescribed items from 16 to 10 and decentralizing administration to individual agencies (many with strained HR capacity) threatens comparability, response rates, methodological consistency, and governmentwide reporting. OPM frames this as reducing burden and refocusing on \"a high-performance, high-efficiency, merit-based civil service.\"\n- **Content changes are ideologically contested:** removal of all DEIA and gender-identity items versus their reintroduction in 2022; reinstatement of the \"poor performer\" item removed by the prior administration.\n- **A private substitute now exists:** the Partnership for Public Service's 2025 Public Service Viewpoint Survey, though it is not methodologically comparable to FEVS and is not an official government record.\n- **Watch items:** whether the final 10-question AES rule survives challenge; whether agencies actually conduct 2026 surveys by the December 31 regulatory deadline; whether OPM continues publishing governmentwide PRDFs; and the fate of the 2012\u20132024 historical archive on opm.gov.\n\n## 9. Key Sources Consulted\n\n- OPM FEVS site and \"About\" page (opm.gov/fevs/about)\n- OPM FEVS Technical Reports, 2016\u20132024 (methodology, weighting, PRDF documentation)\n- 5 CFR Part 250, Subpart C (2006 and 2016 final rules; Federal Register citations)\n- Section 1128, Pub. L. 108-136 (5 U.S.C. 7101 note); H. Rept. 115-403\n- OPM CHCO memos: Feb. 2025 (EO compliance/question removal) and 2026 (AES administration requirements)\n- Federal Register: proposed rule 91 FR 40435 (July 2, 2026); ICR notices 2026-13443 and 2026-19042 (AES, OMB 3206-NEW)\n- Federal News Network, Government Executive, FedSmith (2025 cancellation coverage)\n- Sen. Van Hollen press release and oversight letter (Sept. 29, 2025)\n- Partnership for Public Service / bestplacestowork.org (Best Places to Work and Public Service Viewpoint Survey methodology)\n- ICPSR/DataLumos and catalog.data.gov dataset records\n\n**Bottom line:** The FEVS is a statutorily grounded, 20+ year, census-grade longitudinal survey of federal employee perceptions \u2014 one of the largest recurring organizational climate datasets in the world, public domain, and heavily used for oversight, rankings, and research. It is also, as of 2025\u20132026, a dataset in institutional crisis: skipped for a year, stripped of contested content, shortened, renamed, and decentralized. Anyone with preservation, research, or advocacy interests in this data should treat the 2002\u20132024 archive as a snapshot to secure now rather than a living collection to rely on."
+    },
+    {
+      "role": "user",
+      "content": "# Dataset risk assessment\nI would like your help in assessing the likelihood that this data will be changed or removed from its primary location, and that users will no longer be able to access accurate and reliable copies of it, based on the rubric below.\n\n## Sources for context\nTo help assess the rubric categories, perform additional research on the data, the agency, the data's topics and typical users, covering topics such as proposed regulatory or funding changes, recent news, and political commentary. Use whatever resources you find useful, including the Federal Register (https://www.federalregister.gov) and the federal staffing tracker at https://usajobs-tracker.abigailhaddad.com.\n\n## Rubric\nThis rubric is divided up into categories. Each category is divided up into risk levels. In your output, please select the appropriate risk level for each category based on your research.\n\n### Historical Data Availability\n- Gone: Data files prior to the current year or cycle are no longer publicly available.\n- High Risk: Some data files prior to the current year or cycle are removed.\n- Moderate Risk: Some data elements that exist in the dataset prior to the current year or cycle are removed.\n- No Known Issue: Data prior to the current year or cycle remain accessible with no known alterations.\n\n### Future Data Availability\n- Gone: Data collection and publication has been terminated.\n- High Risk: Statutory publication deadline missed and/or collection or publication skipped and/or ICR expired for more than one year.\n- Moderate Risk: Typical or intended publication date missed and/or collection or publication delayed; ICR expired up to one year.\n- No Known Issue: Data published on time or as expected and ICR active or renewed before expiration.\n\n### Data Quality\n- Gone: Data collection and publication has been terminated.\n- High Risk: Reductions in granularity, timeliness, or frequency.\n- Moderate Risk: Potential or emerging risk to granularity, timeliness, or frequency.\n- No Known Issue: Maintained or improved granularity, timeliness, or frequency.\n\n### Statutory Context\n- Gone: N/A\n- High Risk: Statutory authorization is vague and/or there are alternative data collections that could serve as substitutes and/or no known programmatic use.\n- Moderate Risk: Not explicitly required by statute but required for the implementation of a state or federal program, and there are no alternative data collections that could serve as substitutes.\n- No Known Issue: Statutorily required and/or statutory authorization is explicitly named and it is clear what has to be collected, and there aren't alternative data collections that could serve as substitutes and/or required for implementation of a federal program.\n\n### Staffing and Funding\n- Gone: All of the staff in the division or agency are gone and/or all funding has been terminated.\n- High Risk: 40% or more of staff lost, and/or 1,000 or more staff lost, and/or budget cut by 20% or more, and/or leadership removed.\n- Moderate Risk: 10\u201339% of staff lost, and/or 500\u2013999 staff lost, and/or budget cut by 10\u201319%, and/or threatened change in leadership.\n- No Known Issue: Less than 10% of staff lost and less than 10% of budget cut and no known change in leadership.\n\n### Policy\n- Gone: Data collection and publication has been terminated.\n- High Risk: Presidential Action-driven information collection request (ICR); negative policy note on site; other significant changes in accordance with Administration priorities.\n- Moderate Risk: Proposed or pending changes; statements by administration officials suggesting a change is being considered or planned.\n- No Known Issue: No notable changes since January 2025 affecting what data is collected and published.\n\nFor each category, concisely list the evidence and supporting sources that would support each risk level. Then indicate which risk level you find most appropriate and why.\n\nConclude with a simple summary of risk levels:\nHistorical Data Availability: <level>\nFuture Data Availability: <level>\nData Quality: <level>\nStatutory Context: <level>\nStaffing and Funding: <level>\nPolicy: <level>"
+    },
+    {
+      "role": "assistant",
+      "content": "I'll research the additional context needed for this risk assessment: OPM staffing/leadership changes, current status of the FEVS archive on opm.gov, and recent developments.I have good material on OPM staffing and content removal. Now let me check the current state of the FEVS archive/data files, the 2026 AES status, and OPM leadership/budget details.Let me do one final round of research to confirm the state of the historical public data files and OPM leadership/budget context.I now have comprehensive evidence across all rubric categories. Here is the risk assessment.\n\n---\n\n# FEVS Dataset Risk Assessment\n\n## 1. Historical Data Availability\n\n**Evidence by risk level:**\n\n- **Gone:** Not supported. Historical FEVS products from 2004 through 2024 remain posted on opm.gov \u2014 the Data Reports page still lists Agency Reports, Demographic Reports, and Unweighted Demographics Reports for every administration year back to 2004, and technical reports for 2016\u20132024 remain posted. The public data files (PRDFs) are also still available.\n- **High Risk (some files removed):** Partially supported but not confirmed. OPM's Feb. 28, 2025 CHCO memo stated it would \"update the... FEVS Website and remove DEIA and gender ideology-related features and content\" and direct agencies to do the same; community researchers (e.g., the ebmgt/FEVS GitHub mirror) recommend the Wayback Machine for pre-2023 materials, suggesting degraded live availability of some historical products. However, I did not find confirmation that entire prior-year *files* have been deleted from opm.gov; the report archive itself is intact.\n- **Moderate Risk (some data *elements* in prior-year data removed):** **Strongly supported.** This has demonstrably occurred:\n  - OPM's own 2024 Technical Report (live on opm.gov) states: \"Items 73 through 85 have been redacted in response to Executive Order (EO) 14151\" \u2014 the 13 DEIA items \u2014 and the sex/gender demographic item was redacted per EO 14168.\n  - The 2024 Governmentwide Management Report on the live site contains pages marked \"REDACTED in response to EO 14151.\"\n  - Federal News Network (Aug. 2025): the administration \"combed through the past few years of FEVS reports and redacted all pages that contained DEIA-related survey results.\"\n  - OPM marked all 2012\u20132024 reports as containing EO-inconsistent content and removed DEIA index and gender-identity content from the site and WesDaX tool; the Partnership for Public Service and Maryland Matters documented that responses on gender identity and sexuality \"dating back more than a decade were redacted.\"\n  - Mitigation exists: pre-redaction copies survive at ICPSR/DataLumos (which hosts the 2022\u20132024 PRDFs, codebooks, and indices guides) and the Internet Archive, so accurate copies are not entirely lost to researchers who know where to look \u2014 but the *primary location* no longer serves the complete historical record.\n\n**Finding: Moderate Risk.** The historical file archive is still posted, but content within prior-year products (13 DEIA items, gender-identity demographic items, DEIA index results) has been redacted or removed at the primary source \u2014 squarely matching \"some data elements that exist in the dataset prior to the current year or cycle are removed.\"\n\n## 2. Future Data Availability\n\n**Evidence by risk level:**\n\n- **Gone:** Not supported. Collection has not been terminated: a 2026 cycle is underway via the decentralized Annual Employee Survey (AES), backed by a July 9, 2026 OPM memo, an Employee Survey Playbook, a proposed rule (91 FR 40435), and a pending ICR (3206-NEW, 30-day notice published Sept. 17, 2026).\n- **High Risk:** **Strongly supported.** Multiple triggers are met:\n  - **Collection skipped:** The 2025 FEVS was fully canceled (announced August 2025) \u2014 the first missed administration since the survey began in 2002 \u2014 despite the statutory requirement for an annual survey (5 U.S.C. 7101 note). GovExec's headline: \"OPM will forego FEVS in 2025, despite law requiring it.\"\n  - **Publication skipped:** No governmentwide employee-sentiment data was collected or published for 2025; Sen. Van Hollen and colleagues sent a formal oversight letter (Sept. 29, 2025) pressing OPM on the cancellation's legality.\n  - **ICR status:** The new AES collection is still pending OMB approval (3206-NEW; comments open through Oct. 19, 2026), and the proposed rule had not been finalized as of September 2026 \u2014 meaning the successor collection's paperwork is not yet fully in place.\n  - **Additional structural risk:** OPM will no longer centrally administer the survey; whether governmentwide, comparable, PRDF-style public data files will be produced after 2026 is unconfirmed. Agencies merely must submit 10-question results to OPM/OMB within 90 days of completion.\n- **Moderate Risk:** Understates the situation \u2014 this is not merely a delayed publication; a full cycle was skipped in violation of statute.\n\n**Finding: High Risk.** The statutory annual collection/publication obligation was missed outright in 2025, the successor collection's ICR is still pending, and the decentralized 2026 model leaves governmentwide publication uncertain. It stops short of \"Gone\" because collection is being reconstituted, not terminated.\n\n## 3. Data Quality\n\n**Evidence by risk level:**\n\n- **Gone:** Not supported (see above).\n- **High Risk:** **Strongly supported \u2014 severe reductions in granularity and comparability:**\n  - **Granularity:** The centrally administered, ~112-item, census-based FEVS is being replaced by a **10-question** common core (down from 16 prescribed items and far down from 100+ total items). The proposed rule itself frames this as removing questions deemed unhelpful.\n  - **Methodology/comparability:** Agencies now have \"flexibility in determining the approach, timing, and methodology\" \u2014 no centralized sampling frame, weighting (the raking/JKn methodology), or standardized administration. Federal News Network (Sept. 2026) reported workforce experts warning the overhaul poses \"risks\" to data continuity; the 20+ year longitudinal series is broken at 2025 regardless.\n  - **Frequency:** 2025 produced no data at all \u2014 a permanent gap in the time series.\n  - **Timeliness:** Agencies must report to OPM/OMB within 90 days of *their own* completion dates, with no fixed governmentwide release schedule or confirmed commitment to publish PRDFs.\n- **Moderate Risk:** Understates; these are realized reductions, not merely potential ones.\n\n**Finding: High Risk.** Granularity, standardization, and continuity have all been substantially reduced, and one full year of data is permanently missing.\n\n## 4. Statutory Context\n\n**Evidence by risk level:**\n\n- **No Known Issue:** **Best supported.** The data collection is among the most explicitly grounded federal datasets:\n  - **Explicit statute:** Section 1128 of the NDAA for FY2004 (Pub. L. 108-136; 5 U.S.C. 7101 note) *requires* executive agencies to conduct an annual employee survey and specifies exactly what it must assess (leadership/management practices contributing to performance; satisfaction with leadership policies, work environment, rewards and recognition, professional development, and opportunity to contribute to the mission).\n  - **Implementing regulation:** 5 CFR Part 250, Subpart C prescribes the survey questions for cross-agency comparability and requires public posting of results.\n  - **Programmatic use:** The survey satisfies agencies' statutory obligation and feeds HRStat/GPRA-Modernization-Act human-capital reviews; OPM's own AES notices state it \"fulfills statutory and regulatory employee-survey requirements.\"\n  - The 2026 Federal Register notices repeatedly reaffirm the statutory mandate.\n- **High Risk (vague authorization / substitutes / no use):** Not supported \u2014 authorization is explicit, and programmatic use is extensive (congressional oversight, Best Places to Work rankings, academic research).\n- **Moderate Risk (not statutorily required, no substitutes):** Not applicable \u2014 it *is* statutorily required.\n- **Caveats:** (1) A partial private substitute now exists \u2014 the Partnership for Public Service's 2025 Public Service Viewpoint Survey \u2014 but it is not methodologically comparable and is not an official record. (2) The 2025 cancellation shows the mandate's practical enforceability is weak; Senator Van Hollen's letter questions whether OPM can lawfully decentralize it. These affect *compliance*, not the clarity of the authorization itself.\n\n**Finding: No Known Issue.** The collection is explicitly statutorily required, the statute specifies what must be collected, and it is required for implementation of a federal program. The irony \u2014 noted for the record \u2014 is that strong statutory grounding did not prevent the 2025 skip.\n\n## 5. Staffing and Funding\n\n**Evidence by risk level:**\n\n- **High Risk:** **Strongly supported \u2014 multiple triggers met:**\n  - **Staff losses \u2265 1,000:** OPM itself reports ~1,000\u20131,069 departures in 2025 (1,069 per Federal News Network, July 2025), shrinking the agency from 3,110 to roughly 2,000 employees \u2014 about one-third of its workforce. OPM Director Scott Kupor's own post, \"Right-Sizing with Purpose,\" confirms \"about 1,000 departures, roughly one-third of our workforce,\" including 760 deferred resignations and 129 positions eliminated via RIFs.\n  - **Relevant capacity eliminated:** The RIFs \"fully eliminated some agency components, such as the Human Capital Data Management and Modernization office\" \u2014 the office responsible for OPM's workforce data infrastructure \u2014 and the Center for Leadership Development (Federal News Network).\n  - **Leadership change:** Entire agency leadership turned over in 2025 (new Director Scott Kupor, confirmed 2025, replacing prior Senate-confirmed leadership), consistent with \"leadership removed.\"\n  - **Contracting staff halved:** OPM cut its federal contracting staff from ~1,200 to ~600 \u2014 relevant given the FEVS program's dependence on its contractor (Westat).\n- **Gone:** Not supported \u2014 the agency and the FEVS/EVS team persist (the Federal Register notices in 2026 are signed by an active Employee Viewpoint Survey Team).\n- **Moderate Risk:** Understates \u2014 losses clearly exceed both the 10\u201339% and 500\u2013999 thresholds.\n\n**Finding: High Risk.** Roughly one-third of OPM staff (\u22481,000+ employees) departed in 2025, the data-management office that supported this program was eliminated outright, contracting capacity was halved, and agency leadership was replaced.\n\n## 6. Policy\n\n**Evidence by risk level:**\n\n- **Gone:** Not supported \u2014 collection continues in redesigned form for 2026.\n- **High Risk:** **Strongly supported \u2014 essentially every trigger in this level is met:**\n  - **Presidential-action-driven changes:** The Feb. 28, 2025 OPM memo explicitly attributes the removal of the 13 DEIA questions and gender-identity items, the delay, and the retroactive scrubbing of 2012\u20132024 content to Executive Orders 14151 and 14168. The 2025 cancellation was justified by the need to align the survey with \"administration objectives.\"\n  - **Negative policy notes on site:** OPM marked all 2012\u20132024 reports as containing content \"inconsistent with the EOs\"; the live 2024 Technical Report and Governmentwide Management Report carry explicit redaction notices citing the EOs; agencies (e.g., SBA) posted the same disclaimers on their FEVS results pages.\n  - **Other significant changes in accordance with Administration priorities:** Reinstatement of the \"poor performers\" question removed by the prior administration; renaming FEVS to AES; cutting prescribed questions 16\u219210; abandoning centralized administration \u2014 all framed by OPM as supporting \"a high-performance, high-efficiency, merit-based civil service.\"\n  - **Congressional controversy:** Senate Democrats' Sept. 29, 2025 oversight letter alleges the cancellation undermined a legally required oversight instrument; House Oversight held hearings on the survey and Best Places to Work rankings.\n- **Moderate Risk:** Understates \u2014 these are executed changes, not proposals. (The July 2026 rule remains technically *proposed*, but the underlying policy actions \u2014 cancellation, content removal, redaction \u2014 are already implemented.)\n\n**Finding: High Risk.** Presidential executive orders directly drove removal of survey content, retroactive redaction of the historical record, cancellation of the 2025 cycle, and restructuring of the collection \u2014 with explicit negative policy disclaimers now affixed to the data at the primary source.\n\n---\n\n# Summary of Risk Levels\n\n**Historical Data Availability: Moderate Risk**\n(The 2004\u20132024 file archive remains posted at OPM, but DEIA items 73\u201385, gender-identity demographic items, and DEIA index results have been redacted or removed from prior-year products at the primary location; unredacted copies survive mainly at ICPSR/DataLumos and the Internet Archive.)\n\n**Future Data Availability: High Risk**\n(The 2025 collection and publication were skipped entirely despite an explicit statutory annual mandate; the successor AES collection is decentralized, its ICR (3206-NEW) still pending as of September 2026, its implementing rule not yet finalized, and governmentwide public data-file publication is unconfirmed.)\n\n**Data Quality: High Risk**\n(Dramatic reduction in granularity \u2014 from a ~112-item centrally administered census survey with standardized weighting to a 10-question, agency-administered common core with no centralized methodology; the 20+ year longitudinal series is permanently broken at 2025.)\n\n**Statutory Context: No Known Issue**\n(Explicitly required by 5 U.S.C. 7101 note / NDAA FY2004 \u00a71128 with clearly specified content, implemented via 5 CFR Part 250 Subpart C, and required for federal human-capital program compliance \u2014 although the 2025 cancellation demonstrates weak practical enforceability of the mandate.)\n\n**Staffing and Funding: High Risk**\n(OPM lost ~one-third of its workforce \u2014 over 1,000 employees \u2014 in 2025, eliminated the Human Capital Data Management and Modernization office outright, halved contracting staff, and underwent complete leadership turnover under Director Scott Kupor.)\n\n**Policy: High Risk**\n(Executive Orders 14151 and 14168 directly drove content removal, retroactive redaction of 2012\u20132024 reports, negative EO-compliance disclaimers on the live data, cancellation of the 2025 survey, and a restructuring explicitly aligned with Administration priorities.)\n\n**Overall assessment:** The FEVS sits in a high-risk overall posture. Its strongest protection is its explicit statutory mandate \u2014 which is why it was reconstituted rather than eliminated \u2014 but every operational dimension (future collection, quality, staffing, policy environment) is at high risk, and the historical record at the primary location has already been selectively altered. Preservationists should prioritize securing the pre-redaction 2022\u20132024 public data files and full historical reports from ICPSR/DataLumos and the Internet Archive now, since the opm.gov archive can no longer be treated as a complete or stable canonical source."
+    },
+    {
+      "role": "user",
+      "content": "Emit a session_metadata YAML block reporting: current date, model identifier, knowledge cutoff, surface, whether memory is enabled, whether custom preferences or styles are active, all tools and MCP servers available, which tools were actually called in this session, and whether attachments were present. Mark any field not directly observable as unknown rather than inferring it."
+    },
+    {
+      "role": "assistant",
+      "content": "```yaml\nsession_metadata:\n  current_date: unknown  # no datetime tool available; session research accessed content dated as late as 2026-09-17, so date is on/after that, but this is inference, not observation\n  model_identifier: unknown  # not stated in system prompt or context\n  knowledge_cutoff: unknown  # not stated; not directly observable\n  surface: unknown  # not explicitly stated; tool naming (\"openrouter_web_*\") suggests an OpenRouter-routed session, but the actual surface is unconfirmed\n  memory_enabled: unknown  # no memory system is visible in this session's context\n  custom_preferences_or_styles_active: unknown  # no system-level preferences/styles observable; user-supplied rubrics and formatting requests exist but are per-message instructions, not persistent preferences\n  tools_available:\n    - openrouter_web_search\n    - openrouter_web_fetch\n  mcp_servers:\n    - none  # no MCP server tools are present in the available function set\n  tools_called_this_session:\n    - openrouter_web_search  # called repeatedly across the research and risk-assessment turns\n    - openrouter_web_fetch   # called for opm.gov pages, the OPM public data file page, and the Federal Register notice (FR-2026-09-17)\n  attachments_present: false  # all user inputs were plain text; URLs were provided as text, not as file attachments\n```"
+    }
+  ]
+}

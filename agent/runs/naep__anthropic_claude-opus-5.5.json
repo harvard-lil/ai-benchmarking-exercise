@@ -1,0 +1,1250 @@
+{
+  "dataset": {
+    "key": "naep",
+    "title": "National Assessment of Educational Progress (NAEP)"
+  },
+  "model": "anthropic/claude-opus-5.5",
+  "harness": "openrouter tools",
+  "context": "full: each turn's whole output is carried into the next",
+  "search_tool": {
+    "engine": "native",
+    "excluded_domains": [
+      "dataindex.us"
+    ]
+  },
+  "fetch_tool": {
+    "engine": "openrouter",
+    "blocked_domains": [
+      "dataindex.us"
+    ],
+    "max_content_tokens": 10000
+  },
+  "reasoning": "effort medium",
+  "catalog": {
+    "fetched_at": "2026-10-09T00:38:16Z",
+    "entry": {
+      "id": "anthropic/claude-opus-5.5",
+      "canonical_slug": "anthropic/claude-opus-5.5-20260921",
+      "hugging_face_id": null,
+      "name": "Anthropic: Claude Opus 5.5",
+      "created": 1790094732,
+      "description": "Claude Opus 5.5 is Anthropic's flagship model for demanding reasoning, coding, and long-horizon agentic work, succeeding Claude Opus 5. It is particularly strong at multi-step changes in large codebases, code...",
+      "context_length": 1000000,
+      "architecture": {
+        "modality": "text+image+file->text",
+        "input_modalities": [
+          "text",
+          "image",
+          "file"
+        ],
+        "output_modalities": [
+          "text"
+        ],
+        "tokenizer": "Claude",
+        "instruct_type": null
+      },
+      "pricing": {
+        "prompt": "0.000004",
+        "completion": "0.00002",
+        "web_search": "0.01",
+        "input_cache_read": "0.0000002",
+        "input_cache_write": "0.000005",
+        "input_cache_write_1h": "0.000008"
+      },
+      "top_provider": {
+        "context_length": 1000000,
+        "max_completion_tokens": 128000,
+        "is_moderated": true
+      },
+      "per_request_limits": null,
+      "supported_parameters": [
+        "include_reasoning",
+        "max_completion_tokens",
+        "max_tokens",
+        "reasoning",
+        "reasoning_effort",
+        "response_format",
+        "stop",
+        "structured_outputs",
+        "tool_choice",
+        "tools",
+        "verbosity"
+      ],
+      "default_parameters": {},
+      "supported_voices": null,
+      "knowledge_cutoff": null,
+      "expiration_date": null,
+      "links": {
+        "details": "/api/v1/models/anthropic/claude-opus-5.5-20260921/endpoints"
+      },
+      "benchmarks": {
+        "design_arena": [
+          {
+            "arena": "agents",
+            "category": "mobileapps",
+            "elo": 1328,
+            "win_rate": 64.3,
+            "rank": 2
+          },
+          {
+            "arena": "models",
+            "category": "3d",
+            "elo": 1487,
+            "win_rate": 72.3,
+            "rank": 1
+          },
+          {
+            "arena": "models",
+            "category": "codecategories",
+            "elo": 1407,
+            "win_rate": 65.3,
+            "rank": 1
+          },
+          {
+            "arena": "models",
+            "category": "dataviz",
+            "elo": 1403,
+            "win_rate": 64.6,
+            "rank": 1
+          },
+          {
+            "arena": "models",
+            "category": "gamedev",
+            "elo": 1464,
+            "win_rate": 72.5,
+            "rank": 1
+          },
+          {
+            "arena": "models",
+            "category": "svg",
+            "elo": 1332,
+            "win_rate": 50.5,
+            "rank": 1
+          },
+          {
+            "arena": "models",
+            "category": "uicomponent",
+            "elo": 1396,
+            "win_rate": 65.5,
+            "rank": 1
+          },
+          {
+            "arena": "models",
+            "category": "website",
+            "elo": 1340,
+            "win_rate": 57.6,
+            "rank": 3
+          }
+        ],
+        "artificial_analysis": {
+          "intelligence_index": 57.6,
+          "coding_index": null,
+          "agentic_index": null
+        }
+      },
+      "reasoning": {
+        "mandatory": true,
+        "supported_efforts": [
+          "max",
+          "xhigh",
+          "high",
+          "medium",
+          "low"
+        ],
+        "default_effort": "high"
+      }
+    }
+  },
+  "upstream": [
+    "anthropic"
+  ],
+  "trial": 0,
+  "terminate_reason": "completed",
+  "max_tokens": 32768,
+  "started_at": "2026-10-09T00:38:15Z",
+  "prompts": {
+    "research": "#data research\nI am researching a federal dataset. Find out everything you can about this dataset, such as who publishes it, under what authority or mandate, its history, its typical users, and its benefits to the public. Be sure your research comprehensively covers each of those perspectives, as well as any others that you discover or seem useful. I believe this is accurate information, but please check:\n\nDataset title: National Assessment of Educational Progress (NAEP)\nDescription: The National Assessment of Educational Progress (NAEP), also known as The Nation's Report Card, is the largest ongoing, nationally representative assessment of education in the United States. Since 1969, NAEP has served as a vital measure of student achievement, providing valuable insights into academic performance and learning experiences across various subjects. Its results offer a comprehensive view of educational progress at the national level, across states, and in 27 urban districts.\nURL: https://nces.ed.gov/nationsreportcard\n\nReturn a complete report on everything that a preservationist, data librarian, data scientist, or policy activist might want to know about this data.",
+    "assessment": "# Dataset risk assessment\nI would like your help in assessing the likelihood that this data will be changed or removed from its primary location, and that users will no longer be able to access accurate and reliable copies of it, based on the rubric below.\n\n## Sources for context\nTo help assess the rubric categories, perform additional research on the data, the agency, the data's topics and typical users, covering topics such as proposed regulatory or funding changes, recent news, and political commentary. Use whatever resources you find useful, including the Federal Register (https://www.federalregister.gov) and the federal staffing tracker at https://usajobs-tracker.abigailhaddad.com.\n\n## Rubric\nThis rubric is divided up into categories. Each category is divided up into risk levels. In your output, please select the appropriate risk level for each category based on your research.\n\n### Historical Data Availability\n- Gone: Data files prior to the current year or cycle are no longer publicly available.\n- High Risk: Some data files prior to the current year or cycle are removed.\n- Moderate Risk: Some data elements that exist in the dataset prior to the current year or cycle are removed.\n- No Known Issue: Data prior to the current year or cycle remain accessible with no known alterations.\n\n### Future Data Availability\n- Gone: Data collection and publication has been terminated.\n- High Risk: Statutory publication deadline missed and/or collection or publication skipped and/or ICR expired for more than one year.\n- Moderate Risk: Typical or intended publication date missed and/or collection or publication delayed; ICR expired up to one year.\n- No Known Issue: Data published on time or as expected and ICR active or renewed before expiration.\n\n### Data Quality\n- Gone: Data collection and publication has been terminated.\n- High Risk: Reductions in granularity, timeliness, or frequency.\n- Moderate Risk: Potential or emerging risk to granularity, timeliness, or frequency.\n- No Known Issue: Maintained or improved granularity, timeliness, or frequency.\n\n### Statutory Context\n- Gone: N/A\n- High Risk: Statutory authorization is vague and/or there are alternative data collections that could serve as substitutes and/or no known programmatic use.\n- Moderate Risk: Not explicitly required by statute but required for the implementation of a state or federal program, and there are no alternative data collections that could serve as substitutes.\n- No Known Issue: Statutorily required and/or statutory authorization is explicitly named and it is clear what has to be collected, and there aren't alternative data collections that could serve as substitutes and/or required for implementation of a federal program.\n\n### Staffing and Funding\n- Gone: All of the staff in the division or agency are gone and/or all funding has been terminated.\n- High Risk: 40% or more of staff lost, and/or 1,000 or more staff lost, and/or budget cut by 20% or more, and/or leadership removed.\n- Moderate Risk: 10\u201339% of staff lost, and/or 500\u2013999 staff lost, and/or budget cut by 10\u201319%, and/or threatened change in leadership.\n- No Known Issue: Less than 10% of staff lost and less than 10% of budget cut and no known change in leadership.\n\n### Policy\n- Gone: Data collection and publication has been terminated.\n- High Risk: Presidential Action-driven information collection request (ICR); negative policy note on site; other significant changes in accordance with Administration priorities.\n- Moderate Risk: Proposed or pending changes; statements by administration officials suggesting a change is being considered or planned.\n- No Known Issue: No notable changes since January 2025 affecting what data is collected and published.\n\nFor each category, concisely list the evidence and supporting sources that would support each risk level. Then indicate which risk level you find most appropriate and why.\n\nConclude with a simple summary of risk levels:\nHistorical Data Availability: <level>\nFuture Data Availability: <level>\nData Quality: <level>\nStatutory Context: <level>\nStaffing and Funding: <level>\nPolicy: <level>",
+    "session_metadata": "Emit a session_metadata YAML block reporting: current date, model identifier, knowledge cutoff, surface, whether memory is enabled, whether custom preferences or styles are active, all tools and MCP servers available, which tools were actually called in this session, and whether attachments were present. Mark any field not directly observable as unknown rather than inferring it."
+  },
+  "turns": {
+    "research": {
+      "request": {
+        "model": "anthropic/claude-opus-5.5",
+        "max_output_tokens": 32768,
+        "tools": [
+          {
+            "type": "openrouter:web_search",
+            "parameters": {
+              "engine": "native",
+              "excluded_domains": [
+                "dataindex.us"
+              ]
+            }
+          },
+          {
+            "type": "openrouter:web_fetch",
+            "parameters": {
+              "engine": "openrouter",
+              "blocked_domains": [
+                "dataindex.us"
+              ],
+              "max_content_tokens": 10000
+            }
+          }
+        ],
+        "cache_control": {
+          "type": "ephemeral",
+          "ttl": "1h"
+        },
+        "session_id": "naep-anthropic/claude-opus-5.5-t0-2026-10-09T00:38:15Z",
+        "stop_server_tools_when": [
+          {
+            "type": "step_count_is",
+            "step_count": 200
+          }
+        ],
+        "reasoning": {
+          "effort": "medium"
+        },
+        "provider": {
+          "order": [
+            "anthropic"
+          ],
+          "allow_fallbacks": false
+        }
+      },
+      "response_meta": {
+        "id": "gen-1791506296-GQnZN12cWDAJ4tVgzn5k",
+        "object": "response",
+        "created_at": 1791506296,
+        "model": "anthropic/claude-opus-5.5",
+        "status": "completed",
+        "completed_at": 1791506413,
+        "error": null,
+        "incomplete_details": null,
+        "tools": [],
+        "tool_choice": "auto",
+        "parallel_tool_calls": true,
+        "max_output_tokens": 32768,
+        "temperature": 1,
+        "top_p": 1,
+        "presence_penalty": 0,
+        "frequency_penalty": 0,
+        "top_logprobs": 0,
+        "max_tool_calls": null,
+        "metadata": {},
+        "background": false,
+        "previous_response_id": null,
+        "service_tier": "auto",
+        "truncation": "disabled",
+        "store": false,
+        "instructions": null,
+        "text": {
+          "format": {
+            "type": "text"
+          }
+        },
+        "reasoning": {
+          "effort": "medium"
+        },
+        "safety_identifier": null,
+        "prompt_cache_key": null,
+        "prompt_cache_options": null,
+        "usage": {
+          "input_tokens": 184182,
+          "input_tokens_details": {
+            "cached_tokens": 143637,
+            "cache_write_tokens": 40527
+          },
+          "output_tokens": 9700,
+          "output_tokens_details": {
+            "reasoning_tokens": 2999
+          },
+          "total_tokens": 193882,
+          "cost": 0.6170154000000001,
+          "cost_details": {
+            "upstream_inference_cost": 0.5470154,
+            "upstream_inference_input_cost": 0.3530154,
+            "upstream_inference_output_cost": 0.19399999999999998
+          },
+          "server_tool_use_details": {
+            "web_search_requests": 11,
+            "tool_calls_requested": 12,
+            "tool_calls_executed": 12
+          }
+        }
+      },
+      "requests": [
+        {
+          "input_tokens": 184182,
+          "input_tokens_details": {
+            "cached_tokens": 143637,
+            "cache_write_tokens": 40527
+          },
+          "output_tokens": 9700,
+          "output_tokens_details": {
+            "reasoning_tokens": 2999
+          },
+          "total_tokens": 193882,
+          "cost": 0.6170154000000001,
+          "cost_details": {
+            "upstream_inference_cost": 0.5470154,
+            "upstream_inference_input_cost": 0.3530154,
+            "upstream_inference_output_cost": 0.19399999999999998
+          },
+          "server_tool_use_details": {
+            "web_search_requests": 11,
+            "tool_calls_requested": 12,
+            "tool_calls_executed": 12
+          }
+        }
+      ],
+      "searches": 11,
+      "fetches": 1,
+      "tool_items": [
+        {
+          "type": "openrouter:web_search",
+          "id": "st_tmp_g4o6wpn5hrl",
+          "status": "completed",
+          "action": {
+            "type": "search",
+            "query": "NAEP 2025 NCES layoffs National Assessment Governing Board schedule changes",
+            "sources": [
+              {
+                "type": "url",
+                "url": "https://www.edweek.org/teaching-learning/fewer-subjects-students-data-points-feds-to-scale-back-naep/2025/04"
+              },
+              {
+                "type": "url",
+                "url": "https://www.nagb.gov/news-and-events/news-releases/2025/2028-2029-resolution.html"
+              },
+              {
+                "type": "url",
+                "url": "https://www.k12dive.com/news/national-assessment-governing-board-to-restore-previously-cut-naep-exams/820789/"
+              },
+              {
+                "type": "url",
+                "url": "https://www.k12dive.com/news/NAEP-nations-report-card-assessment-changes-2033-nagb-vote/746821/"
+              },
+              {
+                "type": "url",
+                "url": "https://www.k12dive.com/news/naep-continue-as-planned-2025-january-2026-us-history-and-civics/745679/"
+              }
+            ]
+          }
+        },
+        {
+          "type": "openrouter:web_search",
+          "id": "st_tmp_0qytrbd5bc4",
+          "status": "completed",
+          "action": {
+            "type": "search",
+            "query": "NAEP Trial Urban District Assessment number of districts 2024",
+            "sources": [
+              {
+                "type": "url",
+                "url": "https://www.nationsreportcard.gov/reports/mathematics/2024/g4_8/about/samples/?grade=4"
+              },
+              {
+                "type": "url",
+                "url": "https://nces.ed.gov/nationsreportcard/tdw/sample_design/2024/sample_design_for_the_2024_state_assessment.aspx"
+              },
+              {
+                "type": "url",
+                "url": "https://www.nationsreportcard.gov/reports/reading/2024/g4_8/"
+              },
+              {
+                "type": "url",
+                "url": "https://www.cgcs.org/resources/newsroom/press-releases/2025-press-releases/large-city-schools-improve-faster-than-the-nation-in-fourth-grade-mathematics-most-hold-steady-in-other-areas"
+              },
+              {
+                "type": "url",
+                "url": "https://www.fldoe.org/accountability/assessments/national-international-assessments/naep/results/TUDA/"
+              }
+            ]
+          }
+        },
+        {
+          "type": "openrouter:web_search",
+          "id": "st_tmp_yjr90ouj7ws",
+          "status": "completed",
+          "action": {
+            "type": "search",
+            "query": "\"Trends in Urban Districts Assessment\" NAEP renamed TUDA 2026",
+            "sources": [
+              {
+                "type": "url",
+                "url": "https://www.nagb.gov/content/dam/nagb/en/documents/newsroom/press-releases/2026/release-board-meeting-actions-051526.pdf"
+              },
+              {
+                "type": "url",
+                "url": "https://www.nces.ed.gov/nationsreportcard/tuda/"
+              },
+              {
+                "type": "url",
+                "url": "https://www.nagb.gov/naep/trends-in-urban-districts-assessment.html"
+              },
+              {
+                "type": "url",
+                "url": "https://nces.ed.gov/nationsreportcard/glossary.aspx"
+              },
+              {
+                "type": "url",
+                "url": "https://omb.report/icr/202607-1850-001/doc/171045900"
+              }
+            ]
+          }
+        },
+        {
+          "type": "openrouter:web_search",
+          "id": "st_tmp_ooa4bx3j3ds",
+          "status": "completed",
+          "action": {
+            "type": "search",
+            "query": "NAEP 2024 12th grade results released September 2025 lowest reading math",
+            "sources": [
+              {
+                "type": "url",
+                "url": "https://www.nagb.gov/news-and-events/news-releases/2025/declines-in-8th-grade-science-and-12th-grade-math-and-reading.html"
+              },
+              {
+                "type": "url",
+                "url": "https://nces.ed.gov/nationsreportcard/"
+              },
+              {
+                "type": "url",
+                "url": "https://www.nationsreportcard.gov/reports/reading/2024/g12/"
+              },
+              {
+                "type": "url",
+                "url": "https://www.nationsreportcard.gov/reports/mathematics/2024/g12/"
+              },
+              {
+                "type": "url",
+                "url": "https://apnews.com/article/naep-reading-math-scores-12th-grade-c18d6e3fbc125f12948cc70cb85a520a"
+              }
+            ]
+          }
+        },
+        {
+          "type": "openrouter:web_search",
+          "id": "st_tmp_0bvc3te9caus",
+          "status": "completed",
+          "action": {
+            "type": "search",
+            "query": "NAEP 2026 administration NCES Institute of Education Sciences news",
+            "sources": [
+              {
+                "type": "url",
+                "url": "https://ies.ed.gov/learn/blog/whats-horizon-2026-nations-report-card"
+              },
+              {
+                "type": "url",
+                "url": "http://www.ed.gov/about/news/press-release/us-department-of-education-releases-statement-2026-naep-schedule"
+              },
+              {
+                "type": "url",
+                "url": "https://nces.ed.gov/nationsreportcard/subject/participating/pdfs/2026_naep_state_guide.pdf"
+              },
+              {
+                "type": "url",
+                "url": "https://nces.ed.gov/nationsreportcard/subject/participating/pdfs/2026_naep_in_your_school_pilot_schooldevice.pdf"
+              },
+              {
+                "type": "url",
+                "url": "https://nces.ed.gov/nationsreportcard/pubs_newsroom/"
+              }
+            ]
+          }
+        },
+        {
+          "type": "openrouter:web_fetch",
+          "id": "st_tmp_gu49iagbkl7",
+          "status": "incomplete",
+          "url": "https://www.nagb.gov/content/dam/nagb/en/documents/newsroom/press-releases/2026/release-board-meeting-actions-051526.pdf",
+          "httpStatus": 200,
+          "error": "PDF content cannot be processed by the OpenRouter engine. Use engine: \"native\" (Anthropic models only) or engine: \"firecrawl\" for PDF support."
+        },
+        {
+          "type": "openrouter:web_search",
+          "id": "st_tmp_39fwaawurri",
+          "status": "completed",
+          "action": {
+            "type": "search",
+            "query": "NAEP Authorization Act 20 U.S.C. 9622 National Assessment Governing Board 9621 history 1988 Hawkins-Stafford state assessment",
+            "sources": [
+              {
+                "type": "url",
+                "url": "https://uscode.house.gov/view.xhtml?req=(title:20%20section:9622%20edition:prelim)"
+              },
+              {
+                "type": "url",
+                "url": "https://uscode.house.gov/view.xhtml?req=granuleid:USC-prelim-title20-section9621&num=0&edition=prelim"
+              },
+              {
+                "type": "url",
+                "url": "https://uscode.house.gov/view.xhtml?path=/prelim@title20/chapter76/subchapter3&edition=prelim"
+              },
+              {
+                "type": "url",
+                "url": "https://www.nagb.gov/naep/the-naep-law.html"
+              },
+              {
+                "type": "url",
+                "url": "https://www.congress.gov/bill/100th-congress/house-bill/5"
+              }
+            ]
+          }
+        },
+        {
+          "type": "openrouter:web_search",
+          "id": "st_tmp_fokmxgucb4d",
+          "status": "completed",
+          "action": {
+            "type": "search",
+            "query": "NAEP restricted-use data license NCES secondary-use data files EdSurvey NAEP Data Explorer",
+            "sources": [
+              {
+                "type": "url",
+                "url": "https://nces.ed.gov/statprog/instruct_access_faq.asp"
+              },
+              {
+                "type": "url",
+                "url": "https://nces.ed.gov/nationsreportcard/researchcenter/datatools.aspx"
+              },
+              {
+                "type": "url",
+                "url": "https://nces.ed.gov/nationsreportcard/tdw/database/secondary_use.aspx"
+              },
+              {
+                "type": "url",
+                "url": "https://nces.ed.gov/nationsreportcard/NDEHelp/WebHelp/welcome_to_the_naep_data_explorer.htm"
+              },
+              {
+                "type": "url",
+                "url": "https://www.nationsreportcard.gov/ndecore/help"
+              }
+            ]
+          }
+        },
+        {
+          "type": "openrouter:web_search",
+          "id": "st_tmp_gja3udg0j2w",
+          "status": "completed",
+          "action": {
+            "type": "search",
+            "query": "NAEP history Ralph Tyler Francis Keppel Carnegie Corporation Education Commission of the States 1969 ETS 1983 achievement levels 1990",
+            "sources": [
+              {
+                "type": "url",
+                "url": "https://www.nagb.gov/content/dam/nagb/en/documents/who-we-are/20-anniversary/bourque-achievement-levels-formatted.pdf"
+              },
+              {
+                "type": "url",
+                "url": "https://www.nagb.gov/content/dam/nagb/en/documents/publications/95222.pdf"
+              },
+              {
+                "type": "url",
+                "url": "https://nces.ed.gov/nationsreportcard/about/naephistory.aspx"
+              },
+              {
+                "type": "url",
+                "url": "https://carnegie.org/article/seven-things-know-about-naep/"
+              },
+              {
+                "type": "url",
+                "url": "https://www.nagb.gov/content/dam/nagb/en/documents/policies/GP-Conducting-and-Reporting-National-Assessment-of-Educational-Progress.pdf"
+              }
+            ]
+          }
+        },
+        {
+          "type": "openrouter:web_search",
+          "id": "st_tmp_i15e5enj6jn",
+          "status": "completed",
+          "action": {
+            "type": "search",
+            "query": "NAEP annual budget appropriation $185 million contracts Westat ETS Pearson canceled 2025",
+            "sources": [
+              {
+                "type": "url",
+                "url": "https://www.amstat.org/docs/default-source/amstat-documents/the-nations-data-at-risk-2025/national-center-for-education-statistics.pdf"
+              },
+              {
+                "type": "url",
+                "url": "https://www.apmreports.org/story/2025/08/21/researchers-nations-report-card-at-risk"
+              },
+              {
+                "type": "url",
+                "url": "https://hechingerreport.org/proof-points-smaller-naep/"
+              },
+              {
+                "type": "url",
+                "url": "https://www.kqed.org/mindshift/65449/the-nations-report-card-gets-smaller-with-cuts-to-assessments"
+              },
+              {
+                "type": "url",
+                "url": "https://www.ed.gov/sites/ed/files/about/overview/budget/budget25/justifications/aa-ies.pdf"
+              }
+            ]
+          }
+        },
+        {
+          "type": "openrouter:web_search",
+          "id": "st_tmp_zpcfpif6iea",
+          "status": "completed",
+          "action": {
+            "type": "search",
+            "query": "NCES data rescue archive NAEP data preservation 2025 researchers",
+            "sources": [
+              {
+                "type": "url",
+                "url": "https://www.datarescueproject.org/nces-datalabs-tables-rescue-complete/"
+              },
+              {
+                "type": "url",
+                "url": "https://www.datalumos.org/datalumos/project/218844/version/V1/view"
+              },
+              {
+                "type": "url",
+                "url": "https://www.datarescueproject.org/nces-tables/"
+              },
+              {
+                "type": "url",
+                "url": "https://www.amstat.org/docs/default-source/amstat-documents/the-nations-data-at-risk-2025/national-center-for-education-statistics.pdf"
+              },
+              {
+                "type": "url",
+                "url": "https://nces.ed.gov/nationsreportcard/researchcenter/variablesrudata.asp"
+              }
+            ]
+          }
+        },
+        {
+          "type": "openrouter:web_search",
+          "id": "st_tmp_39v7kczlt9c",
+          "status": "completed",
+          "action": {
+            "type": "search",
+            "query": "Amber Northern IES reimagine report 2026 NAEP NCES restructuring"
+          }
+        }
+      ],
+      "ended": "answered",
+      "seconds": 117.7
+    },
+    "assessment": {
+      "request": {
+        "model": "anthropic/claude-opus-5.5",
+        "max_output_tokens": 32768,
+        "tools": [
+          {
+            "type": "openrouter:web_search",
+            "parameters": {
+              "engine": "native",
+              "excluded_domains": [
+                "dataindex.us"
+              ]
+            }
+          },
+          {
+            "type": "openrouter:web_fetch",
+            "parameters": {
+              "engine": "openrouter",
+              "blocked_domains": [
+                "dataindex.us"
+              ],
+              "max_content_tokens": 10000
+            }
+          }
+        ],
+        "cache_control": {
+          "type": "ephemeral",
+          "ttl": "1h"
+        },
+        "session_id": "naep-anthropic/claude-opus-5.5-t0-2026-10-09T00:38:15Z",
+        "stop_server_tools_when": [
+          {
+            "type": "step_count_is",
+            "step_count": 200
+          }
+        ],
+        "reasoning": {
+          "effort": "medium"
+        },
+        "provider": {
+          "order": [
+            "anthropic"
+          ],
+          "allow_fallbacks": false
+        }
+      },
+      "response_meta": {
+        "id": "gen-1791506413-OOMIqY7aJJQ9ZEgimLW1",
+        "object": "response",
+        "created_at": 1791506413,
+        "model": "anthropic/claude-opus-5.5",
+        "status": "completed",
+        "completed_at": 1791506488,
+        "error": null,
+        "incomplete_details": null,
+        "tools": [],
+        "tool_choice": "auto",
+        "parallel_tool_calls": true,
+        "max_output_tokens": 32768,
+        "temperature": 1,
+        "top_p": 1,
+        "presence_penalty": 0,
+        "frequency_penalty": 0,
+        "top_logprobs": 0,
+        "max_tool_calls": null,
+        "metadata": {},
+        "background": false,
+        "previous_response_id": null,
+        "service_tier": "auto",
+        "truncation": "disabled",
+        "store": false,
+        "instructions": null,
+        "text": {
+          "format": {
+            "type": "text"
+          }
+        },
+        "reasoning": {
+          "effort": "medium"
+        },
+        "safety_identifier": null,
+        "prompt_cache_key": null,
+        "prompt_cache_options": null,
+        "usage": {
+          "input_tokens": 195697,
+          "input_tokens_details": {
+            "cached_tokens": 133566,
+            "cache_write_tokens": 62119
+          },
+          "output_tokens": 6619,
+          "output_tokens_details": {
+            "reasoning_tokens": 2274
+          },
+          "total_tokens": 202316,
+          "cost": 0.7260932,
+          "cost_details": {
+            "upstream_inference_cost": 0.6560931999999999,
+            "upstream_inference_input_cost": 0.5237132,
+            "upstream_inference_output_cost": 0.13238
+          },
+          "server_tool_use_details": {
+            "web_search_requests": 10,
+            "tool_calls_requested": 11,
+            "tool_calls_executed": 11
+          }
+        }
+      },
+      "requests": [
+        {
+          "input_tokens": 195697,
+          "input_tokens_details": {
+            "cached_tokens": 133566,
+            "cache_write_tokens": 62119
+          },
+          "output_tokens": 6619,
+          "output_tokens_details": {
+            "reasoning_tokens": 2274
+          },
+          "total_tokens": 202316,
+          "cost": 0.7260932,
+          "cost_details": {
+            "upstream_inference_cost": 0.6560931999999999,
+            "upstream_inference_input_cost": 0.5237132,
+            "upstream_inference_output_cost": 0.13238
+          },
+          "server_tool_use_details": {
+            "web_search_requests": 10,
+            "tool_calls_requested": 11,
+            "tool_calls_executed": 11
+          }
+        }
+      ],
+      "searches": 10,
+      "fetches": 1,
+      "tool_items": [
+        {
+          "type": "openrouter:web_search",
+          "id": "st_tmp_yeaijj4ce0g",
+          "status": "completed",
+          "action": {
+            "type": "search",
+            "query": "NAEP FY2026 appropriations National Assessment of Educational Progress funding Congress 2026",
+            "sources": [
+              {
+                "type": "url",
+                "url": "https://www.congress.gov/crs-product/R48970"
+              },
+              {
+                "type": "url",
+                "url": "https://www.ed.gov/media/document/fiscal-year-2026-budget-summary-110043.pdf?_sp=af772868-7cb3-4bd3-84be-75b16cd5a4df"
+              },
+              {
+                "type": "url",
+                "url": "https://www.aera.net/Newsroom/AERA-Highlights-E-newsletter/AERA-Highlights-June-2025/FY-2026-Budget-Request-Includes-Deep-Cuts-for-Federal-Research-Agencies"
+              },
+              {
+                "type": "url",
+                "url": "https://www.nacacnet.org/wp-content/uploads/EducationCounsel-ALERT_20250602.pdf"
+              },
+              {
+                "type": "url",
+                "url": "https://www.congress.gov/crs-product/R48616"
+              }
+            ]
+          }
+        },
+        {
+          "type": "openrouter:web_search",
+          "id": "st_tmp_5vfzk6dakre",
+          "status": "completed",
+          "action": {
+            "type": "search",
+            "query": "Federal Register National Assessment of Educational Progress 2026 information collection 1850-0928",
+            "sources": [
+              {
+                "type": "url",
+                "url": "https://www.federalregister.gov/documents/2025/05/15/2025-08602/agency-information-collection-activities-submission-to-the-office-of-management-and-budget-for"
+              },
+              {
+                "type": "url",
+                "url": "https://www.federalregister.gov/documents/2024/10/30/2024-25138/agency-information-collection-activities-comment-request-national-assessment-of-educational-progress"
+              },
+              {
+                "type": "url",
+                "url": "https://www.reginfo.gov/public/do/PRAViewIC?icID=271855&ref_nbr=202507-1850-004"
+              },
+              {
+                "type": "url",
+                "url": "https://www.reginfo.gov/public/do/PRAViewICR?ref_nbr=202507-1850-004"
+              },
+              {
+                "type": "url",
+                "url": "https://www.federalregister.gov/documents/2025/08/04/2025-14709/agency-information-collection-activities-submission-to-the-office-of-management-and-budget-for"
+              }
+            ]
+          }
+        },
+        {
+          "type": "openrouter:web_search",
+          "id": "st_tmp_puqjgm83jw",
+          "status": "completed",
+          "action": {
+            "type": "search",
+            "query": "NCES staff 2026 Institute of Education Sciences reorganization Amber Northern report NAEP",
+            "sources": [
+              {
+                "type": "url",
+                "url": "https://ies.ed.gov/ies/2026/02/reimagining-ies"
+              },
+              {
+                "type": "url",
+                "url": "https://nces.ed.gov/learn/blog/reimagining-institute-education-sciences"
+              },
+              {
+                "type": "url",
+                "url": "https://www.ed.gov/about/news/press-release/us-department-of-education-receives-recommendations-reform-institute-of-education-sciences"
+              },
+              {
+                "type": "url",
+                "url": "https://ies.ed.gov/learn/blog/whats-horizon-2026-nations-report-card"
+              },
+              {
+                "type": "url",
+                "url": "https://hechingerreport.org/proof-points-ies-northern-report/"
+              }
+            ]
+          }
+        },
+        {
+          "type": "openrouter:web_search",
+          "id": "st_tmp_wwdv58qcdoj",
+          "status": "completed",
+          "action": {
+            "type": "search",
+            "query": "FY2026 omnibus National Assessment of Educational Progress $ million NAGB appropriation IES explanatory statement rehire",
+            "sources": [
+              {
+                "type": "url",
+                "url": "https://www.congress.gov/crs-appropriations-status-table/2026"
+              },
+              {
+                "type": "url",
+                "url": "http://www.ed.gov/media/document/fy-2026-congressional-justification-institute-of-education-sciences-110173.pdf"
+              },
+              {
+                "type": "url",
+                "url": "https://www.appropriations.senate.gov/imo/media/doc/fy26_lhhs_jes.pdf"
+              },
+              {
+                "type": "url",
+                "url": "https://www.congress.gov/crs-product/R48970"
+              },
+              {
+                "type": "url",
+                "url": "https://www.congress.gov/crs-product/R48616"
+              }
+            ]
+          }
+        },
+        {
+          "type": "openrouter:web_search",
+          "id": "st_tmp_v66plo2hq4",
+          "status": "completed",
+          "action": {
+            "type": "search",
+            "query": "NAEP survey questionnaire items removed 2025 2026 gender identity DEI background questions NAGB",
+            "sources": [
+              {
+                "type": "url",
+                "url": "https://omb.report/icr/202507-1850-004/doc/161039601"
+              },
+              {
+                "type": "url",
+                "url": "https://omb.report/icr/202509-1850-001/doc/162942801.pdf"
+              },
+              {
+                "type": "url",
+                "url": "https://omb.report/icr/202507-1850-004/ic/271855"
+              },
+              {
+                "type": "url",
+                "url": "https://nces.ed.gov/nationsreportcard/experience/survey_questionnaires.aspx"
+              },
+              {
+                "type": "url",
+                "url": "https://www.nces.ed.gov/nationsreportcard/bgquest.aspx"
+              }
+            ]
+          }
+        },
+        {
+          "type": "openrouter:web_fetch",
+          "id": "st_tmp_f9zl86heoci",
+          "status": "completed",
+          "url": "https://usajobs-tracker.abigailhaddad.com",
+          "content": "<!DOCTYPE html>\n<html lang=\"en\">\n<head>\n    <meta charset=\"UTF-8\">\n    <meta name=\"viewport\" content=\"width=device-width, initial-scale=1.0\">\n    <title>USAJobs Listings Tracker</title>\n    \n    <!-- DataTables CSS -->\n    <link rel=\"stylesheet\" href=\"https://cdn.datatables.net/1.13.6/css/dataTables.bootstrap5.min.css\">\n    <link rel=\"stylesheet\" href=\"https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css\">\n    <link rel=\"stylesheet\" href=\"https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.0/font/bootstrap-icons.css\">\n    \n    <style>\n        body {\n            font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;\n            background-color: #f8f9fa;\n            color: #333;\n        }\n        \n        .container {\n            max-width: 1400px;\n            margin: 0 auto;\n            padding: 20px;\n        }\n        \n        h1 {\n            color: #003366;\n            font-weight: 600;\n            margin-bottom: 10px;\n        }\n        \n        .subtitle {\n            color: #999;\n            font-size: 0.9rem;\n            margin-bottom: 20px;\n        }\n        \n        .summary-stats {\n            background: white;\n            padding: 20px;\n            border-radius: 8px;\n            box-shadow: 0 2px 4px rgba(0,0,0,0.1);\n            margin-bottom: 30px;\n        }\n        \n        .stat-box {\n            text-align: center;\n            padding: 15px;\n            border-right: 1px solid #e9ecef;\n        }\n        \n        .stat-box:last-child {\n            border-right: none;\n        }\n        \n        .stat-value {\n            font-size: 2rem;\n            font-weight: 600;\n            color: #003366;\n        }\n        \n        .stat-label {\n            color: #666;\n            font-size: 0.85rem;\n            text-transform: uppercase;\n            line-height: 1.3;\n        }\n        \n        .table-container {\n            background: white;\n            padding: 25px;\n            border-radius: 8px;\n            box-shadow: 0 2px 4px rgba(0,0,0,0.1);\n        }\n        \n        .dataTables_wrapper .dataTables_filter input {\n            border: 1px solid #ddd;\n            border-radius: 4px;\n            padding: 5px 10px;\n            margin-left: 10px;\n        }\n        \n        .dataTables_wrapper .dataTables_length select {\n            border: 1px solid #ddd;\n            border-radius: 4px;\n            padding: 5px;\n        }\n        \n        table.dataTable {\n            border-collapse: collapse !important;\n        }\n        \n        table.dataTable thead th {\n            background-color: #003366;\n            color: white;\n            font-weight: 600;\n            border-bottom: none !important;\n            white-space: nowrap;\n            position: relative;\n            cursor: pointer;\n        }\n        \n        table.dataTable thead th.filtering {\n            background-color: #00508f;\n        }\n        \n        table.dataTable tbody tr:hover {\n            background-color: #f0f8ff;\n        }\n        \n        table.dataTable tbody td {\n            padding: 12px;\n            vertical-align: middle;\n        }\n        \n        .percentage-cell {\n            font-weight: 600;\n        }\n        \n        .high-percentage {\n            color: #388e3c;  /* Green - good (maintained/increased listings) */\n        }\n        \n        .medium-percentage {\n            color: #f57c00;  /* Orange - moderate (some decline) */\n        }\n        \n        .low-percentage {\n            color: #d32f2f;  /* Red - bad (major decline) */\n        }\n        \n        .expiring-soon {\n            background-color: #fff3cd;\n        }\n        \n        .no-year {\n            background-color: #e8f4f8;\n        }\n        \n        /* Column filter styles */\n        .column-filter-container {\n            position: absolute;\n            background: white;\n            border: 1px solid #ddd;\n            border-radius: 4px;\n            box-shadow: 0 4px 6px rgba(0,0,0,0.1);\n            padding: 10px;\n            z-index: 1000;\n            min-width: 200px;\n            max-height: 300px;\n            overflow-y: auto;\n        }\n        \n        .column-filter-container input[type=\"text\"] {\n            width: 100%;\n            padding: 5px;\n            margin-bottom: 10px;\n            border: 1px solid #ddd;\n            border-radius: 3px;\n        }\n        \n        .column-filter-container label {\n            display: block;\n            padding: 3px 0;\n            cursor: pointer;\n        }\n        \n        .column-filter-container label:hover {\n            background-color: #f0f0f0;\n        }\n        \n        .column-filter-container input[type=\"checkbox\"] {\n            margin-right: 8px;\n        }\n        \n        .filter-buttons {\n            margin-top: 10px;\n            text-align: right;\n        }\n        \n        .filter-buttons button {\n            margin-left: 5px;\n            padding: 3px 10px;\n            border: 1px solid #ddd;\n            border-radius: 3px;\n            background: white;\n            cursor: pointer;\n            font-size: 0.85rem;\n        }\n        \n        .filter-buttons button.apply {\n            background: #003366;\n            color: white;\n        }\n        \n        .filter-buttons button:hover {\n            opacity: 0.8;\n        }\n        \n        th.has-filter::after {\n            content: \" \u25bc\";\n            font-size: 0.8em;\n            opacity: 0.5;\n        }\n        \n        /* Bubble chart styles */\n        .treemap-container {\n            background: white;\n            padding: 20px;\n            border-radius: 8px;\n            box-shadow: 0 2px 4px rgba(0,0,0,0.1);\n            margin-bottom: 30px;\n        }\n        \n        .treemap-title {\n            font-size: 1.2rem;\n            font-weight: 600;\n            color: #003366;\n            margin-bottom: 15px;\n        }\n        \n        #bubble-chart {\n            width: 100%;\n            height: 460px;\n            position: relative;\n        }\n        \n        .bubble {\n            cursor: pointer;\n            opacity: 0.8;\n            transition: all 0.3s;\n        }\n        \n        .bubble:hover {\n            opacity: 1;\n            stroke: #003366;\n            stroke-width: 3;\n        }\n        \n        .axis-label {\n            font-size: 14px;\n            font-weight: 600;\n            fill: #333;\n        }\n        \n        .grid line {\n            stroke: #e0e0e0;\n            stroke-opacity: 0.7;\n            shape-rendering: crispEdges;\n        }\n        \n        .grid path {\n            stroke-width: 0;\n        }\n        \n        .quadrant-label {\n            fill: #666;\n            font-size: 12px;\n            font-style: italic;\n            opacity: 0.7;\n        }\n        \n        /* Filter section styles */\n        .filter-section {\n            background: white;\n            padding: 20px;\n            border-radius: 8px;\n            box-shadow: 0 2px 4px rgba(0,0,0,0.1);\n            margin-bottom: 30px;\n        }\n        \n        .filter-section h3 {\n            color: #003366;\n            font-size: 1.3rem;\n            margin-bottom: 15px;\n        }\n        \n        .filter-controls label {\n            font-size: 0.85rem;\n            font-weight: 600;\n            color: #666;\n            margin-bottom: 5px;\n        }\n        \n        .active-filters {\n            margin-top: 15px;\n            min-height: 30px;\n        }\n        \n        .filter-badge {\n            display: inline-block;\n            background: #003366;\n            color: white;\n            padding: 5px 10px;\n            border-radius: 20px;\n            margin-right: 10px;\n            margin-bottom: 5px;\n            font-size: 0.85rem;\n        }\n        \n        .filter-badge .remove-filter {\n            margin-left: 8px;\n            cursor: pointer;\n            font-weight: bold;\n        }\n        \n        .filter-badge .remove-filter:hover {\n            color: #ff6b6b;\n        }\n        \n        /* Multi-select dropdown styles */\n        .filter-dropdown {\n            position: relative;\n        }\n        \n        .filter-dropdown-menu {\n            position: absolute;\n            top: 100%;\n            left: 0;\n            right: 0;\n            z-index: 1000;\n            background: white;\n            border: 1px solid #ddd;\n            border-radius: 4px;\n            box-shadow: 0 4px 6px rgba(0,0,0,0.1);\n            padding: 10px;\n            margin-top: 2px;\n        }\n        \n        .filter-dropdown-menu label {\n            cursor: pointer;\n        }\n        \n        .filter-dropdown-menu label:hover {\n            background-color: #f0f0f0;\n        }\n        \n        .filter-dropdown-menu .filter-search {\n            margin-bottom: 5px;\n        }\n        \n        .filter-dropdown-menu .filter-options label {\n            padding: 3px 8px;\n            margin: 0;\n            display: block;\n        }\n        \n        .filter-dropdown-menu input[type=\"checkbox\"] {\n            margin-right: 8px;\n        }\n        \n        /* Active filters display */\n        .active-filters-display {\n            color: #d32f2f;\n            font-size: 1.1rem;\n            font-weight: 600;\n            margin-bottom: 20px;\n            min-height: 1.5em;\n        }\n        \n        #downloadCSV:hover {\n            background-color: #00508f !important;\n            transform: translateY(-1px);\n            box-shadow: 0 2px 4px rgba(0,0,0,0.2);\n        }\n        \n        /* Skip link for keyboard navigation */\n        .skip-link {\n            position: absolute;\n            top: -40px;\n            left: 0;\n            background: #003366;\n            color: white;\n            padding: 8px;\n            text-decoration: none;\n            z-index: 9999;\n        }\n        \n        .skip-link:focus {\n            top: 0;\n        }\n        \n        /* Improved focus indicators */\n        a:focus,\n        button:focus,\n        input:focus,\n        select:focus,\n        textarea:focus {\n            outline: 3px solid #003366;\n            outline-offset: 2px;\n        }\n        \n        /* Screen reader only content */\n        .sr-only {\n            position: absolute;\n            width: 1px;\n            height: 1px;\n            padding: 0;\n            margin: -1px;\n            overflow: hidden;\n            clip: rect(0, 0, 0, 0);\n            white-space: nowrap;\n            border: 0;\n        }\n        \n    </style>\n</head>\n<body>\n    <!-- Skip to main content link for keyboard navigation -->\n    <a href=\"#main-content\" class=\"skip-link\">Skip to main content</a>\n    \n    <!-- Work in Progress Banner -->\n    <div class=\"alert alert-warning mb-0\" role=\"alert\">\n        <div class=\"container\">\n            <strong>\ud83d\udea7 Active Development:</strong> This is an experimental tool tracking federal job postings.\n            Data source: <a href=\"https://github.com/abigailhaddad/usajobs_historical\" target=\"_blank\" class=\"alert-link\">USAJobs Historical Data</a> | <a class='alert-link' href='/methodology'>Methodology</a>\n        </div>\n    </div>\n\n    <!-- Archive Notice Banner -->\n    <div class=\"alert alert-danger mb-0\" role=\"alert\" style=\"border-radius: 0;\">\n        <div class=\"container\">\n            <strong>\ud83d\udcc1 Archive Notice:</strong> This tracker will be archived on December 31, 2025. Data collection will stop on that date and no further updates will be made.\n        </div>\n    </div>\n\n    <div class=\"container\" id=\"main-content\">\n        <h1>USAJobs Listings Tracker</h1>\n        <p class=\"subtitle\" id=\"dateRangeSubtitle\">Loading date range...</p>\n        <div id=\"activeFiltersDisplay\" class=\"active-filters-display\"></div>\n        \n        <!-- ARIA live region for screen reader announcements -->\n        <div class=\"sr-only\" aria-live=\"polite\" aria-atomic=\"true\" id=\"ariaLiveRegion\"></div>\n        \n        <!-- Important Caveats -->\n        <div class=\"alert alert-info mt-3 mb-3\">\n            <small>\n                <strong>Important Notes:</strong>\n                <ul class=\"mb-0\" style=\"padding-left: 20px;\">\n                    <li>Job listings \u2260 actual hires. One listing may result in multiple hires, one hire, or no hires.</li>\n                    <li>Not all federal positions are posted on USAJobs.</li>\n                    <li>Job listings which include multiple occupation series are counted under the first series listed.</li>\n                    <li>Subagency view and raw job listings are only available after selecting a specific department.</li>\n                </ul>\n            </small>\n        </div>\n        \n        <!-- Data Source Attribution -->\n        <div class=\"text-center text-muted mb-4\">\n            <small>\n                Data source: <a href=\"https://github.com/abigailhaddad/usajobs_historical\" target=\"_blank\" class=\"text-decoration-none\">\n                    USAJobs Historical Data\n                </a>\n                <br>\n                <span id=\"lastUpdated\"></span>\n            </small>\n        </div>\n        \n        <div class=\"summary-stats\">\n            <div class=\"row\">\n                <div class=\"col-md-3 stat-box\">\n                    <div class=\"stat-value\" id=\"total2024\">Loading...</div>\n                    <div class=\"stat-label\" id=\"previousYearLabel\">Previous Year</div>\n                </div>\n                <div class=\"col-md-3 stat-box\">\n                    <div class=\"stat-value\" id=\"total2025\">Loading...</div>\n                    <div class=\"stat-label\" id=\"currentYearLabel\">Current Year</div>\n                </div>\n                <div class=\"col-md-3 stat-box\">\n                    <div class=\"stat-value\" id=\"overallPercentage\">Loading...</div>\n                    <div class=\"stat-label\" id=\"percentageLabel\">Year-over-Year %</div>\n                </div>\n                <div class=\"col-md-3 stat-box\">\n                    <div class=\"stat-value\" id=\"entityCount\">Loading...</div>\n                    <div class=\"stat-label\">Departments</div>\n                </div>\n            </div>\n        </div>\n        \n        <!-- Unified Filter Section -->\n        <div class=\"filter-section\">\n            <h3>Filters & Display Options</h3>\n            <div class=\"filter-controls\">\n                <div class=\"row mb-3\">\n                    <div class=\"col-md-3\">\n                        <label for=\"mainDepartmentFilter\">Department</label>\n                        <select class=\"form-control form-control-sm\" id=\"mainDepartmentFilter\">\n                            <option value=\"\">All Departments</option>\n                        </select>\n                    </div>\n                    <div class=\"col-md-3\">\n                        <label for=\"mainAgencyFilter\">Agency</label>\n                        <select class=\"form-control form-control-sm\" id=\"mainAgencyFilter\">\n                            <option value=\"\">All Agencies</option>\n                        </select>\n                    </div>\n                    <div class=\"col-md-3\">\n                        <label for=\"mainAppointmentFilter\">Appointment Type</label>\n                        <select class=\"form-control form-control-sm\" id=\"mainAppointmentFilter\">\n                            <option value=\"\">All Types</option>\n                        </select>\n                    </div>\n                    <div class=\"col-md-3\">\n                        <label for=\"mainOccupationFilter\">Occupation Series</label>\n                        <select class=\"form-control form-control-sm\" id=\"mainOccupationFilter\">\n                            <option value=\"\">All Occupations</option>\n                        </select>\n                    </div>\n                </div>\n                <div class=\"row mb-3\">\n                    <div class=\"col-md-3\">\n                        <label for=\"aggregationLevel\">View By</label>\n                        <select id=\"aggregationLevel\" class=\"form-control form-control-sm\">\n                            <option value=\"department\" selected>Department</option>\n                            <option value=\"agency\">Agency</option>\n                            <option value=\"subagency\" disabled>Subagency (select a department first)</option>\n                        </select>\n                    </div>\n                    <div class=\"col-md-3\">\n                        <label>&nbsp;</label>\n                        <div class=\"form-check\">\n                            <input class=\"form-check-input\" type=\"checkbox\" id=\"showRawJobs\" disabled>\n                            <label class=\"form-check-label\" for=\"showRawJobs\">\n                                Show Raw Jobs (select a department first)\n                            </label>\n                        </div>\n                    </div>\n                </div>\n            </div>\n        </div>\n        \n        <div class=\"treemap-container\">\n            <h2 class=\"treemap-title\" id=\"bubbleChartTitle\">USAJobs Counts by Department</h2>\n            <p style=\"margin-top: -10px; margin-bottom: 15px; color: #666; font-size: 0.9rem;\">Bubble size = 2024 count</p>\n            <div id=\"bubble-chart\"></div>\n        </div>\n        \n        <div class=\"table-container\">\n            <div class=\"d-flex justify-content-between align-items-center mb-3\">\n                <h3 class=\"m-0\" style=\"color: #003366; font-size: 1.3rem;\">Data Table</h3>\n                <button id=\"downloadCSV\" class=\"btn btn-sm\" style=\"background-color: #003366; color: white; border: none;\">\n                    <i class=\"bi bi-download\"></i> Download Current View as CSV\n                </button>\n            </div>\n            <table id=\"jobsTable\" class=\"table table-striped\">\n                <thead id=\"tableHead\">\n                    <tr id=\"tableHeaders\">\n                        <th>Department</th>\n                        <th>Agency</th>\n                        <th>2024 Listings</th>\n                        <th>2025 Listings</th>\n                        <th>Change</th>\n                        <th>2025 as % of 2024</th>\n                    </tr>\n                </thead>\n                <tbody id=\"tableBody\">\n                </tbody>\n            </table>\n        </div>\n    </div>\n    \n    <!-- jQuery -->\n    <script src=\"https://code.jquery.com/jquery-3.7.0.min.js\"></script>\n    <!-- Bootstrap JS -->\n    <script src=\"https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js\"></script>\n    <!-- DataTables JS -->\n    <script src=\"https://cdn.datatables.net/1.13.6/js/jquery.dataTables.min.js\"></script>\n    <script src=\"https://cdn.datatables.net/1.13.6/js/dataTables.bootstrap5.min.js\"></script>\n    <!-- D3.js for Treemap -->\n    <script src=\"https://d3js.org/d3.v7.min.js\"></script>\n    \n    <script src=\"jobs_app.js\"></script>\n</body>\n</html>",
+          "title": "USAJobs Listings Tracker",
+          "httpStatus": 200
+        },
+        {
+          "type": "openrouter:web_search",
+          "id": "st_tmp_mt8eyfag0ls",
+          "status": "completed",
+          "action": {
+            "type": "search",
+            "query": "2026 appropriations NAEP \"National Assessment\" funding level enacted February 2026 Institute of Education Sciences $793 million",
+            "sources": [
+              {
+                "type": "url",
+                "url": "https://www.congress.gov/crs_external_products/R/PDF/R48970/R48970.5.pdf"
+              },
+              {
+                "type": "url",
+                "url": "https://cdn.vanderbilt.edu/vu-URL/wp-content/uploads/sites/434/2025/12/01160534/Friends-of-IES-Letter-FY2026-conference-FINAL.pdf"
+              },
+              {
+                "type": "url",
+                "url": "https://www.nea.org/sites/default/files/2026-02/fy26-funding-and-state-estimates.pdf"
+              },
+              {
+                "type": "url",
+                "url": "https://www.ed.gov/media/document/fy-2026-congressional-justification-institute-of-education-sciences-110173.pdf"
+              },
+              {
+                "type": "url",
+                "url": "https://www.ed.gov/media/document/fy-2026-presidents-budget-request-110152.pdf"
+              }
+            ]
+          }
+        },
+        {
+          "type": "openrouter:web_search",
+          "id": "st_tmp_g42ietgw76h",
+          "status": "completed",
+          "action": {
+            "type": "search",
+            "query": "NAEP 2028 moved to 2029 Congress legislation approved NAGB 2026 news",
+            "sources": [
+              {
+                "type": "url",
+                "url": "https://www.nagb.gov/news-and-events/news-releases/2025/2028-2029-resolution.html"
+              },
+              {
+                "type": "url",
+                "url": "https://www.nagb.gov/content/dam/nagb/en/documents/policies/resolution-request-postponement-2028-to-2029-naep-reading-mathematics.pdf"
+              },
+              {
+                "type": "url",
+                "url": "https://www.nagb.gov/content/dam/nagb/en/documents/what-we-do/quarterly-board-meeting-materials/2025-07/public-site/03-general-sessions/05-action-resolution-to-request-postponing-naep-reading-and-mathematics-from-2028-to-2029/02-resolution-to-request-postponement.pdf"
+              },
+              {
+                "type": "url",
+                "url": "https://www.nagb.gov/news-and-events/news-releases/2026/release-board-meeting-actions-051526.html"
+              },
+              {
+                "type": "url",
+                "url": "https://www.nces.ed.gov/nationsreportcard/about/calendar.aspx"
+              }
+            ]
+          }
+        },
+        {
+          "type": "openrouter:web_search",
+          "id": "st_tmp_z4ts4t91yai",
+          "status": "completed",
+          "action": {
+            "type": "search",
+            "query": "NAEP data removed website NCES 2025 2026 data explorer unavailable archived reports",
+            "sources": [
+              {
+                "type": "url",
+                "url": "https://nces.ed.gov/nationsreportcard/data/"
+              },
+              {
+                "type": "url",
+                "url": "https://www.nationsreportcard.gov/ndecore/"
+              },
+              {
+                "type": "url",
+                "url": "https://www.nationsreportcard.gov/naepdata_legacy/"
+              },
+              {
+                "type": "url",
+                "url": "https://www.nationsreportcard.gov/ndecore/help"
+              },
+              {
+                "type": "url",
+                "url": "https://nces.ed.gov/nationsreportcard/"
+              }
+            ]
+          }
+        },
+        {
+          "type": "openrouter:web_search",
+          "id": "st_tmp_02jz9ost1e8w",
+          "status": "completed",
+          "action": {
+            "type": "search",
+            "query": "2025 long-term trend NAEP results ages 9 and 13 released 2026",
+            "sources": [
+              {
+                "type": "url",
+                "url": "https://www.nationsreportcard.gov/ltt/2025/"
+              },
+              {
+                "type": "url",
+                "url": "https://www.nagb.gov/news-and-events/news-releases/2026/naep-long-term-trend-assessments-show-different-trends-for-9-and-13-year-olds.html"
+              },
+              {
+                "type": "url",
+                "url": "https://nces.ed.gov/use-work/resource-library/report/statistical-analysis-report/2025-naep-long-term-trend-assessment-results-reading-and-mathematics-ages-9-and-13"
+              },
+              {
+                "type": "url",
+                "url": "https://www.nationsreportcard.gov/ltt/2025/?age=13"
+              },
+              {
+                "type": "url",
+                "url": "https://prod65.nagb.aws.reingoldms.com/content/dam/nagb/en/documents/newsroom/press-releases/2026/press-release-ltt-2025-final.pdf"
+              }
+            ]
+          }
+        },
+        {
+          "type": "openrouter:web_search",
+          "id": "st_tmp_izb97v94sd9",
+          "status": "completed",
+          "action": {
+            "type": "search",
+            "query": "NCES commissioner 2026 staffing NAEP Next Gen NAEP modernization Mark White chair Governing Board",
+            "sources": [
+              {
+                "type": "url",
+                "url": "https://www.nagb.gov/powered-by-naep/next-gen-naep.html"
+              },
+              {
+                "type": "url",
+                "url": "https://www.nagb.gov/news-and-events/news-releases/2025/secretary-mcmahon-appoints-new-members-2025.html"
+              },
+              {
+                "type": "url",
+                "url": "https://nces.ed.gov/learn/blog/whats-horizon-2026-nations-report-card"
+              },
+              {
+                "type": "url",
+                "url": "https://www.federalregister.gov/documents/2026/07/10/2026-13951/committee-and-quarterly-board-meetings"
+              },
+              {
+                "type": "url",
+                "url": "https://www.govtech.com/education/k-12/naep-redesign-to-focus-on-cost-savings-state-level-data"
+              }
+            ]
+          }
+        }
+      ],
+      "ended": "answered",
+      "seconds": 74.6
+    },
+    "session_metadata": {
+      "request": {
+        "model": "anthropic/claude-opus-5.5",
+        "max_output_tokens": 32768,
+        "tools": [
+          {
+            "type": "openrouter:web_search",
+            "parameters": {
+              "engine": "native",
+              "excluded_domains": [
+                "dataindex.us"
+              ]
+            }
+          },
+          {
+            "type": "openrouter:web_fetch",
+            "parameters": {
+              "engine": "openrouter",
+              "blocked_domains": [
+                "dataindex.us"
+              ],
+              "max_content_tokens": 10000
+            }
+          }
+        ],
+        "cache_control": {
+          "type": "ephemeral",
+          "ttl": "1h"
+        },
+        "session_id": "naep-anthropic/claude-opus-5.5-t0-2026-10-09T00:38:15Z",
+        "stop_server_tools_when": [
+          {
+            "type": "step_count_is",
+            "step_count": 200
+          }
+        ],
+        "reasoning": {
+          "effort": "medium"
+        },
+        "provider": {
+          "order": [
+            "anthropic"
+          ],
+          "allow_fallbacks": false
+        }
+      },
+      "response_meta": {
+        "id": "gen-1791506488-UaoiYWonYvpk9pgxxrVZ",
+        "object": "response",
+        "created_at": 1791506488,
+        "model": "anthropic/claude-opus-5.5",
+        "status": "completed",
+        "completed_at": 1791506499,
+        "error": null,
+        "incomplete_details": null,
+        "tools": [],
+        "tool_choice": "auto",
+        "parallel_tool_calls": true,
+        "max_output_tokens": 32768,
+        "temperature": 1,
+        "top_p": 1,
+        "presence_penalty": 0,
+        "frequency_penalty": 0,
+        "top_logprobs": 0,
+        "max_tool_calls": null,
+        "metadata": {},
+        "background": false,
+        "previous_response_id": null,
+        "service_tier": "auto",
+        "truncation": "disabled",
+        "store": false,
+        "instructions": null,
+        "text": {
+          "format": {
+            "type": "text"
+          }
+        },
+        "reasoning": {
+          "effort": "medium"
+        },
+        "safety_identifier": null,
+        "prompt_cache_key": null,
+        "prompt_cache_options": null,
+        "usage": {
+          "input_tokens": 23392,
+          "input_tokens_details": {
+            "cached_tokens": 10955,
+            "cache_write_tokens": 12433
+          },
+          "output_tokens": 1012,
+          "output_tokens_details": {
+            "reasoning_tokens": 415
+          },
+          "total_tokens": 24404,
+          "cost": 0.121911,
+          "cost_details": {
+            "upstream_inference_cost": 0.121911,
+            "upstream_inference_input_cost": 0.101671,
+            "upstream_inference_output_cost": 0.02024
+          }
+        }
+      },
+      "requests": [
+        {
+          "input_tokens": 23392,
+          "input_tokens_details": {
+            "cached_tokens": 10955,
+            "cache_write_tokens": 12433
+          },
+          "output_tokens": 1012,
+          "output_tokens_details": {
+            "reasoning_tokens": 415
+          },
+          "total_tokens": 24404,
+          "cost": 0.121911,
+          "cost_details": {
+            "upstream_inference_cost": 0.121911,
+            "upstream_inference_input_cost": 0.101671,
+            "upstream_inference_output_cost": 0.02024
+          }
+        }
+      ],
+      "searches": 0,
+      "fetches": 0,
+      "tool_items": [],
+      "ended": "answered",
+      "seconds": 11.6
+    }
+  },
+  "messages": [
+    {
+      "role": "user",
+      "content": "#data research\nI am researching a federal dataset. Find out everything you can about this dataset, such as who publishes it, under what authority or mandate, its history, its typical users, and its benefits to the public. Be sure your research comprehensively covers each of those perspectives, as well as any others that you discover or seem useful. I believe this is accurate information, but please check:\n\nDataset title: National Assessment of Educational Progress (NAEP)\nDescription: The National Assessment of Educational Progress (NAEP), also known as The Nation's Report Card, is the largest ongoing, nationally representative assessment of education in the United States. Since 1969, NAEP has served as a vital measure of student achievement, providing valuable insights into academic performance and learning experiences across various subjects. Its results offer a comprehensive view of educational progress at the national level, across states, and in 27 urban districts.\nURL: https://nces.ed.gov/nationsreportcard\n\nReturn a complete report on everything that a preservationist, data librarian, data scientist, or policy activist might want to know about this data."
+    },
+    {
+      "role": "assistant",
+      "content": "# National Assessment of Educational Progress (NAEP), \"The Nation's Report Card\": Research Report\n\n## Checking your description\n\nYour description is mostly accurate. Four things need correcting or adding:\n\n| Claim | Status | Notes |\n|---|---|---|\n| Also known as The Nation's Report Card | \u2705 Correct | |\n| Largest ongoing, nationally representative assessment | \u2705 Correct | This is the program's official tagline. |\n| Since 1969 | \u2705 Correct | The first assessment, in science, was given in 1969. State-level results began in 1990 and urban district results in 2002. |\n| \"27 urban districts\" | \u26a0\ufe0f **Out of date** | 26 districts took part in 2024. Fresno and Shelby County (TN) dropped out, and Orange County (FL) joined. NCES's 2026 state guide also lists 26. Over the program's history, 28 districts have taken part at one time or another. |\n| Program name | \u26a0\ufe0f **Changed** | In 2026 the urban district program was officially renamed from the \"Trial Urban District Assessment\" to the **\"Trends in Urban Districts Assessment\"** (TUDA), \"to reflect TUDA's 25-year history.\" |\n| URL | \u2705 Valid, but incomplete | nces.ed.gov/nationsreportcard is the operational and technical site. Results and data tools are at **nationsreportcard.gov**. Policy, frameworks and achievement levels are at **nagb.gov**. A preservation effort should capture all three. |\n\nTwo more nuances. State results exist only for some subjects and grades, and they cover public schools only. National results include private schools.\n\n---\n\n## 1. Who publishes it\n\n- **Administering agency:** the National Center for Education Statistics (NCES), part of the Institute of Education Sciences (IES) at the U.S. Department of Education. Federal law makes the Commissioner for Education Statistics responsible for running NAEP.\n- **Policy body:** the National Assessment Governing Board (NAGB), an independent, bipartisan board created in 1988 and appointed by the Secretary of Education. It picks the subjects, writes the frameworks (what the tests cover), sets achievement levels, approves the testing schedule, sets reporting guidelines, and has \"final authority on the appropriateness of all assessment items.\" By law its members must include governors from both parties, state legislators from both parties, chief state school officers, teachers, principals, testing experts, parents and members of the public.\n- **Contractors:** the law requires NAEP to be carried out \"through grants, contracts, or cooperative agreements.\" Nearly all the operational work is done by contractors. ETS (test design, item development, analysis) and Westat (sampling and fieldwork) are the best known. Five-year contracts were awarded at the end of 2024. From background knowledge, not checked in this session: Pearson has handled scoring and processing, and AIR builds analysis tools such as the EdSurvey R package.\n- **Current leadership (as of early 2026):** Matthew Soldner is Acting IES Director and Acting NCES Commissioner. Lesley Muldoon is NAGB Executive Director, and Beverly Perdue, a former North Carolina governor, is NAGB Chair. Martin West of Harvard was NAGB Vice Chair in 2025.\n\n## 2. Legal authority\n\n- **Current statute:** the National Assessment of Educational Progress Authorization Act, Title III of the Education Sciences Reform Act of 2002. It is codified at **20 U.S.C. \u00a7 9621** (NAGB) and **\u00a7 9622** (NAEP). The law defines NAEP as a national assessment, state assessments, and a long-term trend assessment in reading and math.\n- **Core mandate:** NAEP *shall* run state assessments in reading and math in grades 4 and 8 every two years. It *may* run state assessments in grade 12 and in other subjects.\n- **Link to Title I:** since the 2001 ESEA reauthorization (No Child Left Behind), continued under the Every Student Succeeds Act (2015), a state must promise to take part in the grade 4 and 8 reading and math assessments to receive Title I funds. This is why every state participates.\n- **Earlier law:** the Hawkins-Stafford Amendments of 1988 (P.L. 100-297) placed NAEP within NCES, created NAGB, and authorized trial state assessments (math in 1990 and 1992, reading in 1992).\n- **Built-in protections:**\n  - No results are reported for individual students or schools.\n  - Personally identifiable information is confidential.\n  - Students take part voluntarily.\n  - Test items must be \"free from racial, cultural, gender, or regional bias\" and \"secular, neutral, and non-ideological.\"\n  - Achievement levels may only be used on a trial basis until an evaluation finds them valid. They technically still have that trial status.\n- **Paperwork approval:** data collection is cleared by OMB under control number **1850-0928**, which was at version 40 in July 2026.\n\n## 3. History\n\n- **1963:** Commissioner of Education Francis Keppel could not answer a House appropriations question: \"How well are U.S. students achieving?\" For a century, federal reports had counted inputs such as teachers, classrooms and spending, but never measured what students learned.\n- **1963\u201364:** the Carnegie Corporation funded a planning committee led by evaluation expert Ralph Tyler. His key design idea was to test small samples of students, each taking only part of the test, rather than testing every student. He also promised there would be no state results, to calm fears of a national curriculum.\n- **1969:** the Education Commission of the States, a state-run body chosen to keep the federal government at arm's length, gave the first assessment. Carnegie and Ford foundation money gave way to full federal funding by 1972. Administrative responsibility moved to NCES in 1971.\n- **1971 and 1973:** long-term trend reading and math assessments began for ages 9, 13 and 17. They remain the longest-running consistent U.S. achievement trend lines.\n- **1983:** ETS won the contract. It introduced item response theory scaling, \"plausible values\" methods and more efficient item sampling (see section 6), and moved toward testing by grade (4, 8, 12).\n- **1988:** Hawkins-Stafford created NAGB. **1990:** the first trial state assessment, and NAGB's first policy on the *Basic / Proficient / Advanced* achievement levels.\n- **2001\u201302:** NCLB tied state participation to Title I. The urban district program began in 2002 with 6 districts, and the 2002 Act became the current statute.\n- **2017:** reading and math moved to digital testing on tablets.\n- **2022\u20132025:** post-pandemic results showed historic declines, including the first-ever drop in long-term trend math for 9-year-olds. 2024 grade 12 results were released September 9, 2025:\n  - Reading and math each fell 3 points from 2019.\n  - 12th-grade reading was the lowest since the assessment began in 1992.\n  - A record 45% scored below *NAEP Basic* in math, and a record 32% in reading.\n  - Grade 8 science fell 4 points.\n\n**2025 disruption:**\n- February: NCES Commissioner Peggy Carr was placed on leave, and the 2025 long-term trend assessment for 17-year-olds was canceled.\n- March 11: almost all NCES staff were laid off.\n- DOGE reportedly pressed for 50% cuts to the roughly $190M-a-year program and paid contracts in short increments. One ETS contract ran out of money on March 31, which stopped work on writing new test questions.\n- April\u2013May: NAGB cut the schedule:\n  - the 2029 long-term trend assessment;\n  - grade 4 science in 2028 and grade 12 science in 2032;\n  - grade 12 U.S. history in 2030;\n  - all writing assessments in 2032;\n  - several state-level and district-level results.\n- The Education Secretary committed to keeping the 2026 reading and math assessments on schedule.\n- August 2025: NAGB asked Congress to move the 2028 assessment to 2029, so results come out in years without federal elections.\n\n**2026 partial recovery:**\n- About 600,000 students were tested between January 26 and March 20, 2026.\n- Firsts: new reading and math frameworks, automated scoring for reading, and tests on schools' own devices. A study will check that score changes reflect learning rather than the new devices or frameworks.\n- Release dates: reading and math in early 2027; grade 8 U.S. history and civics in summer 2027.\n- NCES hired six new NAEP staff.\n- In May 2026 NAGB:\n  - restored state-level grade 12 reading and math for 2032;\n  - added state results for grade 8 and 12 civics and grade 8 science;\n  - renamed TUDA;\n  - widened eligibility so more districts can join in 2028.\n- A grade 8 science pilot is planned for 2027.\n\n## 4. What the data contains\n\n- **Subjects:** math, reading, science, writing, U.S. history, civics, geography, economics, the arts, and technology and engineering literacy. Only math and reading are given on a fixed schedule.\n- **Programs:**\n  - main NAEP (grades 4, 8, 12);\n  - state NAEP;\n  - TUDA;\n  - long-term trend (ages 9, 13, 17);\n  - related studies: the High School Transcript Study, the National Indian Education Study, and NAEP\u2013TIMSS linking studies.\n- **Reporting units:** the nation, the 50 states, DC, Department of Defense schools, Puerto Rico, and participating large districts, plus student groups such as race/ethnicity, gender, income, disability and English-learner status. There are no student-level or school-level scores.\n- **Measures:**\n  - average scale scores (0\u2013500 for reading and math; 0\u2013300 for some other subjects);\n  - percentiles (10th, 25th, 50th, 75th, 90th);\n  - percentages at the achievement levels.\n- **Survey questionnaires:** students, teachers and principals answer questions about learning opportunities. These feed the \"Opportunity to Learn\" dashboard. Digital testing also records process data, such as how students move through the test.\n- **Scale:** in 2024, about 118,000 fourth-graders in about 6,100 schools and 115,000 eighth-graders in about 5,410 schools took the math test.\n\n## 5. Access and formats\n\n| Tier | What you get | Access |\n|---|---|---|\n| Report cards and highlights | Published findings and dashboards | Public, at nationsreportcard.gov |\n| NAEP Data Explorer | Custom tables for nation, states and districts from 1990 on, plus versions for long-term trend, transcript study and Indian education data | Public, after a click-through NCES data usage agreement |\n| Other online tools | NAEP Questions Tool (released test items), state and district profiles, item maps | Public |\n| Restricted-use files | Student-level microdata with weights, from 1990 on | **Licensed only.** Distributed on CD-ROM to a secure, standalone computer under an NCES license. Small cell counts must be rounded to the nearest 10. |\n| Data before 1990 | Public-use files, 1970\u20131980, and the 1987 transcript study | Available through ICPSR, University of Michigan |\n| Variable lists | Restricted-use variable catalogs, 1990\u20132016 | Free download as Excel or CSV. Later years are listed through the NCES restricted-use program and the ED Data Inventory. |\n\nRestricted student and school records can be linked to the Common Core of Data (public schools, 2000 onward) and the Private School Survey (2002 onward) by school ID. Technical documentation is in the NAEP Technical Documentation website and the NAEP Primer.\n\n## 6. Notes for data scientists\n\n- **Sample design:** students are sampled in stages (schools, then students), with weights. Every analysis must use the weights and the jackknife replicate weights; ignoring them gives wrong answers.\n- **Plausible values:** each student takes only part of the test, so there are no individual scores. Instead, each student gets several \"plausible values,\" drawn from a statistical model of likely ability, and these must be analyzed together using the proper combining rules. Tools that handle this include EdSurvey (R), the AM software and NAEPEX.\n- **Comparing over time:** trend comparisons are valid only within a framework. There are breaks at the 2005 grade 12 math framework change and the 2026 reading and math frameworks. The 2017 move to digital testing was linked to the paper version with bridge studies.\n- **Who is excluded:** rules for testing students with disabilities and English learners, and how many are excluded, vary by state and year. This affects comparisons. Accommodations were introduced in the mid-1990s.\n- **Low stakes:** scores don't count for students, so there are concerns about effort, especially in grade 12.\n\n## 7. Who uses it\n\n- **Congress, the Education Department and NAGB:** monitoring national progress and judging federal policy.\n- **Governors, legislatures and state education agencies:** checking state results against an independent common yardstick. NCES's study mapping state proficiency standards onto the NAEP scale exposes \"honesty gaps\" in state tests.\n- **Urban districts and the Council of the Great City Schools:** a co-designer of TUDA, which uses the results to benchmark large districts.\n- **Researchers:**\n  - economists and education scholars studying school reform effects (for example, the debate over the \"Mississippi miracle\" in reading);\n  - projects that use NAEP to put state test scores on one common scale, such as the Stanford Education Data Archive and the Education Recovery Scorecard;\n  - work on achievement gaps.\n- **Journalists, advocates, think tanks and parents:** NAEP releases are major news events.\n\n## 8. Public benefits\n\n- It is the only continuous, comparable measure of what U.S. students know across states and over decades, and it can't be \"taught to\" or gamed the way state tests can.\n- It is an independent check on state accountability systems.\n- It tracks achievement gaps by race, income, disability and language status.\n- It measured the pandemic's learning losses and recovery.\n- Released items and frameworks shape curriculum and testing nationwide.\n- It costs about $185M a year for NAEP plus about $8M for NAGB (FY2023\u201325 levels), roughly 0.1% of the Department's budget.\n\n## 9. Criticisms and caveats for advocates\n\n- **\"Proficient\" is often misread.** NAGB defines it as \"competency over challenging subject matter,\" not grade-level performance. Critics argue the levels are set high, and the statute still calls them \"trial.\"\n- **Raw state rankings mislead** without demographic adjustment. The Urban Institute's demographically adjusted rankings are one response.\n- **Exclusion rates and student motivation** can skew results (see section 6).\n- **Results show patterns, not causes.** NAEP is not designed to evaluate specific policies.\n- **Politics and timing:** releases in election years, and the 2025 cuts, raise questions about independence and scope.\n\n## 10. Preservation risks and recommendations\n\n**Risks:**\n- Staff loss in 2025, with expertise now mostly held by contractors.\n- The schedule cuts in 2025 broke the long-term trend series; the age-17 trend has been interrupted since 2025.\n- The NAEP Data Explorer and other tools depend on live federal web services.\n- Restricted microdata still ships on CD-ROM, a fragile medium.\n- Contract details are not public, and NCES no longer keeps a publication schedule (American Statistical Association, 2025).\n\n**Existing rescue efforts:** the Data Rescue Project and DataLumos (ICPSR) have archived NCES's Common Core of Data and about 8,000 NCES DataLab tables. **I found no NAEP-specific rescue.**\n\n**Priorities to capture:**\n1. Report card pages and PDFs from nationsreportcard.gov.\n2. The NAEP Technical Documentation and the NAEP Primer.\n3. Frameworks, achievement-level descriptions, assessment schedules and board materials from nagb.gov.\n4. Released items from the NAEP Questions Tool.\n5. Systematic exports from the Data Explorer (state and district by subject, grade, year and student group).\n6. Restricted-use variable catalogs.\n7. The OMB 1850-0928 clearance packages, which hold the questionnaires and procedures.\n8. The pre-1990 files at ICPSR.\n\n## 11. What I couldn't verify\n\nMy search budget ran out before I could check:\n- the findings of Amber Northern's review of IES, which was due in early 2026;\n- whether Congress approved moving the 2028 assessment to 2029;\n- the FY2026 appropriation.\n\nContractor roles beyond ETS and Westat, and some details of the 2024 grade 4 and 8 results, come from background knowledge and should be confirmed."
+    },
+    {
+      "role": "user",
+      "content": "# Dataset risk assessment\nI would like your help in assessing the likelihood that this data will be changed or removed from its primary location, and that users will no longer be able to access accurate and reliable copies of it, based on the rubric below.\n\n## Sources for context\nTo help assess the rubric categories, perform additional research on the data, the agency, the data's topics and typical users, covering topics such as proposed regulatory or funding changes, recent news, and political commentary. Use whatever resources you find useful, including the Federal Register (https://www.federalregister.gov) and the federal staffing tracker at https://usajobs-tracker.abigailhaddad.com.\n\n## Rubric\nThis rubric is divided up into categories. Each category is divided up into risk levels. In your output, please select the appropriate risk level for each category based on your research.\n\n### Historical Data Availability\n- Gone: Data files prior to the current year or cycle are no longer publicly available.\n- High Risk: Some data files prior to the current year or cycle are removed.\n- Moderate Risk: Some data elements that exist in the dataset prior to the current year or cycle are removed.\n- No Known Issue: Data prior to the current year or cycle remain accessible with no known alterations.\n\n### Future Data Availability\n- Gone: Data collection and publication has been terminated.\n- High Risk: Statutory publication deadline missed and/or collection or publication skipped and/or ICR expired for more than one year.\n- Moderate Risk: Typical or intended publication date missed and/or collection or publication delayed; ICR expired up to one year.\n- No Known Issue: Data published on time or as expected and ICR active or renewed before expiration.\n\n### Data Quality\n- Gone: Data collection and publication has been terminated.\n- High Risk: Reductions in granularity, timeliness, or frequency.\n- Moderate Risk: Potential or emerging risk to granularity, timeliness, or frequency.\n- No Known Issue: Maintained or improved granularity, timeliness, or frequency.\n\n### Statutory Context\n- Gone: N/A\n- High Risk: Statutory authorization is vague and/or there are alternative data collections that could serve as substitutes and/or no known programmatic use.\n- Moderate Risk: Not explicitly required by statute but required for the implementation of a state or federal program, and there are no alternative data collections that could serve as substitutes.\n- No Known Issue: Statutorily required and/or statutory authorization is explicitly named and it is clear what has to be collected, and there aren't alternative data collections that could serve as substitutes and/or required for implementation of a federal program.\n\n### Staffing and Funding\n- Gone: All of the staff in the division or agency are gone and/or all funding has been terminated.\n- High Risk: 40% or more of staff lost, and/or 1,000 or more staff lost, and/or budget cut by 20% or more, and/or leadership removed.\n- Moderate Risk: 10\u201339% of staff lost, and/or 500\u2013999 staff lost, and/or budget cut by 10\u201319%, and/or threatened change in leadership.\n- No Known Issue: Less than 10% of staff lost and less than 10% of budget cut and no known change in leadership.\n\n### Policy\n- Gone: Data collection and publication has been terminated.\n- High Risk: Presidential Action-driven information collection request (ICR); negative policy note on site; other significant changes in accordance with Administration priorities.\n- Moderate Risk: Proposed or pending changes; statements by administration officials suggesting a change is being considered or planned.\n- No Known Issue: No notable changes since January 2025 affecting what data is collected and published.\n\nFor each category, concisely list the evidence and supporting sources that would support each risk level. Then indicate which risk level you find most appropriate and why.\n\nConclude with a simple summary of risk levels:\nHistorical Data Availability: <level>\nFuture Data Availability: <level>\nData Quality: <level>\nStatutory Context: <level>\nStaffing and Funding: <level>\nPolicy: <level>"
+    },
+    {
+      "role": "assistant",
+      "content": "# NAEP Risk Assessment: Likelihood of Change, Removal, or Loss of Access (as of about October 2026)\n\nNAEP's past data is still online. Its legal footing and FY2026 funding are solid, and the core grade 4 and 8 reading and math assessments are on schedule. The risk shows up in the data being collected: 2025 cuts removed or skipped some parts of the program, the 2026 survey questionnaires were revised to comply with executive orders, and the people who run it are a skeleton crew.\n\n**Updates to my earlier report:**\n- **NAGB Chair:** Tennessee State Rep. Mark White replaced Beverly Perdue on September 30, 2025.\n- **2025 long-term trend (LTT) results:** results for ages 9 and 13 came out June 10, 2026.\n- **FY2026 budget:** Congress funded NAEP at the full prior-year level.\n- **Northern report:** it was released February 27, 2026, and recommends keeping NAEP.\n- **Staffing tracker:** the tracker site you suggested stopped updating on December 31, 2025, and loads its data in a way I couldn't extract. Staffing figures below come from news reporting instead.\n\n---\n\n## 1. Historical Data Availability\n\n**Evidence for each level**\n- **Gone or High Risk:** none found. Report cards, State and District Snapshots and released test questions are still online. The NAEP Data Explorer still has state results back to 1990, LTT back to the 1970s, and the Transcript and Indian Education studies. The NCES NAEP homepage was updated July 15, 2026.\n- **Moderate Risk:** small signs only.\n  - Two versions of the Data Explorer are running (the current one and a \"legacy\" one), so the older interface could be retired.\n  - The 1997 arts results exist only as PDFs.\n  - Restricted microdata still ships on CD-ROM.\n  - None of this is actual removal.\n- **No Known Issue:** past files and tables are still reachable. I found no reports of data being taken down or altered.\n\n**Rating: No Known Issue.** I found no removal or alteration of past data, though I didn't do a file-by-file audit.\n\n## 2. Future Data Availability\n\n**Evidence for each level**\n- **High Risk:** some collections were skipped.\n  - The 2025 LTT for 17-year-olds was canceled. The statute (20 U.S.C. \u00a7 9622) tells NCES to continue the trend assessment at ages 9, 13 and 17. Note: this wording comes from my background knowledge of the statute, not from a source fetched in this session.\n  - The 2029 LTT was dropped, and the current schedule (dated May 15, 2026) lists no LTT in 2028 or 2029.\n  - Grade 4 science (2028), grade 12 science (2032), grade 12 U.S. history (2030) and writing (2032) were cut.\n- **Moderate Risk:** 2026 reading and math results won't come out until early 2027, because of extra studies on the new frameworks and school devices. The board's push to move the 2028 test to 2029 is still waiting on Congress.\n- **No Known Issue:**\n  - **Collection:** the 2026 testing ran January 26 to March 20, 2026, with about 600,000 students.\n  - **Publication:** 2024 grade 12 and grade 8 science results came out September 9, 2025, and 2025 LTT results for ages 9 and 13 came out June 10, 2026.\n  - **OMB approval:** clearance 1850-0928 was approved September 5, 2025, and runs to **September 30, 2028**.\n\n**Rating: High Risk.** The main grade 4/8 series is on track and the OMB approval is current, which on its own would be no issue. But the rubric counts any skipped collection as High Risk, and the age-17 LTT, the longest-running part of the program, was skipped with no restored schedule. If you judge only the main reading and math series, this would be Moderate.\n\n## 3. Data Quality\n\n**Evidence for each level**\n- **High Risk:** fewer results, less often.\n  - **2025 cuts:** the board removed subjects, LTT dates, and several state-level and district-level results.\n  - **Fewer districts:** 26 districts in 2024; ED's January 2026 blog says \"20+\".\n  - **Smaller 2026 package:** Amendment #1 to the OMB clearance dropped the Field Trial and the grade 8 pilot teacher and principal questionnaires, saving $8.2M. \"Learning Recovery\" survey items were dropped.\n- **Moderate Risk:** possible breaks in comparability.\n  - The new 2026 reading and math frameworks, automated scoring and testing on schools' own devices could all affect trend comparisons.\n  - Race and ethnicity questions were changed to the revised OMB standard (SPD 15).\n  - The \"Next Gen NAEP\" redesign (February 2026 to early 2027) aims to cut costs with AI and new technology.\n- **No Known Issue (some restoration):** in May 2026 the board brought back grade 12 state reading and math (2032). It added optional state results for grade 8 and 12 civics, grade 12 reading and math, and grade 8 science, and widened district eligibility for 2028.\n\n**Rating: High Risk.** Coverage and frequency actually shrank in 2025. The 2026 additions are planned for the future and depend on states opting in, and the LTT cuts haven't been reversed.\n\n## 4. Statutory Context\n\n**Evidence for each level**\n- **No Known Issue:**\n  - **Explicit law:** the NAEP Authorization Act (P.L. 107-279, Title III; 20 U.S.C. \u00a7\u00a7 9621\u20139622) requires state reading and math assessments in grades 4 and 8 every two years. It also requires results by race/ethnicity, sex, income, disability and English-learner status.\n  - **Tied to a federal program:** under ESSA, states must take part to receive Title I money.\n  - **No substitute:** there's no other national test that compares states on the same scale. State tests differ, and PISA and TIMSS are international samples.\n- **Weaker points:** subjects other than reading and math, the urban district program and LTT scheduling are left to the board's discretion. Achievement levels still have \"trial\" status in law.\n\n**Rating: No Known Issue** for the core. The parts left to discretion are where cuts actually fell.\n\n## 5. Staffing and Funding\n\n**Evidence for each level**\n- **High Risk:** staff and leadership.\n  - About 90% of IES staff were laid off in March 2025. IES dropped from about 200 staff to 23 and stood at 31 in early 2026, according to researchers quoted by the Hechinger Report.\n  - NCES Commissioner Peggy Carr was put on leave in February 2025. NCES has been run by an acting commissioner (Matthew Soldner, who is also acting IES Director) ever since.\n  - **Requested cuts:** the FY2026 request asked for $129.9M for NAEP, 30% below $185M, and $7.43M for NAGB, 10.5% below $8.3M.\n  - **Contracts:** an ETS contract ran out of money on March 31, 2025, and DOGE reportedly pushed for a 50% cut.\n- **Mitigating:**\n  - **FY2026 funding:** the spending law signed February 3, 2026 (P.L. 119-75) kept NAEP at $185M and NAGB at $8.3M, with no cut.\n  - **Rehiring:** Congress told ED to rehire IES staff, and NCES added six NAEP staff.\n  - **Board leadership:** the change in NAGB chair was a routine appointment.\n\n**Rating: High Risk.** Money was protected, but staff losses far exceed the 40% threshold and the agency's top leader was removed. The program now leans heavily on contractors.\n\n## 6. Policy\n\n**Evidence for each level**\n- **High Risk:** changes driven by Administration priorities.\n  - The 2026 OMB clearance materials state that the questionnaires comply with two January 20, 2025 executive orders: EO 14168 (on \"gender ideology\") and EO 14151 (on ending DEI programs).\n  - In 2025 the board cut the schedule, citing \"shifting resource allocations\" during the DOGE-era cuts.\n  - The FY2026 budget request blamed falling NAEP scores for \"insufficient returns\" on IES spending.\n- **Moderate Risk:** changes under consideration.\n  - The Northern report (February 2026) calls for a \"streamlined\" data strategy, though ED hasn't committed to it.\n  - Next Gen NAEP could change how tests are built and reported.\n  - The Administration says it wants to reauthorize the IES law (ESRA) and \"shift control\" of research priorities to states.\n  - Moving the 2028 test to 2029 is still pending.\n- **Mitigating:** the Secretary committed to the 2026 testing. The Northern report says IES must keep running NAEP, and the administration's materials consistently call it a priority.\n\n**Rating: High Risk.** The questionnaire changes tied to executive orders and the 2025 cuts directly changed what gets collected. Political support for keeping NAEP is strong, so the risk is to its content and scope, not its existence.\n\n---\n\n## Main sources\n- OMB clearance 202507-1850-004 on reginfo.gov, and its change memo and Appendix J1 on omb.report\n- Federal Register notices (May 15, 2025; August 4, 2025; July 10, 2026)\n- ED's FY2026 IES budget justification; NEA's FY2026 final appropriations table; CRS report R48970\n- NAGB news releases (August 1, 2025; September 30, 2025; May 15, 2026; June 10, 2026)\n- NCES assessment schedule (dated May 15, 2026) and IES/NCES blogs (January 21 and February 27, 2026)\n- Hechinger Report coverage of the Northern report; earlier EdWeek, K-12 Dive and American Statistical Association (ASA) sources\n\n## Summary\nHistorical Data Availability: No Known Issue\nFuture Data Availability: High Risk\nData Quality: High Risk\nStatutory Context: No Known Issue\nStaffing and Funding: High Risk\nPolicy: High Risk"
+    },
+    {
+      "role": "user",
+      "content": "Emit a session_metadata YAML block reporting: current date, model identifier, knowledge cutoff, surface, whether memory is enabled, whether custom preferences or styles are active, all tools and MCP servers available, which tools were actually called in this session, and whether attachments were present. Mark any field not directly observable as unknown rather than inferring it."
+    },
+    {
+      "role": "assistant",
+      "content": "```yaml\nsession_metadata:\n  current_date: unknown            # No date appears in the context. Earlier I said \"about October 2026,\" but I inferred that from sources (e.g., a July 2026 Federal Register notice); I did not observe it.\n  model_identifier: unknown        # Not given in the context\n  knowledge_cutoff: unknown        # Not given in the context\n  surface: unknown                 # The tools are OpenRouter-branded, but the context doesn't name the interface\n  memory_enabled: unknown          # No memory tool or memory content is visible\n  custom_preferences_or_styles:\n    status: none_observed          # No user preferences or style instructions appear in the context\n    note: \"Some could exist outside what I can see, so their absence isn't confirmed.\"\n  tools_available:\n    - name: openrouter_web_search\n      type: function\n    - name: openrouter_web_fetch\n      type: function\n  mcp_servers_available: none_observed\n  tools_called_this_session:\n    - name: openrouter_web_search\n      turns: [1, 2]\n      notes: \"Many queries; the list appears in the 'Sources from this turn' sections\"\n    - name: openrouter_web_fetch\n      turns: [1, 2]\n      notes: >\n        Turn 1: the NAGB press release PDF failed because the engine doesn't support PDFs.\n        Turn 2: usajobs-tracker.abigailhaddad.com returned only the HTML shell; the data is loaded by JavaScript, which I couldn't extract.\n    - current_turn: none\n  attachments_present: false       # None of the user messages included an attachment\n```\n\n**Correction to my earlier answer:** My risk assessment was headed \"as of about October 2026.\" That date was my estimate based on how recent the sources were. It wasn't a date I could see in the context."
+    }
+  ]
+}

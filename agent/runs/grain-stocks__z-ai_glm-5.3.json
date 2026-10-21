@@ -1,0 +1,1219 @@
+{
+  "dataset": {
+    "key": "grain-stocks",
+    "title": "Grain Stocks"
+  },
+  "model": "z-ai/glm-5.3",
+  "harness": "openrouter tools",
+  "context": "full: each turn's whole output is carried into the next",
+  "search_tool": {
+    "engine": "exa",
+    "max_results": 10,
+    "excluded_domains": [
+      "dataindex.us"
+    ]
+  },
+  "fetch_tool": {
+    "engine": "openrouter",
+    "blocked_domains": [
+      "dataindex.us"
+    ],
+    "max_content_tokens": 10000
+  },
+  "reasoning": "effort high",
+  "catalog": {
+    "fetched_at": "2026-10-08T23:53:08Z",
+    "entry": {
+      "id": "z-ai/glm-5.3",
+      "canonical_slug": "z-ai/glm-5.3-20260816",
+      "hugging_face_id": "zai-org/GLM-5.3",
+      "name": "Z.ai: GLM 5.3",
+      "created": 1787086655,
+      "description": "GLM-5.3 is a large-scale reasoning model from Z.ai, built for complex software engineering and long-horizon agent tasks. It supports text input and output with a 1M-token context window, and improves...",
+      "context_length": 1048576,
+      "architecture": {
+        "modality": "text->text",
+        "input_modalities": [
+          "text"
+        ],
+        "output_modalities": [
+          "text"
+        ],
+        "tokenizer": "Other",
+        "instruct_type": null
+      },
+      "pricing": {
+        "prompt": "0.000000039",
+        "completion": "0.00000339",
+        "input_cache_read": "0.000000038"
+      },
+      "top_provider": {
+        "context_length": 1048576,
+        "max_completion_tokens": 943718,
+        "is_moderated": false
+      },
+      "per_request_limits": null,
+      "supported_parameters": [
+        "frequency_penalty",
+        "include_reasoning",
+        "logit_bias",
+        "logprobs",
+        "max_tokens",
+        "min_p",
+        "parallel_tool_calls",
+        "presence_penalty",
+        "reasoning",
+        "reasoning_effort",
+        "repetition_penalty",
+        "response_format",
+        "seed",
+        "stop",
+        "structured_outputs",
+        "temperature",
+        "tool_choice",
+        "tools",
+        "top_k",
+        "top_logprobs",
+        "top_p"
+      ],
+      "default_parameters": {
+        "temperature": 1,
+        "top_p": 0.95
+      },
+      "supported_voices": null,
+      "knowledge_cutoff": null,
+      "expiration_date": null,
+      "links": {
+        "details": "/api/v1/models/z-ai/glm-5.3-20260816/endpoints"
+      },
+      "benchmarks": {
+        "design_arena": [
+          {
+            "arena": "models",
+            "category": "3d",
+            "elo": 1347,
+            "win_rate": 60.7,
+            "rank": 5
+          },
+          {
+            "arena": "models",
+            "category": "asciiart",
+            "elo": 1211,
+            "win_rate": 46,
+            "rank": 22
+          },
+          {
+            "arena": "models",
+            "category": "codecategories",
+            "elo": 1313,
+            "win_rate": 54.9,
+            "rank": 9
+          },
+          {
+            "arena": "models",
+            "category": "dataviz",
+            "elo": 1269,
+            "win_rate": 52.8,
+            "rank": 23
+          },
+          {
+            "arena": "models",
+            "category": "gamedev",
+            "elo": 1323,
+            "win_rate": 52.9,
+            "rank": 10
+          },
+          {
+            "arena": "models",
+            "category": "svg",
+            "elo": 1295,
+            "win_rate": 56.9,
+            "rank": 8
+          },
+          {
+            "arena": "models",
+            "category": "uicomponent",
+            "elo": 1323,
+            "win_rate": 57.6,
+            "rank": 9
+          },
+          {
+            "arena": "models",
+            "category": "website",
+            "elo": 1305,
+            "win_rate": 54.9,
+            "rank": 12
+          },
+          {
+            "arena": "agents",
+            "category": "htmlslides",
+            "elo": 1189,
+            "win_rate": 39.1,
+            "rank": 9
+          },
+          {
+            "arena": "agents",
+            "category": "mobileapps",
+            "elo": 1191,
+            "win_rate": 52.2,
+            "rank": 17
+          },
+          {
+            "arena": "agents",
+            "category": "python-pptxslides",
+            "elo": 1255,
+            "win_rate": 51.2,
+            "rank": 8
+          }
+        ],
+        "artificial_analysis": {
+          "intelligence_index": 44.8,
+          "coding_index": 74.8,
+          "agentic_index": 53.1
+        }
+      },
+      "reasoning": {
+        "mandatory": true,
+        "default_enabled": true,
+        "supported_efforts": [
+          "max",
+          "high",
+          "low"
+        ],
+        "default_effort": "max"
+      }
+    }
+  },
+  "upstream": [
+    "z-ai"
+  ],
+  "trial": 0,
+  "terminate_reason": "completed",
+  "max_tokens": 32768,
+  "started_at": "2026-10-08T23:53:08Z",
+  "prompts": {
+    "research": "#data research\nI am researching a federal dataset. Find out everything you can about this dataset, such as who publishes it, under what authority or mandate, its history, its typical users, and its benefits to the public. Be sure your research comprehensively covers each of those perspectives, as well as any others that you discover or seem useful. I believe this is accurate information, but please check:\n\nDataset title: Grain Stocks\nDescription: Issued four times yearly, contains stocks of all wheat, durum wheat, corn, sorghum, oats, barley, soybeans, flaxseed, canola, rapeseed, rye, sunflower, safflower, mustard seed, by States and U.S. and by position (on-farm or off-farm storage); includes number and capacity of off-farm storage facilities and capacity of on-farm storage facilities. The data is obtained via an off and on-farm stocks survey, the on-farm survey is a probability survey of farm operators, the off-farm stocks survey is enumerates the volume of grain in all known commercial grain storage facilities.\n\nReturn a complete report on everything that a preservationist, data librarian, data scientist, or policy activist might want to know about this data.",
+    "assessment": "# Dataset risk assessment\nI would like your help in assessing the likelihood that this data will be changed or removed from its primary location, and that users will no longer be able to access accurate and reliable copies of it, based on the rubric below.\n\n## Sources for context\nTo help assess the rubric categories, perform additional research on the data, the agency, the data's topics and typical users, covering topics such as proposed regulatory or funding changes, recent news, and political commentary. Use whatever resources you find useful, including the Federal Register (https://www.federalregister.gov) and the federal staffing tracker at https://usajobs-tracker.abigailhaddad.com.\n\n## Rubric\nThis rubric is divided up into categories. Each category is divided up into risk levels. In your output, please select the appropriate risk level for each category based on your research.\n\n### Historical Data Availability\n- Gone: Data files prior to the current year or cycle are no longer publicly available.\n- High Risk: Some data files prior to the current year or cycle are removed.\n- Moderate Risk: Some data elements that exist in the dataset prior to the current year or cycle are removed.\n- No Known Issue: Data prior to the current year or cycle remain accessible with no known alterations.\n\n### Future Data Availability\n- Gone: Data collection and publication has been terminated.\n- High Risk: Statutory publication deadline missed and/or collection or publication skipped and/or ICR expired for more than one year.\n- Moderate Risk: Typical or intended publication date missed and/or collection or publication delayed; ICR expired up to one year.\n- No Known Issue: Data published on time or as expected and ICR active or renewed before expiration.\n\n### Data Quality\n- Gone: Data collection and publication has been terminated.\n- High Risk: Reductions in granularity, timeliness, or frequency.\n- Moderate Risk: Potential or emerging risk to granularity, timeliness, or frequency.\n- No Known Issue: Maintained or improved granularity, timeliness, or frequency.\n\n### Statutory Context\n- Gone: N/A\n- High Risk: Statutory authorization is vague and/or there are alternative data collections that could serve as substitutes and/or no known programmatic use.\n- Moderate Risk: Not explicitly required by statute but required for the implementation of a state or federal program, and there are no alternative data collections that could serve as substitutes.\n- No Known Issue: Statutorily required and/or statutory authorization is explicitly named and it is clear what has to be collected, and there aren't alternative data collections that could serve as substitutes and/or required for implementation of a federal program.\n\n### Staffing and Funding\n- Gone: All of the staff in the division or agency are gone and/or all funding has been terminated.\n- High Risk: 40% or more of staff lost, and/or 1,000 or more staff lost, and/or budget cut by 20% or more, and/or leadership removed.\n- Moderate Risk: 10\u201339% of staff lost, and/or 500\u2013999 staff lost, and/or budget cut by 10\u201319%, and/or threatened change in leadership.\n- No Known Issue: Less than 10% of staff lost and less than 10% of budget cut and no known change in leadership.\n\n### Policy\n- Gone: Data collection and publication has been terminated.\n- High Risk: Presidential Action-driven information collection request (ICR); negative policy note on site; other significant changes in accordance with Administration priorities.\n- Moderate Risk: Proposed or pending changes; statements by administration officials suggesting a change is being considered or planned.\n- No Known Issue: No notable changes since January 2025 affecting what data is collected and published.\n\nFor each category, concisely list the evidence and supporting sources that would support each risk level. Then indicate which risk level you find most appropriate and why.\n\nConclude with a simple summary of risk levels:\nHistorical Data Availability: <level>\nFuture Data Availability: <level>\nData Quality: <level>\nStatutory Context: <level>\nStaffing and Funding: <level>\nPolicy: <level>",
+    "session_metadata": "Emit a session_metadata YAML block reporting: current date, model identifier, knowledge cutoff, surface, whether memory is enabled, whether custom preferences or styles are active, all tools and MCP servers available, which tools were actually called in this session, and whether attachments were present. Mark any field not directly observable as unknown rather than inferring it."
+  },
+  "turns": {
+    "research": {
+      "request": {
+        "model": "z-ai/glm-5.3",
+        "max_output_tokens": 32768,
+        "tools": [
+          {
+            "type": "openrouter:web_search",
+            "parameters": {
+              "engine": "exa",
+              "max_results": 10,
+              "excluded_domains": [
+                "dataindex.us"
+              ]
+            }
+          },
+          {
+            "type": "openrouter:web_fetch",
+            "parameters": {
+              "engine": "openrouter",
+              "blocked_domains": [
+                "dataindex.us"
+              ],
+              "max_content_tokens": 10000
+            }
+          }
+        ],
+        "cache_control": {
+          "type": "ephemeral",
+          "ttl": "1h"
+        },
+        "session_id": "grain-stocks-z-ai/glm-5.3-t0-2026-10-08T23:53:08Z",
+        "stop_server_tools_when": [
+          {
+            "type": "step_count_is",
+            "step_count": 200
+          }
+        ],
+        "reasoning": {
+          "effort": "high"
+        },
+        "provider": {
+          "order": [
+            "z-ai"
+          ],
+          "allow_fallbacks": false
+        }
+      },
+      "response_meta": {
+        "id": "gen-1791503588-x0FNf4LryBgo9EHEe9k1",
+        "object": "response",
+        "created_at": 1791503588,
+        "model": "z-ai/glm-5.3",
+        "status": "completed",
+        "completed_at": 1791503682,
+        "error": null,
+        "incomplete_details": null,
+        "tools": [],
+        "tool_choice": "auto",
+        "parallel_tool_calls": true,
+        "max_output_tokens": 32768,
+        "temperature": 1,
+        "top_p": 1,
+        "presence_penalty": 0,
+        "frequency_penalty": 0,
+        "top_logprobs": 0,
+        "max_tool_calls": null,
+        "metadata": {},
+        "background": false,
+        "previous_response_id": null,
+        "service_tier": "auto",
+        "truncation": "disabled",
+        "store": false,
+        "instructions": null,
+        "text": {
+          "format": {
+            "type": "text"
+          }
+        },
+        "reasoning": {
+          "effort": "high"
+        },
+        "safety_identifier": null,
+        "prompt_cache_key": null,
+        "prompt_cache_options": null,
+        "usage": {
+          "input_tokens": 63191,
+          "input_tokens_details": {
+            "cached_tokens": 45056
+          },
+          "output_tokens": 6722,
+          "output_tokens_details": {
+            "reasoning_tokens": 2035
+          },
+          "total_tokens": 69913,
+          "cost": 0.10168036,
+          "cost_details": {
+            "upstream_inference_cost": 0.06668036,
+            "upstream_inference_input_cost": 0.03710356,
+            "upstream_inference_output_cost": 0.0295768
+          },
+          "server_tool_use_details": {
+            "web_search_requests": 8,
+            "tool_calls_requested": 10,
+            "tool_calls_executed": 10
+          }
+        }
+      },
+      "requests": [
+        {
+          "input_tokens": 63191,
+          "input_tokens_details": {
+            "cached_tokens": 45056
+          },
+          "output_tokens": 6722,
+          "output_tokens_details": {
+            "reasoning_tokens": 2035
+          },
+          "total_tokens": 69913,
+          "cost": 0.10168036,
+          "cost_details": {
+            "upstream_inference_cost": 0.06668036,
+            "upstream_inference_input_cost": 0.03710356,
+            "upstream_inference_output_cost": 0.0295768
+          },
+          "server_tool_use_details": {
+            "web_search_requests": 8,
+            "tool_calls_requested": 10,
+            "tool_calls_executed": 10
+          }
+        }
+      ],
+      "searches": 8,
+      "fetches": 2,
+      "tool_items": [
+        {
+          "type": "openrouter:web_search",
+          "id": "st_tmp_ealsw9qp9c",
+          "status": "completed",
+          "action": {
+            "type": "search",
+            "query": "USDA NASS Grain Stocks report dataset quarterly survey on-farm off-farm storage",
+            "sources": [
+              {
+                "type": "url",
+                "url": "https://esmis.nal.usda.gov/publication/grain-stocks"
+              },
+              {
+                "type": "url",
+                "url": "https://www.nass.usda.gov/datasets/"
+              },
+              {
+                "type": "url",
+                "url": "https://www.nass.usda.gov/Surveys/Guide_to_NASS_Surveys/Off-Farm_Grain_Stocks/"
+              },
+              {
+                "type": "url",
+                "url": "https://data.nass.usda.gov/Publications/Methodology_and_Data_Quality/Grain_Stocks/02_2024/gsq0224.pdf"
+              },
+              {
+                "type": "url",
+                "url": "https://data.nass.usda.gov/Surveys/Guide_to_NASS_Surveys/Off-Farm_Grain_Stocks/index.php"
+              },
+              {
+                "type": "url",
+                "url": "https://release.nass.usda.gov/reports/grst0926.pdf"
+              },
+              {
+                "type": "url",
+                "url": "https://data.nass.usda.gov/Surveys/Guide_to_NASS_Surveys/Crops_Stocks/index.php"
+              },
+              {
+                "type": "url",
+                "url": "https://data.nass.usda.gov/Surveys/Guide_to_NASS_Surveys/Off-Farm_Grain_Stocks/"
+              },
+              {
+                "type": "url",
+                "url": "https://www.nass.usda.gov/Publications/"
+              },
+              {
+                "type": "url",
+                "url": "https://www.nass.usda.gov/Surveys/Guide_to_NASS_Surveys/Off-Farm_Grain_Stocks/index.php"
+              }
+            ]
+          }
+        },
+        {
+          "type": "openrouter:web_search",
+          "id": "st_tmp_trm38a82dfa",
+          "status": "completed",
+          "action": {
+            "type": "search",
+            "query": "NASS Grain Stocks survey methodology probability survey farm operators commercial storage facilities",
+            "sources": [
+              {
+                "type": "url",
+                "url": "https://data.nass.usda.gov/Publications/Methodology_and_Data_Quality/Grain_Stocks/02_2026/gsq0226.pdf"
+              },
+              {
+                "type": "url",
+                "url": "https://data.nass.usda.gov/Publications/Methodology_and_Data_Quality/Grain_Stocks/02_2025/gsq0225.pdf"
+              },
+              {
+                "type": "url",
+                "url": "https://data.nass.usda.gov/Publications/Methodology_and_Data_Quality/Grain_Stocks/index.php"
+              },
+              {
+                "type": "url",
+                "url": "https://esmis.nal.usda.gov/publication/grain-stocks"
+              },
+              {
+                "type": "url",
+                "url": "https://data.nass.usda.gov/Publications/Methodology_and_Data_Quality/Grain_Stocks/02_2024/gsq0224.pdf"
+              },
+              {
+                "type": "url",
+                "url": "https://data.nass.usda.gov/Education_and_Outreach/Reports,_Presentations_and_Conferences/reports/QAS%20sample%20methodology%20review%20final%20report.pdf"
+              },
+              {
+                "type": "url",
+                "url": "https://www.nass.usda.gov/Surveys/Guide_to_NASS_Surveys/Off-Farm_Grain_Stocks/index.php"
+              },
+              {
+                "type": "url",
+                "url": "https://data.nass.usda.gov/Publications/Methodology_and_Data_Quality/Grain_Stocks/04_2021/grstqm21.pdf"
+              },
+              {
+                "type": "url",
+                "url": "https://data.nass.usda.gov/Publications/Methodology_and_Data_Quality/Grain_Stocks/02_2023/gsq0223.pdf"
+              },
+              {
+                "type": "url",
+                "url": "https://www.nass.usda.gov/Surveys/Guide_to_NASS_Surveys/Off-Farm_Grain_Stocks/"
+              }
+            ]
+          }
+        },
+        {
+          "type": "openrouter:web_search",
+          "id": "st_tmp_vzb80ffihop",
+          "status": "completed",
+          "action": {
+            "type": "search",
+            "query": "NASS statutory authority 7 U.S.C. 2276 confidential statistical data National Agricultural Statistics Service legal mandate estimates",
+            "sources": [
+              {
+                "type": "url",
+                "url": "https://www.law.cornell.edu/uscode/text/7/2276"
+              },
+              {
+                "type": "url",
+                "url": "https://uscode.house.gov/view.xhtml?req=granuleid:USC-2010-title7-section2276&num=0&edition=2010"
+              },
+              {
+                "type": "url",
+                "url": "https://www.nass.usda.gov/About_NASS/Regulations_Guiding_NASS/"
+              },
+              {
+                "type": "url",
+                "url": "https://www.regulations.gov/document/NASS-2026-0003-0001"
+              },
+              {
+                "type": "url",
+                "url": "https://www.nass.usda.gov/About_NASS/Confidentiality_Pledge/"
+              },
+              {
+                "type": "url",
+                "url": "https://www.govinfo.gov/content/pkg/CFR-2011-title7-vol15/pdf/CFR-2011-title7-vol15-sec3600-3.pdf"
+              },
+              {
+                "type": "url",
+                "url": "https://www.congress.gov/crs_external_products/R/PDF/R44814/R44814.3.pdf"
+              },
+              {
+                "type": "url",
+                "url": "https://www.nass.usda.gov/About_NASS/Confidentiality_Pledge/NASS-2024-CIPSEA-Report.pdf"
+              },
+              {
+                "type": "url",
+                "url": "https://www.foodfarmingsustainability.com/_files/ugd/ea7add_4287175224be409e847bb11aa64910c6.pdf"
+              },
+              {
+                "type": "url",
+                "url": "https://data.nass.usda.gov/About_NASS/Confidentiality_Pledge/ConfidentialityBrochure_Jan_2026.pdf"
+              }
+            ]
+          }
+        },
+        {
+          "type": "openrouter:web_search",
+          "id": "st_tmp_lzsz7ufw5mp",
+          "status": "completed",
+          "action": {
+            "type": "search",
+            "query": "history of USDA grain stocks estimates 1866 crop reporting board quarterly grain stocks report began",
+            "sources": [
+              {
+                "type": "url",
+                "url": "https://www.nass.usda.gov/About_NASS/pdf/The%20Story%20of%20U.S.%20Agricultural%20Estimates.pdf"
+              },
+              {
+                "type": "url",
+                "url": "https://data.nass.usda.gov/Education_and_Outreach/Reports,_Presentations_and_Conferences/Survey_Reports/125%20Years%20of%20Agricultural%20Estimates.pdf"
+              },
+              {
+                "type": "url",
+                "url": "https://farmdocdaily.illinois.edu/wp-content/uploads/2016/08/fdd200716.pdf"
+              },
+              {
+                "type": "url",
+                "url": "https://esmis.nal.usda.gov/?f=agency%3A4&f=status%3A1&keyword=Grain+Stocks"
+              },
+              {
+                "type": "url",
+                "url": "https://data.nass.usda.gov/Publications/Methodology_and_Data_Quality/Grain_Stocks/02_2024/gsq0224.pdf"
+              },
+              {
+                "type": "url",
+                "url": "https://www.nass.usda.gov/About_NASS/pdf/asb_historical.pdf"
+              },
+              {
+                "type": "url",
+                "url": "https://data.nass.usda.gov/Publications/Methodology_and_Data_Quality/Grain_Stocks/02_2026/gsq0226.pdf"
+              },
+              {
+                "type": "url",
+                "url": "https://exa.ai/library/publication/b8y69c7shx2"
+              },
+              {
+                "type": "url",
+                "url": "https://exa.ai/library/publication/vndh26fhjm2"
+              },
+              {
+                "type": "url",
+                "url": "https://exa.ai/library/publication/xypsy21vggk"
+              }
+            ]
+          }
+        },
+        {
+          "type": "openrouter:web_search",
+          "id": "st_tmp_93yk873g3cb",
+          "status": "completed",
+          "action": {
+            "type": "search",
+            "query": "NASS Quick Stats API grain stocks data access data.gov embargoed principal federal economic indicator market reaction",
+            "sources": [
+              {
+                "type": "url",
+                "url": "https://data.gov/food/nass-quickstats/"
+              },
+              {
+                "type": "url",
+                "url": "https://www.nass.usda.gov/Newsroom/Notices/2019/05-08-2019.php"
+              },
+              {
+                "type": "url",
+                "url": "http://nass.usda.gov/Publications/2026-NASS-PFEI-Schedule.pdf"
+              },
+              {
+                "type": "url",
+                "url": "https://nass.usda.gov/"
+              },
+              {
+                "type": "url",
+                "url": "https://www.nass.usda.gov/Publications/index.php"
+              },
+              {
+                "type": "url",
+                "url": "http://nass.usda.gov/Publications/2025-NASS-PFEI-Schedule.pdf"
+              },
+              {
+                "type": "url",
+                "url": "https://apis.io/apis/agricultural-statistics-service/agricultural-statistics-service-statistics-api/"
+              },
+              {
+                "type": "url",
+                "url": "https://www.nass.usda.gov/Statistics_by_Subject/result.php?4D20A7D8-9B12-3A93-9314-FFFF75857CB1=&comm=BARLEY&group=FIELD+CROPS&sector=CROPS"
+              },
+              {
+                "type": "url",
+                "url": "https://www.profarmer.com/news/report-reactions/report-reaction-usda-shows-2025-26-corn-ending-stocks-above-2-billion-bushel-mark"
+              },
+              {
+                "type": "url",
+                "url": "https://raw.githubusercontent.com/api-evangelist/agricultural-statistics-service/refs/heads/main/openapi/agricultural-statistics-service-statistics-api-openapi.yml"
+              }
+            ]
+          }
+        },
+        {
+          "type": "openrouter:web_search",
+          "id": "st_tmp_sgpum0n5zwq",
+          "status": "completed",
+          "action": {
+            "type": "search",
+            "query": "USDA grain stocks report lockup futures market reaction traders WASDE World Agricultural Outlook Board users ending stocks"
+          }
+        },
+        {
+          "type": "openrouter:web_search",
+          "id": "st_tmp_07nchk5cfw85",
+          "status": "completed",
+          "action": {
+            "type": "search",
+            "query": "farmdoc daily USDA grain stocks estimates accuracy revision method criticism on-farm stocks"
+          }
+        },
+        {
+          "type": "openrouter:web_search",
+          "id": "st_tmp_i9oxgdrs0c",
+          "status": "completed",
+          "action": {
+            "type": "search",
+            "query": "NASS \"grain stocks\" OMB Paperwork Reduction Act information collection clearance 0535 survey hours"
+          }
+        },
+        {
+          "type": "openrouter:web_fetch",
+          "id": "st_tmp_rhw9z3e07yd",
+          "status": "incomplete",
+          "url": "https://farmdocdaily.illinois.edu/wp-content/uploads/2016/08/fdd200716.pdf",
+          "httpStatus": 200,
+          "error": "PDF content cannot be processed by the OpenRouter engine. Use engine: \"native\" (Anthropic models only) or engine: \"firecrawl\" for PDF support."
+        },
+        {
+          "type": "openrouter:web_fetch",
+          "id": "st_tmp_woej0qvnfn",
+          "status": "incomplete",
+          "url": "https://www.congress.gov/crs_external_products/R/PDF/R44814/R44814.3.pdf",
+          "httpStatus": 200,
+          "error": "PDF content cannot be processed by the OpenRouter engine. Use engine: \"native\" (Anthropic models only) or engine: \"firecrawl\" for PDF support."
+        }
+      ],
+      "ended": "answered",
+      "seconds": 94.6
+    },
+    "assessment": {
+      "request": {
+        "model": "z-ai/glm-5.3",
+        "max_output_tokens": 32768,
+        "tools": [
+          {
+            "type": "openrouter:web_search",
+            "parameters": {
+              "engine": "exa",
+              "max_results": 10,
+              "excluded_domains": [
+                "dataindex.us"
+              ]
+            }
+          },
+          {
+            "type": "openrouter:web_fetch",
+            "parameters": {
+              "engine": "openrouter",
+              "blocked_domains": [
+                "dataindex.us"
+              ],
+              "max_content_tokens": 10000
+            }
+          }
+        ],
+        "cache_control": {
+          "type": "ephemeral",
+          "ttl": "1h"
+        },
+        "session_id": "grain-stocks-z-ai/glm-5.3-t0-2026-10-08T23:53:08Z",
+        "stop_server_tools_when": [
+          {
+            "type": "step_count_is",
+            "step_count": 200
+          }
+        ],
+        "reasoning": {
+          "effort": "high"
+        },
+        "provider": {
+          "order": [
+            "z-ai"
+          ],
+          "allow_fallbacks": false
+        }
+      },
+      "response_meta": {
+        "id": "gen-1791503683-F40aRbIfWOjTnNI2j1tr",
+        "object": "response",
+        "created_at": 1791503683,
+        "model": "z-ai/glm-5.3",
+        "status": "completed",
+        "completed_at": 1791503786,
+        "error": null,
+        "incomplete_details": null,
+        "tools": [],
+        "tool_choice": "auto",
+        "parallel_tool_calls": true,
+        "max_output_tokens": 32768,
+        "temperature": 1,
+        "top_p": 1,
+        "presence_penalty": 0,
+        "frequency_penalty": 0,
+        "top_logprobs": 0,
+        "max_tool_calls": null,
+        "metadata": {},
+        "background": false,
+        "previous_response_id": null,
+        "service_tier": "auto",
+        "truncation": "disabled",
+        "store": false,
+        "instructions": null,
+        "text": {
+          "format": {
+            "type": "text"
+          }
+        },
+        "reasoning": {
+          "effort": "high"
+        },
+        "safety_identifier": null,
+        "prompt_cache_key": null,
+        "prompt_cache_options": null,
+        "usage": {
+          "input_tokens": 109599,
+          "input_tokens_details": {
+            "cached_tokens": 63424
+          },
+          "output_tokens": 7584,
+          "output_tokens_details": {
+            "reasoning_tokens": 4158
+          },
+          "total_tokens": 117183,
+          "cost": 0.14950484000000003,
+          "cost_details": {
+            "upstream_inference_cost": 0.11450484,
+            "upstream_inference_input_cost": 0.08113524,
+            "upstream_inference_output_cost": 0.0333696
+          },
+          "server_tool_use_details": {
+            "web_search_requests": 7,
+            "tool_calls_requested": 9,
+            "tool_calls_executed": 9
+          }
+        }
+      },
+      "requests": [
+        {
+          "input_tokens": 109599,
+          "input_tokens_details": {
+            "cached_tokens": 63424
+          },
+          "output_tokens": 7584,
+          "output_tokens_details": {
+            "reasoning_tokens": 4158
+          },
+          "total_tokens": 117183,
+          "cost": 0.14950484000000003,
+          "cost_details": {
+            "upstream_inference_cost": 0.11450484,
+            "upstream_inference_input_cost": 0.08113524,
+            "upstream_inference_output_cost": 0.0333696
+          },
+          "server_tool_use_details": {
+            "web_search_requests": 7,
+            "tool_calls_requested": 9,
+            "tool_calls_executed": 9
+          }
+        }
+      ],
+      "searches": 7,
+      "fetches": 2,
+      "tool_items": [
+        {
+          "type": "openrouter:web_search",
+          "id": "st_tmp_kzkjlycpwah",
+          "status": "completed",
+          "action": {
+            "type": "search",
+            "query": "NASS National Agricultural Statistics Service budget cuts 2025 canceled reports survey reductions USDA",
+            "sources": [
+              {
+                "type": "url",
+                "url": "https://www.nass.usda.gov/Newsroom/Notices/2025/08-28-2025.php"
+              },
+              {
+                "type": "url",
+                "url": "https://www.federalregister.gov/documents/2025/09/03/2025-16831/discontinuance-of-information-collections"
+              },
+              {
+                "type": "url",
+                "url": "https://usda.azureedge.us/sites/default/files/documents/19-NASS-2025-ExNotes.pdf"
+              },
+              {
+                "type": "url",
+                "url": "https://www.amstat.org/docs/default-source/amstat-documents/the-nations-data-at-risk-2025/national-agricultural-statistics-service.pdf"
+              },
+              {
+                "type": "url",
+                "url": "https://www.agrinews-pubs.com/business/2024/05/31/nass-explains-report-cuts-alternatives/"
+              },
+              {
+                "type": "url",
+                "url": "https://www.1230kfjb.com/2024/06/12/house-appropriations-subcommittee-approves-2025-usda-funding-cuts/"
+              },
+              {
+                "type": "url",
+                "url": "https://openomb.org/file/11410468"
+              },
+              {
+                "type": "url",
+                "url": "https://www.dtnpf.com/agriculture/web/ag/news/article/2024/05/07/lawmakers-others-push-usda-keep-cuts"
+              },
+              {
+                "type": "url",
+                "url": "https://www.usda.gov/sites/default/files/documents/2025-usda-budget-summary.pdf"
+              },
+              {
+                "type": "url",
+                "url": "https://www.dtnpf.com/agriculture/web/ag/livestock/article/2024/05/13/nass-officials-7-5m-needed-bring"
+              }
+            ]
+          }
+        },
+        {
+          "type": "openrouter:web_search",
+          "id": "st_tmp_jm5w2smqmen",
+          "status": "completed",
+          "action": {
+            "type": "search",
+            "query": "USDA FY2026 budget proposal eliminate National Agricultural Statistics Service consolidate statistics agency",
+            "sources": [
+              {
+                "type": "url",
+                "url": "https://www.usda.gov/sites/default/files/documents/19-2026-CJ-NASS.pdf"
+              },
+              {
+                "type": "url",
+                "url": "https://www.usda.gov/about-usda/general-information/staff-offices/office-budget-and-program-analysis/congressional-justifications/2026-usda-budget-explanatory-notes"
+              },
+              {
+                "type": "url",
+                "url": "https://www.usda.gov/sites/default/files/documents/2026-usda-budget-summary.pdf"
+              },
+              {
+                "type": "url",
+                "url": "https://www.everycrsreport.com/reports/R48905.html"
+              },
+              {
+                "type": "url",
+                "url": "https://www.congress.gov/crs-product/R48564"
+              },
+              {
+                "type": "url",
+                "url": "https://www.congress.gov/crs_external_products/R/PDF/R48564/R48564.11.pdf"
+              },
+              {
+                "type": "url",
+                "url": "https://www.aplu.org/wp-content/uploads/FY26-Skinny-PBR-Analysis.pdf"
+              },
+              {
+                "type": "url",
+                "url": "https://www.everycrsreport.com/files/2026-04-14_R48905_138fdd2bfad74959b559e0b2b0a0e2ddd56112fb.html"
+              },
+              {
+                "type": "url",
+                "url": "https://www.agri-pulse.com/articles/24555-groups-weigh-challenges-opportunities-for-usda-statistical-programs"
+              },
+              {
+                "type": "url",
+                "url": "https://www.aplu.org/wp-content/uploads/FY26-PBR-Analysis-1.pdf"
+              }
+            ]
+          }
+        },
+        {
+          "type": "openrouter:web_search",
+          "id": "st_tmp_bx29va8wot",
+          "status": "completed",
+          "action": {
+            "type": "search",
+            "query": "NASS grain stocks report delayed canceled 2025 2026 publication schedule",
+            "sources": [
+              {
+                "type": "url",
+                "url": "https://esmis.nal.usda.gov/publication/grain-stocks"
+              },
+              {
+                "type": "url",
+                "url": "https://www.nass.usda.gov/Publications/Calendar/reports_by_date.php?view="
+              },
+              {
+                "type": "url",
+                "url": "https://nass.usda.gov/Newsroom/Notices"
+              },
+              {
+                "type": "url",
+                "url": "https://www.nass.usda.gov/Surveys/Guide_to_NASS_Surveys/Off-Farm_Grain_Stocks/"
+              },
+              {
+                "type": "url",
+                "url": "https://www.nass.usda.gov/Newsroom/Notices/2025/12-22-2025.php"
+              },
+              {
+                "type": "url",
+                "url": "https://www.nass.usda.gov/Publications/index.php"
+              },
+              {
+                "type": "url",
+                "url": "https://esmis.nal.usda.gov/sites/default/release-files/795839/grst0326.txt"
+              },
+              {
+                "type": "url",
+                "url": "https://esmis.nal.usda.gov/sites/default/release-files/795959/grst0626.pdf"
+              },
+              {
+                "type": "url",
+                "url": "https://release.nass.usda.gov/reports/grst0926.pdf"
+              },
+              {
+                "type": "url",
+                "url": "https://www.nass.usda.gov/Newsroom/Notices/2025/11-19-2025.php"
+              }
+            ]
+          }
+        },
+        {
+          "type": "openrouter:web_search",
+          "id": "st_tmp_378kabyw2zh",
+          "status": "completed",
+          "action": {
+            "type": "search",
+            "query": "NASS staffing layoffs resignations 2025 employees loss Agricultural Statistics",
+            "sources": [
+              {
+                "type": "url",
+                "url": "https://www.amstat.org/docs/default-source/amstat-documents/the-nations-data-at-risk-2025/national-agricultural-statistics-service.pdf"
+              },
+              {
+                "type": "url",
+                "url": "https://www.oversight.gov/sites/default/files/documents/reports/2025-12/USDA%20Staffing%20Levels%20Final%20Report%20-%20Dec%2017_508-signed.pdf"
+              },
+              {
+                "type": "url",
+                "url": "https://www.aei.org/research-products/report/the-looming-data-imperative-to-inform-agricultural-policy/"
+              },
+              {
+                "type": "url",
+                "url": "https://www.amstat.org/docs/default-source/amstat-documents/pol-usda_relocationers_nass_astata_comments.pdf"
+              },
+              {
+                "type": "url",
+                "url": "https://www.reuters.com/business/world-at-work/us-farm-agency-lost-20000-staff-first-five-months-trump-administration-2025-12-22/"
+              },
+              {
+                "type": "url",
+                "url": "https://www.nytimes.com/2025/12/22/us/politics/trump-agriculture-department-resignations-cuts.html"
+              },
+              {
+                "type": "url",
+                "url": "https://www.agri-pulse.com/articles/24555-groups-weigh-challenges-opportunities-for-usda-statistical-programs"
+              },
+              {
+                "type": "url",
+                "url": "https://www.hppr.org/hppr-news/2026-02-26/usda-lost-24-000-workers-under-trump-hurting-critical-resources-for-farmers"
+              },
+              {
+                "type": "url",
+                "url": "https://www.agbull.com/usda-wants-to-modernize-nass-it-may-have-cut-the-unit-already-doing-it/"
+              },
+              {
+                "type": "url",
+                "url": "https://www.agri-pulse.com/articles/23944-usda-lost-18-of-its-staff-through-buyouts-other-attrition"
+              }
+            ]
+          }
+        },
+        {
+          "type": "openrouter:web_search",
+          "id": "st_tmp_my95w3ypfe",
+          "status": "completed",
+          "action": {
+            "type": "search",
+            "query": "NASS off-farm grain stocks survey OMB clearance renewal 0535-0036 Federal Register 2025 2026",
+            "sources": [
+              {
+                "type": "url",
+                "url": "https://www.reginfo.gov/public/do/PRAViewICR?ref_nbr=202502-0535-001"
+              },
+              {
+                "type": "url",
+                "url": "https://www.reginfo.gov/public/do/PRAViewICR?ref_nbr=202402-0535-007"
+              },
+              {
+                "type": "url",
+                "url": "https://www.nass.usda.gov/Surveys/Guide_to_NASS_Surveys/Off-Farm_Grain_Stocks"
+              },
+              {
+                "type": "url",
+                "url": "https://data.nass.usda.gov/Surveys/Guide_to_NASS_Surveys/Off-Farm_Grain_Stocks/"
+              },
+              {
+                "type": "url",
+                "url": "https://data.nass.usda.gov/Publications/Methodology_and_Data_Quality/Grain_Stocks/02_2024/gsq0224.pdf"
+              },
+              {
+                "type": "url",
+                "url": "https://esmis.nal.usda.gov/publication/grain-stocks"
+              },
+              {
+                "type": "url",
+                "url": "https://www.nass.usda.gov/Surveys/Guide_to_NASS_Surveys/Off-Farm_Grain_Stocks/index.php"
+              },
+              {
+                "type": "url",
+                "url": "https://thefederalregister.org/documents/2022-04634/submission-for-omb-review-comment-request"
+              },
+              {
+                "type": "url",
+                "url": "https://www.federalregister.gov/documents/2018/08/31/2018-18958/notice-of-intent-to-request-revision-and-extension-of-a-currently-approved-information-collection"
+              },
+              {
+                "type": "url",
+                "url": "https://esmis.nal.usda.gov/sites/default/release-files/795959/grst0626.pdf"
+              }
+            ]
+          }
+        },
+        {
+          "type": "openrouter:web_search",
+          "id": "st_tmp_60vyydfk6k",
+          "status": "completed",
+          "action": {
+            "type": "search",
+            "query": "NASS grain stocks January 2026 report released shutdown delay September 2025 quarterly stocks on time"
+          }
+        },
+        {
+          "type": "openrouter:web_search",
+          "id": "st_tmp_bim2fitqrrl",
+          "status": "completed",
+          "action": {
+            "type": "search",
+            "query": "USDA statistical agencies data quality concerns 2026 quarterly stocks sample size accuracy decline NASS analysts warning"
+          }
+        },
+        {
+          "type": "openrouter:web_fetch",
+          "id": "st_tmp_ioyzt9b9g8r",
+          "status": "completed",
+          "url": "https://usajobs-tracker.abigailhaddad.com",
+          "content": "<!DOCTYPE html>\n<html lang=\"en\">\n<head>\n    <meta charset=\"UTF-8\">\n    <meta name=\"viewport\" content=\"width=device-width, initial-scale=1.0\">\n    <title>USAJobs Listings Tracker</title>\n    \n    <!-- DataTables CSS -->\n    <link rel=\"stylesheet\" href=\"https://cdn.datatables.net/1.13.6/css/dataTables.bootstrap5.min.css\">\n    <link rel=\"stylesheet\" href=\"https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css\">\n    <link rel=\"stylesheet\" href=\"https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.0/font/bootstrap-icons.css\">\n    \n    <style>\n        body {\n            font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;\n            background-color: #f8f9fa;\n            color: #333;\n        }\n        \n        .container {\n            max-width: 1400px;\n            margin: 0 auto;\n            padding: 20px;\n        }\n        \n        h1 {\n            color: #003366;\n            font-weight: 600;\n            margin-bottom: 10px;\n        }\n        \n        .subtitle {\n            color: #999;\n            font-size: 0.9rem;\n            margin-bottom: 20px;\n        }\n        \n        .summary-stats {\n            background: white;\n            padding: 20px;\n            border-radius: 8px;\n            box-shadow: 0 2px 4px rgba(0,0,0,0.1);\n            margin-bottom: 30px;\n        }\n        \n        .stat-box {\n            text-align: center;\n            padding: 15px;\n            border-right: 1px solid #e9ecef;\n        }\n        \n        .stat-box:last-child {\n            border-right: none;\n        }\n        \n        .stat-value {\n            font-size: 2rem;\n            font-weight: 600;\n            color: #003366;\n        }\n        \n        .stat-label {\n            color: #666;\n            font-size: 0.85rem;\n            text-transform: uppercase;\n            line-height: 1.3;\n        }\n        \n        .table-container {\n            background: white;\n            padding: 25px;\n            border-radius: 8px;\n            box-shadow: 0 2px 4px rgba(0,0,0,0.1);\n        }\n        \n        .dataTables_wrapper .dataTables_filter input {\n            border: 1px solid #ddd;\n            border-radius: 4px;\n            padding: 5px 10px;\n            margin-left: 10px;\n        }\n        \n        .dataTables_wrapper .dataTables_length select {\n            border: 1px solid #ddd;\n            border-radius: 4px;\n            padding: 5px;\n        }\n        \n        table.dataTable {\n            border-collapse: collapse !important;\n        }\n        \n        table.dataTable thead th {\n            background-color: #003366;\n            color: white;\n            font-weight: 600;\n            border-bottom: none !important;\n            white-space: nowrap;\n            position: relative;\n            cursor: pointer;\n        }\n        \n        table.dataTable thead th.filtering {\n            background-color: #00508f;\n        }\n        \n        table.dataTable tbody tr:hover {\n            background-color: #f0f8ff;\n        }\n        \n        table.dataTable tbody td {\n            padding: 12px;\n            vertical-align: middle;\n        }\n        \n        .percentage-cell {\n            font-weight: 600;\n        }\n        \n        .high-percentage {\n            color: #388e3c;  /* Green - good (maintained/increased listings) */\n        }\n        \n        .medium-percentage {\n            color: #f57c00;  /* Orange - moderate (some decline) */\n        }\n        \n        .low-percentage {\n            color: #d32f2f;  /* Red - bad (major decline) */\n        }\n        \n        .expiring-soon {\n            background-color: #fff3cd;\n        }\n        \n        .no-year {\n            background-color: #e8f4f8;\n        }\n        \n        /* Column filter styles */\n        .column-filter-container {\n            position: absolute;\n            background: white;\n            border: 1px solid #ddd;\n            border-radius: 4px;\n            box-shadow: 0 4px 6px rgba(0,0,0,0.1);\n            padding: 10px;\n            z-index: 1000;\n            min-width: 200px;\n            max-height: 300px;\n            overflow-y: auto;\n        }\n        \n        .column-filter-container input[type=\"text\"] {\n            width: 100%;\n            padding: 5px;\n            margin-bottom: 10px;\n            border: 1px solid #ddd;\n            border-radius: 3px;\n        }\n        \n        .column-filter-container label {\n            display: block;\n            padding: 3px 0;\n            cursor: pointer;\n        }\n        \n        .column-filter-container label:hover {\n            background-color: #f0f0f0;\n        }\n        \n        .column-filter-container input[type=\"checkbox\"] {\n            margin-right: 8px;\n        }\n        \n        .filter-buttons {\n            margin-top: 10px;\n            text-align: right;\n        }\n        \n        .filter-buttons button {\n            margin-left: 5px;\n            padding: 3px 10px;\n            border: 1px solid #ddd;\n            border-radius: 3px;\n            background: white;\n            cursor: pointer;\n            font-size: 0.85rem;\n        }\n        \n        .filter-buttons button.apply {\n            background: #003366;\n            color: white;\n        }\n        \n        .filter-buttons button:hover {\n            opacity: 0.8;\n        }\n        \n        th.has-filter::after {\n            content: \" \u25bc\";\n            font-size: 0.8em;\n            opacity: 0.5;\n        }\n        \n        /* Bubble chart styles */\n        .treemap-container {\n            background: white;\n            padding: 20px;\n            border-radius: 8px;\n            box-shadow: 0 2px 4px rgba(0,0,0,0.1);\n            margin-bottom: 30px;\n        }\n        \n        .treemap-title {\n            font-size: 1.2rem;\n            font-weight: 600;\n            color: #003366;\n            margin-bottom: 15px;\n        }\n        \n        #bubble-chart {\n            width: 100%;\n            height: 460px;\n            position: relative;\n        }\n        \n        .bubble {\n            cursor: pointer;\n            opacity: 0.8;\n            transition: all 0.3s;\n        }\n        \n        .bubble:hover {\n            opacity: 1;\n            stroke: #003366;\n            stroke-width: 3;\n        }\n        \n        .axis-label {\n            font-size: 14px;\n            font-weight: 600;\n            fill: #333;\n        }\n        \n        .grid line {\n            stroke: #e0e0e0;\n            stroke-opacity: 0.7;\n            shape-rendering: crispEdges;\n        }\n        \n        .grid path {\n            stroke-width: 0;\n        }\n        \n        .quadrant-label {\n            fill: #666;\n            font-size: 12px;\n            font-style: italic;\n            opacity: 0.7;\n        }\n        \n        /* Filter section styles */\n        .filter-section {\n            background: white;\n            padding: 20px;\n            border-radius: 8px;\n            box-shadow: 0 2px 4px rgba(0,0,0,0.1);\n            margin-bottom: 30px;\n        }\n        \n        .filter-section h3 {\n            color: #003366;\n            font-size: 1.3rem;\n            margin-bottom: 15px;\n        }\n        \n        .filter-controls label {\n            font-size: 0.85rem;\n            font-weight: 600;\n            color: #666;\n            margin-bottom: 5px;\n        }\n        \n        .active-filters {\n            margin-top: 15px;\n            min-height: 30px;\n        }\n        \n        .filter-badge {\n            display: inline-block;\n            background: #003366;\n            color: white;\n            padding: 5px 10px;\n            border-radius: 20px;\n            margin-right: 10px;\n            margin-bottom: 5px;\n            font-size: 0.85rem;\n        }\n        \n        .filter-badge .remove-filter {\n            margin-left: 8px;\n            cursor: pointer;\n            font-weight: bold;\n        }\n        \n        .filter-badge .remove-filter:hover {\n            color: #ff6b6b;\n        }\n        \n        /* Multi-select dropdown styles */\n        .filter-dropdown {\n            position: relative;\n        }\n        \n        .filter-dropdown-menu {\n            position: absolute;\n            top: 100%;\n            left: 0;\n            right: 0;\n            z-index: 1000;\n            background: white;\n            border: 1px solid #ddd;\n            border-radius: 4px;\n            box-shadow: 0 4px 6px rgba(0,0,0,0.1);\n            padding: 10px;\n            margin-top: 2px;\n        }\n        \n        .filter-dropdown-menu label {\n            cursor: pointer;\n        }\n        \n        .filter-dropdown-menu label:hover {\n            background-color: #f0f0f0;\n        }\n        \n        .filter-dropdown-menu .filter-search {\n            margin-bottom: 5px;\n        }\n        \n        .filter-dropdown-menu .filter-options label {\n            padding: 3px 8px;\n            margin: 0;\n            display: block;\n        }\n        \n        .filter-dropdown-menu input[type=\"checkbox\"] {\n            margin-right: 8px;\n        }\n        \n        /* Active filters display */\n        .active-filters-display {\n            color: #d32f2f;\n            font-size: 1.1rem;\n            font-weight: 600;\n            margin-bottom: 20px;\n            min-height: 1.5em;\n        }\n        \n        #downloadCSV:hover {\n            background-color: #00508f !important;\n            transform: translateY(-1px);\n            box-shadow: 0 2px 4px rgba(0,0,0,0.2);\n        }\n        \n        /* Skip link for keyboard navigation */\n        .skip-link {\n            position: absolute;\n            top: -40px;\n            left: 0;\n            background: #003366;\n            color: white;\n            padding: 8px;\n            text-decoration: none;\n            z-index: 9999;\n        }\n        \n        .skip-link:focus {\n            top: 0;\n        }\n        \n        /* Improved focus indicators */\n        a:focus,\n        button:focus,\n        input:focus,\n        select:focus,\n        textarea:focus {\n            outline: 3px solid #003366;\n            outline-offset: 2px;\n        }\n        \n        /* Screen reader only content */\n        .sr-only {\n            position: absolute;\n            width: 1px;\n            height: 1px;\n            padding: 0;\n            margin: -1px;\n            overflow: hidden;\n            clip: rect(0, 0, 0, 0);\n            white-space: nowrap;\n            border: 0;\n        }\n        \n    </style>\n</head>\n<body>\n    <!-- Skip to main content link for keyboard navigation -->\n    <a href=\"#main-content\" class=\"skip-link\">Skip to main content</a>\n    \n    <!-- Work in Progress Banner -->\n    <div class=\"alert alert-warning mb-0\" role=\"alert\">\n        <div class=\"container\">\n            <strong>\ud83d\udea7 Active Development:</strong> This is an experimental tool tracking federal job postings.\n            Data source: <a href=\"https://github.com/abigailhaddad/usajobs_historical\" target=\"_blank\" class=\"alert-link\">USAJobs Historical Data</a> | <a class='alert-link' href='/methodology'>Methodology</a>\n        </div>\n    </div>\n\n    <!-- Archive Notice Banner -->\n    <div class=\"alert alert-danger mb-0\" role=\"alert\" style=\"border-radius: 0;\">\n        <div class=\"container\">\n            <strong>\ud83d\udcc1 Archive Notice:</strong> This tracker will be archived on December 31, 2025. Data collection will stop on that date and no further updates will be made.\n        </div>\n    </div>\n\n    <div class=\"container\" id=\"main-content\">\n        <h1>USAJobs Listings Tracker</h1>\n        <p class=\"subtitle\" id=\"dateRangeSubtitle\">Loading date range...</p>\n        <div id=\"activeFiltersDisplay\" class=\"active-filters-display\"></div>\n        \n        <!-- ARIA live region for screen reader announcements -->\n        <div class=\"sr-only\" aria-live=\"polite\" aria-atomic=\"true\" id=\"ariaLiveRegion\"></div>\n        \n        <!-- Important Caveats -->\n        <div class=\"alert alert-info mt-3 mb-3\">\n            <small>\n                <strong>Important Notes:</strong>\n                <ul class=\"mb-0\" style=\"padding-left: 20px;\">\n                    <li>Job listings \u2260 actual hires. One listing may result in multiple hires, one hire, or no hires.</li>\n                    <li>Not all federal positions are posted on USAJobs.</li>\n                    <li>Job listings which include multiple occupation series are counted under the first series listed.</li>\n                    <li>Subagency view and raw job listings are only available after selecting a specific department.</li>\n                </ul>\n            </small>\n        </div>\n        \n        <!-- Data Source Attribution -->\n        <div class=\"text-center text-muted mb-4\">\n            <small>\n                Data source: <a href=\"https://github.com/abigailhaddad/usajobs_historical\" target=\"_blank\" class=\"text-decoration-none\">\n                    USAJobs Historical Data\n                </a>\n                <br>\n                <span id=\"lastUpdated\"></span>\n            </small>\n        </div>\n        \n        <div class=\"summary-stats\">\n            <div class=\"row\">\n                <div class=\"col-md-3 stat-box\">\n                    <div class=\"stat-value\" id=\"total2024\">Loading...</div>\n                    <div class=\"stat-label\" id=\"previousYearLabel\">Previous Year</div>\n                </div>\n                <div class=\"col-md-3 stat-box\">\n                    <div class=\"stat-value\" id=\"total2025\">Loading...</div>\n                    <div class=\"stat-label\" id=\"currentYearLabel\">Current Year</div>\n                </div>\n                <div class=\"col-md-3 stat-box\">\n                    <div class=\"stat-value\" id=\"overallPercentage\">Loading...</div>\n                    <div class=\"stat-label\" id=\"percentageLabel\">Year-over-Year %</div>\n                </div>\n                <div class=\"col-md-3 stat-box\">\n                    <div class=\"stat-value\" id=\"entityCount\">Loading...</div>\n                    <div class=\"stat-label\">Departments</div>\n                </div>\n            </div>\n        </div>\n        \n        <!-- Unified Filter Section -->\n        <div class=\"filter-section\">\n            <h3>Filters & Display Options</h3>\n            <div class=\"filter-controls\">\n                <div class=\"row mb-3\">\n                    <div class=\"col-md-3\">\n                        <label for=\"mainDepartmentFilter\">Department</label>\n                        <select class=\"form-control form-control-sm\" id=\"mainDepartmentFilter\">\n                            <option value=\"\">All Departments</option>\n                        </select>\n                    </div>\n                    <div class=\"col-md-3\">\n                        <label for=\"mainAgencyFilter\">Agency</label>\n                        <select class=\"form-control form-control-sm\" id=\"mainAgencyFilter\">\n                            <option value=\"\">All Agencies</option>\n                        </select>\n                    </div>\n                    <div class=\"col-md-3\">\n                        <label for=\"mainAppointmentFilter\">Appointment Type</label>\n                        <select class=\"form-control form-control-sm\" id=\"mainAppointmentFilter\">\n                            <option value=\"\">All Types</option>\n                        </select>\n                    </div>\n                    <div class=\"col-md-3\">\n                        <label for=\"mainOccupationFilter\">Occupation Series</label>\n                        <select class=\"form-control form-control-sm\" id=\"mainOccupationFilter\">\n                            <option value=\"\">All Occupations</option>\n                        </select>\n                    </div>\n                </div>\n                <div class=\"row mb-3\">\n                    <div class=\"col-md-3\">\n                        <label for=\"aggregationLevel\">View By</label>\n                        <select id=\"aggregationLevel\" class=\"form-control form-control-sm\">\n                            <option value=\"department\" selected>Department</option>\n                            <option value=\"agency\">Agency</option>\n                            <option value=\"subagency\" disabled>Subagency (select a department first)</option>\n                        </select>\n                    </div>\n                    <div class=\"col-md-3\">\n                        <label>&nbsp;</label>\n                        <div class=\"form-check\">\n                            <input class=\"form-check-input\" type=\"checkbox\" id=\"showRawJobs\" disabled>\n                            <label class=\"form-check-label\" for=\"showRawJobs\">\n                                Show Raw Jobs (select a department first)\n                            </label>\n                        </div>\n                    </div>\n                </div>\n            </div>\n        </div>\n        \n        <div class=\"treemap-container\">\n            <h2 class=\"treemap-title\" id=\"bubbleChartTitle\">USAJobs Counts by Department</h2>\n            <p style=\"margin-top: -10px; margin-bottom: 15px; color: #666; font-size: 0.9rem;\">Bubble size = 2024 count</p>\n            <div id=\"bubble-chart\"></div>\n        </div>\n        \n        <div class=\"table-container\">\n            <div class=\"d-flex justify-content-between align-items-center mb-3\">\n                <h3 class=\"m-0\" style=\"color: #003366; font-size: 1.3rem;\">Data Table</h3>\n                <button id=\"downloadCSV\" class=\"btn btn-sm\" style=\"background-color: #003366; color: white; border: none;\">\n                    <i class=\"bi bi-download\"></i> Download Current View as CSV\n                </button>\n            </div>\n            <table id=\"jobsTable\" class=\"table table-striped\">\n                <thead id=\"tableHead\">\n                    <tr id=\"tableHeaders\">\n                        <th>Department</th>\n                        <th>Agency</th>\n                        <th>2024 Listings</th>\n                        <th>2025 Listings</th>\n                        <th>Change</th>\n                        <th>2025 as % of 2024</th>\n                    </tr>\n                </thead>\n                <tbody id=\"tableBody\">\n                </tbody>\n            </table>\n        </div>\n    </div>\n    \n    <!-- jQuery -->\n    <script src=\"https://code.jquery.com/jquery-3.7.0.min.js\"></script>\n    <!-- Bootstrap JS -->\n    <script src=\"https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js\"></script>\n    <!-- DataTables JS -->\n    <script src=\"https://cdn.datatables.net/1.13.6/js/jquery.dataTables.min.js\"></script>\n    <script src=\"https://cdn.datatables.net/1.13.6/js/dataTables.bootstrap5.min.js\"></script>\n    <!-- D3.js for Treemap -->\n    <script src=\"https://d3js.org/d3.v7.min.js\"></script>\n    \n    <script src=\"jobs_app.js\"></script>\n</body>\n</html>",
+          "title": "USAJobs Listings Tracker",
+          "httpStatus": 200
+        },
+        {
+          "type": "openrouter:web_fetch",
+          "id": "st_tmp_vncz83n6mtp",
+          "status": "completed",
+          "url": "https://esmis.nal.usda.gov/publication/grain-stocks",
+          "content": "<!DOCTYPE html>\n<html lang=\"en\" dir=\"ltr\">\n  <head>\n    <meta charset=\"utf-8\" />\n<meta name=\"Generator\" content=\"Drupal 11 (https://www.drupal.org)\" />\n<meta name=\"MobileOptimized\" content=\"width\" />\n<meta name=\"HandheldFriendly\" content=\"true\" />\n<meta name=\"viewport\" content=\"width=device-width, initial-scale=1.0\" />\n<link rel=\"icon\" href=\"/themes/custom/global_subtheme/favicon.ico\" type=\"image/vnd.microsoft.icon\" />\n<link rel=\"canonical\" href=\"https://esmis.nal.usda.gov/publication/grain-stocks\" />\n<link rel=\"shortlink\" href=\"https://esmis.nal.usda.gov/node/1480\" />\n\n    <title>Grain Stocks | Economics, Statistics, and Market Information System</title>\n    <link rel=\"apple-touch-icon-precomposed\" href=\"/themes/custom/nal_global/images/favicons/favicon-57.png\">\n    <link rel=\"apple-touch-icon-precomposed\" sizes=\"72x72\" href=\"/themes/custom/nal_global/images/favicons/favicon-72.png\">\n    <link rel=\"apple-touch-icon-precomposed\" sizes=\"114x114\" href=\"/themes/custom/nal_global/images/favicons/favicon-114.png\">\n    <link rel=\"apple-touch-icon-precomposed\" sizes=\"144x144\" href=\"/themes/custom/nal_global/images/favicons/favicon-144.png\">\n    <link rel=\"stylesheet\" media=\"all\" href=\"/sites/default/files/css/css_24sZjGIu5HX4SAtWxmASdyHaMdeZDKpFUDWHdIhMIPg.css?delta=0&amp;language=en&amp;theme=global_subtheme&amp;include=eJyFj10OwjAMgy_UrUeqsiWUQJZOTfbD7WEwBA9ovFhy_El2-lIp9mUYi5K6tQqSspQOpGk6UKUa-iNkci96iOQyU9XhcU_CerVD-EyAVFOi1UmR8BAeIbOC858Bxk6pq6DIml8k1mkEabGWcf_gUbiteye7DSeBHDdpf9gEF1jDpyrujeY32aq-kskWtLAtWRgpgVD1yMoe7GZOQ-zAKMxMi8WntkPBSegOOw2gXA\" />\n<link rel=\"stylesheet\" media=\"all\" href=\"/sites/default/files/css/css_iJQcTb-uuLDSZjeOeObxDgWiGfNKgn6_i6YME9FKvjE.css?delta=1&amp;language=en&amp;theme=global_subtheme&amp;include=eJyFj10OwjAMgy_UrUeqsiWUQJZOTfbD7WEwBA9ovFhy_El2-lIp9mUYi5K6tQqSspQOpGk6UKUa-iNkci96iOQyU9XhcU_CerVD-EyAVFOi1UmR8BAeIbOC858Bxk6pq6DIml8k1mkEabGWcf_gUbiteye7DSeBHDdpf9gEF1jDpyrujeY32aq-kskWtLAtWRgpgVD1yMoe7GZOQ-zAKMxMi8WntkPBSegOOw2gXA\" />\n\n    <script type=\"application/json\" data-drupal-selector=\"drupal-settings-json\">{\"path\":{\"baseUrl\":\"\\/\",\"pathPrefix\":\"\",\"currentPath\":\"node\\/1480\",\"currentPathIsAdmin\":false,\"isFront\":false,\"currentLanguage\":\"en\",\"theme\":\"themes\\/custom\\/global_subtheme\"},\"pluralDelimiter\":\"\\u0003\",\"suppressDeprecationErrors\":true,\"ajaxPageState\":{\"libraries\":\"eJyNkGFuwyAMhS9Ew5GQAx7zCnaEIWlvP9JmWjVNpH8s2e-D92wvBa2XvAgjV50YkotJZkiXywzMWIwfIQUh-NLyrGOu1So8RHwSRfcGGGXFwrnPXSK-jo0_ez4szuGtIgcMQ5j8iXU3be9EXCASQ6UzrFCGcncMK8VzXLHnC_uD872Vaj9mAQ7EcUg2DeCSRHlSobQF0hSKLMei_XS7349ytOYjQbR7mf5pHXzBzUSRmNDVrsRe_vbTA_rNYo9IWu9pT_2iNN2Cmn2pjQI6SFiqJaZq9K4Vs51B0ayEm9pHff79OsgSWsJvaW8iiQ\",\"theme\":\"global_subtheme\",\"theme_token\":null},\"ajaxTrustedUrl\":{\"\\/publication\\/grain-stocks\":true},\"gtag\":{\"tagId\":\"G-VYRH7BQ1FL\",\"consentMode\":false,\"otherIds\":[],\"events\":[],\"additionalConfigInfo\":[]},\"data\":{\"extlink\":{\"extTarget\":false,\"extTargetAppendNewWindowDisplay\":true,\"extTargetAppendNewWindowLabel\":\"(opens in a new window)\",\"extTargetNoOverride\":false,\"extNofollow\":false,\"extTitleNoOverride\":false,\"extNoreferrer\":false,\"extFollowNoOverride\":false,\"extClass\":\"ext\",\"extLabel\":\"(link is external)\",\"extImgClass\":false,\"extSubdomains\":false,\"extExclude\":\"\",\"extInclude\":\"\",\"extCssExclude\":\".default-button,.social-link,.usa-button,.important-links,.site-branding__usda\",\"extCssInclude\":\"\",\"extCssExplicit\":\"\",\"extAlert\":false,\"extAlertText\":\"You are leaving a federal website to go to an external one.  We are not responsible for the content on external websites.\",\"extHideIcons\":false,\"mailtoClass\":\"mailto\",\"telClass\":\"\",\"mailtoLabel\":\"(link sends email)\",\"telLabel\":\"(link is a phone number)\",\"extUseFontAwesome\":false,\"extIconPlacement\":\"append\",\"extPreventOrphan\":false,\"extFaLinkClasses\":\"fa fa-external-link\",\"extFaMailtoClasses\":\"fa fa-envelope-o\",\"extAdditionalLinkClasses\":\"\",\"extAdditionalMailtoClasses\":\"\",\"extAdditionalTelClasses\":\"\",\"extFaTelClasses\":\"fa fa-phone\",\"allowedDomains\":[],\"extExcludeNoreferrer\":\"\"}},\"views\":{\"ajax_path\":\"\\/views\\/ajax\",\"ajaxViews\":{\"views_dom_id:b4f88cc2dc12e299625e8b5f147e2524f7234f9d30bad6c15b50104cbb0ec847\":{\"view_name\":\"publication_releases_indexed\",\"view_display_id\":\"all_releases_block\",\"view_args\":\"1480\",\"view_path\":\"\\/node\\/1480\",\"view_base_path\":null,\"view_dom_id\":\"b4f88cc2dc12e299625e8b5f147e2524f7234f9d30bad6c15b50104cbb0ec847\",\"pager_element\":0}}},\"sitewideAlert\":{\"refreshInterval\":15000,\"automaticRefresh\":false,\"showCount\":false,\"serverSideRender\":false},\"user\":{\"uid\":0,\"permissionsHash\":\"8334501404af57aa6b578b64d0827f654d896f8f6d70e0923d92951d4031b3ef\"}}</script>\n<script src=\"/sites/default/files/js/js_FABB270YIfqO91emIXmI-aNQ5IjQ8UL9EvNiRGeQ53o.js?scope=header&amp;delta=0&amp;language=en&amp;theme=global_subtheme&amp;include=eJxdjVEKhDAMRC9UmyOVaLMlu9lE2mg9vlqEhf158JgZZrFKsNh3NSX1FhUlFbEZZZpmVKUa6HBh_UCu24oSHw0vwQI34q0J33iEYlaEkl9JufDvcZR-F7C1nlto7NQ5U0Kh6sDKHnam3mBwrE5PpkCs\"></script>\n<script src=\"/modules/contrib/google_tag/js/gtag.js?tlit1e\"></script>\n\n  </head>\n  <body>\n        <a href=\"#main-content\" class=\"visually-hidden focusable\">\n      Skip to main content\n    </a>\n    \n      <div class=\"dialog-off-canvas-main-canvas\" data-off-canvas-main-canvas>\n    <section class=\"usa-banner\" aria-label=\"Official website of the United States government\">\n  <div class=\"usa-accordion\">\n    <header class=\"usa-banner__header\">\n      <div class=\"usa-banner__inner\">\n        <div class=\"grid-col-auto\">\n          <img aria-hidden=\"true\" class=\"usa-banner__header-flag\" src=\"/themes/custom/nal_global/uswds/img/us_flag_small.png\" alt=\"\" />\n        </div>\n        <div class=\"grid-col-fill tablet:grid-col-auto\" aria-hidden=\"true\">\n          <p class=\"usa-banner__header-text\">An official website of the United States government</p>\n          <p class=\"usa-banner__header-action\">Here&apos;s how you know</p>\n        </div>\n        <button type=\"button\" class=\"usa-accordion__button usa-banner__button\" aria-expanded=\"false\" aria-controls=\"gov-banner-default\">\n          <span class=\"usa-banner__button-text\">Here&apos;s how you know</span>\n        </button>\n      </div>\n    </header>\n    <div class=\"usa-banner__content usa-accordion__content\" id=\"gov-banner-default\">\n      <div class=\"grid-row grid-gap-lg\">\n        <div class=\"usa-banner__guidance tablet:grid-col-6\">\n          <svg width=\"40px\" height=\"40px\" class=\"usa-banner__icon usa-media-block__img banner-svg\" id=\"dot_gov_icon\" data-name=\"dot gov icon\" xmlns=\"http://www.w3.org/2000/svg\" viewBox=\"0 0 54 54\">\n            <defs>\n              <style>\n                .icon-dot-gov-1 {\n                  fill: #007faa;\n                }\n\n                .icon-dot-gov-2 {\n                  fill: none;\n                  stroke: #046b99 !important;\n                  stroke-miterlimit: 10;\n                }\n              </style>\n            </defs>\n            <title>dot gov icon</title>\n            <path class=\"icon-dot-gov-1\" d=\"M36.5,20.91v1.36H35.15a0.71,0.71,0,0,1-.73.68H18.23a0.71,0.71,0,0,1-.73-0.68H16.14V20.91l10.18-4.07Zm0,13.57v1.36H16.14V34.48a0.71,0.71,0,0,1,.73-0.68h18.9A0.71,0.71,0,0,1,36.5,34.48ZM21.57,23.62v8.14h1.36V23.62h2.71v8.14H27V23.62h2.71v8.14h1.36V23.62h2.71v8.14h0.63a0.71,0.71,0,0,1,.73.68v0.68H17.5V32.45a0.71,0.71,0,0,1,.73-0.68h0.63V23.62h2.71Z\" />\n            <circle class=\"icon-dot-gov-2\" cx=\"27\" cy=\"27.12\" r=\"26\" />\n          </svg>\n          <div class=\"usa-media-block__body\">\n            <p>\n              <strong>Official websites use .gov</strong><br>\n                A <strong>.gov</strong> website belongs to an official government organization in the United States.            </p>\n          </div>\n        </div>\n        <div class=\"usa-banner__guidance tablet:grid-col-6\">\n          <svg width=\"40px\" height=\"40px\" class=\"usa-banner__icon usa-media-block__img banner-svg\" id=\"https_icon\" data-name=\"https icon\" xmlns=\"http://www.w3.org/2000/svg\" viewBox=\"0 0 54 54\">\n            <defs>\n              <style>\n                .icon-https-1 {\n                  fill: #549500;\n                }\n\n                .icon-https-2 {\n                  fill: none;\n                  stroke: #458600;\n                  stroke-miterlimit: 10;\n                }\n              </style>\n            </defs>\n            <title>https icon</title>\n            <path class=\"icon-https-1\" d=\"M34.72,34.84a1.29,1.29,0,0,1-1.29,1.29H20.57a1.29,1.29,0,0,1-1.29-1.29V27.12a1.29,1.29,0,0,1,1.29-1.29H21V23.26a6,6,0,0,1,12,0v2.57h0.43a1.29,1.29,0,0,1,1.29,1.29v7.72Zm-4.29-9V23.26a3.43,3.43,0,0,0-6.86,0v2.57h6.86Z\" />\n            <circle class=\"icon-https-2\" cx=\"27\" cy=\"27.12\" r=\"26\" />\n          </svg>\n          <div class=\"usa-media-block__body\">\n            <p>\n              <strong>Secure .gov websites use HTTPS</strong><br>\n                A <strong>lock</strong> ( <span class=\"icon-lock\"><svg xmlns=\"http://www.w3.org/2000/svg\" width=\"52\" height=\"64\" viewBox=\"0 0 52 64\" class=\"usa-banner__lock-image\" role=\"img\" aria-hidden=\"true\"><path fill=\"#000000\" fill-rule=\"evenodd\" d=\"M26 0c10.493 0 19 8.507 19 19v9h3a4 4 0 0 1 4 4v28a4 4 0 0 1-4 4H4a4 4 0 0 1-4-4V32a4 4 0 0 1 4-4h3v-9C7 8.507 15.507 0 26 0zm0 8c-5.979 0-10.843 4.77-10.996 10.712L15 19v9h22v-9c0-6.075-4.925-11-11-11z\"/></svg></span> ) or <strong>https://</strong> means you\u2019ve safely connected to the .gov website. Share sensitive information only on official, secure websites.            </p>\n          </div>\n        </div>\n      </div>\n    </div>\n  </div>\n</section>\n\n\n\n<header data-component-id=\"nal_global:header__extended\" class=\"usa-header usa-header--extended\">\n  <div class=\"usa-navbar\">\n    \n<div data-component-id=\"nal_global:site_branding\" class=\"nal-site-branding\">\n  <svg xmlns=\"http://www.w3.org/2000/svg\" viewBox=\"0 0 147.04 100.58\" aria-labelledby=\"usda-logo\">\n  <title id=\"usda-logo\">USDA Logo</title>\n  <defs>\n    <style>.usda-logo-1{fill:#004785;}.usda-logo-2{fill:#005941;}</style>\n  </defs>\n  <g id=\"Layer_2\" data-name=\"Layer 2\">\n    <g id=\"Layer_1-2\" data-name=\"Layer 1\">\n      <path class=\"usda-logo-1\" d=\"M33.36,4.09l-.19,25.36c0,10.54-6.26,14.63-14.69,14.63C11.22,44.08,2,40.86,2,29.88V4.09A3.16,3.16,0,0,0,0,1.3H11.9A3.11,3.11,0,0,0,10,4.09v26c0,4.34,1.49,10.48,9.55,10.48,7.38,0,10-4.84,10-11L29.45,4.09A3,3,0,0,0,27.78,1.3H35A3,3,0,0,0,33.36,4.09Z\"/>\n      <path class=\"usda-logo-1\" d=\"M50.15,44.08a26.37,26.37,0,0,1-11.9-3l-.31-10.48c1.18,4.4,4.9,10.23,11.35,10.23,6.13,0,8-4.4,8-7.44,0-6-5.39-6.76-11-9.8s-8.19-6.51-8.19-11.22C38.06,4,45.94.62,51.58.62a19.92,19.92,0,0,1,9.36,2.29l.31,9.18c-.87-3.29-4.4-8.25-10.35-8.25-4.72,0-6.58,3.29-6.58,6,0,3.78,2.67,5.2,8.5,7.87S64.6,22.44,64.6,31.06C64.6,38.81,57.78,44.08,50.15,44.08Z\"/>\n      <path class=\"usda-logo-1\" d=\"M84.62,43.46H68.69a3.08,3.08,0,0,0,1.61-2.79V4.09A3,3,0,0,0,68.69,1.3H85.18c20.4,0,24.49,14.45,24.49,20.46C109.67,32.55,101.36,43.46,84.62,43.46ZM83.88,4.4c-1.49,0-4.78,0-5.71.13V40.24h5c14,0,17.92-9.43,17.92-18.48C101.05,14.32,96.71,4.4,83.88,4.4Z\"/>\n      <path class=\"usda-logo-1\" d=\"M133.77,43.46c1.62-.87,1.93-1.73,1.49-3-.18-.62-1.8-4.4-3.53-8.61H116.54a89.58,89.58,0,0,0-3.47,8.55c-.56,1.49-.25,2.36,1.42,3.1h-8.55a7.38,7.38,0,0,0,2.91-3C110,38.07,126.33,0,126.33,0s16.5,38.07,17.61,40.42a5.45,5.45,0,0,0,3.1,3ZM124,13.39s-4.22,10.54-6.2,15.19H130.3C127.39,21.7,124,13.39,124,13.39Z\"/>\n      <path class=\"usda-logo-2\" d=\"M145.18,49.42S55,47.18,1.52,75.65c0,0,56.63-22.39,143.66-20.15Z\"/>\n      <path class=\"usda-logo-2\" d=\"M1.52,49.42s30.4.32,49.27,7.36c0,0-38.71-3.2-49.27-1.6Z\"/>\n      <path class=\"usda-logo-2\" d=\"M1.52,59.34s21.76-1,34.88.32c0,0-31.68,3.84-34.88,5.44Z\"/>\n      <path class=\"usda-logo-2\" d=\"M130.23,60.32h-.47C103.53,60.83,48.51,64,1.54,80.59v20l143.66,0V60.32S139.62,60.15,130.23,60.32Z\"/>\n    </g>\n  </g>\n</svg>\n\n  <div class=\"nal-site-branding__text\">\n          <div class=\"nal-site-branding__site-name\"><a href=\"/\" title=\"Home\" rel=\"home\">Economics, Statistics, and Market Information System</a></div>\n        <div class=\"nal-site-branding__usda site-branding__usda\"><a href=\"https://www.usda.gov\">U.S. Department of Agriculture</a></div>\n  </div>\n</div>\n\n    <button data-component-id=\"nal_global:menu_button\" class=\"usa-menu-btn cursor-pointer\" type=\"button\">Menu</button>\n\n  </div>\n  <nav aria-label=\"Primary navigation\" class=\"usa-nav\">\n    <div class=\"usa-nav__inner\">\n      \n<button class=\"usa-nav__close nal-close-button bg-transparent border-0 cursor-pointer\" data-component-id=\"nal_global:close_button\">\n  <svg aria-hidden=\"true\" class=\"usa-icon\" focusable=\"false\" role=\"img\"><use href=\"/themes/custom/nal_global/uswds/img/sprite.svg#close\"></use></svg>\n  <span class=\"usa-sr-only\">Close</span>\n</button>\n\n\n      <div class=\"usa-nav__secondary\">\n            \n<ul id=\"block-global-subtheme-useraccountmenu\" data-component-id=\"nal_global:secondary_links\" class=\"usa-nav__secondary-links\">\n      <li class=\"usa-nav__secondary-item\">\n      <a href=\"/user/login\" data-drupal-link-system-path=\"user/login\">Log in</a>\n    </li>\n  </ul>\n\n\n\n\n\n  \n      </div>\n\n          \n                    <ul data-component-id=\"nal_global:primary_navigation\" class=\"usa-nav__primary usa-accordion\">\n                <li class=\"usa-nav__primary-item\">\n        \n                          <a href=\"/\" class=\"usa-nav-link\" data-drupal-link-system-path=\"&lt;front&gt;\"><span>Publication Search</span></a>\n        \n              </li>\n                <li class=\"usa-nav__primary-item\">\n        \n                          <a href=\"/release-calendar\" class=\"usa-nav-link\" data-drupal-link-system-path=\"release-calendar\"><span>Release Calendar</span></a>\n        \n              </li>\n                <li class=\"usa-nav__primary-item\">\n        \n                          <a href=\"/api-documentation\" class=\"usa-nav-link\" data-drupal-link-system-path=\"node/795716\"><span>API Documentation</span></a>\n        \n              </li>\n        </ul>\n  \n\n\n\n\n\n\n      </div>\n  </nav>\n</header>\n\n\n  <div class=\"grid-container\">\n    <div class=\"grid-row grid-gap\">\n\n                  <section class=\"tablet:grid-col-12\">\n\n                                      <div class=\"highlighted\">  <div class=\"region region--highlighted\">\n    <div id=\"block-global-subtheme-sitewidealert\" data-sitewide-alert aria-live=\"polite\" class=\"block block-sitewide-alert-block\">\n  \n    \n      <div></div>\n\n  </div>\n<div data-drupal-messages-fallback class=\"hidden\"></div>\n\n  </div>\n</div>\n                  \n                                      \n                  \n                          <main id=\"main-content\">\n              <div class=\"region region--content\">\n    <div id=\"block-global-subtheme-breadcrumbs\" class=\"block block-system block-system-breadcrumb-block\">\n  \n    \n        \n<nav data-component-id=\"nal_global:breadcrumbs\" aria-label=\"Breadcrumbs\" class=\"usa-breadcrumb\">\n  <ol class=\"usa-breadcrumb__list\">\n                <li class=\"usa-breadcrumb__list-item\">\n                  <a href=\"/\" class=\"usa-breadcrumb__link\"><span>Home</span></a>\n              </li>\n                              <li class=\"usa-breadcrumb__list-item usa-current\" aria-current=\"page\">\n                  <span>Grain Stocks</span>\n              </li>\n      </ol>\n</nav>\n\n\n\n  </div>\n<div id=\"block-global-subtheme-page-title\" class=\"block block-core block-page-title-block\">\n  \n    \n      \n  <h1 class=\"margin-top-0\"><span>Grain Stocks</span>\n</h1>\n\n\n  </div>\n<div id=\"block-global-subtheme-content\" class=\"block block-system block-system-main-block\">\n  \n    \n      <article class=\"node node--type-publication node--view-mode-full\">\n\n  \n    \n\n  \n  <div>\n        \n  <div class=\"layout\">\n    \n    <div class=\"layout__container grid-row grid-gap-4\">\n        <div class=\"layout__region layout__region--first tablet:grid-col-8\">\n    <div class=\"block block-layout-builder block-field-blocknodepublicationpublication-description\">\n  \n    \n      \n            <div class=\"usa-collection__description field__item\"><p>This full-text report, issued four times yearly, contains stocks of all wheat, durum wheat, corn, sorghum, oats, barley, soybeans, flaxseed, canola, rapeseed, rye, sunflower, safflower, mustard seed, by States and U.S. and by position (on-farm or off-farm storage); includes number and capacity of off-farm storage facilities and capacity of on-farm storage facilities. The data is obtained via an off and on-farm stocks survey, the on-farm survey is a probability survey of farm operators, the off-farm stocks survey is enumerates the volume of grain in all known commercial grain storage facilities.</p>\n</div>\n      \n\n  </div>\n<div class=\"block block-layout-builder block-field-blocknodepublicationpublication-agency\">\n  \n    \n      \n  <div class=\"field field--name-publication-agency field--type-entity-reference field--label-inline clearfix\">\n    <div class=\"field__label\">Agency</div>\n          <div>\n              <span>National Agricultural Statistics Service</span>              </div>\n      </div>\n\n\n  </div>\n<div class=\"block block-layout-builder block-field-blocknodepublicationpublication-frequency\">\n  \n    \n      \n  <div class=\"field field--name-publication-frequency field--type-list-string field--label-inline clearfix\">\n    <div class=\"field__label\">Frequency of Release</div>\n              <div class=\"field__item\">Seasonal</div>\n          </div>\n\n\n  </div>\n<div class=\"block block-layout-builder block-field-blocknodepublicationpublication-category\">\n  \n    \n      \n  <div class=\"field field--name-publication-category field--type-entity-reference field--label-inline clearfix\">\n    <div class=\"field__label\">Category</div>\n          <div>\n              <span>Grains and Oilseeds</span>              </div>\n      </div>\n\n\n  </div>\n<div class=\"block block-layout-builder block-field-blocknodepublicationpublication-keywords\">\n  \n    \n      \n  <div class=\"field field--name-publication-keywords field--type-string field--label-inline clearfix\">\n    <div class=\"field__label\">Keywords</div>\n          <div>\n              <span>grain storage facilities</span>,           <span>supply</span>,           <span>wheat</span>,           <span>soybeans</span>,           <span>industry trends</span>              </div>\n      </div>\n\n\n  </div>\n<div class=\"views-element-container block block-views block-views-blockpublication-releases-indexed-all-releases-block\">\n  \n      <h2>Releases</h2>\n    \n      <div><div class=\"js-view-dom-id-b4f88cc2dc12e299625e8b5f147e2524f7234f9d30bad6c15b50104cbb0ec847\">\n  \n  \n  \n\n  \n  <form class=\"views-exposed-form usa-form\" data-drupal-selector=\"views-exposed-form-publication-releases-indexed-all-releases-block\" action=\"/publication/grain-stocks\" method=\"get\" id=\"views-exposed-form-publication-releases-indexed-all-releases-block\" accept-charset=\"UTF-8\">\n  <div class=\"js-form-item form-item form-type-select js-form-type-select form-item-date js-form-item-date\">\n      <label for=\"edit-date--2\" class=\"usa-label\">Filter by Date</label>\n        <select data-drupal-selector=\"edit-date\" id=\"edit-date--2\" name=\"date\" class=\"form-select usa-select\">\n            <option value=\"All\"  selected=\"selected\">- Any -</option>\n                <option value=\"2026-09\" >September 2026</option>\n                <option value=\"2026-06\" >June 2026</option>\n                <option value=\"2026-03\" >March 2026</option>\n                <option value=\"2026-01\" >January 2026</option>\n                <option value=\"2025-09\" >September 2025</option>\n                <option value=\"2025-06\" >June 2025</option>\n                <option value=\"2025-03\" >March 2025</option>\n                <option value=\"2025-01\" >January 2025</option>\n                <option value=\"2024-09\" >September 2024</option>\n                <option value=\"2024-06\" >June 2024</option>\n                <option value=\"2024-03\" >March 2024</option>\n                <option value=\"2024-01\" >January 2024</option>\n                <option value=\"2023-09\" >September 2023</option>\n                <option value=\"2023-06\" >June 2023</option>\n                <option value=\"2023-03\" >March 2023</option>\n                <option value=\"2023-01\" >January 2023</option>\n                <option value=\"2022-09\" >September 2022</option>\n                <option value=\"2022-06\" >June 2022</option>\n                <option value=\"2022-03\" >March 2022</option>\n                <option value=\"2022-01\" >January 2022</option>\n                <option value=\"2021-09\" >September 2021</option>\n                <option value=\"2021-06\" >June 2021</option>\n                <option value=\"2021-03\" >March 2021</option>\n                <option value=\"2021-01\" >January 2021</option>\n                <option value=\"2020-09\" >September 2020</option>\n                <option value=\"2020-06\" >June 2020</option>\n                <option value=\"2020-03\" >March 2020</option>\n                <option value=\"2020-01\" >January 2020</option>\n                <option value=\"2019-09\" >September 2019</option>\n                <option value=\"2019-06\" >June 2019</option>\n                <option value=\"2019-03\" >March 2019</option>\n                <option value=\"2019-02\" >February 2019</option>\n                <option value=\"2019-01\" >January 2019</option>\n                <option value=\"2018-09\" >September 2018</option>\n                <option value=\"2018-06\" >June 2018</option>\n                <option value=\"2018-03\" >March 2018</option>\n                <option value=\"2018-01\" >January 2018</option>\n                <option value=\"2017-09\" >September 2017</option>\n                <option value=\"2017-06\" >June 2017</option>\n                <option value=\"2017-03\" >March 2017</option>\n                <option value=\"2017-01\" >January 2017</option>\n                <option value=\"2016-09\" >September 2016</option>\n                <option value=\"2016-06\" >June 2016</option>\n                <option value=\"2016-03\" >March 2016</option>\n                <option value=\"2016-01\" >January 2016</option>\n                <option value=\"2015-09\" >September 2015</option>\n                <option value=\"2015-06\" >June 2015</option>\n                <option value=\"2015-03\" >March 2015</option>\n                <option value=\"2015-01\" >January 2015</option>\n                <option value=\"2014-09\" >September 2014</option>\n                <option value=\"2014-06\" >June 2014</option>\n                <option value=\"2014-03\" >March 2014</option>\n                <option value=\"2014-01\" >January 2014</option>\n                <option value=\"2013-11\" >November 2013</option>\n                <option value=\"2013-09\" >September 2013</option>\n                <option value=\"2013-06\" >June 2013</option>\n                <option value=\"2013-03\" >March 2013</option>\n                <option value=\"2013-01\" >January 2013</option>\n                <option value=\"2012-09\" >September 2012</option>\n                <option value=\"2012-06\" >June 2012</option>\n                <option value=\"2012-03\" >March 2012</option>\n                <option value=\"2012-01\" >January 2012</option>\n                <option value=\"2011-09\" >September 2011</option>\n                <option value=\"2011-06\" >June 2011</option>\n                <option value=\"2011-03\" >March 2011</option>\n                <option value=\"2011-01\" >January 2011</option>\n                <option value=\"2010-09\" >September 2010</option>\n                <option value=\"2010-06\" >June 2010</option>\n                <option value=\"2010-03\" >March 2010</option>\n                <option value=\"2010-01\" >January 2010</option>\n                <option value=\"2009-09\" >September 2009</option>\n                <option value=\"2009-06\" >June 2009</option>\n                <option value=\"2009-03\" >March 2009</option>\n                <option value=\"2009-01\" >January 2009</option>\n                <option value=\"2008-09\" >September 2008</option>\n                <option value=\"2008-06\" >June 2008</option>\n                <option value=\"2008-03\" >March 2008</option>\n                <option value=\"2008-01\" >January 2008</option>\n                <option value=\"2007-09\" >September 2007</option>\n                <option value=\"2007-06\" >June 2007</option>\n                <option value=\"2007-03\" >March 2007</option>\n                <option value=\"2007-01\" >January 2007</option>\n                <option value=\"2006-09\" >September 2006</option>\n                <option value=\"2006-06\" >June 2006</option>\n                <option value=\"2006-03\" >March 2006</option>\n                <option value=\"2006-01\" >January 2006</option>\n                <option value=\"2005-09\" >September 2005</option>\n                <option value=\"2005-06\" >June 2005</option>\n                <option value=\"2005-03\" >March 2005</option>\n                <option value=\"2005-01\" >January 2005</option>\n                <option value=\"2004-09\" >September 2004</option>\n                <option value=\"2004-06\" >June 2004</option>\n                <option value=\"2004-03\" >March 2004</option>\n                <option value=\"2004-01\" >January 2004</option>\n                <option value=\"2003-09\" >September 2003</option>\n                <option value=\"2003-06\" >June 2003</option>\n                <option value=\"2003-03\" >March 2003</option>\n                <option value=\"2003-02\" >February 2003</option>\n                <option value=\"2003-01\" >January 2003</option>\n                <option value=\"2002-09\" >September 2002</option>\n                <option value=\"2002-06\" >June 2002</option>\n                <option value=\"2002-03\" >March 2002</option>\n                <option value=\"2002-01\" >January 2002</option>\n                <option value=\"2001-09\" >September 2001</option>\n                <option value=\"2001-06\" >June 2001</option>\n                <option value=\"2001-03\" >March 2001</option>\n                <option value=\"2001-01\" >January 2001</option>\n                <option value=\"2000-09\" >September 2000</option>\n                <option value=\"2000-06\" >June 2000</option>\n                <option value=\"2000-03\" >March 2000</option>\n                <option value=\"2000-01\" >January 2000</option>\n                <option value=\"1999-09\" >September 1999</option>\n                <option value=\"1999-06\" >June 1999</option>\n                <option value=\"1999-03\" >March 1999</option>\n                <option value=\"1999-01\" >January 1999</option>\n                <option value=\"1998-09\" >September 1998</option>\n                <option value=\"1998-06\" >June 1998</option>\n                <option value=\"1998-03\" >March 1998</option>\n                <option value=\"1998-01\" >January 1998</option>\n                <option value=\"1997-09\" >September 1997</option>\n                <option value=\"1997-06\" >June 1997</option>\n                <option value=\"1997-03\" >March 1997</option>\n                <option value=\"1997-01\" >January 1997</option>\n                <option value=\"1996-09\" >September 1996</option>\n                <option value=\"1996-06\" >June 1996</option>\n                <option value=\"1996-03\" >March 1996</option>\n                <option value=\"1996-01\" >January 1996</option>\n                <option value=\"1995-09\" >September 1995</option>\n                <option value=\"1995-06\" >June 1995</option>\n                <option value=\"1995-03\" >March 1995</option>\n                <option value=\"1995-01\" >January 1995</option>\n                <option value=\"1994-09\" >September 1994</option>\n                <option value=\"1994-06\" >June 1994</option>\n                <option value=\"1994-03\" >March 1994</option>\n                <option value=\"1994-01\" >January 1994</option>\n                <option value=\"1993-09\" >September 1993</option>\n                <option value=\"1993-06\" >June 1993</option>\n                <option value=\"1993-03\" >March 1993</option>\n                <option value=\"1993-01\" >January 1993</option>\n                <option value=\"1992-09\" >September 1992</option>\n                <option value=\"1992-06\" >June 1992</option>\n                <option value=\"1992-03\" >March 1992</option>\n                <option value=\"1992-01\" >January 1992</option>\n                <option value=\"1991-09\" >September 1991</option>\n                <option value=\"1991-06\" >June 1991</option>\n                <option value=\"1991-03\" >March 1991</option>\n                <option value=\"1991-01\" >January 1991</option>\n                <option value=\"1990-09\" >September 1990</option>\n                <option value=\"1990-06\" >June 1990</option>\n                <option value=\"1990-03\" >March 1990</option>\n                <option value=\"1990-01\" >January 1990</option>\n                <option value=\"1989-09\" >September 1989</option>\n                <option value=\"1989-06\" >June 1989</option>\n                <option value=\"1989-03\" >March 1989</option>\n                <option value=\"1989-01\" >January 1989</option>\n                <option value=\"1988-12\" >December 1988</option>\n                <option value=\"1988-09\" >September 1988</option>\n                <option value=\"1988-06\" >June 1988</option>\n                <option value=\"1988-03\" >March 1988</option>\n                <option value=\"1988-01\" >January 1988</option>\n                <option value=\"1987-09\" >September 1987</option>\n                <option value=\"1987-06\" >June 1987</option>\n                <option value=\"1987-03\" >March 1987</option>\n                <option value=\"1987-01\" >January 1987</option>\n                <option value=\"1986-09\" >September 1986</option>\n                <option value=\"1986-06\" >June 1986</option>\n                <option value=\"1986-04\" >April 1986</option>\n                <option value=\"1986-02\" >February 1986</option>\n                <option value=\"1985-11\" >November 1985</option>\n                <option value=\"1985-07\" >July 1985</option>\n                <option value=\"1985-05\" >May 1985</option>\n                <option value=\"1985-02\" >February 1985</option>\n                <option value=\"1984-10\" >October 1984</option>\n                <option value=\"1984-06\" >June 1984</option>\n                <option value=\"1984-04\" >April 1984</option>\n                <option value=\"1984-01\" >January 1984</option>\n                <option value=\"1983-10\" >October 1983</option>\n                <option value=\"1983-09\" >September 1983</option>\n                <option value=\"1983-06\" >June 1983</option>\n                <option value=\"1983-04\" >April 1983</option>\n                <option value=\"1983-01\" >January 1983</option>\n                <option value=\"1982-10\" >October 1982</option>\n                <option value=\"1982-09\" >September 1982</option>\n                <option value=\"1982-06\" >June 1982</option>\n                <option value=\"1982-04\" >April 1982</option>\n                <option value=\"1982-01\" >January 1982</option>\n                <option value=\"1981-10\" >October 1981</option>\n                <option value=\"1981-06\" >June 1981</option>\n                <option value=\"1981-04\" >April 1981</option>\n                <option value=\"1981-01\" >January 1981</option>\n                <option value=\"1980-10\" >October 1980</option>\n                <option value=\"1980-06\" >June 1980</option>\n                <option value=\"1980-04\" >April 1980</option>\n                <option value=\"1980-01\" >January 1980</option>\n                <option value=\"1979-10\" >October 1979</option>\n                <option value=\"1979-06\" >June 1979</option>\n                <option value=\"1979-04\" >April 1979</option>\n                <option value=\"1979-01\" >January 1979</option>\n                <option value=\"1978-10\" >October 1978</option>\n                <option value=\"1978-06\" >June 1978</option>\n                <option value=\"1978-04\" >April 1978</option>\n                <option value=\"1978-01\" >January 1978</option>\n                <option value=\"1977-10\" >October 1977</option>\n                <option value=\"1977-06\" >June 1977</option>\n                <option value=\"1977-04\" >April 1977</option>\n                <option value=\"1977-01\" >January 1977</option>\n                <option value=\"1976-10\" >October 1976</option>\n                <option value=\"1976-06\" >June 1976</option>\n                <option value=\"1976-04\" >April 1976</option>\n                <option value=\"1976-01\" >January 1976</option>\n                <option value=\"1975-10\" >October 1975</option>\n                <option value=\"1975-07\" >July 1975</option>\n                <option value=\"1975-04\" >April 1975</option>\n                <option value=\"1975-01\" >January 1975</option>\n                <option value=\"1974-10\" >October 1974</option>\n                <option value=\"1974-07\" >July 1974</option>\n                <option value=\"1974-04\" >April 1974</option>\n                <option value=\"1974-01\" >January 1974</option>\n                <option value=\"1973-10\" >October 1973</option>\n      </select>\n\n        </div>\n<div data-drupal-selector=\"edit-actions\" class=\"form-actions js-form-wrapper form-wrapper\" id=\"edit-actions--fiHv7H0JdFk\">\n    \n<button data-drupal-selector=\"edit-submit-publication-releases-indexed-2\" type=\"submit\" id=\"edit-submit-publication-releases-indexed--2\" value=\"Filter\" class=\"button js-form-submit form-submit usa-button\" data-component-id=\"nal_global:button\"><span class=\"nal-button__text\">Filter</span>\n</button>\n\n\n\n</div>\n\n\n</form>\n\n  \n\n  <table class=\"cols-3\">\n        <thead>\n      <tr>\n                                                  <th id=\"view-release-date-table-column\" class=\"views-field views-field-release-date\" scope=\"col\">Date</th>\n                                                  <th id=\"view-release-files-table-column\" class=\"views-field views-field-release-files\" scope=\"col\">Download</th>\n                                                  <th id=\"view-search-api-operations-table-column\" class=\"views-field views-field-search-api-operations\" scope=\"col\">Operations</th>\n              </tr>\n    </thead>\n    <tbody>\n          <tr>\n                                                                                        <td headers=\"view-release-date-table-column\" class=\"views-field views-field-release-date\"><time datetime=\"2026-09-30T12:00:00Z\">Sep 30 2026</time>\n          </td>\n                                                                                        <td headers=\"view-release-files-table-column\" class=\"views-field views-field-release-files\"><a href=\"/sites/default/release-files/796087/grst0926_0.pdf\" class=\"usa-tag usa-tag--big bg-base-lighter text-ink\"><span class=\"usa-sr-only\"><time datetime=\"2026-09-30T12:00:00Z\">Sep 30 2026</time>\n - </span>pdf</a><a href=\"/sites/default/release-files/796087/grst0926_0.txt\" class=\"usa-tag usa-tag--big bg-base-lighter text-ink\"><span class=\"usa-sr-only\"><time datetime=\"2026-09-30T12:00:00Z\">Sep 30 2026</time>\n - </span>txt</a><a href=\"/sites/default/release-files/796087/grst0926_0.zip\" class=\"usa-tag usa-tag--big bg-base-lighter text-ink\"><span class=\"usa-sr-only\"><time datetime=\"2026-09-30T12:00:00Z\">Sep 30 2026</time>\n - </span>zip</a>          </td>\n                                                                                        <td headers=\"view-search-api-operations-table-column\" class=\"views-field views-field-search-api-operations\">  <div class=\"dropbutton-wrapper\" data-drupal-ajax-container>\n    <div class=\"dropbutton-widget\"><ul class=\"dropbutton\"><li><a href=\"/publication/grain-stocks/2026-09-30\" aria-label=\"View Grain Stocks\" hreflang=\"en\">View</a></li></ul></div>\n  </div>          </td>\n              </tr>\n          <tr>\n                                                                                        <td headers=\"view-release-date-table-column\" class=\"views-field views-field-release-date\"><time datetime=\"2026-06-30T12:00:00Z\">Jun 30 2026</time>\n          </td>\n                                                                                        <td headers=\"view-release-files-table-column\" class=\"views-field views-field-release-files\"><a href=\"/sites/default/release-files/795959/grst0626.pdf\" class=\"usa-tag usa-tag--big bg-base-lighter text-ink\"><span class=\"usa-sr-only\"><time datetime=\"2026-06-30T12:00:00Z\">Jun 30 2026</time>\n - </span>pdf</a><a href=\"/sites/default/release-files/795959/grst0626.txt\" class=\"usa-tag usa-tag--big bg-base-lighter text-ink\"><span class=\"usa-sr-only\"><time datetime=\"2026-06-30T12:00:00Z\">Jun 30 2026</time>\n - </span>txt</a><a href=\"/sites/default/release-files/795959/grst0626.zip\" class=\"usa-tag usa-tag--big bg-base-lighter text-ink\"><span class=\"usa-sr-only\"><time datetime=\"2026-06-30T12:00:00Z\">Jun 30 2026</time>\n - </span>zip</a>          </td>\n                                                                                        <td headers=\"view-search-api-operations-table-column\" class=\"views-field views-field-search-api-operations\">  <div class=\"dropbutton-wrapper\" data-drupal-ajax-container>\n    <div class=\"dropbutton-widget\"><ul class=\"dropbutton\"><li><a href=\"/publication/grain-stocks/2026-06-30\" aria-label=\"View Grain Stocks\" hreflang=\"en\">View</a></li></ul></div>\n  </div>          </td>\n              </tr>\n          <tr>\n                                                                                        <td headers=\"view-release-date-table-column\" class=\"views-field views-field-release-date\"><time datetime=\"2026-03-31T12:00:00Z\">Mar 31 2026</time>\n          </td>\n                                                                                        <td headers=\"view-release-files-table-column\" class=\"views-field views-field-release-files\"><a href=\"/sites/default/release-files/795839/grst0326.pdf\" class=\"usa-tag usa-tag--big bg-base-lighter text-ink\"><span class=\"usa-sr-only\"><time datetime=\"2026-03-31T12:00:00Z\">Mar 31 2026</time>\n - </span>pdf</a><a href=\"/sites/default/release-files/795839/grst0326.txt\" class=\"usa-tag usa-tag--big bg-base-lighter text-ink\"><span class=\"usa-sr-only\"><time datetime=\"2026-03-31T12:00:00Z\">Mar 31 2026</time>\n - </span>txt</a><a href=\"/sites/default/release-files/795839/grst0326.zip\" class=\"usa-tag usa-tag--big bg-base-lighter text-ink\"><span class=\"usa-sr-only\"><time datetime=\"2026-03-31T12:00:00Z\">Mar 31 2026</time>\n - </span>zip</a>          </td>\n                                                                                        <td headers=\"view-search-api-operations-table-column\" class=\"views-field views-field-search-api-operations\">  <div class=\"dropbutton-wrapper\" data-drupal-ajax-container>\n    <div class=\"dropbutton-widget\"><ul class=\"dropbutton\"><li><a href=\"/publication/grain-stocks/2026-03-31\" aria-label=\"View Grain Stocks\" hreflang=\"en\">View</a></li></ul></div>\n  </div>          </td>\n              </tr>\n          <tr>\n                                                                                        <td headers=\"view-release-date-table-column\" class=\"views-field views-field-release-date\"><time datetime=\"2026-01-12T12:00:00Z\">Jan 12 2026</time>\n          </td>\n                                                                                        <td headers=\"view-release-files-table-column\" class=\"views-field views-field-release-files\"><a href=\"/sites/default/release-files/795726/grst0126.pdf\" class=\"usa-tag usa-tag--big bg-base-lighter text-ink\"><span class=\"usa-sr-only\"><time datetime=\"2026-01-12T12:00:00Z\">Jan 12 2026</time>\n - </span>pdf</a><a href=\"/sites/default/release-files/795726/grst0126.txt\" class=\"usa-tag usa-tag--big bg-base-lighter text-ink\"><span class=\"usa-sr-only\"><time datetime=\"2026-01-12T12:00:00Z\">Jan 12 2026</time>\n - </span>txt</a><a href=\"/sites/default/release-files/795726/grst0126.zip\" class=\"usa-tag usa-tag--big bg-base-lighter text-ink\"><span class=\"usa-sr-only\"><time datetime=\"2026-01-12T12:00:00Z\">Jan 12 2026</time>\n - </span>zip</a>          </td>\n                                                                                        <td headers=\"view-search-api-operations-table-column\" class=\"views-field views-field-search-api-operations\">  <div class=\"dropbutton-wrapper\" data-drupal-ajax-container>\n    <div class=\"dropbutton-widget\"><ul class=\"dropbutton\"><li><a href=\"/publication/grain-stocks/2026-01-12\" aria-label=\"View Grain Stocks\" hr",
+          "title": "Grain Stocks | Economics, Statistics, and Market Information System",
+          "httpStatus": 200
+        }
+      ],
+      "ended": "answered",
+      "seconds": 103.5
+    },
+    "session_metadata": {
+      "request": {
+        "model": "z-ai/glm-5.3",
+        "max_output_tokens": 32768,
+        "tools": [
+          {
+            "type": "openrouter:web_search",
+            "parameters": {
+              "engine": "exa",
+              "max_results": 10,
+              "excluded_domains": [
+                "dataindex.us"
+              ]
+            }
+          },
+          {
+            "type": "openrouter:web_fetch",
+            "parameters": {
+              "engine": "openrouter",
+              "blocked_domains": [
+                "dataindex.us"
+              ],
+              "max_content_tokens": 10000
+            }
+          }
+        ],
+        "cache_control": {
+          "type": "ephemeral",
+          "ttl": "1h"
+        },
+        "session_id": "grain-stocks-z-ai/glm-5.3-t0-2026-10-08T23:53:08Z",
+        "stop_server_tools_when": [
+          {
+            "type": "step_count_is",
+            "step_count": 200
+          }
+        ],
+        "reasoning": {
+          "effort": "high"
+        },
+        "provider": {
+          "order": [
+            "z-ai"
+          ],
+          "allow_fallbacks": false
+        }
+      },
+      "response_meta": {
+        "id": "gen-1791503786-ByXTDozrGj7NBTgcb0gf",
+        "object": "response",
+        "created_at": 1791503786,
+        "model": "z-ai/glm-5.3",
+        "status": "completed",
+        "completed_at": 1791503800,
+        "error": null,
+        "incomplete_details": null,
+        "tools": [],
+        "tool_choice": "auto",
+        "parallel_tool_calls": true,
+        "max_output_tokens": 32768,
+        "temperature": 1,
+        "top_p": 1,
+        "presence_penalty": 0,
+        "frequency_penalty": 0,
+        "top_logprobs": 0,
+        "max_tool_calls": null,
+        "metadata": {},
+        "background": false,
+        "previous_response_id": null,
+        "service_tier": "auto",
+        "truncation": "disabled",
+        "store": false,
+        "instructions": null,
+        "text": {
+          "format": {
+            "type": "text"
+          }
+        },
+        "reasoning": {
+          "effort": "high"
+        },
+        "safety_identifier": null,
+        "prompt_cache_key": null,
+        "prompt_cache_options": null,
+        "usage": {
+          "input_tokens": 23664,
+          "input_tokens_details": {
+            "cached_tokens": 7744
+          },
+          "output_tokens": 996,
+          "output_tokens_details": {
+            "reasoning_tokens": 454
+          },
+          "total_tokens": 24660,
+          "cost": 0.02868384,
+          "cost_details": {
+            "upstream_inference_cost": 0.02868384,
+            "upstream_inference_input_cost": 0.02430144,
+            "upstream_inference_output_cost": 0.0043824
+          }
+        }
+      },
+      "requests": [
+        {
+          "input_tokens": 23664,
+          "input_tokens_details": {
+            "cached_tokens": 7744
+          },
+          "output_tokens": 996,
+          "output_tokens_details": {
+            "reasoning_tokens": 454
+          },
+          "total_tokens": 24660,
+          "cost": 0.02868384,
+          "cost_details": {
+            "upstream_inference_cost": 0.02868384,
+            "upstream_inference_input_cost": 0.02430144,
+            "upstream_inference_output_cost": 0.0043824
+          }
+        }
+      ],
+      "searches": 0,
+      "fetches": 0,
+      "tool_items": [],
+      "ended": "answered",
+      "seconds": 13.7
+    }
+  },
+  "messages": [
+    {
+      "role": "user",
+      "content": "#data research\nI am researching a federal dataset. Find out everything you can about this dataset, such as who publishes it, under what authority or mandate, its history, its typical users, and its benefits to the public. Be sure your research comprehensively covers each of those perspectives, as well as any others that you discover or seem useful. I believe this is accurate information, but please check:\n\nDataset title: Grain Stocks\nDescription: Issued four times yearly, contains stocks of all wheat, durum wheat, corn, sorghum, oats, barley, soybeans, flaxseed, canola, rapeseed, rye, sunflower, safflower, mustard seed, by States and U.S. and by position (on-farm or off-farm storage); includes number and capacity of off-farm storage facilities and capacity of on-farm storage facilities. The data is obtained via an off and on-farm stocks survey, the on-farm survey is a probability survey of farm operators, the off-farm stocks survey is enumerates the volume of grain in all known commercial grain storage facilities.\n\nReturn a complete report on everything that a preservationist, data librarian, data scientist, or policy activist might want to know about this data."
+    },
+    {
+      "role": "assistant",
+      "content": "I've found the core sources. Now let me research the legal authority, history, data access channels, and users/impacts in parallel.Excellent progress. Let me dig into the economic-indicator status, users, and data quality/criticism perspectives.The search tool hit its result cap, but I can still fetch key pages directly. Let me pull two in-depth sources: a farmdoc analysis of the estimates' methodology/accuracy, and the CRS report on NASS operations.I've gathered substantial material from NASS's own methodology documents, the survey pages, historical publications, the CRS report, legal texts, and trade-press coverage. The searches reached their result cap before I could fetch the remaining PDFs directly (the fetch tool can't process PDFs), but the excerpts I already have \u2014 including from the 2026 Methodology and Quality Measures report, the official survey pages, the \"Story of U.S. Agricultural Estimates\" history, the U.S. Code, and the 2026 report itself \u2014 are sufficient to build the full picture. Here is the complete report.\n\n---\n\n# Grain Stocks (USDA NASS) \u2014 Comprehensive Dataset Profile\n\n## 1. Executive Summary and Description Verification\n\nThe description you provided is **accurate** \u2014 it matches, nearly verbatim, the official NASS/National Agricultural Library catalog description for the *Grain Stocks* report. A few refinements worth knowing:\n\n- **Publisher**: U.S. Department of Agriculture, **National Agricultural Statistics Service (NASS)**, with official estimates set by the **Agricultural Statistics Board (ASB)**.\n- **Designation**: It is a **Principal Federal Economic Indicator** (PFEI) publication \u2014 one of the most market-sensitive statistical releases the federal government makes.\n- **Schedule**: Issued four times yearly (January, March, June, September), with reference dates of **December 1, March 1, June 1, and September 1**. The December 1 stocks are published in early January.\n- **Scope detail not in your description**: The report also includes **pulse crops** \u2014 dry edible peas, lentils, and chickpeas (biannually, June and December). Peanuts and rice are explicitly excluded.\n- **Survey detail refinement**: The \"on-farm survey\" is formally the **Agricultural Survey** (also known as Crops/Stocks), a quarterly dual-frame probability survey. The \"off-farm stocks survey\" is the **Off-Farm Grain Stocks (OFGS) survey**, which is technically a **census** of all known commercial facilities (\u22651,000 bushels capacity), not a sample survey \u2014 reports are normally received covering ~90% of capacity, with imputation for nonrespondents.\n\n---\n\n## 2. Identity and Provenance\n\n| Attribute | Detail |\n|---|---|\n| **Title** | Grain Stocks |\n| **Agency** | USDA National Agricultural Statistics Service |\n| **Estimating body** | Agricultural Statistics Board (chaired per 7 U.S.C. 411a and Departmental Regulation DR1042-042) |\n| **Program** | Survey-based estimates (as opposed to Census of Agriculture); listed in Quick Stats under Program = \"SURVEY\", Sector = \"CROPS\" |\n| **Frequency** | Quarterly (4 issues/year) |\n| **Reference dates** | March 1, June 1, September 1, December 1 |\n| **Release dates** | ~March 31, ~June 30, ~September 30, and early January for Dec. 1 data (e.g., Jan 12, 2026; Jan 10, 2025) |\n| **Release mechanism** | Pre-announced, embargoed PFEI release at 12:00 noon ET; annual release schedule published in advance |\n| **Commodities (quarterly)** | All wheat, durum wheat, corn, sorghum, oats, barley, soybeans |\n| **Commodities (annually)** | Canola, rapeseed, rye, sunflower, safflower, mustard seed |\n| **Commodities (biannual)** | Sunflower (Mar/Sep); dry edible peas, lentils, chickpeas (Jun/Dec) |\n| **Geography** | U.S. and by state |\n| **Storage positions** | On-farm and off-farm (all positions = sum) |\n\n---\n\n## 3. Authority and Mandate\n\nNASS's operation rests on a layered statutory framework (drawn from CRS Report R44814, \"NASS and U.S. Crop Production Forecasts,\" and NASS's own \"Regulations Guiding NASS\" page):\n\n1. **General USDA authority**: Department established by the 1862 Organic Act; 7 U.S.C. \u00a7\u00a7 2201\u20132204 sets out general duties of the Secretary, under which agricultural statistics functions operate.\n2. **Primary operating authority**: The **Agricultural Marketing Act of 1946** (7 U.S.C. \u00a7\u00a7 1621\u20131627), which authorizes the Secretary to collect and disseminate marketing/agricultural statistics, and the **Census of Agriculture Act of 1997** (P.L. 105-113; 7 U.S.C. \u00a7 2204g), which transferred the census to NASS.\n3. **Agricultural Statistics Board**: ASB-issued reports are approved by the Secretary of Agriculture as provided by law (7 U.S.C. 411a) and Departmental Regulation.\n4. **Economic indicator status**: As a designated **Principal Federal Economic Indicator**, release dates, embargo procedures, and pre-release access are governed by OMB statistical policy directives for principal economic indicators (NASS publishes an annual PFEI release schedule).\n5. **Confidentiality law** (critical for the survey's viability):\n   - **7 U.S.C. \u00a7 2276**: responses may be used only for aggregate statistics, are immune from legal process and FOIA, and unauthorized disclosure carries criminal penalties (fine up to $10,000 and/or up to 1 year imprisonment).\n   - **Confidential Information Protection and Statistical Efficiency Act (CIPSEA) of 2018** (Title III of P.L. 115-435, codified 44 U.S.C. ch. 35): willful disclosure of identifiable data is punishable by up to 5 years' imprisonment and/or a $250,000 fine; every NASS employee and sworn agent signs a confidentiality pledge.\n6. **Paperwork Reduction Act**: The surveys operate under OMB information-collection clearances (NASS's clearance series is OMB No. 0535-xxxx, renewed via the standard reginfo/regulations.gov process \u2014 the current OFGS/Agricultural Survey clearance notices appear on regulations.gov).\n7. **Voluntary response**: Both surveys are voluntary (a recurring policy point \u2014 response rates and respondent burden are perennial concerns).\n\n---\n\n## 4. History\n\nThe dataset sits at the end of a 160-year statistical tradition (per \"The Story of U.S. Agricultural Estimates,\" NASS's official history):\n\n- **1863**: USDA Division of Statistics established; monthly crop condition reports begin.\n- **1866**: Beginning of the continuous series of annual U.S. crop statistics.\n- **1894\u20131895**: Private trade (Chicago Daily Trade Bulletin) began compiling \"second hands\" stocks; USDA began estimating **July 1 farm stocks of grain in 1895**, later adding stocks in country mills and elevators.\n- **1905**: The Crop Estimating Board is created \u2014 ancestor of today's Agricultural Statistics Board, which still personally \"sets\" the official numbers behind locked doors.\n- **1926**: **Quarterly estimates of farm stocks of grain started.**\n- **1943**: **Quarterly reports on stocks of grain in all positions (on-farm + off-farm) initiated** \u2014 effectively the birth of the modern Grain Stocks report, spurred by wartime food-security needs.\n- **1961**: NASS's immediate predecessor, the Statistical Reporting Service, is created (renamed the National Agricultural Statistics Service in 1986, when it also absorbed statistical responsibilities in reorganizations).\n- **1997**: Census of Agriculture transferred to NASS.\n- **2019 (May)**: NASS began publishing a **JSON data file** at release time for PFEI reports, including Grain Stocks, alongside PDF/TXT/ZIP formats \u2014 a significant machine-readability milestone.\n- **Ongoing**: The 2026 release schedule shows the report continuing on its traditional cadence (e.g., September 30, 2026 report based on ~66,600 on-farm survey respondents and ~7,800 off-farm facilities).\n\n**Preservation note**: Historical issues are preserved full-text in the **Economics, Statistics, and Market Information System (ESMIS)** at the National Agricultural Library (a partnership dating to Cornell's Mann Library), in PDF, TXT, and ZIP formats, alongside NASS's own release archive (release.nass.usda.gov, e.g., grst0926.pdf).\n\n---\n\n## 5. Methodology and Data Quality\n\n### 5.1 On-farm estimates: the Agricultural Survey\n- Quarterly (Mar, Jun, Sep, Dec) in **all states except Hawaii**.\n- Target population: farms with cropland and/or storage capacity.\n- **Dual-frame design**: a list frame (controlled from multiple control types, including total cropland, storage capacity, and a field-crops acreage control dating to the mid-1980s) plus an area frame (June Area Survey segments) whose \"nonoverlap\" (NOL) portion captures farms missing from the list frame.\n- List-frame sample drawn via **multivariate probability proportional to size (MPPS)** Poisson sampling with permanent random numbers; sample weights calibrated to list-frame control totals; stratification used for nonresponse adjustment.\n- A designated **\"stocks panel\"** of replicates reports every quarter, enabling accurate quarter-to-quarter change measurement and reducing respondent burden.\n- Recent scale: **~66,600 farm operators** per quarter (per the September 2026 report), asked for total quantities of grain stored as of the reference date \u2014 including grain for feed, seed, sale, and grain under government program.\n\n### 5.2 Off-farm estimates: the Off-Farm Grain Stocks (OFGS) survey\n- Conducted in all states **except Alaska, Connecticut, Hawaii, Nevada, and Rhode Island**.\n- Target population: **every U.S. entity that can store \u22651,000 bushels** of grain/oilseeds off-farm \u2014 elevators, terminals, processors, warehouses (excluding peanuts and rice). It is a **census**, not a sample; stratification by capacity is used only for nonresponse adjustment.\n- Recent scale: **~7,800 facilities with 11.9 billion bushels of capacity**; reports normally cover ~**90% of capacity**, with imputation for nonrespondents.\n- The facilities list is actively maintained, so the \"number and capacity of off-farm storage facilities\" statistics double as a **census of U.S. commercial grain storage infrastructure**.\n\n### 5.3 Estimation and review\n- State and national review for reasonableness and consistency with historical estimates and current crop size.\n- **Balance-sheet approach**: on-farm + off-farm totals are validated against independently estimated production, imports, exports, crushings, millings, and other recorded uses.\n- The **Agricultural Statistics Board** conducts the national review, reconciles state to national estimates, and sets official numbers in a locked pre-release environment (the ASB's \"safeguarding\" procedures are documented in NASS's ASB history, \"Safeguarding America's Agricultural Statistics\").\n- **Reliability measures**: NASS publishes an annual **\"Grain Stocks Methodology and Quality Measures\"** document (e.g., gsq0226.pdf, Feb 2026) containing sampling errors, coefficients of variation, and methodology \u2014 an essential citation for any data-quality assessment.\n- **Revisions**: each issue carries revisions of the prior quarter (and, in January, annual revisions across all commodities).\n\n### 5.4 Timeline\nReference date is the 1st of the month; ~15-day collection window; regional field offices get 4\u20135 business days for editing/analysis; the ASB gets 5\u20136 business days; release at month's end.\n\n### 5.5 Known limitations and criticisms (data-scientist view)\n- **On-farm stocks are the weakest link**: the farmdoc program (University of Illinois) has published multiple critiques (\"Revisiting USDA Corn and Soybean Grain Stocks Estimates,\" \"Revisiting Surprises in USDA's Quarterly Grain Stocks Estimates \u2014 Evidence from Wheat\") documenting how report \"surprises\" versus trade expectations are often driven by the difficulty of measuring dispersed on-farm holdings.\n- **Implied disappearance/usage** (derived by analysts as beginning stocks + production + imports \u2212 ending stocks) inherits all measurement error and is a key input to WASDE and feed-residual calculations \u2014 errors propagate into price forecasts.\n- **Coverage exclusions**: no peanuts or rice off-farm; no Hawaii on-farm; five states excluded from OFGS; county-level stocks are generally not published.\n- **Confidentiality suppression**: state-level cells may be withheld or combined where disclosure risk exists.\n- **Voluntary response** affects response rates over time.\n\n---\n\n## 6. Access Channels and Formats (Data Librarian / Data Scientist View)\n\n1. **Report PDFs/TXT/ZIP**: `release.nass.usda.gov/reports/grstMMYY.pdf` and the NASS Publications page \u2014 human-readable tables with survey procedures notes in every issue.\n2. **Quick Stats 2.0** (`quickstats.nass.usda.gov`): the authoritative database of every published estimate. Query path: Program = \"SURVEY\" \u2192 Sector = \"CROPS\" \u2192 commodity/group. Typical data items: \"Corn, Grain (Off Farm) Stocks in BU,\" \"Corn, Grain (On Farm) Stocks in BU,\" \"Grain Storage Capacity (Off Farm)\u2026in BU,\" \"STOCKS, MEASURED IN BU,\" etc. Units are **bushels (BU)**.\n3. **Quick Stats API** (`quickstats.nass.usda.gov/api`): free API key, endpoints `api_GET` and `get_counts`, filters on commodity/geography/time, JSON/XML/CSV output, max 50,000 records per call. The series extends back decades (state-level on-farm stocks series effectively back to the mid-20th century; annual stocks series much further).\n4. **JSON PFEI files** (since May 2019): posted at release time, equivalent to Quick Stats API output.\n5. **ESMIS at the National Agricultural Library** (`esmis.nal.usda.gov/publication/grain-stocks`): full-text archive of report issues in PDF/TXT/ZIP \u2014 the primary preservation copy.\n6. **data.gov**: NASS Quick Stats is cataloged there as an official dataset.\n7. **E-mail subscription service** and the \"Today's Reports\" section of nass.usda.gov for release-time delivery.\n\n**Reproducibility tips**: cite the report issue (report title, release date, USDA-NASS, ISSN-free but report-numbered), the annual Methodology and Quality Measures PDF for the estimation year, and Quick Stats data-item strings for API pulls. Note revisions: always re-pull prior quarters after a new release.\n\n---\n\n## 7. Typical Users and Uses\n\n- **Commodity futures markets / traders**: The single most important user group. The release is a scheduled market event; e.g., after the September 30, 2026 report showed Sept 1 corn stocks at 2.095 billion bu (177 million above the average trade guess and above the highest estimate), **corn futures fell 16\u201318 cents within 90 minutes**. Traders use stocks levels and the derived \"implied disappearance\" to gauge feed use, ethanol use, and export pace.\n- **USDA's World Agricultural Outlook Board (WAOB)**: Grain Stocks is a direct input to the monthly **WASDE** supply/demand balance sheets and ending-stocks projections.\n- **Farmers and ranchers**: marketing decisions (when to sell vs. store), storage decisions, and forward-contract timing.\n- **Grain elevators, processors, exporters, biofuel producers**: capacity utilization, basis behavior, logistics planning.\n- **USDA program administration**: stocks estimates inform commodity program analysis, CCC operations, and food-security assessment (historically including reserve policy debates).\n- **Economists and academic researchers**: quarterly stock series are staples of price analysis, storage economics (convenience yield, carry), and demand estimation research.\n- **Financial press and market analysts** (Pro Farmer, DTN, Reuters, Bloomberg) for report-reaction coverage.\n- **International users**: USDA data serve as the global benchmark; the data feed into FAO/foreign assessment frameworks.\n\n---\n\n## 8. Public Benefits\n\n1. **Market transparency and price discovery**: by providing a common, objective, free information set to all market participants simultaneously, the report reduces information asymmetry between large commercial holders and individual farmers \u2014 a classic public-good justification for federal statistics.\n2. **Orderly marketing**: CRS notes that NASS's transparent, objective methodology \"contribute[s] to the orderly association among the consumption, supply, marketing, and input sectors of agriculture.\"\n3. **Lower food/fiber costs and reduced volatility**: credible ending-stocks numbers anchor futures prices, hedging, and inventory decisions across the entire food supply chain.\n4. **Policy accountability**: Congress, USDA, and the public can track grain availability, food security, and the effects of farm programs on supply.\n5. **Infrastructure knowledge**: the facility number/capacity data constitute the only comprehensive public census of U.S. commercial grain storage infrastructure, relevant to biosecurity, transportation, and resilience planning.\n6. **Public-domain availability**: all outputs are free, unencumbered (public domain as U.S. government works), with an API and permanent archives.\n\n---\n\n## 9. Preservation Considerations\n\n- **Archived copies**: NAL/ESMIS full-text archive (PDF/TXT/ZIP) is the preservation copy of record; NASS's release site and the Cornell Mann Library partnership underpin it.\n- **No microdata preservation**: individual survey responses are confidential under 7 U.S.C. 2276/CIPSEA, protected from FOIA and legal process; paper questionnaires are securely destroyed. Longitudinal research must rely on published aggregates, NASS's **Special Tabulations and Restricted Microdata** access program, or the published reliability measures.\n- **Format history**: pre-2019 releases were PDF/TXT/ZIP only; JSON added in 2019 \u2014 older machine-readable access was via Quick Stats.\n- **Title/series continuity**: the series has operated continuously under evolving agency names (Division of Statistics \u2192 BAE \u2192 Statistical Reporting Service \u2192 NASS), which matters for archival provenance of older issues.\n\n---\n\n## 10. Key Sources Cited in This Research\n\n- NASS Surveys Guide: Off-Farm Grain Stocks / Grain Stocks (nass.usda.gov/Surveys/Guide_to_NASS_Surveys/Off-Farm_Grain_Stocks/)\n- Grain Stocks Methodology and Quality Measures, Feb 2026 (data.nass.usda.gov/.../gsq0226.pdf) and prior annual editions\n- Grain Stocks report, Sept 30, 2026 (release.nass.usda.gov/reports/grst0926.pdf)\n- NASS 2026 PFEI release schedule (nass.usda.gov/Publications/2026-NASS-PFEI-Schedule.pdf)\n- ESMIS/NAL Grain Stocks archive (esmis.nal.usda.gov/publication/grain-stocks)\n- \"The Story of U.S. Agricultural Estimates\" (NASS)\n- CRS Report R44814, *NASS and U.S. Crop Production Forecasts: Methods and Issues*\n- 7 U.S.C. \u00a7 2276; CIPSEA 2018 (P.L. 115-435); NASS Confidentiality Pledge page; NASS Regulations page\n- NASS ASB notice on JSON PFEI releases (May 8, 2019)\n- Quick Stats API documentation; data.gov Quick Stats listing\n- Pro Farmer report-reaction coverage (Sept 30, 2026); farmdocdaily analyses of grain stocks estimate accuracy\n\nIf you'd like, I can follow up on specific gaps \u2014 e.g., exact response-rate trends, the historical series length available for a specific commodity in Quick Stats, or the current OMB paperwork clearance numbers \u2014 once search capacity allows."
+    },
+    {
+      "role": "user",
+      "content": "# Dataset risk assessment\nI would like your help in assessing the likelihood that this data will be changed or removed from its primary location, and that users will no longer be able to access accurate and reliable copies of it, based on the rubric below.\n\n## Sources for context\nTo help assess the rubric categories, perform additional research on the data, the agency, the data's topics and typical users, covering topics such as proposed regulatory or funding changes, recent news, and political commentary. Use whatever resources you find useful, including the Federal Register (https://www.federalregister.gov) and the federal staffing tracker at https://usajobs-tracker.abigailhaddad.com.\n\n## Rubric\nThis rubric is divided up into categories. Each category is divided up into risk levels. In your output, please select the appropriate risk level for each category based on your research.\n\n### Historical Data Availability\n- Gone: Data files prior to the current year or cycle are no longer publicly available.\n- High Risk: Some data files prior to the current year or cycle are removed.\n- Moderate Risk: Some data elements that exist in the dataset prior to the current year or cycle are removed.\n- No Known Issue: Data prior to the current year or cycle remain accessible with no known alterations.\n\n### Future Data Availability\n- Gone: Data collection and publication has been terminated.\n- High Risk: Statutory publication deadline missed and/or collection or publication skipped and/or ICR expired for more than one year.\n- Moderate Risk: Typical or intended publication date missed and/or collection or publication delayed; ICR expired up to one year.\n- No Known Issue: Data published on time or as expected and ICR active or renewed before expiration.\n\n### Data Quality\n- Gone: Data collection and publication has been terminated.\n- High Risk: Reductions in granularity, timeliness, or frequency.\n- Moderate Risk: Potential or emerging risk to granularity, timeliness, or frequency.\n- No Known Issue: Maintained or improved granularity, timeliness, or frequency.\n\n### Statutory Context\n- Gone: N/A\n- High Risk: Statutory authorization is vague and/or there are alternative data collections that could serve as substitutes and/or no known programmatic use.\n- Moderate Risk: Not explicitly required by statute but required for the implementation of a state or federal program, and there are no alternative data collections that could serve as substitutes.\n- No Known Issue: Statutorily required and/or statutory authorization is explicitly named and it is clear what has to be collected, and there aren't alternative data collections that could serve as substitutes and/or required for implementation of a federal program.\n\n### Staffing and Funding\n- Gone: All of the staff in the division or agency are gone and/or all funding has been terminated.\n- High Risk: 40% or more of staff lost, and/or 1,000 or more staff lost, and/or budget cut by 20% or more, and/or leadership removed.\n- Moderate Risk: 10\u201339% of staff lost, and/or 500\u2013999 staff lost, and/or budget cut by 10\u201319%, and/or threatened change in leadership.\n- No Known Issue: Less than 10% of staff lost and less than 10% of budget cut and no known change in leadership.\n\n### Policy\n- Gone: Data collection and publication has been terminated.\n- High Risk: Presidential Action-driven information collection request (ICR); negative policy note on site; other significant changes in accordance with Administration priorities.\n- Moderate Risk: Proposed or pending changes; statements by administration officials suggesting a change is being considered or planned.\n- No Known Issue: No notable changes since January 2025 affecting what data is collected and published.\n\nFor each category, concisely list the evidence and supporting sources that would support each risk level. Then indicate which risk level you find most appropriate and why.\n\nConclude with a simple summary of risk levels:\nHistorical Data Availability: <level>\nFuture Data Availability: <level>\nData Quality: <level>\nStatutory Context: <level>\nStaffing and Funding: <level>\nPolicy: <level>"
+    },
+    {
+      "role": "assistant",
+      "content": "I'll research recent developments affecting NASS and the Grain Stocks program \u2014 budget proposals, staffing changes, report cancellations, and the tracker sites you mentioned.I have a strong foundation. Let me check the ICR/OMB clearance status for the Grain Stocks surveys, impacts of the late-2025 government shutdowns on the specific Grain Stocks releases, and the staffing tracker.The search tool has hit its cap, but I can still fetch pages directly. Let me verify the depth of the historical archive at ESMIS to assess historical data availability.I now have comprehensive evidence. One note on the staffing tracker: the USAJobs tracker page itself displays an archive notice (it stopped collecting data on December 31, 2025), but I obtained agency-specific staffing figures from the USDA Inspector General's December 2025 report and other sources. Here is the full risk assessment.\n\n---\n\n# Risk Assessment: USDA NASS Grain Stocks Dataset\n\n**Assessment date:** October 2026. This assessment covers events since January 2025 (the second Trump Administration's workforce actions, the FY2026 budget cycle, the October\u2013November 2025 government shutdown, and the December 2025 closure).\n\n---\n\n## Category 1: Historical Data Availability\n\n**Evidence by level:**\n\n- *Gone:* No evidence. The full archive is intact.\n- *High Risk:* No evidence of any removed report files.\n- *Moderate Risk:* No evidence of removed data elements from prior Grain Stocks reports. (NASS did eliminate state and regional *other* reports in 2025, but those were separate products, not elements of the quarterly Grain Stocks publication.)\n- *No Known Issue:* Strong support. The National Agricultural Library's ESMIS archive (esmis.nal.usda.gov/publication/grain-stocks) holds the complete full-text series \u2014 every issue back to **October 1973** \u2014 downloadable in PDF, TXT, and ZIP formats, with all quarterly issues present through September 30, 2026. NASS's own release archive (release.nass.usda.gov) and the Quick Stats database retain the complete historical time series. No known alterations to historical files.\n\n**Verdict: No Known Issue.** The 50+ year archive is fully intact and redundantly preserved at NAL/ESMIS and NASS.\n\n---\n\n## Category 2: Future Data Availability\n\n**Evidence by level:**\n\n- *Gone:* No evidence \u2014 the program continues and is scheduled through 2026.\n- *High Risk:* No evidence. No statutory deadline missed, no skipped collection/publication, no ICR lapse.\n- *Moderate Risk:* Partial evidence worth noting. The October\u2013November 2025 funding lapse caused NASS to skip several adjacent reports entirely (October Crop Production, October Cotton Ginnings, six weeks of Crop Progress) and delay dozens of others; a second brief closure in late December 2025 forced further rescheduling. However, **Grain Stocks was unaffected in all eight scheduled releases from January 2025 through September 2026** (Jan 10, 2025; Mar 31, 2025; Jun 30, 2025; Sep 30, 2025; Jan 12, 2026; Mar 31, 2026; Jun 30, 2026; Sep 30, 2026 \u2014 all on schedule per the ASB notices and ESMIS release log). This resilience appears attributable to its Principal Federal Economic Indicator status.\n- *No Known Issue:* Strong support. All releases on time; the ICR covering the Stocks Reports collection (**OMB Control No. 0535-0007**) was approved without change on **June 18, 2025**, valid through **June 30, 2028**, with OMB's terms of clearance noting no conditions; the on-farm Agricultural Survey ICR is likewise active; and the 2026 NASS PFEI schedule lists all four Grain Stocks release dates.\n\n**Verdict: No Known Issue** \u2014 with a watch item: another funding lapse landing on a release window, or the pending USDA reorganization (see Policy), could plausibly produce a delay, which would move this to Moderate Risk.\n\n---\n\n## Category 3: Data Quality\n\n**Evidence by level:**\n\n- *Gone:* N/A \u2014 collection continues.\n- *High Risk:* No direct evidence of reduced granularity, timeliness, or frequency for Grain Stocks. Commodities, state-level detail, quarterly cadence, revision policy, and the annual Methodology and Quality Measures document are all unchanged (e.g., the February 2026 methodology report was published; the June and September 2026 reports describe the same survey designs \u2014 ~66,600 on-farm respondents and ~7,800 off-farm facilities covering ~11.9 billion bushels of capacity, consistent with prior years).\n- *Moderate Risk:* Substantial emerging-risk evidence. NASS lost 34\u201341% of staff (see Category 5), and the FY2026 budget documents confirm the workforce was cut from 754 to 495 FTEs. The American Statistical Association (\"The Nation's Data at Risk 2025\") and AEI (\"The Looming Data Imperative to Inform Agricultural Policy\") both warn that staffing losses \"put the agencies' products at increased risk of disruption,\" and ASA's comments on the USDA reorganization predicted \"product delays and suspensions.\" The ICR renewal notes \"only minor adjustments to sample sizes\" \u2014 routine, but a signal of ongoing trimming. The October 2025 lapse demonstrated that report skips *do* happen under stress (albeit to other reports).\n- *No Known Issue:* Defensible for this specific dataset \u2014 nothing about Grain Stocks' content, frequency, or timeliness has degraded through September 2026.\n\n**Verdict: Moderate Risk.** This is a precautionary rating: the dataset itself has been fully maintained, but the documented agency-wide degradation (severe staff loss, acting leadership in most divisions, shutdown-driven skips of neighboring reports, pending office consolidation) constitutes a concrete, emerging risk to the survey operations, response-rate maintenance, and estimation staff that sustain this report's quality. The pre-existing weakness of on-farm estimates (documented by farmdoc) amplifies sensitivity to survey-operation stress.\n\n---\n\n## Category 4: Statutory Context\n\n**Evidence by level:**\n\n- *Gone:* N/A.\n- *High Risk:* Partially relevant considerations. NASS's 2025 discontinuations of the Mink Survey and Agricultural Labor Survey were explicitly justified on grounds of \"no statutory requirement\" and availability of substitutes \u2014 a template that could be applied to other surveys. However, Grain Stocks is poorly suited to that template: it is a designated Principal Federal Economic Indicator with no comparable substitute.\n- *Moderate Risk:* Strong fit. Grain Stocks is **not named in statute**; it operates under NASS's general authority (7 U.S.C. \u00a7 2204; ASB authority under 7 U.S.C. \u00a7 411a) and OMB PFEI policy. But it is **required for the implementation of federal programs**: it is a direct input to the USDA World Agricultural Outlook Board's WASDE balance sheets and ending-stocks projections, which underpin commodity program analysis and market intelligence. And there are **no alternative data collections that could serve as substitutes**: no other federal survey enumerates commercial off-farm storage (a census of ~7,800 facilities), and private estimates (trade guesses, analytics firms) are opinion-based, not statistical collections.\n- *No Known Issue:* Not supported \u2014 statutory authorization is general, not explicit as to this report.\n\n**Verdict: Moderate Risk** \u2014 not statutorily named, but indispensable to a federal program (WASDE/markets) with no substitute collection. Notably, the September 2025 Grain Stocks release still moved corn futures 16\u201318\u00a2 within 90 minutes, illustrating the irreplaceable market function that makes termination politically costly.\n\n---\n\n## Category 5: Staffing and Funding\n\n**Evidence by level:**\n\n- *Gone:* No evidence \u2014 NASS continues operating.\n- *High Risk:* Strong support, multiple independent measures:\n  - **USDA OIG report (Dec. 17, 2025):** NASS lost 275 of 805 employees (34%) between January 12 and June 14, 2025.\n  - **American Statistical Association (Nov. 2025):** NASS lost an estimated **41% of staff since FY24**, with the associate administrator in an acting role and 4 of 7 divisions headed by acting directors (three holding dual portfolios).\n  - **Agri-Pulse:** NASS FTEs fell from 839 (FY2023) to 389 (FY2026), a **54% decline over three years**.\n  - **FY2026 budget documents:** workforce reduced from 754 to 495 staff years; FY2026 request of $185M vs. $187.5M enacted in FY2025 (\u22121.3%), with an estimated 12% loss of purchasing power since FY2021 (AEI).\n  - **Leadership disruption:** acting leadership across the agency; the July 24, 2025 USDA Reorganization Plan proposes consolidating NASS's 12 regional offices into 5 hubs.\n- *Moderate Risk:* Subsumed by the higher threshold already met.\n- *No Known Issue:* Not supported.\n\n**Verdict: High Risk.** Staff losses of 34\u201354% (depending on baseline) far exceed the 40% threshold; the agency operates under acting leadership in most senior positions. Budget cuts in nominal terms are small (~1.5%), but combined with staffing collapse, the 20%-budget/leadership-removal criteria are effectively met through the leadership disruption.\n\n---\n\n## Category 6: Policy\n\n**Evidence by level:**\n\n- *Gone:* No evidence \u2014 Grain Stocks publication continues.\n- *High Risk:* Mixed evidence. In 2025, NASS made significant changes \"in accordance with the Administration's priorities\": it discontinued the Mink Survey and Agricultural Labor Survey (ASB notice of Aug. 28, 2025; Federal Register notice of Sept. 3, 2025, citing \"the government's efforts to improve efficiency and eliminate unnecessary burdens\"), eliminated state and regional reports, and the FY2026 budget justification redirects funds to \"high-priority projects... better aligned with the interests and support requirements of farmers and ranchers and the Administration.\" However, **none of these actions touched Grain Stocks**, whose ICR renewal was routine and whose collection/publication is unchanged. No \"negative policy note\" appears on the dataset's pages, and the ICR was not Presidential-Action-driven.\n- *Moderate Risk:* Strong fit. There are proposed/pending changes and administration statements indicating that further restructuring is planned: the July 2025 USDA Reorganization Plan (12 NASS regions \u2192 5 hubs, National Capital Region dispersal, comment period opened Aug. 1, 2025; Deputy Secretary stated completion by end of CY2026). ASA formally warned that relocating NASS is \"likely to result in major disruptions, including product delays and suspensions.\" The FY2026 President's Budget proposed small reductions to NASS to \"eliminate climate-related programming added during the Biden administration.\" The demonstrated willingness to cut sibling surveys in line with Administration priorities establishes a live pattern, even though this dataset has been spared.\n- *No Known Issue:* Not supported \u2014 multiple Administration-driven changes have affected NASS's data portfolio since January 2025, even if not this specific title.\n\n**Verdict: Moderate Risk.** The Administration's efficiency agenda has already eliminated adjacent NASS collections and is pursuing a reorganization that outside statistical bodies predict will disrupt NASS products. Grain Stocks' PFEI status and market centrality appear to have shielded it so far, and no change to its content or collection has been proposed \u2014 but the policy environment is demonstrably active, not neutral.\n\n---\n\n## Summary of Risk Levels\n\n| Category | Level |\n|---|---|\n| **Historical Data Availability** | No Known Issue |\n| **Future Data Availability** | No Known Issue |\n| **Data Quality** | Moderate Risk |\n| **Statutory Context** | Moderate Risk |\n| **Staffing and Funding** | High Risk |\n| **Policy** | Moderate Risk |\n\n**Overall reading:** The Grain Stocks dataset itself is among the *best-protected* items in the federal statistical system \u2014 a Principal Federal Economic Indicator, published on schedule through two government shutdowns, with a freshly renewed ICR (through June 2028), an intact 50-year public archive, and an irreplaceable market function. The dominant threat vector is **institutional, not editorial**: an agency that has lost roughly 40\u201354% of its staff, operates under acting leadership in most divisions, and faces a pending physical reorganization. The principal preservation recommendations that follow from this assessment are (1) archive each quarterly release and the Quick Stats/API series promptly at publication (the redundancy at NAL/ESMIS is strong but the API series is the more fragile channel); (2) monitor the USDA reorganization timeline through end of CY2026 and the FY2027 appropriations cycle; and (3) watch for any future funding lapse overlapping a release window (the March/June/September release dates fall at fiscal quarter boundaries, a structurally exposed position), since the October 2025 lapse showed that less-protected sibling reports are skipped outright.\n\n---\n\n### Key sources\n- ESMIS/NAL Grain Stocks archive (full series 1973\u20132026): esmis.nal.usda.gov/publication/grain-stocks\n- NASS ASB Notices (Aug. 28, 2025 discontinuations; Nov. 19, 2025 and Dec. 22, 2025 shutdown rescheduling): nass.usda.gov/Newsroom/Notices\n- Federal Register, \"Discontinuance of Information Collections,\" 90 FR 42561 (Sept. 3, 2025)\n- reginfo.gov ICR 0535-0007 \"Stocks Reports\" (approved 6/18/2025, expires 6/30/2028)\n- USDA OIG, \"U.S. Department of Agriculture Staffing Levels,\" Dec. 17, 2025 (oversight.gov)\n- American Statistical Association, \"The Nation's Data at Risk 2025\" \u2014 NASS chapter (amstat.org)\n- AEI, \"The Looming Data Imperative to Inform Agricultural Policy\" (2026)\n- USDA FY2026 Budget Explanatory Notes \u2014 NASS (usda.gov); CRS R48564 (FY2026 ag appropriations); CRS R48905 (USDA reorganization)\n- Reuters and NYT coverage of the OIG attrition report (Dec. 22, 2025); Agri-Pulse reporting on NASS staffing and statistical programs\n- USAJobs Listings Tracker (usajobs-tracker.abigailhaddad.com) \u2014 noted as archived as of Dec. 31, 2025; USDA-specific attrition figures drawn from OIG report instead"
+    },
+    {
+      "role": "user",
+      "content": "Emit a session_metadata YAML block reporting: current date, model identifier, knowledge cutoff, surface, whether memory is enabled, whether custom preferences or styles are active, all tools and MCP servers available, which tools were actually called in this session, and whether attachments were present. Mark any field not directly observable as unknown rather than inferring it."
+    },
+    {
+      "role": "assistant",
+      "content": "```yaml\nsession_metadata:\n  current_date:\n    value: unknown\n    note: >\n      No datetime tool is available and no date is stated in a system prompt.\n      Session conversation context (reporting on events through late September\n      2026 and an assessment framed as \"October 2026\") suggests approximately\n      October 2026, but this is not directly observable and is not asserted as fact.\n  model_identifier:\n    value: unknown\n    note: Not exposed within this session's observable context.\n  knowledge_cutoff:\n    value: unknown\n    note: >\n      No system prompt or tool output in this session states the training cutoff.\n      Not directly observable; not inferred.\n  surface:\n    value: unknown\n    note: >\n      The available tools are OpenRouter-branded web search/fetch functions,\n      which is consistent with API-mediated access, but the actual client or\n      surface (web app, API, other) is not directly observable.\n  memory:\n    enabled: unknown\n    note: No memory feature is indicated anywhere in the observable session.\n  custom_preferences_or_styles:\n    active: false\n    note: >\n      No system prompt, custom instructions, or preference/style configuration\n      is present in the observable session content.\n  tools_available:\n    - name: openrouter_web_search\n      type: function\n      description: Web search returning ranked excerpts from matching pages.\n    - name: openrouter_web_fetch\n      type: function\n      description: Fetch full text of a web page or PDF at a given URL.\n  mcp_servers:\n    available: []\n    note: No MCP servers or MCP-provided tools are present in this session.\n  tools_called:\n    openrouter_web_search:\n      called: true\n      detail: >\n        Called multiple times across the session (dataset research turn and\n        risk-assessment turn); the tool's per-session result cap was reached\n        during the risk-assessment turn.\n    openrouter_web_fetch:\n      called: true\n      detail: >\n        Called in the risk-assessment turn on:\n        farmdocdaily.illinois.edu PDF (failed - PDF processing unsupported),\n        congress.gov CRS PDF (failed - PDF processing unsupported),\n        usajobs-tracker.abigailhaddad.com (succeeded),\n        esmis.nal.usda.gov/publication/grain-stocks (succeeded).\n  attachments:\n    present: false\n    note: >\n      No file, image, or document attachments are present in any user message\n      in this session; the only file-like interactions were outbound fetches\n      initiated by the assistant via tools.\n```"
+    }
+  ]
+}

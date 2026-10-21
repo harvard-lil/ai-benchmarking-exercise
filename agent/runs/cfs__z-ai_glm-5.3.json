@@ -1,0 +1,1219 @@
+{
+  "dataset": {
+    "key": "cfs",
+    "title": "Commodity Flow Survey (CFS)"
+  },
+  "model": "z-ai/glm-5.3",
+  "harness": "openrouter tools",
+  "context": "full: each turn's whole output is carried into the next",
+  "search_tool": {
+    "engine": "exa",
+    "max_results": 10,
+    "excluded_domains": [
+      "dataindex.us"
+    ]
+  },
+  "fetch_tool": {
+    "engine": "openrouter",
+    "blocked_domains": [
+      "dataindex.us"
+    ],
+    "max_content_tokens": 10000
+  },
+  "reasoning": "effort high",
+  "catalog": {
+    "fetched_at": "2026-10-08T19:57:40Z",
+    "entry": {
+      "id": "z-ai/glm-5.3",
+      "canonical_slug": "z-ai/glm-5.3-20260816",
+      "hugging_face_id": "zai-org/GLM-5.3",
+      "name": "Z.ai: GLM 5.3",
+      "created": 1787086655,
+      "description": "GLM-5.3 is a large-scale reasoning model from Z.ai, built for complex software engineering and long-horizon agent tasks. It supports text input and output with a 1M-token context window, and improves...",
+      "context_length": 1048576,
+      "architecture": {
+        "modality": "text->text",
+        "input_modalities": [
+          "text"
+        ],
+        "output_modalities": [
+          "text"
+        ],
+        "tokenizer": "Other",
+        "instruct_type": null
+      },
+      "pricing": {
+        "prompt": "0.00000008",
+        "completion": "0.00000339",
+        "input_cache_read": "0.000000048"
+      },
+      "top_provider": {
+        "context_length": 1048576,
+        "max_completion_tokens": 943718,
+        "is_moderated": false
+      },
+      "per_request_limits": null,
+      "supported_parameters": [
+        "frequency_penalty",
+        "include_reasoning",
+        "logit_bias",
+        "logprobs",
+        "max_tokens",
+        "min_p",
+        "parallel_tool_calls",
+        "presence_penalty",
+        "reasoning",
+        "reasoning_effort",
+        "repetition_penalty",
+        "response_format",
+        "seed",
+        "stop",
+        "structured_outputs",
+        "temperature",
+        "tool_choice",
+        "tools",
+        "top_k",
+        "top_logprobs",
+        "top_p"
+      ],
+      "default_parameters": {
+        "temperature": 1,
+        "top_p": 0.95
+      },
+      "supported_voices": null,
+      "knowledge_cutoff": null,
+      "expiration_date": null,
+      "links": {
+        "details": "/api/v1/models/z-ai/glm-5.3-20260816/endpoints"
+      },
+      "benchmarks": {
+        "design_arena": [
+          {
+            "arena": "models",
+            "category": "3d",
+            "elo": 1347,
+            "win_rate": 60.7,
+            "rank": 5
+          },
+          {
+            "arena": "models",
+            "category": "asciiart",
+            "elo": 1211,
+            "win_rate": 46,
+            "rank": 22
+          },
+          {
+            "arena": "models",
+            "category": "codecategories",
+            "elo": 1313,
+            "win_rate": 54.9,
+            "rank": 9
+          },
+          {
+            "arena": "models",
+            "category": "dataviz",
+            "elo": 1269,
+            "win_rate": 52.8,
+            "rank": 23
+          },
+          {
+            "arena": "models",
+            "category": "gamedev",
+            "elo": 1323,
+            "win_rate": 52.9,
+            "rank": 10
+          },
+          {
+            "arena": "models",
+            "category": "svg",
+            "elo": 1295,
+            "win_rate": 56.9,
+            "rank": 8
+          },
+          {
+            "arena": "models",
+            "category": "uicomponent",
+            "elo": 1323,
+            "win_rate": 57.6,
+            "rank": 9
+          },
+          {
+            "arena": "models",
+            "category": "website",
+            "elo": 1305,
+            "win_rate": 54.9,
+            "rank": 12
+          },
+          {
+            "arena": "agents",
+            "category": "htmlslides",
+            "elo": 1189,
+            "win_rate": 39.1,
+            "rank": 9
+          },
+          {
+            "arena": "agents",
+            "category": "mobileapps",
+            "elo": 1191,
+            "win_rate": 52.2,
+            "rank": 17
+          },
+          {
+            "arena": "agents",
+            "category": "python-pptxslides",
+            "elo": 1255,
+            "win_rate": 51.2,
+            "rank": 8
+          }
+        ],
+        "artificial_analysis": {
+          "intelligence_index": 44.8,
+          "coding_index": 74.8,
+          "agentic_index": 53.1
+        }
+      },
+      "reasoning": {
+        "mandatory": true,
+        "default_enabled": true,
+        "supported_efforts": [
+          "max",
+          "high",
+          "low"
+        ],
+        "default_effort": "max"
+      }
+    }
+  },
+  "upstream": [
+    "z-ai"
+  ],
+  "trial": 0,
+  "terminate_reason": "completed",
+  "max_tokens": 32768,
+  "started_at": "2026-10-08T19:57:40Z",
+  "prompts": {
+    "research": "#data research\nI am researching a federal dataset. Find out everything you can about this dataset, such as who publishes it, under what authority or mandate, its history, its typical users, and its benefits to the public. Be sure your research comprehensively covers each of those perspectives, as well as any others that you discover or seem useful. I believe this is accurate information, but please check:\n\nDataset title: Commodity Flow Survey (CFS)\nOrganization/publisher: Bureau of Transportation Statistics (BTS), U.S. Department of Transportation, and the U.S. Census Bureau\nDescription: The Commodity Flow Survey (CFS) is a joint effort by the Bureau of Transportation Statistics (BTS), U.S. Department of Transportation, and the U.S. Census Bureau, U.S. Department of Commerce and is required by law. The survey, conducted every five years, is the primary source of national and state-level data on domestic freight shipments by American businesses. As a shipper-based survey, the CFS collects information on how U.S. establishments transport raw materials and finished goods; the types of commodities shipped by mode of transportation; the value, weight, origin, and destinations of shipments (including exports). The CFS does not include imports or shipments originating in any U.S. territories. Industry coverage includes: Mining, Manufacturing, Wholesale Trade, Select Retail and Services, and some auxiliary establishments (e.g., warehouses) of in-scope, multi-unit, and retail companies.\n\nReturn a complete report on everything that a preservationist, data librarian, data scientist, or policy activist might want to know about this data.",
+    "assessment": "# Dataset risk assessment\nI would like your help in assessing the likelihood that this data will be changed or removed from its primary location, and that users will no longer be able to access accurate and reliable copies of it, based on the rubric below.\n\n## Sources for context\nTo help assess the rubric categories, perform additional research on the data, the agency, the data's topics and typical users, covering topics such as proposed regulatory or funding changes, recent news, and political commentary. Use whatever resources you find useful, including the Federal Register (https://www.federalregister.gov) and the federal staffing tracker at https://usajobs-tracker.abigailhaddad.com.\n\n## Rubric\nThis rubric is divided up into categories. Each category is divided up into risk levels. In your output, please select the appropriate risk level for each category based on your research.\n\n### Historical Data Availability\n- Gone: Data files prior to the current year or cycle are no longer publicly available.\n- High Risk: Some data files prior to the current year or cycle are removed.\n- Moderate Risk: Some data elements that exist in the dataset prior to the current year or cycle are removed.\n- No Known Issue: Data prior to the current year or cycle remain accessible with no known alterations.\n\n### Future Data Availability\n- Gone: Data collection and publication has been terminated.\n- High Risk: Statutory publication deadline missed and/or collection or publication skipped and/or ICR expired for more than one year.\n- Moderate Risk: Typical or intended publication date missed and/or collection or publication delayed; ICR expired up to one year.\n- No Known Issue: Data published on time or as expected and ICR active or renewed before expiration.\n\n### Data Quality\n- Gone: Data collection and publication has been terminated.\n- High Risk: Reductions in granularity, timeliness, or frequency.\n- Moderate Risk: Potential or emerging risk to granularity, timeliness, or frequency.\n- No Known Issue: Maintained or improved granularity, timeliness, or frequency.\n\n### Statutory Context\n- Gone: N/A\n- High Risk: Statutory authorization is vague and/or there are alternative data collections that could serve as substitutes and/or no known programmatic use.\n- Moderate Risk: Not explicitly required by statute but required for the implementation of a state or federal program, and there are no alternative data collections that could serve as substitutes.\n- No Known Issue: Statutorily required and/or statutory authorization is explicitly named and it is clear what has to be collected, and there aren't alternative data collections that could serve as substitutes and/or required for implementation of a federal program.\n\n### Staffing and Funding\n- Gone: All of the staff in the division or agency are gone and/or all funding has been terminated.\n- High Risk: 40% or more of staff lost, and/or 1,000 or more staff lost, and/or budget cut by 20% or more, and/or leadership removed.\n- Moderate Risk: 10\u201339% of staff lost, and/or 500\u2013999 staff lost, and/or budget cut by 10\u201319%, and/or threatened change in leadership.\n- No Known Issue: Less than 10% of staff lost and less than 10% of budget cut and no known change in leadership.\n\n### Policy\n- Gone: Data collection and publication has been terminated.\n- High Risk: Presidential Action-driven information collection request (ICR); negative policy note on site; other significant changes in accordance with Administration priorities.\n- Moderate Risk: Proposed or pending changes; statements by administration officials suggesting a change is being considered or planned.\n- No Known Issue: No notable changes since January 2025 affecting what data is collected and published.\n\nFor each category, concisely list the evidence and supporting sources that would support each risk level. Then indicate which risk level you find most appropriate and why.\n\nConclude with a simple summary of risk levels:\nHistorical Data Availability: <level>\nFuture Data Availability: <level>\nData Quality: <level>\nStatutory Context: <level>\nStaffing and Funding: <level>\nPolicy: <level>",
+    "session_metadata": "Emit a session_metadata YAML block reporting: current date, model identifier, knowledge cutoff, surface, whether memory is enabled, whether custom preferences or styles are active, all tools and MCP servers available, which tools were actually called in this session, and whether attachments were present. Mark any field not directly observable as unknown rather than inferring it."
+  },
+  "turns": {
+    "research": {
+      "request": {
+        "model": "z-ai/glm-5.3",
+        "max_output_tokens": 32768,
+        "tools": [
+          {
+            "type": "openrouter:web_search",
+            "parameters": {
+              "engine": "exa",
+              "max_results": 10,
+              "excluded_domains": [
+                "dataindex.us"
+              ]
+            }
+          },
+          {
+            "type": "openrouter:web_fetch",
+            "parameters": {
+              "engine": "openrouter",
+              "blocked_domains": [
+                "dataindex.us"
+              ],
+              "max_content_tokens": 10000
+            }
+          }
+        ],
+        "cache_control": {
+          "type": "ephemeral",
+          "ttl": "1h"
+        },
+        "session_id": "cfs-z-ai/glm-5.3-t0-2026-10-08T19:57:40Z",
+        "stop_server_tools_when": [
+          {
+            "type": "step_count_is",
+            "step_count": 200
+          }
+        ],
+        "reasoning": {
+          "effort": "high"
+        },
+        "provider": {
+          "order": [
+            "z-ai"
+          ],
+          "allow_fallbacks": false
+        }
+      },
+      "response_meta": {
+        "id": "gen-1791489460-BLq7teA9xQdiWPSVTi6w",
+        "object": "response",
+        "created_at": 1791489460,
+        "model": "z-ai/glm-5.3",
+        "status": "completed",
+        "completed_at": 1791489546,
+        "error": null,
+        "incomplete_details": null,
+        "tools": [],
+        "tool_choice": "auto",
+        "parallel_tool_calls": true,
+        "max_output_tokens": 32768,
+        "temperature": 1,
+        "top_p": 1,
+        "presence_penalty": 0,
+        "frequency_penalty": 0,
+        "top_logprobs": 0,
+        "max_tool_calls": null,
+        "metadata": {},
+        "background": false,
+        "previous_response_id": null,
+        "service_tier": "auto",
+        "truncation": "disabled",
+        "store": false,
+        "instructions": null,
+        "text": {
+          "format": {
+            "type": "text"
+          }
+        },
+        "reasoning": {
+          "effort": "high"
+        },
+        "safety_identifier": null,
+        "prompt_cache_key": null,
+        "prompt_cache_options": null,
+        "usage": {
+          "input_tokens": 45876,
+          "input_tokens_details": {
+            "cached_tokens": 29120
+          },
+          "output_tokens": 6339,
+          "output_tokens_details": {
+            "reasoning_tokens": 1370
+          },
+          "total_tokens": 52215,
+          "cost": 0.0939212,
+          "cost_details": {
+            "upstream_inference_cost": 0.0589212,
+            "upstream_inference_input_cost": 0.031029599999999997,
+            "upstream_inference_output_cost": 0.027891600000000003
+          },
+          "server_tool_use_details": {
+            "web_search_requests": 7,
+            "tool_calls_requested": 9,
+            "tool_calls_executed": 9
+          }
+        }
+      },
+      "requests": [
+        {
+          "input_tokens": 45876,
+          "input_tokens_details": {
+            "cached_tokens": 29120
+          },
+          "output_tokens": 6339,
+          "output_tokens_details": {
+            "reasoning_tokens": 1370
+          },
+          "total_tokens": 52215,
+          "cost": 0.0939212,
+          "cost_details": {
+            "upstream_inference_cost": 0.0589212,
+            "upstream_inference_input_cost": 0.031029599999999997,
+            "upstream_inference_output_cost": 0.027891600000000003
+          },
+          "server_tool_use_details": {
+            "web_search_requests": 7,
+            "tool_calls_requested": 9,
+            "tool_calls_executed": 9
+          }
+        }
+      ],
+      "searches": 7,
+      "fetches": 2,
+      "tool_items": [
+        {
+          "type": "openrouter:web_search",
+          "id": "st_tmp_2yz20rlf6c1",
+          "status": "completed",
+          "action": {
+            "type": "search",
+            "query": "Commodity Flow Survey BTS Census Bureau history legislation mandate",
+            "sources": [
+              {
+                "type": "url",
+                "url": "https://www.census.gov/programs-surveys/cfs/about.html"
+              },
+              {
+                "type": "url",
+                "url": "https://www.census.gov/econ/overview/se0700.html"
+              },
+              {
+                "type": "url",
+                "url": "https://www.census.gov/data/academy/resources/one-pagers/commodity-flow-survey.html"
+              },
+              {
+                "type": "url",
+                "url": "https://www.bts.gov/cfs/faqs"
+              },
+              {
+                "type": "url",
+                "url": "https://www.census.gov/programs-surveys/cfs/respondent-information/faq.html"
+              },
+              {
+                "type": "url",
+                "url": "https://www.trb.org/publications/circulars/ec088.pdf"
+              },
+              {
+                "type": "url",
+                "url": "https://www.bts.gov/product/commodity-flow-survey"
+              },
+              {
+                "type": "url",
+                "url": "https://rosap.ntl.bts.gov/view/dot/54739"
+              },
+              {
+                "type": "url",
+                "url": "https://www.test.census.gov/programs-surveys/cfs/technical-documentation/methodology.2007.html"
+              },
+              {
+                "type": "url",
+                "url": "https://www.bts.gov/cfs"
+              }
+            ]
+          }
+        },
+        {
+          "type": "openrouter:web_search",
+          "id": "st_tmp_39ps02cqgvs",
+          "status": "completed",
+          "action": {
+            "type": "search",
+            "query": "Commodity Flow Survey methodology sample design data products users",
+            "sources": [
+              {
+                "type": "url",
+                "url": "https://www.census.gov/programs-surveys/cfs/technical-documentation/methodology.html"
+              },
+              {
+                "type": "url",
+                "url": "https://www.census.gov/programs-surveys/cfs/technical-documentation/methodology/2022.html"
+              },
+              {
+                "type": "url",
+                "url": "https://www.census.gov/programs-surveys/cfs.html"
+              },
+              {
+                "type": "url",
+                "url": "https://www2.census.gov/programs-surveys/cfs/datasets/2022/cfs_2022_pums_users_guide.pdf"
+              },
+              {
+                "type": "url",
+                "url": "https://www2.census.gov/programs-surveys/cfs/technical-documentation/methodology/2017cfsmethodology.pdf"
+              },
+              {
+                "type": "url",
+                "url": "https://www.census.gov/data/experimental-data-products/commodity-flow-survey-subarea-estimates.html"
+              },
+              {
+                "type": "url",
+                "url": "https://data.census.gov/table/CFSAREA2022.CF2200A12?d=ECNSVY+Commodity+Flow+Survey+Geographic+Area+Series"
+              },
+              {
+                "type": "url",
+                "url": "https://www.census.gov/library/publications/2022/econ/2022cfs.html"
+              },
+              {
+                "type": "url",
+                "url": "https://www2.census.gov/programs-surveys/cfs/datasets/2017/cfs_2017_puf_users_guide.pdf"
+              },
+              {
+                "type": "url",
+                "url": "https://www.census.gov/programs-surveys/cfs/technical-documentation/methodology.2007.html"
+              }
+            ]
+          }
+        },
+        {
+          "type": "openrouter:web_search",
+          "id": "st_tmp_apdjuixtsa",
+          "status": "completed",
+          "action": {
+            "type": "search",
+            "query": "Commodity Flow Survey 2022 latest release data",
+            "sources": [
+              {
+                "type": "url",
+                "url": "https://www.census.gov/programs-surveys/cfs.html"
+              },
+              {
+                "type": "url",
+                "url": "https://www.bts.gov/newsroom/commodity-flow-survey-2022-data-released"
+              },
+              {
+                "type": "url",
+                "url": "https://www.census.gov/data/tables/2022/econ/cfs/aff-2022.html"
+              },
+              {
+                "type": "url",
+                "url": "https://www.census.gov/newsroom/press-releases/2025/cfs-shipments-of-goods.html"
+              },
+              {
+                "type": "url",
+                "url": "https://www.census.gov/data/datasets/2022/econ/cfs/historical-datasets.html"
+              },
+              {
+                "type": "url",
+                "url": "https://cfsdata.bts.gov/"
+              },
+              {
+                "type": "url",
+                "url": "https://www.bts.gov/browse-statistical-products-and-data/surveys/commodity-flow-survey/cfs-data-explorer-0"
+              },
+              {
+                "type": "url",
+                "url": "https://www.census.gov/programs-surveys/cfs/data/tables.html"
+              },
+              {
+                "type": "url",
+                "url": "https://www.bts.gov/cfs"
+              },
+              {
+                "type": "url",
+                "url": "https://data.census.gov/table/CFSEXPORT2022.CF2200E2?d=ECNSVY+Commodity+Flow+Survey+Exports+Series"
+              }
+            ]
+          }
+        },
+        {
+          "type": "openrouter:web_search",
+          "id": "st_tmp_ioj4fohm36",
+          "status": "completed",
+          "action": {
+            "type": "search",
+            "query": "Commodity Flow Survey Freight Analysis Framework FAF users transportation planning states MPOs",
+            "sources": [
+              {
+                "type": "url",
+                "url": "https://www.bts.gov/cfs/faqs"
+              },
+              {
+                "type": "url",
+                "url": "https://www.bts.gov/faf"
+              },
+              {
+                "type": "url",
+                "url": "https://ops.fhwa.dot.gov/docs/fafplandraft/fafplandraft.htm"
+              },
+              {
+                "type": "url",
+                "url": "https://rosap.ntl.bts.gov/view/dot/62743/dot_62743_DS1.pdf"
+              },
+              {
+                "type": "url",
+                "url": "https://www.bts.gov/cfs"
+              },
+              {
+                "type": "url",
+                "url": "https://faf.ornl.gov/faf5/data/FAF5%20User%20Guide.pdf"
+              },
+              {
+                "type": "url",
+                "url": "https://www.fhwa.dot.gov/Planning/freight_planning/talking_freight/jan23transcript.cfm"
+              },
+              {
+                "type": "url",
+                "url": "https://www.bts.gov/faf/county/documentation"
+              },
+              {
+                "type": "url",
+                "url": "https://www.bts.gov/faf/faf4"
+              },
+              {
+                "type": "url",
+                "url": "https://midamericafreight.org/wp-content/uploads/2021/07/FR_MVFC03_FR.pdf"
+              }
+            ]
+          }
+        },
+        {
+          "type": "openrouter:web_search",
+          "id": "st_tmp_4bbrsmwbrmg",
+          "status": "completed",
+          "action": {
+            "type": "search",
+            "query": "Commodity Flow Survey limitations criticisms coverage crude petroleum pipeline farms undercount",
+            "sources": [
+              {
+                "type": "url",
+                "url": "https://onlinepubs.trb.org/onlinepubs/archive/conferences/2005/CFS/Workshop-Comparability-Research.pdf"
+              },
+              {
+                "type": "url",
+                "url": "https://rosap.ntl.bts.gov/view/dot/62743/dot_62743_DS1.pdf"
+              },
+              {
+                "type": "url",
+                "url": "https://www.bts.gov/cfs/faqs"
+              },
+              {
+                "type": "url",
+                "url": "https://www.nationalacademies.org/read/10837/chapter/9"
+              },
+              {
+                "type": "url",
+                "url": "https://ops.fhwa.dot.gov/publications/fhwahop20011/chap2.htm"
+              },
+              {
+                "type": "url",
+                "url": "https://www.census.gov/econ/overview/se0700.html"
+              },
+              {
+                "type": "url",
+                "url": "https://onlinepubs.trb.org/onlinepubs/ncfrp/ncfrp_rpt_026Dev.pdf"
+              },
+              {
+                "type": "url",
+                "url": "https://www.trb.org/publications/circulars/ec088.pdf"
+              },
+              {
+                "type": "url",
+                "url": "https://ops.fhwa.dot.gov/publications/fhwahop20011/chap4.htm"
+              },
+              {
+                "type": "url",
+                "url": "https://faf.ornl.gov/faf5/data/FAF5_Base_Year_Method_12-2021_FINAL.pdf"
+              }
+            ]
+          }
+        },
+        {
+          "type": "openrouter:web_fetch",
+          "id": "st_tmp_gnhzprryxw",
+          "status": "incomplete",
+          "url": "https://www.bts.gov/cfs/faqs",
+          "httpStatus": 403,
+          "error": "HTTP 403: Forbidden"
+        },
+        {
+          "type": "openrouter:web_search",
+          "id": "st_tmp_d0510r68ds",
+          "status": "completed",
+          "action": {
+            "type": "search",
+            "query": "Bureau of Transportation Statistics statutory authority 49 U.S.C. 111 Intermodal Surface Transportation Efficiency Act 1991 created data collection"
+          }
+        },
+        {
+          "type": "openrouter:web_search",
+          "id": "st_tmp_6bo5l513126",
+          "status": "completed",
+          "action": {
+            "type": "search",
+            "query": "\"2027 Commodity Flow Survey\" plans content changes BTS Census"
+          }
+        },
+        {
+          "type": "openrouter:web_fetch",
+          "id": "st_tmp_fad9yhw404g",
+          "status": "incomplete",
+          "url": "https://www.bts.gov/product/commodity-flow-survey",
+          "httpStatus": 403,
+          "error": "HTTP 403: Forbidden"
+        }
+      ],
+      "ended": "answered",
+      "seconds": 85.5
+    },
+    "assessment": {
+      "request": {
+        "model": "z-ai/glm-5.3",
+        "max_output_tokens": 32768,
+        "tools": [
+          {
+            "type": "openrouter:web_search",
+            "parameters": {
+              "engine": "exa",
+              "max_results": 10,
+              "excluded_domains": [
+                "dataindex.us"
+              ]
+            }
+          },
+          {
+            "type": "openrouter:web_fetch",
+            "parameters": {
+              "engine": "openrouter",
+              "blocked_domains": [
+                "dataindex.us"
+              ],
+              "max_content_tokens": 10000
+            }
+          }
+        ],
+        "cache_control": {
+          "type": "ephemeral",
+          "ttl": "1h"
+        },
+        "session_id": "cfs-z-ai/glm-5.3-t0-2026-10-08T19:57:40Z",
+        "stop_server_tools_when": [
+          {
+            "type": "step_count_is",
+            "step_count": 200
+          }
+        ],
+        "reasoning": {
+          "effort": "high"
+        },
+        "provider": {
+          "order": [
+            "z-ai"
+          ],
+          "allow_fallbacks": false
+        }
+      },
+      "response_meta": {
+        "id": "gen-1791489546-9kkT96wNFzy3qZloHhuL",
+        "object": "response",
+        "created_at": 1791489546,
+        "model": "z-ai/glm-5.3",
+        "status": "completed",
+        "completed_at": 1791489692,
+        "error": null,
+        "incomplete_details": null,
+        "tools": [],
+        "tool_choice": "auto",
+        "parallel_tool_calls": true,
+        "max_output_tokens": 32768,
+        "temperature": 1,
+        "top_p": 1,
+        "presence_penalty": 0,
+        "frequency_penalty": 0,
+        "top_logprobs": 0,
+        "max_tool_calls": null,
+        "metadata": {},
+        "background": false,
+        "previous_response_id": null,
+        "service_tier": "auto",
+        "truncation": "disabled",
+        "store": false,
+        "instructions": null,
+        "text": {
+          "format": {
+            "type": "text"
+          }
+        },
+        "reasoning": {
+          "effort": "high"
+        },
+        "safety_identifier": null,
+        "prompt_cache_key": null,
+        "prompt_cache_options": null,
+        "usage": {
+          "input_tokens": 158606,
+          "input_tokens_details": {
+            "cached_tokens": 104384
+          },
+          "output_tokens": 10534,
+          "output_tokens_details": {
+            "reasoning_tokens": 6751
+          },
+          "total_tokens": 169140,
+          "cost": 0.18440024,
+          "cost_details": {
+            "upstream_inference_cost": 0.14940024,
+            "upstream_inference_input_cost": 0.10305064000000001,
+            "upstream_inference_output_cost": 0.046349600000000005
+          },
+          "server_tool_use_details": {
+            "web_search_requests": 6,
+            "tool_calls_requested": 10,
+            "tool_calls_executed": 10
+          }
+        }
+      },
+      "requests": [
+        {
+          "input_tokens": 158606,
+          "input_tokens_details": {
+            "cached_tokens": 104384
+          },
+          "output_tokens": 10534,
+          "output_tokens_details": {
+            "reasoning_tokens": 6751
+          },
+          "total_tokens": 169140,
+          "cost": 0.18440024,
+          "cost_details": {
+            "upstream_inference_cost": 0.14940024,
+            "upstream_inference_input_cost": 0.10305064000000001,
+            "upstream_inference_output_cost": 0.046349600000000005
+          },
+          "server_tool_use_details": {
+            "web_search_requests": 6,
+            "tool_calls_requested": 10,
+            "tool_calls_executed": 10
+          }
+        }
+      ],
+      "searches": 6,
+      "fetches": 4,
+      "tool_items": [
+        {
+          "type": "openrouter:web_search",
+          "id": "st_tmp_o16xppsba9q",
+          "status": "completed",
+          "action": {
+            "type": "search",
+            "query": "Census Bureau 2025 staffing reduction RIF layoffs budget cuts news",
+            "sources": [
+              {
+                "type": "url",
+                "url": "https://news.bloomberglaw.com/daily-labor-report/census-bureau-hit-with-layoffs-as-100-get-notices-in-shutdown"
+              },
+              {
+                "type": "url",
+                "url": "https://thecensusproject.org/2025/10/14/government-shutdown-rifs-impact-u-s-census-bureau/"
+              },
+              {
+                "type": "url",
+                "url": "https://www.npr.org/2025/04/17/nx-s1-5349435/us-census-bureau-data-decennial"
+              },
+              {
+                "type": "url",
+                "url": "https://www.govexec.com/workforce/2025/07/census-has-long-struggled-staffing-shortages-employees-say-trump-making-it-worse/406840/"
+              },
+              {
+                "type": "url",
+                "url": "https://www.amstat.org/docs/default-source/amstat-documents/the-nations-data-at-risk-2025/census.pdf"
+              },
+              {
+                "type": "url",
+                "url": "https://www.c2er.org/2025/06/proposed-federal-budget-signals-cuts-to-core-economic-data-capacity/"
+              },
+              {
+                "type": "url",
+                "url": "https://thecensusproject.org/2025/11/04/october-2025-census-project-update/"
+              },
+              {
+                "type": "url",
+                "url": "https://www.wxxinews.org/2025-04-17/brain-drain-at-census-bureau-has-employees-warning-about-the-countrys-statistics"
+              },
+              {
+                "type": "url",
+                "url": "https://www.mrweb.com/drno/news38931.htm"
+              },
+              {
+                "type": "url",
+                "url": "https://www.rcrcnet.org/wp-content/uploads/Documents/Advocacy&BW/Federal/Memo_ACG_2025-10-14_Agency-by-Agency_-Reductions-in-Force-RIFs.pdf"
+              }
+            ]
+          }
+        },
+        {
+          "type": "openrouter:web_search",
+          "id": "st_tmp_tynikc43vdj",
+          "status": "completed",
+          "action": {
+            "type": "search",
+            "query": "Commodity Flow Survey Federal Register information collection request 2025",
+            "sources": [
+              {
+                "type": "url",
+                "url": "https://www.federalregister.gov/documents/2021/11/03/2021-23995/agency-information-collection-activities-submission-to-the-office-of-management-and-budget-omb-for"
+              },
+              {
+                "type": "url",
+                "url": "https://thefederalregister.org/documents/2026-10118/agency-information-collection-activities-submission-to-the-office-of-management-and-budget-omb-for-review-and-approval-c"
+              },
+              {
+                "type": "url",
+                "url": "https://www.govinfo.gov/content/pkg/FR-2026-05-20/pdf/2026-10046.pdf"
+              },
+              {
+                "type": "url",
+                "url": "https://thecensusproject.org/2026/05/21/frn-on-the-commodity-flow-survey/"
+              },
+              {
+                "type": "url",
+                "url": "https://www.govinfo.gov/content/pkg/FR-2015-09-24/pdf/2015-24232.pdf"
+              },
+              {
+                "type": "url",
+                "url": "https://omb.report/icr/201909-0607-002/doc/103607701.pdf"
+              },
+              {
+                "type": "url",
+                "url": "https://www.census.gov/topics/research/guidance/restricted-use-microdata/economic-data.html"
+              },
+              {
+                "type": "url",
+                "url": "https://www.census.gov/programs-surveys/cfs/respondent-information/faq.html"
+              },
+              {
+                "type": "url",
+                "url": "https://www.govinfo.gov/content/pkg/FR-2015-05-05/pdf/2015-10468.pdf"
+              },
+              {
+                "type": "url",
+                "url": "https://www2.census.gov/programs-surveys/cfs/technical-documentation/questionnaires/CFS-1100_2022.pdf"
+              }
+            ]
+          }
+        },
+        {
+          "type": "openrouter:web_search",
+          "id": "st_tmp_cmafrjzbh2",
+          "status": "completed",
+          "action": {
+            "type": "search",
+            "query": "Bureau of Transportation Statistics 2025 budget cuts staffing Department of Transportation layoffs",
+            "sources": [
+              {
+                "type": "url",
+                "url": "https://www.amstat.org/docs/default-source/amstat-documents/the-nations-data-at-risk-2025/bureau-of-transportation-statistics.pdf"
+              },
+              {
+                "type": "url",
+                "url": "https://www.govexec.com/workforce/2025/05/initial-layoffs-transportation-department-expected-late-may/405041/"
+              },
+              {
+                "type": "url",
+                "url": "https://enotrans.org/article/dot-job-cuts-already-over-30-at-fta-25-at-fhwa-nhtsa/"
+              },
+              {
+                "type": "url",
+                "url": "https://www.congress.gov/crs-product/R48596"
+              },
+              {
+                "type": "url",
+                "url": "https://www.amstat.org/docs/default-source/amstat-documents/the-nation's-data-at-risk-supporting-materials/bureau-of-transportation-statistics.pdf"
+              },
+              {
+                "type": "url",
+                "url": "https://www.politico.com/news/2025/03/13/transportation-department-layoffs-safety-00227947"
+              },
+              {
+                "type": "url",
+                "url": "https://www.congress.gov/crs_external_products/R/PDF/R48596/R48596.2.pdf"
+              },
+              {
+                "type": "url",
+                "url": "https://www.govexec.com/management/2025/07/congress-advancing-fy26-spending-bills-including-some-dramatic-staffing-cuts/406733/"
+              },
+              {
+                "type": "url",
+                "url": "https://ampo.org/wp-content/uploads/2025/02/FY25-DOT-Year-long-CR-table-packet-1.pdf"
+              },
+              {
+                "type": "url",
+                "url": "https://www.reuters.com/business/world-at-work/us-auto-safety-agency-shedding-more-than-25-employees-2025-07-17/"
+              }
+            ]
+          }
+        },
+        {
+          "type": "openrouter:web_search",
+          "id": "st_tmp_sejrt46r37",
+          "status": "completed",
+          "action": {
+            "type": "search",
+            "query": "Census Bureau surveys canceled 2025 2026 economic data programs discontinued",
+            "sources": [
+              {
+                "type": "url",
+                "url": "https://thefederalregister.org/documents/2026-18449/annual-survey-of-state-government-tax-collections"
+              },
+              {
+                "type": "url",
+                "url": "https://www.federalregister.gov/documents/2025/04/14/2025-06303/agency-information-collection-activities-submission-to-the-office-of-management-and-budget-omb-for"
+              },
+              {
+                "type": "url",
+                "url": "https://www.census.gov/programs-surveys/brds.html"
+              },
+              {
+                "type": "url",
+                "url": "https://www.freightworks.org/sites/default/files/2026-05/26-416-TT-0078-ToolboxTuesday-Understanding-Economic-Statistics.pdf"
+              },
+              {
+                "type": "url",
+                "url": "https://www.census.gov/programs-surveys/asm/about/faq.html"
+              },
+              {
+                "type": "url",
+                "url": "https://www.npr.org/2025/05/23/nx-s1-5409331/doge-data-census-bureau"
+              },
+              {
+                "type": "url",
+                "url": "https://www.npr.org/2025/01/24/nx-s1-5250264/unemployment-rate-cpi-inflation-census-bureau-labor-statistics"
+              },
+              {
+                "type": "url",
+                "url": "https://thefederalregister.org/documents/2026-16188/agency-information-collection-activities-submission-to-the-office-of-management-and-budget-omb-for-review-and-approval-c"
+              },
+              {
+                "type": "url",
+                "url": "https://www.cbpp.org/research/poverty-and-inequality/federal-data-are-disappearing-as-statistical-agencies-face-budget"
+              },
+              {
+                "type": "url",
+                "url": "https://www.test.census.gov/programs-surveys/ase.html"
+              }
+            ]
+          }
+        },
+        {
+          "type": "openrouter:web_search",
+          "id": "st_tmp_g75thwuhulf",
+          "status": "completed",
+          "action": {
+            "type": "search",
+            "query": "data.gov shutdown 2025 federal open data catalog replacement datasets removed archived",
+            "sources": [
+              {
+                "type": "url",
+                "url": "https://cyber.harvard.edu/hoap/The_Trump_administrations_on_open_access_to_research"
+              },
+              {
+                "type": "url",
+                "url": "https://github.com/GSA/datagov-catalog"
+              },
+              {
+                "type": "url",
+                "url": "https://data.gov/user-guide/"
+              },
+              {
+                "type": "url",
+                "url": "https://nsarchive.gwu.edu/special-exhibit/climate-change-transparency-project/2026-03-30/disappearing-data-chronology"
+              },
+              {
+                "type": "url",
+                "url": "https://www.404media.co/archivists-work-to-identify-and-save-the-thousands-of-datasets-disappearing-from-data-gov/"
+              },
+              {
+                "type": "url",
+                "url": "https://fas.org/publication/data-termination-tracker/"
+              },
+              {
+                "type": "url",
+                "url": "https://github.com/gsa/data.gov/issues/5704"
+              },
+              {
+                "type": "url",
+                "url": "https://phys.org/news/2025-08-taxpayers-paid.html"
+              },
+              {
+                "type": "url",
+                "url": "https://www.npr.org/sections/shots-health-news/2025/02/06/nx-s1-5288113/cdc-website-health-data-trump"
+              },
+              {
+                "type": "url",
+                "url": "https://data.gov/blog/catalog-update/"
+              }
+            ]
+          }
+        },
+        {
+          "type": "openrouter:web_fetch",
+          "id": "st_tmp_2k5jfu7i7hz",
+          "status": "completed",
+          "url": "https://usajobs-tracker.abigailhaddad.com",
+          "content": "<!DOCTYPE html>\n<html lang=\"en\">\n<head>\n    <meta charset=\"UTF-8\">\n    <meta name=\"viewport\" content=\"width=device-width, initial-scale=1.0\">\n    <title>USAJobs Listings Tracker</title>\n    \n    <!-- DataTables CSS -->\n    <link rel=\"stylesheet\" href=\"https://cdn.datatables.net/1.13.6/css/dataTables.bootstrap5.min.css\">\n    <link rel=\"stylesheet\" href=\"https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css\">\n    <link rel=\"stylesheet\" href=\"https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.0/font/bootstrap-icons.css\">\n    \n    <style>\n        body {\n            font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;\n            background-color: #f8f9fa;\n            color: #333;\n        }\n        \n        .container {\n            max-width: 1400px;\n            margin: 0 auto;\n            padding: 20px;\n        }\n        \n        h1 {\n            color: #003366;\n            font-weight: 600;\n            margin-bottom: 10px;\n        }\n        \n        .subtitle {\n            color: #999;\n            font-size: 0.9rem;\n            margin-bottom: 20px;\n        }\n        \n        .summary-stats {\n            background: white;\n            padding: 20px;\n            border-radius: 8px;\n            box-shadow: 0 2px 4px rgba(0,0,0,0.1);\n            margin-bottom: 30px;\n        }\n        \n        .stat-box {\n            text-align: center;\n            padding: 15px;\n            border-right: 1px solid #e9ecef;\n        }\n        \n        .stat-box:last-child {\n            border-right: none;\n        }\n        \n        .stat-value {\n            font-size: 2rem;\n            font-weight: 600;\n            color: #003366;\n        }\n        \n        .stat-label {\n            color: #666;\n            font-size: 0.85rem;\n            text-transform: uppercase;\n            line-height: 1.3;\n        }\n        \n        .table-container {\n            background: white;\n            padding: 25px;\n            border-radius: 8px;\n            box-shadow: 0 2px 4px rgba(0,0,0,0.1);\n        }\n        \n        .dataTables_wrapper .dataTables_filter input {\n            border: 1px solid #ddd;\n            border-radius: 4px;\n            padding: 5px 10px;\n            margin-left: 10px;\n        }\n        \n        .dataTables_wrapper .dataTables_length select {\n            border: 1px solid #ddd;\n            border-radius: 4px;\n            padding: 5px;\n        }\n        \n        table.dataTable {\n            border-collapse: collapse !important;\n        }\n        \n        table.dataTable thead th {\n            background-color: #003366;\n            color: white;\n            font-weight: 600;\n            border-bottom: none !important;\n            white-space: nowrap;\n            position: relative;\n            cursor: pointer;\n        }\n        \n        table.dataTable thead th.filtering {\n            background-color: #00508f;\n        }\n        \n        table.dataTable tbody tr:hover {\n            background-color: #f0f8ff;\n        }\n        \n        table.dataTable tbody td {\n            padding: 12px;\n            vertical-align: middle;\n        }\n        \n        .percentage-cell {\n            font-weight: 600;\n        }\n        \n        .high-percentage {\n            color: #388e3c;  /* Green - good (maintained/increased listings) */\n        }\n        \n        .medium-percentage {\n            color: #f57c00;  /* Orange - moderate (some decline) */\n        }\n        \n        .low-percentage {\n            color: #d32f2f;  /* Red - bad (major decline) */\n        }\n        \n        .expiring-soon {\n            background-color: #fff3cd;\n        }\n        \n        .no-year {\n            background-color: #e8f4f8;\n        }\n        \n        /* Column filter styles */\n        .column-filter-container {\n            position: absolute;\n            background: white;\n            border: 1px solid #ddd;\n            border-radius: 4px;\n            box-shadow: 0 4px 6px rgba(0,0,0,0.1);\n            padding: 10px;\n            z-index: 1000;\n            min-width: 200px;\n            max-height: 300px;\n            overflow-y: auto;\n        }\n        \n        .column-filter-container input[type=\"text\"] {\n            width: 100%;\n            padding: 5px;\n            margin-bottom: 10px;\n            border: 1px solid #ddd;\n            border-radius: 3px;\n        }\n        \n        .column-filter-container label {\n            display: block;\n            padding: 3px 0;\n            cursor: pointer;\n        }\n        \n        .column-filter-container label:hover {\n            background-color: #f0f0f0;\n        }\n        \n        .column-filter-container input[type=\"checkbox\"] {\n            margin-right: 8px;\n        }\n        \n        .filter-buttons {\n            margin-top: 10px;\n            text-align: right;\n        }\n        \n        .filter-buttons button {\n            margin-left: 5px;\n            padding: 3px 10px;\n            border: 1px solid #ddd;\n            border-radius: 3px;\n            background: white;\n            cursor: pointer;\n            font-size: 0.85rem;\n        }\n        \n        .filter-buttons button.apply {\n            background: #003366;\n            color: white;\n        }\n        \n        .filter-buttons button:hover {\n            opacity: 0.8;\n        }\n        \n        th.has-filter::after {\n            content: \" \u25bc\";\n            font-size: 0.8em;\n            opacity: 0.5;\n        }\n        \n        /* Bubble chart styles */\n        .treemap-container {\n            background: white;\n            padding: 20px;\n            border-radius: 8px;\n            box-shadow: 0 2px 4px rgba(0,0,0,0.1);\n            margin-bottom: 30px;\n        }\n        \n        .treemap-title {\n            font-size: 1.2rem;\n            font-weight: 600;\n            color: #003366;\n            margin-bottom: 15px;\n        }\n        \n        #bubble-chart {\n            width: 100%;\n            height: 460px;\n            position: relative;\n        }\n        \n        .bubble {\n            cursor: pointer;\n            opacity: 0.8;\n            transition: all 0.3s;\n        }\n        \n        .bubble:hover {\n            opacity: 1;\n            stroke: #003366;\n            stroke-width: 3;\n        }\n        \n        .axis-label {\n            font-size: 14px;\n            font-weight: 600;\n            fill: #333;\n        }\n        \n        .grid line {\n            stroke: #e0e0e0;\n            stroke-opacity: 0.7;\n            shape-rendering: crispEdges;\n        }\n        \n        .grid path {\n            stroke-width: 0;\n        }\n        \n        .quadrant-label {\n            fill: #666;\n            font-size: 12px;\n            font-style: italic;\n            opacity: 0.7;\n        }\n        \n        /* Filter section styles */\n        .filter-section {\n            background: white;\n            padding: 20px;\n            border-radius: 8px;\n            box-shadow: 0 2px 4px rgba(0,0,0,0.1);\n            margin-bottom: 30px;\n        }\n        \n        .filter-section h3 {\n            color: #003366;\n            font-size: 1.3rem;\n            margin-bottom: 15px;\n        }\n        \n        .filter-controls label {\n            font-size: 0.85rem;\n            font-weight: 600;\n            color: #666;\n            margin-bottom: 5px;\n        }\n        \n        .active-filters {\n            margin-top: 15px;\n            min-height: 30px;\n        }\n        \n        .filter-badge {\n            display: inline-block;\n            background: #003366;\n            color: white;\n            padding: 5px 10px;\n            border-radius: 20px;\n            margin-right: 10px;\n            margin-bottom: 5px;\n            font-size: 0.85rem;\n        }\n        \n        .filter-badge .remove-filter {\n            margin-left: 8px;\n            cursor: pointer;\n            font-weight: bold;\n        }\n        \n        .filter-badge .remove-filter:hover {\n            color: #ff6b6b;\n        }\n        \n        /* Multi-select dropdown styles */\n        .filter-dropdown {\n            position: relative;\n        }\n        \n        .filter-dropdown-menu {\n            position: absolute;\n            top: 100%;\n            left: 0;\n            right: 0;\n            z-index: 1000;\n            background: white;\n            border: 1px solid #ddd;\n            border-radius: 4px;\n            box-shadow: 0 4px 6px rgba(0,0,0,0.1);\n            padding: 10px;\n            margin-top: 2px;\n        }\n        \n        .filter-dropdown-menu label {\n            cursor: pointer;\n        }\n        \n        .filter-dropdown-menu label:hover {\n            background-color: #f0f0f0;\n        }\n        \n        .filter-dropdown-menu .filter-search {\n            margin-bottom: 5px;\n        }\n        \n        .filter-dropdown-menu .filter-options label {\n            padding: 3px 8px;\n            margin: 0;\n            display: block;\n        }\n        \n        .filter-dropdown-menu input[type=\"checkbox\"] {\n            margin-right: 8px;\n        }\n        \n        /* Active filters display */\n        .active-filters-display {\n            color: #d32f2f;\n            font-size: 1.1rem;\n            font-weight: 600;\n            margin-bottom: 20px;\n            min-height: 1.5em;\n        }\n        \n        #downloadCSV:hover {\n            background-color: #00508f !important;\n            transform: translateY(-1px);\n            box-shadow: 0 2px 4px rgba(0,0,0,0.2);\n        }\n        \n        /* Skip link for keyboard navigation */\n        .skip-link {\n            position: absolute;\n            top: -40px;\n            left: 0;\n            background: #003366;\n            color: white;\n            padding: 8px;\n            text-decoration: none;\n            z-index: 9999;\n        }\n        \n        .skip-link:focus {\n            top: 0;\n        }\n        \n        /* Improved focus indicators */\n        a:focus,\n        button:focus,\n        input:focus,\n        select:focus,\n        textarea:focus {\n            outline: 3px solid #003366;\n            outline-offset: 2px;\n        }\n        \n        /* Screen reader only content */\n        .sr-only {\n            position: absolute;\n            width: 1px;\n            height: 1px;\n            padding: 0;\n            margin: -1px;\n            overflow: hidden;\n            clip: rect(0, 0, 0, 0);\n            white-space: nowrap;\n            border: 0;\n        }\n        \n    </style>\n</head>\n<body>\n    <!-- Skip to main content link for keyboard navigation -->\n    <a href=\"#main-content\" class=\"skip-link\">Skip to main content</a>\n    \n    <!-- Work in Progress Banner -->\n    <div class=\"alert alert-warning mb-0\" role=\"alert\">\n        <div class=\"container\">\n            <strong>\ud83d\udea7 Active Development:</strong> This is an experimental tool tracking federal job postings.\n            Data source: <a href=\"https://github.com/abigailhaddad/usajobs_historical\" target=\"_blank\" class=\"alert-link\">USAJobs Historical Data</a> | <a class='alert-link' href='/methodology'>Methodology</a>\n        </div>\n    </div>\n\n    <!-- Archive Notice Banner -->\n    <div class=\"alert alert-danger mb-0\" role=\"alert\" style=\"border-radius: 0;\">\n        <div class=\"container\">\n            <strong>\ud83d\udcc1 Archive Notice:</strong> This tracker will be archived on December 31, 2025. Data collection will stop on that date and no further updates will be made.\n        </div>\n    </div>\n\n    <div class=\"container\" id=\"main-content\">\n        <h1>USAJobs Listings Tracker</h1>\n        <p class=\"subtitle\" id=\"dateRangeSubtitle\">Loading date range...</p>\n        <div id=\"activeFiltersDisplay\" class=\"active-filters-display\"></div>\n        \n        <!-- ARIA live region for screen reader announcements -->\n        <div class=\"sr-only\" aria-live=\"polite\" aria-atomic=\"true\" id=\"ariaLiveRegion\"></div>\n        \n        <!-- Important Caveats -->\n        <div class=\"alert alert-info mt-3 mb-3\">\n            <small>\n                <strong>Important Notes:</strong>\n                <ul class=\"mb-0\" style=\"padding-left: 20px;\">\n                    <li>Job listings \u2260 actual hires. One listing may result in multiple hires, one hire, or no hires.</li>\n                    <li>Not all federal positions are posted on USAJobs.</li>\n                    <li>Job listings which include multiple occupation series are counted under the first series listed.</li>\n                    <li>Subagency view and raw job listings are only available after selecting a specific department.</li>\n                </ul>\n            </small>\n        </div>\n        \n        <!-- Data Source Attribution -->\n        <div class=\"text-center text-muted mb-4\">\n            <small>\n                Data source: <a href=\"https://github.com/abigailhaddad/usajobs_historical\" target=\"_blank\" class=\"text-decoration-none\">\n                    USAJobs Historical Data\n                </a>\n                <br>\n                <span id=\"lastUpdated\"></span>\n            </small>\n        </div>\n        \n        <div class=\"summary-stats\">\n            <div class=\"row\">\n                <div class=\"col-md-3 stat-box\">\n                    <div class=\"stat-value\" id=\"total2024\">Loading...</div>\n                    <div class=\"stat-label\" id=\"previousYearLabel\">Previous Year</div>\n                </div>\n                <div class=\"col-md-3 stat-box\">\n                    <div class=\"stat-value\" id=\"total2025\">Loading...</div>\n                    <div class=\"stat-label\" id=\"currentYearLabel\">Current Year</div>\n                </div>\n                <div class=\"col-md-3 stat-box\">\n                    <div class=\"stat-value\" id=\"overallPercentage\">Loading...</div>\n                    <div class=\"stat-label\" id=\"percentageLabel\">Year-over-Year %</div>\n                </div>\n                <div class=\"col-md-3 stat-box\">\n                    <div class=\"stat-value\" id=\"entityCount\">Loading...</div>\n                    <div class=\"stat-label\">Departments</div>\n                </div>\n            </div>\n        </div>\n        \n        <!-- Unified Filter Section -->\n        <div class=\"filter-section\">\n            <h3>Filters & Display Options</h3>\n            <div class=\"filter-controls\">\n                <div class=\"row mb-3\">\n                    <div class=\"col-md-3\">\n                        <label for=\"mainDepartmentFilter\">Department</label>\n                        <select class=\"form-control form-control-sm\" id=\"mainDepartmentFilter\">\n                            <option value=\"\">All Departments</option>\n                        </select>\n                    </div>\n                    <div class=\"col-md-3\">\n                        <label for=\"mainAgencyFilter\">Agency</label>\n                        <select class=\"form-control form-control-sm\" id=\"mainAgencyFilter\">\n                            <option value=\"\">All Agencies</option>\n                        </select>\n                    </div>\n                    <div class=\"col-md-3\">\n                        <label for=\"mainAppointmentFilter\">Appointment Type</label>\n                        <select class=\"form-control form-control-sm\" id=\"mainAppointmentFilter\">\n                            <option value=\"\">All Types</option>\n                        </select>\n                    </div>\n                    <div class=\"col-md-3\">\n                        <label for=\"mainOccupationFilter\">Occupation Series</label>\n                        <select class=\"form-control form-control-sm\" id=\"mainOccupationFilter\">\n                            <option value=\"\">All Occupations</option>\n                        </select>\n                    </div>\n                </div>\n                <div class=\"row mb-3\">\n                    <div class=\"col-md-3\">\n                        <label for=\"aggregationLevel\">View By</label>\n                        <select id=\"aggregationLevel\" class=\"form-control form-control-sm\">\n                            <option value=\"department\" selected>Department</option>\n                            <option value=\"agency\">Agency</option>\n                            <option value=\"subagency\" disabled>Subagency (select a department first)</option>\n                        </select>\n                    </div>\n                    <div class=\"col-md-3\">\n                        <label>&nbsp;</label>\n                        <div class=\"form-check\">\n                            <input class=\"form-check-input\" type=\"checkbox\" id=\"showRawJobs\" disabled>\n                            <label class=\"form-check-label\" for=\"showRawJobs\">\n                                Show Raw Jobs (select a department first)\n                            </label>\n                        </div>\n                    </div>\n                </div>\n            </div>\n        </div>\n        \n        <div class=\"treemap-container\">\n            <h2 class=\"treemap-title\" id=\"bubbleChartTitle\">USAJobs Counts by Department</h2>\n            <p style=\"margin-top: -10px; margin-bottom: 15px; color: #666; font-size: 0.9rem;\">Bubble size = 2024 count</p>\n            <div id=\"bubble-chart\"></div>\n        </div>\n        \n        <div class=\"table-container\">\n            <div class=\"d-flex justify-content-between align-items-center mb-3\">\n                <h3 class=\"m-0\" style=\"color: #003366; font-size: 1.3rem;\">Data Table</h3>\n                <button id=\"downloadCSV\" class=\"btn btn-sm\" style=\"background-color: #003366; color: white; border: none;\">\n                    <i class=\"bi bi-download\"></i> Download Current View as CSV\n                </button>\n            </div>\n            <table id=\"jobsTable\" class=\"table table-striped\">\n                <thead id=\"tableHead\">\n                    <tr id=\"tableHeaders\">\n                        <th>Department</th>\n                        <th>Agency</th>\n                        <th>2024 Listings</th>\n                        <th>2025 Listings</th>\n                        <th>Change</th>\n                        <th>2025 as % of 2024</th>\n                    </tr>\n                </thead>\n                <tbody id=\"tableBody\">\n                </tbody>\n            </table>\n        </div>\n    </div>\n    \n    <!-- jQuery -->\n    <script src=\"https://code.jquery.com/jquery-3.7.0.min.js\"></script>\n    <!-- Bootstrap JS -->\n    <script src=\"https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js\"></script>\n    <!-- DataTables JS -->\n    <script src=\"https://cdn.datatables.net/1.13.6/js/jquery.dataTables.min.js\"></script>\n    <script src=\"https://cdn.datatables.net/1.13.6/js/dataTables.bootstrap5.min.js\"></script>\n    <!-- D3.js for Treemap -->\n    <script src=\"https://d3js.org/d3.v7.min.js\"></script>\n    \n    <script src=\"jobs_app.js\"></script>\n</body>\n</html>",
+          "title": "USAJobs Listings Tracker",
+          "httpStatus": 200
+        },
+        {
+          "type": "openrouter:web_fetch",
+          "id": "st_tmp_0tmvhpf51xb",
+          "status": "completed",
+          "url": "https://unblock.federalregister.gov/",
+          "content": "<!DOCTYPE html>\n<html>\n  <head>\n    <meta http-equiv=\"content-type\" content=\"text/html; charset=UTF-8\" />\n\n    <title>Federal Register :: Request Access</title>\n\n    <meta name=\"viewport\" content=\"width=device-width,initial-scale=1\">\n    <meta name=\"apple-mobile-web-app-capable\" content=\"yes\">\n    <meta name=\"mobile-web-app-capable\" content=\"yes\">\n    <meta name=\"csrf-param\" content=\"authenticity_token\" />\n<meta name=\"csrf-token\" content=\"dyxVLWgzoq_1JjAko4g7Co3m75OuRtWzVTreNeu28tOxMdVBFSjmbtP-yZLiyX0dOksaWngZFZKa--ZZSKNePQ\" />\n    <meta name=\"csp-nonce\" content=\"uHCKU8I62puLJIxyXYqghg==\" />\n\n    <link rel=\"preconnect\" href=\"https://fonts.googleapis.com\">\n<link rel=\"preconnect\" href=\"https://fonts.gstatic.com\" crossorigin>\n\n<link\nhref=\"https://fonts.googleapis.com/css2?family=Roboto:ital,wght@0,400;0,500;0,600;0,700;1,400;1,500;1,700&family=Bitter:ital,wght@0,400;0,500;0,700;1,400;1,500;1,700&display=swap\"\nrel=\"preload\"\nas=\"style\">\n<link\nhref=\"https://fonts.googleapis.com/css2?family=Roboto:ital,wght@0,400;0,500;0,600;0,700;1,400;1,500;1,700&family=Bitter:ital,wght@0,400;0,500;0,700;1,400;1,500;1,700&display=swap\"\nrel=\"stylesheet\">\n\n\n    <link rel=\"stylesheet\" href=\"/assets/application-cafaf2e0.css\" data-turbo-track=\"reload\" />\n    <script type=\"importmap\" data-turbo-track=\"reload\" nonce=\"uHCKU8I62puLJIxyXYqghg==\">{\n  \"imports\": {\n    \"application\": \"/assets/application-cc464116.js\",\n    \"@hotwired/turbo-rails\": \"/assets/turbo.min-86bf8853.js\",\n    \"@hotwired/stimulus\": \"/assets/stimulus.min-7ea3d58b.js\",\n    \"@hotwired/stimulus-loading\": \"/assets/stimulus-loading-25917588.js\",\n    \"controllers/application\": \"/assets/controllers/application-e5a449db.js\",\n    \"controllers/site_feedback_controller\": \"/assets/controllers/site_feedback_controller-a99fc93f.js\",\n    \"controllers/unblock_controller\": \"/assets/controllers/unblock_controller-9520f896.js\"\n  }\n}</script>\n<link rel=\"modulepreload\" href=\"/assets/application-cc464116.js\" nonce=\"uHCKU8I62puLJIxyXYqghg==\">\n<link rel=\"modulepreload\" href=\"/assets/turbo.min-86bf8853.js\" nonce=\"uHCKU8I62puLJIxyXYqghg==\">\n<link rel=\"modulepreload\" href=\"/assets/stimulus.min-7ea3d58b.js\" nonce=\"uHCKU8I62puLJIxyXYqghg==\">\n<link rel=\"modulepreload\" href=\"/assets/stimulus-loading-25917588.js\" nonce=\"uHCKU8I62puLJIxyXYqghg==\">\n<link rel=\"modulepreload\" href=\"/assets/controllers/application-e5a449db.js\" nonce=\"uHCKU8I62puLJIxyXYqghg==\">\n<link rel=\"modulepreload\" href=\"/assets/controllers/site_feedback_controller-a99fc93f.js\" nonce=\"uHCKU8I62puLJIxyXYqghg==\">\n<link rel=\"modulepreload\" href=\"/assets/controllers/unblock_controller-9520f896.js\" nonce=\"uHCKU8I62puLJIxyXYqghg==\">\n<script type=\"module\" nonce=\"uHCKU8I62puLJIxyXYqghg==\">import \"application\"</script>\n\n    <link rel=\"alternate icon\" type=\"image/png\" href=\"/assets/fr-favicon-95da23c0.png\">\n    <link rel=\"icon\" type=\"image/svg+xml\" href=\"/assets/fr-favicon-d1d6c1b7.svg\">\n    <link rel=\"apple-touch-icon\" href=\"/assets/fr-favicon-95da23c0.png\">\n  </head>\n\n  <body>\n    <div class=\"container\">\n      <div class=\"header\" id=\"header_refresh\">\n        <div class=\"header_wrapper\">\n          <div class=\"logo\">\n            <div class=\"hgroup official\">\n              <a href=\"/\" title=\"Federal Register Home - The Daily Journal of the United States Government\">\n                <svg class=\"masthead\">\n                  <use xlink:href=\"/assets/fr-mastheads-9d875438.svg#official-masthead\">\n                    </use>\n                </svg>\n              </a>\n            </div>\n          </div>\n        </div>\n      </div>\n\n      <div id=\"main\">\n        <div class=\"main-title-bar\">\n          <div class=\"bar left-extender\"></div>\n          <div class=\"bar left\"></div>\n          <h1 class=\"\">Request Access</h1>\n          <div class=\"bar right\"></div>\n        </div>\n\n        <div class=\"dialog\">\n\n          <p>\n  Due to aggressive automated scraping of FederalRegister.gov and eCFR.gov,\n  programmatic access to these sites is limited to access to our extensive\n  developer APIs. Please visit\n  <a href=\"https://www.federalregister.gov/developers/documentation/api/v1\">\n    FederalRegister.gov API\n  </a>\n  documentation or\n  <a href=\"https://www.ecfr.gov/developers/documentation/api/v1\">\n    eCFR.gov API\n  </a>\n  documentation to learn more about how to access the API.\n</p>\n\n<p>\n  Your request has been flagged as potentially automated. If you are human user\n  receiving this message, please complete the CAPTCHA (bot test) below and\n  click \"Request Access\". You may occassionally be asked to complete the\n  CAPTCHA again, this is normal and part of our security measures.\n</p>\n\n\n<form action=\"/unblock\"\n      method=\"post\"\n      class=\"unblock-form\"\n      data-controller=\"unblock\"\n      data-action=\"submit->unblock#handleSubmit\">\n  <script src=\"https://www.recaptcha.net/recaptcha/api.js\" async defer ></script>\n<div data-sitekey=\"6LfpbQcUAAAAAMw_vbtM1IRqq7Dvf-AftcZHp_OK\" class=\"g-recaptcha \"></div>\n          <noscript>\n            <div>\n              <div style=\"width: 302px; height: 422px; position: relative;\">\n                <div style=\"width: 302px; height: 422px; position: absolute;\">\n                  <iframe\n                    src=\"https://www.recaptcha.net/recaptcha/api/fallback?k=6LfpbQcUAAAAAMw_vbtM1IRqq7Dvf-AftcZHp_OK\"\n                    name=\"ReCAPTCHA\"\n                    style=\"width: 302px; height: 422px; border-style: none; border: 0; overflow: hidden;\">\n                  </iframe>\n                </div>\n              </div>\n              <div style=\"width: 300px; height: 60px; border-style: none;\n                bottom: 12px; left: 25px; margin: 0px; padding: 0px; right: 25px;\n                background: #f9f9f9; border: 1px solid #c1c1c1; border-radius: 3px;\">\n                <textarea name=\"g-recaptcha-response\"\n                  class=\"g-recaptcha-response\"\n                  style=\"width: 250px; height: 40px; border: 1px solid #c1c1c1;\n                  margin: 10px 25px; padding: 0px; resize: none;\">\n                </textarea>\n              </div>\n            </div>\n          </noscript>\n\n  <button type=\"submit\"\n          class=\"btn btn-disabled btn-large unblock-button\"\n          data-unblock-target=\"button\"\n          disabled>\n    Request Access\n  </button>\n</form>\n\n<p class=\"small-text\">\n  <em>An official website of the United States government.</em>\n</p>\n\n<p class=\"small-text\">\n  If you experiencing issues with the CAPTCHA or want to request a wider IP range,\n  you can use the \"Site Help\" button found in the lower, right of this page\n  to make a request.\n</p>\n\n        </div>\n      </div>\n    </div>\n\n    <div id=\"site-feedback\" data-controller=\"site-feedback\">\n      <div class=\"modal-backdrop\" data-site-feedback-target=\"backdrop\"></div>\n      <div class=\"modal-container\" data-site-feedback-target=\"modal\">\n        <div class=\"modal-content\" data-site-feedback-target=\"modalContent\">\n          <div id=\"feedback-modal-content\">\n  <div class=\"modal-content feedback-modal-content\">\n    <div class=\"modal-header\">\n      <button type=\"button\" class=\"modal-close\" data-site-feedback-target=\"closeButton\" aria-label=\"Close\">\n        <span aria-hidden=\"true\">\u00d7</span>\n      </button>\n      <h3>IP Access Help</h3>\n    </div>\n\n    <div class=\"modal-body\">\n      <div class=\"form-container\">\n        <p class=\"info\">\n          This contact form is only for IP Access help.\n          Please do not provide confidential information or personal data.\n        </p>\n\n        <form data-site-feedback-target=\"form\" data-action=\"submit-&gt;site-feedback#submitForm\" novalidate=\"novalidate\" class=\"simple_form site_feedback\" enctype=\"multipart/form-data\" action=\"/site_feedback\" accept-charset=\"UTF-8\" method=\"post\">\n\n          <div class=\"input string required site_feedback_name\"><label class=\"string required\" for=\"site_feedback_name\"><abbr title=\"required\">*</abbr> Your Name</label><input class=\"string required\" required=\"required\" type=\"text\" name=\"site_feedback[name]\" id=\"site_feedback_name\" /></div>\n\n          <div class=\"input email required site_feedback_email\"><label class=\"email required\" for=\"site_feedback_email\"><abbr title=\"required\">*</abbr> Email</label><input data-site-feedback-target=\"emailField\" class=\"string email required\" required=\"required\" type=\"email\" name=\"site_feedback[email]\" id=\"site_feedback_email\" /></div>\n\n          <div class=\"input text required site_feedback_comment\"><label class=\"text required\" for=\"site_feedback_comment\"><abbr title=\"required\">*</abbr> How can we help you?</label><textarea class=\"text required\" required=\"required\" name=\"site_feedback[comment]\" id=\"site_feedback_comment\">\n</textarea></div>\n\n          <div class=\"slide-left\" aria-hidden=\"true\">\n            <input tabindex=\"-1\" autocomplete=\"off\" placeholder=\"Your website URL\" data-required=\"true\" type=\"text\" name=\"site_feedback[website]\" id=\"site_feedback_website\" />\n          </div>\n\n          <div class=\"input file optional site_feedback_attachment\"><label class=\"file optional\" for=\"site_feedback_attachment\">Upload Attachment</label><input class=\"file optional\" type=\"file\" name=\"site_feedback[attachment]\" id=\"site_feedback_attachment\" /></div>\n\n          <div class=\"input boolean required site_feedback_technical_help\"><input value=\"0\" autocomplete=\"off\" type=\"hidden\" name=\"site_feedback[technical_help]\" /><label class=\"boolean required checkbox\" for=\"site_feedback_technical_help\"><input class=\"boolean required\" required=\"required\" type=\"checkbox\" value=\"1\" name=\"site_feedback[technical_help]\" id=\"site_feedback_technical_help\" /><abbr title=\"required\">*</abbr> I am requesting technical help.</label></div>\n\n          <div class=\"actions\">\n            <input type=\"submit\" name=\"commit\" value=\"Request Help\" class=\"btn btn-primary btn-medium\" data-site-feedback-target=\"submitButton\" data-disable-with=\"Request Help\" />\n          </div>\n</form>      </div>\n\n      <div class=\"loader-container\"\n        data-site-feedback-target=\"loaderContainer\">\n        <div class=\"loader-wrapper\">\n          <img src=\"/assets/orange-loader-275e1783.svg\"\n            alt=\"Loading...\" class=\"loader-image\">\n        </div>\n      </div>\n    </div>\n  </div>\n</div>\n\n        </div>\n      </div>\n\n      <button type=\"button\"\n        class=\"btn btn-secondary btn-medium site-feedback-button\"\n        data-action=\"click->site-feedback#openModal\"\n        aria-label=\"Open site help form\">\n\n        <svg class=\"svg-icon svg-icon-chat \"><use xlink:href=\"/assets/ofr-icons-5f5559c5.svg#chat\"></use></svg>\n        <span class=\"desktop-only\">Site Help</span>\n      </button>\n    </div>\n\n  </body>\n</html>\n",
+          "title": "Federal Register :: Request Access",
+          "httpStatus": 200
+        },
+        {
+          "type": "openrouter:web_search",
+          "id": "st_tmp_o83hmqt8qv",
+          "status": "completed",
+          "action": {
+            "type": "search",
+            "query": "\"Commodity Flow Survey\" 2027 30-day notice OMB approval 2026"
+          }
+        },
+        {
+          "type": "openrouter:web_fetch",
+          "id": "st_tmp_iiwkkp7ex5",
+          "status": "completed",
+          "url": "https://www.census.gov/programs-surveys/cfs/data/tables.html",
+          "content": "\n<!DOCTYPE HTML>\n<!-- /*Per CMS-3223 we need the line below to have a 301 redirect capability*/ -->\n\n\n<html lang=\"en\">\n    <head>\r\n    \n    <link rel=\"icon\" sizes=\"192x192\" href=\"/etc.clientlibs/census/clientlibs/common-site/resources/icons/android-chrome-192x192.png\"/>\n    <link rel=\"icon\" sizes=\"256x256\" href=\"/etc.clientlibs/census/clientlibs/common-site/resources/icons/android-chrome-256x256.png\"/>\n    <link rel=\"shortcut icon\" sizes=\"32x32\" href=\"/etc.clientlibs/census/clientlibs/common-site/resources/icons/favicon.ico\"/>\n    <link rel=\"apple-touch-icon\" sizes=\"180x180\" href=\"/etc.clientlibs/census/clientlibs/common-site/resources/icons/apple-touch-icon-180x180.png\"/>     \n    <meta name=\"msapplication-square150x150logo\" content=\"/etc.clientlibs/census/clientlibs/common-site/resources/icons/mstile-150x150.png\"/>    \n\r\n    <meta charset=\"UTF-8\"/>\r\n    <title>Commodity Flow Survey Tables</title>\r\n    \r\n    <meta name=\"keywords\" content=\"Sales, Receipts, Shipments, or Production,Business Counts,Business and Economy\"/>\r\n    <meta name=\"article:tag\" content=\"Sales, Receipts, Shipments, or Production,Business Counts,Business and Economy\"/>\r\n    <meta name=\"description\" property=\"og:description\" content=\"Stats displayed in columns and rows with title, ID, notes, sources and release date. Many tables are in downloadable XLS, CVS and PDF file formats.\"/>\r\n    <meta name=\"template\" content=\"template-detail3colleftrightnoshare\"/>\r\n    <meta name=\"viewport\" content=\"width=device-width, initial-scale=1\"/>\r\n    \r\n    <link rel=\"canonical\" href=\"https://www.census.gov/programs-surveys/cfs/data/tables.html\"/>\r\n\r\n    \r\n    \r\n    \r\n\r\n    \n\n\n  \n    <meta name=\"DC.title\" property=\"og:title\" content=\"Commodity Flow Survey Tables\"/>\n    <meta name=\"DC.creator\" content=\"US Census Bureau\"/>\n    \n    <meta name=\"DC.date.reviewed\" property=\"article:modified_time\" scheme=\"ISO8601\" content=\"2026-02-09T10:10:57.308-05:00\"/>\n    <meta name=\"DC.language\" scheme=\"DCTERMS.RFC1766\" content=\"en\"/>\n  \t<meta name=\"robots\" content=\"noodp, noydir\"/>\n  \t<meta name=\"author\" content=\"US Census Bureau\"/>\n  \t<meta http-equiv=\"content-type\" content=\"text/html; charset=UTF-8\"/>\n  \t<meta property=\"og:locale\" content=\"en\"/>\n  \t<meta property=\"og:site_name\" content=\"Census.gov\"/>\n  \t<meta property=\"og:type\" content=\"article\"/>\n  \t<meta property=\"og:url\" content=\"https://www.census.gov/programs-surveys/cfs/data/tables.html\"/>\n  \t<meta property=\"og:image\" content=\"https://www.census.gov/content/dam/Census/public/brand/census-logo-sharing-card.jpg\"/>\n  \t<meta name=\"twitter:image\" content=\"https://www.census.gov/content/dam/Census/public/brand/census-logo-sharing-card.jpg\"/>\n  \t<meta name=\"twitter:card\" content=\"summary_large_image\"/>\n  \t<meta name=\"twitter:site\" content=\"@uscensusbureau\"/>\n  \t<meta name=\"twitter:creator\" content=\"@uscensusbureau\"/>\n  \t<meta name=\"twitter:title\" content=\"Commodity Flow Survey Tables\"/>\n  \t<meta property=\"article:publisher\" content=\"https://census.gov/\"/>\n  \t<meta property=\"article:section\" content=\"Government\"/>\n  \r\n    <script type=\"text/javascript\" src=\"https://www.google.com/jsapi\"></script>\r\n    \r\n    \n    \n    \n    \n    \n<script src=\"/etc.clientlibs/clientlibs/granite/jquery.min.cee8557e8779d371fe722bbcdd3b3eb7.js\"></script>\n<script src=\"/etc.clientlibs/clientlibs/granite/utils.min.899004cc02c33efc1f6694b1aee587fd.js\"></script>\n<script src=\"/etc.clientlibs/clientlibs/granite/jquery/granite.min.543d214c88dfa6f4a3233b630c82d875.js\"></script>\n<script src=\"/etc.clientlibs/foundation/clientlibs/jquery.min.dd9b395c741ce2784096e26619e14910.js\"></script>\n<script src=\"/etc.clientlibs/census/clientlibs/modernizr.min.0114f63133d36634edcda537306eae26.js\"></script>\n\n\n\n\t\n    \n<script src=\"/etc.clientlibs/clientlibs/granite/jquery-ui.min.000478df169ef08edfb24d7502acb3c1.js\"></script>\n<script src=\"/etc.clientlibs/foundation/clientlibs/jquery-ui.min.3cc462ae7fb48fa3949850e903137f14.js\"></script>\n\n\n\n    \n    \n<link rel=\"stylesheet\" href=\"/etc.clientlibs/census-core/clientlibs.min.9556bf894a0d404c4e4f4bf83ef3c63b.css\" type=\"text/css\">\n<link rel=\"stylesheet\" href=\"/etc.clientlibs/census/clientlibs/bootstrap.min.3e7d159faa40f5cdf7d02fbe2b1bb215.css\" type=\"text/css\">\n<link rel=\"stylesheet\" href=\"/etc.clientlibs/census/clientlibs/census-fonts.min.9ebcbfc417b8006268ac47b61f6ebfba.css\" type=\"text/css\">\n<link rel=\"stylesheet\" href=\"/etc.clientlibs/census/clientlibs/common-site.min.8e92f508ecd83720ca5ccc6c8f0637d4.css\" type=\"text/css\">\n<link rel=\"stylesheet\" href=\"/etc.clientlibs/clientlibs/granite/jquery-ui.min.48e542f529ebea7475d83a20a3394c1e.css\" type=\"text/css\">\n<link rel=\"stylesheet\" href=\"/etc.clientlibs/census/clientlibs/orionicons.min.2ffd39f8bfe972a21504ca49f50084ec.css\" type=\"text/css\">\n<link rel=\"stylesheet\" href=\"/etc.clientlibs/census/clientlibs/uswds-init.min.c213ff96bc721c3e7977bc763c809e0a.css\" type=\"text/css\">\n<link rel=\"stylesheet\" href=\"/etc.clientlibs/census/clientlibs/core-overrides.min.95bca97fbd3ca07d6424f7fbbe926450.css\" type=\"text/css\">\n<link rel=\"stylesheet\" href=\"/etc.clientlibs/census/clientlibs/clientlib-dependencies.min.d41d8cd98f00b204e9800998ecf8427e.css\" type=\"text/css\">\n<link rel=\"stylesheet\" href=\"/etc.clientlibs/census/clientlibs/clientlib-site.min.25c805315eb4f3f64da0cc62097979ea.css\" type=\"text/css\">\n<link rel=\"stylesheet\" href=\"/etc.clientlibs/census/clientlibs/census-fonts-multilang.min.e7ca9bab4d61ddbda89ed7b2948bf2b6.css\" type=\"text/css\">\n<link rel=\"stylesheet\" href=\"/etc.clientlibs/census/clientlibs/census-pattern-library.min.a89a57ffc2832e0526e9000bfe5d3b7f.css\" type=\"text/css\">\n<link rel=\"stylesheet\" href=\"/etc.clientlibs/census/clientlibs/census-css.min.eea51f80edbde7164c45da04901e3b7f.css\" type=\"text/css\">\n<link rel=\"stylesheet\" href=\"/etc.clientlibs/census/clientlibs/aemgrid.min.be57a8c9b7d09f61725fd419ae4495cb.css\" type=\"text/css\">\n\n\n\n    \n    \n    \n\t\n    \n<link rel=\"stylesheet\" href=\"/etc.clientlibs/census/clientlibs/census-disabled.min.d002d8837bb961541a62e1a6402d7e2b.css\" type=\"text/css\">\n<script src=\"/etc.clientlibs/census/clientlibs/census-disabled.min.42535f152edc257f3458c8e1d559866c.js\"></script>\n\n\n\n    <link href=\"/etc.clientlibs/census/clientlibs/census-css/resources/print.css\" rel=\"stylesheet\" type=\"text/css\" media=\"print\"/> \n\n\t  <!-- Conditional CSS -->\n\t\n\t\t\n\t\n\t\n\n\t\n\n\t\t\n\t \n\t\n\n\t\n\n    \n\n\n        <script type=\"text/javascript\" src=\"//assets.adobedtm.com/launch-ENdc1ca6bab15e46a5b880a2c3f9d462ab.min.js\"></script>\n\n \n\t<!-- /*Data Layer*/ -->\t\n\t<div><script type=\"text/javascript\">\r\n\tvar d = new Date();\r\n\tvar days = [\"Sunday\",\"Monday\",\"Tuesday\",\"Wednesday\",\"Thursday\",\"Friday\",\"Saturday\"];\r\n\tvar digitalData = digitalData || {};\r\n    digitalData = {\r\n       \t\"page\" : {\r\n            \"pageInfo\" : {                \r\n                \"pageName\" \t\t\t: \"Commodity Flow Survey Tables_169210\",\r\n                \"legacyPageName\" \t: \"en>programsRSUY>cfs>data>Commodity Flow Survey Tables\",\r\n                \"pageURL\" \t\t\t: window.location.href,\r\n                \"language\" \t\t\t: \"en\",\r\n                \"pageTemplate\" \t\t: \"template\\u002Ddetail3colleftrightnoshare\",\r\n                \"topic\" \t\t\t: \"Sales, Receipts, Shipments, or Production,Business Counts,Business and Economy\",\r\n                \"programTag\" \t\t: \"\",\r\n                \"collectionYear\" \t: \"\",\r\n                \"AEMtopic\" \t\t\t: \"Sales, Receipts, Shipments, or Production,Business Counts,Business and Economy\",\r\n                \"contentType\" \t\t: \"\",\r\n                \"geoTag\" \t\t\t: \"\",\r\n                \"seriesTag\" \t\t: \"\",\r\n                \"publishDate\" \t\t: \"\",\r\n                \"timeOfDay\" \t\t: twoDigits(d.getHours()) + \":\" + twoDigits(d.getMinutes()),\r\n                \"tool\" \t\t\t\t: \"aem\",\r\n                \"dayOfWeek\" \t\t: days[d.getDay()],\r\n                \"siteSection\" : \"programs-surveys\",\"subSectionOne\" : \"cfs\",\"subSectionTwo\" : \"data\",\"subSectionThree\" : \"tables\"\r\n            },\r\n            \"pageTag\" : {\r\n                \"topic\" : \"Sales, Receipts, Shipments, or Production\",\"topic\" : \"Sales, Receipts, Shipments, or Production|Business Counts\",\"topic\" : \"Sales, Receipts, Shipments, or Production|Business Counts|Business and Economy\"                \r\n            }\r\n        },\r\n        \"event\" : {\r\n        \t\"eventName\" : {},\r\n          \t\"eventInfo\" : {\r\n\t            \"share\" \t\t\t : {},\r\n\t            \"download\" \t\t\t : {},\r\n\t            \"search\" \t\t\t : {},\r\n\t            \"expandCollapseList\" : {},\r\n\t            \"language\" \t\t\t : {\r\n\t            \tpageLanguage\t : \"en\"\r\n\t            },\r\n\t            \"landingPageTab\" \t : {}\r\n          }\r\n        },\r\n        \"browserInfo\" : {\r\n        \t\"browserWidth\" : getBrowserWidth()\r\n        }\r\n    };    \r\n\r\n    if ( typeof(Storage) !== \"undefined\" ) {\r\n      if ( localStorage.getItem(\"pageLanguage\") != null ) {\r\n        digitalData.event.eventInfo.language.pageLanguage = localStorage.getItem(\"pageLanguage\");\r\n      }\r\n      if ( localStorage.getItem(\"langEventName\") != null ) {\r\n        digitalData.event.eventName = localStorage.getItem(\"langEventName\");\r\n      }\r\n      if ( localStorage.getItem(\"clickValue\") != null ) {\r\n        digitalData.event.eventInfo.search.clickValue = localStorage.getItem(\"clickValue\");\r\n      }\r\n      if ( localStorage.getItem(\"searchEventName\") != null ) {\r\n        digitalData.event.eventInfo.eventName = localStorage.getItem(\"searchEventName\");\r\n      }       \r\n      if ( localStorage.getItem(\"tabEventName\") != null ) {\r\n        digitalData.event.eventName = localStorage.getItem(\"tabEventName\");\r\n      } \r\n      if ( localStorage.getItem(\"pageName\") != null ) {\r\n        digitalData.page.pageInfo.pageName = localStorage.getItem(\"pageName\");\r\n      } \r\n      if ( localStorage.getItem(\"eventInfoEventName\") != null ) {\r\n    \t  digitalData.event.eventInfo.eventName = localStorage.getItem(\"eventInfoEventName\");  \t  \r\n      }\r\n      if ( localStorage.getItem(\"eventInfoLanguage\") != null ) {\r\n    \t  digitalData.event.eventInfo.language.pageLanguage = localStorage.getItem(\"eventInfoLanguage\");\r\n      }\r\n      if ( localStorage.getItem(\"searchTerm\") != null ) {\r\n    \t  digitalData.event.eventInfo.search.term = localStorage.getItem(\"searchTerm\");\r\n      }\r\n      if ( localStorage.getItem(\"blogSearchPhrase\") != null ) {\r\n    \t  digitalData.event.eventInfo.blogSearchPhrase = localStorage.getItem(\"blogSearchPhrase\");\r\n      }\r\n      if ( localStorage.getItem(\"blogEventName\") != null ) {\r\n    \t  digitalData.event.eventInfo.eventName = localStorage.getItem(\"blogEventName\");\r\n      }      \r\n      if ( localStorage.getItem(\"blogName\") != null ) {\r\n    \t  digitalData.event.eventInfo.blogName = localStorage.getItem(\"blogName\");\r\n      }\r\n      if ( localStorage.getItem(\"buttonClickCount\") != null ) {\r\n    \t  digitalData.event.eventInfo.buttonClickCount = localStorage.getItem(\"buttonClickCount\");\r\n      }\r\n      //After assigning the value to digitalData, clear the localStorage variable's content\r\n      localStorage.removeItem(\"pageLanguage\");\r\n      localStorage.removeItem(\"langEventName\");\r\n      localStorage.removeItem(\"clickValue\");\r\n      localStorage.removeItem(\"searchEventName\");\r\n      localStorage.removeItem(\"landingPageTabClickValue\");\r\n      localStorage.removeItem(\"tabEventName\");\r\n      localStorage.removeItem(\"pageName\");\r\n      localStorage.removeItem(\"eventInfoEventName\");\r\n      localStorage.removeItem(\"eventInfoLanguage\");\r\n      localStorage.removeItem(\"searchTerm\");\r\n      localStorage.removeItem(\"blogSearchPhrase\");\r\n      localStorage.removeItem(\"blogEventName\");\r\n      localStorage.removeItem(\"blogName\");\r\n      localStorage.removeItem(\"buttonClickCount\");\r\n    } else {\r\n      if ( getCookie(\"pageLanguage\") != \"\" ) {\r\n        digitalData.event.eventInfo.language.pageLanguage = getCookie(\"pageLanguage\");\r\n      }\r\n      if ( getCookie(\"langEventName\") != \"\" ) {\r\n        digitalData.event.eventName = getCookie(\"langEventName\");\r\n      }\r\n      if ( getCookie(\"clickValue\") != \"\" ) {\r\n        digitalData.event.eventInfo.search.clickValue = getCookie(\"clickValue\");\r\n      }\r\n      if ( getCookie(\"searchEventName\") != \"\" ) {\r\n        digitalData.event.eventInfo.eventName = getCookie(\"searchEventName\");\r\n      }\r\n      if ( getCookie(\"landingPageTabClickValue\") != \"\" ) {\r\n        digitalData.event.eventInfo.landingPageTab.clickValue = getCookie(\"landingPageTabClickValue\");\r\n      }\r\n      if ( getCookie(\"tabEventName\") != \"\" ) {\r\n        digitalData.event.eventName = getCookie(\"tabEventName\");\r\n      }\r\n      if ( getCookie(\"pageName\") != \"\" ) {\r\n        digitalData.page.pageInfo.pageName = getCookie(\"pageName\");\r\n      }\r\n      if ( getCookie(\"eventInfoEventName\") != \"\" ) {\r\n    \t  digitalData.event.eventInfo.eventName = getCookie(\"eventInfoEventName\");  \r\n      }\r\n      if ( getCookie(\"eventInfoLanguage\") ) {\r\n    \t  digitalData.event.eventInfo.language.pageLanguage = getCookie(\"eventInfoLanguage\");\r\n      }\r\n      if ( getCookie(\"searchTerm\") ) {\r\n    \t  digitalData.event.eventInfo.search.term = getCookie(\"searchTerm\");\r\n      }\r\n      if ( getCookie(\"blogSearchPhrase\") ) {\r\n    \t  digitalData.event.eventInfo.blogSearchPhrase = getCookie(\"blogSearchPhrase\");\r\n      }\r\n      if ( getCookie(\"blogEventName\") ) {\r\n    \t  digitalData.event.eventInfo.eventName = getCookie(\"blogEventName\");\r\n      }\r\n      if ( getCookie(\"blogName\") ) {\r\n    \t  digitalData.event.eventInfo.blogName = getCookie(\"blogName\");\r\n      }\r\n      if ( getCookie(\"buttonClickCount\") ) {\r\n    \t  digitalData.event.eventInfo.buttonClickCount = getCookie(\"buttonClickCount\");\r\n      }\r\n      //After assigning the value to digitalData, clear the localStorage variable's content\r\n      setCookie(\"pageLanguage\", \"\");\r\n      setCookie(\"langEventName\", \"\");\r\n      setCookie(\"clickValue\", \"\");\r\n      setCookie(\"searchEventName\", \"\");\r\n      setCookie(\"landingPageTabClickValue\", \"\");\r\n      setCookie(\"pageName\", \"\");\r\n      setCookie(\"eventInfoEventName\", \"\");\r\n      setCookie(\"eventInfoLanguage\", \"\");\r\n      setCookie(\"searchTerm\", \"\");\r\n      setCookie(\"blogSearchPhrase\", \"\");\r\n      setCookie(\"blogName\", \"\");\r\n      setCookie(\"buttonClickCount\", \"\");\r\n    }\r\n\r\n    function setCookie(cname, cvalue, exdays) {\r\n       var d = new Date();\r\n       d.setTime(d.getTime() + (exdays*24*60*60*1000));\r\n       var expires = \"expires=\"+d.toUTCString();\r\n       document.cookie = cname + \"=\" + cvalue + \";\" + expires + \";path=/\";\r\n    }\r\n\r\n    function getCookie(cname) {\r\n       var name = cname + \"=\";\r\n       var ca = document.cookie.split(';');\r\n       for(var i = 0; i < ca.length; i++) {\r\n           var c = ca[i];\r\n           while (c.charAt(0) == ' ') {\r\n               c = c.substring(1);\r\n           }\r\n           if (c.indexOf(name) == 0) {\r\n               return c.substring(name.length, c.length);\r\n           }\r\n       }\r\n       return \"\";\r\n    }\r\n    \r\n    function getBrowserWidth() {         \r\n   \t  \treturn window.innerWidth;\r\n   \t}\r\n    \r\n    function twoDigits(n){\r\n        return n > 9 ? \"\" + n: \"0\" + n;\r\n    }\r\n    \r\n    document.addEventListener('click', function (event) {    \t\r\n    \tif (typeof(event.target.href) !== 'undefined' && event.target.href.toLowerCase().indexOf('tel:') >= 0) {\r\n    \t\tdigitalData.event.eventName = 'phoneNumber';\r\n    \t\tdigitalData.event.eventInfo.eventName = 'Telephone Click';\r\n    \t\tvar splittedData = event.target.href.toLowerCase().split(':');\r\n    \t\tif (splittedData.length > 0) {\r\n    \t\t\tdigitalData.event.eventInfo.telephoneNumber = splittedData[splittedData.length - 1];\t\r\n    \t\t}    \t\t\r\n    \t}\r\n    \t\r\n    \tif (typeof(event.target.href) !== 'undefined' && event.target.href.toLowerCase().indexOf('mailto:') >= 0) {\r\n    \t\tdigitalData.event.eventName = 'emailClick';\r\n    \t\tdigitalData.event.eventInfo.eventName = 'Email Click';\r\n    \t\tvar splittedData = event.target.href.toLowerCase().split(':');\r\n    \t\tif (splittedData.length > 0) {\r\n    \t\t\tdigitalData.event.eventInfo.emailAddress = splittedData[splittedData.length - 1 ]\r\n    \t\t}\r\n    \t}\r\n    \t\r\n    \t//For non-download links that are added via RTE\r\n    \tif (typeof(event.target.href) !== 'undefined') {\r\n    \t\tvar extension = event.target.href.split('.').pop();\r\n    \t\tif (extension == event.target.href || extension == \"html\")\r\n    \t\t\tlinkClick(event.target, 'RTE');    \t\t\r\n    \t}\r\n    });\r\n    \r\n    document.addEventListener(\"DOMContentLoaded\", function() {   \t\t\r\n   \t  \tif (typeof(getCookie('visitor')) !== 'undefined' && getCookie('visitor') !== '') {\r\n   \t  \t    date = new Date();   \t  \t    \r\n   \t\t\tdigitalData.event.eventInfo.newVsRepeat = 'repeat';\r\n   \t\t\tvar dateLastVisited = Date.parse(getCookie('dateLastVisited'));   \t\t\t\r\n   \t\t\tvar differenceInTime = date.getTime() - dateLastVisited;   \t\t\t\r\n   \t\t\tvar seconds = (differenceInTime * .001) >> 0;\r\n   \t\t\t\r\n   \t\t\tif (seconds > 0) {   \t\t\t\t\r\n\t   \t        var minutes = seconds / 60;\r\n\t   \t        var hours = minutes / 60;\t   \t        \r\n\t   \t        var days = hours / 24;\t   \t        \r\n   \t        \tdigitalData.event.eventInfo.secondsSinceLastVisit = seconds.toFixed(2);\r\n   \t        \tdigitalData.event.eventInfo.minutesSinceLastVisit = minutes.toFixed(2);\r\n   \t        \tdigitalData.event.eventInfo.hoursSinceLastVisit = hours.toFixed(2);\r\n   \t        \tdigitalData.event.eventInfo.daysSinceLastVisit = days.toFixed(2);\r\n   \t        }   \t\t\t\r\n   \t\t\t\r\n   \t\t\tsetCookie('dateLastVisited', date, 365); \r\n   \t\t\tvar visitNumber = parseInt(getCookie('visitNumber')) + 1;\r\n   \t\t\tsetCookie('visitNumber', visitNumber, 365);\r\n   \t\t\tdigitalData.event.eventInfo.visitNumber = visitNumber;\r\n   \t  \t} else {\r\n   \t  \t\tdate = new Date();\r\n   \t  \t\tsetCookie('visitor', 'census website visitor', 365);\r\n   \t  \t\tsetCookie('dateLastVisited', date, 365);\r\n   \t  \t\tsetCookie('visitNumber', 1, 365);\r\n   \t  \t\tdigitalData.event.eventInfo.newVsRepeat = 'new';\r\n   \t  \t\tdigitalData.event.eventInfo.visitNumber = 1;\r\n   \t  \t}\r\n   \t});\r\n    \r\n\t$(document).ready(function () { // ensure we wait for listeners to connect to dataLayerReady instead of just firing immediately\r\n    \t$(document).trigger({type: \"dataLayerReady\"});\r\n  });\r\n</script></div>\n\t<script type=\"text/javascript\" src=\"https://www.google.com/jsapi\"></script>\n\t<!-- /*Asset Ref, Content-Language*/-->\n\t<div><script type=\"text/javascript\">    \r\n   \t'use strict';\r\n   \t\r\n   \tdocument.addEventListener('click', function (event) {\r\n    \tif (typeof(event.target.href) !== 'undefined' && event.target.href.toLowerCase().indexOf('pdf') >= 0) {\r\n    \t\tvar pdfXhr = new XMLHttpRequest();\r\n    \t\tpdfXhr.open('GET', '/bin/custom/header/asset?pdfPath=' + event.target.href, true);\r\n    \t\tpdfXhr.send();\r\n    \t}\r\n   \t});\r\n   \t\r\n</script></div>\n\r\n\r\n    \r\n\r\n    \r\n        <style>.uscb-tag__census{background-color: #bbddff;border-color: #bbddff;--icon-class:o-news-1;}.uscb-tag__census_type{background-color: #bbddff;border-color: #bbddff;--icon-class:o-news-1;}.uscb-tag__census_type_publication{background-color: #d0dce1;border-color: #d0dce1;--icon-class:o-book-1;}.uscb-tag__census_type_publication_atlas{background-color: #d0dce1;border-color: #d0dce1;--icon-class:o-book-1;}.uscb-tag__census_type_about{background-color: #bbddff;border-color: #bbddff;--icon-class:o-news-1;}.uscb-tag__census_type_about_biography{background-color: #bbddff;border-color: #bbddff;--icon-class:o-news-1;}.uscb-tag__census_type_about_survey-respondent-information{background-color: #bbddff;border-color: #bbddff;--icon-class:o-news-1;}.uscb-tag__census_type_data{background-color: #ffccbc;border-color: #ffccbc;--icon-class:o-news-1;}.uscb-tag__census_type_data_table{background-color: #ffccbc;border-color: #ffccbc;--icon-class:o-news-1;}.uscb-tag__census_type_data_table_comp-tab{background-color: #ffccbc;border-color: #ffccbc;--icon-class:o-news-1;}.uscb-tag__census_type_data_table_rank-tab{background-color: #ffccbc;border-color: #ffccbc;--icon-class:o-news-1;}.uscb-tag__census_type_data_table_summary-table{background-color: #ffccbc;border-color: #ffccbc;--icon-class:o-news-1;}.uscb-tag__census_type_data_errata-note{background-color: #ffccbc;border-color: #ffccbc;--icon-class:o-news-1;}.uscb-tag__census_type_data_dataset{background-color: #ffccbc;border-color: #ffccbc;--icon-class:o-news-1;}.uscb-tag__census_type_data_dataset_pums-puf-microdata{background-color: #ffccbc;border-color: #ffccbc;--icon-class:o-news-1;}.uscb-tag__census_type_data_dataset_pums-puf-microdata_puf{background-color: #ffccbc;border-color: #ffccbc;--icon-class:o-news-1;}.uscb-tag__census_type_data_dataset_pums-puf-microdata_pums{background-color: #ffccbc;border-color: #ffccbc;--icon-class:o-news-1;}.uscb-tag__census_type_data_dataset_summary-file{background-color: #ffccbc;border-color: #ffccbc;--icon-class:o-news-1;}.uscb-tag__census_type_data_dataset_api{background-color: #ffccbc;border-color: #ffccbc;--icon-class:o-news-1;}.uscb-tag__census_type_data_indicator{background-color: #ffccbc;border-color: #ffccbc;--icon-class:o-news-1;}.uscb-tag__census_type_data_experimental-data-product{background-color: #ffccbc;border-color: #ffccbc;--icon-class:o-news-1;}.uscb-tag__census_type_event{background-color: #e0d2e3;border-color: #e0d2e3;--icon-class:o-news-1;}.uscb-tag__census_type_event_conference{background-color: #e0d2e3;border-color: #e0d2e3;--icon-class:o-news-1;}.uscb-tag__census_type_event_c-span{background-color: #e0d2e3;border-color: #e0d2e3;--icon-class:o-news-1;}.uscb-tag__census_type_event_media-event{background-color: #e0d2e3;border-color: #e0d2e3;--icon-class:o-news-1;}.uscb-tag__census_type_event_seminar{background-color: #e0d2e3;border-color: #e0d2e3;--icon-class:o-news-1;}.uscb-tag__census_type_event_training{background-color: #e0d2e3;border-color: #e0d2e3;--icon-class:o-news-1;}.uscb-tag__census_type_event_training_courses{background-color: #e0d2e3;border-color: #e0d2e3;--icon-class:o-news-1;}.uscb-tag__census_type_event_training_webinar{background-color: #e0d2e3;border-color: #e0d2e3;--icon-class:o-news-1;}.uscb-tag__census_type_event_training_tutorial{background-color: #e0d2e3;border-color: #e0d2e3;--icon-class:o-news-1;}.uscb-tag__census_type_event_u-stream{background-color: #e0d2e3;border-color: #e0d2e3;--icon-class:o-news-1;}.uscb-tag__census_type_event_presentation{background-color: #e0d2e3;border-color: #e0d2e3;--icon-class:o-news-1;}.uscb-tag__census_type_event_disasters{background-color: #e0d2e3;border-color: #e0d2e3;--icon-class:o-news-1;}.uscb-tag__census_type_event_disasters_earthquake{background-color: #e0d2e3;border-color: #e0d2e3;--icon-class:o-news-1;}.uscb-tag__census_type_event_disasters_flood{background-color: #e0d2e3;border-color: #e0d2e3;--icon-class:o-news-1;}.uscb-tag__census_type_event_disasters_hurricane{background-color: #e0d2e3;border-color: #e0d2e3;--icon-class:o-news-1;}.uscb-tag__census_type_event_disasters_pandemic{background-color: #e0d2e3;border-color: #e0d2e3;--icon-class:o-news-1;}.uscb-tag__census_type_event_disasters_tornado{background-color: #e0d2e3;border-color: #e0d2e3;--icon-class:o-news-1;}.uscb-tag__census_type_event_disasters_wildfire{background-color: #e0d2e3;border-color: #e0d2e3;--icon-class:o-news-1;}.uscb-tag__census_type_event_disasters_storm{background-color: #e0d2e3;border-color: #e0d2e3;--icon-class:o-news-1;}.uscb-tag__census_type_event_disasters_incident{background-color: #e0d2e3;border-color: #e0d2e3;--icon-class:o-news-1;}.uscb-tag__census_type_event_disasters_air-quality{background-color: #e0d2e3;border-color: #e0d2e3;--icon-class:o-news-1;}.uscb-tag__census_type_event_disasters_extreme-heat{background-color: #e0d2e3;border-color: #e0d2e3;--icon-class:o-news-1;}.uscb-tag__census_type_media-resource{background-color: #bbddff;border-color: #bbddff;--icon-class:o-news-1;}.uscb-tag__census_type_media-resource_press-release{background-color: #7ad4e2;border-color: #7ad4e2;--icon-class:o-news-2;}.uscb-tag__census_type_media-resource_press-kit{background-color: #7ad4e2;border-color: #7ad4e2;--icon-class:o-documents-1;}.uscb-tag__census_type_media-resource_tip-sheet{background-color: #7ad4e2;border-color: #7ad4e2;--icon-class:o-data-file-1;}.uscb-tag__census_type_media-resource_facts-for-features-special-editions{background-color: #7ad4e2;border-color: #7ad4e2;--icon-class:o-image-saved-1;}.uscb-tag__census_type_media-resource_local-area-pr{background-color: #7ad4e2;border-color: #7ad4e2;--icon-class:o-news-2;}.uscb-tag__census_type_media-resource_stories{background-color: #7ad4e2;border-color: #7ad4e2;--icon-class:o-statistic-1;}.uscb-tag__census_type_multimedia{background-color: #bbddff;border-color: #bbddff;--icon-class:o-news-1;}.uscb-tag__census_type_multimedia_audio{background-color: #ffe434;border-color: #ffe434;--icon-class:o-volume-1;}.uscb-tag__census_type_multimedia_video{background-color: #ffe434;border-color: #ffe434;--icon-class:o-play-1;}.uscb-tag__census_type_multimedia_photograph{background-color: #ffe434;border-color: #ffe434;--icon-class:o-image-1;}.uscb-tag__census_type_working-paper{background-color: #d0dce1;border-color: #d0dce1;--icon-class:o-multiple-files-1;}.uscb-tag__census_type_visualization{background-color: #ffe434;border-color: #ffe434;--icon-class:o-bar-chart-1;}.uscb-tag__census_type_visualization_figure{background-color: #ffe434;border-color: #ffe434;--icon-class:o-bar-chart-1;}.uscb-tag__census_type_visualization_infographic{background-color: #ffe434;border-color: #ffe434;--icon-class:o-bar-chart-1;}.uscb-tag__census_type_visualization_thematic-map{background-color: #ffe434;border-color: #ffe434;--icon-class:o-bar-chart-1;}.uscb-tag__census_type_technical-documentation{background-color: #bbddff;border-color: #bbddff;--icon-class:o-news-1;}.uscb-tag__census_type_technical-documentation_data-dictionary{background-color: #bbddff;border-color: #bbddff;--icon-class:o-news-1;}.uscb-tag__census_type_technical-documentation_user-notes{background-color: #bbddff;border-color: #bbddff;--icon-class:o-news-1;}.uscb-tag__census_type_technical-documentation_questionnaire{background-color: #bbddff;border-color: #bbddff;--icon-class:o-news-1;}.uscb-tag__census_type_technical-documentation_sampling-weighting{background-color: #bbddff;border-color: #bbddff;--icon-class:o-news-1;}.uscb-tag__census_type_technical-documentation_quality-measures{background-color: #bbddff;border-color: #bbddff;--icon-class:o-news-1;}.uscb-tag__census_type_technical-documentation_source-accuracy-statements{background-color: #bbddff;border-color: #bbddff;--icon-class:o-news-1;}.uscb-tag__census_type_technical-documentation_subject-definitions{background-color: #bbddff;border-color: #bbddff;--icon-class:o-news-1;}.uscb-tag__census_type_technical-documentation_statistical-testing{background-color: #bbddff;border-color: #bbddff;--icon-class:o-news-1;}.uscb-tag__census_type_updates{background-color: #bbddff;border-color: #bbddff;--icon-class:o-news-1;}.uscb-tag__census_type_updates_newsletter{background-color: #bbddff;border-color: #bbddff;--icon-class:o-news-1;}.uscb-tag__census_type_methodology{background-color: #bbddff;border-color: #bbddff;--icon-class:o-news-1;}.uscb-tag__census_type_data-tool{background-color: #ffccbc;border-color: #ffccbc;--icon-class:o-news-1;}.uscb-tag__census_type_data-tool_api{background-color: #ffccbc;border-color: #ffccbc;--icon-class:o-news-1;}.uscb-tag__census_type_data-tool_software{background-color: #ffccbc;border-color: #ffccbc;--icon-class:o-news-1;}.uscb-tag__census_type_data-tool_mobile-app{background-color: #ffccbc;border-color: #ffccbc;--icon-class:o-news-1;}.uscb-tag__census_type_data-tool_web-app{background-color: #ffccbc;border-color: #ffccbc;--icon-class:o-news-1;}.uscb-tag__census_type_transcript{background-color: #bbddff;border-color: #bbddff;--icon-class:o-news-1;}.uscb-tag__census_type_blog{background-color: #7ad4e2;border-color: #7ad4e2;--icon-class:o-news-website-1;}.uscb-tag__census_type_blog_directors-blog{background-color: #7ad4e2;border-color: #7ad4e2;--icon-class:o-news-website-1;}.uscb-tag__census_type_blog_global-reach-blog{background-color: #7ad4e2;border-color: #7ad4e2;--icon-class:o-news-website-1;}.uscb-tag__census_type_blog_random-samplings-blog{background-color: #7ad4e2;border-color: #7ad4e2;--icon-class:o-news-website-1;}.uscb-tag__census_type_blog_research-blog{background-color: #7ad4e2;border-color: #7ad4e2;--icon-class:o-news-website-1;}.uscb-tag__census_type_blog_deputy-directors-blog{background-color: #7ad4e2;border-color: #7ad4e2;--icon-class:o-news-website-1;}.uscb-tag__census_type_blog_previous-directors-blogs{background-color: #7ad4e2;border-color: #7ad4e2;--icon-class:o-news-website-1;}.uscb-tag__census_type_story{background-color: #bdf;border-color: #bdf;--icon-class:o-news-1;}.uscb-tag__census_type_story_story-map{background-color: #bdf;border-color: #bdf;--icon-class:o-news-1;}.uscb-tag__census_type_geographic{background-color: #bbddff;border-color: #bbddff;--icon-class:o-news-1;}.uscb-tag__census_type_geographic_geo-profile{background-color: #bbddff;border-color: #bbddff;--icon-class:o-news-1;}.uscb-tag__census_type_geographic_mapping-file{background-color: #bbddff;border-color: #bbddff;--icon-class:o-news-1;}.uscb-tag__census_type_geographic_reference-file{background-color: #bbddff;border-color: #bbddff;--icon-class:o-news-1;}.uscb-tag__census_type_geographic_reference-map{background-color: #bbddff;border-color: #bbddff;--icon-class:o-news-1;}.uscb-tag__census_type_geographic_mapping-tool{background-color: #bbddff;border-color: #bbddff;--icon-class:o-news-1;}.uscb-tag__census_type_forms{background-color: #bbddff;border-color: #bbddff;--icon-class:o-news-1;}.uscb-tag__census_type_forms_request-form{background-color: #bbddff;border-color: #bbddff;--icon-class:o-news-1;}.uscb-tag__census_type_contact{background-color: #bbddff;border-color: #bbddff;--icon-class:o-news-1;}.uscb-tag__census_type_indicator{background-color: #bbddff;border-color: #bbddff;--icon-class:o-news-1;}.uscb-tag__census_type_job{background-color: #bbddff;border-color: #bbddff;--icon-class:o-news-1;}.uscb-tag__census_type_fact-sheet{background-color: #d0dce1;border-color: #d0dce1;--icon-class:o-find-notes-1;}.uscb-tag__census_type_faq{background-color: #bbddff;border-color: #bbddff;--icon-class:o-news-1;}.uscb-tag__census_type_faq_faq-feature{background-color: #bbddff;border-color: #bbddff;--icon-class:o-news-1;}.uscb-tag__census_type_outreach-materials{background-color: #bbddff;border-color: #bbddff;--icon-class:o-news-1;}.uscb-tag__census_type_spotlight{background-color: #d0dce1;border-color: #d0dce1;--icon-class:o-find-notes-1;}.uscb-tag__census_type_census-reference-materials{background-color: #bbddff;border-color: #bbddff;--icon-class:o-news-1;}.uscb-tag__census_type_census-reference-materials_code-lists{background-color: #bbddff;border-color: #bbddff;--icon-class:o-news-1;}.uscb-tag__census_type_monthly-history-story{background-color: #d0dce1;border-color: #d0dce1;--icon-class:o-find-notes-1;}.uscb-tag__census_type_flyer{background-color: #d0dce1;border-color: #d0dce1;--icon-class:o-find-notes-1;}.uscb-tag__census_program{background-color: #bbddff;border-color: #bbddff;--icon-class:o-news-1;}.uscb-tag__census_program_demo-survey{background-color: #c0e4be;border-color: #c0e4be;--icon-class:o-news-1;}.uscb-tag__census_program_demo-survey_atus{background-color: #c0e4be;border-color: #c0e4be;--icon-class:o-news-1;}.uscb-tag__census_program_demo-survey_ce{background-color: #c0e4be;border-color: #c0e4be;--icon-class:o-news-1;}.uscb-tag__census_program_demo-survey_ncvs{background-color: #c0e4be;border-color: #c0e4be;--icon-class:o-news-1;}.uscb-tag__census_program_demo-survey_namcs{background-color: #c0e4be;border-color: #c0e4be;--icon-class:o-news-1;}.uscb-tag__census_program_demo-survey_nhis{background-color: #c0e4be;border-color: #c0e4be;--icon-class:o-news-1;}.uscb-tag__census_program_demo-survey_nhamcs{background-color: #c0e4be;border-color: #c0e4be;--icon-class:o-news-1;}.uscb-tag__census_program_demo-survey_nhes{background-color: #c0e4be;border-color: #c0e4be;--icon-class:o-news-1;}.uscb-tag__census_program_demo-survey_nscg{background-color: #c0e4be;border-color: #c0e4be;--icon-class:o-news-1;}.uscb-tag__census_program_demo-survey_fhwar{background-color: #c0e4be;border-color: #c0e4be;--icon-class:o-news-1;}.uscb-tag__census_program_demo-survey_nychvs{background-color: #c0e4be;border-color: #c0e4be;--icon-class:o-news-1;}.uscb-tag__census_program_demo-survey_prcs{background-color: #c0e4be;border-color: #c0e4be;--icon-class:o-news-1;}.uscb-tag__census_program_demo-survey_rfs{background-color: #c0e4be;border-color: #c0e4be;--icon-class:o-news-1;}.uscb-tag__census_program_demo-survey_scs{background-color: #c0e4be;border-color: #c0e4be;--icon-class:o-news-1;}.uscb-tag__census_program_demo-survey_sass{background-color: #c0e4be;border-color: #c0e4be;--icon-class:o-news-1;}.uscb-tag__census_program_demo-survey_soma{background-color: #c0e4be;border-color: #c0e4be;--icon-class:o-news-1;}.uscb-tag__census_program_demo-survey_spd{background-color: #c0e4be;border-color: #c0e4be;--icon-class:o-news-1;}.uscb-tag__census_program_demo-survey_tfs{background-color: #c0e4be;border-color: #c0e4be;--icon-class:o-news-1;}.uscb-tag__census_program_demo-survey_tpops{background-color: #c0e4be;border-color: #c0e4be;--icon-class:o-news-1;}.uscb-tag__census_program_demo-survey_decennial{background-color: #c0e4be;border-color: #c0e4be;--icon-class:o-news-1;}.uscb-tag__census_program_demo-survey_decennial_2010census{background-color: #c0e4be;border-color: #c0e4be;--icon-class:o-news-1;}.uscb-tag__census_program_demo-survey_decennial_2000-census{background-color: #c0e4be;border-color: #c0e4be;--icon-class:o-news-1;}.uscb-tag__census_program_demo-survey_decennial_1990-census{background-color: #c0e4be;border-color: #c0e4be;--icon-class:o-news-1;}.uscb-tag__census_program_demo-survey_decennial_2020-census{background-color: #c0e4be;border-color: #c0e4be;--icon-class:o-news-1;}.uscb-tag__census_program_demo-survey_decennial_2020-census_2015-test{background-color: #c0e4be;border-color: #c0e4be;--icon-class:o-news-1;}.uscb-tag__census_program_demo-survey_decennial_2020-census_2016-test{background-color: #c0e4be;border-color: #c0e4be;--icon-class:o-news-1;}.uscb-tag__census_program_demo-survey_decennial_2020-census_2017-test{background-color: #c0e4be;border-color: #c0e4be;--icon-class:o-news-1;}.uscb-tag__census_program_demo-survey_decennial_2020-census_2018-test{background-color: #c0e4be;border-color: #c0e4be;--icon-class:o-news-1;}.uscb-tag__census_program_demo-survey_decennial_census-population{background-color: #c0e4be;border-color: #c0e4be;--icon-class:o-news-1;}.uscb-tag__census_program_demo-survey_decennial_census-housing{background-color: #c0e4be;border-color: #c0e4be;--icon-class:o-news-1;}.uscb-tag__census_program_demo-survey_decennial_voting-rights{background-color: #c0e4be;border-color: #c0e4be;--icon-class:o-news-1;}.uscb-tag__census_program_demo-survey_decennial_pes{background-color: #c0e4be;border-color: #c0e4be;--icon-class:o-news-1;}.uscb-tag__census_program_demo-survey_decennial_2030-census{background-color: #c0e4be;border-color: #c0e4be;--icon-class:o-news-1;}.uscb-tag__census_program_demo-survey_decennial_2030-census_2023-census-test{background-color: #c0e4be;border-color: #c0e4be;--icon-class:o-news-1;}.uscb-tag__census_program_demo-survey_decennial_2030-census_2024-census-survey{background-color: #c0e4be;border-color: #c0e4be;--icon-class:o-news-1;}.uscb-tag__census_program_demo-survey_decennial_2030-census_2026-census-test{background-color: #c0e4be;border-color: #c0e4be;--icon-class:o-news-1;}.uscb-tag__census_program_demo-survey_hvs{background-color: #c0e4be;border-color: #c0e4be;--icon-class:o-news-1;}.uscb-tag__census_program_demo-survey_ahs{background-color: #c0e4be;border-color: #c0e4be;--icon-class:o-news-1;}.uscb-tag__census_program_demo-survey_cps{background-color: #c0e4be;border-color: #c0e4be;--icon-class:o-news-1;}.uscb-tag__census_program_demo-survey_acs{background-color: #c0e4be;border-color: #c0e4be;--icon-class:o-news-1;}.uscb-tag__census_program_demo-survey_sipp{background-color: #c0e4be;border-color: #c0e4be;--icon-class:o-news-1;}.uscb-tag__census_program_demo-survey_popest{background-color: #c0e4be;border-color: #c0e4be;--icon-class:o-news-1;}.uscb-tag__census_program_demo-survey_popproj{background-color: #c0e4be;border-color: #c0e4be;--icon-class:o-news-1;}.uscb-tag__census_program_demo-survey_bas{background-color: #c0e4be;border-color: #c0e4be;--icon-class:o-news-1;}.uscb-tag__census_program_demo-survey_tsap{background-color: #c0e4be;border-color: #c0e4be;--icon-class:o-news-1;}.uscb-tag__census_program_demo-survey_sdrp{background-color: #c0e4be;border-color: #c0e4be;--icon-class:o-news-1;}.uscb-tag__census_program_demo-survey_luca{background-color: #c0e4be;border-color: #c0e4be;--icon-class:o-news-1;}.uscb-tag__census_program_demo-survey_psap{background-color: #c0e4be;border-color: #c0e4be;--icon-class:o-news-1;}.uscb-tag__census_program_demo-survey_gupcp{background-color: #c0e4be;border-color: #c0e4be;--icon-class:o-news-1;}.uscb-tag__census_program_demo-survey_gss-i{background-color: #c0e4be;border-color: #c0e4be;--icon-class:o-news-1;}.uscb-tag__census_program_demo-survey_metro-micro{background-color: #c0e4be;border-color: #c0e4be;--icon-class:o-news-1;}.uscb-tag__census_program_demo-survey_aian{background-color: #c0e4be;border-color: #c0e4be;--icon-class:o-news-1;}.uscb-tag__census_program_demo-survey_rdo{background-color: #c0e4be;border-color: #c0e4be;--icon-class:o-news-1;}.uscb-tag__census_program_demo-survey_nshapc{background-color: #c0e4be;border-color: #c0e4be;--icon-class:o-news-1;}.uscb-tag__census_program_demo-survey_ip{background-color: #c0e4be;border-color: #c0e4be;--icon-class:o-news-1;}.uscb-tag__census_program_demo-survey_sahie{background-color: #c0e4be;border-color: #c0e4be;--icon-class:o-news-1;}.uscb-tag__census_program_demo-survey_saipe{background-color: #c0e4be;border-color: #c0e4be;--icon-class:o-news-1;}.uscb-tag__census_program_demo-survey_nssrn{background-color: #c0e4be;border-color: #c0e4be;--icon-class:o-news-1;}.uscb-tag__census_program_demo-survey_ntps{background-color: #c0e4be;border-color: #c0e4be;--icon-class:o-news-1;}.uscb-tag__census_program_demo-survey_sis{background-color: #c0e4be;border-color: #c0e4be;--icon-class:o-news-1;}.uscb-tag__census_program_demo-survey_hh-pulse-survey{background-color: #c0e4be;border-color: #c0e4be;--icon-class:o-news-1;}.uscb-tag__census_program_demo-survey_ehealth{background-color: #c0e4be;border-color: #c0e4be;--icon-class:o-news-1;}.uscb-tag__census_program_demo-survey_cre{background-color: #c0e4be;border-color: #c0e4be;--icon-class:o-news-1;}.uscb-tag__census_program_demo-survey_school-pulse-panel{background-color: #c0e4be;border-color: #c0e4be;--icon-class:o-news-1;}.uscb-tag__census_program_demo-survey_dcdl{background-color: #c0e4be;border-color: #c0e4be;--icon-class:o-news-1;}.uscb-tag__census_program_demo-survey_ntews{background-color: #c0e4be;border-color: #c0e4be;--icon-class:o-news-1;}.uscb-tag__census_program_demo-survey_pfs{background-color: #c0e4be;border-color: #c0e4be;--icon-class:o-news-1;}.uscb-tag__census_program_demo-survey_ssocs{background-color: #c0e4be;border-color: #c0e4be;--icon-class:o-news-1;}.uscb-tag__census_program_demo-survey_special-census-program{background-color: #c0e4be;border-color: #c0e4be;--icon-class:o-news-1;}.uscb-tag__census_program_demo-survey_nsch{background-color: #c0e4be;border-color: #c0e4be;--icon-class:o-news-1;}.uscb-tag__census_program_demo-survey_pss{background-color: #c0e4be;border-color: #c0e4be;--icon-class:o-news-1;}.uscb-tag__census_program_demo-survey_nschlc{background-color: #c0e4be;border-color: #c0e4be;--icon-class:o-news-1;}.uscb-tag__census_program_demo-survey_national-household-food-study{background-color: #c0e4be;border-color: #c0e4be;--icon-class:o-news-1;}.uscb-tag__census_program_demo-survey_chs{background-color: #c0e4be;border-color: #c0e4be;--icon-class:o-news-1;}.uscb-tag__census_program_demo-survey_htops{background-color: #c0e4be;border-color: #c0e4be;--icon-class:o-news-1;}.uscb-tag__census_",
+          "title": "Commodity Flow Survey Tables",
+          "httpStatus": 200
+        },
+        {
+          "type": "openrouter:web_fetch",
+          "id": "st_tmp_t35icjov86",
+          "status": "completed",
+          "url": "https://thefederalregister.org/documents/2026-10118/agency-information-collection-activities-submission-to-the-office-of-management-and-budget-omb-for-review-and-approval-c",
+          "content": "<!DOCTYPE html>\n<html lang=\"en\">\n<head>\n  <meta charset=\"utf-8\">\n  <meta name=\"viewport\" content=\"width=device-width, initial-scale=1\">\n  <title>Agency Information Collection Activities; Submission to the Office of Management and Budget (OMB) for Review and Approval; Comment Request; Commodity Flow Survey (CFS) | 91 FR 29449</title>\n  <meta name=\"description\" content=\"The Department of Commerce, in accordance with the Paperwork Reduction Act (PRA) of 1995, invites the general public and other Federal agencies to comment on proposed, and conti...\">\n  <meta name=\"robots\" content=\"index,follow\">\n  <meta property=\"og:type\" content=\"article\">\n  <meta property=\"og:title\" content=\"Agency Information Collection Activities; Submission to the Office of Management and Budget (OMB) for Review and Approval; Comment Request; Commodity Flow Survey (CFS) | 91 FR 29449\">\n  <meta property=\"og:description\" content=\"The Department of Commerce, in accordance with the Paperwork Reduction Act (PRA) of 1995, invites the general public and other Federal agencies to comment on proposed, and conti...\">\n  <meta property=\"og:url\" content=\"https://thefederalregister.org/documents/2026-10118/agency-information-collection-activities-submission-to-the-office-of-management-and-budget-omb-for-review-and-approval-c\">\n  <meta property=\"og:site_name\" content=\"thefederalregister.org\">\n  <meta name=\"twitter:card\" content=\"summary\">\n  <meta name=\"twitter:title\" content=\"Agency Information Collection Activities; Submission to the Office of Management and Budget (OMB) for Review and Approval; Comment Request; Commodity Flow Survey (CFS) | 91 FR 29449\">\n  <meta name=\"twitter:description\" content=\"The Department of Commerce, in accordance with the Paperwork Reduction Act (PRA) of 1995, invites the general public and other Federal agencies to comment on proposed, and conti...\">\n  <link rel=\"icon\" href=\"/assets/favicon.svg\" type=\"image/svg+xml\">\n  <style data-critical>:root{--bg:#f4efe5;--paper:#fffdf8;--ink:#1d1a17;--muted:#6f665a;--border:#d8cbbb;--accent:#8e2b1f;--accent-deep:#5b170f}*{box-sizing:border-box}html{background:var(--bg);color:var(--ink);font-family:\"Iowan Old Style\",\"Palatino Linotype\",\"Book Antiqua\",Palatino,Georgia,serif;-webkit-text-size-adjust:100%}body{margin:0;min-height:100vh;background:linear-gradient(180deg,#f7f1e8 0%,#f2ebe1 42%,#f4efe5 100%)}.shell{width:min(1180px,calc(100vw - 2rem));margin:0 auto}.site-header{position:sticky;top:0;z-index:20;background:rgba(244,239,229,.96);border-bottom:1px solid rgba(216,203,187,.9)}.header-shell{display:flex;justify-content:space-between;align-items:center;gap:1rem;padding:1rem 0}.brand{display:flex;flex-direction:column;gap:.2rem;color:var(--accent-deep);text-decoration:none}.link-list a{display:flex;align-items:center;min-height:44px}.main-shell{padding:2rem 0 4rem}@media (prefers-color-scheme:dark){:root{--bg:#161310;--paper:#211c17;--ink:#f5ede2;--muted:#c7b8a6;--border:#5c4d40;--accent:#e99b8c;--accent-deep:#f2b0a4}html,body{background:#161310;color:var(--ink)}.site-header{background:rgba(22,19,16,.96)}}</style>\n  <link rel=\"preload\" href=\"/assets/site.css?v=20260717d\" as=\"style\">\n  <link rel=\"stylesheet\" href=\"/assets/site.css?v=20260717d\">\n  <link rel=\"stylesheet\" href=\"/assets/print.css?v=20260717d\" media=\"print\">\n  <link rel=\"alternate\" type=\"application/rss+xml\" title=\"Latest Documents\" href=\"/feeds/latest.xml\">\n  <link rel=\"alternate\" type=\"application/rss+xml\" title=\"Latest Changes\" href=\"/feeds/changes.xml\">\n  <link rel=\"alternate\" href=\"https://thefederalregister.org/pdf/documents/2026-10118.pdf\" type=\"application/pdf\" title=\"Agency Information Collection Activities; Submission to the Office of Management and Budget (OMB) for Review and Approval; Comment Request; Commodity Flow Survey (CFS) PDF\">\n  <link rel=\"canonical\" href=\"https://thefederalregister.org/documents/2026-10118/agency-information-collection-activities-submission-to-the-office-of-management-and-budget-omb-for-review-and-approval-c\">\n  <script type=\"application/ld+json\">{\"@context\":\"https://schema.org\",\"@type\":\"BreadcrumbList\",\"itemListElement\":[{\"@type\":\"ListItem\",\"position\":1,\"name\":\"Home\",\"item\":\"https://thefederalregister.org/\"},{\"@type\":\"ListItem\",\"position\":2,\"name\":\"2026\",\"item\":\"https://thefederalregister.org/issues/2026\"},{\"@type\":\"ListItem\",\"position\":3,\"name\":\"May\",\"item\":\"https://thefederalregister.org/issues/2026/05\"},{\"@type\":\"ListItem\",\"position\":4,\"name\":\"Wednesday, May 20, 2026\",\"item\":\"https://thefederalregister.org/issues/2026/05/20\"},{\"@type\":\"ListItem\",\"position\":5,\"name\":\"Agency Information Collection Activities; Submission to the Office of Management and Budget (OMB) for Review and Approval; Comment Request; Commodity Flow Survey (CFS)\",\"item\":\"https://thefederalregister.org/documents/2026-10118/agency-information-collection-activities-submission-to-the-office-of-management-and-budget-omb-for-review-and-approval-c\"}]}</script>\n  <script type=\"application/ld+json\">{\"@context\":\"https://schema.org\",\"@type\":\"Article\",\"headline\":\"Agency Information Collection Activities; Submission to the Office of Management and Budget (OMB) for Review and Approval; Comment Request; Commodity Flow Survey (CFS)\",\"url\":\"https://thefederalregister.org/documents/2026-10118/agency-information-collection-activities-submission-to-the-office-of-management-and-budget-omb-for-review-and-approval-c\",\"datePublished\":\"2026-05-20T00:00:00Z\",\"dateModified\":\"2026-05-20T11:32:49.368Z\",\"description\":\"The Department of Commerce, in accordance with the Paperwork Reduction Act (PRA) of 1995, invites the general public and other Federal agencies to comment on proposed, and conti...\",\"identifier\":\"2026-10118\",\"author\":[{\"@type\":\"Organization\",\"name\":\"Commerce Department\"},{\"@type\":\"Organization\",\"name\":\"Census Bureau\"}],\"isPartOf\":{\"@type\":\"CollectionPage\",\"name\":\"Federal Register issue for Wednesday, May 20, 2026\",\"url\":\"https://thefederalregister.org/issues/2026/05/20\"},\"mainEntityOfPage\":\"https://thefederalregister.org/documents/2026-10118/agency-information-collection-activities-submission-to-the-office-of-management-and-budget-omb-for-review-and-approval-c\"}</script>\n<meta name=\"google-adsense-account\" content=\"ca-pub-0545639743190253\"><link rel=\"preconnect\" href=\"https://pagead2.googlesyndication.com\" crossorigin><link rel=\"dns-prefetch\" href=\"//pagead2.googlesyndication.com\"></head>\n<body>\n  <header class=\"site-header\">\n    <div class=\"shell header-shell\">\n      <a class=\"brand\" href=\"/\">\n        <span class=\"brand-kicker\">thefederalregister.org</span>\n        <span class=\"brand-title\">Federal Register Research Archive</span>\n      </a>\n      <nav class=\"site-nav\">\n        <a href=\"/feeds/latest.xml\">Latest RSS</a>\n        <a href=\"/feeds/changes.xml\">Changes RSS</a>\n        <a href=\"/search\">Search</a>\n        <a href=\"/status\">Status</a>\n      </nav>\n    </div>\n  </header>\n  <main class=\"shell main-shell\">\n    <nav class=\"breadcrumbs\" aria-label=\"Breadcrumbs\"><a href=\"/\">Home</a><span class=\"breadcrumb-separator\">/</span><a href=\"/issues/2026\">2026</a><span class=\"breadcrumb-separator\">/</span><a href=\"/issues/2026/05\">May</a><span class=\"breadcrumb-separator\">/</span><a href=\"/issues/2026/05/20\">Wednesday, May 20, 2026</a><span class=\"breadcrumb-separator\">/</span><span>Agency Information Collection Activities; Submission to the Office of Management and Budget (OMB) for Review and Approval; Comment Request; Commodity Flow Survey (CFS)</span></nav>\n    \n    <section class=\"page-head\">\n      <p class=\"eyebrow\">Document</p>\n      <h1>Agency Information Collection Activities; Submission to the Office of Management and Budget (OMB) for Review and Approval; Comment Request; Commodity Flow Survey (CFS)</h1>\n      <p class=\"lede\">The Department of Commerce, in accordance with the Paperwork Reduction Act (PRA) of 1995, invites the general public and other Federal agencies to comment on proposed, and conti...</p>\n      <div class=\"hero-actions\"><a class=\"button\" href=\"/pdf/documents/2026-10118.pdf\" rel=\"alternate\" type=\"application/pdf\">PDF version</a><a class=\"button\" href=\"https://www.federalregister.gov/documents/2026/05/20/2026-10118/agency-information-collection-activities-submission-to-the-office-of-management-and-budget-omb-for\">FederalRegister.gov</a></div>\n    </section>\n    <div class=\"grid-document\">\n      <aside class=\"card sticky-card\">\n        <ul class=\"meta-list\"><li><span>Published</span><strong>Wednesday, May 20, 2026</strong></li><li><span>Document Number</span><strong>2026-10118</strong></li><li><span>Type</span><strong>Notice</strong></li><li><span>Citation</span><strong>91 FR 29449</strong></li><li><span>Pages</span><strong>29449-29450</strong></li><li><span>Agencies</span><strong>Commerce Department, Census Bureau</strong></li></ul>\n        <section class=\"card\"><h2>Related Archives</h2><ul class=\"link-list\"><li><a href=\"/issues/2026/05/20\">Issue for Wednesday, May 20, 2026</a></li><li><a href=\"/issues/2026\">2026 archive</a></li><li><a href=\"/issues/2026/05\">May 2026 archive</a></li><li><a href=\"/agencies/commerce-department\">Commerce Department archive</a></li><li><a href=\"/agencies/census-bureau\">Census Bureau archive</a></li></ul></section>\n        <section class=\"card\"><h2>Issue Navigation</h2><div class=\"hero-actions\">\n    <a class=\"button secondary\" href=\"/documents/2026-10098/notice-of-public-briefing-of-the-new-york-advisory-committee-to-the-u-s-commission-on-civil-rights\">Previous: Notice of Public Briefing of the New York Advisory Commit...</a>\n    <a class=\"button secondary\" href=\"/documents/2026-10046/foreign-trade-zone-ftz-214-notification-of-proposed-production-activity-patheon-manufacturing-services-llc-opdualag-gree\">Next: Foreign-Trade Zone (FTZ) 214, Notification of Proposed Pr...</a>\n  </div></section>\n        <section class=\"card\"><h2>Citation</h2><ul class=\"link-list\"><li><a href=\"/citation/91-FR-29449\">91 FR 29449</a></li></ul></section><section class=\"card\"><h2>U.S. Code Citations</h2><ul class=\"link-list\"><li><a href=\"https://uscode.ecfr.io/view.xhtml?edition=prelim&num=0&req=granuleid:USC-prelim-title13-section8\">13 U.S.C. \u00a7 8</a></li></ul></section>\n      </aside>\n      <article class=\"document-body card\">\n        <div class=\"preamble\">\n<div class=\"document-headings\"><div class=\"content-block \">\n<h6 class=\"agency\">Department of Commerce</h6>\n<h6 class=\"sub-agency\">Census Bureau</h6>\n</div>\n</div></div>\n<div id=\"agency\">\n                    <h1 id=\"h-1\">AGENCY:</h1>\n                    <p id=\"p-1\" data-page=\"29449\">Census Bureau, Commerce.</p>\n                </div>\n<div id=\"action\">\n                    <h1 id=\"h-2\">ACTION:</h1>\n                    <p id=\"p-2\" data-page=\"29449\">Notice of information collection, request for comment.</p>\n                </div>\n<div id=\"summary\">\n                    <h1 id=\"h-3\">SUMMARY:</h1>\n                    <p id=\"p-3\" data-page=\"29449\">The Department of Commerce, in accordance with the Paperwork Reduction Act (PRA) of 1995, invites the general public and other Federal agencies to comment on proposed, and continuing information collections, which helps us assess the impact of our information collection requirements and minimize the public's reporting burden. The purpose of this notice is to allow for 60 days of public comment on the proposed reinstatement, with change, of the Commodity Flow Survey, prior to the submission of the information collection request (ICR) to OMB for approval.</p>\n                </div>\n<div id=\"dates\">\n                    <h1 id=\"h-4\">DATES:</h1>\n                    <p id=\"p-4\" data-page=\"29449\">To ensure consideration, comments regarding this proposed information collection must be received on or before July 20, 2026.</p>\n                </div>\n<div id=\"addresses\">\n                    <h1 id=\"h-5\">ADDRESSES:</h1>\n                    <p id=\"p-5\" data-page=\"29449\">\n                        Interested persons are invited to submit written comments by email to \n                        <em><a href=\"mailto:Thomas.J.Smith@census.gov\" class=\"email\">Thomas.J.Smith@census.gov</a>.</em>\n                         Please refer to the Commodity Flow Survey in the subject line of your comments. You may also submit comments, identified by Docket Number USBC-2026-0166, to the Federal e-Rulemaking Portal: \n                        <em><a href=\"https://www.regulations.gov\" class=\"external\" target=\"_blank\" rel=\"noopener noreferrer\">https://www.regulations.gov</a>.</em>\n                         All comments received are part of the public record. No comments will be posted to \n                        <em><a href=\"https://www.regulations.gov\" class=\"external\" target=\"_blank\" rel=\"noopener noreferrer\">https://www.regulations.gov</a></em>\n                         for public viewing until after the comment period has closed. Comments will generally be posted without change. All Personally Identifiable Information (for example, name and address) voluntarily submitted by the commenter may be publicly accessible. Do not submit Confidential Business Information or otherwise sensitive or protected information. You may submit attachments to electronic comments in Microsoft Word, Excel, or Adobe PDF file formats.\n                    </p>\n                </div>\n<div id=\"for-further-information-contact\">\n                    <h1 id=\"h-6\">FOR FURTHER INFORMATION CONTACT:</h1>\n                    <p id=\"p-6\" data-page=\"29449\">\n                        Requests for additional information or specific questions related to collection activities should be directed to Berin Linfors, Branch Chief, at (301) 763-5366 or \n                        <em><a href=\"mailto:berin.linfors@census.gov\" class=\"email\">berin.linfors@census.gov</a>.</em></p>\n                </div>\n</div>\n            <div class=\"supplemental-info\">\n                <h1 id=\"h-7\">SUPPLEMENTARY INFORMATION:</h1>\n                <h2 id=\"h-8\">I. Abstract</h2>\n                <p id=\"p-7\" data-page=\"29449\">\n                    The Commodity Flow Survey, a component of the 2027 Economic Census, is the only comprehensive and publicly available source of multimodal, \n                    <span class=\"printed-page-inline unprinted-element document-markup\" data-page=\"29450\">\n\n      (<svg class=\"svg-icon svg-icon-doc-generic\"><use xlink:href=\"/assets/fr-icons.svg#doc-generic\"></use></svg> printed page 29450)\n    </span><span class=\"printed-page-details unprinted-element document-markup\" id=\"page-29450\" data-page=\"29450\"><svg class=\"svg-icon svg-icon-doc-generic\"><use xlink:href=\"/assets/fr-icons.svg#doc-generic\"></use></svg></span>\n                    system-wide data on the volume and pattern of goods movements in the United States. The Commodity Flow Survey is conducted in partnership with the Bureau of Transportation Statistics, Office of the Assistant Secretary for Research and Technology, U.S. Department of Transportation.\n                </p>\n                <p id=\"p-8\" data-page=\"29450\">The Commodity Flow Survey data are used by policy makers and transportation planners in various federal, state, and local agencies to assess the demand for transportation facilities and services, energy use, safety risks, and environmental concerns. Additionally, business owners, private researchers, and analysts use the Commodity Flow Survey data for analyzing trends in the movement of goods, mapping spatial patterns of commodity and vehicle flows, forecasting demands for the movement of goods, and determining the needs for associated infrastructure and equipment.</p>\n                <p id=\"p-9\" data-page=\"29450\">The survey provides data on the movement of commodities in the United States from their origin to destination. The survey produces summary statistics on value, tons, and average miles by commodity, industry, and mode of transportation. The Census Bureau will publish these shipment characteristics for the nation, census regions and divisions, states, and CFS defined geographical areas.</p>\n                <p id=\"p-10\" data-page=\"29450\">Primary strategies for reducing respondent burden in the Commodity Flow Survey include: employing a stratified random sample of business establishments; requesting data on a limited sample of shipment records from each establishment with the option to provide all shipments in the week, which simplified reporting for respondents; conducting a pre-canvass survey before the first quarter to inquire about the shipping status of NAICS auxiliary and publisher establishments and to route non-shippers out of the survey; the pre-canvass survey will also be conducted to offer select large companies with multi-unit establishments the ability to create mail groups (which are single points of contact for companies with multiple establishments); and adding the ability to create mail groups within each quarter instead of only at the beginning of each quarter like 2022; removing the supplemental questions from quarters one and four on hazardous materials packaging for companies that ship hazardous materials will decrease the number of establishments from 160,000 in 2022 to 140,000 in 2027; accepting estimates of shipping activity and allowing respondents the option to report their shipment weight in additional units of measurement; applying machine learning to code products based on their descriptions; and providing electronic reporting and including the option for consolidated reporting of multiple locations through a single login for larger companies. In conclusion, the above items will help reduce the burden for the 2027 CFS. There will be a substantial decrease in the number of respondents and the annual burden hours by removing the hazardous materials packaging respondents and their corresponding survey questions from the 2027 CFS. The burden hours will also be reduced by allowing the respondents to submit all their data in a given week instead of having to go through the process of sampling their shipments.</p>\n                <h2 id=\"h-9\">II. Method of Collection</h2>\n                <p id=\"p-11\" data-page=\"29450\">\n                    A sample of business establishments classified in Mining, Manufacturing, Wholesale, and select Retail and Service industries (as defined by the North American Industry Classification System, or NAICS) will be selected for the Commodity Flow Survey. The survey will also cover auxiliary establishments (\n                    <em>i.e.,</em>\n                     warehouses and managing offices) of multi-unit establishments. Each selected establishment will be surveyed four times, once during each calendar quarter of 2027. Each questionnaire will ask the establishment to report data for up to 100 shipments for a predetermined reporting week. These data will include the value, net weight, commodity, and origin and destination of each selected shipment. Survey responses will be collected electronically, and respondents will have the option to provide all shipments for the reporting week instead of sampling shipments.\n                </p>\n                <h2 id=\"h-10\">III. Data</h2>\n                <p id=\"p-12\" data-page=\"29450\">\n                    <em>OMB Control Number:</em>\n                     0607-0932.\n                </p>\n                <p id=\"p-13\" data-page=\"29450\">\n                    <em>Form Number(s):</em>\n                     None.\n                </p>\n                <p id=\"p-14\" data-page=\"29450\">\n                    <em>Type of Review:</em>\n                     Regular submission, Request for a Reinstatement, with Change, of a Previously Approved Collection.\n                </p>\n                <p id=\"p-15\" data-page=\"29450\">\n                    <em>Affected Public:</em>\n                     Business or other for-profit organizations.\n                </p>\n                <p id=\"p-16\" data-page=\"29450\">\n                    <em>Estimated Number of Respondents:</em>\n                     140,000.\n                </p>\n                <p id=\"p-17\" data-page=\"29450\">\n                    <em>Estimated Time per Response:</em>\n                     1.5 hours.\n                </p>\n                <p id=\"p-18\" data-page=\"29450\">\n                    <em>Estimated Total Annual Burden Hours:</em>\n                     840,000.\n                </p>\n                <p id=\"p-19\" data-page=\"29450\">\n                    <em>Estimated Total Annual Cost to Public:</em>\n                     $0. (This is not the cost of respondents' time, but the indirect costs respondents may incur for such things as purchases of specialized software or hardware needed to report, or expenditures for accounting or records maintenance services required specifically by the collection.)\n                </p>\n                <p id=\"p-20\" data-page=\"29450\">\n                    <em>Respondent's Obligation:</em>\n                     Mandatory.\n                </p>\n                <p id=\"p-21\" data-page=\"29450\">\n                    <em>Legal Authority:</em>\n                     Title 13 U.S.C. 8(b) 131 and 193; Title 49 U.S.C., Section 6302.\n                </p>\n                <h2 id=\"h-11\">IV. Request for Comments</h2>\n                <p id=\"p-22\" data-page=\"29450\">We are soliciting public comments to permit the Department/Bureau to: (a) Evaluate whether the proposed information collection is necessary for the proper functions of the Department, including whether the information will have practical utility; (b) Evaluate the accuracy of our estimate of the time and cost burden for this proposed collection, including the validity of the methodology and assumptions used; (c) Evaluate ways to enhance the quality, utility, and clarity of the information to be collected; and (d) Minimize the reporting burden on those who are to respond, including the use of automated collection techniques or other forms of information technology.</p>\n                <p id=\"p-23\" data-page=\"29450\">Comments that you submit in response to this notice are a matter of public record. We will include, or summarize, each comment in our request to OMB to approve this ICR. Before including your address, phone number, email address, or other personal identifying information in your comment, you should be aware that your entire comment&mdash;including your personal identifying information&mdash;may be made publicly available at any time. While you may ask us in your comment to withhold your personal identifying information from public review, we cannot guarantee that we will be able to do so.</p>\n                <div class=\"signature\">\n                    <p class=\"signature-name\">Sheleen Dumas,</p>\n                    <p class=\"signature-title\">Departmental PRA Compliance Officer, Office of the Under Secretary for Economic Affairs, Commerce Department.</p>\n                </div>\n            </div>\n            \n            \n        <div class=\"end-matter\">\n<p class=\"frdoc\">[<a href=\"/documents/2026-10118/agency-information-collection-activities-submission-to-the-office-of-management-and-budget-omb-for-review-and-approval-c\">FR Doc. 2026-10118</a> Filed 5-19-26; 8:45 am]</p>\n<p class=\"billing-code\">BILLING CODE 3510-07-P</p>\n</div>\n      </article>\n    </div>\n    \n    <section class=\"grid-two citation-grid\">\n      <section class=\"card citation-card\">\n        <p class=\"eyebrow\">Legal Citation</p>\n        <h2>Federal Register Citation</h2>\n        <p class=\"lede\">Use this for formal legal and research references to the published document.</p>\n        <pre class=\"citation-block\">91 FR 29449</pre>\n      </section>\n      <section class=\"card citation-card\">\n        <p class=\"eyebrow\">Web Citation</p>\n        <h2>Suggested Web Citation</h2>\n        <p class=\"lede\">Use this when citing the archival web version of the document.</p>\n        <p class=\"citation-block citation-prose\"><span class=\"citation-title\">&ldquo;Agency Information Collection Activities; Submission to the Office of Management and Budget (OMB) for Review and Approval; Comment Request; Commodity Flow Survey (CFS),&rdquo;</span> thefederalregister.org (May 20, 2026), <span class=\"citation-url\">https://thefederalregister.org/documents/2026-10118/agency-information-collection-activities-submission-to-the-office-of-management-and-budget-omb-for-review-and-approval-c</span>.</p>\n      </section>\n    </section>\n  \n    \n  </main>\n<script data-cfasync=\"false\" data-fedreg-app-inline>document.addEventListener(\"DOMContentLoaded\",()=>{(()=>{window.googlefc=window.googlefc||{},window.googlefc.callbackQueue=window.googlefc.callbackQueue||[],window.googlefc.callbackQueue.push({CONSENT_API_READY:()=>{typeof window.googlefc.showRevocationMessage==\"function\"&&document.querySelectorAll(\"[data-privacy-settings]\").forEach(o=>{o.hidden=!1,o.addEventListener(\"click\",()=>window.googlefc.showRevocationMessage())})}});const t=document.querySelector('meta[name=\"robots\"]')?.content||\"\",n=(document.querySelector(\"article.document-body\")?.textContent||\"\").replace(/\\s+/g,\" \").trim();if(/noindex/i.test(t)||n.length<300||document.getElementById(\"fedreg-adsense-loader\"))return;const e=document.createElement(\"script\");e.id=\"fedreg-adsense-loader\",e.async=!0,e.crossOrigin=\"anonymous\",e.src=\"https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-0545639743190253\",document.head.append(e),document.querySelector('ins[data-fedreg-ad=\"in-content-pilot\"]')&&!window.navigator?.globalPrivacyControl&&new Date().toISOString().slice(0,10)<\"2026-10-20\"&&(window.adsbygoogle=window.adsbygoogle||[]).push({})})()},{once:!0});</script></body>\n</html>",
+          "title": "Agency Information Collection Activities; Submission to the Office of Management and Budget (OMB) for Review and Approval; Comment Request; Commodity Flow Survey (CFS) | 91 FR 29449",
+          "httpStatus": 200
+        }
+      ],
+      "ended": "answered",
+      "seconds": 146.4
+    },
+    "session_metadata": {
+      "request": {
+        "model": "z-ai/glm-5.3",
+        "max_output_tokens": 32768,
+        "tools": [
+          {
+            "type": "openrouter:web_search",
+            "parameters": {
+              "engine": "exa",
+              "max_results": 10,
+              "excluded_domains": [
+                "dataindex.us"
+              ]
+            }
+          },
+          {
+            "type": "openrouter:web_fetch",
+            "parameters": {
+              "engine": "openrouter",
+              "blocked_domains": [
+                "dataindex.us"
+              ],
+              "max_content_tokens": 10000
+            }
+          }
+        ],
+        "cache_control": {
+          "type": "ephemeral",
+          "ttl": "1h"
+        },
+        "session_id": "cfs-z-ai/glm-5.3-t0-2026-10-08T19:57:40Z",
+        "stop_server_tools_when": [
+          {
+            "type": "step_count_is",
+            "step_count": 200
+          }
+        ],
+        "reasoning": {
+          "effort": "high"
+        },
+        "provider": {
+          "order": [
+            "z-ai"
+          ],
+          "allow_fallbacks": false
+        }
+      },
+      "response_meta": {
+        "id": "gen-1791489692-KaggrbOTi73D2LlVYer5",
+        "object": "response",
+        "created_at": 1791489692,
+        "model": "z-ai/glm-5.3",
+        "status": "completed",
+        "completed_at": 1791489707,
+        "error": null,
+        "incomplete_details": null,
+        "tools": [],
+        "tool_choice": "auto",
+        "parallel_tool_calls": true,
+        "max_output_tokens": 32768,
+        "temperature": 1,
+        "top_p": 1,
+        "presence_penalty": 0,
+        "frequency_penalty": 0,
+        "top_logprobs": 0,
+        "max_tool_calls": null,
+        "metadata": {},
+        "background": false,
+        "previous_response_id": null,
+        "service_tier": "auto",
+        "truncation": "disabled",
+        "store": false,
+        "instructions": null,
+        "text": {
+          "format": {
+            "type": "text"
+          }
+        },
+        "reasoning": {
+          "effort": "high"
+        },
+        "safety_identifier": null,
+        "prompt_cache_key": null,
+        "prompt_cache_options": null,
+        "usage": {
+          "input_tokens": 30050,
+          "input_tokens_details": {
+            "cached_tokens": 7744
+          },
+          "output_tokens": 1053,
+          "output_tokens_details": {
+            "reasoning_tokens": 490
+          },
+          "total_tokens": 31103,
+          "cost": 0.03787504,
+          "cost_details": {
+            "upstream_inference_cost": 0.03787504,
+            "upstream_inference_input_cost": 0.03324184,
+            "upstream_inference_output_cost": 0.0046332
+          }
+        }
+      },
+      "requests": [
+        {
+          "input_tokens": 30050,
+          "input_tokens_details": {
+            "cached_tokens": 7744
+          },
+          "output_tokens": 1053,
+          "output_tokens_details": {
+            "reasoning_tokens": 490
+          },
+          "total_tokens": 31103,
+          "cost": 0.03787504,
+          "cost_details": {
+            "upstream_inference_cost": 0.03787504,
+            "upstream_inference_input_cost": 0.03324184,
+            "upstream_inference_output_cost": 0.0046332
+          }
+        }
+      ],
+      "searches": 0,
+      "fetches": 0,
+      "tool_items": [],
+      "ended": "answered",
+      "seconds": 14.7
+    }
+  },
+  "messages": [
+    {
+      "role": "user",
+      "content": "#data research\nI am researching a federal dataset. Find out everything you can about this dataset, such as who publishes it, under what authority or mandate, its history, its typical users, and its benefits to the public. Be sure your research comprehensively covers each of those perspectives, as well as any others that you discover or seem useful. I believe this is accurate information, but please check:\n\nDataset title: Commodity Flow Survey (CFS)\nOrganization/publisher: Bureau of Transportation Statistics (BTS), U.S. Department of Transportation, and the U.S. Census Bureau\nDescription: The Commodity Flow Survey (CFS) is a joint effort by the Bureau of Transportation Statistics (BTS), U.S. Department of Transportation, and the U.S. Census Bureau, U.S. Department of Commerce and is required by law. The survey, conducted every five years, is the primary source of national and state-level data on domestic freight shipments by American businesses. As a shipper-based survey, the CFS collects information on how U.S. establishments transport raw materials and finished goods; the types of commodities shipped by mode of transportation; the value, weight, origin, and destinations of shipments (including exports). The CFS does not include imports or shipments originating in any U.S. territories. Industry coverage includes: Mining, Manufacturing, Wholesale Trade, Select Retail and Services, and some auxiliary establishments (e.g., warehouses) of in-scope, multi-unit, and retail companies.\n\nReturn a complete report on everything that a preservationist, data librarian, data scientist, or policy activist might want to know about this data."
+    },
+    {
+      "role": "assistant",
+      "content": "I'll research the Commodity Flow Survey comprehensively, starting with several parallel searches covering different aspects.I have a solid foundation. Now let me dig deeper into the legal mandate, the Freight Analysis Framework connection, user communities, and known limitations/critiques.I have most of the core material. Let me fill in remaining details on BTS's statutory authority, data access/archival channels, and any upcoming changes (2027 CFS).I've hit the search result limit, but I've gathered comprehensive material from the Census Bureau, BTS, TRB, FHWA, and National Academies sources. Here is the complete report.\n\n---\n\n# Commodity Flow Survey (CFS) \u2014 Comprehensive Research Report\n\n## 1. Identification and Verification of Your Description\n\nYour description is **accurate as written**, with only minor nuances worth noting:\n\n- \u2705 **Joint BTS/Census effort, required by law** \u2014 Confirmed. The survey is conducted by the U.S. Census Bureau for BTS, as a component of the Economic Census, under Title 13, U.S.C.\n- \u2705 **Five-year cycle** \u2014 Confirmed. Initiated in 1993, then conducted in years ending in \"2\" and \"7\" since 1997 (1997, 2002, 2007, 2012, 2017, 2022).\n- \u2705 **Shipper-based, national/state freight data** \u2014 Confirmed. It is the primary source of national and state-level data on domestic freight shipments and the **only publicly available source of commodity flow data for the highway mode**.\n- \u2705 **Excludes imports and shipments originating in U.S. territories** \u2014 Confirmed (covers the 50 states and D.C. only).\n- \u2705 **Industry coverage** \u2014 Confirmed: mining, manufacturing, wholesale trade, select retail and services, and auxiliary establishments (warehouses/distribution centers) of in-scope multi-unit companies.\n- \u26a0\ufe0f **One nuance**: The CFS collects crude petroleum data but **does not publish crude petroleum flow estimates** because the oil industry's operations don't fit the survey design well (pipeline flows for this commodity are instead estimated in the FAF using Energy Information Administration data).\n\n---\n\n## 2. Publishers, Institutional Roles, and Funding\n\n| Partner | Department | Role |\n|---|---|---|\n| **Bureau of Transportation Statistics (BTS)** | U.S. Department of Transportation (DOT) | Primary sponsor, technical guidance, product dissemination (CFS Data Explorer, CFS tables on bts.gov/cfs) |\n| **U.S. Census Bureau** | U.S. Department of Commerce | Conducts the data collection as a component of the Economic Census; holds the mandatory-response legal authority; publishes official tables and microdata |\n\n**Funding split:** Since 1993, BTS has provided roughly **80% of the funding** and the Census Bureau the remaining **20%**. The 1993 CFS was also funded in part by the **Federal Highway Administration (FHWA)**. (Source: TRB Circular E-C088, 2005 Commodity Flow Survey Conference.)\n\n**Institutional history of BTS:** BTS was created **December 18, 1991**, by the Intermodal Surface Transportation Efficiency Act (ISTEA) of 1991, largely to fill major gaps in transportation data (especially freight flows) left by deregulation-era cutbacks. It was moved into the Research and Innovative Technology Administration (RITA) by the Research and Innovative Technology Act of November 30, 2004, and today resides within DOT's Office of the Assistant Secretary for Research and Technology (OST-R).\n\n---\n\n## 3. Legal Authority, Mandate, and Confidentiality\n\nThe CFS sits at the intersection of two statutory regimes:\n\n- **13 U.S.C. \u00a7 131** \u2014 authorizes the Census Bureau to conduct economic surveys; the CFS is a component of the **Economic Census**.\n- **13 U.S.C. \u00a7 193** \u2014 authorizes collection of supplementary questions in censuses and surveys.\n- **13 U.S.C. \u00a7\u00a7 224 and 225** \u2014 make response **mandatory** for businesses that receive the questionnaire. Combined with the Sentencing Reform Act of 1984 (18 U.S.C. \u00a7\u00a7 3559, 3571), noncompliance can result in penalties up to **$5,000** (and the response is still required).\n- **13 U.S.C. \u00a7 9** \u2014 makes respondent data **confidential**; it may be seen only by persons sworn to uphold Census confidentiality, used only for statistical purposes, and copies retained in respondents' files are **immune from legal process**.\n- The collection operates under **Paperwork Reduction Act clearance** (OMB control) as an information collection of the Economic Census program.\n- BTS's own mandate to compile, analyze, and publish transportation statistics (including freight data) derives from its establishing statute (49 U.S.C. subtitle I provisions tracing to ISTEA 1991).\n\n**Practical significance for advocates:** Because response is mandatory rather than voluntary, the CFS achieves response rates and coverage that voluntary industry surveys cannot, and its outputs are fully public-domain statistical products.\n\n---\n\n## 4. History and Timeline\n\n| Period | Development |\n|---|---|\n| **1963\u20131983** | Predecessor **Commodity Transportation Survey (CTS)** conducted intermittently; covered only manufacturers (~20,000 establishments), far more limited than today's CFS. Last CTS published 1977; 1983 data were never published; no data collected for 1987. |\n| **Late 1970s\u20131991** | ~15-year gap in freight statistics after transportation deregulation scaled back regulatory data. |\n| **Dec. 18, 1991** | ISTEA creates BTS, largely to address the lack of freight flow data. |\n| **1992** | BTS\u2013Census partnership formed (Census had survey experience, an establishment frame, and mandatory authority). |\n| **1993** | **First CFS** \u2014 quarterly collection, ~200,000 sampled establishments representing ~800,000 businesses; broadened coverage beyond manufacturing for the first time since 1977. |\n| **1997** | Second CFS; the survey aligns with the Economic Census cycle (years ending in \"2\" and \"7\"). |\n| **2002\u20132012** | Regular five-year cycles; sample size roughly stabilized (the 1993\u21922002 period saw about a 4-to-1 sample-size reduction that raised coefficients of variation in some estimates). |\n| **2005** | TRB Commodity Flow Survey Conference (Circular E-C088) \u2014 major methodological review; five research areas identified for improvement. |\n| **2017** | Sixth CFS: 103,877 establishments sampled; first experimental **CFS Subarea Estimates** (sub-CFS-Area geography); first Public Use File in modern form. |\n| **May 20 / June 26, 2025** | **2022 CFS released** (seventh edition): ~165,000 establishments sampled; headline estimate of **12.2 billion tons valued at $18.0 trillion** shipped; PUMS file and CFS Data Explorer (2012\u20132022) released afterward. |\n| **2027** | Next scheduled CFS. |\n\n---\n\n## 5. Survey Design and Methodology (per 2017/2022 methodology documentation)\n\n- **Shipper-based (establishment) survey**, not a carrier survey \u2014 it captures the demand side of freight and identifies the true geographic origin and destination of shipments (\"door-to-door\" distances).\n- **Three-stage sample design:**\n  1. **Establishments** (~165,000 in 2022; ~103,900 in 2017), stratified by geography, industry, and a measure-of-size variable; large establishments sampled with certainty.\n  2. **Reporting weeks** \u2014 each establishment reports for one week in each quarter (four weeks total during the reference year).\n  3. **Shipments** \u2014 within each establishment-quarter, a stratified simple random sample of individual shipments (stratified by destination, 2-digit commodity code, mode, export country, temperature control, HAZMAT code), with post-stratification to match total shipment values.\n- **Weighting** adjusts for nonresponse and post-stratifies to Economic Census totals; each published estimate carries design-based measures of sampling error.\n- Data collected per shipment: commodity type (Standard Classification of Transported Goods, **SCTG**), modes used, value ($), weight (lbs), origin/destination geography, distance shipped, ton-miles, temperature control, export destination country, and hazardous materials codes (UN/NA numbers, hazard class, packaging group, toxic-by-inhalation indicators).\n- Notable improvements in 2022: **\"Customer Pickup\" tabulated as a new mode estimate** (1.4 billion tons, ~11.4% of tonnage, valued at $1.0 trillion in 2022).\n\n---\n\n## 6. Coverage, Scope, and Known Limitations\n\n**In scope:** Employer establishments with paid employees in the 50 states + D.C. in mining (except oil & gas extraction), manufacturing, wholesale trade, auxiliaries (warehouses/distribution centers), and selected retail and service industries.\n\n**Out of scope (important caveats for data users):**\n- Imports (foreign-origin shipments) and foreign-to-foreign through-shipments (e.g., Canada\u2192Mexico); shipments originating in Puerto Rico and other U.S. territories.\n- Farms, forestry, fisheries, oil and gas extraction, construction, transportation carriers themselves, most retail/services, most government/military/USPS mail, and households.\n- Agricultural products are covered only from the first processing center/terminal elevator onward \u2014 not the farm-to-first-receiver leg.\n- **Crude petroleum** (SCTG 16) and much natural gas: collected but not published due to poor fit with the survey design.\n\n**Quantified coverage gap (BTS-commissioned 2017 CFS\u2194FAF comparison, ROSA-P report):**\n- CFS captures roughly **68% of FAF weight and 89% of FAF value** of total domestic freight.\n- By mode, CFS covers only ~22% of FAF pipeline tonnage (crude/LNG are out of scope) and ~74% of truck tonnage.\n- By commodity, six SCTG codes are under 50% covered: crude petroleum (16), logs (25), live animals/fish (01), coal n.e.c. (19), waste/scrap (41), other agricultural products (03).\n- **State-level caution:** CFS covers only 35\u201380% (outbound) and 38\u201383% (inbound) of FAF weight by state \u2014 states with heavy out-of-scope activity (e.g., energy- or agriculture-dominated economies) see larger gaps.\n- Other documented issues: possible undercount of \"intermodal\" shipments due to definitional ambiguity; discrepancies vs. U.S. Army Corps of Engineers waterborne commerce statistics; suppression of high-CV cells; historical comparability breaks from content changes; the 1993\u21922002 sample-size reduction.\n\n---\n\n## 7. Data Products and Access Channels\n\n**Published tabulations (2022 CFS):** Delivered through **data.census.gov** in the \"ECNSVY Commodity Flow Survey\" series, in XLS/CSV/PDF, across dozens of table families:\n- **GAS01\u2013GAS21** \u2014 Geographic Area Series (shipment characteristics by origin geography \u00d7 mode, distance, weight, NAICS, commodity, destination geography; includes huge origin-destination-commodity-mode matrices).\n- **HAZ01\u2013HAZ16** \u2014 Hazardous materials shipments (by mode, hazard class, UN/NA number, intrastate vs. interstate).\n- **TC01\u2013TC13** \u2014 Temperature-controlled shipments.\n- **EXP01\u2013EXP08** \u2014 Export shipments (by export mode, domestic mode, destination country, commodity).\n- Geography levels: U.S., region, division, state, and **134 CFS Areas** (metropolitan-area-based).\n\n**Other products:**\n- **CFS Public Use Microdata Sample (PUMS)** \u2014 a CSV of ~37.6 million shipment records from ~50,000 responding establishments (2022 version, ~680 MB) with 18 variables (origin/destination state and metro, NAICS sector, SCTG commodity, mode, value, weight, great-circle distance, temperature control, export indicators, HAZMAT code, weighting factor). Protected via truncation/topcoding, noise infusion, and confidential collapsing; users compute sampling error via a **generalized variance function (GVF)** method. When a published table estimate exists, users are advised to prefer it over a PUMS-derived estimate.\n- **CFS Subarea Estimates** (experimental, 2017 and 2022) \u2014 disaggregates the 134 CFS Areas into **329 subareas** (each \u22651 county, generally \u226510,000 shipments) for more granular geography without added respondent burden.\n- **BTS CFS Data Explorer** (2012\u20132022) \u2014 web tool at bts.gov and cfsdata.bts.gov for browsing/downloading tables.\n- **BTS history project** \u2014 BTS published an analysis of the five surveys 1997\u20132017 with historical datasets and visualizations.\n\n**Preservation/archival notes (for data librarians):**\n- Current data: **data.census.gov** (with API access), Census FTP site (www2.census.gov/programs-surveys/cfs/), and bts.gov/cfs.\n- Older materials (e.g., the 1993 CFS supporting datasets and reports) are preserved in DOT's **Repository and Open Science Access Portal (ROSA-P**, rosap.ntl.bts.gov; DOI 10.21949/1398953 for 1993 data).\n- Suggested citation format (BTS): *U.S. Department of Transportation, Bureau of Transportation Statistics; and U.S. Department of Commerce, U.S. Census Bureau. (2025-06-26). [table name].*\n\n---\n\n## 8. Relationship to Other Freight Data Programs\n\n- **Freight Analysis Framework (FAF/FAF5)** \u2014 the most important downstream product. BTS builds the FAF by starting with CFS data, then adding out-of-scope flows from external sources (Census foreign trade data, USDA agriculture data, EIA energy statistics, waste/construction/services estimates, etc.) covering ~30% of FAF value. FAF offers more complete coverage and forecasts at 132 state/zone geographies but less commodity and shipment-level detail; the CFS offers greater detail but narrower scope. FAF also has experimental county-to-county estimates. The CFS also anchors FHWA's earlier FAF versions and State Freight Transportation Profiles.\n- **Economic Census** \u2014 the CFS runs concurrently with it, providing cross-dataset consistency (sampling frames, benchmarks, NAICS consistency).\n- **Proprietary alternatives** \u2014 IHS Global Insight **Transearch** is the main commercial competitor, but it partly derives from CFS data.\n- **Decommissioned related programs** \u2014 the Vehicle Inventory and Use Survey (VIUS), once used with CFS for truck payload factors, was discontinued (age of VIUS has been flagged as a research gap), a fact preservationists may note.\n\n---\n\n## 9. Users and Uses\n\n**Government (federal, state, local):**\n- Policymakers and transportation planners at DOT modal agencies \u2014 especially **FHWA** (FAF, highway analysis), **PHMSA** (hazmat routing and risk), **EIA** (energy flows), **EPA** (emissions modeling), **U.S. Army Corps of Engineers** (waterborne comparison), **USDA** (food-supply contamination reach analysis).\n- **State DOTs, metropolitan planning organizations (MPOs), and local planners** for freight plans, infrastructure investment, and corridor studies \u2014 the FAF/CFS \"framework-not-substitute\" doctrine for local planning is explicitly stated in FHWA documentation.\n- Benchmarks for **national accounts** estimates.\n\n**Private sector:** Businesses analyzing market trends and segmentation, logistics siting, supply chain analysis, forecasting demand for goods movement and equipment.\n\n**Researchers:** Freight flow modeling, economic analysis, emissions modeling, spatial analysis of commodity/vehicle flows.\n\n**Typical analytical uses enumerated by BTS:** trend analysis in goods movement; national/regional/sectoral economic analysis; model development for policy and investment decisions; demand forecasting; national accounts benchmarking; spatial mapping of commodity and vehicle flows; assessing safety risk and environmental concerns (hazmat).\n\n---\n\n## 10. Public Benefits\n\n1. **The only public, statistically rigorous, multimodal picture of domestic freight** \u2014 and the only public source of commodity flow data for the highway mode (roughly 68\u201374% of U.S. tonnage moves by truck).\n2. **Supports billions of dollars of infrastructure decisions** \u2014 highways, rail, ports, intermodal terminals, hazmat routing \u2014 made with public money at federal, state, and local levels.\n3. **Transparency and accountability** \u2014 mandatory, confidential, statistical-purpose data collection avoids both underreporting and commercial confidentiality barriers; results are free and public domain.\n4. **Emergency response and safety** \u2014 hazmat tables (by hazard class, UN/NA number, toxic-by-inhalation status, route type) inform risk assessment and incident response planning.\n5. **Economic measurement** \u2014 benchmarks freight activity feeding national accounts and trade analysis, including export flows by destination country.\n6. **Economies of scale** \u2014 one survey serves dozens of downstream uses (FAF, state freight plans, academic research) rather than duplicated private collection.\n\n---\n\n## 11. Considerations for Preservationists, Librarians, and Data Scientists\n\n- **Cycles matter:** data are collected only every five years; between releases, the FAF annual estimates partially fill the gap, but CFS-specific detail (HAZMAT, temperature control, shipment-level microdata) is not refreshed annually.\n- **Comparability breaks:** content changes across cycles (e.g., new \"Customer Pickup\" mode in 2022, sample-size changes, geography redefinitions \u2014 the 2022 Subareas added two areas vs. 2017) require reading each cycle's methodology before pooling time series.\n- **Confidentiality protections** mean published tables carry suppression rules (CV > 50% or disclosure risk), and the PUMS is deliberately noised/topcoded \u2014 published tables are authoritative where available.\n- **Known audit trail:** the methodological literature (TRB Circular E-C088, 2005; National Academies Special Report 277, *Measuring Personal Travel and Goods Movement*, which reviewed BTS surveys; NCFRP Report 20 on sub-national commodity flow data; BTS's 2017 CFS/FAF comparison) provides an unusually good record of critiques and responses \u2014 useful for documenting data quality provenance.\n\n---\n\n## 12. Key Figures from the Most Recent (2022) Release\n\n- **12.2 billion tons** shipped (virtually unchanged from 2017); **$18.0 trillion** in value (up 24.0%, +$3.5 trillion, not inflation-adjusted).\n- Truck as single mode: 8.3 billion tons (68.1% of tonnage) and $13.2 trillion (73.5% of value).\n- 56.4% of tonnage traveled less than 50 miles.\n- Hazmat shipments: 2.6 billion tons, $2.1 trillion.\n- South region: 1.9 billion tons (40.4% of U.S. tonnage), $6.7 trillion.\n- Manufacturing shipped 4.9 billion tons ($7.1 trillion); wholesale 4.1 billion tons ($8.1 trillion).\n\n---\n\n## 13. Primary Sources Consulted\n\n- Census Bureau: [About the CFS](https://www.census.gov/programs-surveys/cfs/about.html) (legal authority/confidentiality); [Program overview](https://www.census.gov/econ/overview/se0700.html) (history); [2022 methodology](https://www.census.gov/programs-surveys/cfs/technical-documentation/methodology.html); [2022 final tables](https://www.census.gov/data/tables/2022/econ/cfs/aff-2022.html); [2022 datasets incl. PUMS](https://www.census.gov/data/datasets/2022/econ/cfs/historical-datasets.html); [PUMS user guide](https://www2.census.gov/programs-surveys/cfs/datasets/2022/cfs_2022_pums_users_guide.pdf); [June 26, 2025 press release](https://www.census.gov/newsroom/press-releases/2025/cfs-shipments-of-goods.html); [Subarea Estimates experimental product](https://www.census.gov/data/experimental-data-products/commodity-flow-survey-subarea-estimates.html).\n- BTS: [CFS program page](https://www.bts.gov/cfs); [CFS FAQs](https://www.bts.gov/cfs/faqs); [2022 data release newsroom item](https://www.bts.gov/newsroom/commodity-flow-survey-2022-data-released); [FAF program](https://www.bts.gov/faf).\n- TRB: Circular E-C088 (2005 CFS Conference \u2014 history, funding split, BTS creation); 2005 workshop paper on CFS strengths/weaknesses.\n- FHWA: FAF out-of-scope methodology reports; FAF issues and plans.\n- BTS/ROSA-P: *Comparison of CFS and FAF for 2017 Domestic Freight Flows* (quantified coverage gaps); 1993 CFS supporting datasets.\n- National Academies: Special Report 277, *Measuring Personal Travel and Goods Movement*.\n\n**Bottom line:** The CFS is a statutorily mandated, mandatory-response, five-year federal statistical product with a documented lineage back to 1963, a well-defined institutional partnership (Census collects; BTS sponsors ~80% and disseminates), a rich ecosystem of public products (tables, PUMS, subarea estimates, Data Explorer), and known, quantified coverage gaps that responsible use requires acknowledging \u2014 with the Freight Analysis Framework as its principal complement."
+    },
+    {
+      "role": "user",
+      "content": "# Dataset risk assessment\nI would like your help in assessing the likelihood that this data will be changed or removed from its primary location, and that users will no longer be able to access accurate and reliable copies of it, based on the rubric below.\n\n## Sources for context\nTo help assess the rubric categories, perform additional research on the data, the agency, the data's topics and typical users, covering topics such as proposed regulatory or funding changes, recent news, and political commentary. Use whatever resources you find useful, including the Federal Register (https://www.federalregister.gov) and the federal staffing tracker at https://usajobs-tracker.abigailhaddad.com.\n\n## Rubric\nThis rubric is divided up into categories. Each category is divided up into risk levels. In your output, please select the appropriate risk level for each category based on your research.\n\n### Historical Data Availability\n- Gone: Data files prior to the current year or cycle are no longer publicly available.\n- High Risk: Some data files prior to the current year or cycle are removed.\n- Moderate Risk: Some data elements that exist in the dataset prior to the current year or cycle are removed.\n- No Known Issue: Data prior to the current year or cycle remain accessible with no known alterations.\n\n### Future Data Availability\n- Gone: Data collection and publication has been terminated.\n- High Risk: Statutory publication deadline missed and/or collection or publication skipped and/or ICR expired for more than one year.\n- Moderate Risk: Typical or intended publication date missed and/or collection or publication delayed; ICR expired up to one year.\n- No Known Issue: Data published on time or as expected and ICR active or renewed before expiration.\n\n### Data Quality\n- Gone: Data collection and publication has been terminated.\n- High Risk: Reductions in granularity, timeliness, or frequency.\n- Moderate Risk: Potential or emerging risk to granularity, timeliness, or frequency.\n- No Known Issue: Maintained or improved granularity, timeliness, or frequency.\n\n### Statutory Context\n- Gone: N/A\n- High Risk: Statutory authorization is vague and/or there are alternative data collections that could serve as substitutes and/or no known programmatic use.\n- Moderate Risk: Not explicitly required by statute but required for the implementation of a state or federal program, and there are no alternative data collections that could serve as substitutes.\n- No Known Issue: Statutorily required and/or statutory authorization is explicitly named and it is clear what has to be collected, and there aren't alternative data collections that could serve as substitutes and/or required for implementation of a federal program.\n\n### Staffing and Funding\n- Gone: All of the staff in the division or agency are gone and/or all funding has been terminated.\n- High Risk: 40% or more of staff lost, and/or 1,000 or more staff lost, and/or budget cut by 20% or more, and/or leadership removed.\n- Moderate Risk: 10\u201339% of staff lost, and/or 500\u2013999 staff lost, and/or budget cut by 10\u201319%, and/or threatened change in leadership.\n- No Known Issue: Less than 10% of staff lost and less than 10% of budget cut and no known change in leadership.\n\n### Policy\n- Gone: Data collection and publication has been terminated.\n- High Risk: Presidential Action-driven information collection request (ICR); negative policy note on site; other significant changes in accordance with Administration priorities.\n- Moderate Risk: Proposed or pending changes; statements by administration officials suggesting a change is being considered or planned.\n- No Known Issue: No notable changes since January 2025 affecting what data is collected and published.\n\nFor each category, concisely list the evidence and supporting sources that would support each risk level. Then indicate which risk level you find most appropriate and why.\n\nConclude with a simple summary of risk levels:\nHistorical Data Availability: <level>\nFuture Data Availability: <level>\nData Quality: <level>\nStatutory Context: <level>\nStaffing and Funding: <level>\nPolicy: <level>"
+    },
+    {
+      "role": "assistant",
+      "content": "I'll research current risk factors: recent news about Census Bureau and BTS staffing/budget, Federal Register activity for the CFS ICR, and any policy changes affecting federal statistics.I've found that we're now in mid-2026, and I've identified the 2027 CFS ICR Federal Register notice from May 2026, which is a positive sign for the survey's future. Next I'll look into data availability, the survey cancellations, and the data.gov transition.Current date is October 2026. The 2027 CFS is in the ICR pipeline (60-day notice May 2026). Now let me verify the 2027 CFS content details, look for the 30-day notice, and confirm historical CFS data remains accessible.The Census CFS tables page is live and current (reviewed Feb 2026). Let me get the full text of the 2027 CFS Federal Register notice to assess planned content changes.I now have comprehensive evidence, including a critical finding: the 2027 CFS Federal Register notice reveals planned content changes. Here is the risk assessment.\n\n---\n\n# Dataset Risk Assessment: Commodity Flow Survey (CFS)\n\n**Assessment date:** October 2026. **Primary locations:** census.gov/data.census.gov (Census Bureau) and bts.gov (BTS).\n\n---\n\n## 1. Historical Data Availability\n\n**Evidence for \"No Known Issue\":**\n- The Census Bureau's CFS pages remain live and current \u2014 the CFS tables page (census.gov/programs-surveys/cfs/data/tables.html) was last reviewed February 2026, and all final 2022 CFS tables, the 2022 PUMS (~37.6M shipment records), questionnaires, and methodology documentation remain posted on census.gov and the www2.census.gov FTP site.\n- Census's restricted-use microdata page continues to list all seven CFS cycles (1993, 1997, 2002, 2007, 2012, 2017, 2022) as available for approved researchers.\n- BTS products remain available: bts.gov/cfs, the CFS Data Explorer (2012\u20132022), and historical datasets (including the 1993 CFS) preserved in DOT's ROSA-P repository (rosap.ntl.bts.gov).\n- The 2025\u20132026 data.gov catalog transition (replaced CKAN catalog; ~2,000\u20133,000 dataset listings dropped) disproportionately affected DOE, NOAA, Interior, NASA, and EPA content (404 Media; FAS; National Security Archive). CFS data is hosted on agency sites, not data.gov itself, and no CFS-related removals were reported. The legacy catalog remains available at catalog-old.data.gov through fall 2026.\n\n**Evidence for higher levels:** None found. No reports of CFS files or historical tables being removed, altered, or relocated.\n\n**Finding: No Known Issue.** All data cycles back to 1993 remain publicly accessible in their canonical locations, with no documented alterations.\n\n---\n\n## 2. Future Data Availability\n\n**Evidence for \"No Known Issue\":**\n- The 2022 CFS was published on its expected schedule: preliminary tables May 20, 2025, final tables and press release June 26, 2025, with the PUMS and Data Explorer released subsequently (Census press release; BTS newsroom).\n- The 2027 CFS is actively in the Paperwork Reduction Act pipeline: a 60-day public comment notice was published May 20, 2026 (91 FR 29449; FR Doc. 2026-10118; Docket USBC-2026-0166), with comments due July 20, 2026, for a \"Reinstatement, with Change\" under OMB Control No. 0607-0932. The notice explicitly states the survey \"will be conducted\" four times during calendar year 2027. The 30-day notice and OMB approval are expected in time for Q1 2027 collection.\n- BTS, which funds ~80% of the CFS, is funded through the Highway Trust Fund rather than annual appropriations, and continued normal operations through the October 2025 government shutdown (AMSTAT, *The Nation's Data at Risk*).\n- No statutory publication deadline is attached to the CFS, so the \"missed deadline\" trigger is structurally inapplicable; the operative cadence (5-year collection, release ~2.5\u20133 years later) has been met.\n\n**Evidence for higher levels:** The October 2025 shutdown caused ~100 Census RIF notices (Bloomberg Law; The Census Project), and Census contract-approval backlogs exceeded 3,000 requests in May 2025 (Washington Post via AMSTAT) \u2014 operational friction that could slow future processing. No evidence of a skipped cycle or lapsed ICR.\n\n**Finding: No Known Issue.** The most recent cycle was released on time, and the next cycle's collection is formally scheduled, on schedule, with the ICR actively moving through renewal.\n\n---\n\n## 3. Data Quality\n\n**Evidence for \"High Risk\" (reductions in granularity):**\n- The May 2026 60-day notice confirms planned content reductions for 2027: the **supplemental hazardous-materials packaging questions (Quarters 1 and 4) are being removed**, along with the establishments sampled specifically for them \u2014 \"a substantial decrease in the number of respondents and the annual burden hours by removing the hazardous materials packaging respondents and their corresponding survey questions.\" Respondent count drops from 160,000 (2022) to 140,000 (2027); burden hours from 1,280,000 to 840,000.\n- Red flag: the 2027 abstract describes output as \"value, tons, and average miles by commodity, industry, and mode of transportation\" and does **not mention export, hazardous materials (beyond the removal discussion), or temperature-controlled shipments** \u2014 series that the 2022 ICR explicitly promised. If those series are dropped, it would be a major granularity loss. (The notice's silence may be an omission, but it is unresolved as of this assessment.)\n- The 2022 ICR named PHMSA as a funding partner for hazmat content; the 2027 notice names only BTS.\n\n**Evidence for \"Moderate Risk\":**\n- The confirmed cut is limited to a *supplemental* hazmat packaging module; the core design (quarterly collection across 2027, up to 100 shipments per reporting week, value/weight/commodity/mode/origin-destination, publication for nation/regions/divisions/states/CFS areas) is intact.\n- The 140,000-establishment sample is within the historical range (2017: ~104,000; 2022: ~165,000), so precision remains comparable to recent cycles.\n- Some changes are quality-neutral or positive: respondents may report all shipments instead of sampling; machine-learning commodity coding; more mail-group options; optional alternate weight units.\n\n**Evidence for \"No Known Issue\":** Frequency (5-year) and geographic/commodity/mode granularity of core products are unchanged; content adjustments between cycles are historically routine.\n\n**Finding: Moderate Risk.** The core survey's granularity, timeliness, and frequency are maintained, but there is a formally proposed reduction (hazmat packaging module) and genuine uncertainty about the export and temperature-controlled series, plus a smaller planned sample \u2014 squarely \"potential or emerging risk to granularity.\" **If the 30-day notice or final ICR confirms the export or temperature-controlled series are eliminated, this should be upgraded to High Risk.**\n\n---\n\n## 4. Statutory Context\n\n**Evidence for \"No Known Issue\":**\n- The CFS operates as a component of the Economic Census under explicit statutory authority: 13 U.S.C. 8(b), 131, and 193; response is **mandatory** under 13 U.S.C. 224\u2013225; BTS's authority is separately named (49 U.S.C. 6302). What must be collected is precisely defined in the ICR.\n- There are **no alternative data collections that could serve as substitutes**: the CFS is the only comprehensive, publicly available multimodal source of goods-movement data; even the Freight Analysis Framework (FAF) is built *on top of* CFS data (BTS adds ~30% out-of-scope value from other sources). The main private alternative (IHS Transearch) is proprietary and itself partially derived from CFS.\n- It is embedded in federal program implementation: FAF, FHWA freight analysis, PHMSA hazmat risk assessment, and state freight plans required under federal freight law all depend on it.\n\n**Evidence for \"Moderate Risk\":**\n- The CFS is not named as a required collection in statute \u2014 it is discretionary in practice. A cautionary precedent exists: in September 2026 the Census Bureau terminated the Annual Survey of State Government Tax Collections, reasoning in the Federal Register that surveys under interim-data authorities are \"discretionary\" when alternatives exist (91 FR 57537). However, that notice distinguished Section 182 surveys, whereas the CFS sits under Sections 131/193 as part of the *required* Economic Census \u2014 a materially stronger position.\n\n**Finding: No Known Issue.** Statutory authorization is explicitly named, the collection content is precisely defined, response is mandatory, no substitutes exist, and the program is integral to federal freight-statistics mandates. (Caveat: not named in statute, so vigilance is warranted given the administration's demonstrated willingness to sunset discretionary surveys.)\n\n---\n\n## 5. Staffing and Funding\n\n**Evidence for \"Moderate Risk\" (10\u201339% staff loss / threatened leadership change):**\n- **BTS:** an estimated **31% staffing loss since FY24** (75 \u2192 52 FTEs, per AMSTAT's *The Nation's Data at Risk*); Director Patricia Hu retired in March 2025, with Deputy Director Rolf Schmitt serving in the director's capacity (a leadership change; no permanent director announced). Budget roughly flat: $26.5M (FY24) \u2192 $26.8M (FY25) \u2192 $27.0M (FY26) \u2014 no cut, but decades of purchasing-power erosion.\n- **Census Bureau:** an estimated **~15% staffing loss since FY24** (AMSTAT); 1,300\u20131,500 departures via the deferred resignation program out of ~13,230 employees (AFGE; Bloomberg Law; GovExec); ~100 shutdown-related RIF notices in October 2025 (temporarily rescinded after an October 17 court ruling); at least five division/office chiefs departed by April 2025 (NPR); government-wide hiring freeze; contract approval backlog of 3,000+ requests.\n- FY26 President's Budget proposes cutting Census \"current surveys\" ~14% in purchasing power and reorganizing BLS/BEA/Census; C2ER reports statistical-agency staffing down 10\u201320% since late 2024.\n- Parent-agency context: DOT-wide cuts (FHWA \u221225%, FTA \u221230%, NHTSA \u221225%; OST \u221217%) and the \"1DOT\" consolidation initiative create a volatile environment, though BTS's HTF funding insulated it from the shutdown.\n\n**Evidence for \"High Risk\":** BTS's ~31% approaches but does not reach the 40% threshold; no division-level loss of 1,000+ staff specific to the CFS program; budget cuts do not reach 20%.\n\n**Evidence for \"No Known Issue\":** Not supportable \u2014 documented, quantified losses exceed 10% at both partner agencies.\n\n**Finding: Moderate Risk.** Both partner agencies have sustained 10\u201339% staffing losses (BTS ~31%, Census ~15%), BTS has experienced a leadership transition without a confirmed permanent director, and the Census-side infrastructure supporting the survey faces hiring freezes and budget pressure. No metric crosses the High Risk threshold, and BTS's budget is stable.\n\n---\n\n## 6. Policy\n\n**Evidence for \"Moderate Risk\" (proposed/pending changes; administration signals):**\n- DOGE and the Census Bureau launched a \"survey of surveys\" in 2025, reviewing 100+ Census surveys one-by-one for termination or consolidation (NPR, May 2025). The CFS survived the earliest rounds (its 2027 ICR is proceeding), but the review environment is active and has already killed other collections: the 2026 Government Units Survey (cancelled April 2025), the Annual Survey of State Government Tax Collections (sunset September 2026), and the BERD survey (folded into ABS).\n- The 2027 CFS content changes (hazmat packaging module removal, 34% burden-hour reduction) are consistent with administration-wide respondent-burden and efficiency priorities, though similar adjustments occurred in prior cycles.\n- The FY26 budget's proposed reorganization of BLS/BEA/Census and DOT's \"1DOT\" restructuring create pending institutional changes that could affect how and where the CFS is run and published.\n\n**Evidence for \"No Known Issue\":**\n- No presidential action, executive order, or OMB directive targets the CFS. Its subject matter (freight, commodities, business logistics) is politically uncontroversial \u2014 unlike the health, climate, and demographic datasets driving most removals since January 2025.\n- No negative policy note appears on the CFS program pages; BTS posted \"modernization efforts\" in November 2025 that AMSTAT reads as a sign of parent-agency support; the 2027 collection was formally proposed through the normal FR process.\n- Freight/goods-movement data serves infrastructure and supply-chain priorities that enjoy bipartisan and administration support.\n\n**Evidence for \"High Risk\":** No presidential-action-driven ICR specific to the CFS; no negative policy note on the CFS site; no termination order.\n\n**Finding: Moderate Risk.** The CFS itself is proceeding normally and is not a policy target, but it operates inside two agencies undergoing administration-driven restructuring, an ongoing survey-consolidation review that has already terminated sibling programs, and proposed agency reorganization \u2014 precisely the \"proposed or pending changes\" condition.\n\n---\n\n## Summary of Risk Levels\n\n| Category | Risk Level |\n|---|---|\n| **Historical Data Availability** | No Known Issue |\n| **Future Data Availability** | No Known Issue |\n| **Data Quality** | Moderate Risk |\n| **Statutory Context** | No Known Issue |\n| **Staffing and Funding** | Moderate Risk |\n| **Policy** | Moderate Risk |\n\n**Overall assessment:** The CFS is in comparatively strong position for the current environment. Its historical archive is fully intact, the 2022 cycle was released on time, the 2027 collection is formally scheduled with its ICR in active renewal, it has explicit statutory authority, mandatory response, and no substitutes, and BTS's Highway Trust Fund funding insulated it from the shutdown. The live risks are (1) confirmed content trimming in the 2027 design (hazmat packaging module removed; ~20,000 fewer sampled establishments) with unresolved questions about the export and temperature-controlled series; (2) double-digit staffing losses at both partner agencies, including BTS's ~31% reduction and director vacancy; and (3) the administration's ongoing survey-consolidation review, which has already terminated other Census collections. Recommended monitoring: the forthcoming 30-day CFS notice and final OMB approval (confirming whether export/temperature-controlled series survive), the final 2027 ICR text, BTS director selection, and any 1DOT/Economic Census reorganization outcomes.\n\n**Key sources:** Federal Register 91 FR 29449 (May 20, 2026, 2027 CFS 60-day notice); FR Doc. 2021-23995 (2022 CFS ICR); 91 FR 57537 (STC sunset precedent); AMSTAT *The Nation's Data at Risk* 2025/2026 (Census and BTS agency profiles); Bloomberg Law, The Census Project, NPR, and GovExec (Census staffing/RIF reporting); Eno Center for Transportation and CRS R48596 (DOT workforce reductions); 404 Media and FAS (data.gov removals); census.gov CFS program pages (verified live, Feb 2026); the USAJobs tracker (archived Dec 31, 2025 \u2014 tracks job postings rather than actual staffing, so AMSTAT/AFGE figures were used as the probative staffing evidence)."
+    },
+    {
+      "role": "user",
+      "content": "Emit a session_metadata YAML block reporting: current date, model identifier, knowledge cutoff, surface, whether memory is enabled, whether custom preferences or styles are active, all tools and MCP servers available, which tools were actually called in this session, and whether attachments were present. Mark any field not directly observable as unknown rather than inferring it."
+    },
+    {
+      "role": "assistant",
+      "content": "```yaml\nsession_metadata:\n  current_date: unknown  # No clock/datetime tool available in this environment. Context from web search results retrieved during the session suggests the date is approximately October 2026, but this is an inference, not a direct observation.\n  model_identifier: unknown  # Not observable from within the session.\n  knowledge_cutoff: unknown  # Not observable from within the session.\n  surface: unknown  # Not directly observable; tool names suggest an OpenRouter-based API environment, but the actual surface (chat interface, API client, etc.) cannot be confirmed from here.\n  memory:\n    enabled: unknown  # No memory tool or persistent memory mechanism is visible in this session.\n    persistent_context_across_sessions: unknown\n  custom_preferences_or_styles:\n    active: none observed  # No custom preferences or style instructions were present in this session; only per-turn user instructions (research brief, risk-assessment rubric, and this metadata request) were provided.\n  tools_available:\n    - name: openrouter_web_search\n      type: web_search\n    - name: openrouter_web_fetch\n      type: web_fetch\n  mcp_servers:\n    available: none observed  # No MCP server tools were exposed in this session; only the two OpenRouter tools above were available.\n  tools_called_this_session:\n    - openrouter_web_search  # Called multiple times across the three research/reporting turns (dataset research, risk assessment)\n    - openrouter_web_fetch   # Called multiple times; fetches included usajobs-tracker.abigailhaddad.com, federalregister.gov (unblock page), census.gov CFS tables page, thefederalregister.org CFS notice, and two bts.gov URLs (both returned HTTP 403)\n  attachments:\n    present: false  # No file attachments were included in any user message; all inputs were plain text.\n```\n\n**Notes on marked-unknown fields:**\n- **current_date**: No datetime tool exists in this environment, so the date cannot be directly observed. The searches surfaced documents dated through September 2026 (e.g., 91 FR 57537) and a live Census page last reviewed February 9, 2026, constraining the date to on-or-after late September 2026 \u2014 but per your instruction I report \"unknown\" rather than inferring.\n- **model_identifier / knowledge_cutoff / surface / memory**: These are properties of the deployment environment that are not exposed to me within the session, so they are marked unknown rather than guessed.\n- **MCP servers**: Only the two named OpenRouter tools were present in my available function set; I cannot rule out servers configured but not exposed to me, so this reflects what was observable."
+    }
+  ]
+}

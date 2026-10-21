@@ -1,0 +1,1143 @@
+{
+  "dataset": {
+    "key": "meps",
+    "title": "Medical Expenditure Panel Survey (MEPS)"
+  },
+  "model": "moonshotai/kimi-k3",
+  "harness": "openrouter tools",
+  "context": "full: each turn's whole output is carried into the next",
+  "search_tool": {
+    "engine": "exa",
+    "max_results": 10,
+    "excluded_domains": [
+      "dataindex.us"
+    ]
+  },
+  "fetch_tool": {
+    "engine": "openrouter",
+    "blocked_domains": [
+      "dataindex.us"
+    ],
+    "max_content_tokens": 10000
+  },
+  "reasoning": "effort high",
+  "catalog": {
+    "fetched_at": "2026-10-09T01:40:58Z",
+    "entry": {
+      "id": "moonshotai/kimi-k3",
+      "canonical_slug": "moonshotai/kimi-k3-20260715",
+      "hugging_face_id": "moonshotai/Kimi-K3",
+      "name": "MoonshotAI: Kimi K3",
+      "created": 1784215858,
+      "description": "Kimi K3 is a 2.8T parameter open-weight multimodal reasoning model from Moonshot AI. It is suited for complex coding, knowledge work, and long-horizon agentic workflows, and is particularly strong at...",
+      "context_length": 1048576,
+      "architecture": {
+        "modality": "text+image+video->text",
+        "input_modalities": [
+          "text",
+          "image",
+          "video"
+        ],
+        "output_modalities": [
+          "text"
+        ],
+        "tokenizer": "Other",
+        "instruct_type": null
+      },
+      "pricing": {
+        "prompt": "0.00000072",
+        "completion": "0.0000125",
+        "input_cache_read": "0.00000029"
+      },
+      "top_provider": {
+        "context_length": 1048576,
+        "max_completion_tokens": 943718,
+        "is_moderated": false
+      },
+      "per_request_limits": null,
+      "supported_parameters": [
+        "frequency_penalty",
+        "include_reasoning",
+        "logit_bias",
+        "logprobs",
+        "max_tokens",
+        "min_p",
+        "presence_penalty",
+        "reasoning",
+        "reasoning_effort",
+        "repetition_penalty",
+        "response_format",
+        "seed",
+        "stop",
+        "structured_outputs",
+        "temperature",
+        "tool_choice",
+        "tools",
+        "top_k",
+        "top_logprobs",
+        "top_p"
+      ],
+      "default_parameters": {
+        "temperature": null,
+        "top_p": 0.95,
+        "top_k": null,
+        "frequency_penalty": null,
+        "presence_penalty": null,
+        "repetition_penalty": null
+      },
+      "supported_voices": null,
+      "knowledge_cutoff": null,
+      "expiration_date": null,
+      "links": {
+        "details": "/api/v1/models/moonshotai/kimi-k3-20260715/endpoints"
+      },
+      "benchmarks": {
+        "design_arena": [
+          {
+            "arena": "agents",
+            "category": "agenticgamedev",
+            "elo": 1252,
+            "win_rate": 55,
+            "rank": 3
+          },
+          {
+            "arena": "agents",
+            "category": "androidnative",
+            "elo": 1262,
+            "win_rate": 55.4,
+            "rank": 5
+          },
+          {
+            "arena": "agents",
+            "category": "fullstack",
+            "elo": 1313,
+            "win_rate": 61.8,
+            "rank": 2
+          },
+          {
+            "arena": "agents",
+            "category": "godotgamedev",
+            "elo": 1223,
+            "win_rate": 48.2,
+            "rank": 14
+          },
+          {
+            "arena": "agents",
+            "category": "htmlslides",
+            "elo": 1256,
+            "win_rate": 59.6,
+            "rank": 2
+          },
+          {
+            "arena": "agents",
+            "category": "mobileapps",
+            "elo": 1263,
+            "win_rate": 56.9,
+            "rank": 4
+          },
+          {
+            "arena": "agents",
+            "category": "python-pptxslides",
+            "elo": 1273,
+            "win_rate": 59.2,
+            "rank": 4
+          },
+          {
+            "arena": "agents",
+            "category": "webapps",
+            "elo": 1285,
+            "win_rate": 59.1,
+            "rank": 4
+          },
+          {
+            "arena": "models",
+            "category": "3d",
+            "elo": 1395,
+            "win_rate": 67.6,
+            "rank": 4
+          },
+          {
+            "arena": "models",
+            "category": "codecategories",
+            "elo": 1368,
+            "win_rate": 63,
+            "rank": 2
+          },
+          {
+            "arena": "models",
+            "category": "dataviz",
+            "elo": 1353,
+            "win_rate": 63.1,
+            "rank": 4
+          },
+          {
+            "arena": "models",
+            "category": "gamedev",
+            "elo": 1370,
+            "win_rate": 61.3,
+            "rank": 5
+          },
+          {
+            "arena": "models",
+            "category": "svg",
+            "elo": 1304,
+            "win_rate": 59.6,
+            "rank": 4
+          },
+          {
+            "arena": "models",
+            "category": "uicomponent",
+            "elo": 1355,
+            "win_rate": 61.5,
+            "rank": 4
+          },
+          {
+            "arena": "models",
+            "category": "website",
+            "elo": 1341,
+            "win_rate": 59.8,
+            "rank": 2
+          }
+        ],
+        "artificial_analysis": {
+          "intelligence_index": 43.6,
+          "coding_index": 76.2,
+          "agentic_index": 50
+        }
+      },
+      "reasoning": {
+        "mandatory": false,
+        "default_enabled": true,
+        "supported_efforts": [
+          "max",
+          "high",
+          "low"
+        ],
+        "default_effort": "max"
+      }
+    }
+  },
+  "upstream": [
+    "moonshotai"
+  ],
+  "trial": 0,
+  "terminate_reason": "completed",
+  "max_tokens": 32768,
+  "started_at": "2026-10-09T01:40:58Z",
+  "prompts": {
+    "research": "#data research\nI am researching a federal dataset. Find out everything you can about this dataset, such as who publishes it, under what authority or mandate, its history, its typical users, and its benefits to the public. Be sure your research comprehensively covers each of those perspectives, as well as any others that you discover or seem useful. I believe this is accurate information, but please check:\n\nDataset title: Medical Expenditure Panel Survey (MEPS)\nDescription: The Medical Expenditure Panel Survey, which began in 1996, is a set of large-scale surveys of families and individuals, their medical providers (doctors, hospitals, pharmacies, etc.), and employers across the United States. MEPS collects data on the specific health services that Americans use, how frequently they use them, the cost of these services, and how they are paid for, as well as data on the cost, scope, and breadth of health insurance held by and available to U.S. workers.\nURL: https://meps.ahrq.gov/mepsweb\n\nReturn a complete report on everything that a preservationist, data librarian, data scientist, or policy activist might want to know about this data.",
+    "assessment": "# Dataset risk assessment\nI would like your help in assessing the likelihood that this data will be changed or removed from its primary location, and that users will no longer be able to access accurate and reliable copies of it, based on the rubric below.\n\n## Sources for context\nTo help assess the rubric categories, perform additional research on the data, the agency, the data's topics and typical users, covering topics such as proposed regulatory or funding changes, recent news, and political commentary. Use whatever resources you find useful, including the Federal Register (https://www.federalregister.gov) and the federal staffing tracker at https://usajobs-tracker.abigailhaddad.com.\n\n## Rubric\nThis rubric is divided up into categories. Each category is divided up into risk levels. In your output, please select the appropriate risk level for each category based on your research.\n\n### Historical Data Availability\n- Gone: Data files prior to the current year or cycle are no longer publicly available.\n- High Risk: Some data files prior to the current year or cycle are removed.\n- Moderate Risk: Some data elements that exist in the dataset prior to the current year or cycle are removed.\n- No Known Issue: Data prior to the current year or cycle remain accessible with no known alterations.\n\n### Future Data Availability\n- Gone: Data collection and publication has been terminated.\n- High Risk: Statutory publication deadline missed and/or collection or publication skipped and/or ICR expired for more than one year.\n- Moderate Risk: Typical or intended publication date missed and/or collection or publication delayed; ICR expired up to one year.\n- No Known Issue: Data published on time or as expected and ICR active or renewed before expiration.\n\n### Data Quality\n- Gone: Data collection and publication has been terminated.\n- High Risk: Reductions in granularity, timeliness, or frequency.\n- Moderate Risk: Potential or emerging risk to granularity, timeliness, or frequency.\n- No Known Issue: Maintained or improved granularity, timeliness, or frequency.\n\n### Statutory Context\n- Gone: N/A\n- High Risk: Statutory authorization is vague and/or there are alternative data collections that could serve as substitutes and/or no known programmatic use.\n- Moderate Risk: Not explicitly required by statute but required for the implementation of a state or federal program, and there are no alternative data collections that could serve as substitutes.\n- No Known Issue: Statutorily required and/or statutory authorization is explicitly named and it is clear what has to be collected, and there aren't alternative data collections that could serve as substitutes and/or required for implementation of a federal program.\n\n### Staffing and Funding\n- Gone: All of the staff in the division or agency are gone and/or all funding has been terminated.\n- High Risk: 40% or more of staff lost, and/or 1,000 or more staff lost, and/or budget cut by 20% or more, and/or leadership removed.\n- Moderate Risk: 10\u201339% of staff lost, and/or 500\u2013999 staff lost, and/or budget cut by 10\u201319%, and/or threatened change in leadership.\n- No Known Issue: Less than 10% of staff lost and less than 10% of budget cut and no known change in leadership.\n\n### Policy\n- Gone: Data collection and publication has been terminated.\n- High Risk: Presidential Action-driven information collection request (ICR); negative policy note on site; other significant changes in accordance with Administration priorities.\n- Moderate Risk: Proposed or pending changes; statements by administration officials suggesting a change is being considered or planned.\n- No Known Issue: No notable changes since January 2025 affecting what data is collected and published.\n\nFor each category, concisely list the evidence and supporting sources that would support each risk level. Then indicate which risk level you find most appropriate and why.\n\nConclude with a simple summary of risk levels:\nHistorical Data Availability: <level>\nFuture Data Availability: <level>\nData Quality: <level>\nStatutory Context: <level>\nStaffing and Funding: <level>\nPolicy: <level>",
+    "session_metadata": "Emit a session_metadata YAML block reporting: current date, model identifier, knowledge cutoff, surface, whether memory is enabled, whether custom preferences or styles are active, all tools and MCP servers available, which tools were actually called in this session, and whether attachments were present. Mark any field not directly observable as unknown rather than inferring it."
+  },
+  "turns": {
+    "research": {
+      "request": {
+        "model": "moonshotai/kimi-k3",
+        "max_output_tokens": 32768,
+        "tools": [
+          {
+            "type": "openrouter:web_search",
+            "parameters": {
+              "engine": "exa",
+              "max_results": 10,
+              "excluded_domains": [
+                "dataindex.us"
+              ]
+            }
+          },
+          {
+            "type": "openrouter:web_fetch",
+            "parameters": {
+              "engine": "openrouter",
+              "blocked_domains": [
+                "dataindex.us"
+              ],
+              "max_content_tokens": 10000
+            }
+          }
+        ],
+        "cache_control": {
+          "type": "ephemeral",
+          "ttl": "1h"
+        },
+        "session_id": "meps-moonshotai/kimi-k3-t0-2026-10-09T01:40:58Z",
+        "stop_server_tools_when": [
+          {
+            "type": "step_count_is",
+            "step_count": 200
+          }
+        ],
+        "reasoning": {
+          "effort": "high"
+        },
+        "provider": {
+          "order": [
+            "moonshotai"
+          ],
+          "allow_fallbacks": false
+        }
+      },
+      "response_meta": {
+        "id": "gen-1791510058-Ra8542MwMTp79CNxM912",
+        "object": "response",
+        "created_at": 1791510058,
+        "model": "moonshotai/kimi-k3",
+        "status": "completed",
+        "completed_at": 1791510274,
+        "error": null,
+        "incomplete_details": null,
+        "tools": [],
+        "tool_choice": "auto",
+        "parallel_tool_calls": true,
+        "max_output_tokens": 32768,
+        "temperature": 1,
+        "top_p": 1,
+        "presence_penalty": 0,
+        "frequency_penalty": 0,
+        "top_logprobs": 0,
+        "max_tool_calls": null,
+        "metadata": {},
+        "background": false,
+        "previous_response_id": null,
+        "service_tier": "auto",
+        "truncation": "disabled",
+        "store": false,
+        "instructions": null,
+        "text": {
+          "format": {
+            "type": "text"
+          }
+        },
+        "reasoning": {
+          "effort": "high"
+        },
+        "safety_identifier": null,
+        "prompt_cache_key": null,
+        "prompt_cache_options": null,
+        "usage": {
+          "input_tokens": 143985,
+          "input_tokens_details": {
+            "cached_tokens": 114688
+          },
+          "output_tokens": 6141,
+          "output_tokens_details": {
+            "reasoning_tokens": 1450
+          },
+          "total_tokens": 150126,
+          "cost": 0.2494124,
+          "cost_details": {
+            "upstream_inference_cost": 0.21441239999999998,
+            "upstream_inference_input_cost": 0.12229740000000001,
+            "upstream_inference_output_cost": 0.092115
+          },
+          "server_tool_use_details": {
+            "web_search_requests": 11,
+            "tool_calls_requested": 12,
+            "tool_calls_executed": 12
+          }
+        }
+      },
+      "requests": [
+        {
+          "input_tokens": 143985,
+          "input_tokens_details": {
+            "cached_tokens": 114688
+          },
+          "output_tokens": 6141,
+          "output_tokens_details": {
+            "reasoning_tokens": 1450
+          },
+          "total_tokens": 150126,
+          "cost": 0.2494124,
+          "cost_details": {
+            "upstream_inference_cost": 0.21441239999999998,
+            "upstream_inference_input_cost": 0.12229740000000001,
+            "upstream_inference_output_cost": 0.092115
+          },
+          "server_tool_use_details": {
+            "web_search_requests": 11,
+            "tool_calls_requested": 12,
+            "tool_calls_executed": 12
+          }
+        }
+      ],
+      "searches": 11,
+      "fetches": 1,
+      "tool_items": [
+        {
+          "type": "openrouter:web_search",
+          "id": "st_tmp_4n6sjlo21k3",
+          "status": "completed",
+          "action": {
+            "type": "search",
+            "query": "Medical Expenditure Panel Survey MEPS AHRQ history began 1996 predecessor NMES 1987 NMCES",
+            "sources": [
+              {
+                "type": "url",
+                "url": "https://meps.ahrq.gov/about_meps/survey_back.jsp"
+              },
+              {
+                "type": "url",
+                "url": "https://meps.ahrq.gov/mepsweb/data_files/publications/mr1/mr1.shtml"
+              },
+              {
+                "type": "url",
+                "url": "https://meps.ahrq.gov/data_files/publications/mr2/mr2.shtml"
+              },
+              {
+                "type": "url",
+                "url": "https://www.ahrq.gov/cpi/about/otherwebsites/meps.ahrq.gov/index.html"
+              },
+              {
+                "type": "url",
+                "url": "https://meps.ahrq.gov/mepsweb/about_meps/survey_back.jsp"
+              },
+              {
+                "type": "url",
+                "url": "https://www.ahrq.gov/data/meps.html"
+              },
+              {
+                "type": "url",
+                "url": "https://meps.ahrq.gov/mepsweb/data_files/publications/mr16/mr16.pdf"
+              },
+              {
+                "type": "url",
+                "url": "https://meps.ahrq.gov/mepsweb/data_files/publications/mr22/mr22.shtml"
+              },
+              {
+                "type": "url",
+                "url": "https://meps.ahrq.gov/data_files/publications/mr5/mr5.pdf"
+              },
+              {
+                "type": "url",
+                "url": "https://www.meps.ahrq.gov/mepsweb/"
+              }
+            ]
+          }
+        },
+        {
+          "type": "openrouter:web_search",
+          "id": "st_tmp_lw51cpmp80j",
+          "status": "completed",
+          "action": {
+            "type": "search",
+            "query": "Medical Expenditure Panel Survey components Household Component Insurance Component Medical Provider Component overview",
+            "sources": [
+              {
+                "type": "url",
+                "url": "https://www.ahrq.gov/data/meps.html"
+              },
+              {
+                "type": "url",
+                "url": "https://meps.ahrq.gov/mepsweb/data_stats/data_overview.jsp"
+              },
+              {
+                "type": "url",
+                "url": "https://meps.ahrq.gov/survey_comp/Insurance.jsp"
+              },
+              {
+                "type": "url",
+                "url": "https://meps.ahrq.gov/survey_comp/mpc.jsp"
+              },
+              {
+                "type": "url",
+                "url": "https://meps.ahrq.gov/mepsweb/survey_comp/household.jsp"
+              },
+              {
+                "type": "url",
+                "url": "https://www.meps.ahrq.gov/mepsweb/"
+              },
+              {
+                "type": "url",
+                "url": "https://odphp.health.gov/healthypeople/objectives-and-data/data-sources-and-methods/data-sources/medical-expenditure-panel-meps"
+              },
+              {
+                "type": "url",
+                "url": "https://meps.ahrq.gov/survey_comp/household.jsp"
+              },
+              {
+                "type": "url",
+                "url": "https://www.bls.gov/cex/cecomparison/meps_profile.htm"
+              },
+              {
+                "type": "url",
+                "url": "https://www.census.gov/programs-surveys/meps/about.html"
+              }
+            ]
+          }
+        },
+        {
+          "type": "openrouter:web_search",
+          "id": "st_tmp_iw4c0hlb2th",
+          "status": "completed",
+          "action": {
+            "type": "search",
+            "query": "AHRQ authorizing statute Medical Expenditure Panel Survey mandate Public Health Service Act Title IX 42 U.S.C. 299",
+            "sources": [
+              {
+                "type": "url",
+                "url": "https://www.ahrq.gov/policymakers/hrqa99a.html"
+              },
+              {
+                "type": "url",
+                "url": "https://www.ahrq.gov/funding/policies/polfedreg/index.html"
+              },
+              {
+                "type": "url",
+                "url": "https://uscode.house.gov/view.xhtml?req=%28title%3A42+section%3A299a+edition%3Aprelim%29"
+              },
+              {
+                "type": "url",
+                "url": "https://uscode.house.gov/view.xhtml?req=%28title%3A42+section%3A299+edition%3Aprelim%29"
+              },
+              {
+                "type": "url",
+                "url": "https://meps.ahrq.gov/communication/household_participant_faqs.jsp"
+              },
+              {
+                "type": "url",
+                "url": "https://meps.ahrq.gov/data_stats/data_use.jsp"
+              },
+              {
+                "type": "url",
+                "url": "https://meps.ahrq.gov/communication/participants/faq_gen_mcp.shtml"
+              },
+              {
+                "type": "url",
+                "url": "https://meps.ahrq.gov/communication/participants/confidentialitymcp.shtml"
+              },
+              {
+                "type": "url",
+                "url": "https://uscode.house.gov/view.xhtml?edition=prelim&path=%2Fprelim%40title42%2Fchapter6A%2Fsubchapter7"
+              },
+              {
+                "type": "url",
+                "url": "https://omb.report/icr/202401-0935-001/doc/original/138606401.pdf"
+              }
+            ]
+          }
+        },
+        {
+          "type": "openrouter:web_search",
+          "id": "st_tmp_j1u0d0d4iu",
+          "status": "completed",
+          "action": {
+            "type": "search",
+            "query": "MEPS public use files full year consolidated data files event files access AHRQ Data Center restricted data FSRDC",
+            "sources": [
+              {
+                "type": "url",
+                "url": "https://meps.ahrq.gov/mepsweb/data_stats/download_data_files.jsp"
+              },
+              {
+                "type": "url",
+                "url": "https://meps.ahrq.gov/data_stats/download_data_files_results.jsp?buttonYearandDataType=Search&cboDataTypeY=1%2CHousehold+Full+Year+File&cboDataYear=All"
+              },
+              {
+                "type": "url",
+                "url": "https://meps.ahrq.gov/mepsweb/data_stats/onsite_datacenter.jsp"
+              },
+              {
+                "type": "url",
+                "url": "https://meps.ahrq.gov/data_stats/data_center_application.jsp"
+              },
+              {
+                "type": "url",
+                "url": "https://meps.ahrq.gov/mepsweb/data_stats/download_data_files_results.jsp?buttonYearandDataType=Search&cboDataTypeY=1%2CHousehold+Full+Year+File&cboDataYear=All&prfricon=yes&sortBy=datatypename"
+              },
+              {
+                "type": "url",
+                "url": "https://meps.ahrq.gov/mepsweb/data_stats/data_center_application.jsp"
+              },
+              {
+                "type": "url",
+                "url": "https://meps.ahrq.gov/data_stats/download_data_files_results.jsp?buttonYearandDataType=Search&cboDataTypeY=2%2CHousehold+Event+File&cboDataYear=All&cboPufNumber=All"
+              },
+              {
+                "type": "url",
+                "url": "https://meps.ahrq.gov/data_stats/more_info_download_data_files.jsp"
+              },
+              {
+                "type": "url",
+                "url": "https://meps.ahrq.gov/data_stats/onsite_datacenter.jsp"
+              },
+              {
+                "type": "url",
+                "url": "https://meps.ahrq.gov/communication/census_announce.shtml"
+              }
+            ]
+          }
+        },
+        {
+          "type": "openrouter:web_search",
+          "id": "st_tmp_pb8hvq4veo",
+          "status": "completed",
+          "action": {
+            "type": "search",
+            "query": "MEPS data uses policy National Health Expenditure Accounts CBO microsimulation researchers employers MEPSnet statistical briefs",
+            "sources": [
+              {
+                "type": "url",
+                "url": "https://pmc.ncbi.nlm.nih.gov/articles/PMC4194973/"
+              },
+              {
+                "type": "url",
+                "url": "https://meps.ahrq.gov/mepsweb/data_stats/data_tools.jsp"
+              },
+              {
+                "type": "url",
+                "url": "https://meps.ahrq.gov/data_files/publications/workingpapers/wp_08006.pdf"
+              },
+              {
+                "type": "url",
+                "url": "https://meps.ahrq.gov/mepsweb/data_files/publications/workingpapers/wp_12003.pdf"
+              },
+              {
+                "type": "url",
+                "url": "https://meps.ahrq.gov/mepsweb/data_stats/more_info_download_data_files.jsp?prfricon=yes"
+              },
+              {
+                "type": "url",
+                "url": "https://meps.ahrq.gov/mepsweb/data_files/publications/workingpapers/wp_15002.pdf"
+              },
+              {
+                "type": "url",
+                "url": "https://meps.ahrq.gov/mepsweb/data_stats/Pub_ProdResults_Details.jsp?id=1054&opt=2&pt=Working+Paper"
+              },
+              {
+                "type": "url",
+                "url": "https://studylib.net/doc/9250134/medical-expenditure-panel-survey"
+              },
+              {
+                "type": "url",
+                "url": "https://www.cms.gov/data-research/statistics-trends-and-reports/national-health-expenditure-data/nhea-related-studies"
+              },
+              {
+                "type": "url",
+                "url": "https://meps.ahrq.gov/mepsweb/data_stats/MEPSnetHC.jsp"
+              }
+            ]
+          }
+        },
+        {
+          "type": "openrouter:web_search",
+          "id": "st_tmp_29powg1nlez",
+          "status": "completed",
+          "action": {
+            "type": "search",
+            "query": "MEPS 2025 AHRQ budget cuts threat survey consolidation HHS proposal discontinue Medical Expenditure Panel Survey"
+          }
+        },
+        {
+          "type": "openrouter:web_search",
+          "id": "st_tmp_bbsfi8zs5si",
+          "status": "completed",
+          "action": {
+            "type": "search",
+            "query": "\"Medical Expenditure Panel Survey\" 2025 AHRQ funding cuts threat data preservation"
+          }
+        },
+        {
+          "type": "openrouter:web_search",
+          "id": "st_tmp_spvweuu62x",
+          "status": "completed",
+          "action": {
+            "type": "search",
+            "query": "AHRQ MEPS FY2026 budget proposal eliminate health services research survey"
+          }
+        },
+        {
+          "type": "openrouter:web_search",
+          "id": "st_tmp_04u42d4aaknl",
+          "status": "completed",
+          "action": {
+            "type": "search",
+            "query": "AHRQ 2025 cuts MEPS risk"
+          }
+        },
+        {
+          "type": "openrouter:web_fetch",
+          "id": "st_tmp_ws6fo73v0c9",
+          "status": "completed",
+          "url": "https://meps.ahrq.gov/about_meps/survey_back.jsp",
+          "content": "\r\n<!DOCTYPE HTML PUBLIC \"-//W3C//DTD HTML 4.01 Transitional//EN\"\r\n\"http://www.w3.org/TR/html4/loose.dtd\">\r\n<html lang=\"en\">\r\n<head>\r\n\r\n\t  <meta name=\"description\" content=\"The Medical Expenditure Panel Survey is a set of large-scale surveys of families and individuals, their medical providers, and employers across the United States.\">\r\n    <meta name=\"created\" content=\"1/1/2006\">\r\n    <meta name=\"reviewed\" content=\"8/21/2006\">\r\n    <meta name=\"keywords\" content=\"Suvey, Data, Health Insurance, Household Surveys, Medical Provider, Nursing Home, Pharmacy, Medical Expenditures, Employer, Health Care Coverage\">\r\n    <meta name=\"author\" content=\"Agency for Healthcare Research and Quality\">\r\n    <meta http-equiv=\"Content-Language\" content=\"en-us\">\r\n    <meta http-equiv=\"Content-Type\" content=\"text/html; charset=iso-8859-1\">\r\n     <meta http-equiv=\"X-UA-Compatible\" content=\"IE=emulateIE10\" />\r\n\r\n\r\n\r\n\r\n\r\n\r\n\r\n<title>Medical Expenditure Panel Survey Background</title>\r\n\r\n<link href=\"../css/meps_style.css\" rel=\"stylesheet\" type=\"text/css\">\r\n<script type=\"text/javascript\" src=\"/mepsweb/js/menu_roll.js\"></script>\r\n\r\n\r\n\r\n\r\n\r\n\r\n</head>\r\n\r\n<body><!--[if gte IE 5\r\n  ]><![if lt IE 7]>\r\n  <style type=\"text/css\">\r\n    #HeaderContainer {\r\n      width: expression(document.body.clientWidth < 910? '910px': 'auto');\r\n    }\r\n  </style>\r\n  <![endif]><!\r\n[endif]-->\r\n\r\n<script type=\"text/JavaScript\">\r\n  <!--\r\n  function MM_swapImgRestore() { //v3.0\r\n      var i,x,a=document.MM_sr; for(i=0;a&&i<a.length&&(x=a[i])&&x.oSrc;i++) x.src=x.oSrc;\r\n  }\r\n\r\n  function MM_preloadImages() { //v3.0\r\n      var d=document; if(d.images){ if(!d.MM_p) d.MM_p=new Array();\r\n          var i,j=d.MM_p.length,a=MM_preloadImages.arguments; for(i=0; i<a.length; i++)\r\n              if (a[i].indexOf(\"#\")!=0){ d.MM_p[j]=new Image; d.MM_p[j++].src=a[i];}}\r\n  }\r\n\r\n  function MM_findObj(n, d) { //v4.01\r\n      var p,i,x;  if(!d) d=document; if((p=n.indexOf(\"?\"))>0&&parent.frames.length) {\r\n          d=parent.frames[n.substring(p+1)].document; n=n.substring(0,p);}\r\n      if(!(x=d[n])&&d.all) x=d.all[n]; for (i=0;!x&&i<d.forms.length;i++) x=d.forms[i][n];\r\n      for(i=0;!x&&d.layers&&i<d.layers.length;i++) x=MM_findObj(n,d.layers[i].document);\r\n      if(!x && d.getElementById) x=d.getElementById(n); return x;\r\n  }\r\n\r\n  function MM_swapImage() { //v3.0\r\n      var i,j=0,x,a=MM_swapImage.arguments; document.MM_sr=new Array; for(i=0;i<(a.length-2);i+=3)\r\n          if ((x=MM_findObj(a[i]))!=null){document.MM_sr[j++]=x; if(!x.oSrc) x.oSrc=x.src; x.src=a[i+2];}\r\n  }\r\n  //-->\r\n</script>\r\n\r\n<link href=\"/mepsweb/css/ahrq_banner.css\" rel=\"stylesheet\" type=\"text/css\" />\r\n<link href=\"/mepsweb/css/ahrq_banner_print.css\" rel=\"stylesheet\" type=\"text/css\" media=\"print\" />\r\n<link href=\"/mepsweb/css/font_size.css\" rel=\"stylesheet\" type=\"text/css\" />\r\n<link href=\"/mepsweb/css/third_party.css\" rel=\"stylesheet\" type=\"text/css\" />\r\n<link href=\"/mepsweb/css/autocomplete.css\" rel=\"stylesheet\" type=\"text/css\" />\r\n<script type=\"text/javascript\" src=\"/mepsweb/js/font_size1.js\"></script>\r\n<link\r\n  href=\"https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css\"\r\n  rel=\"stylesheet\"\r\n  integrity=\"sha384-Vkoo8x4CGsO3+Hhxv8T/Q5PaXtkKtu6ug5TOeNV6gBiFeWPGFN9MuhOf23Q9Ifjh\"\r\n  crossorigin=\"anonymous\"\r\n/>\r\n<!-- USWDS Styles for structure and layout -->\r\n<link rel=\"stylesheet\" media=\"all\" href=\"/mepsweb/css/css_uswds2.0.css\" />\r\n<!-- AHRQ-specific Styles -->\r\n<link rel=\"stylesheet\" media=\"all\" href=\"/mepsweb/css/css_ahrq_global.css\" />\r\n<!-- Google Tag Manager (noscript) -->\r\n<!-- Enter site-specific Google Tag Manager code here, reach out to AHRQ Web Team for this code if you do not have - AHRQWebAdmin@ahrq.hhs.gov -->\r\n<!-- End Google Tag Manager (noscript) -->\r\n\r\n<head>\r\n  <meta http-equiv=\"Cache-Control\" content=\"no-store,no-cache\" />\r\n  <script src=\"/mepsweb/js/foresee-meps-2022.js\" type=\"text/javascript\"></script>\r\n<!-- Global site tag (gtag.js) - Google Analytics -->\r\n<script async src=\"https://www.googletagmanager.com/gtag/js?id=GTM-W4NX5V\"></script>\r\n<script>\r\n  window.dataLayer = window.dataLayer || [];\r\n  function gtag() { window.dataLayer.push(arguments); }\r\n  gtag('js', new Date());\r\n  gtag('config', 'GTM-W4NX5V');\r\n</script>\r\n<!-- Google tag (gtag.js) -->\r\n<script async src=\"https://www.googletagmanager.com/gtag/js?id=G-ZM0X430Y5C\"></script>\r\n<script>\r\n    window.dataLayer = window.dataLayer || [];\r\n    function gtag(){window.dataLayer.push(arguments);}\r\n    gtag('js', new Date());\r\n    gtag('config', 'G-ZM0X430Y5C');\r\n</script>\r\n<!-- End Global site tag (gtag.js) - Google Analytics -->\r\n<!-- Digital Analytics Program Code - required -->\r\n<script src=\"https://dap.digitalgov.gov/Universal-Federated-Analytics-Min.js?agency=HHS&subagency=AHRQ\"\r\n  type=\"text/javascript\" id=\"_fed_an_ua_tag\"></script>\r\n<!-- End Digital Analytics Program Code - required -->\r\n</head>\r\n\r\n<body\r\n  onLoad=\"MM_preloadImages('/mepsweb/newLayout/subheader_04_23_07/index_r2_c2_f2.jpg','/mepsweb/newLayout/subheader_04_23_07/index_r2_c3_f2.jpg','/mepsweb/newLayout/subheader_04_23_07/index_r2_c4_f2.jpg','/mepsweb/newLayout/subheader_04_23_07/index_r2_c5_f2.jpg')\"\r\n>\r\n  <a id=\"tiptop\" class=\"element-invisible\">&nbsp;</a\r\n  ><!-- back to top anchor -->\r\n\r\n  <a href=\"/#main-content\" class=\"visually-hidden focusable skip-link\"> Skip to main content </a>\r\n\r\n  <div class=\"usa-banner usa-banner-bg\">\r\n    <div class=\"usa-accordion usa-accordion-text-color\">\r\n      <header class=\"usa-banner__header\">\r\n        <div class=\"row no-gutters row-mobile-offset\">\r\n          <div class=\"col-sm-auto col-lg-auto offset-lg-1 img-icon\">\r\n            <img\r\n              class=\"usa-banner__header-flag\"\r\n              src=\"/mepsweb/images/ahrq_header/us_flag_small.png\"\r\n              alt=\"U.S. flag\"\r\n            />\r\n          </div>\r\n          <div class=\"col-sm-auto col-lg-auto banner-hhs img-icon\">\r\n            <img\r\n              class=\"usa-banner__header-flag\"\r\n              src=\"/mepsweb/images/ahrq_header/logo-HHSmini.png\"\r\n              alt=\"Health and Human Services Logo\"\r\n            />\r\n          </div>\r\n          <div class=\"col-sm-8 col-lg-8 txt-gov-banner\">\r\n            <p class=\"usa-banner__header-text\">\r\n              <a href=\"https://www.hhs.gov/\"\r\n                >An official website of the Department of Health &amp; Human Services</a\r\n              >\r\n            </p>\r\n          </div>\r\n        </div>\r\n      </header>\r\n    </div>\r\n  </div>\r\n\r\n  <header id=\"header\" role=\"banner\">\r\n    <div id=\"third_party\">\r\n      <div id=\"mobile-left\">\r\n        <a href=\"#\" class=\"open-btn\"\r\n          ><img\r\n            src=\"/mepsweb/images/png/menu-icon.png\"\r\n            alt=\"menu-icon\"\r\n            width=\"32\"\r\n            height=\"32\"\r\n          /><span>More</span></a\r\n        >\r\n        <a href=\"#\" class=\"close-btn\"\r\n          ><img\r\n            src=\"/mepsweb/images/png/mobile-close-icon.png\"\r\n            alt=\"mobile-close-icon\"\r\n            width=\"20\"\r\n            height=\"20\"\r\n        /></a>\r\n      </div>\r\n      <div id=\"tablet\">\r\n        <!-- start: id=tablet -->\r\n        <div id=\"mobile-back-btn\">\r\n          <a href=\"#\"\r\n            ><img\r\n              src=\"/mepsweb/images/png/mobile-back-btn-icon.png\"\r\n              alt=\"mobile-back-btn-icon\"\r\n              width=\"64\"\r\n              height=\"31\"\r\n              class=\"mobile-back-btn\"\r\n            />\r\n            Back</a\r\n          >\r\n        </div>\r\n        <div id=\"menu-tablet\"></div>\r\n        <div id=\"a-z-tablet\"></div>\r\n        <div id=\"search-tablet\">\r\n          <div id=\"mobile-search-tool\">\r\n            <form\r\n              name=\"searchForm-banner_searchform\"\r\n              method=\"get\"\r\n              action=\"https://search.ahrq.gov/search\"\r\n              id=\"banner_searchform\"\r\n            >\r\n              <label for=\"search-input_mobile\" class=\"sr-only\">Search ahrq.gov</label>\r\n              <input\r\n                name=\"q\"\r\n                type=\"text\"\r\n                value=\"\"\r\n                size=\"11\"\r\n                onfocus=\"this.value='';\"\r\n                id=\"search-input_mobile\"\r\n              />\r\n              <input type=\"hidden\" name=\"entqr\" value=\"0\" />\r\n              <input type=\"hidden\" name=\"output\" value=\"xml_no_dtd\" />\r\n              <input type=\"hidden\" name=\"proxystylesheet\" value=\"AHRQ_GOV\" />\r\n              <input type=\"hidden\" name=\"client\" value=\"AHRQ_GOV\" />\r\n              <input type=\"hidden\" name=\"site\" value=\"default_collection\" />\r\n              <input type=\"submit\" value=\"Search\" class=\"mobile-search-button\" />\r\n            </form>\r\n          </div>\r\n        </div>\r\n      </div>\r\n      <!-- end: id=tablet -->\r\n      <nav class=\"tablet\">\r\n        <ul>\r\n          <li id=\"menu-btn\" class=\"ahrq_li\">\r\n            <a href=\"#\"\r\n              ><img\r\n                src=\"/mepsweb/images/png/menu-icon.png\"\r\n                alt=\"menu-icon\"\r\n                width=\"32\"\r\n                height=\"32\"\r\n              /><span>Menu</span></a\r\n            >\r\n          </li>\r\n          <li id=\"search-btn\" class=\"ahrq_li\">\r\n            <a href=\"#\"\r\n              ><img\r\n                src=\"/mepsweb/images/png/mobile-search-icon.png\"\r\n                alt=\"mobile-search-icon\"\r\n                width=\"32\"\r\n                height=\"32\"\r\n            /></a>\r\n          </li>\r\n        </ul>\r\n      </nav>\r\n      <!--<div id=\"skipmenu\">\r\n            <a href=\"#skip\" class=\"skippy\" id=\"top\" name=\"top\">Skip Navigation</a>\r\n        </div>-->\r\n      <div id=\"header-gradient\"></div>\r\n      <div class=\"clearfix\"></div>\r\n      <!-- start: id=header-container -->\r\n      <div role=\"main\" class=\"container-fluid js-quickedit-main-content\">\r\n        <div class=\"row\">\r\n          <header\r\n            id=\"primary-header\"\r\n            class=\"header row-side-margins mobile-row-side-margins\"\r\n            role=\"heading\"\r\n          >\r\n            <div class=\"col-md-12\">\r\n              <div class=\"primary-header-wrapper\">\r\n                <div class=\"row\">\r\n                  <div class=\"col-xs-12 col-sm-12 col-md-12 col-lg-3 col-xl-3\">\r\n                    <div class=\"logo-ahrq\">\r\n                      <a href=\"https://www.ahrq.gov\"\r\n                        ><img\r\n                          src=\"/mepsweb/images/ahrq_header/logo-ahrq.png\"\r\n                          alt=\"AHRQ: Agency for Healthcare Research and Quality \"\r\n                      /></a>\r\n                    </div>\r\n                  </div>\r\n                  <div\r\n                    class=\"d-xs-none d-sm-none d-md-none d-lg-block col-lg-9 d-xl-block col-xl-9\"\r\n                  >\r\n                    <div id=\"utility-nav\">\r\n                      <ul class=\"clearfix\">\r\n                        <li class=\"first\">\r\n                          <a href=\"https://search.ahrq.gov/\" target=\"_blank\"\r\n                            >Search All AHRQ Sites</a\r\n                          >\r\n                        </li>\r\n                        <li>\r\n                          <a\r\n                            href=\"https://www.ahrq.gov/cpi/about/careers/index.html\"\r\n                            target=\"_blank\"\r\n                            >Careers</a\r\n                          >\r\n                        </li>\r\n                        <li>\r\n                          <a href=\"https://www.ahrq.gov/contact/index.html\" target=\"_blank\"\r\n                            >Contact Us</a\r\n                          >\r\n                        </li>\r\n                        <li>\r\n                          <a\r\n                            href=\"https://www.ahrq.gov/topics/informacion-en-espanol/index.html\"\r\n                            target=\"_blank\"\r\n                            >Espa&ntilde;ol</a\r\n                          >\r\n                        </li>\r\n                        <li class=\"last\">\r\n                          <a href=\"https://info.ahrq.gov/\" target=\"_blank\">FAQs</a>\r\n                        </li>\r\n                        <li>\r\n                          <a\r\n                            href=\"https://subscriptions.ahrq.gov/accounts/USAHRQ/subscriber/new\"\r\n                            target=\"_blank\"\r\n                            ><img\r\n                              src=\"/mepsweb/images/ahrq_header/envelope-regular.png\"\r\n                              width=\"18\"\r\n                              height=\"18\"\r\n                              class=\"utility-envelope\"\r\n                              alt=\"\"\r\n                            />\r\n                            Email Updates</a\r\n                          >\r\n                        </li>\r\n                      </ul>\r\n                    </div>\r\n                  </div>\r\n                </div>\r\n              </div>\r\n            </div>\r\n          </header>\r\n        </div>\r\n      </div>\r\n      <!-- end: id=header-container -->\r\n      <!--<a name=\"skip\" tabindex=\"-1\"></a>-->\r\n    </div>\r\n    <!--div id=\"third_party\">-->\r\n  </header>\r\n  <!--<div id=\"PrintBanner\"><img src=\"/mepsweb/images/ahrq_header/PrintBanner.gif\" alt=\"www.ahrq.gov\" width=\"100%\" /></div> CYu 5/24/19 no longer need it -->\r\n\r\n  <table role=\"presentation\" width=\"700\" border=\"0\" align=\"center\" cellpadding=\"0\" cellspacing=\"0\">\r\n    <tr>\r\n      <td><img src=\"/mepsweb/images/bullets/spacer.gif\" alt=\" \" width=\"1\" height=\"25\" /></td>\r\n    </tr>\r\n  </table>\r\n  <table role=\"presentation\" width=\"820\" border=\"0\" align=\"center\" cellpadding=\"0\" cellspacing=\"0\">\r\n    <tr>\r\n      <td width=\"115\" rowspan=\"2\">\r\n        <a id=\"main-content\"></a>\r\n        <a href=\"/mepsweb/index.jsp\"\r\n          ><img\r\n            src=\"/mepsweb/newLayout/header/meps_logo.jpg\"\r\n            alt=\"MEPS Home\"\r\n            name=\"index_r1_c1\"\r\n            width=\"115\"\r\n            height=\"54\"\r\n            border=\"0\"\r\n            id=\"index_r1_c1\"\r\n        /></a>\r\n      </td>\r\n      <td colspan=\"5\">\r\n        <img\r\n          src=\"/mepsweb/newLayout/header/index_r1_c2.jpg\"\r\n          alt=\"Medical Expenditure Panel Survey\"\r\n          name=\"index_r1_c2\"\r\n          width=\"585\"\r\n          height=\"30\"\r\n          border=\"0\"\r\n          id=\"index_r1_c2\"\r\n        />\r\n      </td>\r\n      <td width=\"115\" class=\"font_size_caption\">\r\n        <div id=\"displayYesNo1\" class=\"displayNo\">Font Size:</div>\r\n      </td>\r\n    </tr>\r\n    <tr>\r\n      <td width=\"105\" bgcolor=\"#ffffff\" valign=\"top\">\r\n        <a\r\n          href=\"/mepsweb/communication/contact.jsp\"\r\n          onMouseOut=\"MM_swapImgRestore()\"\r\n          onMouseOver=\"MM_swapImage('Image11','','/mepsweb/newLayout/subheader_04_23_07/index_r2_c3.jpg',1)\"\r\n          ><img\r\n            src=\"/mepsweb/newLayout/subheader_04_23_07/index_r2_c3_f2.jpg\"\r\n            alt=\"Contact MEPS\"\r\n            name=\"Image11\"\r\n            width=\"105\"\r\n            height=\"24\"\r\n            border=\"0\" /></a\r\n        ><img src=\"/mepsweb/images/bullets/spacer.gif\" alt=\" \" width=\"1\" height=\"25\" />\r\n      </td>\r\n      <td width=\"72\" bgcolor=\"#ffffff\" valign=\"top\">\r\n        <a\r\n          href=\"/mepsweb/about_meps/faq_results.jsp?ChooseTopic=All+Categories&keyword=&Submit2=Search\"\r\n          onMouseOut=\"MM_swapImgRestore()\"\r\n          onMouseOver=\"MM_swapImage('Image10','','/mepsweb/newLayout/subheader_04_23_07/index_r2_c2_f2.jpg',1)\"\r\n          ><img\r\n            src=\"/mepsweb/newLayout/subheader_04_23_07/index_r2_c2.jpg\"\r\n            alt=\"FAQ\"\r\n            name=\"Image10\"\r\n            width=\"72\"\r\n            height=\"24\"\r\n            border=\"0\" /></a\r\n        ><img src=\"/mepsweb/images/bullets/spacer.gif\" alt=\" \" width=\"1\" height=\"25\" />\r\n      </td>\r\n      <!--<td width=\"60\" bgcolor=\"#ffffff\" valign=\"top\"><a href=\"/mepsweb/about_meps/spanish.jsp\" onMouseOut=\"MM_swapImgRestore()\" onMouseOver=\"MM_swapImage('Image12','','/mepsweb/newLayout/subheader_04_23_07/index_r2_c4_f2.jpg',1)\"><img src=\"/mepsweb/newLayout/subheader_04_23_07/index_r2_c4.jpg\" alt=\"Espanol\" name=\"Image12\" width=\"60\" height=\"24\" border=\"0\"></a><img src=\"/mepsweb/images/bullets/spacer.gif\" alt=\" \" width=\"1\" height=\"25\" /></td> -->\r\n      <td width=\"112\" bgcolor=\"#ffffff\" valign=\"top\">\r\n        <a\r\n          href=\"/mepsweb/sitemap.jsp\"\r\n          onMouseOut=\"MM_swapImgRestore()\"\r\n          onMouseOver=\"MM_swapImage('Image13','','/mepsweb/newLayout/subheader_04_23_07/index_r2_c5_f2.jpg',1)\"\r\n          ><img\r\n            src=\"/mepsweb/newLayout/subheader_04_23_07/index_r2_c5.jpg\"\r\n            alt=\"Site Map\"\r\n            name=\"Image13\"\r\n            width=\"112\"\r\n            height=\"24\"\r\n            border=\"0\" /></a\r\n        ><img src=\"/mepsweb/images/bullets/spacer.gif\" alt=\" \" width=\"0\" height=\"0\" />\r\n      </td>\r\n      <td width=\"75\" valign=\"top\">&nbsp;</td>\r\n\r\n      <script type=\"application/javascript\">\r\n        function routeToGoogle(userquery) {\r\n          var sendLoc =\r\n            'https://search.ahrq.gov/search?q=' + userquery + '&siteDomain=meps.ahrq.gov';\r\n          window.open(sendLoc);\r\n        }\r\n\r\n        /* function searchSubmit(e) {\r\n\r\n                if(e && e.keyCode == 13) {\r\n                   var inputSearch=document.getElementById('query');\r\n                   console.log(inputSearch.value);\r\n                    var sendLoc = \"https://search.ahrq.gov/search?q=\"+ inputSearch.value + \"&siteDomain=meps.ahrq.gov\";\r\n                    //console.log('New Location: ' + sendLoc);\r\n                    window.open(sendLoc);\r\n                }\r\n            }*/\r\n        //auto complete\r\n\r\n        document.addEventListener('DOMContentLoaded', function (event) {\r\n          var config = {\r\n            url: 'https://search.ahrq.gov/suggest',\r\n            inputIds: ['query', 'simplesearchtext1'],\r\n          };\r\n          var inputs = config.inputIds;\r\n          for (var i = 0; i < inputs.length; i++) {\r\n            attachAutocomplete(config, inputs[i]);\r\n          }\r\n        });\r\n\r\n        //onKeyPress=\"return searchSubmit(event)\"\r\n        //onkeyup=\"autoComplete(event)\"\r\n      </script>\r\n      <script type=\"text/javascript\" src=\"/mepsweb/js/autocomplete.js\"></script>\r\n      <form name=\"MEPSSearchForm\" method=\"get\" action=\"\" autocomplete=\"off\">\r\n        <td width=\"222\" valign=\"top\">\r\n          <label for=\"query\" class=\"sr-only\">Search MEPS</label>\r\n          <input\r\n            name=\"query\"\r\n            type=\"text\"\r\n            class=\"searchField\"\r\n            value=\"Search MEPS\"\r\n            id=\"query\"\r\n            onfocus=\"if(this.value=='Search MEPS')this.value=''\"\r\n          />\r\n          <!--<label for=\"query\" style=\"display: none;\">Search MEPS</label>-->\r\n          <input\r\n            id=\"searchButton\"\r\n            type=\"button\"\r\n            value=\"Go\"\r\n            class=\"searchButton\"\r\n            onClick=\"javascript: routeToGoogle(getElementById('query').value);\"\r\n          />\r\n        </td>\r\n      </form>\r\n\r\n      <td width=\"115\">\r\n        <div id=\"displayYesNo2\" class=\"displayNo\"></div>\r\n        <div id=\"sfs_div\" class=\"font_size\">\r\n          <a id=\"sfs_alink\" href=\"javascript:setFontSize('S');\">S</a>\r\n          <img src=\"/mepsweb/images/bullets/spacer.gif\" alt=\" \" width=\"1\" height=\"25\" />\r\n        </div>\r\n\r\n        <div id=\"mfs_div\" class=\"font_size\">\r\n          <a id=\"mfs_alink\" href=\"javascript:setFontSize('M');\">M</a>\r\n          <img src=\"/mepsweb/images/bullets/spacer.gif\" alt=\" \" width=\"1\" height=\"25\" />\r\n        </div>\r\n\r\n        <div id=\"lfs_div\" class=\"font_size\">\r\n          <a id=\"lfs_alink\" href=\"javascript:setFontSize('L');\">L</a>\r\n          <img src=\"/mepsweb/images/bullets/spacer.gif\" alt=\" \" width=\"1\" height=\"25\" />\r\n        </div>\r\n\r\n        <div id=\"xfs_div\" class=\"font_size\">\r\n          <a id=\"xfs_alink\" href=\"javascript:setFontSize('X');\">XL</a>\r\n          <img src=\"/mepsweb/images/bullets/spacer.gif\" alt=\" \" width=\"1\" height=\"25\" />\r\n        </div>\r\n      </td>\r\n    </tr>\r\n  </table>\r\n  <table role=\"presentation\" width=\"700\" border=\"0\" align=\"center\" cellpadding=\"0\" cellspacing=\"0\">\r\n    <tr>\r\n      <td><img src=\"/mepsweb/images/bullets/spacer.gif\" alt=\" \" width=\"1\" height=\"10\" /></td>\r\n    </tr>\r\n  </table>\r\n\r\n  <script type=\"text/javascript\" src=\"/mepsweb/js/font_size2.js\"></script>\r\n</body>\r\n\r\n\r\n<table role=\"presentation\" width=\"765\" border=\"0\" align=\"center\" cellpadding=\"0\" cellspacing=\"0\">\r\n  <tr bgcolor=\"#FFFFFF\">\r\n    <td colspan=\"4\" class=\"sectionDividerGrey\" scope=\"col\">\r\n      \r\n\r\n<script type=\"text/javascript\" src=\"/mepsweb/js/header_roll.js\"></script>\r\n<table role=\"presentation\" width=\"765\" border=\"0\" align=\"center\" cellpadding=\"0\" cellspacing=\"0\">\r\n     <tr>\r\n       <td width=\"157\"><img src=\"/mepsweb/images/bullets/spacer.gif\" alt=\"spacer\" width=\"1\" height=\"15\" /></td>\r\n       \r\n\r\n     <td width=\"614\" valign=\"middle\"><div align=\"left\"></div></td>\r\n     </tr>\r\n\r\n</table>\r\n\r\n    </td>\r\n\r\n  </tr>\r\n  <tr>\r\n   \r\n    <td width=\"153\" valign=\"top\" bgcolor=\"#FFEEC0\" class=\"rightBorder\">\r\n    \t<NOSCRIPT>The components in this navigation bar are fully operational with or without the use of JavaScript</NOSCRIPT>\r\n\r\n\r\n<table role=\"presentation\" width=\"154\" height=\"0\"  border=\"0\" align=\"center\" cellpadding=\"0\" cellspacing=\"0\">\r\n<tr valign=\"bottom\" bgcolor=\"#073EA2\">\r\n    <td width=\"153\" height=\"23\" valign=\"middle\" bgcolor=\"#F3F7FC\" class=\"sectionDividerGreySolidThick\">\r\n    <div align=\"left\" class=\"navHeader\"><strong>&nbsp;<a href=\"/mepsweb/\" class=\"HomeNav\">MEPS Home</a></strong></div></td>\r\n    \r\n  </tr>\r\n  <tr valign=\"bottom\" bgcolor=\"#073EA2\" >\r\n    <td width=\"153\" height=\"23\" valign=\"middle\" bgcolor=\"#FDDC8D\" class=\"sectionDividerGreySolidThick\"><div align=\"left\" class=\"navHeader\"><strong>&nbsp;About<a name=\"skipnav\" id=\"skipnav\"></a> MEPS <strong class=\"navdivider\"></strong></strong></div></td>\r\n  </tr>\r\n  \r\n\r\n  <tr bgcolor=\"#FFF9E8\"  >\r\n    <td width=\"153\" height=\"20\" bgcolor=\"#FFF9E8\" class=\"sectionDividerGreySolid\" style=\"background-color:#FFF9E8;color:\" onMouseOver=\"NN_td_start(this,'#FFF9E8','',1,0,true,false,1);\" onMouseOut=\"NN_td_reset(this,'#FFF9E8','');\"><span class=\"small\">&nbsp;</span><span class=\"style9\"><strong><font color=\"#660000\">::</font></strong></span>&nbsp;<a href=\"/mepsweb/about_meps/survey_back.jsp\" class=\"LeftNav\">Survey Background</a></td>\r\n  </tr>\r\n\r\n\r\n\r\n  <tr bgcolor=\"#FFEEC0\" >\r\n    <td width=\"153\" height=\"20\" bgcolor=\"#FFEEC0\" class=\"sectionDividerGreySolid\" style=\"background-color:#FFEEC0;color:\" onMouseOver=\"NN_td_start(this,'#FFF9E8','',1,0,true,false,1);\" onMouseOut=\"NN_td_reset(this,'#FFEEC0','');\"><span class=\"small\">&nbsp;</span><span class=\"style9\"><strong><font color=\"#660000\">::</font></strong></span>&nbsp;<a href=\"/mepsweb/about_meps/workshops_events.jsp\" class=\"LeftNav\">Workshops &amp; Events</a></td>\r\n  </tr>\r\n\r\n\r\n\r\n  <tr bgcolor=\"#FFEEC0\" >\r\n    <td width=\"153\" height=\"20\" bgcolor=\"#FFEEC0\" class=\"sectionDividerGreySolid\" style=\"background-color:#FFEEC0;color:\" onMouseOver=\"NN_td_start(this,'#FFF9E8','',1,0,true,false,1);\" onMouseOut=\"NN_td_reset(this,'#FFEEC0','');\"><span class=\"small\">&nbsp;</span><span class=\"style9\"><strong><font color=\"#660000\">::</font></strong></span>&nbsp;<a href=\"/mepsweb/about_meps/releaseschedule.jsp\" class=\"LeftNav\">Data Release Schedule</a></td>\r\n  </tr>\r\n\r\n\r\n\r\n\r\n  \r\n  <tr valign=\"bottom\" bgcolor=\"#073EA2\" >\r\n    <td width=\"153\" height=\"23\" valign=\"middle\" bgcolor=\"#FDDC8D\" class=\"sectionDividerGreySolidThick\"><div align=\"left\" class=\"navHeader\"><strong>&nbsp;Survey Components <span class=\"navdivider\"><strong></strong></span></strong></div></td>\r\n  </tr>\r\n  \r\n  \r\n\r\n  <tr bgcolor=\"#FFEEC0\" >\r\n    <td width=\"153\" height=\"20\" bgcolor=\"#FFEEC0\" class=\"sectionDividerGreySolid\" style=\"background-color:#FFEEC0;color:\" onMouseOver=\"NN_td_start(this,'#FFF9E8','',1,0,true,false,1);\" onMouseOut=\"NN_td_reset(this,'#FFEEC0','');\"><span class=\"small\">&nbsp;</span><span class=\"style9\"><strong><font color=\"#660000\">::</font></strong></span>&nbsp;<a href=\"/mepsweb/survey_comp/household.jsp\" class=\"LeftNav\">Household</a> </td>\r\n  </tr>\r\n\r\n\r\n\r\n  <tr bgcolor=\"#FFEEC0\" >\r\n    <td width=\"153\" height=\"20\" bgcolor=\"#FFEEC0\" class=\"sectionDividerGreySolid\" style=\"background-color:#FFEEC0;color:\" onMouseOver=\"NN_td_start(this,'#FFF9E8','',1,0,true,false,1);\" onMouseOut=\"NN_td_reset(this,'#FFEEC0','');\"><span class=\"small\">&nbsp;</span><span class=\"style9\"><strong><font color=\"#660000\">::</font></strong></span>&nbsp;<a href=\"/mepsweb/survey_comp/Insurance.jsp\" class=\"LeftNav\">Insurance/Employer</a></td>\r\n  </tr>\r\n\r\n\r\n  <tr bgcolor=\"#FFEEC0\" >\r\n    <td width=\"153\" height=\"20\" bgcolor=\"#FFEEC0\" class=\"sectionDividerGreySolid\" style=\"background-color:#FFEEC0;color:\" onMouseOver=\"NN_td_start(this,'#FFF9E8','',1,0,true,false,1);\" onMouseOut=\"NN_td_reset(this,'#FFEEC0','');\"><span class=\"small\">&nbsp;</span><span class=\"style9\"><strong><font color=\"#660000\">::</font></strong></span>&nbsp;<a href=\"/mepsweb/survey_comp/mpc.jsp\" class=\"LeftNav\">Medical Provider</a></td>\r\n  </tr>\r\n\r\n  \r\n  <tr bgcolor=\"#FFEEC0\" >\r\n    <td width=\"153\" height=\"20\" bgcolor=\"#FFEEC0\" class=\"sectionDividerGreySolid\" style=\"background-color:#FFEEC0;color:\" onMouseOver=\"NN_td_start(this,'#FFF9E8','',1,0,true,false,1);\" onMouseOut=\"NN_td_reset(this,'#FFEEC0','');\"><span class=\"small\">&nbsp;</span><span class=\"style9\"><strong><font color=\"#660000\">::</font></strong></span>&nbsp;<a href=\"/mepsweb/survey_comp/survey_questionnaires.jsp\" class=\"LeftNav\">Survey Questionnaires</a> </td>\r\n  </tr>\r\n\r\n\r\n  <tr valign=\"bottom\" bgcolor=\"#073EA2\" >\r\n    <td width=\"153\" height=\"23\" valign=\"middle\" bgcolor=\"#FDDC8D\" class=\"sectionDividerGreySolidThick\">&nbsp;<span class=\"navHeader\">Data and Statistics <strong></strong></span><strong></strong><span class=\"navHeader\"><strong></strong></span></td>\r\n  </tr>\r\n\r\n\r\n  <tr bgcolor=\"#FFEEC0\" >\r\n    <td width=\"153\" height=\"20\" bgcolor=\"#FFEEC0\" class=\"sectionDividerGreySolid\" style=\"background-color:#FFEEC0;color:\" onMouseOver=\"NN_td_start(this,'#FFF9E8','',1,0,true,false,1);\" onMouseOut=\"NN_td_reset(this,'#FFEEC0','');\"><span class=\"small\">&nbsp;</span><span class=\"style9\"><strong><font color=\"#660000\">::</font></strong></span>&nbsp;<a href=\"/mepsweb/data_stats/data_overview.jsp\" class=\"LeftNav\">Data Overview </a></td>\r\n  </tr>\r\n\r\n\r\n\r\n  <tr bgcolor=\"#FFEEC0\" >\r\n    <td width=\"153\" height=\"20\" class=\"sectionDividerGreySolid\" style=\"background-color:#FFEEC0;color:\" onMouseOver=\"NN_td_start(this,'#FFF9E8','',1,0,true,false,1);\" onMouseOut=\"NN_td_reset(this,'#FFEEC0','');\"><span class=\"small\">&nbsp;</span><span class=\"style9\"><strong><font color=\"#660000\">::</font></strong></span>&nbsp;<a href=\"/mepsweb/data_stats/MEPS_topics.jsp\" class=\"LeftNav\">MEPS Topics </a></td>\r\n  </tr>\r\n\r\n\r\n\r\n  <tr bgcolor=\"#FFEEC0\" >\r\n    <td width=\"153\" height=\"20\" bgcolor=\"#FFEEC0\" class=\"sectionDividerGreySolid\" style=\"background-color:#FFEEC0;color:\" onMouseOver=\"NN_td_start(this,'#FFF9E8','',1,0,true,false,1);\" onMouseOut=\"NN_td_reset(this,'#FFEEC0','');\"><span class=\"small\">&nbsp;</span><span class=\"style9\"><strong><font color=\"#660000\">::</font></strong></span>&nbsp;<a href=\"/mepsweb/data_stats/publications.jsp\" class=\"LeftNav\">Publications Search</a></td>\r\n  </tr>\r\n\r\n\r\n\r\n  <tr bgcolor=\"#FFEEC0\" >\r\n    <td width=\"153\" height=\"20\" bgcolor=\"#FFEEC0\" class=\"sectionDividerGreySolid\" style=\"background-color:#FFEEC0;color:\" onMouseOver=\"NN_td_start(this,'#FFF9E8','',1,0,true,false,1);\" onMouseOut=\"NN_td_reset(this,'#FFEEC0','');\"><span class=\"small\">&nbsp;</span><span class=\"style9\"><strong><font color=\"#660000\">::</font></strong></span>&nbsp;<a href=\"/mepsweb/data_stats/data_tools.jsp\" class=\"LeftNav\">MEPS Data Tools (HC/IC)</a></td>\r\n  </tr>\r\n\r\n\r\n\r\n  <tr bgcolor=\"#FFEEC0\" >\r\n    <td width=\"153\" height=\"20\" class=\"sectionDividerGreySolid\" style=\"background-color:#FFEEC0;color:\" onMouseOver=\"NN_td_start(this,'#FFF9E8','',1,0,true,false,1);\" onMouseOut=\"NN_td_reset(this,'#FFEEC0','');\"><span class=\"small\">&nbsp;</span><span class=\"style9\"><strong><font color=\"#660000\">::</font></strong></span>&nbsp;<a href=\"/mepsweb/data_stats/download_data_files.jsp\" class=\"LeftNav\">Data Files</a></td>\r\n  </tr>\r\n\r\n\r\n\r\n  <tr bgcolor=\"#FFEEC0\" >\r\n    <td width=\"153\" height=\"20\" class=\"sectionDividerGreySolid\" style=\"background-color:#FFEEC0;color:\" onMouseOver=\"NN_td_start(this,'#FFF9E8','',1,0,true,false,1);\" onMouseOut=\"NN_td_reset(this,'#FFEEC0','');\"><span class=\"small\">&nbsp;</span><span class=\"style9\"><strong><font color=\"#660000\">::</font></strong></span>&nbsp;<a href=\"/mepsweb/data_stats/onsite_datacenter.jsp\" class=\"LeftNav\">Data\r\n        Centers</a></td>\r\n  </tr>\r\n\r\n\r\n  <tr bgcolor=\"#073EA2\" >\r\n    <td width=\"153\" height=\"23\" valign=\"middle\" bgcolor=\"#FDDC8D\" class=\"sectionDividerGreySolidThick\"><span class=\"navHeader\"><strong>&nbsp;Communication </strong></span><span class=\"navdivider\"><strong></strong></span></td>\r\n  </tr>\r\n\r\n\r\n  <tr bgcolor=\"#FFEEC0\" >\r\n    <td width=\"153\" height=\"20\" bgcolor=\"#FFEEC0\" class=\"sectionDividerGreySolid\" style=\"background-color:#FFEEC0;color:\" onMouseOver=\"NN_td_start(this,'#FFF9E8','',1,0,true,false,1);\" onMouseOut=\"NN_td_reset(this,'#FFEEC0','');\"><span class=\"small\">&nbsp;</span><span class=\"style9\"><strong><font color=\"#660000\">::</font></strong></span>&nbsp;<a href=\"/mepsweb/communication/whats_new.jsp\" class=\"LeftNav\">What's New </a></td>\r\n  </tr>\r\n\r\n\r\n\r\n  <tr bgcolor=\"#FFEEC0\" >\r\n    <td width=\"153\" height=\"20\" class=\"sectionDividerGreySolid\" style=\"background-color:#FFEEC0;color:\" onMouseOver=\"NN_td_start(this,'#FFF9E8','',1,0,true,false,1);\" onMouseOut=\"NN_td_reset(this,'#FFEEC0','');\"><span class=\"small\">&nbsp;</span><span class=\"style9\"><strong><font color=\"#660000\">::</font></strong></span>&nbsp;<a href=\"/mepsweb/communication/mailinglist.jsp\" class=\"LeftNav\">Mailing List</a></td>\r\n  </tr>\r\n\r\n\r\n\r\n  <tr bgcolor=\"#FFEEC0\" >\r\n    <td width=\"153\" height=\"20\" class=\"sectionDividerGreySolidThick\" style=\"background-color:#FFEEC0;color:\" onMouseOver=\"NN_td_start(this,'#FFF9E8','',1,0,true,false,1);\" onMouseOut=\"NN_td_reset(this,'#FFEEC0','');\"><span class=\"small\">&nbsp;</span><span class=\"style9\"><strong><font color=\"#660000\">::</font></strong></span>&nbsp;<a href=\"/mepsweb/communication/listserv.jsp\" class=\"LeftNav\">Discussion Forum</a></td>\r\n  </tr>\r\n\r\n\r\n\r\n  <tr bgcolor=\"#FFEEC0\" >\r\n    <td width=\"153\" height=\"20\" class=\"sectionDividerGreySolidThick\" style=\"background-color:#FFEEC0;color:\" onMouseOver=\"NN_td_start(this,'#FFF9E8','',1,0,true,false,1);\" onMouseOut=\"NN_td_reset(this,'#FFEEC0','');\"><span class=\"small\">&nbsp;</span><span class=\"style9\"><strong><font color=\"#660000\">::</font></strong></span>&nbsp;<a href=\"/mepsweb/communication/index_survey_participant.jsp\" class=\"LeftNav\">Participants' Corner</a></td>\r\n  </tr>\r\n\r\n\r\n\r\n\r\n</table>\r\n<!--<p><strong><a href=\"/mepsweb/index.jsp\" class=\"HomeNav\"></a></strong></p> CYu 5/2119 comment out because Wave error-->\r\n\r\n\t</td>\r\n\r\n    <td width=\"12\" valign=\"top\" bgcolor=\"#FFFFFF\">&nbsp;</td>\r\n    <td width=\"584\" valign=\"top\" bgcolor=\"#FFFFFF\"><table role=\"presentation\" width=\"100%\"  border=\"0\" cellspacing=\"0\" cellpadding=\"0\">\r\n        \r\n      </table>\r\n      <A name=\"page_start\" id=\"page_start\">&nbsp;</a>\r\n      <table role=\"presentation\" width=\"100%\"  border=\"0\" cellspacing=\"0\" cellpadding=\"0\">\r\n        <tr>\r\n          <td width=\"56%\" height=\"33\"><span class=\"big\"> <span class=\"big\">Survey Background</span></span></td>\r\n  \r\n     <td width=\"44%\"><div align=\"right\">\r\n<span><img src=\"/mepsweb/images/bullets/print.gif\" alt=\"Display page in Printer Friendly Format\" width=\"16\" height=\"18\" hspace=\"0\" align=\"absmiddle\">\r\n       <a class=\"small\" href=\"/mepsweb//about_meps/survey_back.jsp?prfricon=yes\" target=\"_top\">printer-friendly </a></span>\r\n\r\n\r\n\r\n</div></td>\r\n\r\n        </tr>\r\n        <tr>\r\n          <td height=\"0\" colspan=\"2\"><p align=\"center\" class=\"OrangeBox\"><strong class=\"bodystyle\">On this page:</strong> <A \r\nhref=\"#household\" class=\"small\">Household Component</A> - <A href=\"#Insurance\" class=\"small\">Insurance Component</A> - <A href=\"#Other_MEPS_Components\" class=\"small\">Other Components</A> - <A \r\nhref=\"#Earlier_Surveys_and_MEPS_\" class=\"small\">Earlier Surveys</A></p></td>\r\n        </tr>\r\n      </table>\r\n            <div align=\"left\"></div>\r\n            <DIV class=description>\r\n              <div align=\"left\">                <p class=\"contentStyle\">The Medical Expenditure Panel Survey, which began in 1996, is a set of large-scale surveys of families and individuals, their medical providers (doctors, hospitals, pharmacies, etc.), and employers across the United States. MEPS collects data on the specific health services that Americans use, how frequently they use them, the cost of these services, and how they are paid for, as well as data on the cost, scope, and breadth of health insurance held by and available to U.S. workers.</p>\r\n                <p> <B><A class=\"BlueBox\">Major MEPS Components</A></B></p>\r\n                <P class=\"contentStyle\">MEPS currently has two major components:\r\n                  the <A \r\nhref=\"../survey_comp/household.jsp\">Household Component</A> and the <A \r\nhref=\"../survey_comp/Insurance.jsp\">Insurance Component</A>. The Household Component\r\n                  provides data from individual households and their members, which is supplemented\r\n                  by data from their medical providers. The Insurance\r\n                  Component is a separate survey of employers that provides data\r\n                  on employer-based health insurance.           \r\n                <p ><B><a name=\"household\"></a><A  class=\"BlueBox\">Household Component</A></B></p>\r\n                <p align=\"left\" class=\"contentStyle\">The <a href=\"../survey_comp/household.jsp\">Household Component</a> (HC) collects data from a sample of families and individuals in selected communities across the United States, drawn from a nationally representative subsample of households that participated in the prior year's <a href=\"http://www.cdc.gov/nchs/nhis.htm\">National Health Interview Survey</a> (conducted by the National Center for Health Statistics). </p>\r\n                <p class=\"contentStyle\">During the household interviews, MEPS collects detailed information for each person in the household on the following: demographic characteristics, health conditions, health status, use of medical services, charges and source of payments, access to care, satisfaction with care, health insurance coverage, income, and employment. </p>\r\n                <p class=\"contentStyle\">The panel design of the survey, which features several rounds of interviewing covering two full calendar years, makes it possible to determine how changes in respondents' health status, income, employment, eligibility for public and private insurance coverage, use of services, and payment for care are related. </p>\r\n                <p class=\"contentStyle\">The HC expenditures have been projected to future years by selected demographic characteristics by source of payment and type of service.\r\n                <p class=\"contentStyle\">HC data are available on the MEPS Web\r\n                  site in data tables, downloadable data files (person, job,\r\n                  event, or condition level), annually projected expenditures\r\n                  through 2016, and interactive data tools, as well as in publications\r\n                  using HC data.</p>\r\n                <p class=\"contentStyle\"><B><A  name=Insurance class=\"BlueBox\">Insurance Component</A></B></p>\r\n                <P class=\"contentStyle\">The <a href=\"../survey_comp/Insurance.jsp\">Insurance Component</a> (IC) collects data from a sample of private and public sector employers on the health insurance plans they offer their employees. The survey is also known as the Health Insurance Cost Study.               \r\n                <p class=\"contentStyle\">The collected data include the number and types of private insurance plans offered (if any), premiums, contributions by employers and employees, eligibility requirements, benefits associated with these plans, and employer characteristics. </p>\r\n                <p class=\"contentStyle\">IC estimates are available on the MEPS Web site in tabular form for national, regional, state, and metropolitan areas, as well as in publications using IC data and interactive data tools. IC data files are not available for public release.</p>\r\n                <span><B><A name=Other_MEPS_Components class=\"BlueBox\">Other MEPS Components</A></B> </span>\r\n                <p class=\"contentStyle\">MEPS also includes a Medical Provider Component (MPC), which covers hospitals, physicians, home health care providers, and pharmacies identified by MEPS-HC respondents. Its purpose is to supplement and/or replace information received from the MEPS-HC respondents. </p>\r\n                <p class=\"contentStyle\">Data files containing only this supplemental respondent information are not available, but the information is incorporated into the MEPS-HC data files. </p>\r\n                <p class=\"contentStyle\">In 1996 only, MEPS included a <A href=\"../data_stats/data_overview.jsp#Nursing Home Component\">Nursing Home Component</A> (NHC) that gathered information from a sample of nursing homes and residents nationwide on the characteristics of the facilities and services offered; expenditures and sources of payment on an individual resident level; and resident characteristics, including functional limitation, cognitive impairment, age, income, and insurance coverage. The NHC also collected data on the availability and use of community-based care prior to admission to nursing homes. For reasons of confidentiality, NHC data are available only at the <A \r\nhref=\"../data_stats/onsite_datacenter.jsp\">Data Center located at AHRQ or at one of the Federal Statistical Research Data Centers</A>.<br><br>The <a href=\"https://www.cdc.gov/nchs/index.htm\">National Center for Health Statistics (NCHS)</a> provides information on the NCHS National Nursing Home Survey (NNHS), a continuing series of national sample surveys of nursing homes, their residents, and their staff that have been conducted in 1973-74, 1977, 1985, 1995, 1997, and 1999.</p>\r\n                <P class=\"contentStyle\"><B><A name=Earlier_Surveys_and_MEPS_ class=\"BlueBox\">Earlier Surveys and MEPS</A></B></P>\r\n                <p class=\"contentStyle\">Surveys collecting data on medical expenditures\r\n                  began in the 1970s at a time when the structure of health care\r\n                  services, private insurance, Federal health care programs and\r\n                  the characteristics of the U.S. population were undergoing\r\n                  enormous change. The first of these surveys, the National Medical\r\n                  Care Expenditure Surveys (NMCES), was conducted in 1977. Similar\r\n                  to the MEPS-HC survey, NMCES had three main components: a household\r\n                  survey, a survey of physicians utilized by the household members,\r\n                  and a health insurance employer component. Approximately\r\n                  14,000 households participated in six rounds of interviews\r\n                  over a 14-month period. </p>\r\n                <p class=\"contentStyle\">In 1987, the National Medical Expenditure Survey (NMES) was conducted. Approximately 16,000 households participated in NMES, including 2,000 American Indian and Alaskan Native households. Once again, the household information was supplemented by surveys of medical and health insurance providers utilized by respondents. </p>\r\n                <p class=\"contentStyle\">In 1996, the current survey, MEPS-HC, was designed to provide more timely information about the nation's changing health care system. MEPS-HC introduces a new panel or sample of households into the survey every year and is conducted continually rather than once every 10 years. MEPS-HC households are a subsample of households that participate in the National Health Interview Survey (NHIS) conducted by the National Center for Health Statistics approximately six months to a year prior to MEPS. Like the earlier surveys, the information collected in MEPS-HC from households is supplemented by surveys of medical and health insurance providers. </p>\r\n                <p class=\"contentStyle\">The predecessor to the MEPS-IC was the 1994 National E",
+          "title": "Medical Expenditure Panel Survey Background",
+          "httpStatus": 200
+        },
+        {
+          "type": "openrouter:web_search",
+          "id": "st_tmp_3mw3lk7meal",
+          "status": "completed",
+          "action": {
+            "type": "search",
+            "query": "MEPS ICPSR archive Data.gov dataset preservation"
+          }
+        },
+        {
+          "type": "openrouter:web_search",
+          "id": "st_tmp_347mxguigdm",
+          "status": "completed",
+          "action": {
+            "type": "search",
+            "query": "AHRQ eliminated Administration for a Healthy America 2025 budget MEPS survey future"
+          }
+        }
+      ],
+      "ended": "answered",
+      "seconds": 216.1
+    },
+    "assessment": {
+      "request": {
+        "model": "moonshotai/kimi-k3",
+        "max_output_tokens": 32768,
+        "tools": [
+          {
+            "type": "openrouter:web_search",
+            "parameters": {
+              "engine": "exa",
+              "max_results": 10,
+              "excluded_domains": [
+                "dataindex.us"
+              ]
+            }
+          },
+          {
+            "type": "openrouter:web_fetch",
+            "parameters": {
+              "engine": "openrouter",
+              "blocked_domains": [
+                "dataindex.us"
+              ],
+              "max_content_tokens": 10000
+            }
+          }
+        ],
+        "cache_control": {
+          "type": "ephemeral",
+          "ttl": "1h"
+        },
+        "session_id": "meps-moonshotai/kimi-k3-t0-2026-10-09T01:40:58Z",
+        "stop_server_tools_when": [
+          {
+            "type": "step_count_is",
+            "step_count": 200
+          }
+        ],
+        "reasoning": {
+          "effort": "high"
+        },
+        "provider": {
+          "order": [
+            "moonshotai"
+          ],
+          "allow_fallbacks": false
+        }
+      },
+      "response_meta": {
+        "id": "gen-1791510274-1abkFt75QDDoMrUQGMUD",
+        "object": "response",
+        "created_at": 1791510274,
+        "model": "moonshotai/kimi-k3",
+        "status": "completed",
+        "completed_at": 1791510463,
+        "error": null,
+        "incomplete_details": null,
+        "tools": [],
+        "tool_choice": "auto",
+        "parallel_tool_calls": true,
+        "max_output_tokens": 32768,
+        "temperature": 1,
+        "top_p": 1,
+        "presence_penalty": 0,
+        "frequency_penalty": 0,
+        "top_logprobs": 0,
+        "max_tool_calls": null,
+        "metadata": {},
+        "background": false,
+        "previous_response_id": null,
+        "service_tier": "auto",
+        "truncation": "disabled",
+        "store": false,
+        "instructions": null,
+        "text": {
+          "format": {
+            "type": "text"
+          }
+        },
+        "reasoning": {
+          "effort": "high"
+        },
+        "safety_identifier": null,
+        "prompt_cache_key": null,
+        "prompt_cache_options": null,
+        "usage": {
+          "input_tokens": 67426,
+          "input_tokens_details": {
+            "cached_tokens": 31744
+          },
+          "output_tokens": 6067,
+          "output_tokens_details": {
+            "reasoning_tokens": 2245
+          },
+          "total_tokens": 73493,
+          "cost": 0.2285742,
+          "cost_details": {
+            "upstream_inference_cost": 0.2075742,
+            "upstream_inference_input_cost": 0.1165692,
+            "upstream_inference_output_cost": 0.091005
+          },
+          "server_tool_use_details": {
+            "web_search_requests": 3,
+            "tool_calls_requested": 4,
+            "tool_calls_executed": 4
+          }
+        }
+      },
+      "requests": [
+        {
+          "input_tokens": 67426,
+          "input_tokens_details": {
+            "cached_tokens": 31744
+          },
+          "output_tokens": 6067,
+          "output_tokens_details": {
+            "reasoning_tokens": 2245
+          },
+          "total_tokens": 73493,
+          "cost": 0.2285742,
+          "cost_details": {
+            "upstream_inference_cost": 0.2075742,
+            "upstream_inference_input_cost": 0.1165692,
+            "upstream_inference_output_cost": 0.091005
+          },
+          "server_tool_use_details": {
+            "web_search_requests": 3,
+            "tool_calls_requested": 4,
+            "tool_calls_executed": 4
+          }
+        }
+      ],
+      "searches": 3,
+      "fetches": 1,
+      "tool_items": [
+        {
+          "type": "openrouter:web_search",
+          "id": "st_tmp_gdix5yfgbw4",
+          "status": "completed",
+          "action": {
+            "type": "search",
+            "query": "AHRQ Agency for Healthcare Research and Quality 2025 dismantled layoffs staff cuts Administration for a Healthy America MEPS Medical Expenditure Panel Survey future",
+            "sources": [
+              {
+                "type": "url",
+                "url": "https://kffhealthnews.org/health-industry/patient-safety-health-agency-dissolved-doge-federal-workforce-cuts-ahrq/"
+              },
+              {
+                "type": "url",
+                "url": "https://www.statnews.com/2025/08/13/federal-health-research-agency-ahrq-incapacitated-by-cuts/"
+              },
+              {
+                "type": "url",
+                "url": "https://www.cnn.com/2025/04/04/health/health-care-cuts-agency-kff-health-news"
+              },
+              {
+                "type": "url",
+                "url": "https://www.washingtonpost.com/health/2025/04/01/hhs-senior-leaders-put-on-leave-nih/"
+              },
+              {
+                "type": "url",
+                "url": "https://academyhealth.org/sites/default/files/quill_-_letter_l29483_-_ahrq_gao_impoundment_-_version_1_-_09-22-2025_10-10_am.pdf"
+              },
+              {
+                "type": "url",
+                "url": "https://www.govinfo.gov/content/pkg/FR-2025-05-19/html/2025-08862.htm"
+              },
+              {
+                "type": "url",
+                "url": "https://www.bostonglobe.com/2025/08/10/business/trump-administration-research-waste/"
+              },
+              {
+                "type": "url",
+                "url": "https://subscriber.politicopro.com/article/2025/11/work-on-critical-illnesses-halted-after-health-department-research-arm-whittles-staff-00633941"
+              },
+              {
+                "type": "url",
+                "url": "https://thehill.com/opinion/healthcare/5495565-agency-healthcare-quality-cuts/"
+              },
+              {
+                "type": "url",
+                "url": "https://www.cbsnews.com/news/trump-healthcare-safety-agency-ahrq/"
+              }
+            ]
+          }
+        },
+        {
+          "type": "openrouter:web_search",
+          "id": "st_tmp_gejcoj8xl7j",
+          "status": "completed",
+          "action": {
+            "type": "search",
+            "query": "Medical Expenditure Panel Survey MEPS 2025 2026 status data release discontinued canceled AHRQ budget cuts news",
+            "sources": [
+              {
+                "type": "url",
+                "url": "https://meps.ahrq.gov/about_meps/releaseschedule.jsp"
+              },
+              {
+                "type": "url",
+                "url": "https://meps.ahrq.gov/mepsweb/about_meps/releaseschedule.jsp?prfricon=yes"
+              },
+              {
+                "type": "url",
+                "url": "https://datatools.ahrq.gov/meps-ic/meps-ic-whats-new/"
+              },
+              {
+                "type": "url",
+                "url": "https://www.govinfo.gov/content/pkg/FR-2026-03-31/pdf/2026-06193.pdf"
+              },
+              {
+                "type": "url",
+                "url": "https://essentialdata.us/terminations-tracker"
+              },
+              {
+                "type": "url",
+                "url": "https://ahsituationreport.substack.com/p/what-the-fy27-presidents-budget-request"
+              },
+              {
+                "type": "url",
+                "url": "https://meps.ahrq.gov/"
+              },
+              {
+                "type": "url",
+                "url": "https://www.hhs.gov/sites/default/files/fy-2027-gdm-cj.pdf"
+              },
+              {
+                "type": "url",
+                "url": "https://www.federalregister.gov/documents/2025/12/30/2025-23964/agency-information-collection-activities-proposed-collection-comment-request"
+              },
+              {
+                "type": "url",
+                "url": "https://meps.ahrq.gov/data_stats/download_data/pufs/h254i/h254idoc.shtml"
+              }
+            ]
+          }
+        },
+        {
+          "type": "openrouter:web_search",
+          "id": "st_tmp_f9xdmcqk6hm",
+          "status": "completed",
+          "action": {
+            "type": "search",
+            "query": "MEPS Medical Expenditure Panel Survey 2025 delayed release schedule slipped data files late Westat contract AHRQ staff CFPS Center for Financing Access Cost Trends",
+            "sources": [
+              {
+                "type": "url",
+                "url": "https://meps.ahrq.gov/about_meps/releaseschedule.jsp"
+              },
+              {
+                "type": "url",
+                "url": "https://meps.ahrq.gov/mepsweb/about_meps/releaseschedule.jsp?prfricon=yes"
+              },
+              {
+                "type": "url",
+                "url": "https://meps.ahrq.gov/data_stats/download_data_files.jsp"
+              },
+              {
+                "type": "url",
+                "url": "https://meps.ahrq.gov/data_stats/download_data/pufs/h251/h251doc.pdf"
+              },
+              {
+                "type": "url",
+                "url": "https://meps.ahrq.gov/data_files/publications/annual_contractor_report/hc_ann_cntrct_methrpt_2025.pdf"
+              },
+              {
+                "type": "url",
+                "url": "https://www.federalregister.gov/documents/2024/04/19/2024-08431/agency-information-collection-activities-proposed-collection-comment-request"
+              },
+              {
+                "type": "url",
+                "url": "https://meps.ahrq.gov/data_files/publications/annual_contractor_report/MEPS-Methodology-Report-2025.html"
+              },
+              {
+                "type": "url",
+                "url": "https://www.shadac.org/news/federal-health-survey-data-releases-landscape-2025"
+              },
+              {
+                "type": "url",
+                "url": "https://www.ahrq.gov/data/meps.html"
+              },
+              {
+                "type": "url",
+                "url": "https://www.shadac.org/federal-survey-data-release-schedule"
+              }
+            ]
+          }
+        },
+        {
+          "type": "openrouter:web_fetch",
+          "id": "st_tmp_ed1iwlwde7",
+          "status": "completed",
+          "url": "https://meps.ahrq.gov/about_meps/releaseschedule.jsp",
+          "content": "\n\n<!DOCTYPE HTML PUBLIC \"-//W3C//DTD HTML 4.01 Transitional//EN\"\n\"http://www.w3.org/TR/html4/loose.dtd\">\n\n\n<html lang=\"en\">\n<head>\n\t  <meta name=\"description\" content=\"The Medical Expenditure Panel Survey is a set of large-scale surveys of families and individuals, their medical providers, and employers across the United States.\">\n    <meta name=\"created\" content=\"1/1/2006\">\n    <meta name=\"reviewed\" content=\"8/21/2006\">\n    <meta name=\"keywords\" content=\"Public Use Files, Data, Statistics\">\n    <meta name=\"author\" content=\"Agency for Healthcare Research and Quality\">\n    <meta http-equiv=\"Content-Language\" content=\"en-us\">\n    <meta http-equiv=\"Content-Type\" content=\"text/html; charset=iso-8859-1\">\n     <meta http-equiv=\"X-UA-Compatible\" content=\"IE=emulateIE10\" />\n\r\n\r\n\r\n\n\n<title>Medical Expenditure Panel Survey Data Release Schedule</title>\n\n<link href=\"../css/meps_style.css\" rel=\"stylesheet\" type=\"text/css\">\n<script type=\"text/javascript\" src=\"../js/menu_roll.js\"></script>\n\n\n\r\n\r\n\r\n\n</head>\n\n<body><!--[if gte IE 5\r\n  ]><![if lt IE 7]>\r\n  <style type=\"text/css\">\r\n    #HeaderContainer {\r\n      width: expression(document.body.clientWidth < 910? '910px': 'auto');\r\n    }\r\n  </style>\r\n  <![endif]><!\r\n[endif]-->\r\n\r\n<script type=\"text/JavaScript\">\r\n  <!--\r\n  function MM_swapImgRestore() { //v3.0\r\n      var i,x,a=document.MM_sr; for(i=0;a&&i<a.length&&(x=a[i])&&x.oSrc;i++) x.src=x.oSrc;\r\n  }\r\n\r\n  function MM_preloadImages() { //v3.0\r\n      var d=document; if(d.images){ if(!d.MM_p) d.MM_p=new Array();\r\n          var i,j=d.MM_p.length,a=MM_preloadImages.arguments; for(i=0; i<a.length; i++)\r\n              if (a[i].indexOf(\"#\")!=0){ d.MM_p[j]=new Image; d.MM_p[j++].src=a[i];}}\r\n  }\r\n\r\n  function MM_findObj(n, d) { //v4.01\r\n      var p,i,x;  if(!d) d=document; if((p=n.indexOf(\"?\"))>0&&parent.frames.length) {\r\n          d=parent.frames[n.substring(p+1)].document; n=n.substring(0,p);}\r\n      if(!(x=d[n])&&d.all) x=d.all[n]; for (i=0;!x&&i<d.forms.length;i++) x=d.forms[i][n];\r\n      for(i=0;!x&&d.layers&&i<d.layers.length;i++) x=MM_findObj(n,d.layers[i].document);\r\n      if(!x && d.getElementById) x=d.getElementById(n); return x;\r\n  }\r\n\r\n  function MM_swapImage() { //v3.0\r\n      var i,j=0,x,a=MM_swapImage.arguments; document.MM_sr=new Array; for(i=0;i<(a.length-2);i+=3)\r\n          if ((x=MM_findObj(a[i]))!=null){document.MM_sr[j++]=x; if(!x.oSrc) x.oSrc=x.src; x.src=a[i+2];}\r\n  }\r\n  //-->\r\n</script>\r\n\r\n<link href=\"/mepsweb/css/ahrq_banner.css\" rel=\"stylesheet\" type=\"text/css\" />\r\n<link href=\"/mepsweb/css/ahrq_banner_print.css\" rel=\"stylesheet\" type=\"text/css\" media=\"print\" />\r\n<link href=\"/mepsweb/css/font_size.css\" rel=\"stylesheet\" type=\"text/css\" />\r\n<link href=\"/mepsweb/css/third_party.css\" rel=\"stylesheet\" type=\"text/css\" />\r\n<link href=\"/mepsweb/css/autocomplete.css\" rel=\"stylesheet\" type=\"text/css\" />\r\n<script type=\"text/javascript\" src=\"/mepsweb/js/font_size1.js\"></script>\r\n<link\r\n  href=\"https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css\"\r\n  rel=\"stylesheet\"\r\n  integrity=\"sha384-Vkoo8x4CGsO3+Hhxv8T/Q5PaXtkKtu6ug5TOeNV6gBiFeWPGFN9MuhOf23Q9Ifjh\"\r\n  crossorigin=\"anonymous\"\r\n/>\r\n<!-- USWDS Styles for structure and layout -->\r\n<link rel=\"stylesheet\" media=\"all\" href=\"/mepsweb/css/css_uswds2.0.css\" />\r\n<!-- AHRQ-specific Styles -->\r\n<link rel=\"stylesheet\" media=\"all\" href=\"/mepsweb/css/css_ahrq_global.css\" />\r\n<!-- Google Tag Manager (noscript) -->\r\n<!-- Enter site-specific Google Tag Manager code here, reach out to AHRQ Web Team for this code if you do not have - AHRQWebAdmin@ahrq.hhs.gov -->\r\n<!-- End Google Tag Manager (noscript) -->\r\n\r\n<head>\r\n  <meta http-equiv=\"Cache-Control\" content=\"no-store,no-cache\" />\r\n  <script src=\"/mepsweb/js/foresee-meps-2022.js\" type=\"text/javascript\"></script>\r\n<!-- Global site tag (gtag.js) - Google Analytics -->\r\n<script async src=\"https://www.googletagmanager.com/gtag/js?id=GTM-W4NX5V\"></script>\r\n<script>\r\n  window.dataLayer = window.dataLayer || [];\r\n  function gtag() { window.dataLayer.push(arguments); }\r\n  gtag('js', new Date());\r\n  gtag('config', 'GTM-W4NX5V');\r\n</script>\r\n<!-- Google tag (gtag.js) -->\r\n<script async src=\"https://www.googletagmanager.com/gtag/js?id=G-ZM0X430Y5C\"></script>\r\n<script>\r\n    window.dataLayer = window.dataLayer || [];\r\n    function gtag(){window.dataLayer.push(arguments);}\r\n    gtag('js', new Date());\r\n    gtag('config', 'G-ZM0X430Y5C');\r\n</script>\r\n<!-- End Global site tag (gtag.js) - Google Analytics -->\r\n<!-- Digital Analytics Program Code - required -->\r\n<script src=\"https://dap.digitalgov.gov/Universal-Federated-Analytics-Min.js?agency=HHS&subagency=AHRQ\"\r\n  type=\"text/javascript\" id=\"_fed_an_ua_tag\"></script>\r\n<!-- End Digital Analytics Program Code - required -->\r\n</head>\r\n\r\n<body\r\n  onLoad=\"MM_preloadImages('/mepsweb/newLayout/subheader_04_23_07/index_r2_c2_f2.jpg','/mepsweb/newLayout/subheader_04_23_07/index_r2_c3_f2.jpg','/mepsweb/newLayout/subheader_04_23_07/index_r2_c4_f2.jpg','/mepsweb/newLayout/subheader_04_23_07/index_r2_c5_f2.jpg')\"\r\n>\r\n  <a id=\"tiptop\" class=\"element-invisible\">&nbsp;</a\r\n  ><!-- back to top anchor -->\r\n\r\n  <a href=\"/#main-content\" class=\"visually-hidden focusable skip-link\"> Skip to main content </a>\r\n\r\n  <div class=\"usa-banner usa-banner-bg\">\r\n    <div class=\"usa-accordion usa-accordion-text-color\">\r\n      <header class=\"usa-banner__header\">\r\n        <div class=\"row no-gutters row-mobile-offset\">\r\n          <div class=\"col-sm-auto col-lg-auto offset-lg-1 img-icon\">\r\n            <img\r\n              class=\"usa-banner__header-flag\"\r\n              src=\"/mepsweb/images/ahrq_header/us_flag_small.png\"\r\n              alt=\"U.S. flag\"\r\n            />\r\n          </div>\r\n          <div class=\"col-sm-auto col-lg-auto banner-hhs img-icon\">\r\n            <img\r\n              class=\"usa-banner__header-flag\"\r\n              src=\"/mepsweb/images/ahrq_header/logo-HHSmini.png\"\r\n              alt=\"Health and Human Services Logo\"\r\n            />\r\n          </div>\r\n          <div class=\"col-sm-8 col-lg-8 txt-gov-banner\">\r\n            <p class=\"usa-banner__header-text\">\r\n              <a href=\"https://www.hhs.gov/\"\r\n                >An official website of the Department of Health &amp; Human Services</a\r\n              >\r\n            </p>\r\n          </div>\r\n        </div>\r\n      </header>\r\n    </div>\r\n  </div>\r\n\r\n  <header id=\"header\" role=\"banner\">\r\n    <div id=\"third_party\">\r\n      <div id=\"mobile-left\">\r\n        <a href=\"#\" class=\"open-btn\"\r\n          ><img\r\n            src=\"/mepsweb/images/png/menu-icon.png\"\r\n            alt=\"menu-icon\"\r\n            width=\"32\"\r\n            height=\"32\"\r\n          /><span>More</span></a\r\n        >\r\n        <a href=\"#\" class=\"close-btn\"\r\n          ><img\r\n            src=\"/mepsweb/images/png/mobile-close-icon.png\"\r\n            alt=\"mobile-close-icon\"\r\n            width=\"20\"\r\n            height=\"20\"\r\n        /></a>\r\n      </div>\r\n      <div id=\"tablet\">\r\n        <!-- start: id=tablet -->\r\n        <div id=\"mobile-back-btn\">\r\n          <a href=\"#\"\r\n            ><img\r\n              src=\"/mepsweb/images/png/mobile-back-btn-icon.png\"\r\n              alt=\"mobile-back-btn-icon\"\r\n              width=\"64\"\r\n              height=\"31\"\r\n              class=\"mobile-back-btn\"\r\n            />\r\n            Back</a\r\n          >\r\n        </div>\r\n        <div id=\"menu-tablet\"></div>\r\n        <div id=\"a-z-tablet\"></div>\r\n        <div id=\"search-tablet\">\r\n          <div id=\"mobile-search-tool\">\r\n            <form\r\n              name=\"searchForm-banner_searchform\"\r\n              method=\"get\"\r\n              action=\"https://search.ahrq.gov/search\"\r\n              id=\"banner_searchform\"\r\n            >\r\n              <label for=\"search-input_mobile\" class=\"sr-only\">Search ahrq.gov</label>\r\n              <input\r\n                name=\"q\"\r\n                type=\"text\"\r\n                value=\"\"\r\n                size=\"11\"\r\n                onfocus=\"this.value='';\"\r\n                id=\"search-input_mobile\"\r\n              />\r\n              <input type=\"hidden\" name=\"entqr\" value=\"0\" />\r\n              <input type=\"hidden\" name=\"output\" value=\"xml_no_dtd\" />\r\n              <input type=\"hidden\" name=\"proxystylesheet\" value=\"AHRQ_GOV\" />\r\n              <input type=\"hidden\" name=\"client\" value=\"AHRQ_GOV\" />\r\n              <input type=\"hidden\" name=\"site\" value=\"default_collection\" />\r\n              <input type=\"submit\" value=\"Search\" class=\"mobile-search-button\" />\r\n            </form>\r\n          </div>\r\n        </div>\r\n      </div>\r\n      <!-- end: id=tablet -->\r\n      <nav class=\"tablet\">\r\n        <ul>\r\n          <li id=\"menu-btn\" class=\"ahrq_li\">\r\n            <a href=\"#\"\r\n              ><img\r\n                src=\"/mepsweb/images/png/menu-icon.png\"\r\n                alt=\"menu-icon\"\r\n                width=\"32\"\r\n                height=\"32\"\r\n              /><span>Menu</span></a\r\n            >\r\n          </li>\r\n          <li id=\"search-btn\" class=\"ahrq_li\">\r\n            <a href=\"#\"\r\n              ><img\r\n                src=\"/mepsweb/images/png/mobile-search-icon.png\"\r\n                alt=\"mobile-search-icon\"\r\n                width=\"32\"\r\n                height=\"32\"\r\n            /></a>\r\n          </li>\r\n        </ul>\r\n      </nav>\r\n      <!--<div id=\"skipmenu\">\r\n            <a href=\"#skip\" class=\"skippy\" id=\"top\" name=\"top\">Skip Navigation</a>\r\n        </div>-->\r\n      <div id=\"header-gradient\"></div>\r\n      <div class=\"clearfix\"></div>\r\n      <!-- start: id=header-container -->\r\n      <div role=\"main\" class=\"container-fluid js-quickedit-main-content\">\r\n        <div class=\"row\">\r\n          <header\r\n            id=\"primary-header\"\r\n            class=\"header row-side-margins mobile-row-side-margins\"\r\n            role=\"heading\"\r\n          >\r\n            <div class=\"col-md-12\">\r\n              <div class=\"primary-header-wrapper\">\r\n                <div class=\"row\">\r\n                  <div class=\"col-xs-12 col-sm-12 col-md-12 col-lg-3 col-xl-3\">\r\n                    <div class=\"logo-ahrq\">\r\n                      <a href=\"https://www.ahrq.gov\"\r\n                        ><img\r\n                          src=\"/mepsweb/images/ahrq_header/logo-ahrq.png\"\r\n                          alt=\"AHRQ: Agency for Healthcare Research and Quality \"\r\n                      /></a>\r\n                    </div>\r\n                  </div>\r\n                  <div\r\n                    class=\"d-xs-none d-sm-none d-md-none d-lg-block col-lg-9 d-xl-block col-xl-9\"\r\n                  >\r\n                    <div id=\"utility-nav\">\r\n                      <ul class=\"clearfix\">\r\n                        <li class=\"first\">\r\n                          <a href=\"https://search.ahrq.gov/\" target=\"_blank\"\r\n                            >Search All AHRQ Sites</a\r\n                          >\r\n                        </li>\r\n                        <li>\r\n                          <a\r\n                            href=\"https://www.ahrq.gov/cpi/about/careers/index.html\"\r\n                            target=\"_blank\"\r\n                            >Careers</a\r\n                          >\r\n                        </li>\r\n                        <li>\r\n                          <a href=\"https://www.ahrq.gov/contact/index.html\" target=\"_blank\"\r\n                            >Contact Us</a\r\n                          >\r\n                        </li>\r\n                        <li>\r\n                          <a\r\n                            href=\"https://www.ahrq.gov/topics/informacion-en-espanol/index.html\"\r\n                            target=\"_blank\"\r\n                            >Espa&ntilde;ol</a\r\n                          >\r\n                        </li>\r\n                        <li class=\"last\">\r\n                          <a href=\"https://info.ahrq.gov/\" target=\"_blank\">FAQs</a>\r\n                        </li>\r\n                        <li>\r\n                          <a\r\n                            href=\"https://subscriptions.ahrq.gov/accounts/USAHRQ/subscriber/new\"\r\n                            target=\"_blank\"\r\n                            ><img\r\n                              src=\"/mepsweb/images/ahrq_header/envelope-regular.png\"\r\n                              width=\"18\"\r\n                              height=\"18\"\r\n                              class=\"utility-envelope\"\r\n                              alt=\"\"\r\n                            />\r\n                            Email Updates</a\r\n                          >\r\n                        </li>\r\n                      </ul>\r\n                    </div>\r\n                  </div>\r\n                </div>\r\n              </div>\r\n            </div>\r\n          </header>\r\n        </div>\r\n      </div>\r\n      <!-- end: id=header-container -->\r\n      <!--<a name=\"skip\" tabindex=\"-1\"></a>-->\r\n    </div>\r\n    <!--div id=\"third_party\">-->\r\n  </header>\r\n  <!--<div id=\"PrintBanner\"><img src=\"/mepsweb/images/ahrq_header/PrintBanner.gif\" alt=\"www.ahrq.gov\" width=\"100%\" /></div> CYu 5/24/19 no longer need it -->\r\n\r\n  <table role=\"presentation\" width=\"700\" border=\"0\" align=\"center\" cellpadding=\"0\" cellspacing=\"0\">\r\n    <tr>\r\n      <td><img src=\"/mepsweb/images/bullets/spacer.gif\" alt=\" \" width=\"1\" height=\"25\" /></td>\r\n    </tr>\r\n  </table>\r\n  <table role=\"presentation\" width=\"820\" border=\"0\" align=\"center\" cellpadding=\"0\" cellspacing=\"0\">\r\n    <tr>\r\n      <td width=\"115\" rowspan=\"2\">\r\n        <a id=\"main-content\"></a>\r\n        <a href=\"/mepsweb/index.jsp\"\r\n          ><img\r\n            src=\"/mepsweb/newLayout/header/meps_logo.jpg\"\r\n            alt=\"MEPS Home\"\r\n            name=\"index_r1_c1\"\r\n            width=\"115\"\r\n            height=\"54\"\r\n            border=\"0\"\r\n            id=\"index_r1_c1\"\r\n        /></a>\r\n      </td>\r\n      <td colspan=\"5\">\r\n        <img\r\n          src=\"/mepsweb/newLayout/header/index_r1_c2.jpg\"\r\n          alt=\"Medical Expenditure Panel Survey\"\r\n          name=\"index_r1_c2\"\r\n          width=\"585\"\r\n          height=\"30\"\r\n          border=\"0\"\r\n          id=\"index_r1_c2\"\r\n        />\r\n      </td>\r\n      <td width=\"115\" class=\"font_size_caption\">\r\n        <div id=\"displayYesNo1\" class=\"displayNo\">Font Size:</div>\r\n      </td>\r\n    </tr>\r\n    <tr>\r\n      <td width=\"105\" bgcolor=\"#ffffff\" valign=\"top\">\r\n        <a\r\n          href=\"/mepsweb/communication/contact.jsp\"\r\n          onMouseOut=\"MM_swapImgRestore()\"\r\n          onMouseOver=\"MM_swapImage('Image11','','/mepsweb/newLayout/subheader_04_23_07/index_r2_c3.jpg',1)\"\r\n          ><img\r\n            src=\"/mepsweb/newLayout/subheader_04_23_07/index_r2_c3_f2.jpg\"\r\n            alt=\"Contact MEPS\"\r\n            name=\"Image11\"\r\n            width=\"105\"\r\n            height=\"24\"\r\n            border=\"0\" /></a\r\n        ><img src=\"/mepsweb/images/bullets/spacer.gif\" alt=\" \" width=\"1\" height=\"25\" />\r\n      </td>\r\n      <td width=\"72\" bgcolor=\"#ffffff\" valign=\"top\">\r\n        <a\r\n          href=\"/mepsweb/about_meps/faq_results.jsp?ChooseTopic=All+Categories&keyword=&Submit2=Search\"\r\n          onMouseOut=\"MM_swapImgRestore()\"\r\n          onMouseOver=\"MM_swapImage('Image10','','/mepsweb/newLayout/subheader_04_23_07/index_r2_c2_f2.jpg',1)\"\r\n          ><img\r\n            src=\"/mepsweb/newLayout/subheader_04_23_07/index_r2_c2.jpg\"\r\n            alt=\"FAQ\"\r\n            name=\"Image10\"\r\n            width=\"72\"\r\n            height=\"24\"\r\n            border=\"0\" /></a\r\n        ><img src=\"/mepsweb/images/bullets/spacer.gif\" alt=\" \" width=\"1\" height=\"25\" />\r\n      </td>\r\n      <!--<td width=\"60\" bgcolor=\"#ffffff\" valign=\"top\"><a href=\"/mepsweb/about_meps/spanish.jsp\" onMouseOut=\"MM_swapImgRestore()\" onMouseOver=\"MM_swapImage('Image12','','/mepsweb/newLayout/subheader_04_23_07/index_r2_c4_f2.jpg',1)\"><img src=\"/mepsweb/newLayout/subheader_04_23_07/index_r2_c4.jpg\" alt=\"Espanol\" name=\"Image12\" width=\"60\" height=\"24\" border=\"0\"></a><img src=\"/mepsweb/images/bullets/spacer.gif\" alt=\" \" width=\"1\" height=\"25\" /></td> -->\r\n      <td width=\"112\" bgcolor=\"#ffffff\" valign=\"top\">\r\n        <a\r\n          href=\"/mepsweb/sitemap.jsp\"\r\n          onMouseOut=\"MM_swapImgRestore()\"\r\n          onMouseOver=\"MM_swapImage('Image13','','/mepsweb/newLayout/subheader_04_23_07/index_r2_c5_f2.jpg',1)\"\r\n          ><img\r\n            src=\"/mepsweb/newLayout/subheader_04_23_07/index_r2_c5.jpg\"\r\n            alt=\"Site Map\"\r\n            name=\"Image13\"\r\n            width=\"112\"\r\n            height=\"24\"\r\n            border=\"0\" /></a\r\n        ><img src=\"/mepsweb/images/bullets/spacer.gif\" alt=\" \" width=\"0\" height=\"0\" />\r\n      </td>\r\n      <td width=\"75\" valign=\"top\">&nbsp;</td>\r\n\r\n      <script type=\"application/javascript\">\r\n        function routeToGoogle(userquery) {\r\n          var sendLoc =\r\n            'https://search.ahrq.gov/search?q=' + userquery + '&siteDomain=meps.ahrq.gov';\r\n          window.open(sendLoc);\r\n        }\r\n\r\n        /* function searchSubmit(e) {\r\n\r\n                if(e && e.keyCode == 13) {\r\n                   var inputSearch=document.getElementById('query');\r\n                   console.log(inputSearch.value);\r\n                    var sendLoc = \"https://search.ahrq.gov/search?q=\"+ inputSearch.value + \"&siteDomain=meps.ahrq.gov\";\r\n                    //console.log('New Location: ' + sendLoc);\r\n                    window.open(sendLoc);\r\n                }\r\n            }*/\r\n        //auto complete\r\n\r\n        document.addEventListener('DOMContentLoaded', function (event) {\r\n          var config = {\r\n            url: 'https://search.ahrq.gov/suggest',\r\n            inputIds: ['query', 'simplesearchtext1'],\r\n          };\r\n          var inputs = config.inputIds;\r\n          for (var i = 0; i < inputs.length; i++) {\r\n            attachAutocomplete(config, inputs[i]);\r\n          }\r\n        });\r\n\r\n        //onKeyPress=\"return searchSubmit(event)\"\r\n        //onkeyup=\"autoComplete(event)\"\r\n      </script>\r\n      <script type=\"text/javascript\" src=\"/mepsweb/js/autocomplete.js\"></script>\r\n      <form name=\"MEPSSearchForm\" method=\"get\" action=\"\" autocomplete=\"off\">\r\n        <td width=\"222\" valign=\"top\">\r\n          <label for=\"query\" class=\"sr-only\">Search MEPS</label>\r\n          <input\r\n            name=\"query\"\r\n            type=\"text\"\r\n            class=\"searchField\"\r\n            value=\"Search MEPS\"\r\n            id=\"query\"\r\n            onfocus=\"if(this.value=='Search MEPS')this.value=''\"\r\n          />\r\n          <!--<label for=\"query\" style=\"display: none;\">Search MEPS</label>-->\r\n          <input\r\n            id=\"searchButton\"\r\n            type=\"button\"\r\n            value=\"Go\"\r\n            class=\"searchButton\"\r\n            onClick=\"javascript: routeToGoogle(getElementById('query').value);\"\r\n          />\r\n        </td>\r\n      </form>\r\n\r\n      <td width=\"115\">\r\n        <div id=\"displayYesNo2\" class=\"displayNo\"></div>\r\n        <div id=\"sfs_div\" class=\"font_size\">\r\n          <a id=\"sfs_alink\" href=\"javascript:setFontSize('S');\">S</a>\r\n          <img src=\"/mepsweb/images/bullets/spacer.gif\" alt=\" \" width=\"1\" height=\"25\" />\r\n        </div>\r\n\r\n        <div id=\"mfs_div\" class=\"font_size\">\r\n          <a id=\"mfs_alink\" href=\"javascript:setFontSize('M');\">M</a>\r\n          <img src=\"/mepsweb/images/bullets/spacer.gif\" alt=\" \" width=\"1\" height=\"25\" />\r\n        </div>\r\n\r\n        <div id=\"lfs_div\" class=\"font_size\">\r\n          <a id=\"lfs_alink\" href=\"javascript:setFontSize('L');\">L</a>\r\n          <img src=\"/mepsweb/images/bullets/spacer.gif\" alt=\" \" width=\"1\" height=\"25\" />\r\n        </div>\r\n\r\n        <div id=\"xfs_div\" class=\"font_size\">\r\n          <a id=\"xfs_alink\" href=\"javascript:setFontSize('X');\">XL</a>\r\n          <img src=\"/mepsweb/images/bullets/spacer.gif\" alt=\" \" width=\"1\" height=\"25\" />\r\n        </div>\r\n      </td>\r\n    </tr>\r\n  </table>\r\n  <table role=\"presentation\" width=\"700\" border=\"0\" align=\"center\" cellpadding=\"0\" cellspacing=\"0\">\r\n    <tr>\r\n      <td><img src=\"/mepsweb/images/bullets/spacer.gif\" alt=\" \" width=\"1\" height=\"10\" /></td>\r\n    </tr>\r\n  </table>\r\n\r\n  <script type=\"text/javascript\" src=\"/mepsweb/js/font_size2.js\"></script>\r\n</body>\r\n\n\n<table role=\"presentation\" width=\"765\" border=\"0\" align=\"center\" cellpadding=\"0\" cellspacing=\"0\">\n  <tr bgcolor=\"#FFFFFF\">\n    <td colspan=\"4\" class=\"sectionDividerGrey\" scope=\"col\">\n      \r\n\r\n<script type=\"text/javascript\" src=\"/mepsweb/js/header_roll.js\"></script>\r\n<table role=\"presentation\" width=\"765\" border=\"0\" align=\"center\" cellpadding=\"0\" cellspacing=\"0\">\r\n     <tr>\r\n       <td width=\"157\"><img src=\"/mepsweb/images/bullets/spacer.gif\" alt=\"spacer\" width=\"1\" height=\"15\" /></td>\r\n       \r\n\r\n     <td width=\"614\" valign=\"middle\"><div align=\"left\"></div></td>\r\n     </tr>\r\n\r\n</table>\r\n\n    </td>\n\n  </tr>\n  <tr>\n   \n    <td width=\"152\" valign=\"top\" bgcolor=\"#FFEEC0\" class=\"rightBorder\">\n    \t<NOSCRIPT>The components in this navigation bar are fully operational with or without the use of JavaScript</NOSCRIPT>\r\n\r\n\r\n<table role=\"presentation\" width=\"154\" height=\"0\"  border=\"0\" align=\"center\" cellpadding=\"0\" cellspacing=\"0\">\r\n<tr valign=\"bottom\" bgcolor=\"#073EA2\">\r\n    <td width=\"153\" height=\"23\" valign=\"middle\" bgcolor=\"#F3F7FC\" class=\"sectionDividerGreySolidThick\">\r\n    <div align=\"left\" class=\"navHeader\"><strong>&nbsp;<a href=\"/mepsweb/\" class=\"HomeNav\">MEPS Home</a></strong></div></td>\r\n    \r\n  </tr>\r\n  <tr valign=\"bottom\" bgcolor=\"#073EA2\" >\r\n    <td width=\"153\" height=\"23\" valign=\"middle\" bgcolor=\"#FDDC8D\" class=\"sectionDividerGreySolidThick\"><div align=\"left\" class=\"navHeader\"><strong>&nbsp;About<a name=\"skipnav\" id=\"skipnav\"></a> MEPS <strong class=\"navdivider\"></strong></strong></div></td>\r\n  </tr>\r\n  \r\n\r\n  <tr bgcolor=\"#FFEEC0\"  >\r\n    <td width=\"153\" height=\"20\" bgcolor=\"#FFEEC0\" class=\"sectionDividerGreySolid\" style=\"background-color:#FFEEC0;color:\" onMouseOver=\"NN_td_start(this,'#FFF9E8','',1,0,true,false,1);\" onMouseOut=\"NN_td_reset(this,'#FFEEC0','');\"><span class=\"small\">&nbsp;</span><span class=\"style9\"><strong><font color=\"#660000\">::</font></strong></span>&nbsp;<a href=\"/mepsweb/about_meps/survey_back.jsp\" class=\"LeftNav\">Survey Background</a></td>\r\n  </tr>\r\n\r\n\r\n\r\n  <tr bgcolor=\"#FFEEC0\" >\r\n    <td width=\"153\" height=\"20\" bgcolor=\"#FFEEC0\" class=\"sectionDividerGreySolid\" style=\"background-color:#FFEEC0;color:\" onMouseOver=\"NN_td_start(this,'#FFF9E8','',1,0,true,false,1);\" onMouseOut=\"NN_td_reset(this,'#FFEEC0','');\"><span class=\"small\">&nbsp;</span><span class=\"style9\"><strong><font color=\"#660000\">::</font></strong></span>&nbsp;<a href=\"/mepsweb/about_meps/workshops_events.jsp\" class=\"LeftNav\">Workshops &amp; Events</a></td>\r\n  </tr>\r\n\r\n\r\n\r\n  <tr bgcolor=\"#FFF9E8\" >\r\n    <td width=\"153\" height=\"20\" bgcolor=\"#FFF9E8\" class=\"sectionDividerGreySolid\" style=\"background-color:#FFF9E8;color:\" onMouseOver=\"NN_td_start(this,'#FFF9E8','',1,0,true,false,1);\" onMouseOut=\"NN_td_reset(this,'#FFF9E8','');\"><span class=\"small\">&nbsp;</span><span class=\"style9\"><strong><font color=\"#660000\">::</font></strong></span>&nbsp;<a href=\"/mepsweb/about_meps/releaseschedule.jsp\" class=\"LeftNav\">Data Release Schedule</a></td>\r\n  </tr>\r\n\r\n\r\n\r\n\r\n  \r\n  <tr valign=\"bottom\" bgcolor=\"#073EA2\" >\r\n    <td width=\"153\" height=\"23\" valign=\"middle\" bgcolor=\"#FDDC8D\" class=\"sectionDividerGreySolidThick\"><div align=\"left\" class=\"navHeader\"><strong>&nbsp;Survey Components <span class=\"navdivider\"><strong></strong></span></strong></div></td>\r\n  </tr>\r\n  \r\n  \r\n\r\n  <tr bgcolor=\"#FFEEC0\" >\r\n    <td width=\"153\" height=\"20\" bgcolor=\"#FFEEC0\" class=\"sectionDividerGreySolid\" style=\"background-color:#FFEEC0;color:\" onMouseOver=\"NN_td_start(this,'#FFF9E8','',1,0,true,false,1);\" onMouseOut=\"NN_td_reset(this,'#FFEEC0','');\"><span class=\"small\">&nbsp;</span><span class=\"style9\"><strong><font color=\"#660000\">::</font></strong></span>&nbsp;<a href=\"/mepsweb/survey_comp/household.jsp\" class=\"LeftNav\">Household</a> </td>\r\n  </tr>\r\n\r\n\r\n\r\n  <tr bgcolor=\"#FFEEC0\" >\r\n    <td width=\"153\" height=\"20\" bgcolor=\"#FFEEC0\" class=\"sectionDividerGreySolid\" style=\"background-color:#FFEEC0;color:\" onMouseOver=\"NN_td_start(this,'#FFF9E8','',1,0,true,false,1);\" onMouseOut=\"NN_td_reset(this,'#FFEEC0','');\"><span class=\"small\">&nbsp;</span><span class=\"style9\"><strong><font color=\"#660000\">::</font></strong></span>&nbsp;<a href=\"/mepsweb/survey_comp/Insurance.jsp\" class=\"LeftNav\">Insurance/Employer</a></td>\r\n  </tr>\r\n\r\n\r\n  <tr bgcolor=\"#FFEEC0\" >\r\n    <td width=\"153\" height=\"20\" bgcolor=\"#FFEEC0\" class=\"sectionDividerGreySolid\" style=\"background-color:#FFEEC0;color:\" onMouseOver=\"NN_td_start(this,'#FFF9E8','',1,0,true,false,1);\" onMouseOut=\"NN_td_reset(this,'#FFEEC0','');\"><span class=\"small\">&nbsp;</span><span class=\"style9\"><strong><font color=\"#660000\">::</font></strong></span>&nbsp;<a href=\"/mepsweb/survey_comp/mpc.jsp\" class=\"LeftNav\">Medical Provider</a></td>\r\n  </tr>\r\n\r\n  \r\n  <tr bgcolor=\"#FFEEC0\" >\r\n    <td width=\"153\" height=\"20\" bgcolor=\"#FFEEC0\" class=\"sectionDividerGreySolid\" style=\"background-color:#FFEEC0;color:\" onMouseOver=\"NN_td_start(this,'#FFF9E8','',1,0,true,false,1);\" onMouseOut=\"NN_td_reset(this,'#FFEEC0','');\"><span class=\"small\">&nbsp;</span><span class=\"style9\"><strong><font color=\"#660000\">::</font></strong></span>&nbsp;<a href=\"/mepsweb/survey_comp/survey_questionnaires.jsp\" class=\"LeftNav\">Survey Questionnaires</a> </td>\r\n  </tr>\r\n\r\n\r\n  <tr valign=\"bottom\" bgcolor=\"#073EA2\" >\r\n    <td width=\"153\" height=\"23\" valign=\"middle\" bgcolor=\"#FDDC8D\" class=\"sectionDividerGreySolidThick\">&nbsp;<span class=\"navHeader\">Data and Statistics <strong></strong></span><strong></strong><span class=\"navHeader\"><strong></strong></span></td>\r\n  </tr>\r\n\r\n\r\n  <tr bgcolor=\"#FFEEC0\" >\r\n    <td width=\"153\" height=\"20\" bgcolor=\"#FFEEC0\" class=\"sectionDividerGreySolid\" style=\"background-color:#FFEEC0;color:\" onMouseOver=\"NN_td_start(this,'#FFF9E8','',1,0,true,false,1);\" onMouseOut=\"NN_td_reset(this,'#FFEEC0','');\"><span class=\"small\">&nbsp;</span><span class=\"style9\"><strong><font color=\"#660000\">::</font></strong></span>&nbsp;<a href=\"/mepsweb/data_stats/data_overview.jsp\" class=\"LeftNav\">Data Overview </a></td>\r\n  </tr>\r\n\r\n\r\n\r\n  <tr bgcolor=\"#FFEEC0\" >\r\n    <td width=\"153\" height=\"20\" class=\"sectionDividerGreySolid\" style=\"background-color:#FFEEC0;color:\" onMouseOver=\"NN_td_start(this,'#FFF9E8','',1,0,true,false,1);\" onMouseOut=\"NN_td_reset(this,'#FFEEC0','');\"><span class=\"small\">&nbsp;</span><span class=\"style9\"><strong><font color=\"#660000\">::</font></strong></span>&nbsp;<a href=\"/mepsweb/data_stats/MEPS_topics.jsp\" class=\"LeftNav\">MEPS Topics </a></td>\r\n  </tr>\r\n\r\n\r\n\r\n  <tr bgcolor=\"#FFEEC0\" >\r\n    <td width=\"153\" height=\"20\" bgcolor=\"#FFEEC0\" class=\"sectionDividerGreySolid\" style=\"background-color:#FFEEC0;color:\" onMouseOver=\"NN_td_start(this,'#FFF9E8','',1,0,true,false,1);\" onMouseOut=\"NN_td_reset(this,'#FFEEC0','');\"><span class=\"small\">&nbsp;</span><span class=\"style9\"><strong><font color=\"#660000\">::</font></strong></span>&nbsp;<a href=\"/mepsweb/data_stats/publications.jsp\" class=\"LeftNav\">Publications Search</a></td>\r\n  </tr>\r\n\r\n\r\n\r\n  <tr bgcolor=\"#FFEEC0\" >\r\n    <td width=\"153\" height=\"20\" bgcolor=\"#FFEEC0\" class=\"sectionDividerGreySolid\" style=\"background-color:#FFEEC0;color:\" onMouseOver=\"NN_td_start(this,'#FFF9E8','',1,0,true,false,1);\" onMouseOut=\"NN_td_reset(this,'#FFEEC0','');\"><span class=\"small\">&nbsp;</span><span class=\"style9\"><strong><font color=\"#660000\">::</font></strong></span>&nbsp;<a href=\"/mepsweb/data_stats/data_tools.jsp\" class=\"LeftNav\">MEPS Data Tools (HC/IC)</a></td>\r\n  </tr>\r\n\r\n\r\n\r\n  <tr bgcolor=\"#FFEEC0\" >\r\n    <td width=\"153\" height=\"20\" class=\"sectionDividerGreySolid\" style=\"background-color:#FFEEC0;color:\" onMouseOver=\"NN_td_start(this,'#FFF9E8','',1,0,true,false,1);\" onMouseOut=\"NN_td_reset(this,'#FFEEC0','');\"><span class=\"small\">&nbsp;</span><span class=\"style9\"><strong><font color=\"#660000\">::</font></strong></span>&nbsp;<a href=\"/mepsweb/data_stats/download_data_files.jsp\" class=\"LeftNav\">Data Files</a></td>\r\n  </tr>\r\n\r\n\r\n\r\n  <tr bgcolor=\"#FFEEC0\" >\r\n    <td width=\"153\" height=\"20\" class=\"sectionDividerGreySolid\" style=\"background-color:#FFEEC0;color:\" onMouseOver=\"NN_td_start(this,'#FFF9E8','',1,0,true,false,1);\" onMouseOut=\"NN_td_reset(this,'#FFEEC0','');\"><span class=\"small\">&nbsp;</span><span class=\"style9\"><strong><font color=\"#660000\">::</font></strong></span>&nbsp;<a href=\"/mepsweb/data_stats/onsite_datacenter.jsp\" class=\"LeftNav\">Data\r\n        Centers</a></td>\r\n  </tr>\r\n\r\n\r\n  <tr bgcolor=\"#073EA2\" >\r\n    <td width=\"153\" height=\"23\" valign=\"middle\" bgcolor=\"#FDDC8D\" class=\"sectionDividerGreySolidThick\"><span class=\"navHeader\"><strong>&nbsp;Communication </strong></span><span class=\"navdivider\"><strong></strong></span></td>\r\n  </tr>\r\n\r\n\r\n  <tr bgcolor=\"#FFEEC0\" >\r\n    <td width=\"153\" height=\"20\" bgcolor=\"#FFEEC0\" class=\"sectionDividerGreySolid\" style=\"background-color:#FFEEC0;color:\" onMouseOver=\"NN_td_start(this,'#FFF9E8','',1,0,true,false,1);\" onMouseOut=\"NN_td_reset(this,'#FFEEC0','');\"><span class=\"small\">&nbsp;</span><span class=\"style9\"><strong><font color=\"#660000\">::</font></strong></span>&nbsp;<a href=\"/mepsweb/communication/whats_new.jsp\" class=\"LeftNav\">What's New </a></td>\r\n  </tr>\r\n\r\n\r\n\r\n  <tr bgcolor=\"#FFEEC0\" >\r\n    <td width=\"153\" height=\"20\" class=\"sectionDividerGreySolid\" style=\"background-color:#FFEEC0;color:\" onMouseOver=\"NN_td_start(this,'#FFF9E8','',1,0,true,false,1);\" onMouseOut=\"NN_td_reset(this,'#FFEEC0','');\"><span class=\"small\">&nbsp;</span><span class=\"style9\"><strong><font color=\"#660000\">::</font></strong></span>&nbsp;<a href=\"/mepsweb/communication/mailinglist.jsp\" class=\"LeftNav\">Mailing List</a></td>\r\n  </tr>\r\n\r\n\r\n\r\n  <tr bgcolor=\"#FFEEC0\" >\r\n    <td width=\"153\" height=\"20\" class=\"sectionDividerGreySolidThick\" style=\"background-color:#FFEEC0;color:\" onMouseOver=\"NN_td_start(this,'#FFF9E8','',1,0,true,false,1);\" onMouseOut=\"NN_td_reset(this,'#FFEEC0','');\"><span class=\"small\">&nbsp;</span><span class=\"style9\"><strong><font color=\"#660000\">::</font></strong></span>&nbsp;<a href=\"/mepsweb/communication/listserv.jsp\" class=\"LeftNav\">Discussion Forum</a></td>\r\n  </tr>\r\n\r\n\r\n\r\n  <tr bgcolor=\"#FFEEC0\" >\r\n    <td width=\"153\" height=\"20\" class=\"sectionDividerGreySolidThick\" style=\"background-color:#FFEEC0;color:\" onMouseOver=\"NN_td_start(this,'#FFF9E8','',1,0,true,false,1);\" onMouseOut=\"NN_td_reset(this,'#FFEEC0','');\"><span class=\"small\">&nbsp;</span><span class=\"style9\"><strong><font color=\"#660000\">::</font></strong></span>&nbsp;<a href=\"/mepsweb/communication/index_survey_participant.jsp\" class=\"LeftNav\">Participants' Corner</a></td>\r\n  </tr>\r\n\r\n\r\n\r\n\r\n</table>\r\n<!--<p><strong><a href=\"/mepsweb/index.jsp\" class=\"HomeNav\"></a></strong></p> CYu 5/2119 comment out because Wave error-->\r\n\n\t</td>\n\n    <td width=\"14\" valign=\"top\" bgcolor=\"#FFFFFF\">&nbsp;</td>\n    <td width=\"584\" valign=\"top\" bgcolor=\"#FFFFFF\">\n    <table role=\"presentation\" width=\"100%\"  border=\"0\" cellspacing=\"0\" cellpadding=\"0\">\n        \n      </table>\n      <A name=\"page_start\" id=\"page_start\">&nbsp;</a>\n      <table role=\"presentation\" width=\"100%\"  border=\"0\" cellspacing=\"0\" cellpadding=\"0\">\n        <tr>\n          <td width=\"70%\" height=\"33\"><span class=\"big\">Data Release Schedule</span>\n          </td>\n  \n          <td width=\"30%\"><div align=\"right\">\r\n<span><img src=\"/mepsweb/images/bullets/print.gif\" alt=\"Display page in Printer Friendly Format\" width=\"16\" height=\"18\" hspace=\"0\" align=\"absmiddle\">\r\n       <a class=\"small\" href=\"/mepsweb//about_meps/releaseschedule.jsp?prfricon=yes\" target=\"_top\">printer-friendly </a></span>\r\n\r\n\r\n\r\n</div></td>\n\n        </tr>\n      </table>\n\n\n        <p class=\"contentStyle\" style=\"margin-bottom: 10px;\">\n          MEPS Household Component public use data files (including documentation and codebooks) and Insurance Component summary data tables are released on this website on a regular annual\n          schedule. The schedule for 2026 is as follows:\n          </p>\n\n\n            <DIV class=description>\n              <div align=\"center\">              </div>\n              <div align=\"left\">\n\n\n\n\n                <p><B><span class=\"BlueBox\">May 2026:</span></B> </p>\n                 <UL> \n\n\n                     \n                     <LI class=\"listBullet\"> <a href=\"/data_stats/download_data_files_detail.jsp?cboPufNumber=HC-253\">2024 Jobs File</a></LI>\n                     \n\n\n\n                     \n                     <LI class=\"listBullet\"> <a href=\"/data_stats/download_data_files_detail.jsp?cboPufNumber=HC-254C\">2024 Other Medical Expenses File</a></LI>\n                     \n\n\n\n                     \n                     <LI class=\"listBullet\"> <a href=\"/data_stats/download_data_files_detail.jsp?cboPufNumber=HC-254B\">2024 Dental Visits File</a></LI>\n                     \n\n\n\n                     \n                     <LI class=\"listBullet\"> <a href=\"/data_stats/download_data_files_detail.jsp?cboPufNumber=HC-254H\">2024 Home Health File</a></LI>\n                     \n\n\n </UL> \n\n                <p><B><span class=\"BlueBox\">July 2026:</span></B> </p>\n                 <UL> \n\n\n                     \n                     <LI class=\"listBullet\"> <a href=\"/data_stats/download_data_files_detail.jsp?cboPufNumber=HC-254D\">2024 Hospital Inpatient Stays File</a></LI>\n                     \n\n\n\n                     \n                     <LI class=\"listBullet\"> <a href=\"/data_stats/download_data_files_detail.jsp?cboPufNumber=HC-254E\">2024 Emergency Room Visits File</a></LI>\n                     \n\n\n\n                     \n                     <LI class=\"listBullet\"> <a href=\"/data_stats/download_data_files_detail.jsp?cboPufNumber=HC-254G\">2024 Office-Based Medical Provider Visits File</a></LI>\n                     \n\n\n\n                     \n                     <LI class=\"listBullet\"> <a href=\"/data_stats/download_data_files_detail.jsp?cboPufNumber=HC-254F\">2024 Outpatient Visits File</a></LI>\n                     \n\n\n\n                     \n                     <LI class=\"listBullet\"> <a href=\"/data_stats/download_data_files_detail.jsp?cboPufNumber=HC-254A\">2024 Prescribed Medicines File</a></LI>\n                     \n\n\n\n                     \n                     <LI class=\"listBullet\"> <a href=\"/data_stats/summ_tables/meps-ic-table-series.shtml\">2025 MEPS-IC Private Sector Tables</a></LI>\n                     \n\n\n </UL> \n\n                <p><B><span class=\"BlueBox\">August 2026:</span></B> </p>\n                 <UL> \n\n\n                     \n                     <LI class=\"listBullet\"> <a href=\"/data_stats/download_data_files_detail.jsp?cboPufNumber=NHIS Link\">1996-2024 MEPS-NHIS Link Files</a></LI>\n                     \n\n\n\n                     \n                     <LI class=\"listBullet\"> <a href=\"/data_stats/download_data_files_detail.jsp?cboPufNumber=HC-036\">1996-2024 Pooled Linkage File for Common Variance Structure</a></LI>\n                     \n\n\n\n                     \n                     <LI class=\"listBullet\"> <a href=\"/data_stats/download_data_files_detail.jsp?cboPufNumber=HC-036BRR\">1996-2024 Replicate File for BRR Variance Estimation</a></LI>\n                     \n\n\n\n                     \n                     <LI class=\"listBullet\"> <a href=\"/data_stats/download_data_files_detail.jsp?cboPufNumber=HC-254I\">Appendix to MEPS 2024 Event Files</a></LI>\n                     \n\n\n\n                     \n                     <LI class=\"listBullet\"> <a href=\"/data_stats/download_data_files_detail.jsp?cboPufNumber=HC-255\">2024 Medical Conditions File</a></LI>\n                     \n\n\n\n                     \n                     <LI class=\"listBullet\"> <a href=\"/data_stats/download_data_files_detail.jsp?cboPufNumber=HC-256\">2024 Full Year Consolidated Data File</a></LI>\n                     \n\n\n </UL> \n\n                <p><B><span class=\"BlueBox\">September 2026:</span></B> </p>\n                 <UL> \n\n\n                     \n                     <LI class=\"listBullet\"> <a href=\"/data_stats/download_data_files_detail.jsp?cboPufNumber=HC-257\">2023-2024 MEPS Panel 28 Longitudinal Data File</a></LI>\n                     \n\n\n </UL> \n\n                <p><B><span class=\"BlueBox\">November 2026:</span></B> </p>\n                 <UL> \n\n\n                     \n                     <LI class=\"listBullet\">2025 MEPS-IC Public Sector Tables</LI>\n                     \n\n\n\n                     \n                     <LI class=\"listBullet\">2025 MEPS-IC Civilian Tables</LI>\n                     \n\n\n              </UL></div>\n              <BLOCKQUOTE>&nbsp;</BLOCKQUOTE>\n              <div class=\"smallGreen\">Page last updated: August 28, 2026</div>\n\n </td>\n    <td width=\"16\" valign=\"top\" bgcolor=\"#FFFFFF\">&nbsp;</td>\n  </tr> \n\n   \n  <tr background=\"/images/bullets/grey_tile.gif\">\n    <td colspan=\"4\" valign=\"top\" bgcolor=\"#FFFFFF\"><!-- Footer graphic 1.2--><!-- Footer links section -->\r\n<table role=\"presentation\" width=\"765\" border=\"0\" align=\"center\" cellpadding=\"0\" cellspacing=\"0\">\r\n  <tr>\r\n    <td colspan=\"3\"><table role=\"presentation\" width=\"100%\" border=\"0\" cellpadding=\"4\" cellspacing=\"0\">\r\n      <tr>\r\n        <td height=\"15\" bgcolor=\"#EEEEEE\" class=\"sectionDividerGreyDotted\"><div align=\"right\">\r\n            \r\n\r\n          </div></td></tr>\r\n      <tr>\r\n        <td height=\"25\" bgcolor=\"#FBFBFB\"><div align=\"center\" class=\"smallGreen\">\r\n        <a href=\"/mepsweb/\">MEPS HOME</a> . \r\n        <a href=\"/mepsweb/communication/contact.jsp\">CONTACT MEPS</a> . \r\n        <a href=\"/mepsweb/about_meps/faq_results.jsp?ChooseTopic=All+Categories&keyword=&Submit2=Search\">MEPS FAQ</a> . \r\n        <a href=\"/mepsweb/sitemap.jsp\">MEPS SITE MAP</a> . \r\n        <a href=\"/mepsweb/privacy_policy.jsp\">MEPS PRIVACY POLICY</a> . \r\n        <a href=\"/mepsweb/accessibility.jsp\">ACCESSIBILITY</a> .\r\n        <a href=\"/mepsweb/copyright.jsp\">COPYRIGHT</a> \r\n        </div></td>\r\n      </tr>\r\n      <tr>\r\n        <td height=\"3\" bgcolor=\"#FFFFFF\"><img src=\"/mepsweb/images/bullets/spacer.gif\" alt=\" \" width=\"1\" height=\"3\" /></td>\r\n      </tr>\r\n    </table></td>\r\n  </tr>\r\n</table>\r\n<footer>\r\n</table><table cellspacing=\"0\" cellpadding=\"0\" border=\"0\" width=\"100%\" role=\"presentation\" style=\"margin: 0px;\">\r\n    <div id=\"top-button-container\" class=\"container_12\">\r\n        <a href=\"#tiptop\" id=\"top-button\">Back to top<img src=\"/mepsweb/images/png/top-button-icon.png\"\r\n                                                          alt=\"Go back to top\" width=\"25\" height=\"25\" border=\"none\"/></a>\r\n    </div>\r\n    <div id=\"footer-separator\"></div>\r\n    <!-- AHRQ Global Footer -->\r\n\r\n    <div class=\"row row-side-margins hide-on-desktop\">\r\n        <div class=\"col-sm-12\" id=\"top-button-container\">\r\n            <a href=\"#\" id=\"top-button\">Back to Top\r\n                <img alt=\"Go back to top\" height=\"25\" src=\"/mepsweb/images/ahrq_footer/chevron-circle-up-solid.png\" width=\"25\">\r\n            </a>\r\n        </div>\r\n    </div>\r\n\r\n    <div id=\"footer1\">\r\n        <div class=\"row\">\r\n            <div class=\"col-md-12 side-row-margins\">\r\n                <div class=\"f1-div-width div-float init-pad\">\r\n                    <h3>Connect With Us</h3>\r\n\r\n                    <a href=\"http://www.facebook.com/ahrq.gov\" target=\"_blank\"><img src=\"/mepsweb/images/ahrq_footer/facebook-f-brands.png\" height=\"35\" alt=\"Facebook\"></a>\r\n                    <a href=\"https://x.com/ahrqgov\" target=\"_blank\"><img src=\"/mepsweb/images/ahrq_footer/x-logo-white.png\" class=\"img-spacing\" height=\"35\" alt=\"X\"></a>\r\n                    <a href=\"http://www.youtube.com/user/AHRQHealthTV\" target=\"_blank\"><img src=\"/mepsweb/images/ahrq_footer/youtube-brands.png\" class=\"img-spacing\" height=\"35\" alt=\"You Tube\"></a>\r\n                    <a href=\"http://www.linkedin.com/company/agency-for-healthcare-research-and-quality\" target=\"_blank\"><img src=\"/mepsweb/images/ahrq_footer/linkedin-in-brands.png\" class=\"img-spacing\" height=\"35\" alt=\"LinkedIn\"></a>\r\n                </div>\r\n                <div class=\"f1-div-width div-float\">\r\n                    <h3 class=\"header-mobile-top-spacing\">Sign up for Email Updates</h3>\r\n                    <p class=\"primary-small email\">\r\n                        To sign up for updates or to access your subscriber preferences, please enter your email address below.\r\n                    </p>\r\n                    <form id=\"GD-snippet-form\" action=\"https://subscriptions.ahrq.gov/accounts/USAHRQ/subscribers/q",
+          "title": "Medical Expenditure Panel Survey Data Release Schedule",
+          "httpStatus": 200
+        }
+      ],
+      "ended": "answered",
+      "seconds": 188.7
+    },
+    "session_metadata": {
+      "request": {
+        "model": "moonshotai/kimi-k3",
+        "max_output_tokens": 32768,
+        "tools": [
+          {
+            "type": "openrouter:web_search",
+            "parameters": {
+              "engine": "exa",
+              "max_results": 10,
+              "excluded_domains": [
+                "dataindex.us"
+              ]
+            }
+          },
+          {
+            "type": "openrouter:web_fetch",
+            "parameters": {
+              "engine": "openrouter",
+              "blocked_domains": [
+                "dataindex.us"
+              ],
+              "max_content_tokens": 10000
+            }
+          }
+        ],
+        "cache_control": {
+          "type": "ephemeral",
+          "ttl": "1h"
+        },
+        "session_id": "meps-moonshotai/kimi-k3-t0-2026-10-09T01:40:58Z",
+        "stop_server_tools_when": [
+          {
+            "type": "step_count_is",
+            "step_count": 200
+          }
+        ],
+        "reasoning": {
+          "effort": "high"
+        },
+        "provider": {
+          "order": [
+            "moonshotai"
+          ],
+          "allow_fallbacks": false
+        }
+      },
+      "response_meta": {
+        "id": "gen-1791510463-tLJ4oovodUsy7eCuPrmV",
+        "object": "response",
+        "created_at": 1791510463,
+        "model": "moonshotai/kimi-k3",
+        "status": "completed",
+        "completed_at": 1791510498,
+        "error": null,
+        "incomplete_details": null,
+        "tools": [],
+        "tool_choice": "auto",
+        "parallel_tool_calls": true,
+        "max_output_tokens": 32768,
+        "temperature": 1,
+        "top_p": 1,
+        "presence_penalty": 0,
+        "frequency_penalty": 0,
+        "top_logprobs": 0,
+        "max_tool_calls": null,
+        "metadata": {},
+        "background": false,
+        "previous_response_id": null,
+        "service_tier": "auto",
+        "truncation": "disabled",
+        "store": false,
+        "instructions": null,
+        "text": {
+          "format": {
+            "type": "text"
+          }
+        },
+        "reasoning": {
+          "effort": "high"
+        },
+        "safety_identifier": null,
+        "prompt_cache_key": null,
+        "prompt_cache_options": null,
+        "usage": {
+          "input_tokens": 21842,
+          "input_tokens_details": {
+            "cached_tokens": 12032
+          },
+          "output_tokens": 1010,
+          "output_tokens_details": {
+            "reasoning_tokens": 850
+          },
+          "total_tokens": 22852,
+          "cost": 0.0481896,
+          "cost_details": {
+            "upstream_inference_cost": 0.0481896,
+            "upstream_inference_input_cost": 0.0330396,
+            "upstream_inference_output_cost": 0.01515
+          }
+        }
+      },
+      "requests": [
+        {
+          "input_tokens": 21842,
+          "input_tokens_details": {
+            "cached_tokens": 12032
+          },
+          "output_tokens": 1010,
+          "output_tokens_details": {
+            "reasoning_tokens": 850
+          },
+          "total_tokens": 22852,
+          "cost": 0.0481896,
+          "cost_details": {
+            "upstream_inference_cost": 0.0481896,
+            "upstream_inference_input_cost": 0.0330396,
+            "upstream_inference_output_cost": 0.01515
+          }
+        }
+      ],
+      "searches": 0,
+      "fetches": 0,
+      "tool_items": [],
+      "ended": "answered",
+      "seconds": 35.6
+    }
+  },
+  "messages": [
+    {
+      "role": "user",
+      "content": "#data research\nI am researching a federal dataset. Find out everything you can about this dataset, such as who publishes it, under what authority or mandate, its history, its typical users, and its benefits to the public. Be sure your research comprehensively covers each of those perspectives, as well as any others that you discover or seem useful. I believe this is accurate information, but please check:\n\nDataset title: Medical Expenditure Panel Survey (MEPS)\nDescription: The Medical Expenditure Panel Survey, which began in 1996, is a set of large-scale surveys of families and individuals, their medical providers (doctors, hospitals, pharmacies, etc.), and employers across the United States. MEPS collects data on the specific health services that Americans use, how frequently they use them, the cost of these services, and how they are paid for, as well as data on the cost, scope, and breadth of health insurance held by and available to U.S. workers.\nURL: https://meps.ahrq.gov/mepsweb\n\nReturn a complete report on everything that a preservationist, data librarian, data scientist, or policy activist might want to know about this data."
+    },
+    {
+      "role": "assistant",
+      "content": "I'll research the Medical Expenditure Panel Survey comprehensively. Let me start with several searches.Now let me research the statutory authority, data access details, and who uses the data.I have the statutory authority and data access details. Now let me research who uses the data, its policy applications, and its current status including any recent threats to its funding or continuation.Let me search for recent news on MEPS status and funding concerns.The search tool appears temporarily rate-limited. Let me fetch the MEPS background page directly for additional historical details.Let me try a couple more targeted searches on current status and archival availability.I was unable to run additional searches (the search tool hit its rate limit), so where I note recent developments I flag them as needing verification. Here is the complete report.\n\n---\n\n# Research Report: The Medical Expenditure Panel Survey (MEPS)\n\n## 1. Summary and Verification of Your Information\n\nYour description is accurate. MEPS, which began fieldwork in 1996, is a family of large-scale federal surveys of households, their medical providers, and employers. It collects data on health services use, frequency of use, costs, sources of payment, and the cost/scope/breadth of employer-sponsored health insurance. The official URL (https://meps.ahrq.gov/mepsweb) is correct and live. AHRQ itself describes MEPS as \"the most complete source of data on the cost and use of health care and health insurance coverage\" and \"the only national data source measuring how Americans use and pay for medical care, health insurance, and out-of-pocket spending.\"\n\n**One correction/refinement:** the dataset is not a single survey but a *system of linked surveys* with distinct components, access rules, and even different collecting agencies. Understanding the components is essential for anyone working with or preserving the data.\n\n---\n\n## 2. Who Publishes It\n\n**Publisher/owner:** The **Agency for Healthcare Research and Quality (AHRQ)**, an agency within the U.S. Department of Health and Human Services (HHS), headquartered at 5600 Fishers Lane, Rockville, MD 20857. AHRQ was originally created in 1989 as the Agency for Health Care Policy and Research (AHCPR) and renamed by the Healthcare Research and Quality Act of 1999. Note that AHRQ is *not* one of the 13 OMB-designated principal federal statistical agencies, but MEPS adheres to federal statistical standards and OMB Paperwork Reduction Act clearance requirements.\n\n**Cosponsor:** The **National Center for Health Statistics (NCHS/CDC)** cosponsored MEPS at its launch, and the relationship remains structural: the MEPS household sample is drawn as a subsample of NCHS's **National Health Interview Survey (NHIS)**, which is why some restricted MEPS access requires researchers to become NCHS agents.\n\n**Data collection contractors and partners** (important for understanding provenance):\n- **Household Component (HC):** collected under contract by **Westat, Inc.**\n- **Insurance Component (IC):** collected by the **U.S. Census Bureau** on AHRQ's behalf (also called the \"Health Insurance Cost Study\"). Because Census collects it, IC microdata are Census Bureau/IRS-restricted data, not AHRQ-restricted \u2014 a critical distinction for access and preservation.\n- **Medical Provider Component (MPC):** collected under contract by **RTI International**.\n\n---\n\n## 3. Authority, Mandate, and Confidentiality Framework\n\n**Authorizing legislation:** Section 913(a) of the Public Health Service Act (42 U.S.C. \u00a7 299b-2), as amended by the Healthcare Research and Quality Act of 1999 (P.L. 106-129), explicitly **mandates** this data collection. The statute directs the AHRQ Director to \"conduct a survey to collect data on a nationally representative sample of the population on the cost, use and... quality of health care,\" including types of services used, access, frequency of use, amounts paid, sources of payment, and the types and costs of private health insurance. Beginning in FY2001, the statute required expansion of MEPS to capture quality-of-care information (which led to quality supplements like the CAHPS-based Self-Administered Questionnaire). The statute also references \"the Medical Expenditure Panel Survey, as in existence on December 6, 1999\" \u2014 i.e., MEPS is named in law.\n\n**Related authorities:**\n- Title IX of the PHS Act (42 U.S.C. \u00a7\u00a7 299\u2013299c-7) is AHRQ's general authorizing title, including authority for \"health statistics, surveys, database development.\"\n- **Confidentiality:** PHS Act \u00a7 924(c) (42 U.S.C. \u00a7 299c-3(c), cited as \"Section 944(c)\" in some participant materials) prohibits use of identifiable information for any purpose other than that for which it was supplied, with civil monetary penalties for violations. Section 308(d) of the PHS Act (42 U.S.C. \u00a7 242m(d)) and the Privacy Act also apply; the Data Use Agreement warns that false statements violate 18 U.S.C. \u00a7 1001.\n- **IC data** collected by Census additionally carry Title 13 (Census) and IRS confidentiality protections.\n- **OMB clearance:** MEPS operates under periodic Paperwork Reduction Act Information Collection Reviews (OMB control numbers in the 0935 series), so its instruments and burden hours are publicly documented via reginfo.gov/OMB.\n\n---\n\n## 4. History and Lineage\n\nMEPS is the **third generation** of a survey series stretching back to the 1970s, and this lineage matters because AHRQ designed the series for long-run trend analysis:\n\n| Survey | Year(s) | Notes |\n|---|---|---|\n| National Medical Care Expenditure Survey (NMCES) | 1977 | ~14,000 households, six rounds over 14 months; household + physician + employer insurance components. Conducted by the National Center for Health Services Research (NCHSR), AHRQ's institutional ancestor. |\n| National Medical Expenditure Survey (NMES) | 1987 | ~16,000 households, including 2,000 American Indian/Alaska Native households; again supplemented by provider and insurer surveys. Sponsored by the then-AHCPR. |\n| Medical Expenditure Panel Survey (MEPS) | 1996\u2013present | Initially called \"NMES-3\" in design documents. Moved from once-a-decade to **continuous annual** fielding with a new household panel each year, providing far more timely data. |\n\nThe MEPS-IC has a separate lineage: its predecessor was NCHS's **1994 National Employer Health Insurance Survey (NEHIS)**, which itself drew on the HCFA-sponsored Survey of Health Insurance Plans (1980s) and a 1993 Robert Wood Johnson Foundation ten-state employer survey.\n\nA **1996-only Nursing Home Component (NHC)** surveyed nursing homes and residents; it was discontinued, and its data remain available only through the AHRQ Data Center or Federal Statistical Research Data Centers (FSRDCs).\n\nThe MEPS design implemented the 1995 **HHS Survey Integration Plan**, which sought to consolidate HHS surveys, cut costs, reduce respondent burden, and improve analytic capacity \u2014 the key efficiency being the **linkage to the NHIS sampling frame**, which lets analysts exploit prior-year NHIS data for MEPS respondents.\n\nNotable design evolutions include periodic sample redesigns (documented in Methodology Reports, e.g., MR-22 covering 1998\u20132007), the FY2001 quality-of-care expansion, mode adaptations during COVID-19 (2020+), and ongoing methodological work on producing state-level estimates from a survey designed for national estimates.\n\n---\n\n## 5. Structure of the Data System\n\n### Household Component (MEPS-HC) \u2014 the core\n- **Design:** Overlapping panel design. Each year a new panel is sampled from the prior year's NHIS respondents; each household is interviewed **five times over ~30 months**, yielding data covering two full calendar years. Each full-year file therefore combines two panels (rounds 3\u20135 of the older panel plus rounds 1\u20133 of the newer panel).\n- **Scale:** Historically ~15,000 households per year (tens of thousands of persons; roughly 30,000+ persons annually across the two panels).\n- **Content:** Demographics, health conditions, health status and functional limitations, use of services, charges and payments by source (out-of-pocket, private insurance, Medicare, Medicaid, etc.), access to care, satisfaction, health insurance held and offered, income, and employment.\n- **Supplements:** Self-Administered Questionnaire (SAQ) with quality measures (CAHPS, preventive care), Diabetes Care Survey, and periodic special supplements (e.g., cancer care, children's health).\n\n### Medical Provider Component (MEPS-MPC)\nA follow-back survey of the physicians, hospitals, home health agencies, and pharmacies reported by HC respondents. It collects dates of service, charges, payment sources and amounts, and diagnosis/procedure codes. It is **not released as standalone public data**; its information is imputed/merged into the HC files to correct household under-reporting (especially important for Medicaid and managed-care enrollees). Restricted MPC files are available at FSRDCs.\n\n### Insurance Component (MEPS-IC)\nAn annual Census-conducted survey of ~40,000 private-sector establishments and ~3,000 state/local governments on plans offered, premiums, employer/employee contributions, eligibility, benefits, and cost-sharing. Produces national, state, and metro-area estimates. **Only published tables are public** \u2014 microdata are Census/IRS-restricted and available only via FSRDCs. The IC also includes a \"household sample\" collecting data from employers of MEPS-HC respondents, enabling a linked HC\u2013IC file (restricted access).\n\n### Linkages\nMEPS is designed for linkage to NHIS (MEPS/NHIS link files via the NCHS RDC), and researchers routinely reconcile MEPS expenditure totals against CMS's **National Health Expenditure Accounts (NHEA)** \u2014 the two differ by ~14% after conceptual alignment, a reconciliation AHRQ treats as a quality-assurance exercise.\n\n---\n\n## 6. Data Products and Access\n\n**Public Use Files (PUFs), free download from meps.ahrq.gov**, currently spanning 1996 through 2024 (e.g., the 2024 Full-Year Consolidated file is PUF HC-256):\n- **Full-Year Consolidated files** (person-level, calendar year)\n- **Eight event files per year:** prescribed medicines (with National Drug Codes and Multum Lexicon therapeutic variables), dental visits, other medical expenses, hospital inpatient stays, emergency room visits, outpatient department visits, office-based provider visits, home health\n- **Medical conditions files, jobs files, person-round plan (insurance) files, point-in-time files, longitudinal panel files**, and appendix/link files connecting conditions to events\n- Full documentation: codebooks with variable frequencies, documentation PDFs, survey instruments, and programming statements (SAS, Stata, SPSS, R support historically provided)\n- Statistical Briefs, Methodology Reports (a landmark series \u2014 MR-1 on design and methods is foundational), working papers, and chartbooks\n\n**Interactive tools:** AHRQ Data Tools for MEPS-HC and MEPS-IC (trend charts, state maps, cross-sectional tables), a Variable Explorer, and the older MEPSnet query system. IC tables downloadable as PDF/Excel/CSV.\n\n**Restricted access tiers** (for data scientists, this tiering is a defining feature):\n1. AHRQ Data Center, Rockville, MD (in-person)\n2. **FSRDC network** (~30+ Census-run secure facilities) \u2014 available since a 2007 AHRQ\u2013Census agreement; requires Special Sworn Status with Census and NCHS agent status\n3. **MEPS-AWS SecureCloud** \u2014 remote access to a limited set of low-risk restricted variables, generally capped at 90 days\n\nAll users agree to a statutory data-use agreement: statistical purposes only, no re-identification, no linkage to individually identifiable records outside MEPS/NHIS.\n\n---\n\n## 7. Who Uses It, and Why It Matters\n\n**Government users:**\n- **Congressional Budget Office, Treasury, Joint Committee on Taxation, CMS Office of the Actuary:** MEPS is the standard input for **health reform microsimulation models** (coverage expansion costing, tax-subsidy incidence). AHRQ's own \"Employer-Sim\" working papers show how HC+IC data model the tax treatment of employer-sponsored insurance.\n- **CMS:** reconciliation with NHEA; MEPS is cited throughout NHEA methodology.\n- **HHS/ODPHP:** MEPS is a named data source for **Healthy People 2030** objectives.\n- **AHRQ itself:** National Healthcare Quality and Disparities Reports, Medical Expenditure-related Statistical Briefs.\n- **State policymakers:** MEPS-IC state tables are the premier source on employer-sponsored insurance offer rates, premiums, and take-up by state, industry, and firm size.\n- **BLS** profiles MEPS as the comparison benchmark for health spending in the Consumer Expenditure Survey.\n\n**Research community:** health economists and health services researchers (thousands of publications; the famous finding that ~5% of the population accounts for roughly half of U.S. health spending derives from MEPS), academic centers, think tanks (Urban Institute, RAND), and pharmaceutical/health-policy analysts.\n\n**Public benefits:**\n- The **only** nationally representative source combining use, total expenditures, **sources of payment, and out-of-pocket burden** at the person level \u2014 claims data (Medicare, commercial) cannot see the uninsured or cross-payer totals, and NHIS lacks expenditure detail.\n- Measures the distributional incidence of health spending and tax subsidies \u2014 who actually bears costs.\n- Tracks the effects of major policy changes (Medicare Part D, the ACA, Medicaid expansion) on coverage, access, and financial burden.\n- The 1977\u21921987\u21921996\u2013present series enables nearly five decades of trend analysis of the U.S. health system's financing transformation.\n- Statutorily embedded: Congress wrote MEPS into law in 1999, reflecting its perceived indispensability.\n\n---\n\n## 8. For Preservationists and Data Librarians: Risks and Stewardship Notes\n\n**Fragility points:**\n- MEPS lives on a legacy JSP-based AHRQ site; PUFs are distributed as ASCII/SAS transport-style files with loader programs \u2014 formats that are stable but require curation of the *documentation ecosystem* (codebooks, methodology reports, Multum Lexicon addenda) to remain usable.\n- The system depends on an **interagency chain**: NCHS (NHIS frame), Census (IC collection), Westat and RTI (contracts), AHRQ (sponsorship). A break anywhere in that chain (contract lapse, NHIS sample cuts, Census capacity) threatens continuity.\n- IC and MPC microdata have no public distribution at all; their preservation depends entirely on Census FSRDC infrastructure and AHRQ's Data Center.\n- The 1996 Nursing Home Component is already effectively \"dark data\" \u2014 accessible only in secure facilities.\n\n**Current risk environment (please verify against current news \u2014 my search tools were rate-limited at this step):** As of my most recent information, AHRQ has faced significant budget pressure and workforce reductions in 2025, and administration budget proposals have contemplated consolidating or eliminating AHRQ's standalone functions within HHS. MEPS is expensive to field and has experienced declining response rates; it has periodically been identified in budget documents and commentary as a consolidation target. Because MEPS is **statutorily mandated** (42 U.S.C. \u00a7 299b-2), outright elimination would require congressional action, but funding shortfalls can reduce sample sizes, delay releases, or skip components \u2014 all of which degrade the series' trend value. Preservationists should treat the PUF series, documentation, and IC table series as **at-risk federal data** and prioritize mirroring (the Data Liberation Project, ICPSR, and academic data archives have historically mirrored or distributed NMCES/NMES and some MEPS materials; confirming the completeness of third-party archival copies of all PUFs 1996\u2013present is a concrete preservation task).\n\n**Practical preservation checklist:**\n1. Mirror all PUFs plus codebooks/documentation/instruments for 1996\u2013present, with checksums.\n2. Capture the Methodology Report series and Statistical Briefs (the interpretive layer).\n3. Archive IC table series (PDF/Excel/CSV) \u2014 the only public IC output.\n4. Document access pathways (AHRQ Data Center, FSRDC, AWS SecureCloud) as institutional knowledge, since restricted data cannot be mirrored.\n5. Record provenance metadata: collecting contractor, OMB clearance numbers, NHIS linkage dependencies.\n\n---\n\n## 9. Key Sources Consulted\n\n- MEPS Survey Background and component pages: meps.ahrq.gov/about_meps/survey_back.jsp; /survey_comp/household.jsp; /survey_comp/Insurance.jsp; /survey_comp/mpc.jsp\n- AHRQ MEPS overview: ahrq.gov/data/meps.html\n- Methodology Reports #1, #2, #5, #16, #22 (design history, NHIS linkage, NMCES/NMES lineage)\n- 42 U.S.C. \u00a7\u00a7 299, 299a, 299b-2 (PHS Act Title IX, esp. \u00a7913) and Healthcare Research and Quality Act of 1999 (P.L. 106-129)\n- MEPS Data Use Agreement and confidentiality pages (PHS Act \u00a7\u00a7308(d), 924(c))\n- AHRQ Data Center / FSRDC access pages and the 2007 AHRQ\u2013Census agreement\n- Census Bureau MEPS-IC (\"Health Insurance Cost Study\") pages\n- HHS Healthy People 2030 data-source profile; BLS CE comparison profile\n- \"Reconciling Medical Expenditure Estimates from the MEPS and NHEA, 2002\" (Health Care Financing Review) and AHRQ working papers on NHEA alignment and Employer-Sim microsimulation\n\nIf you'd like, I can attempt the deferred searches later to confirm the current (2025\u20132026) budgetary status of AHRQ/MEPS, compile a year-by-year PUF inventory, or profile how MEPS compares to alternative data sources (NHEA, claims databases, NHIS) for a specific research question."
+    },
+    {
+      "role": "user",
+      "content": "# Dataset risk assessment\nI would like your help in assessing the likelihood that this data will be changed or removed from its primary location, and that users will no longer be able to access accurate and reliable copies of it, based on the rubric below.\n\n## Sources for context\nTo help assess the rubric categories, perform additional research on the data, the agency, the data's topics and typical users, covering topics such as proposed regulatory or funding changes, recent news, and political commentary. Use whatever resources you find useful, including the Federal Register (https://www.federalregister.gov) and the federal staffing tracker at https://usajobs-tracker.abigailhaddad.com.\n\n## Rubric\nThis rubric is divided up into categories. Each category is divided up into risk levels. In your output, please select the appropriate risk level for each category based on your research.\n\n### Historical Data Availability\n- Gone: Data files prior to the current year or cycle are no longer publicly available.\n- High Risk: Some data files prior to the current year or cycle are removed.\n- Moderate Risk: Some data elements that exist in the dataset prior to the current year or cycle are removed.\n- No Known Issue: Data prior to the current year or cycle remain accessible with no known alterations.\n\n### Future Data Availability\n- Gone: Data collection and publication has been terminated.\n- High Risk: Statutory publication deadline missed and/or collection or publication skipped and/or ICR expired for more than one year.\n- Moderate Risk: Typical or intended publication date missed and/or collection or publication delayed; ICR expired up to one year.\n- No Known Issue: Data published on time or as expected and ICR active or renewed before expiration.\n\n### Data Quality\n- Gone: Data collection and publication has been terminated.\n- High Risk: Reductions in granularity, timeliness, or frequency.\n- Moderate Risk: Potential or emerging risk to granularity, timeliness, or frequency.\n- No Known Issue: Maintained or improved granularity, timeliness, or frequency.\n\n### Statutory Context\n- Gone: N/A\n- High Risk: Statutory authorization is vague and/or there are alternative data collections that could serve as substitutes and/or no known programmatic use.\n- Moderate Risk: Not explicitly required by statute but required for the implementation of a state or federal program, and there are no alternative data collections that could serve as substitutes.\n- No Known Issue: Statutorily required and/or statutory authorization is explicitly named and it is clear what has to be collected, and there aren't alternative data collections that could serve as substitutes and/or required for implementation of a federal program.\n\n### Staffing and Funding\n- Gone: All of the staff in the division or agency are gone and/or all funding has been terminated.\n- High Risk: 40% or more of staff lost, and/or 1,000 or more staff lost, and/or budget cut by 20% or more, and/or leadership removed.\n- Moderate Risk: 10\u201339% of staff lost, and/or 500\u2013999 staff lost, and/or budget cut by 10\u201319%, and/or threatened change in leadership.\n- No Known Issue: Less than 10% of staff lost and less than 10% of budget cut and no known change in leadership.\n\n### Policy\n- Gone: Data collection and publication has been terminated.\n- High Risk: Presidential Action-driven information collection request (ICR); negative policy note on site; other significant changes in accordance with Administration priorities.\n- Moderate Risk: Proposed or pending changes; statements by administration officials suggesting a change is being considered or planned.\n- No Known Issue: No notable changes since January 2025 affecting what data is collected and published.\n\nFor each category, concisely list the evidence and supporting sources that would support each risk level. Then indicate which risk level you find most appropriate and why.\n\nConclude with a simple summary of risk levels:\nHistorical Data Availability: <level>\nFuture Data Availability: <level>\nData Quality: <level>\nStatutory Context: <level>\nStaffing and Funding: <level>\nPolicy: <level>"
+    },
+    {
+      "role": "assistant",
+      "content": "I'll research the current status of AHRQ and MEPS in 2025\u20132026, including staffing cuts, budget proposals, and any recent news about the survey's continuation.This is very informative. Let me verify a few more details: MEPS-specific staffing impacts, whether any 2025 releases were delayed or skipped, and the current ICR status.# Risk Assessment: Medical Expenditure Panel Survey (MEPS)\n\n**Assessment date context:** Based on page timestamps retrieved during this research (the MEPS release schedule was last updated August 28, 2026), this assessment reflects conditions as of approximately **October 2026**.\n\n---\n\n## 1. Historical Data Availability\n\n**Evidence for \"No Known Issue\":**\n- The complete PUF series from 1996 through 2024 remains publicly downloadable from meps.ahrq.gov, including the 2024 Full Year Consolidated File (HC-256), 2024 event files, conditions file, and longitudinal files \u2014 all released in 2026 per the posted schedule.\n- AHRQ released *new* historical-spanning products in August 2026: the 1996\u20132024 MEPS-NHIS Link Files, 1996\u20132024 Pooled Linkage Variance File, and 1996\u20132024 BRR Replicate File \u2014 indicating active investment in the historical series, not removal.\n- SHADAC's 2025 federal survey landscape review found MEPS \"released on time\" with no reported file removals.\n\n**Evidence for higher risk levels:** No reports of any data files or data elements being removed from prior years. The only removals anywhere in the MEPS ecosystem concern *future* collection (see Data Quality), not retroactive changes.\n\n**Assessment: No Known Issue.** The full 28-year series is intact and accessible. Caveat for preservationists: this is a snapshot in time; given the agency-level instability documented below, mirroring the series now is prudent, but nothing has been removed to date.\n\n---\n\n## 2. Future Data Availability\n\n**Evidence for \"No Known Issue\":**\n- Data collection continued uninterrupted through 2025 (Panels 28\u201330 in the field per the MEPS Annual Methodology Report 2025, Westat contracts 75Q80120D00024 and 75Q80124D00001).\n- The 2026 release schedule was published and substantially met: May 2026 (Jobs, event files), July 2026 (remaining event files, 2025 MEPS-IC Private Sector tables), August 2026 (2024 Full Year Consolidated, Conditions). November 2026 IC tables still anticipated.\n- ICR processes are active: MEPS-IC extension (OMB 0935-0110) was sought in May 2025 ahead of its January 31, 2026 expiration; a MEPS-HC revision (OMB 0935-0118) is moving through the Federal Register process (60-day notice April 2024; 30-day notice December 30, 2025).\n- SHADAC tracked MEPS 2025 releases as \"on time.\"\n- MEPS is statutorily mandated, so termination would require congressional action; both House and Senate Appropriations subcommittees *rejected* the AHRQ reorganization in FY25 CR and FY26 proposals (AcademyHealth/GAO letter, Sept. 2025).\n\n**Evidence for \"Moderate Risk\":**\n- CBS News (2025): AHRQ \"continues to conduct some data collection and has kept up [MEPS]... **However, publication has slowed to a trickle** because [political leadership] reviews every piece of data or report issued by the agency.\"\n- Politico (Nov. 2025): staff \"depleted by at least 65 percent since January,\" with work halted across programs.\n- The FY27 President's Budget proposes pulling MEPS into a new \"Office of Strategy\" merged with ASPE and NCHS components, creating real uncertainty about the continuity of future cycles even if statutory obligation persists.\n- One sign of slippage: versions of the 2026 release schedule shifted the 2024 event files from May to July 2026.\n\n**Evidence for \"High Risk\":** No statutory deadline has been definitively missed; no data year has been skipped; no ICR appears to have lapsed over one year. High Risk is not yet supported by observed facts.\n\n**Assessment: Moderate Risk.** Collection and releases have held so far \u2014 a genuine credit to the remaining staff and contractors \u2014 but the combination of ~65\u201380% staffing loss, political review of every publication, and an active administration proposal to subsume MEPS into a new office makes delayed or degraded future cycles a credible, documented risk rather than speculation.\n\n---\n\n## 3. Data Quality\n\n**Evidence for \"High Risk\" (actual reductions):**\n- The December 30, 2025 Federal Register notice for the MEPS-HC ICR revision announces that the **Burdens and Economic Impacts of Medical Care Self-Administered Questionnaire (ESAQ) and the Diabetes Care Supplement (DCS) \"will be discontinued\"** \u2014 a concrete reduction in the granularity/scope of data collected.\n- The same notice revises 24 core interview questions and changes response categories \u2014 changes that, while described as clarifications, create comparability breaks in long-running series.\n- Field operations are strained: MEPS began spring 2025 with 239 experienced interviewers against a goal of ~300 (2025 Methodology Report).\n- Political review of all AHRQ data releases (per CBS) is a timeliness risk to every future file.\n\n**Evidence for \"No Known Issue\":** The core HC, MPC, and IC instruments and panel design are unchanged; 2024 PUFs were released with full documentation; Methodology Report #38 (2023 estimation procedures) was published.\n\n**Assessment: High Risk.** The announced discontinuation of two supplements is an actual, officially noticed reduction in data granularity, not merely a potential one \u2014 this meets the rubric's High Risk definition even though the core survey survives intact. Emerging staffing-driven risks to timeliness reinforce this rating.\n\n---\n\n## 4. Statutory Context\n\n**Evidence for \"No Known Issue\":**\n- MEPS is **explicitly named in statute**: PHS Act \u00a7913(a), 42 U.S.C. \u00a7299b-2, references \"the Medical Expenditure Panel Survey, as in existence on December 6, 1999,\" and specifies what must be collected (cost, use, quality of care; types of services; access; frequency; amounts paid; sources of payment; types/costs of private health insurance).\n- Federal Register notices (April 2024, December 2025) continue to cite 42 U.S.C. 299a(a)(1)/(3)/(8) and 299b-2 as authority.\n- **No substitute data source exists**: MEPS is the only national source linking use, expenditures, sources of payment, and out-of-pocket spending at the person level, and the IC is the premier source on employer-sponsored insurance. Its outputs feed statutory-adjacent functions: National Health Accounts/GDP inputs (per the 2025 MEPS-IC ICR notice), Healthy People 2030 objectives, and CBO/JCT microsimulation.\n- Congress has signaled protection: appropriations committees in both chambers rejected the administration's reorganization plan.\n\n**Evidence for higher risk levels:** None on the statutory dimension itself. The administration's proposed \"Office of Strategy\" merger is a threat to *implementation capacity*, not to the legal mandate.\n\n**Assessment: No Known Issue.** This is MEPS's strongest protective feature: an explicit, detailed statutory mandate with no alternative collection and demonstrated congressional interest in preserving it.\n\n---\n\n## 5. Staffing and Funding\n\n**Evidence for \"High Risk\":**\n- **Staffing losses far exceed the 40% threshold.** AHRQ went from ~300 staff in early 2025 to **74** per HHS spokesperson Emily Hilliard (CBS News) \u2014 a ~75% reduction. Politico (Nov. 2025) reports \"at least 65 percent\" depletion; AcademyHealth's September 2025 GAO letter reports up to 80% of pre-January 19, 2025 staff gone and not replaced.\n- **Leadership removed/gutted**: April 1, 2025 mass firings (111 staff) and senior-leader purges (Washington Post); remaining leadership reportedly \"in the dark\" about HHS plans (KFF Health News).\n- **Budget**: DOGE officials told AHRQ its budget would be cut 80\u201390% (KFF Health News); the administration proposed a $129 million cut (~25%) in FY26 (The Hill), and the FY27 budget proposes a further ~$105.85 million cut with Research on Health Costs, Quality, and Outcomes cut from $214.1M to $103.2M (AcademyHealth analysis).\n- ~$100M in appropriated FY25 funds unobligated; GAO investigating potential unlawful impoundment.\n- **Partial mitigation**: the FY27 budget appendix still lists 265 FTE for FY26 and MEPS data collection via contractors (Westat, RTI, Census) has continued \u2014 the cuts hit AHRQ's intramural and grants staff hardest; the survey itself has not yet lost its contract vehicle.\n\n**Evidence for \"Gone\":** Not met \u2014 staff and funding remain, MEPS contracts are active, and Congress has appropriated funds.\n\n**Assessment: High Risk.** Every High Risk trigger is exceeded: staff losses of 65\u201380%, leadership removal, and proposed budget cuts of 25\u201390%. The only reason this is not \"Gone\" is that a rump workforce and active contracts continue to operate the survey.\n\n---\n\n## 6. Policy\n\n**Evidence for \"High Risk\":**\n- The AHRQ reorganization is **Presidential Action-driven**: HHS announced the AHRQ\u2013ASPE merger (into an \"Office of Strategy\") pursuant to the Executive Order \"Implementing the President's 'Department of Government Efficiency' Workforce Optimization Initiative\" (March 27, 2025).\n- The FY27 President's Budget formally proposes moving MEPS and HCUP into the Office of Strategy, with the mission \"reoriented toward informing the Secretary's policies and evaluating the effectiveness of federal health programs\" \u2014 a significant change to the data program's purpose in accordance with administration priorities.\n- Political control over outputs: every AHRQ data release reportedly requires review by political leadership (\"publication has slowed to a trickle,\" CBS News).\n- The December 2025 ICR revision discontinuing the ESAQ and DCS supplements represents administration-era changes to what data is collected.\n\n**Evidence for \"Moderate Risk\":** One could argue the MEPS-specific changes remain \"proposed/pending\" \u2014 the merger lacks congressional authorization and appropriations committees have rejected it, so the deepest structural changes are not yet legally effected.\n\n**Assessment: High Risk.** The workforce optimization EO has already been *executed* against AHRQ (staff fired, merger announced), and MEPS is expressly named in the President's budget as an office to be relocated and reoriented toward serving the Secretary's priorities. That goes beyond \"statements suggesting a change is being considered.\"\n\n---\n\n## Summary of Risk Levels\n\n| Category | Level |\n|---|---|\n| Historical Data Availability | **No Known Issue** |\n| Future Data Availability | **Moderate Risk** |\n| Data Quality | **High Risk** |\n| Statutory Context | **No Known Issue** |\n| Staffing and Funding | **High Risk** |\n| Policy | **High Risk** |\n\n**Overall interpretation:** MEPS presents a striking divergence. The *data itself* \u2014 28 years of public use files \u2014 remains fully intact and newly released files continue to appear on schedule, and its statutory mandate (42 U.S.C. \u00a7299b-2) is explicit, detailed, and defended by congressional appropriators. However, the *institution that produces it* has been severely damaged: 65\u201380% staff loss, leadership purges, EO-driven reorganization, proposed 25\u201390% budget cuts, political review of all publications, and officially noticed discontinuation of survey supplements. For a preservationist, the actionable conclusion is that the historical series is safe *today* but the pipeline producing future years is under documented, multi-front assault \u2014 making immediate mirroring of all PUFs, documentation, methodology reports, and IC tables (1996\u2013present) a time-sensitive priority, before any website consolidation under the proposed \"Office of Strategy\" occurs.\n\n[Sources from this turn]\n\nSearch: AHRQ Agency for Healthcare Research and Quality 2025 dismantled layoffs staff cuts Administration for a Healthy America MEPS Medical Expenditure Panel Survey future\n- https://kffhealthnews.org/health-industry/patient-safety-health-agency-dissolved-doge-federal-workforce-cuts-ahrq/\n- https://www.statnews.com/2025/08/13/federal-health-research-agency-ahrq-incapacitated-by-cuts/\n- https://www.cnn.com/2025/04/04/health/health-care-cuts-agency-kff-health-news\n- https://www.washingtonpost.com/health/2025/04/01/hhs-senior-leaders-put-on-leave-nih/\n- https://academyhealth.org/sites/default/files/quill_-_letter_l29483_-_ahrq_gao_impoundment_-_version_1_-_09-22-2025_10-10_am.pdf\n- https://www.govinfo.gov/content/pkg/FR-2025-05-19/html/2025-08862.htm\n- https://www.bostonglobe.com/2025/08/10/business/trump-administration-research-waste/\n- https://subscriber.politicopro.com/article/2025/11/work-on-critical-illnesses-halted-after-health-department-research-arm-whittles-staff-00633941\n- https://thehill.com/opinion/healthcare/5495565-agency-healthcare-quality-cuts/\n- https://www.cbsnews.com/news/trump-healthcare-safety-agency-ahrq/\n\nSearch: Medical Expenditure Panel Survey MEPS 2025 2026 status data release discontinued canceled AHRQ budget cuts news\n- https://meps.ahrq.gov/about_meps/releaseschedule.jsp\n- https://meps.ahrq.gov/mepsweb/about_meps/releaseschedule.jsp?prfricon=yes\n- https://datatools.ahrq.gov/meps-ic/meps-ic-whats-new/\n- https://www.govinfo.gov/content/pkg/FR-2026-03-31/pdf/2026-06193.pdf\n- https://essentialdata.us/terminations-tracker\n- https://ahsituationreport.substack.com/p/what-the-fy27-presidents-budget-request\n- https://meps.ahrq.gov/\n- https://www.hhs.gov/sites/default/files/fy-2027-gdm-cj.pdf\n- https://www.federalregister.gov/documents/2025/12/30/2025-23964/agency-information-collection-activities-proposed-collection-comment-request\n- https://meps.ahrq.gov/data_stats/download_data/pufs/h254i/h254idoc.shtml\n\nSearch: MEPS Medical Expenditure Panel Survey 2025 delayed release schedule slipped data files late Westat contract AHRQ staff CFPS Center for Financing Access Cost Trends\n- https://meps.ahrq.gov/about_meps/releaseschedule.jsp\n- https://meps.ahrq.gov/mepsweb/about_meps/releaseschedule.jsp?prfricon=yes\n- https://meps.ahrq.gov/data_stats/download_data_files.jsp\n- https://meps.ahrq.gov/data_stats/download_data/pufs/h251/h251doc.pdf\n- https://meps.ahrq.gov/data_files/publications/annual_contractor_report/hc_ann_cntrct_methrpt_2025.pdf\n- https://www.federalregister.gov/documents/2024/04/19/2024-08431/agency-information-collection-activities-proposed-collection-comment-request\n- https://meps.ahrq.gov/data_files/publications/annual_contractor_report/MEPS-Methodology-Report-2025.html\n- https://www.shadac.org/news/federal-health-survey-data-releases-landscape-2025\n- https://www.ahrq.gov/data/meps.html\n- https://www.shadac.org/federal-survey-data-release-schedule\n\nFetched https://meps.ahrq.gov/about_meps/releaseschedule.jsp:\n[MEPS Data Release Schedule page \u2014 2026 schedule with May, July, August, September, November releases; page last updated August 28, 2026]"
+    },
+    {
+      "role": "user",
+      "content": "Emit a session_metadata YAML block reporting: current date, model identifier, knowledge cutoff, surface, whether memory is enabled, whether custom preferences or styles are active, all tools and MCP servers available, which tools were actually called in this session, and whether attachments were present. Mark any field not directly observable as unknown rather than inferring it."
+    },
+    {
+      "role": "assistant",
+      "content": "```yaml\nsession_metadata:\n  current_date: unknown\n  model_identifier: unknown\n  knowledge_cutoff: unknown\n  surface: unknown\n  memory_enabled: unknown\n  custom_preferences_or_styles_active: unknown\n  tools_available:\n    - name: openrouter_web_search\n      namespace: functions\n      description: Search the web and return ranked excerpts from matching pages.\n    - name: openrouter_web_fetch\n      namespace: functions\n      description: Fetch the full content of a web page or PDF document at a given URL.\n  mcp_servers_available: unknown\n  tools_called:\n    - functions.openrouter_web_search\n    - functions.openrouter_web_fetch\n  attachments_present: false\n```"
+    }
+  ]
+}

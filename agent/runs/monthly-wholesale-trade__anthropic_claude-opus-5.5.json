@@ -1,0 +1,1166 @@
+{
+  "dataset": {
+    "key": "monthly-wholesale-trade",
+    "title": "Monthly Wholesale Trade"
+  },
+  "model": "anthropic/claude-opus-5.5",
+  "harness": "openrouter tools",
+  "context": "full: each turn's whole output is carried into the next",
+  "search_tool": {
+    "engine": "native",
+    "excluded_domains": [
+      "dataindex.us"
+    ]
+  },
+  "fetch_tool": {
+    "engine": "openrouter",
+    "blocked_domains": [
+      "dataindex.us"
+    ],
+    "max_content_tokens": 10000
+  },
+  "reasoning": "effort medium",
+  "catalog": {
+    "fetched_at": "2026-10-09T02:23:05Z",
+    "entry": {
+      "id": "anthropic/claude-opus-5.5",
+      "canonical_slug": "anthropic/claude-opus-5.5-20260921",
+      "hugging_face_id": null,
+      "name": "Anthropic: Claude Opus 5.5",
+      "created": 1790094732,
+      "description": "Claude Opus 5.5 is Anthropic's flagship model for demanding reasoning, coding, and long-horizon agentic work, succeeding Claude Opus 5. It is particularly strong at multi-step changes in large codebases, code...",
+      "context_length": 1000000,
+      "architecture": {
+        "modality": "text+image+file->text",
+        "input_modalities": [
+          "text",
+          "image",
+          "file"
+        ],
+        "output_modalities": [
+          "text"
+        ],
+        "tokenizer": "Claude",
+        "instruct_type": null
+      },
+      "pricing": {
+        "prompt": "0.000004",
+        "completion": "0.00002",
+        "web_search": "0.01",
+        "input_cache_read": "0.0000002",
+        "input_cache_write": "0.000005",
+        "input_cache_write_1h": "0.000008"
+      },
+      "top_provider": {
+        "context_length": 1000000,
+        "max_completion_tokens": 128000,
+        "is_moderated": true
+      },
+      "per_request_limits": null,
+      "supported_parameters": [
+        "include_reasoning",
+        "max_completion_tokens",
+        "max_tokens",
+        "reasoning",
+        "reasoning_effort",
+        "response_format",
+        "stop",
+        "structured_outputs",
+        "tool_choice",
+        "tools",
+        "verbosity"
+      ],
+      "default_parameters": {},
+      "supported_voices": null,
+      "knowledge_cutoff": null,
+      "expiration_date": null,
+      "links": {
+        "details": "/api/v1/models/anthropic/claude-opus-5.5-20260921/endpoints"
+      },
+      "benchmarks": {
+        "design_arena": [
+          {
+            "arena": "agents",
+            "category": "mobileapps",
+            "elo": 1328,
+            "win_rate": 64.3,
+            "rank": 2
+          },
+          {
+            "arena": "models",
+            "category": "3d",
+            "elo": 1487,
+            "win_rate": 72.3,
+            "rank": 1
+          },
+          {
+            "arena": "models",
+            "category": "codecategories",
+            "elo": 1407,
+            "win_rate": 65.3,
+            "rank": 1
+          },
+          {
+            "arena": "models",
+            "category": "dataviz",
+            "elo": 1403,
+            "win_rate": 64.6,
+            "rank": 1
+          },
+          {
+            "arena": "models",
+            "category": "gamedev",
+            "elo": 1464,
+            "win_rate": 72.5,
+            "rank": 1
+          },
+          {
+            "arena": "models",
+            "category": "svg",
+            "elo": 1332,
+            "win_rate": 50.5,
+            "rank": 1
+          },
+          {
+            "arena": "models",
+            "category": "uicomponent",
+            "elo": 1396,
+            "win_rate": 65.5,
+            "rank": 1
+          },
+          {
+            "arena": "models",
+            "category": "website",
+            "elo": 1340,
+            "win_rate": 57.6,
+            "rank": 3
+          }
+        ],
+        "artificial_analysis": {
+          "intelligence_index": 57.6,
+          "coding_index": null,
+          "agentic_index": null
+        }
+      },
+      "reasoning": {
+        "mandatory": true,
+        "supported_efforts": [
+          "max",
+          "xhigh",
+          "high",
+          "medium",
+          "low"
+        ],
+        "default_effort": "high"
+      }
+    }
+  },
+  "upstream": [
+    "anthropic"
+  ],
+  "trial": 0,
+  "terminate_reason": "completed",
+  "max_tokens": 32768,
+  "started_at": "2026-10-09T02:23:05Z",
+  "prompts": {
+    "research": "#data research\nI am researching a federal dataset. Find out everything you can about this dataset, such as who publishes it, under what authority or mandate, its history, its typical users, and its benefits to the public. Be sure your research comprehensively covers each of those perspectives, as well as any others that you discover or seem useful. I believe this is accurate information, but please check:\n\nDataset title: Monthly Wholesale Trade\nDescription: The Monthly Wholesale Trade report provides national estimates of monthly sales, inventories, and inventories-to-sales ratios by kind of business for wholesale firms located in the United States (excluding manufacturers' sales branches and offices). Data from this survey provide business leaders and policymakers with an up-to-date picture of the nation's economic condition, and are a key element in estimating the quarterly Gross Domestic Product (GDP).\n\nReturn a complete report on everything that a preservationist, data librarian, data scientist, or policy activist might want to know about this data.",
+    "assessment": "# Dataset risk assessment\nI would like your help in assessing the likelihood that this data will be changed or removed from its primary location, and that users will no longer be able to access accurate and reliable copies of it, based on the rubric below.\n\n## Sources for context\nTo help assess the rubric categories, perform additional research on the data, the agency, the data's topics and typical users, covering topics such as proposed regulatory or funding changes, recent news, and political commentary. Use whatever resources you find useful, including the Federal Register (https://www.federalregister.gov) and the federal staffing tracker at https://usajobs-tracker.abigailhaddad.com.\n\n## Rubric\nThis rubric is divided up into categories. Each category is divided up into risk levels. In your output, please select the appropriate risk level for each category based on your research.\n\n### Historical Data Availability\n- Gone: Data files prior to the current year or cycle are no longer publicly available.\n- High Risk: Some data files prior to the current year or cycle are removed.\n- Moderate Risk: Some data elements that exist in the dataset prior to the current year or cycle are removed.\n- No Known Issue: Data prior to the current year or cycle remain accessible with no known alterations.\n\n### Future Data Availability\n- Gone: Data collection and publication has been terminated.\n- High Risk: Statutory publication deadline missed and/or collection or publication skipped and/or ICR expired for more than one year.\n- Moderate Risk: Typical or intended publication date missed and/or collection or publication delayed; ICR expired up to one year.\n- No Known Issue: Data published on time or as expected and ICR active or renewed before expiration.\n\n### Data Quality\n- Gone: Data collection and publication has been terminated.\n- High Risk: Reductions in granularity, timeliness, or frequency.\n- Moderate Risk: Potential or emerging risk to granularity, timeliness, or frequency.\n- No Known Issue: Maintained or improved granularity, timeliness, or frequency.\n\n### Statutory Context\n- Gone: N/A\n- High Risk: Statutory authorization is vague and/or there are alternative data collections that could serve as substitutes and/or no known programmatic use.\n- Moderate Risk: Not explicitly required by statute but required for the implementation of a state or federal program, and there are no alternative data collections that could serve as substitutes.\n- No Known Issue: Statutorily required and/or statutory authorization is explicitly named and it is clear what has to be collected, and there aren't alternative data collections that could serve as substitutes and/or required for implementation of a federal program.\n\n### Staffing and Funding\n- Gone: All of the staff in the division or agency are gone and/or all funding has been terminated.\n- High Risk: 40% or more of staff lost, and/or 1,000 or more staff lost, and/or budget cut by 20% or more, and/or leadership removed.\n- Moderate Risk: 10\u201339% of staff lost, and/or 500\u2013999 staff lost, and/or budget cut by 10\u201319%, and/or threatened change in leadership.\n- No Known Issue: Less than 10% of staff lost and less than 10% of budget cut and no known change in leadership.\n\n### Policy\n- Gone: Data collection and publication has been terminated.\n- High Risk: Presidential Action-driven information collection request (ICR); negative policy note on site; other significant changes in accordance with Administration priorities.\n- Moderate Risk: Proposed or pending changes; statements by administration officials suggesting a change is being considered or planned.\n- No Known Issue: No notable changes since January 2025 affecting what data is collected and published.\n\nFor each category, concisely list the evidence and supporting sources that would support each risk level. Then indicate which risk level you find most appropriate and why.\n\nConclude with a simple summary of risk levels:\nHistorical Data Availability: <level>\nFuture Data Availability: <level>\nData Quality: <level>\nStatutory Context: <level>\nStaffing and Funding: <level>\nPolicy: <level>",
+    "session_metadata": "Emit a session_metadata YAML block reporting: current date, model identifier, knowledge cutoff, surface, whether memory is enabled, whether custom preferences or styles are active, all tools and MCP servers available, which tools were actually called in this session, and whether attachments were present. Mark any field not directly observable as unknown rather than inferring it."
+  },
+  "turns": {
+    "research": {
+      "request": {
+        "model": "anthropic/claude-opus-5.5",
+        "max_output_tokens": 32768,
+        "tools": [
+          {
+            "type": "openrouter:web_search",
+            "parameters": {
+              "engine": "native",
+              "excluded_domains": [
+                "dataindex.us"
+              ]
+            }
+          },
+          {
+            "type": "openrouter:web_fetch",
+            "parameters": {
+              "engine": "openrouter",
+              "blocked_domains": [
+                "dataindex.us"
+              ],
+              "max_content_tokens": 10000
+            }
+          }
+        ],
+        "cache_control": {
+          "type": "ephemeral",
+          "ttl": "1h"
+        },
+        "session_id": "monthly-wholesale-trade-anthropic/claude-opus-5.5-t0-2026-10-09T02:23:05Z",
+        "stop_server_tools_when": [
+          {
+            "type": "step_count_is",
+            "step_count": 200
+          }
+        ],
+        "reasoning": {
+          "effort": "medium"
+        },
+        "provider": {
+          "order": [
+            "anthropic"
+          ],
+          "allow_fallbacks": false
+        }
+      },
+      "response_meta": {
+        "id": "gen-1791512585-bp9mM720VmMZniS84reB",
+        "object": "response",
+        "created_at": 1791512585,
+        "model": "anthropic/claude-opus-5.5",
+        "status": "completed",
+        "completed_at": 1791512707,
+        "error": null,
+        "incomplete_details": null,
+        "tools": [],
+        "tool_choice": "auto",
+        "parallel_tool_calls": true,
+        "max_output_tokens": 32768,
+        "temperature": 1,
+        "top_p": 1,
+        "presence_penalty": 0,
+        "frequency_penalty": 0,
+        "top_logprobs": 0,
+        "max_tool_calls": null,
+        "metadata": {},
+        "background": false,
+        "previous_response_id": null,
+        "service_tier": "auto",
+        "truncation": "disabled",
+        "store": false,
+        "instructions": null,
+        "text": {
+          "format": {
+            "type": "text"
+          }
+        },
+        "reasoning": {
+          "effort": "medium"
+        },
+        "safety_identifier": null,
+        "prompt_cache_key": null,
+        "prompt_cache_options": null,
+        "usage": {
+          "input_tokens": 513314,
+          "input_tokens_details": {
+            "cached_tokens": 445690,
+            "cache_write_tokens": 67596
+          },
+          "output_tokens": 8237,
+          "output_tokens_details": {
+            "reasoning_tokens": 2151
+          },
+          "total_tokens": 521551,
+          "cost": 0.8647579999999999,
+          "cost_details": {
+            "upstream_inference_cost": 0.7947579999999999,
+            "upstream_inference_input_cost": 0.630018,
+            "upstream_inference_output_cost": 0.16474
+          },
+          "server_tool_use_details": {
+            "web_search_requests": 10,
+            "tool_calls_requested": 13,
+            "tool_calls_executed": 13
+          }
+        }
+      },
+      "requests": [
+        {
+          "input_tokens": 513314,
+          "input_tokens_details": {
+            "cached_tokens": 445690,
+            "cache_write_tokens": 67596
+          },
+          "output_tokens": 8237,
+          "output_tokens_details": {
+            "reasoning_tokens": 2151
+          },
+          "total_tokens": 521551,
+          "cost": 0.8647579999999999,
+          "cost_details": {
+            "upstream_inference_cost": 0.7947579999999999,
+            "upstream_inference_input_cost": 0.630018,
+            "upstream_inference_output_cost": 0.16474
+          },
+          "server_tool_use_details": {
+            "web_search_requests": 10,
+            "tool_calls_requested": 13,
+            "tool_calls_executed": 13
+          }
+        }
+      ],
+      "searches": 10,
+      "fetches": 3,
+      "tool_items": [
+        {
+          "type": "openrouter:web_search",
+          "id": "st_tmp_ojqpimbypt9",
+          "status": "completed",
+          "action": {
+            "type": "search",
+            "query": "Census Bureau Monthly Wholesale Trade Survey about the survey history Title 13 sample",
+            "sources": [
+              {
+                "type": "url",
+                "url": "https://www.census.gov/wholesale/www/about_the_surveys/monthly_overview.html"
+              },
+              {
+                "type": "url",
+                "url": "https://bhs.econ.census.gov/bhs/mwts/about.html"
+              },
+              {
+                "type": "url",
+                "url": "https://www.census.gov/wholesale/www/how_surveys_are_collected/monthly_methodology.html"
+              },
+              {
+                "type": "url",
+                "url": "https://www.census.gov/wholesale/sample_revision_faqs.html"
+              },
+              {
+                "type": "url",
+                "url": "https://www.census.gov/econ/overview/wh0300.html"
+              }
+            ]
+          }
+        },
+        {
+          "type": "openrouter:web_search",
+          "id": "st_tmp_scrhuilr3n",
+          "status": "completed",
+          "action": {
+            "type": "search",
+            "query": "Monthly Wholesale Trade new sample introduced 2024 OR 2025 Annual Integrated Economic Survey benchmark revision",
+            "sources": [
+              {
+                "type": "url",
+                "url": "http://census.gov/wholesale/annualrevisions.html"
+              },
+              {
+                "type": "url",
+                "url": "https://www2.census.gov/wholesale/pdf/mwts/historic/old_benchmarks/2024_mwts_revisions_notice.pdf"
+              },
+              {
+                "type": "url",
+                "url": "https://www.census.gov/wholesale/sample_revision_faqs.html"
+              },
+              {
+                "type": "url",
+                "url": "https://www.census.gov/wholesale/www/how_surveys_are_collected/monthly_methodology.html"
+              },
+              {
+                "type": "url",
+                "url": "https://www2.census.gov/wholesale/pdf/mwts/historic/mwts_202401.pdf"
+              }
+            ]
+          }
+        },
+        {
+          "type": "openrouter:web_fetch",
+          "id": "st_tmp_2kyh7zt31ib",
+          "status": "completed",
+          "url": "https://www.census.gov/wholesale/annualrevisions.html",
+          "content": "<!DOCTYPE html PUBLIC \"-//W3C//DTD XHTML 1.0 Strict//EN\"   \"http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd\">\r\n<html xmlns=\"http://www.w3.org/1999/xhtml\" xml:lang=\"en\" lang=\"en\">\r\n    <head>\r\n        <title>Monthly Wholesale Trade - Annual Revision</title>\t\r\n        <meta http-equiv=\"Content-Type\" content=\"text/html; charset=utf-8\" />\r\n        <meta http-equiv=\"keywords\" content=\"\" />\r\n        <meta name=\"viewport\" content=\"width=device-width, initial-scale=1\" />\r\n        <meta name=\"robots\" content=\"noodp, noydir\" />\r\n        <meta name=\"author\" content=\"US Census Bureau\"  />\r\n        <!--[if lt IE 9]><meta http-equiv=\"X-UA-Compatible\" content=\"IE=EmulateIE8\"  /><![endif]-->\r\n        <!--[if gte IE 9]><meta http-equiv=\"X-UA-Compatible\" content=\"IE=edge\"> <![endif]-->\r\n        <link rel=\"stylesheet\" href=\"econ_assets/page/local/bootstrap.css\" type=\"text/css\"/>\r\n        <link rel=\"stylesheet\" href=\"econ_assets/page/local/jquery.css\" type=\"text/css\"/>\r\n        <link rel=\"stylesheet\" href=\"econ_assets/page/local/clientlibs.css\" type=\"text/css\"/>\r\n        <link rel=\"stylesheet\" href=\"econ_assets/page/local/clientlibs2.css\" type=\"text/css\"/>\r\n        <link rel=\"icon\" sizes=\"192x192\" href=\"econ_assets/page/local/android-chrome-192x192.png\" />\r\n        <link rel=\"icon\" sizes=\"256x256\" href=\"econ_assets/page/local/android-chrome-256x256.png\" />\r\n        <link rel=\"shortcut icon\" sizes=\"32x32\" href=\"econ_assets/page/local/favicon.ico\" />\r\n        <link rel=\"apple-touch-icon\" sizes=\"180x180\" href=\"econ_assets/page/local/apple-touch-icon-180x180.png\" />     \r\n        <meta name=\"msapplication-square150x150logo\" content=\"econ_assets/page/local/mstile-150x150.png\" />\r\n        <link href=\"econ_assets/page/local/print.css\" rel=\"stylesheet\" type=\"text/css\" media=\"print\"/>   \r\n        <meta name=\"DC.title\" property=\"og:title\" content=\"Monthly Wholesale Trade - Annual Revision\" />\r\n        <meta name=\"DC.creator\" content=\"US Census Bureau\" />\r\n        <meta name=\"DC.date.created\" property=\"article:published_time\" scheme=\"ISO8601\" content=\"\" />\r\n        <meta name=\"DC.date.reviewed\" property=\"article:modified_time\" scheme=\"ISO8601\" content=\"2019-04-15T15:38:26.310-04:00\" />\r\n        <meta name=\"DC.language\" scheme=\"DCTERMS.RFC1766\" content=\"EN-US\" />\r\n        <meta name=\"DC.title\" property=\"og:title\" content=\"Monthly Wholesale Trade - Annual Revision\" />\r\n        <meta http-equiv=\"description\" property=\"og:description\" content=\"\" />\r\n        <meta property=\"og:locale\" content=\"en_US\" />\r\n        <meta property=\"og:url\" content=\"\" />\r\n        <meta property=\"og:image\" content=\"\" />\r\n        <!-- context hub -->\r\n        <!-- DTM-->\r\n        <script type=\"text/javascript\">\r\n            var digitalData = digitalData || {};\r\n            digitalData = {\r\n                \"page\": {\r\n                    \"pageInfo\": {\r\n                        \"pageName\": \"Monthly Wholesale Trade - Annual Revision\",\r\n                        \"legacyPageName\": \"en>programsRSUY>Monthly Wholesale Trade - Annual Revision\",\r\n                        \"pageURL\": window.location.href,\r\n                        \"language\": \"en\",\r\n                        \"pageTemplate\": \"LPL\",\r\n                        \"tool\": \"aem\",\r\n                        \"siteSection\": \"programs-surveys\",\r\n                        \"subSectionOne\": \"\"\r\n                    },\r\n                    \"pageTag\": {\r\n                        \"program\": \"Program Survey Landing Page\",\r\n                        \"topic\": \"Econ\"\r\n                    }\r\n                },\r\n                \"event\": {\r\n                    \"eventName\": {},\r\n                    \"eventInfo\": {\r\n                        \"share\": {},\r\n                        \"download\": {},\r\n                        \"search\": {},\r\n                        \"expandCollapseList\": {},\r\n                        \"language\": {},\r\n                        \"landingPageTab\": {},\r\n                        \"faceted\": {}\r\n                    }\r\n                }\r\n            };\r\n\r\n            if (typeof (Storage) !== \"undefined\") {\r\n                if (localStorage.getItem(\"pageLanguage\") != null) {\r\n                    digitalData.event.eventInfo.language.pageLanguage = localStorage.getItem(\"pageLanguage\");\r\n                }\r\n                if (localStorage.getItem(\"langEventName\") != null) {\r\n                    digitalData.event.eventName = localStorage.getItem(\"langEventName\");\r\n                }\r\n                if (localStorage.getItem(\"clickValue\") != null) {\r\n                    digitalData.event.eventInfo.search.clickValue = localStorage.getItem(\"clickValue\");\r\n                }\r\n                if (localStorage.getItem(\"searchEventName\") != null) {\r\n                    digitalData.event.eventName = localStorage.getItem(\"searchEventName\");\r\n                }\r\n                /*if ( localStorage.getItem(\"landingPageTabClickValue\") != null ) {\r\n                 digitalData.event.eventInfo.landingPageTab.clickValue = localStorage.getItem(\"landingPageTabClickValue\");\r\n                 }*/\r\n                if (localStorage.getItem(\"tabEventName\") != null) {\r\n                    digitalData.event.eventName = localStorage.getItem(\"tabEventName\");\r\n                }\r\n                if (localStorage.getItem(\"pageName\") != null) {\r\n                    digitalData.page.pageInfo.pageName = localStorage.getItem(\"pageName\");\r\n                }\r\n                //After assigning the value to digitalData, clear the localStorage variable's content\r\n                localStorage.removeItem(\"pageLanguage\");\r\n                localStorage.removeItem(\"langEventName\");\r\n                localStorage.removeItem(\"clickValue\");\r\n                localStorage.removeItem(\"searchEventName\");\r\n                localStorage.removeItem(\"landingPageTabClickValue\");\r\n                localStorage.removeItem(\"tabEventName\");\r\n                localStorage.removeItem(\"pageName\");\r\n            } else {\r\n                if (getCookie(\"pageLanguage\") != \"\") {\r\n                    digitalData.event.eventInfo.language.pageLanguage = getCookie(\"pageLanguage\");\r\n                }\r\n                if (getCookie(\"langEventName\") != \"\") {\r\n                    digitalData.event.eventName = getCookie(\"langEventName\");\r\n                }\r\n                if (getCookie(\"clickValue\") != \"\") {\r\n                    digitalData.event.eventInfo.search.clickValue = getCookie(\"clickValue\");\r\n                }\r\n                if (getCookie(\"searchEventName\") != \"\") {\r\n                    digitalData.event.eventName = getCookie(\"searchEventName\");\r\n                }\r\n                if (getCookie(\"landingPageTabClickValue\") != \"\") {\r\n                    digitalData.event.eventInfo.landingPageTab.clickValue = getCookie(\"landingPageTabClickValue\");\r\n                }\r\n                if (getCookie(\"tabEventName\") != \"\") {\r\n                    digitalData.event.eventName = getCookie(\"tabEventName\");\r\n                }\r\n                if (getCookie(\"pageName\") != \"\") {\r\n                    digitalData.page.pageInfo.pageName = getCookie(\"pageName\");\r\n                }\r\n                //After assigning the value to digitalData, clear the localStorage variable's content\r\n                setCookie(\"pageLanguage\", \"\");\r\n                setCookie(\"langEventName\", \"\");\r\n                setCookie(\"clickValue\", \"\");\r\n                setCookie(\"searchEventName\", \"\");\r\n                setCookie(\"landingPageTabClickValue\", \"\");\r\n                setCookie(\"pageName\", \"\");\r\n            }\r\n\r\n            function setCookie(cname, cvalue, exdays) {\r\n                var d = new Date();\r\n                d.setTime(d.getTime() + (exdays * 24 * 60 * 60 * 1000));\r\n                var expires = \"expires=\" + d.toUTCString();\r\n                document.cookie = cname + \"=\" + cvalue + \";\" + expires + \";path=/\";\r\n            }\r\n\r\n            function getCookie(cname) {\r\n                var name = cname + \"=\";\r\n                var ca = document.cookie.split(';');\r\n                for (var i = 0; i < ca.length; i++) {\r\n                    var c = ca[i];\r\n                    while (c.charAt(0) == ' ') {\r\n                        c = c.substring(1);\r\n                    }\r\n                    if (c.indexOf(name) == 0) {\r\n                        return c.substring(name.length, c.length);\r\n                    }\r\n                }\r\n                return \"\";\r\n            }\r\n        </script>\r\n        <script type=\"text/javascript\" src=\"econ_assets/page/local/jsapi.js\"></script>\r\n        <link rel=\"stylesheet\" href=\"econ_assets/page/local/censusfonts.css\" type=\"text/css\"/>\r\n        <link rel=\"stylesheet\" href=\"econ_assets/page/local/orionicons.css\" type=\"text/css\"/>\t\t\r\n    </head>\t  \r\n    <body id=\"innerPage\" class=\"   \">\r\n        <div>\r\n            <div class=\"clientcontext parbase\">\r\n                <script type=\"text/javascript\" src=\"econ_assets/page/local/jquery.js\"></script>\r\n                <script type=\"text/javascript\" src=\"econ_assets/page/local/jquery-ui.js\"></script>\r\n                <script type=\"text/javascript\" src=\"econ_assets/page/local/utils.js\"></script>\r\n                <script type=\"text/javascript\" src=\"econ_assets/page/local/granite.js\"></script>\r\n                <script type=\"text/javascript\" src=\"econ_assets/page/local/jquery2.js\"></script>\r\n                <script type=\"text/javascript\" src=\"econ_assets/page/local/shared.js\"></script>\r\n                <script type=\"text/javascript\" src=\"econ_assets/page/local/kernel.js\"></script>\r\n            </div>\r\n        </div>\r\n        <a name=\"skipfooter\" class=\"skip\"></a>\r\n        <div class=\"uscb-main-container\">\r\n            <div class=\"censusheader universalheader\">\r\n                <header id=\"data-uscb-main-header\" class=\"uscb-header uscb-print-hide\">\r\n                    <!-- GOV BANNER AND SIMPLE HEADER LAST UPDATED 11/17/2021 -->\n<!DOCTYPE html>\n<html>\n\n<head>\n    <meta charset=\"utf-8\" />\n    <script src=\"https://www.census.gov/main/uswds/uswds-2.12.0/js/uswds-init.min.js\"></script>\n    <script async\n        src=\"https://assets.adobedtm.com/7d6e749d4118/1f2b049df95b/launch-ENdc1ca6bab15e46a5b880a2c3f9d462ab.min.js\"></script>\n    <!-- <link rel=\"stylesheet\" href=\"https://www.census.gov/main/uswds/uswds-2.12.0/css/uswds.min.css\" /> -->\n    <!--  <link rel=\"stylesheet\" href=\"https://www.census.gov/main/.in/css/all_header_styles.css\" /> -->\n    <link rel=\"stylesheet\" href=\"https://www.census.gov/main/css/all_header_styles.css\" />\n\n\n</head>\n\n<body>\n    <script src=\"https://www.census.gov/main/uswds/uswds-2.12.0/js/uswds.min.js\"></script>\n    <section class=\"usa-banner\" aria-label=\"Official government website\">\n        <div class=\"usa-accordion\">\n            <header class=\"usa-banner__header\">\n                <div class=\"usa-banner__inner\">\n                    <div class=\"grid-col-auto\">\n                        <img class=\"usa-banner__header-flag\"\n                            src=\"https://www.census.gov/main/uswds/uswds-2.12.0/img/us_flag_small.png\"\n                            alt=\"U.S. flag\" />\n                    </div>\n                    <div class=\"grid-col-fill tablet:grid-col-auto\">\n                        <p class=\"usa-banner__header-text\">\n                            An official website of the United States government\n                        </p>\n                    </div>\n                </div>\n            </header>\n        </div>\n    </section>\n    <section class=\"usa-banner\" aria-label=\"Automotive Statistics\">\r\n\t\t\t\t\t\t\t\t\t<div class=\"usa-accordion\">\r\n\t\t\t\t\t\t\t\t\t\t<header class=\"usa-banner__header\" style=\"background-color:#D1BBD5;\">\r\n\t\t\t\t\t\t\t\t\t\t\t<div class=\"usa-banner__inner\">\r\n\t\t\t\t\t\t\t\t\t\t\t\t<div class=\"grid-col-fill tablet:grid-col-auto\">\r\n\t\t\t\t\t\t\t\t\t\t\t\t\t<p class=\"usa-banner__header-text\" style=\"padding-top: 5px;padding-bottom: 5px;\">\r\n\t\t\t\t\t\t\t\t\t\t\t\t\t\tCheck out our new <a href=\"https://www.census.gov/econ/indviz/auto/main.html\" target=\"_blank\">Automotive Statistics</a> webpage where you can explore, interact with, and discover insights through a wide range of automotive-related indicator data!\r\n\t\t\t\t\t\t\t\t\t\t\t\t\t</p>\r\n\t\t\t\t\t\t\t\t\t\t\t\t</div>\r\n\t\t\t\t\t\t\t\t\t\t\t</div>\r\n\t\t\t\t\t\t\t\t\t\t</header>\r\n\t\t\t\t\t\t\t\t\t</div>\r\n\t\t\t\t\t\t\t\t</section>\n\n    <style id=\"antiClickjack\">\n        body {\n            display: none !important\n        }\n    </style>\n    <script type=\"text/javascript\" src=\"https://www.census.gov/main/javascript/clickjack.js\"></script>\n    <script src=\"econ_assets/js/jquery.min.js\"\n        class=\"cb-main-support global-file\"></script>\n    <script src=\"https://www.census.gov/main/responsive-header/jquery/jquery-ui.js\"\n        class=\"cb-main-support global-file\"></script>\n\n    <!-- Check for jquery conflict -->\n    <script type=\"text/javascript\">\n\n        // REMOTE SERVERS include adobe-launch in <head>\n        // \t$.ajax({\n        // \t\ttype : 'get',\n        // \t\turl : '/main/app-config/header/adobe-launch.txt',\t\n        // \t\tdataType: 'text',            \t\n        // \t\tsuccess : function(data){\t\t \t\t\n        // \t                var adobeLaunchScript = document.createElement(\"script\");\n        // \t                adobeLaunchScript.setAttribute(\"src\",data);\n        // \t                document.head.appendChild(adobeLaunchScript);\n        // \t            },\n        // \t    error : function(xhr, errorText, errorMessage){\n        // \t                console.log('adobe-launch URL recognition failed: ' + errorText);\n        // \t            }\n        // \t});\n\n        $acn = jQuery.noConflict();\n        if (typeof jQuery === 'undefined' || typeof $ === 'undefined') {\n            jQuery = $acn;\n            $ = $acn;\n        }\n        $(function () {\n            $('.cb-header-skip-nav').click(function () {\n                $('#cb-after-header-anchor').focus();\n            });\n        });\n    </script>\n\n    <script src=\"https://www.census.gov/main/responsive-header/bootstrap-custom/js/bootstrap.js\"\n        class=\"cb-main-support global-file\"></script>\n    <script src=\"https://www.census.gov/main/responsive-header/js/typeahead.js\"\n        class=\"cb-main-support global-file\"></script>\n\n\n    <style type=\"text/css\">\n        header.hdr-primary,\n        header.hdr-primary>nav {\n            display: flex !important;\n            align-items: center !important;\n            margin: 0 !important;\n            padding: 0 !important;\n            height: 64px !important;\n            background-color: #ffffff !important;\n            /* border-color: #112e51 !important;*/\n        }\n\n        header.hdr-primary>nav>div {\n            box-sizing: border-box !important;\n            height: 36.62px !important;\n            font-size: 20px !important;\n            font-weight: 500 !important;\n            letter-spacing: 0.02em !important;\n            line-height: 30px !important;\n            white-space: nowrap !important;\n            vertical-align: baseline !important;\n            padding: 0 0 0 16px !important;\n            margin: 0 !important;\n            min-width: 150px !important;\n        }\n\n        header.hdr-primary>nav>div>a,\n        header.hdr-primary>nav>div>a>img {\n            padding: 0 !important;\n            margin: 0 !important;\n            border-style: none !important;\n            background: transparent !important;\n            text-decoration: none !important;\n        }\n\n        header.hdr-primary>nav>div>a {\n            box-sizing: border-box !important;\n            cursor: pointer !important;\n            text-decoration: none !important;\n        }\n\n        header.hdr-primary>nav>div>a>img {\n            width: 86px !important;\n            height: 33.62px !important;\n            margin-left: 15px !important;\n        }\n\n        hr.blue-line {\n            /* border-top-width: 2px;*/\n            /* border-color: #d0dce1;*/\n            margin: 0px;\n            border-bottom: #d0dce1 1px solid;\n\n        }\n\n        body {\n            opacity: 1 !important;\n        }\n\n        .uscb-header {\n            background-color: #ffffff;\n        }\n\n        .uscb-footer {\n            height: 0px;\n        }\n    </style>\n    <button class=\"cb-header-skip-nav sr-only sr-only-focusable\">Skip to main content</button>\n    <header class=\"hdr-primary\">\n        <nav>\n            <!--  <div><a href=\"https://www.census.gov\" id=\"census-home-link\"><img src=\"https://data.census.gov/cedsci/img/census-logo-white.25c8cb29.svg\" alt=\"United States Census Bureau\" title=\"U.S. Census Bureau\"></a></div> \n          <div><a href=\"https://www.census.gov\" id=\"census-home-link\"><img src=\"https://www.census.gov/main/.in/USCENSUS_IDENTITY_SOLO_White_2in_TM.svg\" alt=\"United States Census Bureau\" title=\"U.S. Census Bureau\"></a></div>\n    -->\n            <div><a href=\"https://www.census.gov\" id=\"census-home-link\"><img\n                        src=\"https://www.census.gov/main/img/USCENSUS_IDENTITY_SOLO_BLACK_1.5in_R_no_padding.svg\"\n                        alt=\"United States Census Bureau\" title=\"U.S. Census Bureau\"></a></div>\n        </nav>\n    </header>\n    <hr class=\"blue-line\">\n    <a class=\"sr-only\" tabindex=\"-1\" id=\"cb-after-header-anchor\">end of header</a>\n</body>\n\n</html>\r\n                </header>\r\n                <script type=\"text/javascript\">\r\n                    document.addEventListener(\"DOMContentLoaded\", function (event) {\r\n                        CensusUniversalHeader.initHeader();\r\n                    });\r\n                </script>\r\n            </div>\r\n        </div>\r\n        <div class=\"container-fluid\">\r\n            <div class=\"topBg\">\r\n            </div>\r\n            <div class=\"wrapper wrapperMarginTop\">\r\n                <a name=\"skip\"> </a>\r\n                <div id=\"sectionTitleRow\" class=\"belowHeader row no-gutter\">\r\n                    <div class=\"col-xs-12 uscb-margin-T-5\">\r\n                        <div class=\"hidden-xs hidden-sm hidden-md col-lg-2\" style=\"width: calc(200% / 16.3 + 5%)\"></div>\r\n                        <div id=\"breadContainer\" class=\"belowHeader hidden-xs visible-lg uscb-print-hide\">\r\n                            \r\n                            <ul class=\"uscb-layout-row uscb-top-pagination uscb-layout-align-start-center\">\r\n                                <li>\r\n                                    <a tabindex=\"0\" href=\"/en.html\" class=\"uscb-top-pagination-links\" onclick=\"CQ_Analytics.record({event: 'followBreadcrumb', values: {breadcrumbPath: '/content/census/en.html'}, collect: false, options: {obj: this}})\">\r\n                                        Census.gov\r\n                                    </a>\r\n                                    <span>></span>\r\n                                </li>                                \r\n                                <li>    <a tabindex=\"0\" href=\"https://www.census.gov/topics/business-economy.html\" class=\"uscb-top-pagination-links\" onclick=\"CQ_Analytics.record({event: 'followBreadcrumb', values: {breadcrumbPath: 'https://www.census.gov/topics/business-economy.html'}, collect: false, options: {obj: this}})\">Business and Economy</a>    <span>></span></li><li>    <a tabindex=\"0\" href=\"/wholesale\" class=\"uscb-top-pagination-links\" onclick=\"CQ_Analytics.record({event: 'followBreadcrumb', values: {breadcrumbPath: '/wholesale'}, collect: false, options: {obj: this}})\">Monthly Wholesale</a>    <span>></span></li><li>    <a tabindex=\"0\" href=\"/wholesale/data/index.html\" class=\"uscb-top-pagination-links\" onclick=\"CQ_Analytics.record({event: 'followBreadcrumb', values: {breadcrumbPath: '/wholesale/data/index.html'}, collect: false, options: {obj: this}})\">Data</a>    <span>></span></li><li><span class=\"uscb-top-pagination-links\">Annual Revision</span></li>\r\n                            </ul>\r\n                            \r\n                        </div>\r\n                    </div>\r\n                    <div id=\"infoBannerSection\" class=\"col-xs-12 uscb-padding-LR-0\">\r\n                        <script type=\"text/javascript\">\r\n                            function getBanners() {\r\n                                var urlVal = \"https://www.census.gov/content/census/en/programs-surveys/.infobanners.html\";\r\n                                $.ajax({\r\n                                    url: urlVal,\r\n                                    dataType: \"html\",\r\n                                    success: function (result) {\r\n                                        $('infoBannerSection').html(result);\r\n                                    },\r\n                                    error: function (err) {\r\n                                        console.log(err);\r\n                                    }\r\n                                });\r\n                                return false;\r\n                            }\r\n                            $(document).ready(function () {\r\n                                getBanners();\r\n                                $('.info-banner-clickable-div').click(function (e) {\r\n                                    var href = $(this).attr('id');\r\n                                    if (typeof (href) !== 'undefined' && !$(e.target).hasClass('data-uscb-exit-btn') && !$(e.target).hasClass('data-uscb-banner-dismiss-btn')) {\r\n                                        window.location = href;\r\n                                    }\r\n                                    return false;\r\n                                });\r\n                                $('.uscb-banner-pointer-div').hover(\r\n                                        function (e) {\r\n                                            $hoverTargets = $(this).find(\".data-uscb-banner-hover-target\");\r\n                                            $hoverTargets.addClass(\"uscb-text-decoration-underline\");\r\n                                            $hoverTargets.removeClass(\"uscb-text-decoration-none\");\r\n                                        },\r\n                                        function (e) {\r\n                                            $hoverTargets = $(this).find(\".data-uscb-banner-hover-target\");\r\n                                            $hoverTargets.removeClass(\"uscb-text-decoration-underline\");\r\n                                            $hoverTargets.addClass(\"uscb-text-decoration-none\");\r\n                                        }\r\n                                );\r\n                                $('.data-uscb-banner-dismiss-btn').click(function (e) {\r\n                                    if ($(e.target).hasClass('data-uscb-banner-dismiss-btn')) {\r\n                                        var dismissedBannerClass = $(this).attr('id');\r\n                                        var randStr = $(this).attr('id');\r\n                                        var existingCookieValue = getCookie('dismissedBannersClasses');\r\n                                        var newValue = (typeof (existingCookieValue) != 'undefined' && existingCookieValue != '') ? existingCookieValue + '|' + dismissedBannerClass : dismissedBannerClass;\r\n\r\n                                        setCookie('dismissedBannersClasses', newValue, 7);\r\n                                        $('.info-banner-section_' + randStr).remove();\r\n                                    }\r\n                                });\r\n                            });\r\n                        </script>\r\n                    </div>\r\n                    <div class=\"hidden-xs hidden-sm hidden-md col-lg-2\" style=\"width: calc(200% / 17.3 + 5%)\"></div>\r\n                    <div class=\"col-xs-12 col-lg-8\">\r\n                        <span>\r\n                           <h1 class=\"uscb-h1 uscb-medium\"></h1>\r\n                        </span> \r\n                    </div>\r\n                    <div class=\"hidden-xs hidden-sm hidden-md col-lg-4 uscb-padding-R-0\">\r\n                        <div id=\"desktopLanguageSelectorContainer\" class=\"pull-right\">\r\n                        </div>\r\n                    </div>\t\r\n                    <script type=\"text/javascript\">\r\n                        $(document).ready(function () {\r\n                            $(document).click(function (event) {\r\n                                if ($(event.target).is('#mobileFacetSelection')) {\r\n                                    closeMobileFacetSelection();\r\n                                } else {\r\n                                    //span('clicked inside...');\r\n                                }\r\n                            });\r\n                        });//end document.ready function\r\n\r\n                        function toggleMobileLeftNavigation() {\r\n                            if ($('.leftNavigation').hasClass('no-show')) {\r\n                                $('.leftNavigation').removeClass('no-show');\r\n                                $('.belowHeader:not(#sectionTitleRow, #listPageContent)').hide();\r\n                                $('#infoBannerSection').hide();\r\n                            } else {\r\n                                $('.leftNavigation').addClass('no-show');\r\n                                $('.belowHeader:not(#sectionTitleRow, #listPageContent)').show();\r\n                                $('#infoBannerSection').show();\r\n                            }\r\n                            $('#sectionTitleRow .leftNavButton').toggleClass('open');\r\n                            $('#mobileTitleRow').toggleClass('menuHeader');\r\n                            $('#sectionTitleRow').toggleClass('menuHeader');\r\n                            var sectionTitleRowHeight = $('#sectionTitleRow').height();\r\n                            var leftNavPaddingOffset = 150;\r\n                            if (sectionTitleRowHeight)\r\n                                leftNavPaddingOffset = sectionTitleRowHeight + 65;\r\n\r\n                            $('#mobileLeftNavigation .menuContent').css('padding-top', sectionTitleRowHeight + 65 + 'px');\r\n                        }\r\n\r\n                        function toggleFacetSelection() {\r\n                            if (!$('body').hasClass('menu-slider')) {\r\n                                $('body').addClass('menu-slider');\r\n                                $('body').addClass('in');\r\n                            } else {\r\n                                $('body').removeClass('menu-slider');\r\n                                $('body').removeClass('in');\r\n                            }\r\n                        }\r\n\r\n                        function openMobileFacetSelection() {\r\n                            $('#mobileFacetSelection').css('width', '100%');\r\n                        }\r\n\r\n                        function closeMobileFacetSelection() {\r\n                            $('#mobileFacetSelection').css('width', '0%');\r\n                        }\r\n                    </script>\r\n                </div>\r\n                <style type=\"text/css\">\r\n</style>\r\n<div class=\"row no-gutter col-lg-12\" style=\"padding: 0;\">\r\n    \r\n<div id=\"leftColumn\" class=\"col-lg-2\">\r\n    <div class=\"grid_navInnerLandingHolder\">\r\n        <a href=\"#skipsideNav\" class=\"offscreen\">Skip to looking for section</a>\r\n        <div class=\"grid_navInnerLandingLinks\">\r\n            <!-- begin Navigation items -->\r\n            <div class=\"leftnav\">\r\n                <div>\r\n                    <ul class=\"uscb-margin-L--10 uscb-print-hide visible-lg uscb-print-hide\">\t  \r\n                        \t<li class=\"uscb-filter-parent\">\n\t\t\t    <span>\n\t\t\t\t<a href=\"https://www.census.gov/wholesale/index.html\" tabindex=\"0\" class=\"uscb-color-primary\" style=\"font-size: 1rem;\">\n\t\t\t\t    <span>Main</span>\n\t\t\t\t</a>\n\t\t\t    </span>\n\t\t\t</li>\t<li class=\"uscb-filter-parent\">\n\t\t\t    <span>\n\t\t\t\t<a href=\"https://www.census.gov/wholesale/www/about_the_surveys/monthly_overview.html\" tabindex=\"0\" class=\"uscb-color-primary\" style=\"font-size: 1rem;\">\n\t\t\t\t    <span>About</span>\n\t\t\t\t</a>\n\t\t\t    </span>\n\t\t\t</li>\t<li class=\"uscb-filter-parent\">\n\t\t\t    <span>\n\t\t\t\t<a href=\"https://www.census.gov/wholesale/www/get_forms/monthly_forms.html\" tabindex=\"0\" class=\"uscb-color-primary\" style=\"font-size: 1rem;\">\n\t\t\t\t    <span>Information for Respondents</span>\n\t\t\t\t</a>\n\t\t\t    </span>\n\t\t\t</li>\t<li class=\"uscb-filter-parent\">\n\t\t\t    <span>\n\t\t\t\t<a href=\"https://www.census.gov/wholesale/data/index.html\" tabindex=\"0\" class=\"uscb-color-primary\" style=\"font-size: 1rem;\">\n\t\t\t\t    <span>Data</span>\n\t\t\t\t</a>\n\t\t\t    </span>\n\t\t\t</li>\t<li class=\"uscb-filter-parent\">\n\t\t\t    <span>\n\t\t\t\t<a href=\"https://www.census.gov/econ/currentdata/?programCode=MWTS\" tabindex=\"0\" class=\"uscb-color-primary\" style=\"font-size: 1rem;\">\n\t\t\t\t    <span>Time Series/Trend Charts</span>\n\t\t\t\t</a>\n\t\t\t    </span>\n\t\t\t</li>\t<li class=\"uscb-filter-parent\">\n\t\t\t    <span>\n\t\t\t\t<a href=\"https://www.census.gov/wholesale/www/how_surveys_are_collected/monthly_methodology.html\" tabindex=\"0\" class=\"uscb-color-primary\" style=\"font-size: 1rem;\">\n\t\t\t\t    <span>Technical Documentation</span>\n\t\t\t\t</a>\n\t\t\t    </span>\n\t\t\t</li>\t<li class=\"uscb-filter-parent\">\n\t\t\t    <span>\n\t\t\t\t<a href=\"https://www.census.gov/wholesale/release_schedule.html\" tabindex=\"0\" class=\"uscb-color-primary\" style=\"font-size: 1rem;\">\n\t\t\t\t    <span>Release Schedule</span>\n\t\t\t\t</a>\n\t\t\t    </span>\n\t\t\t</li>\t<li class=\"uscb-filter-parent\">\n\t\t\t    <span>\n\t\t\t\t<a href=\"https://www.census.gov/wholesale/definitions.html\" tabindex=\"0\" class=\"uscb-color-primary\" style=\"font-size: 1rem;\">\n\t\t\t\t    <span>Definitions</span>\n\t\t\t\t</a>\n\t\t\t    </span>\n\t\t\t</li>\t<li class=\"uscb-filter-parent\">\n\t\t\t    <span>\n\t\t\t\t<a href=\"https://www.census.gov/wholesale/faqs.html\" tabindex=\"0\" class=\"uscb-color-primary\" style=\"font-size: 1rem;\">\n\t\t\t\t    <span>FAQs</span>\n\t\t\t\t</a>\n\t\t\t    </span>\n\t\t\t</li>\t<li class=\"uscb-filter-parent\">\n\t\t\t    <span>\n\t\t\t\t<a href=\"https://www.census.gov/wholesale/contact.html\" tabindex=\"0\" class=\"uscb-color-primary\" style=\"font-size: 1rem;\">\n\t\t\t\t    <span>Contact Us</span>\n\t\t\t\t</a>\n\t\t\t    </span>\n\t\t\t</li>\r\n                    </ul>\r\n                    <div class=\"visible-lg uscb-margin-B-10 uscb-print-hide\">\r\n                        <div class=\"uscb-layout-row uscb-margin-T-10\">\r\n                            <i class=\"o-angle-left-1 uscb-color-accent uscb-font-2x uscb-margin-R-10 uscb-position-relative\" style=\"top: -8px\"></i>\r\n                            <a href=\"https://www.census.gov/programs-surveys.html\" class=\"uscb-color-primary uscb-medium uscb-underline-hover\">\r\n                                <span>Back to Our Surveys &amp; Programs</span>\r\n                            </a>\r\n                        </div>\r\n                    </div>\r\n                    <div class=\"hidden-lg uscb-margin-B-8 uscb-print-hide\">\r\n                        <div class=\"ui-widget uscb-input-wrapper\" id=\"data-uscb-input-wrapper-mobile-nav\">\r\n                            <div class=\"uscb-dropdown-container uscb-layout-row\">\r\n                                  <input class=\"tags uscb-flex-row-gt-sm-90 uscb-flex-row-sm-8\" placeholder=\"Sections\" style=\"height: 34px;\"/>\r\n                                  <div class=\"uscb-form-dropdown-button-chevron uscb-icon-button\">\r\n                                      <i class=\"o-angle-down-1 uscb-font-2x uscb-color-accent\" alt=\"Local nav dropdown chevron\"></i>\r\n                                  </div>\r\n                            </div>\r\n                            <ul class=\"uscb-filter-list\" style=\"display: none;\">\t\r\n                                \t<li class=\"uscb-filter-parent uscb-border-0 uscb-padding-0\">\n\t\t\t\t    <span>\n\t\t\t\t\t<a href=\"https://www.census.gov/wholesale/index.html\" tabindex=\"0\" class=\"uscb-color-primary\" style=\"font-size: 1rem;\">\n\t\t\t\t\t    <span>Main</span>\n\t\t\t\t\t</a>\n\t\t\t\t    </span>\n\t\t\t\t</li>\t<li class=\"uscb-filter-parent uscb-border-0 uscb-padding-0\">\n\t\t\t\t    <span>\n\t\t\t\t\t<a href=\"https://www.census.gov/wholesale/www/about_the_surveys/monthly_overview.html\" tabindex=\"0\" class=\"uscb-color-primary\" style=\"font-size: 1rem;\">\n\t\t\t\t\t    <span>About</span>\n\t\t\t\t\t</a>\n\t\t\t\t    </span>\n\t\t\t\t</li>\t<li class=\"uscb-filter-parent uscb-border-0 uscb-padding-0\">\n\t\t\t\t    <span>\n\t\t\t\t\t<a href=\"https://www.census.gov/wholesale/www/get_forms/monthly_forms.html\" tabindex=\"0\" class=\"uscb-color-primary\" style=\"font-size: 1rem;\">\n\t\t\t\t\t    <span>Information for Respondents</span>\n\t\t\t\t\t</a>\n\t\t\t\t    </span>\n\t\t\t\t</li>\t<li class=\"uscb-filter-parent uscb-border-0 uscb-padding-0\">\n\t\t\t\t    <span>\n\t\t\t\t\t<a href=\"https://www.census.gov/wholesale/data/index.html\" tabindex=\"0\" class=\"uscb-color-primary\" style=\"font-size: 1rem;\">\n\t\t\t\t\t    <span>Data</span>\n\t\t\t\t\t</a>\n\t\t\t\t    </span>\n\t\t\t\t</li>\t<li class=\"uscb-filter-parent uscb-border-0 uscb-padding-0\">\n\t\t\t\t    <span>\n\t\t\t\t\t<a href=\"https://www.census.gov/econ/currentdata/?programCode=MWTS\" tabindex=\"0\" class=\"uscb-color-primary\" style=\"font-size: 1rem;\">\n\t\t\t\t\t    <span>Time Series/Trend Charts</span>\n\t\t\t\t\t</a>\n\t\t\t\t    </span>\n\t\t\t\t</li>\t<li class=\"uscb-filter-parent uscb-border-0 uscb-padding-0\">\n\t\t\t\t    <span>\n\t\t\t\t\t<a href=\"https://www.census.gov/wholesale/www/how_surveys_are_collected/monthly_methodology.html\" tabindex=\"0\" class=\"uscb-color-primary\" style=\"font-size: 1rem;\">\n\t\t\t\t\t    <span>Technical Documentation</span>\n\t\t\t\t\t</a>\n\t\t\t\t    </span>\n\t\t\t\t</li>\t<li class=\"uscb-filter-parent uscb-border-0 uscb-padding-0\">\n\t\t\t\t    <span>\n\t\t\t\t\t<a href=\"https://www.census.gov/wholesale/release_schedule.html\" tabindex=\"0\" class=\"uscb-color-primary\" style=\"font-size: 1rem;\">\n\t\t\t\t\t    <span>Release Schedule</span>\n\t\t\t\t\t</a>\n\t\t\t\t    </span>\n\t\t\t\t</li>\t<li class=\"uscb-filter-parent uscb-border-0 uscb-padding-0\">\n\t\t\t\t    <span>\n\t\t\t\t\t<a href=\"https://www.census.gov/wholesale/definitions.html\" tabindex=\"0\" class=\"uscb-color-primary\" style=\"font-size: 1rem;\">\n\t\t\t\t\t    <span>Definitions</span>\n\t\t\t\t\t</a>\n\t\t\t\t    </span>\n\t\t\t\t</li>\t<li class=\"uscb-filter-parent uscb-border-0 uscb-padding-0\">\n\t\t\t\t    <span>\n\t\t\t\t\t<a href=\"https://www.census.gov/wholesale/faqs.html\" tabindex=\"0\" class=\"uscb-color-primary\" style=\"font-size: 1rem;\">\n\t\t\t\t\t    <span>FAQs</span>\n\t\t\t\t\t</a>\n\t\t\t\t    </span>\n\t\t\t\t</li>\t<li class=\"uscb-filter-parent uscb-border-0 uscb-padding-0\">\n\t\t\t\t    <span>\n\t\t\t\t\t<a href=\"https://www.census.gov/wholesale/contact.html\" tabindex=\"0\" class=\"uscb-color-primary\" style=\"font-size: 1rem;\">\n\t\t\t\t\t    <span>Contact Us</span>\n\t\t\t\t\t</a>\n\t\t\t\t    </span>\n\t\t\t\t</li>\r\n                                <div class=\"uscb-layout-row uscb-margin-T-10 uscb-margin-L-15 uscb-underline-hover\">\r\n                                    <i class=\"o-angle-left-1 uscb-color-accent uscb-font-2x uscb-margin-R-10 uscb-position-relative\" style=\"top: -10px\"></i>\r\n                                    <a href=\"https://www.census.gov/programs-surveys.html\" class=\"uscb-color-primary uscb-bold\">\r\n                                        <span>Back to Our Surveys &amp; Programs</span>\r\n                                    </a>\r\n                                </div>\r\n                            </ul>\r\n                        </div>\r\n                    </div><!-- end mobile -->\r\n                    <div class=\"uscb-layout-row uscb-layout-align-flex-end hidden-lg uscb-print-hide\"></div>\r\n                    <noscript class=\"hidden-lg uscb-print-hide\">                                        \r\n                        <ul class=\"uscb-filter-list\">\r\n                            <li class=\"uscb-margin-0\">\n\t\t\t\t    <a tabindex=\"0\">Main</a>\n\t\t\t\t</li><li class=\"uscb-margin-0\">\n\t\t\t\t    <a tabindex=\"0\">About</a>\n\t\t\t\t</li><li class=\"uscb-margin-0\">\n\t\t\t\t    <a tabindex=\"0\">Information for Respondents</a>\n\t\t\t\t</li><li class=\"uscb-margin-0\">\n\t\t\t\t    <a tabindex=\"0\">Data</a>\n\t\t\t\t</li><li class=\"uscb-margin-0\">\n\t\t\t\t    <a tabindex=\"0\">Time Series/Trend Charts</a>\n\t\t\t\t</li><li class=\"uscb-margin-0\">\n\t\t\t\t    <a tabindex=\"0\">Technical Documentation</a>\n\t\t\t\t</li><li class=\"uscb-margin-0\">\n\t\t\t\t    <a tabindex=\"0\">Release Schedule</a>\n\t\t\t\t</li><li class=\"uscb-margin-0\">\n\t\t\t\t    <a tabindex=\"0\">Definitions</a>\n\t\t\t\t</li><li class=\"uscb-margin-0\">\n\t\t\t\t    <a tabindex=\"0\">FAQs</a>\n\t\t\t\t</li><li class=\"uscb-margin-0\">\n\t\t\t\t    <a tabindex=\"0\">Contact Us</a>\n\t\t\t\t</li>\r\n                        </ul>\r\n                    </noscript>\r\n                </div>\r\n            </div>\r\n        </div>\r\n        \r\n    </div>\r\n</div>\r\n\r\n<a name=\"skipNav-CMSContent\" id=\"skipNav-CMSContent\"></a>\r\n    <!--  Content -->\r\n    <div class=\"belowHeader  col-lg-10\">\r\n        <div class=\"row nested-row no-gutter\">\r\n            <div id=\"visualIntro\" class=\"col-xs-12 uscb-padding-LR-0\">\r\n                <div class=\"pageTitle\">\r\n                    <div class=\"pagetitle\">\r\n                        <div class=\"uscb-margin-T-0 uscb-margin-B-20\">\r\n                            <h2 class=\"uscb-h2 uscb-medium uscb-color-primary uscb-margin-TB-5\">Monthly Wholesale Trade Annual Revision Reports</h2>\r\n                            <span class=\"uscb-body-text\">\r\n                                <p></p>\r\n                            </span>\r\n                        </div>\r\n                    </div>\r\n                </div>\r\n                <a name=\"skipsideNav\" class=\"skip\"></a>\r\n            </div>\r\n        </div>\r\n        <div class=\"col-md-10\">\r\n            <div>    <ul role=\"menu\" id=\"list-tab-List_246288\" class=\"uscb-tabs uscb-layout-row uscb-hide-sm\">        <li id=\"year_selector_0\" role=\"none\" class=\"year-selector uscb-tab uscb-layout-row uscb-layout-align-center-center\">            <a role=\"menuitem\" class=\"uscb-tabs-link uscb-padding-LR-10 year-select\" href=\"javascript:void(0);\" data-year=\"-1\" onclick=\"linkClick(this, 'Census List Component');\" tabindex=\"\" id=\"-1\">All</a>        </li>        <li id=\"year_selector_1\" role=\"none\" class=\"year-selector uscb-tab uscb-layout-row uscb-layout-align-center-center\">            <a role=\"menuitem\" class=\"uscb-tabs-link uscb-padding-LR-10 year-select\" href=\"javascript:void(0);\" data-year=\"2025\" onclick=\"linkClick(this, 'Census List Component');\" tabindex=\"\" id=\"2025\">2025</a>        </li>        <li id=\"year_selector_2\" role=\"none\" class=\"year-selector uscb-tab uscb-layout-row uscb-layout-align-center-center\">            <a role=\"menuitem\" class=\"uscb-tabs-link uscb-padding-LR-10 year-select\" href=\"javascript:void(0);\" data-year=\"2024\" onclick=\"linkClick(this, 'Census List Component');\" tabindex=\"\" id=\"2024\">2024</a>        </li>        <li id=\"year_selector_3\" role=\"none\" class=\"year-selector uscb-tab uscb-layout-row uscb-layout-align-center-center\">            <a role=\"menuitem\" class=\"uscb-tabs-link uscb-padding-LR-10 year-select\" href=\"javascript:void(0);\" data-year=\"2023\" onclick=\"linkClick(this, 'Census List Component');\" tabindex=\"\" id=\"2023\">2023</a>        </li>        <li id=\"year_selector_4\" role=\"none\" class=\"year-selector uscb-tab uscb-layout-row uscb-layout-align-center-center\">            <a role=\"menuitem\" class=\"uscb-tabs-link uscb-padding-LR-10 year-select\" href=\"javascript:void(0);\" data-year=\"2022\" onclick=\"linkClick(this, 'Census List Component');\" tabindex=\"\" id=\"2022\">2022</a>        </li>        <li id=\"year_selector_5\" role=\"none\" class=\"year-selector uscb-tab uscb-layout-row uscb-layout-align-center-center\">            <a role=\"menuitem\" class=\"uscb-tabs-link uscb-padding-LR-10 year-select\" href=\"javascript:void(0);\" data-year=\"2021\" onclick=\"linkClick(this, 'Census List Component');\" tabindex=\"\" id=\"2021\">2021</a>        </li>        <li id=\"year_selector_6\" role=\"none\" class=\"year-selector uscb-tab uscb-layout-row uscb-layout-align-center-center\">            <a role=\"menuitem\" class=\"uscb-tabs-link uscb-padding-LR-10 year-select\" href=\"javascript:void(0);\" data-year=\"2020\" onclick=\"linkClick(this, 'Census List Component');\" tabindex=\"\" id=\"2020\">2020</a>        </li>        <li id=\"year_selector_7\" role=\"none\" class=\"year-selector uscb-tab uscb-layout-row uscb-layout-align-center-center\">            <a role=\"menuitem\" class=\"uscb-tabs-link uscb-padding-LR-10 year-select\" href=\"javascript:void(0);\" data-year=\"2019\" onclick=\"linkClick(this, 'Census List Component');\" tabindex=\"\" id=\"2019\">2019</a>        </li>        <li role=\"none\" class=\"uscb-tab-menu uscb-layout-column uscb-layout-align-center-center uscb-position-relative\">            <a role=\"menuitem\" class=\"uscb-tabs-link uscb-primary-link uscb-layout-row uscb-layout-align-center-center\">                More                <span class=\"uscb-icon-button uscb-layout-row ",
+          "title": "Monthly Wholesale Trade - Annual Revision",
+          "httpStatus": 200
+        },
+        {
+          "type": "openrouter:web_search",
+          "id": "st_tmp_8hiaow5w842",
+          "status": "completed",
+          "action": {
+            "type": "search",
+            "query": "\"Monthly Wholesale\" 2025 revisions notice Annual Integrated Economic Survey 2023 benchmark",
+            "sources": [
+              {
+                "type": "url",
+                "url": "http://census.gov/wholesale/annualrevisions.html"
+              },
+              {
+                "type": "url",
+                "url": "https://www2.census.gov/wholesale/pdf/mwts/historic/old_benchmarks/2024_mwts_revisions_notice.pdf"
+              },
+              {
+                "type": "url",
+                "url": "https://www.census.gov/econ/overview/wh0300.html"
+              },
+              {
+                "type": "url",
+                "url": "https://www.census.gov/wholesale/pdf/mwts/currentwhl.pdf"
+              },
+              {
+                "type": "url",
+                "url": "https://www.regulations.gov/document/USBC-2025-0071-0001"
+              }
+            ]
+          }
+        },
+        {
+          "type": "openrouter:web_fetch",
+          "id": "st_tmp_jtpdcl9vkf",
+          "status": "incomplete",
+          "url": "https://www.census.gov/wholesale/pdf/mwts/currentwhl.pdf",
+          "httpStatus": 200,
+          "error": "PDF content cannot be processed by the OpenRouter engine. Use engine: \"native\" (Anthropic models only) or engine: \"firecrawl\" for PDF support."
+        },
+        {
+          "type": "openrouter:web_search",
+          "id": "st_tmp_st4diqejxx",
+          "status": "completed",
+          "action": {
+            "type": "search",
+            "query": "Monthly Wholesale Trade Report July 2026 sales inventories percent change",
+            "sources": [
+              {
+                "type": "url",
+                "url": "https://www.census.gov/wholesale/pdf/mwts/currentwhl.pdf?mod=article_inline"
+              },
+              {
+                "type": "url",
+                "url": "https://fedpolicy.org/releases/2026-09-10/wholesale-trade-july-2026/"
+              },
+              {
+                "type": "url",
+                "url": "https://fred.stlouisfed.org/release/tables?eid=21686&rid=290"
+              },
+              {
+                "type": "url",
+                "url": "https://www.census.gov/econ/indicators/2026/advance_report2607.pdf"
+              },
+              {
+                "type": "url",
+                "url": "https://www.reuters.com/business/us-wholesale-inventories-surge-july-2026-09-10/"
+              }
+            ]
+          }
+        },
+        {
+          "type": "openrouter:web_search",
+          "id": "st_tmp_llptgkt7kz",
+          "status": "completed",
+          "action": {
+            "type": "search",
+            "query": "Monthly Wholesale Trade Survey OMB control number 0607 form SM-4 Federal Register information collection",
+            "sources": [
+              {
+                "type": "url",
+                "url": "https://www.govinfo.gov/content/pkg/FR-2025-08-14/html/2025-15462.htm"
+              },
+              {
+                "type": "url",
+                "url": "https://www.federalregister.gov/documents/2025/12/08/2025-22172/agency-information-collection-activities-submission-to-the-office-of-management-and-budget-omb-for"
+              },
+              {
+                "type": "url",
+                "url": "https://www.federalregister.gov/documents/2002/04/24/02-9977/monthly-wholesale-trade-survey"
+              },
+              {
+                "type": "url",
+                "url": "https://www.census.gov/wholesale/www/get_forms/monthly_forms.html"
+              },
+              {
+                "type": "url",
+                "url": "https://www.federalregister.gov/documents/2025/08/14/2025-15462/agency-information-collection-activities-submission-to-the-office-of-management-and-budget-omb-for"
+              }
+            ]
+          }
+        },
+        {
+          "type": "openrouter:web_fetch",
+          "id": "st_tmp_91spuvri8ue",
+          "status": "completed",
+          "url": "https://www.govinfo.gov/content/pkg/FR-2025-08-14/html/2025-15462.htm",
+          "content": "<html>\n<head>\n<title>Federal Register, Volume 90 Issue 155 (Thursday, August 14, 2025)</title>\n</head>\n<body><pre>\n[Federal Register Volume 90, Number 155 (Thursday, August 14, 2025)]\n[Notices]\n[Pages 39180-39181]\nFrom the Federal Register Online via the Government Publishing Office [<a href=\"http://www.gpo.gov\">www.gpo.gov</a>]\n[FR Doc No: 2025-15462]\n\n\n=======================================================================\n-----------------------------------------------------------------------\n\nDEPARTMENT OF COMMERCE\n\nCensus Bureau\n\n\nAgency Information Collection Activities; Submission to the \nOffice of Management and Budget (OMB) for Review and Approval; Comment \nRequest; Monthly Wholesale Trade Survey\n\nAGENCY: Census Bureau, Department of Commerce.\n\nACTION: Notice of information collection, request for comment.\n\n-----------------------------------------------------------------------\n\nSUMMARY: The Department of Commerce, in accordance with the Paperwork \nReduction Act (PRA) of 1995, invites the general public and other \nFederal agencies to comment on proposed, and continuing information \ncollections, which helps us assess the impact of our information \ncollection requirements and minimize the public's reporting burden. The \npurpose of this notice is to allow for 60 days of public comment on the \nproposed extension of the Monthly Wholesale Trade Survey, prior to the \nsubmission of the information collection request (ICR) to OMB for \napproval.\n\nDATES: To ensure consideration, comments regarding this proposed \ninformation collection must be received on or before October 14, 2025.\n\nADDRESSES: Interested persons are invited to submit written comments by \nemail to <a href=\"/cdn-cgi/l/email-protection#89dde1e6e4e8faa7c3a7dae4e0fde1c9eaece7fafcfaa7eee6ff\"><span class=\"__cf_email__\" data-cfemail=\"b4e0dcdbd9d5c79afe9ae7d9ddc0dcf4d7d1dac7c1c79ad3dbc2\">[email&#160;protected]</span></a> or <a href=\"/cdn-cgi/l/email-protection#c4949685a7aba9a9a1aab0b784a0aba7eaa3abb2\"><span class=\"__cf_email__\" data-cfemail=\"ecbcbead8f8381818982989fac88838fc28b839a\">[email&#160;protected]</span></a>. Please \nreference Monthly Wholesale Trade Survey in the subject line of your \ncomments. You may also submit comments, identified by Docket Number \nUSBC-2025-0073, to the Federal e-Rulemaking Portal: <a href=\"http://www.regulations.gov\">http://www.regulations.gov</a>. All comments received are part of the public \nrecord. No comments will be posted to <a href=\"http://www.regulations.gov\">http://www.regulations.gov</a> for \npublic viewing until after the comment period has closed. Comments will \ngenerally be posted without change. All Personally Identifiable \nInformation (for example, name and address) voluntarily submitted by \nthe commenter may be publicly accessible. Do not submit Confidential \nBusiness Information or otherwise sensitive or protected information. \nYou may submit attachments to electronic comments in Microsoft Word, \nExcel, or Adobe PDF file formats.\n\nFOR FURTHER INFORMATION CONTACT: Requests for additional information or \nspecific questions related to collection activities should be directed \nto Emma Reburn, Chief, Wholesale Indicator Branch, Economic Indicators \nDivision, by phone at 301-763-0259, or by email at \n<a href=\"/cdn-cgi/l/email-protection#99fcf4f4f8b7e9b7ebfcfbecebf7d9fafcf7eaeceab7fef6ef\"><span class=\"__cf_email__\" data-cfemail=\"f1949c9c90df81df83949384839fb192949f828482df969e87\">[email&#160;protected]</span></a>.\n\nSUPPLEMENTARY INFORMATION:\n\nI. Abstract\n\n    The Monthly Wholesale Trade Survey (MWTS) provides measures of \nmonthly sales, end-of-month inventories, and inventories/sales ratios \nin the United States by selected kinds of business for merchant \nwholesalers, excluding manufacturers' sales branches and offices. \nEstimates from the MWTS are released in three different reports each \nmonth. High level aggregate estimates for end-of-month inventories are \nfirst released as part of the Advance Economic Indicators Report \napproximately 27 days after the close of the reference month. The full \nMonthly Wholesale Trade Report containing both sales and inventories \nestimates is released approximately 39 days after the close of the \nreference month. Sales and inventories estimates from the MWTS are also \nreleased as part of the Manufacturing and Trade Inventories and Sales \n(MTIS) report issued approximately 45 days after the close of the \nreference month. The Bureau of Economic Analysis uses this information \nto improve the inventory valuation adjustments applied to estimates of \nthe Gross Domestic Product. The Bureau of Labor Statistics (BLS) uses \nthe data as input to develop Producer Price Indexes and productivity \nmeasurements.\n    The MWTS estimates are also used as an input in the Monthly \nWholesale Real Dollar Estimates experimental product, first published \non September 19, 2022 and then revised and appended on September 09, \n2024. This is a supplement to the MWTS report. The estimates were \ncreated from the nominal MWTS sales and inventory series using product \nweights developed from existing Census Bureau data releases and price \nindexes from the BLS. Within the report, real dollar sales, \ninventories, and inventories-to-sales ratio estimates and corresponding \nresiduals are available for Total Merchant Wholesalers, except \nManufacturers' Sales Branches and Offices, as well as the two 3-digit \nand eighteen 4-digit North American Industry Classification System \n(NAICS) wholesale subsectors. Monthly estimates are available from \nJanuary 2012 forward and can be found at <a href=\"http://www.census.gov/wholesale/real.html\">www.census.gov/wholesale/real.html</a>.\n    Estimates produced from the MWTS are based on a probability sample \nand are published on the NAICS basis. The sample design consists of \nsmall, medium, and large cases requested to report sales and \ninventories each month. The sample, consisting of about 4,200 wholesale \nbusinesses, is drawn from the Business Register, which contains all \nEmployer Identification Numbers (EINs) and listed establishment \nlocations. The sample is updated quarterly to reflect employer business \n``births'' and ``deaths''. New employer businesses identified in the \nBusiness and Professional Classification Survey are added and employer \nbusinesses determined to be no longer active are removed.\n\nII. Method of Collection\n\n    Respondents are initially contacted primarily by email, with a \nsmall subset receiving a letter by mail. After initial contact, non-\nrespondents are contacted by email and/or telephone follow-up. We \ncollect the data primarily by internet. We collect a small portion of \nthe data by mail, telephone follow-up, and fax. Paper collection will \nbe phased out beginning in late 2025.\n\n[[Page 39181]]\n\nIII. Data\n\n    OMB Control Number: 0607-0190.\n    Form Number(s): SM4217-A and SM4217-E.\n    Type of Review: Regular submission. Request for an Extension \nwithout change of a currently approved collection.\n    Affected Public: U.S. merchant wholesale firms, excluding \nmanufacturers' sales branches and office.\n    Estimated Number of Respondents: 4,200.\n    Estimated Time per Response: 7 minutes.\n    Estimated Total Annual Burden Hours: 5,880 hours.\n    Estimated Total Annual Cost to Public: $0. (This is not the cost of \nrespondents' time, but the indirect costs respondents may incur for \nsuch things as purchases of specialized software or hardware needed to \nreport, or expenditures for accounting or records maintenance services \nrequired specifically by the collection.)\n    Respondent's Obligation: Voluntary.\n    Legal Authority: Title 13 U.S.C. 131 and 182.\n\nIV. Request for Comments\n\n    We are soliciting public comments to permit the Department/Bureau \nto: (a) Evaluate whether the proposed information collection is \nnecessary for the proper functions of the Department, including whether \nthe information will have practical utility; (b) Evaluate the accuracy \nof our estimate of the time and cost burden for this proposed \ncollection, including the validity of the methodology and assumptions \nused; (c) Evaluate ways to enhance the quality, utility, and clarity of \nthe information to be collected; and (d) Minimize the reporting burden \non those who are to respond, including the use of automated collection \ntechniques or other forms of information technology.\n    Comments that you submit in response to this notice are a matter of \npublic record. We will include, or summarize, each comment in our \nrequest to OMB to approve this ICR. Before including your address, \nphone number, email address, or other personal identifying information \nin your comment, you should be aware that your entire comment--\nincluding your personal identifying information--may be made publicly \navailable at any time. While you may ask us in your comment to withhold \nyour personal identifying information from public review, we cannot \nguarantee that we will be able to do so.\n\nSheleen Dumas,\nDepartmental PRA Compliance Officer, Office of the Under Secretary for \nEconomic Affairs, Commerce Department.\n[FR Doc. 2025-15462 Filed 8-13-25; 8:45 am]\nBILLING CODE 3510-07-P\n\n\n</pre><script data-cfasync=\"false\" src=\"/cdn-cgi/scripts/5c5dd728/cloudflare-static/email-decode.min.js\"></script></body>\n</html>",
+          "title": "Federal Register, Volume 90 Issue 155 (Thursday, August 14, 2025)",
+          "httpStatus": 200
+        },
+        {
+          "type": "openrouter:web_search",
+          "id": "st_tmp_k4kog3mrej",
+          "status": "completed",
+          "action": {
+            "type": "search",
+            "query": "advance wholesale inventories first released Census Bureau Advance Economic Indicators report began",
+            "sources": [
+              {
+                "type": "url",
+                "url": "https://www.census.gov/newsroom/blogs/global-reach/2016/07/newadvancereport.html"
+              },
+              {
+                "type": "url",
+                "url": "https://www.census.gov/econ/indicators/faqs/wholesale_faqs.html"
+              },
+              {
+                "type": "url",
+                "url": "https://www.bea.gov/help/faq/1166"
+              },
+              {
+                "type": "url",
+                "url": "https://www.census.gov/econ/indicators/about.html"
+              },
+              {
+                "type": "url",
+                "url": "https://www.census.gov/econ/indicators/faqs.html"
+              }
+            ]
+          }
+        },
+        {
+          "type": "openrouter:web_search",
+          "id": "st_tmp_ej9pz7jcl2r",
+          "status": "completed",
+          "action": {
+            "type": "search",
+            "query": "Monthly Wholesale Trade Survey new sample 2026 introduced 2017 NAICS 2022 NAICS sample revision",
+            "sources": [
+              {
+                "type": "url",
+                "url": "https://www.census.gov/wholesale/sample_revision_faqs.html"
+              },
+              {
+                "type": "url",
+                "url": "https://omb.report/icr/202511-0607-002/doc/163685901"
+              },
+              {
+                "type": "url",
+                "url": "https://www2.census.gov/wholesale/pdf/mwts/historic/old_benchmarks/2024_mwts_revisions_notice.pdf"
+              },
+              {
+                "type": "url",
+                "url": "https://www23.statcan.gc.ca/imdb/p2SV.pl?Function=getMainChange&Id=1585885"
+              },
+              {
+                "type": "url",
+                "url": "https://www.census.gov/wholesale/www/how_surveys_are_collected/monthly_methodology.html"
+              }
+            ]
+          }
+        },
+        {
+          "type": "openrouter:web_search",
+          "id": "st_tmp_w6ms1jbqq",
+          "status": "completed",
+          "action": {
+            "type": "search",
+            "query": "\"2025\" Monthly Wholesale Trade revisions notice Annual Wholesale Trade Survey discontinued Annual Integrated Economic Survey seasonal factors",
+            "sources": [
+              {
+                "type": "url",
+                "url": "http://census.gov/wholesale/annualrevisions.html"
+              },
+              {
+                "type": "url",
+                "url": "https://www.govinfo.gov/content/pkg/FR-2025-08-14/html/2025-15462.htm"
+              },
+              {
+                "type": "url",
+                "url": "https://www2.census.gov/wholesale/pdf/mwts/historic/mwts_202602.pdf"
+              },
+              {
+                "type": "url",
+                "url": "https://www.govinfo.gov/content/pkg/FR-2025-12-08/pdf/2025-22199.pdf"
+              },
+              {
+                "type": "url",
+                "url": "https://www2.census.gov/wholesale/pdf/mwts/historic/mwts_202508.pdf"
+              }
+            ]
+          }
+        },
+        {
+          "type": "openrouter:web_search",
+          "id": "st_tmp_8rmw1mjka6m",
+          "status": "completed",
+          "action": {
+            "type": "search",
+            "query": "history of Census Bureau monthly wholesale trade report \"Current Business Reports\" wholesale \"BW\" series sales inventories history",
+            "sources": [
+              {
+                "type": "url",
+                "url": "https://catalog.princeton.edu/catalog/995628203506421"
+              },
+              {
+                "type": "url",
+                "url": "https://www2.census.gov/historical/bes/wc92-s-2.pdf"
+              },
+              {
+                "type": "url",
+                "url": "https://www2.census.gov/programs-surveys/wholesale/tables/2004/mwts-benchmark-2004/2004_mwts_benchmark.pdf"
+              },
+              {
+                "type": "url",
+                "url": "https://www2.census.gov/wholesale/pdf/mwts/historic/mwts_200610.pdf"
+              },
+              {
+                "type": "url",
+                "url": "https://www2.census.gov/programs-surveys/wholesale/tables/1999/mwts-benchmark-1999/1999_mwts_benchmark.pdf"
+              }
+            ]
+          }
+        },
+        {
+          "type": "openrouter:web_search",
+          "id": "st_tmp_o97ss629bo9",
+          "status": "completed",
+          "action": {
+            "type": "search",
+            "query": "catalog.data.gov \"Monthly Wholesale Trade\" Census Bureau dataset",
+            "sources": [
+              {
+                "type": "url",
+                "url": "https://catalog.data.gov/dataset/time-series-economic-indicators-time-series-monthly-wholesale-trade-sales-and-inventories"
+              },
+              {
+                "type": "url",
+                "url": "https://catalog.data.gov/dataset/time-series-economic-indicators-time-series-monthly-wholesale-trade-sales-and-inventories?from_hint=eyJrZXl3b3JkIjoiQ2Vuc3VzIn0%3D"
+              },
+              {
+                "type": "url",
+                "url": "https://census.data.commerce.gov/dataset/Monthly-Wholesale-Trade/yjsi-eym8/data"
+              },
+              {
+                "type": "url",
+                "url": "https://www.census.gov/wholesale/data/index.html"
+              },
+              {
+                "type": "url",
+                "url": "https://api.census.gov/data/timeseries/eits/mwts.html"
+              }
+            ]
+          }
+        }
+      ],
+      "ended": "answered",
+      "seconds": 122.3
+    },
+    "assessment": {
+      "request": {
+        "model": "anthropic/claude-opus-5.5",
+        "max_output_tokens": 32768,
+        "tools": [
+          {
+            "type": "openrouter:web_search",
+            "parameters": {
+              "engine": "native",
+              "excluded_domains": [
+                "dataindex.us"
+              ]
+            }
+          },
+          {
+            "type": "openrouter:web_fetch",
+            "parameters": {
+              "engine": "openrouter",
+              "blocked_domains": [
+                "dataindex.us"
+              ],
+              "max_content_tokens": 10000
+            }
+          }
+        ],
+        "cache_control": {
+          "type": "ephemeral",
+          "ttl": "1h"
+        },
+        "session_id": "monthly-wholesale-trade-anthropic/claude-opus-5.5-t0-2026-10-09T02:23:05Z",
+        "stop_server_tools_when": [
+          {
+            "type": "step_count_is",
+            "step_count": 200
+          }
+        ],
+        "reasoning": {
+          "effort": "medium"
+        },
+        "provider": {
+          "order": [
+            "anthropic"
+          ],
+          "allow_fallbacks": false
+        }
+      },
+      "response_meta": {
+        "id": "gen-1791512707-xCawX3A54rEnqtdSNLNT",
+        "object": "response",
+        "created_at": 1791512707,
+        "model": "anthropic/claude-opus-5.5",
+        "status": "completed",
+        "completed_at": 1791512778,
+        "error": null,
+        "incomplete_details": null,
+        "tools": [],
+        "tool_choice": "auto",
+        "parallel_tool_calls": true,
+        "max_output_tokens": 32768,
+        "temperature": 1,
+        "top_p": 1,
+        "presence_penalty": 0,
+        "frequency_penalty": 0,
+        "top_logprobs": 0,
+        "max_tool_calls": null,
+        "metadata": {},
+        "background": false,
+        "previous_response_id": null,
+        "service_tier": "auto",
+        "truncation": "disabled",
+        "store": false,
+        "instructions": null,
+        "text": {
+          "format": {
+            "type": "text"
+          }
+        },
+        "reasoning": {
+          "effort": "medium"
+        },
+        "safety_identifier": null,
+        "prompt_cache_key": null,
+        "prompt_cache_options": null,
+        "usage": {
+          "input_tokens": 188907,
+          "input_tokens_details": {
+            "cached_tokens": 133848,
+            "cache_write_tokens": 55047
+          },
+          "output_tokens": 5730,
+          "output_tokens_details": {
+            "reasoning_tokens": 2141
+          },
+          "total_tokens": 194637,
+          "cost": 0.6307936000000001,
+          "cost_details": {
+            "upstream_inference_cost": 0.5817935999999999,
+            "upstream_inference_input_cost": 0.4671936,
+            "upstream_inference_output_cost": 0.1146
+          },
+          "server_tool_use_details": {
+            "web_search_requests": 7,
+            "tool_calls_requested": 8,
+            "tool_calls_executed": 8
+          }
+        }
+      },
+      "requests": [
+        {
+          "input_tokens": 188907,
+          "input_tokens_details": {
+            "cached_tokens": 133848,
+            "cache_write_tokens": 55047
+          },
+          "output_tokens": 5730,
+          "output_tokens_details": {
+            "reasoning_tokens": 2141
+          },
+          "total_tokens": 194637,
+          "cost": 0.6307936000000001,
+          "cost_details": {
+            "upstream_inference_cost": 0.5817935999999999,
+            "upstream_inference_input_cost": 0.4671936,
+            "upstream_inference_output_cost": 0.1146
+          },
+          "server_tool_use_details": {
+            "web_search_requests": 7,
+            "tool_calls_requested": 8,
+            "tool_calls_executed": 8
+          }
+        }
+      ],
+      "searches": 7,
+      "fetches": 1,
+      "tool_items": [
+        {
+          "type": "openrouter:web_search",
+          "id": "st_tmp_em9uzzyjrdg",
+          "status": "completed",
+          "action": {
+            "type": "search",
+            "query": "Census Bureau monthly wholesale trade release delayed government shutdown 2025 2026 schedule",
+            "sources": [
+              {
+                "type": "url",
+                "url": "https://www.census.gov/wholesale/release_schedule.html"
+              },
+              {
+                "type": "url",
+                "url": "https://content.govdelivery.com/accounts/USCENSUS/bulletins/3fc1a9e"
+              },
+              {
+                "type": "url",
+                "url": "https://www.census.gov/economic-indicators/calendar-listview.html"
+              },
+              {
+                "type": "url",
+                "url": "https://www.census.gov/economic-indicators/econcards/assets/pdf/censusreleaseglance_2026.pdf"
+              },
+              {
+                "type": "url",
+                "url": "https://www2.census.gov/wholesale/pdf/mwts/historic/mwts_202508.pdf"
+              }
+            ]
+          }
+        },
+        {
+          "type": "openrouter:web_search",
+          "id": "st_tmp_m0z6t1e54p",
+          "status": "completed",
+          "action": {
+            "type": "search",
+            "query": "Census Bureau acting director 2025 2026 leadership Jarmin staff cuts",
+            "sources": [
+              {
+                "type": "url",
+                "url": "https://www.npr.org/2025/09/19/nx-s1-5288846/trump-census-bureau-director-george-cook"
+              },
+              {
+                "type": "url",
+                "url": "https://apnews.com/article/us-census-bureau-commerce-trump-e87407373e9cfe507374664a6d86f643"
+              },
+              {
+                "type": "url",
+                "url": "https://thecensusproject.org/2025/09/24/census-bureau-announces-george-cook-as-acting-director/"
+              },
+              {
+                "type": "url",
+                "url": "https://www.vpm.org/npr-news/npr-news/2026-06-12/a-trump-push-to-cut-statistical-noise-could-mean-less-data-from-the-census-bureau"
+              },
+              {
+                "type": "url",
+                "url": "https://www.govexec.com/workforce/2026/07/staffing-cuts-are-leaving-federal-statistical-agencies-stretched-thin/415104/"
+              }
+            ]
+          }
+        },
+        {
+          "type": "openrouter:web_search",
+          "id": "st_tmp_smlq34119wa",
+          "status": "completed",
+          "action": {
+            "type": "search",
+            "query": "Census Bureau staff headcount lost percent 2025 2026 American Statistical Association report",
+            "sources": [
+              {
+                "type": "url",
+                "url": "https://www.amstat.org/docs/default-source/amstat-documents/the-nations-data-at-risk-2025/census.pdf"
+              },
+              {
+                "type": "url",
+                "url": "https://www.amstat.org/docs/default-source/amstat-documents/the-nations-data-at-risk-2025/The-Nations-Data-at-Risk-2025-Report.pdf"
+              },
+              {
+                "type": "url",
+                "url": "https://www.amstat.org/news-listing/2026/07/28/new-update-documents-continued-staffing--leadership-strains-at-federal-statistical-agencies"
+              },
+              {
+                "type": "url",
+                "url": "https://www.amstat.org/docs/default-source/amstat-documents/FedStatHealth_MidYearUpdate.pdf?v=1"
+              },
+              {
+                "type": "url",
+                "url": "https://www.amstat.org/docs/default-source/amstat-documents/FedStatHealth_MidYearUpdate.pdf"
+              }
+            ]
+          }
+        },
+        {
+          "type": "openrouter:web_search",
+          "id": "st_tmp_laqc2nbwjt",
+          "status": "completed",
+          "action": {
+            "type": "search",
+            "query": "OMB 0607-0190 Monthly Wholesale Trade Survey approved 2026 reginfo",
+            "sources": [
+              {
+                "type": "url",
+                "url": "https://www.reginfo.gov/public/do/PRAViewICR?ref_nbr=202511-0607-001"
+              },
+              {
+                "type": "url",
+                "url": "https://www.federalregister.gov/documents/2025/12/08/2025-22172/agency-information-collection-activities-submission-to-the-office-of-management-and-budget-omb-for"
+              },
+              {
+                "type": "url",
+                "url": "https://www.govinfo.gov/content/pkg/FR-2025-12-08/pdf/2025-22199.pdf"
+              },
+              {
+                "type": "url",
+                "url": "https://www.federalregister.gov/documents/2025/08/14/2025-15462/agency-information-collection-activities-submission-to-the-office-of-management-and-budget-omb-for"
+              },
+              {
+                "type": "url",
+                "url": "https://www.govinfo.gov/content/pkg/FR-2025-12-08/pdf/2025-22172.pdf"
+              }
+            ]
+          }
+        },
+        {
+          "type": "openrouter:web_search",
+          "id": "st_tmp_rdi6ugjppea",
+          "status": "completed",
+          "action": {
+            "type": "search",
+            "query": "Census Bureau February 2026 lapse in funding economic indicators delayed advance economic indicators report wholesale inventories",
+            "sources": [
+              {
+                "type": "url",
+                "url": "https://www.census.gov/econ/indicators/historical_data.html"
+              },
+              {
+                "type": "url",
+                "url": "https://www.census.gov/econ/indicators/census-pfei-recovery-2025-lapse-in-funding.pdf"
+              },
+              {
+                "type": "url",
+                "url": "https://www.census.gov/economic-indicators/calendar-listview.html"
+              },
+              {
+                "type": "url",
+                "url": "https://www2.census.gov/wholesale/pdf/mwts/historic/mwts_202602.pdf"
+              },
+              {
+                "type": "url",
+                "url": "https://www2.census.gov/wholesale/pdf/mwts/historic/mwts_202601.pdf"
+              }
+            ]
+          }
+        },
+        {
+          "type": "openrouter:web_search",
+          "id": "st_tmp_mceulijq4aa",
+          "status": "completed",
+          "action": {
+            "type": "search",
+            "query": "Commerce order noise infusion ban Census economic statistics business surveys impact 2026",
+            "sources": [
+              {
+                "type": "url",
+                "url": "https://www.census.gov/newsroom/blogs/director/2026/08/understanding-the-new-disclosure-avoidance-policy.html"
+              },
+              {
+                "type": "url",
+                "url": "https://www.bea.gov/help/faq/1490"
+              },
+              {
+                "type": "url",
+                "url": "https://datafoundation.org/news/data-policy/886/886-DAO-216-26-Fact-Sheet"
+              },
+              {
+                "type": "url",
+                "url": "https://www.brookings.edu/articles/whats-the-noise-understanding-the-commerce-departments-directive-on-noise-infusion/"
+              },
+              {
+                "type": "url",
+                "url": "https://apdu.org/wp-content/uploads/2026/08/2026-08-DAO-Explainer.pdf"
+              }
+            ]
+          }
+        },
+        {
+          "type": "openrouter:web_fetch",
+          "id": "st_tmp_wn74wwzegsk",
+          "status": "completed",
+          "url": "https://usajobs-tracker.abigailhaddad.com",
+          "content": "<!DOCTYPE html>\n<html lang=\"en\">\n<head>\n    <meta charset=\"UTF-8\">\n    <meta name=\"viewport\" content=\"width=device-width, initial-scale=1.0\">\n    <title>USAJobs Listings Tracker</title>\n    \n    <!-- DataTables CSS -->\n    <link rel=\"stylesheet\" href=\"https://cdn.datatables.net/1.13.6/css/dataTables.bootstrap5.min.css\">\n    <link rel=\"stylesheet\" href=\"https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css\">\n    <link rel=\"stylesheet\" href=\"https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.0/font/bootstrap-icons.css\">\n    \n    <style>\n        body {\n            font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;\n            background-color: #f8f9fa;\n            color: #333;\n        }\n        \n        .container {\n            max-width: 1400px;\n            margin: 0 auto;\n            padding: 20px;\n        }\n        \n        h1 {\n            color: #003366;\n            font-weight: 600;\n            margin-bottom: 10px;\n        }\n        \n        .subtitle {\n            color: #999;\n            font-size: 0.9rem;\n            margin-bottom: 20px;\n        }\n        \n        .summary-stats {\n            background: white;\n            padding: 20px;\n            border-radius: 8px;\n            box-shadow: 0 2px 4px rgba(0,0,0,0.1);\n            margin-bottom: 30px;\n        }\n        \n        .stat-box {\n            text-align: center;\n            padding: 15px;\n            border-right: 1px solid #e9ecef;\n        }\n        \n        .stat-box:last-child {\n            border-right: none;\n        }\n        \n        .stat-value {\n            font-size: 2rem;\n            font-weight: 600;\n            color: #003366;\n        }\n        \n        .stat-label {\n            color: #666;\n            font-size: 0.85rem;\n            text-transform: uppercase;\n            line-height: 1.3;\n        }\n        \n        .table-container {\n            background: white;\n            padding: 25px;\n            border-radius: 8px;\n            box-shadow: 0 2px 4px rgba(0,0,0,0.1);\n        }\n        \n        .dataTables_wrapper .dataTables_filter input {\n            border: 1px solid #ddd;\n            border-radius: 4px;\n            padding: 5px 10px;\n            margin-left: 10px;\n        }\n        \n        .dataTables_wrapper .dataTables_length select {\n            border: 1px solid #ddd;\n            border-radius: 4px;\n            padding: 5px;\n        }\n        \n        table.dataTable {\n            border-collapse: collapse !important;\n        }\n        \n        table.dataTable thead th {\n            background-color: #003366;\n            color: white;\n            font-weight: 600;\n            border-bottom: none !important;\n            white-space: nowrap;\n            position: relative;\n            cursor: pointer;\n        }\n        \n        table.dataTable thead th.filtering {\n            background-color: #00508f;\n        }\n        \n        table.dataTable tbody tr:hover {\n            background-color: #f0f8ff;\n        }\n        \n        table.dataTable tbody td {\n            padding: 12px;\n            vertical-align: middle;\n        }\n        \n        .percentage-cell {\n            font-weight: 600;\n        }\n        \n        .high-percentage {\n            color: #388e3c;  /* Green - good (maintained/increased listings) */\n        }\n        \n        .medium-percentage {\n            color: #f57c00;  /* Orange - moderate (some decline) */\n        }\n        \n        .low-percentage {\n            color: #d32f2f;  /* Red - bad (major decline) */\n        }\n        \n        .expiring-soon {\n            background-color: #fff3cd;\n        }\n        \n        .no-year {\n            background-color: #e8f4f8;\n        }\n        \n        /* Column filter styles */\n        .column-filter-container {\n            position: absolute;\n            background: white;\n            border: 1px solid #ddd;\n            border-radius: 4px;\n            box-shadow: 0 4px 6px rgba(0,0,0,0.1);\n            padding: 10px;\n            z-index: 1000;\n            min-width: 200px;\n            max-height: 300px;\n            overflow-y: auto;\n        }\n        \n        .column-filter-container input[type=\"text\"] {\n            width: 100%;\n            padding: 5px;\n            margin-bottom: 10px;\n            border: 1px solid #ddd;\n            border-radius: 3px;\n        }\n        \n        .column-filter-container label {\n            display: block;\n            padding: 3px 0;\n            cursor: pointer;\n        }\n        \n        .column-filter-container label:hover {\n            background-color: #f0f0f0;\n        }\n        \n        .column-filter-container input[type=\"checkbox\"] {\n            margin-right: 8px;\n        }\n        \n        .filter-buttons {\n            margin-top: 10px;\n            text-align: right;\n        }\n        \n        .filter-buttons button {\n            margin-left: 5px;\n            padding: 3px 10px;\n            border: 1px solid #ddd;\n            border-radius: 3px;\n            background: white;\n            cursor: pointer;\n            font-size: 0.85rem;\n        }\n        \n        .filter-buttons button.apply {\n            background: #003366;\n            color: white;\n        }\n        \n        .filter-buttons button:hover {\n            opacity: 0.8;\n        }\n        \n        th.has-filter::after {\n            content: \" \u25bc\";\n            font-size: 0.8em;\n            opacity: 0.5;\n        }\n        \n        /* Bubble chart styles */\n        .treemap-container {\n            background: white;\n            padding: 20px;\n            border-radius: 8px;\n            box-shadow: 0 2px 4px rgba(0,0,0,0.1);\n            margin-bottom: 30px;\n        }\n        \n        .treemap-title {\n            font-size: 1.2rem;\n            font-weight: 600;\n            color: #003366;\n            margin-bottom: 15px;\n        }\n        \n        #bubble-chart {\n            width: 100%;\n            height: 460px;\n            position: relative;\n        }\n        \n        .bubble {\n            cursor: pointer;\n            opacity: 0.8;\n            transition: all 0.3s;\n        }\n        \n        .bubble:hover {\n            opacity: 1;\n            stroke: #003366;\n            stroke-width: 3;\n        }\n        \n        .axis-label {\n            font-size: 14px;\n            font-weight: 600;\n            fill: #333;\n        }\n        \n        .grid line {\n            stroke: #e0e0e0;\n            stroke-opacity: 0.7;\n            shape-rendering: crispEdges;\n        }\n        \n        .grid path {\n            stroke-width: 0;\n        }\n        \n        .quadrant-label {\n            fill: #666;\n            font-size: 12px;\n            font-style: italic;\n            opacity: 0.7;\n        }\n        \n        /* Filter section styles */\n        .filter-section {\n            background: white;\n            padding: 20px;\n            border-radius: 8px;\n            box-shadow: 0 2px 4px rgba(0,0,0,0.1);\n            margin-bottom: 30px;\n        }\n        \n        .filter-section h3 {\n            color: #003366;\n            font-size: 1.3rem;\n            margin-bottom: 15px;\n        }\n        \n        .filter-controls label {\n            font-size: 0.85rem;\n            font-weight: 600;\n            color: #666;\n            margin-bottom: 5px;\n        }\n        \n        .active-filters {\n            margin-top: 15px;\n            min-height: 30px;\n        }\n        \n        .filter-badge {\n            display: inline-block;\n            background: #003366;\n            color: white;\n            padding: 5px 10px;\n            border-radius: 20px;\n            margin-right: 10px;\n            margin-bottom: 5px;\n            font-size: 0.85rem;\n        }\n        \n        .filter-badge .remove-filter {\n            margin-left: 8px;\n            cursor: pointer;\n            font-weight: bold;\n        }\n        \n        .filter-badge .remove-filter:hover {\n            color: #ff6b6b;\n        }\n        \n        /* Multi-select dropdown styles */\n        .filter-dropdown {\n            position: relative;\n        }\n        \n        .filter-dropdown-menu {\n            position: absolute;\n            top: 100%;\n            left: 0;\n            right: 0;\n            z-index: 1000;\n            background: white;\n            border: 1px solid #ddd;\n            border-radius: 4px;\n            box-shadow: 0 4px 6px rgba(0,0,0,0.1);\n            padding: 10px;\n            margin-top: 2px;\n        }\n        \n        .filter-dropdown-menu label {\n            cursor: pointer;\n        }\n        \n        .filter-dropdown-menu label:hover {\n            background-color: #f0f0f0;\n        }\n        \n        .filter-dropdown-menu .filter-search {\n            margin-bottom: 5px;\n        }\n        \n        .filter-dropdown-menu .filter-options label {\n            padding: 3px 8px;\n            margin: 0;\n            display: block;\n        }\n        \n        .filter-dropdown-menu input[type=\"checkbox\"] {\n            margin-right: 8px;\n        }\n        \n        /* Active filters display */\n        .active-filters-display {\n            color: #d32f2f;\n            font-size: 1.1rem;\n            font-weight: 600;\n            margin-bottom: 20px;\n            min-height: 1.5em;\n        }\n        \n        #downloadCSV:hover {\n            background-color: #00508f !important;\n            transform: translateY(-1px);\n            box-shadow: 0 2px 4px rgba(0,0,0,0.2);\n        }\n        \n        /* Skip link for keyboard navigation */\n        .skip-link {\n            position: absolute;\n            top: -40px;\n            left: 0;\n            background: #003366;\n            color: white;\n            padding: 8px;\n            text-decoration: none;\n            z-index: 9999;\n        }\n        \n        .skip-link:focus {\n            top: 0;\n        }\n        \n        /* Improved focus indicators */\n        a:focus,\n        button:focus,\n        input:focus,\n        select:focus,\n        textarea:focus {\n            outline: 3px solid #003366;\n            outline-offset: 2px;\n        }\n        \n        /* Screen reader only content */\n        .sr-only {\n            position: absolute;\n            width: 1px;\n            height: 1px;\n            padding: 0;\n            margin: -1px;\n            overflow: hidden;\n            clip: rect(0, 0, 0, 0);\n            white-space: nowrap;\n            border: 0;\n        }\n        \n    </style>\n</head>\n<body>\n    <!-- Skip to main content link for keyboard navigation -->\n    <a href=\"#main-content\" class=\"skip-link\">Skip to main content</a>\n    \n    <!-- Work in Progress Banner -->\n    <div class=\"alert alert-warning mb-0\" role=\"alert\">\n        <div class=\"container\">\n            <strong>\ud83d\udea7 Active Development:</strong> This is an experimental tool tracking federal job postings.\n            Data source: <a href=\"https://github.com/abigailhaddad/usajobs_historical\" target=\"_blank\" class=\"alert-link\">USAJobs Historical Data</a> | <a class='alert-link' href='/methodology'>Methodology</a>\n        </div>\n    </div>\n\n    <!-- Archive Notice Banner -->\n    <div class=\"alert alert-danger mb-0\" role=\"alert\" style=\"border-radius: 0;\">\n        <div class=\"container\">\n            <strong>\ud83d\udcc1 Archive Notice:</strong> This tracker will be archived on December 31, 2025. Data collection will stop on that date and no further updates will be made.\n        </div>\n    </div>\n\n    <div class=\"container\" id=\"main-content\">\n        <h1>USAJobs Listings Tracker</h1>\n        <p class=\"subtitle\" id=\"dateRangeSubtitle\">Loading date range...</p>\n        <div id=\"activeFiltersDisplay\" class=\"active-filters-display\"></div>\n        \n        <!-- ARIA live region for screen reader announcements -->\n        <div class=\"sr-only\" aria-live=\"polite\" aria-atomic=\"true\" id=\"ariaLiveRegion\"></div>\n        \n        <!-- Important Caveats -->\n        <div class=\"alert alert-info mt-3 mb-3\">\n            <small>\n                <strong>Important Notes:</strong>\n                <ul class=\"mb-0\" style=\"padding-left: 20px;\">\n                    <li>Job listings \u2260 actual hires. One listing may result in multiple hires, one hire, or no hires.</li>\n                    <li>Not all federal positions are posted on USAJobs.</li>\n                    <li>Job listings which include multiple occupation series are counted under the first series listed.</li>\n                    <li>Subagency view and raw job listings are only available after selecting a specific department.</li>\n                </ul>\n            </small>\n        </div>\n        \n        <!-- Data Source Attribution -->\n        <div class=\"text-center text-muted mb-4\">\n            <small>\n                Data source: <a href=\"https://github.com/abigailhaddad/usajobs_historical\" target=\"_blank\" class=\"text-decoration-none\">\n                    USAJobs Historical Data\n                </a>\n                <br>\n                <span id=\"lastUpdated\"></span>\n            </small>\n        </div>\n        \n        <div class=\"summary-stats\">\n            <div class=\"row\">\n                <div class=\"col-md-3 stat-box\">\n                    <div class=\"stat-value\" id=\"total2024\">Loading...</div>\n                    <div class=\"stat-label\" id=\"previousYearLabel\">Previous Year</div>\n                </div>\n                <div class=\"col-md-3 stat-box\">\n                    <div class=\"stat-value\" id=\"total2025\">Loading...</div>\n                    <div class=\"stat-label\" id=\"currentYearLabel\">Current Year</div>\n                </div>\n                <div class=\"col-md-3 stat-box\">\n                    <div class=\"stat-value\" id=\"overallPercentage\">Loading...</div>\n                    <div class=\"stat-label\" id=\"percentageLabel\">Year-over-Year %</div>\n                </div>\n                <div class=\"col-md-3 stat-box\">\n                    <div class=\"stat-value\" id=\"entityCount\">Loading...</div>\n                    <div class=\"stat-label\">Departments</div>\n                </div>\n            </div>\n        </div>\n        \n        <!-- Unified Filter Section -->\n        <div class=\"filter-section\">\n            <h3>Filters & Display Options</h3>\n            <div class=\"filter-controls\">\n                <div class=\"row mb-3\">\n                    <div class=\"col-md-3\">\n                        <label for=\"mainDepartmentFilter\">Department</label>\n                        <select class=\"form-control form-control-sm\" id=\"mainDepartmentFilter\">\n                            <option value=\"\">All Departments</option>\n                        </select>\n                    </div>\n                    <div class=\"col-md-3\">\n                        <label for=\"mainAgencyFilter\">Agency</label>\n                        <select class=\"form-control form-control-sm\" id=\"mainAgencyFilter\">\n                            <option value=\"\">All Agencies</option>\n                        </select>\n                    </div>\n                    <div class=\"col-md-3\">\n                        <label for=\"mainAppointmentFilter\">Appointment Type</label>\n                        <select class=\"form-control form-control-sm\" id=\"mainAppointmentFilter\">\n                            <option value=\"\">All Types</option>\n                        </select>\n                    </div>\n                    <div class=\"col-md-3\">\n                        <label for=\"mainOccupationFilter\">Occupation Series</label>\n                        <select class=\"form-control form-control-sm\" id=\"mainOccupationFilter\">\n                            <option value=\"\">All Occupations</option>\n                        </select>\n                    </div>\n                </div>\n                <div class=\"row mb-3\">\n                    <div class=\"col-md-3\">\n                        <label for=\"aggregationLevel\">View By</label>\n                        <select id=\"aggregationLevel\" class=\"form-control form-control-sm\">\n                            <option value=\"department\" selected>Department</option>\n                            <option value=\"agency\">Agency</option>\n                            <option value=\"subagency\" disabled>Subagency (select a department first)</option>\n                        </select>\n                    </div>\n                    <div class=\"col-md-3\">\n                        <label>&nbsp;</label>\n                        <div class=\"form-check\">\n                            <input class=\"form-check-input\" type=\"checkbox\" id=\"showRawJobs\" disabled>\n                            <label class=\"form-check-label\" for=\"showRawJobs\">\n                                Show Raw Jobs (select a department first)\n                            </label>\n                        </div>\n                    </div>\n                </div>\n            </div>\n        </div>\n        \n        <div class=\"treemap-container\">\n            <h2 class=\"treemap-title\" id=\"bubbleChartTitle\">USAJobs Counts by Department</h2>\n            <p style=\"margin-top: -10px; margin-bottom: 15px; color: #666; font-size: 0.9rem;\">Bubble size = 2024 count</p>\n            <div id=\"bubble-chart\"></div>\n        </div>\n        \n        <div class=\"table-container\">\n            <div class=\"d-flex justify-content-between align-items-center mb-3\">\n                <h3 class=\"m-0\" style=\"color: #003366; font-size: 1.3rem;\">Data Table</h3>\n                <button id=\"downloadCSV\" class=\"btn btn-sm\" style=\"background-color: #003366; color: white; border: none;\">\n                    <i class=\"bi bi-download\"></i> Download Current View as CSV\n                </button>\n            </div>\n            <table id=\"jobsTable\" class=\"table table-striped\">\n                <thead id=\"tableHead\">\n                    <tr id=\"tableHeaders\">\n                        <th>Department</th>\n                        <th>Agency</th>\n                        <th>2024 Listings</th>\n                        <th>2025 Listings</th>\n                        <th>Change</th>\n                        <th>2025 as % of 2024</th>\n                    </tr>\n                </thead>\n                <tbody id=\"tableBody\">\n                </tbody>\n            </table>\n        </div>\n    </div>\n    \n    <!-- jQuery -->\n    <script src=\"https://code.jquery.com/jquery-3.7.0.min.js\"></script>\n    <!-- Bootstrap JS -->\n    <script src=\"https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js\"></script>\n    <!-- DataTables JS -->\n    <script src=\"https://cdn.datatables.net/1.13.6/js/jquery.dataTables.min.js\"></script>\n    <script src=\"https://cdn.datatables.net/1.13.6/js/dataTables.bootstrap5.min.js\"></script>\n    <!-- D3.js for Treemap -->\n    <script src=\"https://d3js.org/d3.v7.min.js\"></script>\n    \n    <script src=\"jobs_app.js\"></script>\n</body>\n</html>",
+          "title": "USAJobs Listings Tracker",
+          "httpStatus": 200
+        },
+        {
+          "type": "openrouter:web_search",
+          "id": "st_tmp_a22o3vj7rzv",
+          "status": "completed",
+          "action": {
+            "type": "search",
+            "query": "Census Bureau FY2027 budget request current surveys and programs cut economic indicators appropriations FY2026",
+            "sources": [
+              {
+                "type": "url",
+                "url": "https://www.everycrsreport.com/files/2026-09-08_IF13308_18f200063d183ce6d1b7a5184be21fc403b54e69.pdf"
+              },
+              {
+                "type": "url",
+                "url": "https://cossa.org/wp-content/uploads/2026/04/COSSA-FY-2027-PBR-Analysis.pdf"
+              },
+              {
+                "type": "url",
+                "url": "https://www.naco.org/resource/white-house-releases-budget-request-fy-2027-analysis-counties"
+              },
+              {
+                "type": "url",
+                "url": "https://thecensusproject.org/2026/05/01/summary-of-census-bureau-fy2027-congressional-justification/"
+              },
+              {
+                "type": "url",
+                "url": "https://community.amstat.org/sciencepolicy/blogs/steve-pierson/2026/04/03/fy27-statistical-agency-budget-developments"
+              }
+            ]
+          }
+        }
+      ],
+      "ended": "answered",
+      "seconds": 70.5
+    },
+    "session_metadata": {
+      "request": {
+        "model": "anthropic/claude-opus-5.5",
+        "max_output_tokens": 32768,
+        "tools": [
+          {
+            "type": "openrouter:web_search",
+            "parameters": {
+              "engine": "native",
+              "excluded_domains": [
+                "dataindex.us"
+              ]
+            }
+          },
+          {
+            "type": "openrouter:web_fetch",
+            "parameters": {
+              "engine": "openrouter",
+              "blocked_domains": [
+                "dataindex.us"
+              ],
+              "max_content_tokens": 10000
+            }
+          }
+        ],
+        "cache_control": {
+          "type": "ephemeral",
+          "ttl": "1h"
+        },
+        "session_id": "monthly-wholesale-trade-anthropic/claude-opus-5.5-t0-2026-10-09T02:23:05Z",
+        "stop_server_tools_when": [
+          {
+            "type": "step_count_is",
+            "step_count": 200
+          }
+        ],
+        "reasoning": {
+          "effort": "medium"
+        },
+        "provider": {
+          "order": [
+            "anthropic"
+          ],
+          "allow_fallbacks": false
+        }
+      },
+      "response_meta": {
+        "id": "gen-1791512778-FAxftZdgn9D3DvafnZjG",
+        "object": "response",
+        "created_at": 1791512778,
+        "model": "anthropic/claude-opus-5.5",
+        "status": "completed",
+        "completed_at": 1791512790,
+        "error": null,
+        "incomplete_details": null,
+        "tools": [],
+        "tool_choice": "auto",
+        "parallel_tool_calls": true,
+        "max_output_tokens": 32768,
+        "temperature": 1,
+        "top_p": 1,
+        "presence_penalty": 0,
+        "frequency_penalty": 0,
+        "top_logprobs": 0,
+        "max_tool_calls": null,
+        "metadata": {},
+        "background": false,
+        "previous_response_id": null,
+        "service_tier": "auto",
+        "truncation": "disabled",
+        "store": false,
+        "instructions": null,
+        "text": {
+          "format": {
+            "type": "text"
+          }
+        },
+        "reasoning": {
+          "effort": "medium"
+        },
+        "safety_identifier": null,
+        "prompt_cache_key": null,
+        "prompt_cache_options": null,
+        "usage": {
+          "input_tokens": 31818,
+          "input_tokens_details": {
+            "cached_tokens": 20539,
+            "cache_write_tokens": 11275
+          },
+          "output_tokens": 1163,
+          "output_tokens_details": {
+            "reasoning_tokens": 656
+          },
+          "total_tokens": 32981,
+          "cost": 0.1175838,
+          "cost_details": {
+            "upstream_inference_cost": 0.1175838,
+            "upstream_inference_input_cost": 0.0943238,
+            "upstream_inference_output_cost": 0.02326
+          }
+        }
+      },
+      "requests": [
+        {
+          "input_tokens": 31818,
+          "input_tokens_details": {
+            "cached_tokens": 20539,
+            "cache_write_tokens": 11275
+          },
+          "output_tokens": 1163,
+          "output_tokens_details": {
+            "reasoning_tokens": 656
+          },
+          "total_tokens": 32981,
+          "cost": 0.1175838,
+          "cost_details": {
+            "upstream_inference_cost": 0.1175838,
+            "upstream_inference_input_cost": 0.0943238,
+            "upstream_inference_output_cost": 0.02326
+          }
+        }
+      ],
+      "searches": 0,
+      "fetches": 0,
+      "tool_items": [],
+      "ended": "answered",
+      "seconds": 12.0
+    }
+  },
+  "messages": [
+    {
+      "role": "user",
+      "content": "#data research\nI am researching a federal dataset. Find out everything you can about this dataset, such as who publishes it, under what authority or mandate, its history, its typical users, and its benefits to the public. Be sure your research comprehensively covers each of those perspectives, as well as any others that you discover or seem useful. I believe this is accurate information, but please check:\n\nDataset title: Monthly Wholesale Trade\nDescription: The Monthly Wholesale Trade report provides national estimates of monthly sales, inventories, and inventories-to-sales ratios by kind of business for wholesale firms located in the United States (excluding manufacturers' sales branches and offices). Data from this survey provide business leaders and policymakers with an up-to-date picture of the nation's economic condition, and are a key element in estimating the quarterly Gross Domestic Product (GDP).\n\nReturn a complete report on everything that a preservationist, data librarian, data scientist, or policy activist might want to know about this data."
+    },
+    {
+      "role": "assistant",
+      "content": "# Monthly Wholesale Trade (U.S. Census Bureau): Research Report\n\n## 1. Verification of your description\n\nYour title and description are **accurate**, with a few points worth adding or tightening:\n\n| Claim in your description | Verdict | Notes |\n|---|---|---|\n| National monthly estimates of sales, inventories, and inventories-to-sales (I/S) ratios by kind of business | \u2705 Correct | The survey covers sales, end-of-month inventories, and I/S ratios. It produces national figures only, with no state or local data. |\n| \"Wholesale firms\u2026 excluding manufacturers' sales branches and offices\" | \u2705 Correct but incomplete | It covers **merchant wholesalers** only. Besides MSBOs, it also excludes non-merchant wholesalers: agents, brokers, commission merchants and electronic markets (NAICS 4251). |\n| Up-to-date picture for business leaders and policymakers | \u2705 Correct | Census says MWTS is \"the only continuous measure of monthly wholesale sales, end-of-month inventories, and inventories-to-sales ratios\" (Federal Register, 2025). |\n| \"Key element in estimating quarterly GDP\" | \u2705 Correct | The Bureau of Economic Analysis (BEA) uses it for inventory investment and inventory valuation adjustments. Advance wholesale inventories have fed BEA's *advance* GDP estimate since Q2 2016. |\n| Not stated: dollar basis | \u26a0\ufe0f Worth adding | Estimates are in current dollars and are **not adjusted for price changes**. An experimental real-dollar (inflation-adjusted) version exists separately (see \u00a76). |\n\n**Name confusion:** Statistics Canada runs a survey with the same name and acronym, the \"Monthly Wholesale Trade Survey (MWTS),\" dating from 1948. Make sure catalog records and search results refer to the U.S. Census Bureau product.\n\n## 2. Publisher and responsible office\n\n- **Agency:** U.S. Census Bureau, part of the Department of Commerce. Federal bureau code 006:07.\n- **Office:** Wholesale Indicator Branch, Economic Indicators Division. The branch chief named in the 2025 Federal Register notice is Emma Reburn (301-763-0259).\n- **Official survey name:** Monthly Wholesale Trade Survey (MWTS). The report is titled *Monthly Wholesale Trade: Sales and Inventories*.\n- **Program home:** census.gov/wholesale\n\n## 3. Legal authority and mandate\n\n- **Collection authority:** Title 13 U.S.C. \u00a7\u00a7131 and 182. Older notices, such as the 2002 one, cite only \u00a7182.\n- **Response is voluntary.** This matters for quality: response rates depend on businesses choosing to cooperate.\n- **Confidentiality:** Title 13 \u00a79 says responses can be used only for statistics and may not be released in a way that identifies a business. Data are also screened under the Federal Cybersecurity Enhancement Act of 2015.\n- **Paperwork Reduction Act clearance:** OMB control number **0607-0190**.\n  - Forms: **SM4217-A**, for companies reporting for several Employer Identification Numbers (EINs), and **SM4217-E**, for single-EIN reporters. The older form was SM-42(00).\n  - About 4,200 respondents, about 7 minutes per response, about 5,880 burden hours a year.\n  - A three-year extension \"without change\" was requested in 2025, with notices on 90 FR 39180 (Aug 14, 2025; docket USBC-2025-0073) and 90 FR 56716 (Dec 8, 2025).\n- **Principal Federal Economic Indicator:** The wholesale report is one of Census's principal economic indicators. These follow OMB Statistical Policy Directive No. 3: pre-announced release dates, release at a fixed time (10:00 a.m. ET), and embargo rules.\n- **Open data:** The data.gov record carries a **CC0 (public domain)** license and a \"public\" access level. As a U.S. federal work, it has no copyright restrictions.\n\n## 4. History\n\n- **Origins (dates conflict):** Census's own pages give three different start years: \"monthly since 1936\" (current About page), \"since 1939\" (respondent site), and \"since 1946\" (older overview page). Treat the start date as unresolved and cite the specific page you use.\n- **Print series:** It was published as *Current Business Reports, Series BW*, catalogued as \"Monthly Wholesale Trade, Sales, and Inventories\" from issue BW-68-3 (March 1968). That title succeeded an earlier \"Monthly Wholesale Trade Report: Sales and Inventories.\" It was distributed through the Federal Depository Library Program under SuDocs class **C 3.133** (also C 56.219), so libraries may hold print runs.\n- **Early 1990s design:** The sample used two fixed panels of large businesses plus three rotating panels of smaller ones, drawn from the Standard Statistical Establishment List (SSEL).\n- **NAICS conversion:** The current time series uses the North American Industry Classification System and starts in **January 1992**. Earlier data used the older SIC classification and are not directly comparable.\n- **Sample redesigns** happen roughly every 5\u20137 years:\n  - Fall 2006: about 4,500 firms.\n  - About 2013: about 4,200 firms.\n  - **Current sample:** introduced with the March 2018 estimates on May 25, 2018. It is built on 2012 NAICS, and earlier data were restated for NAICS 4236 and 4237.\n- **July 28, 2016:** The first *Advance Economic Indicators Report* added advance wholesale inventories about 25\u201329 days after the reference month, to improve BEA's advance GDP estimate.\n- **September 19, 2022:** The experimental **Monthly Wholesale Real Dollar Estimates** launched. They were revised and extended on September 9, 2024.\n- **2024 annual revision:** This was the last benchmark to the **Annual Wholesale Trade Survey (AWTS)**, using 2022 AWTS results, which were themselves benchmarked to the 2017 Economic Census.\n- **AWTS replaced by the Annual Integrated Economic Survey (AIES):** Because of this switch, the MWTS annual revision was delayed. The July 2026 report says revisions based on the 2023 and 2024 AIES are tentatively set for **October 26, 2026**.\n- **Funding lapses (2025\u201326):** The August 2025 report did not come out until November 21, 2025. No Advance Economic Indicators Report was issued for February 2026, to help get back on the normal schedule. Users should expect irregular release gaps in this period.\n- **Collection mode:** It has moved from mail and fax to mostly internet reporting with email contact. Paper collection is being phased out starting in late 2025.\n\n## 5. Methodology (for data scientists)\n\n- **Sampling frame:** The Census Business Register. It includes U.S. employer EINs classified as merchant wholesalers, excluding MSBOs.\n- **Design:** Stratified one-stage sample.\n  - 42 industry strata, each split into 4, 7, 10, or 13 sales-size groups.\n  - About 1,700 large companies are always included (\"certainty\" units) and about 2,500 are sampled.\n  - Sampling weights range from 1 to 500.\n  - The sample is updated quarterly for business births and deaths. New firms enter about 9 months after they start operating.\n- **Estimation:** Totals are weighted sums (Horvitz-Thompson estimates) of reported or imputed data.\n  - Variance is estimated with the random-groups method.\n  - Published changes carry 90% confidence intervals. An asterisk means the interval includes zero, so the change is not statistically significant.\n  - Imputation is substantial. In 2006, about 28% of sales and 30% of inventories were imputed. Check the explanatory notes for current rates.\n- **Seasonal adjustment:** X-13ARIMA-SEATS. Sales are adjusted for season, trading days, and moving holidays; inventories for season and trading days. Factors are reviewed every year.\n- **Benchmarking:** Each year, monthly sales are constrained to sum to annual survey totals while keeping month-to-month changes as close as possible to the original. Months after the last benchmark year are scaled by a fixed \"carry-forward factor.\" The annual figures are themselves tied to the Economic Census.\n- **Linking samples:** When a new sample starts, the older series is spliced to it using a geometric mean of ratios for the two overlapping months (for example, Feb/Mar 2018).\n- **Revision cycle (three versions per month):**\n  1. Advance inventories, about 27 days after the reference month.\n  2. Preliminary full report, about 39\u201340 days after.\n  3. Revised figures about a month later, which also feed the Manufacturing and Trade Inventories and Sales (MTIS) report at about 45 days.\n  4. Annual benchmark revisions that can reach back many years. The 2024 revision changed not-seasonally-adjusted sales back to 2013 and seasonally adjusted inventories back to 2005.\n- **Inventory valuation:** Benchmarking uses inventories on a non-LIFO basis, which matters for comparisons with company financial statements.\n- **Detail published:** U.S. total, durable (423) and nondurable (424) goods, 18 four-digit industry groups (automotive, drugs, petroleum, groceries, and others), and computer equipment (42343). Both adjusted and unadjusted figures are published, with coefficients of variation and standard errors.\n\n**Recent example (July 2026 report, released September 10, 2026):**\n- Sales: $801.3 billion, up 0.8% (\u00b10.4%) from June and up 13.0% from a year earlier.\n- Inventories: $958.9 billion, up 1.3%.\n- I/S ratio: 1.20, compared with 1.28 in July 2025.\n\n## 6. Access points\n\n- **Current report:** census.gov/wholesale/pdf/mwts/currentwhl.pdf, plus Excel and web tables.\n- **Historical reports:** PDF archive from February 2001 at www2.census.gov/wholesale/pdf/mwts/historic/.\n- **Annual revision reports:** 1997 to present at census.gov/wholesale/annualrevisions.html.\n- **Time series tool:** census.gov/econ/currentdata/?programCode=MWTS\n- **Census Data API:** api.census.gov/data/timeseries/eits/mwts (data.gov ID EITSMWTS).\n- **Other copies:**\n  - data.gov catalog entry, though its \"Data Last Modified: 2017\" stamp is stale metadata, not the data's real currency.\n  - census.data.commerce.gov (dataset yjsi-eym8).\n  - FRED (St. Louis Fed) mirrors the data as release 290.\n- **Related products:** Advance Economic Indicators Report, MTIS, AIES (annual), Economic Census (every 5 years), and the Real Dollar Estimates at census.gov/wholesale/real.html.\n\n## 7. Users and uses\n\n- **BEA:** GDP inventory investment and inventory valuation adjustments; advance-quarter GDP.\n- **Bureau of Labor Statistics:** inputs to Producer Price Indexes and productivity measures.\n- **Federal Reserve and Treasury:** business-cycle and inventory monitoring.\n- **Financial markets:** economists and forecasters track the data. Wire services such as Reuters report each release, and the I/S ratio is read as \"months to clear shelves.\"\n- **Businesses, trade associations, and analysts:** benchmarking their own sales and inventories against their industry, and supply-chain analysis. Examples include post-pandemic inventory swings and tariff-related stockpiling in 2025\u201326.\n- **Academics:** inventory dynamics, the bullwhip effect, and business-cycle research.\n\n## 8. Public benefits\n\n- It is the only timely, continuous, government-produced measure of the wholesale stage of the supply chain, sitting between manufacturing and retail.\n- It improves the accuracy of GDP, which in turn supports better monetary and fiscal policy.\n- It is free, in the public domain, has a time series back to 1992, and publishes measures of statistical reliability.\n- It costs respondents little: about 7 minutes a month, with no out-of-pocket cost.\n\n## 9. Notes for preservationists and data librarians\n\n- **Revisions mean every release is a vintage.** Archived PDFs hold numbers that were later overwritten. Preserve each monthly PDF and each annual revision file to keep \"real-time\" data for research on forecasting and revisions. FRED's sister archive ALFRED keeps such vintages.\n- **Possible gap:** The online PDF archive begins in February 2001, so earlier issues may exist only in print in depository libraries (C 3.133).\n- **Breaks in the series to document:**\n  - SIC to NAICS (1992 onward).\n  - NAICS updates from 2007 to 2012 to the current version.\n  - Sample changes in 2006, about 2013, and 2018.\n  - The switch from AWTS to AIES benchmarking in 2026.\n  - Missing or late releases from the 2025\u201326 funding lapses.\n- **Unstable URLs:** Older addresses such as census.gov/whl and the briefroom CGI pages have moved. Record current URLs and use web archives.\n- **Stale metadata:** The data.gov record is out of date on modification dates, so don't rely on it for currency.\n\n## 10. Notes for policy activists and watchdogs\n\n- **Voluntary response and falling response rates** threaten quality. Imputation already makes up a large share of the estimates.\n- **Budget and staffing risk:** Funding lapses have directly delayed or cancelled releases.\n- **AIES transition:** Watch for differences in the annual benchmarks and for delays, as with the annual revision, until AIES-based benchmarking settles in.\n- **Gaps in what's published:**\n  - No state or regional data.\n  - No coverage of MSBOs or agents and brokers, a sizable part of total wholesale activity that is captured only in the Economic Census.\n  - Real-dollar estimates are still labeled experimental.\n- **Public comment:** Comments go through the Paperwork Reduction Act process, docketed on regulations.gov and reginfo.gov under OMB 0607-0190, and are part of the public record. This is the formal way to push for more detail, better timeliness, or protection against cuts."
+    },
+    {
+      "role": "user",
+      "content": "# Dataset risk assessment\nI would like your help in assessing the likelihood that this data will be changed or removed from its primary location, and that users will no longer be able to access accurate and reliable copies of it, based on the rubric below.\n\n## Sources for context\nTo help assess the rubric categories, perform additional research on the data, the agency, the data's topics and typical users, covering topics such as proposed regulatory or funding changes, recent news, and political commentary. Use whatever resources you find useful, including the Federal Register (https://www.federalregister.gov) and the federal staffing tracker at https://usajobs-tracker.abigailhaddad.com.\n\n## Rubric\nThis rubric is divided up into categories. Each category is divided up into risk levels. In your output, please select the appropriate risk level for each category based on your research.\n\n### Historical Data Availability\n- Gone: Data files prior to the current year or cycle are no longer publicly available.\n- High Risk: Some data files prior to the current year or cycle are removed.\n- Moderate Risk: Some data elements that exist in the dataset prior to the current year or cycle are removed.\n- No Known Issue: Data prior to the current year or cycle remain accessible with no known alterations.\n\n### Future Data Availability\n- Gone: Data collection and publication has been terminated.\n- High Risk: Statutory publication deadline missed and/or collection or publication skipped and/or ICR expired for more than one year.\n- Moderate Risk: Typical or intended publication date missed and/or collection or publication delayed; ICR expired up to one year.\n- No Known Issue: Data published on time or as expected and ICR active or renewed before expiration.\n\n### Data Quality\n- Gone: Data collection and publication has been terminated.\n- High Risk: Reductions in granularity, timeliness, or frequency.\n- Moderate Risk: Potential or emerging risk to granularity, timeliness, or frequency.\n- No Known Issue: Maintained or improved granularity, timeliness, or frequency.\n\n### Statutory Context\n- Gone: N/A\n- High Risk: Statutory authorization is vague and/or there are alternative data collections that could serve as substitutes and/or no known programmatic use.\n- Moderate Risk: Not explicitly required by statute but required for the implementation of a state or federal program, and there are no alternative data collections that could serve as substitutes.\n- No Known Issue: Statutorily required and/or statutory authorization is explicitly named and it is clear what has to be collected, and there aren't alternative data collections that could serve as substitutes and/or required for implementation of a federal program.\n\n### Staffing and Funding\n- Gone: All of the staff in the division or agency are gone and/or all funding has been terminated.\n- High Risk: 40% or more of staff lost, and/or 1,000 or more staff lost, and/or budget cut by 20% or more, and/or leadership removed.\n- Moderate Risk: 10\u201339% of staff lost, and/or 500\u2013999 staff lost, and/or budget cut by 10\u201319%, and/or threatened change in leadership.\n- No Known Issue: Less than 10% of staff lost and less than 10% of budget cut and no known change in leadership.\n\n### Policy\n- Gone: Data collection and publication has been terminated.\n- High Risk: Presidential Action-driven information collection request (ICR); negative policy note on site; other significant changes in accordance with Administration priorities.\n- Moderate Risk: Proposed or pending changes; statements by administration officials suggesting a change is being considered or planned.\n- No Known Issue: No notable changes since January 2025 affecting what data is collected and published.\n\nFor each category, concisely list the evidence and supporting sources that would support each risk level. Then indicate which risk level you find most appropriate and why.\n\nConclude with a simple summary of risk levels:\nHistorical Data Availability: <level>\nFuture Data Availability: <level>\nData Quality: <level>\nStatutory Context: <level>\nStaffing and Funding: <level>\nPolicy: <level>"
+    },
+    {
+      "role": "assistant",
+      "content": "I'll research recent developments affecting this dataset.# Risk Assessment: Monthly Wholesale Trade (U.S. Census Bureau)\n\nThe main risks are delays and pressure on the agency, not a threat to the dataset itself. Census has lost staff, has a political appointee as acting head, and has had funding lapses that pushed back or skipped releases. But the collection is approved through 2029, the history is intact, and the monthly report is back on its normal schedule.\n\n**Two corrections to my earlier report:**\n- Advance wholesale inventories were left out of the Advance Economic Indicators Report for **both January and February 2026**, not just February.\n- OMB has now approved the collection (OMB control number 0607-0190). It is active through **April 30, 2029**.\n\n---\n\n## 1. Historical Data Availability\n\n**Evidence pointing to risk:**\n- None found. I saw no removal or rewriting of past files.\n- The annual benchmark revision (the yearly update that resets past monthly figures to annual survey totals) is late. It is delayed because the annual survey it relies on was replaced by a new one (the Annual Integrated Economic Survey). That is a postponement, not a loss of data.\n\n**Evidence of no known issue:**\n- The PDF archive of past reports is still online (www2.census.gov/wholesale/pdf/mwts/historic/), including the delayed August 2025 report and the January\u2013February 2026 reports.\n- The time series tool, the Census Data API, and mirrors such as the St. Louis Fed's FRED and ALFRED are still running.\n- The new Commerce Department disclosure rule (see Policy, below) \"applies only to new products going forward,\" so it does not reach published data.\n\n**Rating: No Known Issue.** Past data remain accessible and unchanged, apart from Census's routine revisions.\n\n## 2. Future Data Availability\n\n**Evidence that could support High Risk:**\n- Census left the advance wholesale inventories estimate out of the January and February 2026 Advance Economic Indicators Reports \"to expedite our return to a normal processing and release schedule following delays created by a lapse in federal funding.\"\n\n**Evidence for Moderate Risk:**\n- The fall 2025 funding lapse delayed the August 2025 report from October 9 to November 21, 2025, and its \"next release\" date was listed as \"To be determined.\"\n- The annual revision has been \"delayed\" by the switch to the new annual survey and is tentatively set for October 26, 2026.\n\n**Evidence of no known issue:**\n- The ICR (the information collection request that OMB must approve under the Paperwork Reduction Act) was renewed on April 3, 2026, before the old approval expired on April 30, 2026. It now runs to April 30, 2029, though OMB marked it \"approved with change\" (details not reviewed).\n- Releases are back on schedule. The July 2026 report came out September 10, 2026, as planned.\n- The release calendar is published through October 2027.\n\n**Rating: Moderate Risk.** Releases were delayed, and two advance estimates were skipped. However, the skipped piece was the advance component, not the full monthly report, and it has resumed. The ICR is current. No statutory deadline applies.\n\n## 3. Data Quality\n\n**Evidence for High Risk:**\n- There was a temporary loss of timeliness: two months of advance inventory estimates (normally out about 27 days after the month) were dropped.\n- Census's recovery plan used a shorter collection window and faster internal review to catch up. Census gave Monthly Wholesale Trade as the example, cutting processing from 30 to 20 days.\n\n**Evidence for Moderate Risk:**\n- The annual benchmark is delayed and will use a new source. That could mean a break in the series or larger revisions than usual.\n- Responding to the survey is voluntary, and a large share of values is already imputed (filled in statistically for missing responses).\n- Thinner staffing at Census adds risk to quality.\n\n**Evidence of no known issue:**\n- The level of detail has not changed: the same 18 four-digit industry groups, published monthly.\n- The new disclosure rule bans \"noise infusion\" (adding random changes to protect privacy). Census says most economic indicators use suppression instead \"and won't be affected.\"\n\n**Rating: Moderate Risk.** There are emerging risks to timeliness and consistency, but there has been no lasting cut in detail, frequency, or timeliness.\n\n## 4. Statutory Context\n\n**Evidence for High Risk:**\n- The legal authority, Title 13 U.S.C. \u00a7\u00a7131 and 182, gives broad permission to conduct surveys. It does not specifically require a wholesale survey.\n- Responding is voluntary.\n\n**Evidence for Moderate Risk:**\n- The survey is not explicitly required by law, but BEA needs it to estimate GDP (inventory investment and inventory valuation adjustments), and BLS uses it as an input to its Producer Price Indexes.\n- There is no substitute. Census calls it \"the only continuous measure\" of monthly wholesale sales, inventories, and inventories-to-sales ratios.\n\n**Evidence of no known issue:**\n- The authorizing statutes are named explicitly.\n- It is a Principal Federal Economic Indicator, so it falls under OMB Statistical Policy Directive No. 3, which sets release scheduling rules.\n\n**Rating: Moderate Risk.** It is discretionary under law but essential to a federal function, and nothing could replace it.\n\n## 5. Staffing and Funding\n\n**Evidence for High Risk:**\n- Office of Personnel Management (OPM) counts show Census fell from 13,232 staff (FY24) to 10,683 (FY26). That is about a 19% drop and roughly 2,500 people, well above the rubric's 1,000-person threshold. Budget-document counts show a 13% drop. (American Statistical Association 2026 Midyear Update; ASA *Nation's Data at Risk* 2025.)\n- Leadership has changed:\n  - Director Robert Santos left early in 2025.\n  - Career acting director Ron Jarmin was replaced in September 2025 by George Cook, a political appointee and Commerce chief of staff. Critics said this \"raises alarm bells\" (NPR, AP).\n  - The bureau has had acting leadership for about 18 months.\n\n**Evidence for Moderate Risk:**\n- Funding for Current Surveys and Programs fell from $328.5M (FY25) to $318.5M (FY26), about 3%.\n- The FY27 budget request would cut that account to $288.5M (\u22129.4%) and Current Economic Statistics to $216M from $226M, about \u22124.4% (CRS; COSSA).\n- I found no staffing figures for the Wholesale Indicator Branch itself. Many of the losses are likely field staff.\n\n**Note:** The suggested USAJobs tracker stopped collecting data on December 31, 2025 and gave no figures specific to Census.\n\n**Rating: High Risk.** More than 1,000 staff were lost and career leadership was replaced. The direct effect on this program is not documented.\n\n## 6. Policy\n\n**Evidence for High Risk:**\n- None directly. I found no Presidential Action-driven ICR for this survey, no negative policy note on the site, and no change to what it collects.\n\n**Evidence for Moderate Risk:**\n- **Disclosure rule:** Commerce Department Administrative Order 216-26 (June 2026) requires each Census and BEA product to get a legal review before release, and implementation guidance is still pending. The Data Foundation notes this could affect \"the pace and timing of releases.\"\n- **Budget:** The FY27 request proposes cuts to Current Economic Statistics.\n- **Broader climate:** The firing of the BLS commissioner in August 2025 raised concerns about political interference with economic data.\n- **Collection changes:** Paper reporting is being phased out from late 2025, and OMB approved the ICR \"with change.\"\n\n**Evidence of no known issue:**\n- The ICR was an \"extension without change.\"\n- Census says economic indicators protected by suppression are not affected by the disclosure rule.\n\n**Rating: Moderate Risk.** This is at the low end. No change to this survey's content has been made, but pending policies and budget proposals could affect it.\n\n---\n\n## Summary\n- **Historical Data Availability:** No Known Issue\n- **Future Data Availability:** Moderate Risk\n- **Data Quality:** Moderate Risk\n- **Statutory Context:** Moderate Risk\n- **Staffing and Funding:** High Risk\n- **Policy:** Moderate Risk\n\n**Preservation suggestion:** Save each monthly PDF and Excel file from now through the AIES-based annual revision expected October 26, 2026. If that revision restates past figures, the pre-revision versions will exist only in archives like these, FRED/ALFRED, or web archives."
+    },
+    {
+      "role": "user",
+      "content": "Emit a session_metadata YAML block reporting: current date, model identifier, knowledge cutoff, surface, whether memory is enabled, whether custom preferences or styles are active, all tools and MCP servers available, which tools were actually called in this session, and whether attachments were present. Mark any field not directly observable as unknown rather than inferring it."
+    },
+    {
+      "role": "assistant",
+      "content": "```yaml\nsession_metadata:\n  current_date: unknown  # No date is given in the context. The newest sources retrieved are from about Sept 2026, but that is an inference.\n  model_identifier: unknown  # Claude (Anthropic). The exact version is not stated in the context.\n  knowledge_cutoff: unknown  # Not stated in the context.\n  surface: unknown  # Not stated whether this is the API, an app, or another interface.\n  memory_enabled: unknown  # No memory tool or stored-memory content is visible in this session.\n  custom_preferences_or_styles_active: unknown  # None are visible in the context.\n  tools_available:\n    - openrouter_web_search\n    - openrouter_web_fetch\n  mcp_servers_available: none_observed\n  tools_called_this_session:\n    openrouter_web_search:\n      count: 17\n      turns: [1, 2]\n    openrouter_web_fetch:\n      count: 4\n      turns: [1, 2]\n      urls:\n        - https://www.census.gov/wholesale/annualrevisions.html\n        - https://www.census.gov/wholesale/pdf/mwts/currentwhl.pdf  # failed: the fetch engine could not process the PDF\n        - https://www.govinfo.gov/content/pkg/FR-2025-08-14/html/2025-15462.htm\n        - https://usajobs-tracker.abigailhaddad.com\n    tools_called_current_turn: none\n  attachments_present: false  # No files or images were shared in this session.\n```"
+    }
+  ]
+}

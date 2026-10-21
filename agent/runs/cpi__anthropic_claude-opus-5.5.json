@@ -1,0 +1,1047 @@
+{
+  "dataset": {
+    "key": "cpi",
+    "title": "Consumer Price Index (CPI)"
+  },
+  "model": "anthropic/claude-opus-5.5",
+  "harness": "openrouter tools",
+  "context": "full: each turn's whole output is carried into the next",
+  "search_tool": {
+    "engine": "native",
+    "excluded_domains": [
+      "dataindex.us"
+    ]
+  },
+  "fetch_tool": {
+    "engine": "openrouter",
+    "blocked_domains": [
+      "dataindex.us"
+    ],
+    "max_content_tokens": 10000
+  },
+  "reasoning": "effort medium",
+  "catalog": {
+    "fetched_at": "2026-10-08T20:12:42Z",
+    "entry": {
+      "id": "anthropic/claude-opus-5.5",
+      "canonical_slug": "anthropic/claude-opus-5.5-20260921",
+      "hugging_face_id": null,
+      "name": "Anthropic: Claude Opus 5.5",
+      "created": 1790094732,
+      "description": "Claude Opus 5.5 is Anthropic's flagship model for demanding reasoning, coding, and long-horizon agentic work, succeeding Claude Opus 5. It is particularly strong at multi-step changes in large codebases, code...",
+      "context_length": 1000000,
+      "architecture": {
+        "modality": "text+image+file->text",
+        "input_modalities": [
+          "text",
+          "image",
+          "file"
+        ],
+        "output_modalities": [
+          "text"
+        ],
+        "tokenizer": "Claude",
+        "instruct_type": null
+      },
+      "pricing": {
+        "prompt": "0.000004",
+        "completion": "0.00002",
+        "web_search": "0.01",
+        "input_cache_read": "0.0000002",
+        "input_cache_write": "0.000005",
+        "input_cache_write_1h": "0.000008"
+      },
+      "top_provider": {
+        "context_length": 1000000,
+        "max_completion_tokens": 128000,
+        "is_moderated": true
+      },
+      "per_request_limits": null,
+      "supported_parameters": [
+        "include_reasoning",
+        "max_completion_tokens",
+        "max_tokens",
+        "reasoning",
+        "reasoning_effort",
+        "response_format",
+        "stop",
+        "structured_outputs",
+        "tool_choice",
+        "tools",
+        "verbosity"
+      ],
+      "default_parameters": {},
+      "supported_voices": null,
+      "knowledge_cutoff": null,
+      "expiration_date": null,
+      "links": {
+        "details": "/api/v1/models/anthropic/claude-opus-5.5-20260921/endpoints"
+      },
+      "benchmarks": {
+        "design_arena": [
+          {
+            "arena": "agents",
+            "category": "mobileapps",
+            "elo": 1328,
+            "win_rate": 64.3,
+            "rank": 2
+          },
+          {
+            "arena": "models",
+            "category": "3d",
+            "elo": 1487,
+            "win_rate": 72.3,
+            "rank": 1
+          },
+          {
+            "arena": "models",
+            "category": "codecategories",
+            "elo": 1407,
+            "win_rate": 65.3,
+            "rank": 1
+          },
+          {
+            "arena": "models",
+            "category": "dataviz",
+            "elo": 1403,
+            "win_rate": 64.6,
+            "rank": 1
+          },
+          {
+            "arena": "models",
+            "category": "gamedev",
+            "elo": 1464,
+            "win_rate": 72.5,
+            "rank": 1
+          },
+          {
+            "arena": "models",
+            "category": "svg",
+            "elo": 1334,
+            "win_rate": 50.5,
+            "rank": 1
+          },
+          {
+            "arena": "models",
+            "category": "uicomponent",
+            "elo": 1396,
+            "win_rate": 65.5,
+            "rank": 1
+          },
+          {
+            "arena": "models",
+            "category": "website",
+            "elo": 1340,
+            "win_rate": 57.6,
+            "rank": 3
+          }
+        ],
+        "artificial_analysis": {
+          "intelligence_index": 57.6,
+          "coding_index": null,
+          "agentic_index": null
+        }
+      },
+      "reasoning": {
+        "mandatory": true,
+        "supported_efforts": [
+          "max",
+          "xhigh",
+          "high",
+          "medium",
+          "low"
+        ],
+        "default_effort": "high"
+      }
+    }
+  },
+  "upstream": [
+    "anthropic"
+  ],
+  "trial": 0,
+  "terminate_reason": "completed",
+  "max_tokens": 32768,
+  "started_at": "2026-10-08T20:12:41Z",
+  "prompts": {
+    "research": "#data research\nI am researching a federal dataset. Find out everything you can about this dataset, such as who publishes it, under what authority or mandate, its history, its typical users, and its benefits to the public. Be sure your research comprehensively covers each of those perspectives, as well as any others that you discover or seem useful. I believe this is accurate information, but please check:\n\nDataset title: Consumer Price Index (CPI)\nDescription: The Consumer Price Index (CPI) is a measure of the average change over time in the prices paid by urban consumers for a market basket of consumer goods and services. Indexes are available for the U.S. and various geographic areas. Average price data for select utility, automotive fuel, and food items are also available.\nURL: https://bls.gov/cpi\n\nReturn a complete report on everything that a preservationist, data librarian, data scientist, or policy activist might want to know about this data.",
+    "assessment": "# Dataset risk assessment\nI would like your help in assessing the likelihood that this data will be changed or removed from its primary location, and that users will no longer be able to access accurate and reliable copies of it, based on the rubric below.\n\n## Sources for context\nTo help assess the rubric categories, perform additional research on the data, the agency, the data's topics and typical users, covering topics such as proposed regulatory or funding changes, recent news, and political commentary. Use whatever resources you find useful, including the Federal Register (https://www.federalregister.gov) and the federal staffing tracker at https://usajobs-tracker.abigailhaddad.com.\n\n## Rubric\nThis rubric is divided up into categories. Each category is divided up into risk levels. In your output, please select the appropriate risk level for each category based on your research.\n\n### Historical Data Availability\n- Gone: Data files prior to the current year or cycle are no longer publicly available.\n- High Risk: Some data files prior to the current year or cycle are removed.\n- Moderate Risk: Some data elements that exist in the dataset prior to the current year or cycle are removed.\n- No Known Issue: Data prior to the current year or cycle remain accessible with no known alterations.\n\n### Future Data Availability\n- Gone: Data collection and publication has been terminated.\n- High Risk: Statutory publication deadline missed and/or collection or publication skipped and/or ICR expired for more than one year.\n- Moderate Risk: Typical or intended publication date missed and/or collection or publication delayed; ICR expired up to one year.\n- No Known Issue: Data published on time or as expected and ICR active or renewed before expiration.\n\n### Data Quality\n- Gone: Data collection and publication has been terminated.\n- High Risk: Reductions in granularity, timeliness, or frequency.\n- Moderate Risk: Potential or emerging risk to granularity, timeliness, or frequency.\n- No Known Issue: Maintained or improved granularity, timeliness, or frequency.\n\n### Statutory Context\n- Gone: N/A\n- High Risk: Statutory authorization is vague and/or there are alternative data collections that could serve as substitutes and/or no known programmatic use.\n- Moderate Risk: Not explicitly required by statute but required for the implementation of a state or federal program, and there are no alternative data collections that could serve as substitutes.\n- No Known Issue: Statutorily required and/or statutory authorization is explicitly named and it is clear what has to be collected, and there aren't alternative data collections that could serve as substitutes and/or required for implementation of a federal program.\n\n### Staffing and Funding\n- Gone: All of the staff in the division or agency are gone and/or all funding has been terminated.\n- High Risk: 40% or more of staff lost, and/or 1,000 or more staff lost, and/or budget cut by 20% or more, and/or leadership removed.\n- Moderate Risk: 10\u201339% of staff lost, and/or 500\u2013999 staff lost, and/or budget cut by 10\u201319%, and/or threatened change in leadership.\n- No Known Issue: Less than 10% of staff lost and less than 10% of budget cut and no known change in leadership.\n\n### Policy\n- Gone: Data collection and publication has been terminated.\n- High Risk: Presidential Action-driven information collection request (ICR); negative policy note on site; other significant changes in accordance with Administration priorities.\n- Moderate Risk: Proposed or pending changes; statements by administration officials suggesting a change is being considered or planned.\n- No Known Issue: No notable changes since January 2025 affecting what data is collected and published.\n\nFor each category, concisely list the evidence and supporting sources that would support each risk level. Then indicate which risk level you find most appropriate and why.\n\nConclude with a simple summary of risk levels:\nHistorical Data Availability: <level>\nFuture Data Availability: <level>\nData Quality: <level>\nStatutory Context: <level>\nStaffing and Funding: <level>\nPolicy: <level>",
+    "session_metadata": "Emit a session_metadata YAML block reporting: current date, model identifier, knowledge cutoff, surface, whether memory is enabled, whether custom preferences or styles are active, all tools and MCP servers available, which tools were actually called in this session, and whether attachments were present. Mark any field not directly observable as unknown rather than inferring it."
+  },
+  "turns": {
+    "research": {
+      "request": {
+        "model": "anthropic/claude-opus-5.5",
+        "max_output_tokens": 32768,
+        "tools": [
+          {
+            "type": "openrouter:web_search",
+            "parameters": {
+              "engine": "native",
+              "excluded_domains": [
+                "dataindex.us"
+              ]
+            }
+          },
+          {
+            "type": "openrouter:web_fetch",
+            "parameters": {
+              "engine": "openrouter",
+              "blocked_domains": [
+                "dataindex.us"
+              ],
+              "max_content_tokens": 10000
+            }
+          }
+        ],
+        "cache_control": {
+          "type": "ephemeral",
+          "ttl": "1h"
+        },
+        "session_id": "cpi-anthropic/claude-opus-5.5-t0-2026-10-08T20:12:41Z",
+        "stop_server_tools_when": [
+          {
+            "type": "step_count_is",
+            "step_count": 200
+          }
+        ],
+        "reasoning": {
+          "effort": "medium"
+        },
+        "provider": {
+          "order": [
+            "anthropic"
+          ],
+          "allow_fallbacks": false
+        }
+      },
+      "response_meta": {
+        "id": "gen-1791490362-CqBbWH8VEzXuB399ymyg",
+        "object": "response",
+        "created_at": 1791490362,
+        "model": "anthropic/claude-opus-5.5",
+        "status": "completed",
+        "completed_at": 1791490377,
+        "error": null,
+        "incomplete_details": null,
+        "tools": [],
+        "tool_choice": "auto",
+        "parallel_tool_calls": true,
+        "max_output_tokens": 32768,
+        "temperature": 1,
+        "top_p": 1,
+        "presence_penalty": 0,
+        "frequency_penalty": 0,
+        "top_logprobs": 0,
+        "max_tool_calls": null,
+        "metadata": {},
+        "background": false,
+        "previous_response_id": null,
+        "service_tier": "auto",
+        "truncation": "disabled",
+        "store": false,
+        "instructions": null,
+        "text": {
+          "format": {
+            "type": "text"
+          }
+        },
+        "reasoning": {
+          "effort": "medium"
+        },
+        "safety_identifier": null,
+        "prompt_cache_key": null,
+        "prompt_cache_options": null,
+        "usage": {
+          "input_tokens": 23378,
+          "input_tokens_details": {
+            "cached_tokens": 9176,
+            "cache_write_tokens": 14194
+          },
+          "output_tokens": 642,
+          "output_tokens_details": {
+            "reasoning_tokens": 278
+          },
+          "total_tokens": 24020,
+          "cost": 0.1562592,
+          "cost_details": {
+            "upstream_inference_cost": 0.1282592,
+            "upstream_inference_input_cost": 0.1154192,
+            "upstream_inference_output_cost": 0.012839999999999999
+          },
+          "server_tool_use_details": {
+            "web_search_requests": 4,
+            "tool_calls_requested": 5,
+            "tool_calls_executed": 4
+          }
+        }
+      },
+      "requests": [
+        {
+          "input_tokens": 23378,
+          "input_tokens_details": {
+            "cached_tokens": 9176,
+            "cache_write_tokens": 14194
+          },
+          "output_tokens": 642,
+          "output_tokens_details": {
+            "reasoning_tokens": 278
+          },
+          "total_tokens": 24020,
+          "cost": 0.1562592,
+          "cost_details": {
+            "upstream_inference_cost": 0.1282592,
+            "upstream_inference_input_cost": 0.1154192,
+            "upstream_inference_output_cost": 0.012839999999999999
+          },
+          "server_tool_use_details": {
+            "web_search_requests": 4,
+            "tool_calls_requested": 5,
+            "tool_calls_executed": 4
+          }
+        }
+      ],
+      "searches": 4,
+      "fetches": 0,
+      "tool_items": [
+        {
+          "type": "openrouter:web_search",
+          "id": "st_tmp_3549o40e9pp",
+          "status": "completed",
+          "action": {
+            "type": "search",
+            "query": "BLS CPI October 2025 not published shutdown data collection",
+            "sources": [
+              {
+                "type": "url",
+                "url": "https://www.bls.gov/cpi/additional-resources/2025-federal-government-shutdown-impact-cpi-faq.htm"
+              },
+              {
+                "type": "url",
+                "url": "https://www.bls.gov/cpi/additional-resources/2025-federal-government-shutdown-impact-cpi.htm"
+              },
+              {
+                "type": "url",
+                "url": "https://www.bls.gov/cpi/notices/2025/2025-federal-government-shutdown-impact-on-cpi.htm"
+              },
+              {
+                "type": "url",
+                "url": "https://www.bls.gov/news.release/archives/cpi_12182025.htm"
+              },
+              {
+                "type": "url",
+                "url": "https://www.reuters.com/world/us/us-cancels-release-cpi-report-october-because-government-shutdown-2025-11-21/"
+              }
+            ]
+          }
+        },
+        {
+          "type": "openrouter:web_search",
+          "id": "st_tmp_a5rbjsx6kvh",
+          "status": "completed",
+          "action": {
+            "type": "search",
+            "query": "BLS CPI reduced sample collection cities suspended 2025 imputation",
+            "sources": [
+              {
+                "type": "url",
+                "url": "https://www.bls.gov/cpi/notices/2025/collection-reduction.htm"
+              },
+              {
+                "type": "url",
+                "url": "https://www.bls.gov/cpi/notices/2025/more-information-collection-reduction.htm"
+              },
+              {
+                "type": "url",
+                "url": "https://www.npr.org/2025/06/05/nx-s1-5424367/inflation-data-cpi-government-job-shortages"
+              },
+              {
+                "type": "url",
+                "url": "https://www.reuters.com/business/us-inflation-data-collection-hurt-by-trump-era-hiring-freeze-wsj-says-2025-06-04/"
+              },
+              {
+                "type": "url",
+                "url": "https://www.nytimes.com/2025/07/30/business/bls-data-collection-cuts-cpi.html"
+              }
+            ]
+          }
+        },
+        {
+          "type": "openrouter:web_search",
+          "id": "st_tmp_x3bif0v70km",
+          "status": "completed",
+          "action": {
+            "type": "search",
+            "query": "BLS commissioner 2026 confirmed Consumer Price Index",
+            "sources": [
+              {
+                "type": "url",
+                "url": "https://www.bls.gov/bls/senior_staff/matsumoto.htm"
+              },
+              {
+                "type": "url",
+                "url": "https://www.wsj.com/us-news/brett-matsumoto-bureau-labor-statistics-01669f1f"
+              },
+              {
+                "type": "url",
+                "url": "https://www.bloomberg.com/news/articles/2026-06-10/trump-s-pick-for-bls-pledges-to-maintain-data-agency-s-integrity"
+              },
+              {
+                "type": "url",
+                "url": "https://www.bls.gov/bls/history/commissioners/"
+              },
+              {
+                "type": "url",
+                "url": "https://en.wikipedia.org/wiki/Bureau_of_Labor_Statistics"
+              }
+            ]
+          }
+        },
+        {
+          "type": "openrouter:web_search",
+          "id": "st_tmp_2s49ls64on8",
+          "status": "completed",
+          "action": {
+            "type": "search",
+            "query": "CPI 2026 weight update relative importance January 2026 methodology changes BLS",
+            "sources": [
+              {
+                "type": "url",
+                "url": "https://www.bls.gov/cpi/tables/relative-importance/weight-update-comparison-2026.htm"
+              },
+              {
+                "type": "url",
+                "url": "https://www.bls.gov/news.release/archives/cpi_02132026.htm"
+              },
+              {
+                "type": "url",
+                "url": "https://www.bls.gov/cpi/tables/relative-importance/"
+              },
+              {
+                "type": "url",
+                "url": "https://blsmon1.bls.gov/cpi/tables/relative-importance/2025.htm"
+              },
+              {
+                "type": "url",
+                "url": "https://blsmon1.bls.gov/cpi/seasonal-adjustment/intervention-analysis-seasonal-adjustment-2026.htm"
+              }
+            ]
+          }
+        }
+      ],
+      "ended": "answered",
+      "seconds": 15.1
+    },
+    "assessment": {
+      "request": {
+        "model": "anthropic/claude-opus-5.5",
+        "max_output_tokens": 32768,
+        "tools": [
+          {
+            "type": "openrouter:web_search",
+            "parameters": {
+              "engine": "native",
+              "excluded_domains": [
+                "dataindex.us"
+              ]
+            }
+          },
+          {
+            "type": "openrouter:web_fetch",
+            "parameters": {
+              "engine": "openrouter",
+              "blocked_domains": [
+                "dataindex.us"
+              ],
+              "max_content_tokens": 10000
+            }
+          }
+        ],
+        "cache_control": {
+          "type": "ephemeral",
+          "ttl": "1h"
+        },
+        "session_id": "cpi-anthropic/claude-opus-5.5-t0-2026-10-08T20:12:41Z",
+        "stop_server_tools_when": [
+          {
+            "type": "step_count_is",
+            "step_count": 200
+          }
+        ],
+        "reasoning": {
+          "effort": "medium"
+        },
+        "provider": {
+          "order": [
+            "anthropic"
+          ],
+          "allow_fallbacks": false
+        }
+      },
+      "response_meta": {
+        "id": "gen-1791490377-WFmgyLYlEFBmPcuESvdX",
+        "object": "response",
+        "created_at": 1791490377,
+        "model": "anthropic/claude-opus-5.5",
+        "status": "completed",
+        "completed_at": 1791490469,
+        "error": null,
+        "incomplete_details": null,
+        "tools": [],
+        "tool_choice": "auto",
+        "parallel_tool_calls": true,
+        "max_output_tokens": 32768,
+        "temperature": 1,
+        "top_p": 1,
+        "presence_penalty": 0,
+        "frequency_penalty": 0,
+        "top_logprobs": 0,
+        "max_tool_calls": null,
+        "metadata": {},
+        "background": false,
+        "previous_response_id": null,
+        "service_tier": "auto",
+        "truncation": "disabled",
+        "store": false,
+        "instructions": null,
+        "text": {
+          "format": {
+            "type": "text"
+          }
+        },
+        "reasoning": {
+          "effort": "medium"
+        },
+        "safety_identifier": null,
+        "prompt_cache_key": null,
+        "prompt_cache_options": null,
+        "usage": {
+          "input_tokens": 198171,
+          "input_tokens_details": {
+            "cached_tokens": 147286,
+            "cache_write_tokens": 50871
+          },
+          "output_tokens": 7729,
+          "output_tokens_details": {
+            "reasoning_tokens": 1778
+          },
+          "total_tokens": 205900,
+          "cost": 0.6610611999999999,
+          "cost_details": {
+            "upstream_inference_cost": 0.5910612000000001,
+            "upstream_inference_input_cost": 0.4364812,
+            "upstream_inference_output_cost": 0.15458
+          },
+          "server_tool_use_details": {
+            "web_search_requests": 10,
+            "tool_calls_requested": 11,
+            "tool_calls_executed": 11
+          }
+        }
+      },
+      "requests": [
+        {
+          "input_tokens": 198171,
+          "input_tokens_details": {
+            "cached_tokens": 147286,
+            "cache_write_tokens": 50871
+          },
+          "output_tokens": 7729,
+          "output_tokens_details": {
+            "reasoning_tokens": 1778
+          },
+          "total_tokens": 205900,
+          "cost": 0.6610611999999999,
+          "cost_details": {
+            "upstream_inference_cost": 0.5910612000000001,
+            "upstream_inference_input_cost": 0.4364812,
+            "upstream_inference_output_cost": 0.15458
+          },
+          "server_tool_use_details": {
+            "web_search_requests": 10,
+            "tool_calls_requested": 11,
+            "tool_calls_executed": 11
+          }
+        }
+      ],
+      "searches": 10,
+      "fetches": 1,
+      "tool_items": [
+        {
+          "type": "openrouter:web_search",
+          "id": "st_tmp_dq7hxjnrtsw",
+          "status": "completed",
+          "action": {
+            "type": "search",
+            "query": "BLS budget FY2026 request cut staff Consumer Price Index",
+            "sources": [
+              {
+                "type": "url",
+                "url": "https://www.dol.gov/sites/dolgov/files/general/budget/2026/CBJ-2026-V3-01.pdf"
+              },
+              {
+                "type": "url",
+                "url": "https://www.dol.gov/sites/dolgov/files/general/budget/2026/FY2026BIB.pdf"
+              },
+              {
+                "type": "url",
+                "url": "https://community.amstat.org/blogs/steve-pierson/2025/05/30/fy26-statistical-agency-budget-developments"
+              },
+              {
+                "type": "url",
+                "url": "https://www.dol.gov/sites/dolgov/files/general/budget/2026/CBJ-2026-V1-02.pdf"
+              },
+              {
+                "type": "url",
+                "url": "https://www.americanprogress.org/article/the-next-bureau-of-labor-statistics-commissioner-must-restore-trust-in-the-agency-while-managing-fiscal-constraints/"
+              }
+            ]
+          }
+        },
+        {
+          "type": "openrouter:web_search",
+          "id": "st_tmp_ia5n115u3n8",
+          "status": "completed",
+          "action": {
+            "type": "search",
+            "query": "Federal Register Consumer Price Index information collection BLS 2025 comment request",
+            "sources": [
+              {
+                "type": "url",
+                "url": "https://www.federalregister.gov/documents/2025/03/07/2025-03679/agency-information-collection-activities-submission-for-omb-review-consumer-price-index-housing"
+              },
+              {
+                "type": "url",
+                "url": "https://www.federalregister.gov/documents/2025/10/01/2025-19131/information-collection-activities-comment-request"
+              },
+              {
+                "type": "url",
+                "url": "https://www.govinfo.gov/content/pkg/FR-2025-03-07/html/2025-03679.htm"
+              },
+              {
+                "type": "url",
+                "url": "https://thefederalregister.org/documents/2025-03679/agency-information-collection-activities-submission-for-omb-review-consumer-price-index-housing-survey"
+              },
+              {
+                "type": "url",
+                "url": "https://www.govinfo.gov/content/pkg/FR-2025-06-24/pdf/2025-11549.pdf"
+              }
+            ]
+          }
+        },
+        {
+          "type": "openrouter:web_fetch",
+          "id": "st_tmp_gii5c7xhk3s",
+          "status": "completed",
+          "url": "https://usajobs-tracker.abigailhaddad.com",
+          "content": "<!DOCTYPE html>\n<html lang=\"en\">\n<head>\n    <meta charset=\"UTF-8\">\n    <meta name=\"viewport\" content=\"width=device-width, initial-scale=1.0\">\n    <title>USAJobs Listings Tracker</title>\n    \n    <!-- DataTables CSS -->\n    <link rel=\"stylesheet\" href=\"https://cdn.datatables.net/1.13.6/css/dataTables.bootstrap5.min.css\">\n    <link rel=\"stylesheet\" href=\"https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css\">\n    <link rel=\"stylesheet\" href=\"https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.0/font/bootstrap-icons.css\">\n    \n    <style>\n        body {\n            font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;\n            background-color: #f8f9fa;\n            color: #333;\n        }\n        \n        .container {\n            max-width: 1400px;\n            margin: 0 auto;\n            padding: 20px;\n        }\n        \n        h1 {\n            color: #003366;\n            font-weight: 600;\n            margin-bottom: 10px;\n        }\n        \n        .subtitle {\n            color: #999;\n            font-size: 0.9rem;\n            margin-bottom: 20px;\n        }\n        \n        .summary-stats {\n            background: white;\n            padding: 20px;\n            border-radius: 8px;\n            box-shadow: 0 2px 4px rgba(0,0,0,0.1);\n            margin-bottom: 30px;\n        }\n        \n        .stat-box {\n            text-align: center;\n            padding: 15px;\n            border-right: 1px solid #e9ecef;\n        }\n        \n        .stat-box:last-child {\n            border-right: none;\n        }\n        \n        .stat-value {\n            font-size: 2rem;\n            font-weight: 600;\n            color: #003366;\n        }\n        \n        .stat-label {\n            color: #666;\n            font-size: 0.85rem;\n            text-transform: uppercase;\n            line-height: 1.3;\n        }\n        \n        .table-container {\n            background: white;\n            padding: 25px;\n            border-radius: 8px;\n            box-shadow: 0 2px 4px rgba(0,0,0,0.1);\n        }\n        \n        .dataTables_wrapper .dataTables_filter input {\n            border: 1px solid #ddd;\n            border-radius: 4px;\n            padding: 5px 10px;\n            margin-left: 10px;\n        }\n        \n        .dataTables_wrapper .dataTables_length select {\n            border: 1px solid #ddd;\n            border-radius: 4px;\n            padding: 5px;\n        }\n        \n        table.dataTable {\n            border-collapse: collapse !important;\n        }\n        \n        table.dataTable thead th {\n            background-color: #003366;\n            color: white;\n            font-weight: 600;\n            border-bottom: none !important;\n            white-space: nowrap;\n            position: relative;\n            cursor: pointer;\n        }\n        \n        table.dataTable thead th.filtering {\n            background-color: #00508f;\n        }\n        \n        table.dataTable tbody tr:hover {\n            background-color: #f0f8ff;\n        }\n        \n        table.dataTable tbody td {\n            padding: 12px;\n            vertical-align: middle;\n        }\n        \n        .percentage-cell {\n            font-weight: 600;\n        }\n        \n        .high-percentage {\n            color: #388e3c;  /* Green - good (maintained/increased listings) */\n        }\n        \n        .medium-percentage {\n            color: #f57c00;  /* Orange - moderate (some decline) */\n        }\n        \n        .low-percentage {\n            color: #d32f2f;  /* Red - bad (major decline) */\n        }\n        \n        .expiring-soon {\n            background-color: #fff3cd;\n        }\n        \n        .no-year {\n            background-color: #e8f4f8;\n        }\n        \n        /* Column filter styles */\n        .column-filter-container {\n            position: absolute;\n            background: white;\n            border: 1px solid #ddd;\n            border-radius: 4px;\n            box-shadow: 0 4px 6px rgba(0,0,0,0.1);\n            padding: 10px;\n            z-index: 1000;\n            min-width: 200px;\n            max-height: 300px;\n            overflow-y: auto;\n        }\n        \n        .column-filter-container input[type=\"text\"] {\n            width: 100%;\n            padding: 5px;\n            margin-bottom: 10px;\n            border: 1px solid #ddd;\n            border-radius: 3px;\n        }\n        \n        .column-filter-container label {\n            display: block;\n            padding: 3px 0;\n            cursor: pointer;\n        }\n        \n        .column-filter-container label:hover {\n            background-color: #f0f0f0;\n        }\n        \n        .column-filter-container input[type=\"checkbox\"] {\n            margin-right: 8px;\n        }\n        \n        .filter-buttons {\n            margin-top: 10px;\n            text-align: right;\n        }\n        \n        .filter-buttons button {\n            margin-left: 5px;\n            padding: 3px 10px;\n            border: 1px solid #ddd;\n            border-radius: 3px;\n            background: white;\n            cursor: pointer;\n            font-size: 0.85rem;\n        }\n        \n        .filter-buttons button.apply {\n            background: #003366;\n            color: white;\n        }\n        \n        .filter-buttons button:hover {\n            opacity: 0.8;\n        }\n        \n        th.has-filter::after {\n            content: \" \u25bc\";\n            font-size: 0.8em;\n            opacity: 0.5;\n        }\n        \n        /* Bubble chart styles */\n        .treemap-container {\n            background: white;\n            padding: 20px;\n            border-radius: 8px;\n            box-shadow: 0 2px 4px rgba(0,0,0,0.1);\n            margin-bottom: 30px;\n        }\n        \n        .treemap-title {\n            font-size: 1.2rem;\n            font-weight: 600;\n            color: #003366;\n            margin-bottom: 15px;\n        }\n        \n        #bubble-chart {\n            width: 100%;\n            height: 460px;\n            position: relative;\n        }\n        \n        .bubble {\n            cursor: pointer;\n            opacity: 0.8;\n            transition: all 0.3s;\n        }\n        \n        .bubble:hover {\n            opacity: 1;\n            stroke: #003366;\n            stroke-width: 3;\n        }\n        \n        .axis-label {\n            font-size: 14px;\n            font-weight: 600;\n            fill: #333;\n        }\n        \n        .grid line {\n            stroke: #e0e0e0;\n            stroke-opacity: 0.7;\n            shape-rendering: crispEdges;\n        }\n        \n        .grid path {\n            stroke-width: 0;\n        }\n        \n        .quadrant-label {\n            fill: #666;\n            font-size: 12px;\n            font-style: italic;\n            opacity: 0.7;\n        }\n        \n        /* Filter section styles */\n        .filter-section {\n            background: white;\n            padding: 20px;\n            border-radius: 8px;\n            box-shadow: 0 2px 4px rgba(0,0,0,0.1);\n            margin-bottom: 30px;\n        }\n        \n        .filter-section h3 {\n            color: #003366;\n            font-size: 1.3rem;\n            margin-bottom: 15px;\n        }\n        \n        .filter-controls label {\n            font-size: 0.85rem;\n            font-weight: 600;\n            color: #666;\n            margin-bottom: 5px;\n        }\n        \n        .active-filters {\n            margin-top: 15px;\n            min-height: 30px;\n        }\n        \n        .filter-badge {\n            display: inline-block;\n            background: #003366;\n            color: white;\n            padding: 5px 10px;\n            border-radius: 20px;\n            margin-right: 10px;\n            margin-bottom: 5px;\n            font-size: 0.85rem;\n        }\n        \n        .filter-badge .remove-filter {\n            margin-left: 8px;\n            cursor: pointer;\n            font-weight: bold;\n        }\n        \n        .filter-badge .remove-filter:hover {\n            color: #ff6b6b;\n        }\n        \n        /* Multi-select dropdown styles */\n        .filter-dropdown {\n            position: relative;\n        }\n        \n        .filter-dropdown-menu {\n            position: absolute;\n            top: 100%;\n            left: 0;\n            right: 0;\n            z-index: 1000;\n            background: white;\n            border: 1px solid #ddd;\n            border-radius: 4px;\n            box-shadow: 0 4px 6px rgba(0,0,0,0.1);\n            padding: 10px;\n            margin-top: 2px;\n        }\n        \n        .filter-dropdown-menu label {\n            cursor: pointer;\n        }\n        \n        .filter-dropdown-menu label:hover {\n            background-color: #f0f0f0;\n        }\n        \n        .filter-dropdown-menu .filter-search {\n            margin-bottom: 5px;\n        }\n        \n        .filter-dropdown-menu .filter-options label {\n            padding: 3px 8px;\n            margin: 0;\n            display: block;\n        }\n        \n        .filter-dropdown-menu input[type=\"checkbox\"] {\n            margin-right: 8px;\n        }\n        \n        /* Active filters display */\n        .active-filters-display {\n            color: #d32f2f;\n            font-size: 1.1rem;\n            font-weight: 600;\n            margin-bottom: 20px;\n            min-height: 1.5em;\n        }\n        \n        #downloadCSV:hover {\n            background-color: #00508f !important;\n            transform: translateY(-1px);\n            box-shadow: 0 2px 4px rgba(0,0,0,0.2);\n        }\n        \n        /* Skip link for keyboard navigation */\n        .skip-link {\n            position: absolute;\n            top: -40px;\n            left: 0;\n            background: #003366;\n            color: white;\n            padding: 8px;\n            text-decoration: none;\n            z-index: 9999;\n        }\n        \n        .skip-link:focus {\n            top: 0;\n        }\n        \n        /* Improved focus indicators */\n        a:focus,\n        button:focus,\n        input:focus,\n        select:focus,\n        textarea:focus {\n            outline: 3px solid #003366;\n            outline-offset: 2px;\n        }\n        \n        /* Screen reader only content */\n        .sr-only {\n            position: absolute;\n            width: 1px;\n            height: 1px;\n            padding: 0;\n            margin: -1px;\n            overflow: hidden;\n            clip: rect(0, 0, 0, 0);\n            white-space: nowrap;\n            border: 0;\n        }\n        \n    </style>\n</head>\n<body>\n    <!-- Skip to main content link for keyboard navigation -->\n    <a href=\"#main-content\" class=\"skip-link\">Skip to main content</a>\n    \n    <!-- Work in Progress Banner -->\n    <div class=\"alert alert-warning mb-0\" role=\"alert\">\n        <div class=\"container\">\n            <strong>\ud83d\udea7 Active Development:</strong> This is an experimental tool tracking federal job postings.\n            Data source: <a href=\"https://github.com/abigailhaddad/usajobs_historical\" target=\"_blank\" class=\"alert-link\">USAJobs Historical Data</a> | <a class='alert-link' href='/methodology'>Methodology</a>\n        </div>\n    </div>\n\n    <!-- Archive Notice Banner -->\n    <div class=\"alert alert-danger mb-0\" role=\"alert\" style=\"border-radius: 0;\">\n        <div class=\"container\">\n            <strong>\ud83d\udcc1 Archive Notice:</strong> This tracker will be archived on December 31, 2025. Data collection will stop on that date and no further updates will be made.\n        </div>\n    </div>\n\n    <div class=\"container\" id=\"main-content\">\n        <h1>USAJobs Listings Tracker</h1>\n        <p class=\"subtitle\" id=\"dateRangeSubtitle\">Loading date range...</p>\n        <div id=\"activeFiltersDisplay\" class=\"active-filters-display\"></div>\n        \n        <!-- ARIA live region for screen reader announcements -->\n        <div class=\"sr-only\" aria-live=\"polite\" aria-atomic=\"true\" id=\"ariaLiveRegion\"></div>\n        \n        <!-- Important Caveats -->\n        <div class=\"alert alert-info mt-3 mb-3\">\n            <small>\n                <strong>Important Notes:</strong>\n                <ul class=\"mb-0\" style=\"padding-left: 20px;\">\n                    <li>Job listings \u2260 actual hires. One listing may result in multiple hires, one hire, or no hires.</li>\n                    <li>Not all federal positions are posted on USAJobs.</li>\n                    <li>Job listings which include multiple occupation series are counted under the first series listed.</li>\n                    <li>Subagency view and raw job listings are only available after selecting a specific department.</li>\n                </ul>\n            </small>\n        </div>\n        \n        <!-- Data Source Attribution -->\n        <div class=\"text-center text-muted mb-4\">\n            <small>\n                Data source: <a href=\"https://github.com/abigailhaddad/usajobs_historical\" target=\"_blank\" class=\"text-decoration-none\">\n                    USAJobs Historical Data\n                </a>\n                <br>\n                <span id=\"lastUpdated\"></span>\n            </small>\n        </div>\n        \n        <div class=\"summary-stats\">\n            <div class=\"row\">\n                <div class=\"col-md-3 stat-box\">\n                    <div class=\"stat-value\" id=\"total2024\">Loading...</div>\n                    <div class=\"stat-label\" id=\"previousYearLabel\">Previous Year</div>\n                </div>\n                <div class=\"col-md-3 stat-box\">\n                    <div class=\"stat-value\" id=\"total2025\">Loading...</div>\n                    <div class=\"stat-label\" id=\"currentYearLabel\">Current Year</div>\n                </div>\n                <div class=\"col-md-3 stat-box\">\n                    <div class=\"stat-value\" id=\"overallPercentage\">Loading...</div>\n                    <div class=\"stat-label\" id=\"percentageLabel\">Year-over-Year %</div>\n                </div>\n                <div class=\"col-md-3 stat-box\">\n                    <div class=\"stat-value\" id=\"entityCount\">Loading...</div>\n                    <div class=\"stat-label\">Departments</div>\n                </div>\n            </div>\n        </div>\n        \n        <!-- Unified Filter Section -->\n        <div class=\"filter-section\">\n            <h3>Filters & Display Options</h3>\n            <div class=\"filter-controls\">\n                <div class=\"row mb-3\">\n                    <div class=\"col-md-3\">\n                        <label for=\"mainDepartmentFilter\">Department</label>\n                        <select class=\"form-control form-control-sm\" id=\"mainDepartmentFilter\">\n                            <option value=\"\">All Departments</option>\n                        </select>\n                    </div>\n                    <div class=\"col-md-3\">\n                        <label for=\"mainAgencyFilter\">Agency</label>\n                        <select class=\"form-control form-control-sm\" id=\"mainAgencyFilter\">\n                            <option value=\"\">All Agencies</option>\n                        </select>\n                    </div>\n                    <div class=\"col-md-3\">\n                        <label for=\"mainAppointmentFilter\">Appointment Type</label>\n                        <select class=\"form-control form-control-sm\" id=\"mainAppointmentFilter\">\n                            <option value=\"\">All Types</option>\n                        </select>\n                    </div>\n                    <div class=\"col-md-3\">\n                        <label for=\"mainOccupationFilter\">Occupation Series</label>\n                        <select class=\"form-control form-control-sm\" id=\"mainOccupationFilter\">\n                            <option value=\"\">All Occupations</option>\n                        </select>\n                    </div>\n                </div>\n                <div class=\"row mb-3\">\n                    <div class=\"col-md-3\">\n                        <label for=\"aggregationLevel\">View By</label>\n                        <select id=\"aggregationLevel\" class=\"form-control form-control-sm\">\n                            <option value=\"department\" selected>Department</option>\n                            <option value=\"agency\">Agency</option>\n                            <option value=\"subagency\" disabled>Subagency (select a department first)</option>\n                        </select>\n                    </div>\n                    <div class=\"col-md-3\">\n                        <label>&nbsp;</label>\n                        <div class=\"form-check\">\n                            <input class=\"form-check-input\" type=\"checkbox\" id=\"showRawJobs\" disabled>\n                            <label class=\"form-check-label\" for=\"showRawJobs\">\n                                Show Raw Jobs (select a department first)\n                            </label>\n                        </div>\n                    </div>\n                </div>\n            </div>\n        </div>\n        \n        <div class=\"treemap-container\">\n            <h2 class=\"treemap-title\" id=\"bubbleChartTitle\">USAJobs Counts by Department</h2>\n            <p style=\"margin-top: -10px; margin-bottom: 15px; color: #666; font-size: 0.9rem;\">Bubble size = 2024 count</p>\n            <div id=\"bubble-chart\"></div>\n        </div>\n        \n        <div class=\"table-container\">\n            <div class=\"d-flex justify-content-between align-items-center mb-3\">\n                <h3 class=\"m-0\" style=\"color: #003366; font-size: 1.3rem;\">Data Table</h3>\n                <button id=\"downloadCSV\" class=\"btn btn-sm\" style=\"background-color: #003366; color: white; border: none;\">\n                    <i class=\"bi bi-download\"></i> Download Current View as CSV\n                </button>\n            </div>\n            <table id=\"jobsTable\" class=\"table table-striped\">\n                <thead id=\"tableHead\">\n                    <tr id=\"tableHeaders\">\n                        <th>Department</th>\n                        <th>Agency</th>\n                        <th>2024 Listings</th>\n                        <th>2025 Listings</th>\n                        <th>Change</th>\n                        <th>2025 as % of 2024</th>\n                    </tr>\n                </thead>\n                <tbody id=\"tableBody\">\n                </tbody>\n            </table>\n        </div>\n    </div>\n    \n    <!-- jQuery -->\n    <script src=\"https://code.jquery.com/jquery-3.7.0.min.js\"></script>\n    <!-- Bootstrap JS -->\n    <script src=\"https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js\"></script>\n    <!-- DataTables JS -->\n    <script src=\"https://cdn.datatables.net/1.13.6/js/jquery.dataTables.min.js\"></script>\n    <script src=\"https://cdn.datatables.net/1.13.6/js/dataTables.bootstrap5.min.js\"></script>\n    <!-- D3.js for Treemap -->\n    <script src=\"https://d3js.org/d3.v7.min.js\"></script>\n    \n    <script src=\"jobs_app.js\"></script>\n</body>\n</html>",
+          "title": "USAJobs Listings Tracker",
+          "httpStatus": 200
+        },
+        {
+          "type": "openrouter:web_search",
+          "id": "st_tmp_lygw2t79kp",
+          "status": "completed",
+          "action": {
+            "type": "search",
+            "query": "BLS staff losses 2025 percent workforce departed deferred resignation Bureau of Labor Statistics employees",
+            "sources": [
+              {
+                "type": "url",
+                "url": "https://www.amstat.org/docs/default-source/amstat-documents/the-nations-data-at-risk-2025/bureau-of-labor-statistics.pdf"
+              },
+              {
+                "type": "url",
+                "url": "https://www.theguardian.com/us-news/2025/may/03/mass-resignations-at-labor-department-threaten-workers-in-us-and-overseas-warn-staff-as-more-cuts-loom"
+              },
+              {
+                "type": "url",
+                "url": "https://news.bloomberglaw.com/daily-labor-report/bls-leadership-vacuum-extends-beyond-head-as-key-roles-sit-empty"
+              },
+              {
+                "type": "url",
+                "url": "https://news.bloomberglaw.com/daily-labor-report/trumps-bls-pick-to-contend-with-leadership-vacuum-staff-losses"
+              },
+              {
+                "type": "url",
+                "url": "https://www.politico.com/news/2025/06/11/inflation-data-economy-labor-budget-00399155"
+              }
+            ]
+          }
+        },
+        {
+          "type": "openrouter:web_search",
+          "id": "st_tmp_sjwcxp6shcf",
+          "status": "completed",
+          "action": {
+            "type": "search",
+            "query": "BLS FY2026 appropriations enacted Bureau of Labor Statistics funding level 2026",
+            "sources": [
+              {
+                "type": "url",
+                "url": "https://www.dol.gov/sites/dolgov/files/general/budget/2026/CBJ-2026-V3-01.pdf"
+              },
+              {
+                "type": "url",
+                "url": "https://www.dol.gov/sites/dolgov/files/general/budget/2026/CBJ-2026-V1-02.pdf"
+              },
+              {
+                "type": "url",
+                "url": "https://www.populationassociation.org/blogs/paa-web2/2026/06/16/house-appropriations-committee-advances-fiscal-yea"
+              },
+              {
+                "type": "url",
+                "url": "https://cossa.org/wp-content/uploads/2026/03/FriendsofBLSFY27RecommendationLetter.pdf"
+              },
+              {
+                "type": "url",
+                "url": "https://www.congress.gov/119/crpt/hrpt271/CRPT-119hrpt271.pdf"
+              }
+            ]
+          }
+        },
+        {
+          "type": "openrouter:web_search",
+          "id": "st_tmp_e5aul59qhc",
+          "status": "completed",
+          "action": {
+            "type": "search",
+            "query": "Matsumoto confirmed BLS commissioner Senate 2026 CPI",
+            "sources": [
+              {
+                "type": "url",
+                "url": "https://www.bls.gov/bls/senior_staff/matsumoto.htm"
+              },
+              {
+                "type": "url",
+                "url": "https://www.c2er.org/2026/08/senate-confirms-brett-matsumoto-to-lead-bls/"
+              },
+              {
+                "type": "url",
+                "url": "https://www.help.senate.gov/imo/media/doc/8aa0f266-cf6d-5110-f6a2-e4957bbe6185/Matsumoto%20Testimony_da31b8ff-3581-4b25-8cab-23908cca731b.pdf"
+              },
+              {
+                "type": "url",
+                "url": "https://www.marketscreener.com/news/veteran-economist-insider-matsumoto-wins-senate-approval-as-bls-commissioner-ce7f50d3d98cf621"
+              },
+              {
+                "type": "url",
+                "url": "https://ng.investing.com/news/stock-market-news/brett-matsumoto-confirmed-as-bls-commissioner-after-predecessor-fired-93CH-2648532"
+              }
+            ]
+          }
+        },
+        {
+          "type": "openrouter:web_search",
+          "id": "st_tmp_tnxsdvln3vb",
+          "status": "completed",
+          "action": {
+            "type": "search",
+            "query": "BLS CPI 2026 data collection restored sample reduction cities resumed different cell imputation share",
+            "sources": [
+              {
+                "type": "url",
+                "url": "https://www.bls.gov/cpi/notices/2025/collection-reduction.htm"
+              },
+              {
+                "type": "url",
+                "url": "https://www.bls.gov/cpi/notices/2025/more-information-collection-reduction.htm"
+              },
+              {
+                "type": "url",
+                "url": "https://www.bloomberg.com/news/articles/2025-09-11/bls-leans-more-on-second-best-option-for-filling-in-cpi-blanks"
+              },
+              {
+                "type": "url",
+                "url": "https://www.bls.gov/cpi/tables/imputation.htm"
+              },
+              {
+                "type": "url",
+                "url": "https://www.bls.gov/opub/mlr/2026/article/counterfactual-imputation-approaches-for-the-housing-component-of-the-october-2025-cpi.htm"
+              }
+            ]
+          }
+        },
+        {
+          "type": "openrouter:web_search",
+          "id": "st_tmp_ayixck4h7ig",
+          "status": "completed",
+          "action": {
+            "type": "search",
+            "query": "\"Consumer Price Index Commodities and Services Survey\" OMB 1220-0039 Federal Register",
+            "sources": [
+              {
+                "type": "url",
+                "url": "https://www.federalregister.gov/documents/2026/04/30/2026-08377/proposed-extension-of-information-collection-consumer-price-index-commodities-and-services-survey"
+              },
+              {
+                "type": "url",
+                "url": "https://www.federalregister.gov/documents/2026/08/19/2026-16895/agency-information-collection-activities-submission-for-omb-review-consumer-price-index-commodities"
+              },
+              {
+                "type": "url",
+                "url": "https://www.federalregister.gov/documents/2023/04/03/2023-06794/information-collection-activities-comment-request"
+              },
+              {
+                "type": "url",
+                "url": "https://www.govinfo.gov/content/pkg/FR-2023-08-24/pdf/2023-18228.pdf"
+              },
+              {
+                "type": "url",
+                "url": "https://www.govinfo.gov/content/pkg/FR-2026-04-30/pdf/2026-08408.pdf"
+              }
+            ]
+          }
+        },
+        {
+          "type": "openrouter:web_search",
+          "id": "st_tmp_e9clt850i14",
+          "status": "completed",
+          "action": {
+            "type": "search",
+            "query": "BLS consumer price index 2026 hiring data collectors collection suspension update imputation",
+            "sources": [
+              {
+                "type": "url",
+                "url": "https://www.bls.gov/cpi/notices/2025/collection-reduction.htm"
+              },
+              {
+                "type": "url",
+                "url": "https://www.bls.gov/bls/2025-lapse-revised-release-dates.htm"
+              },
+              {
+                "type": "url",
+                "url": "https://www.bls.gov/cpi/notices/2025/more-information-collection-reduction.htm"
+              },
+              {
+                "type": "url",
+                "url": "https://www.bls.gov/cpi/additional-resources/2025-federal-government-shutdown-impact-cpi-faq.htm"
+              },
+              {
+                "type": "url",
+                "url": "https://www.bls.gov/cpi/additional-resources/2025-federal-government-shutdown-impact-cpi.htm"
+              }
+            ]
+          }
+        },
+        {
+          "type": "openrouter:web_search",
+          "id": "st_tmp_22gqqmwzu6s",
+          "status": "completed",
+          "action": {
+            "type": "search",
+            "query": "FY2027 budget request BLS consolidation Census BEA statistical agency Commerce 2026",
+            "sources": [
+              {
+                "type": "url",
+                "url": "https://www.dol.gov/sites/dolgov/files/general/budget/2027/CBJ-2027-V3-01.pdf"
+              },
+              {
+                "type": "url",
+                "url": "https://cossa.org/wp-content/uploads/2026/04/COSSA-FY-2027-PBR-Analysis.pdf"
+              },
+              {
+                "type": "url",
+                "url": "https://community.amstat.org/sciencepolicy/blogs/steve-pierson/2026/04/03/fy27-statistical-agency-budget-developments"
+              },
+              {
+                "type": "url",
+                "url": "https://www.whitehouse.gov/wp-content/uploads/2026/04/com_fy2027.pdf"
+              },
+              {
+                "type": "url",
+                "url": "https://www.govinfo.gov/content/pkg/BUDGET-2027-BUD/pdf/BUDGET-2027-BUD-6.pdf"
+              }
+            ]
+          }
+        },
+        {
+          "type": "openrouter:web_search",
+          "id": "st_tmp_ogflfwjyh8n",
+          "status": "completed",
+          "action": {
+            "type": "search",
+            "query": "CPI price collection cuts 2026 BLS still reduced sample news inflation data quality",
+            "sources": [
+              {
+                "type": "url",
+                "url": "https://www.bls.gov/cpi/notices/2025/more-information-collection-reduction.htm"
+              },
+              {
+                "type": "url",
+                "url": "https://www.reuters.com/business/us-inflation-data-collection-hurt-by-trump-era-hiring-freeze-wsj-says-2025-06-04/"
+              },
+              {
+                "type": "url",
+                "url": "https://apnews.com/article/inflation-economy-trump-tariffs-bls-labor-a70c57bfd04a4deb9d7a3bb08f99aba9"
+              },
+              {
+                "type": "url",
+                "url": "https://www.nytimes.com/2025/07/30/business/bls-data-collection-cuts-cpi.html"
+              },
+              {
+                "type": "url",
+                "url": "https://www.npr.org/2025/06/05/nx-s1-5424367/inflation-data-cpi-government-job-shortages"
+              }
+            ]
+          }
+        }
+      ],
+      "ended": "answered",
+      "seconds": 92.4
+    },
+    "session_metadata": {
+      "request": {
+        "model": "anthropic/claude-opus-5.5",
+        "max_output_tokens": 32768,
+        "tools": [
+          {
+            "type": "openrouter:web_search",
+            "parameters": {
+              "engine": "native",
+              "excluded_domains": [
+                "dataindex.us"
+              ]
+            }
+          },
+          {
+            "type": "openrouter:web_fetch",
+            "parameters": {
+              "engine": "openrouter",
+              "blocked_domains": [
+                "dataindex.us"
+              ],
+              "max_content_tokens": 10000
+            }
+          }
+        ],
+        "cache_control": {
+          "type": "ephemeral",
+          "ttl": "1h"
+        },
+        "session_id": "cpi-anthropic/claude-opus-5.5-t0-2026-10-08T20:12:41Z",
+        "stop_server_tools_when": [
+          {
+            "type": "step_count_is",
+            "step_count": 200
+          }
+        ],
+        "reasoning": {
+          "effort": "medium"
+        },
+        "provider": {
+          "order": [
+            "anthropic"
+          ],
+          "allow_fallbacks": false
+        }
+      },
+      "response_meta": {
+        "id": "gen-1791490469-aKpeRAKotKdxSkMppjZD",
+        "object": "response",
+        "created_at": 1791490469,
+        "model": "anthropic/claude-opus-5.5",
+        "status": "completed",
+        "completed_at": 1791490480,
+        "error": null,
+        "incomplete_details": null,
+        "tools": [],
+        "tool_choice": "auto",
+        "parallel_tool_calls": true,
+        "max_output_tokens": 32768,
+        "temperature": 1,
+        "top_p": 1,
+        "presence_penalty": 0,
+        "frequency_penalty": 0,
+        "top_logprobs": 0,
+        "max_tool_calls": null,
+        "metadata": {},
+        "background": false,
+        "previous_response_id": null,
+        "service_tier": "auto",
+        "truncation": "disabled",
+        "store": false,
+        "instructions": null,
+        "text": {
+          "format": {
+            "type": "text"
+          }
+        },
+        "reasoning": {
+          "effort": "medium"
+        },
+        "safety_identifier": null,
+        "prompt_cache_key": null,
+        "prompt_cache_options": null,
+        "usage": {
+          "input_tokens": 17948,
+          "input_tokens_details": {
+            "cached_tokens": 3577,
+            "cache_write_tokens": 14367
+          },
+          "output_tokens": 800,
+          "output_tokens_details": {
+            "reasoning_tokens": 312
+          },
+          "total_tokens": 18748,
+          "cost": 0.1316674,
+          "cost_details": {
+            "upstream_inference_cost": 0.1316674,
+            "upstream_inference_input_cost": 0.1156674,
+            "upstream_inference_output_cost": 0.016
+          }
+        }
+      },
+      "requests": [
+        {
+          "input_tokens": 17948,
+          "input_tokens_details": {
+            "cached_tokens": 3577,
+            "cache_write_tokens": 14367
+          },
+          "output_tokens": 800,
+          "output_tokens_details": {
+            "reasoning_tokens": 312
+          },
+          "total_tokens": 18748,
+          "cost": 0.1316674,
+          "cost_details": {
+            "upstream_inference_cost": 0.1316674,
+            "upstream_inference_input_cost": 0.1156674,
+            "upstream_inference_output_cost": 0.016
+          }
+        }
+      ],
+      "searches": 0,
+      "fetches": 0,
+      "tool_items": [],
+      "ended": "answered",
+      "seconds": 11.5
+    }
+  },
+  "messages": [
+    {
+      "role": "user",
+      "content": "#data research\nI am researching a federal dataset. Find out everything you can about this dataset, such as who publishes it, under what authority or mandate, its history, its typical users, and its benefits to the public. Be sure your research comprehensively covers each of those perspectives, as well as any others that you discover or seem useful. I believe this is accurate information, but please check:\n\nDataset title: Consumer Price Index (CPI)\nDescription: The Consumer Price Index (CPI) is a measure of the average change over time in the prices paid by urban consumers for a market basket of consumer goods and services. Indexes are available for the U.S. and various geographic areas. Average price data for select utility, automotive fuel, and food items are also available.\nURL: https://bls.gov/cpi\n\nReturn a complete report on everything that a preservationist, data librarian, data scientist, or policy activist might want to know about this data."
+    },
+    {
+      "role": "assistant",
+      "content": ""
+    },
+    {
+      "role": "user",
+      "content": "# Dataset risk assessment\nI would like your help in assessing the likelihood that this data will be changed or removed from its primary location, and that users will no longer be able to access accurate and reliable copies of it, based on the rubric below.\n\n## Sources for context\nTo help assess the rubric categories, perform additional research on the data, the agency, the data's topics and typical users, covering topics such as proposed regulatory or funding changes, recent news, and political commentary. Use whatever resources you find useful, including the Federal Register (https://www.federalregister.gov) and the federal staffing tracker at https://usajobs-tracker.abigailhaddad.com.\n\n## Rubric\nThis rubric is divided up into categories. Each category is divided up into risk levels. In your output, please select the appropriate risk level for each category based on your research.\n\n### Historical Data Availability\n- Gone: Data files prior to the current year or cycle are no longer publicly available.\n- High Risk: Some data files prior to the current year or cycle are removed.\n- Moderate Risk: Some data elements that exist in the dataset prior to the current year or cycle are removed.\n- No Known Issue: Data prior to the current year or cycle remain accessible with no known alterations.\n\n### Future Data Availability\n- Gone: Data collection and publication has been terminated.\n- High Risk: Statutory publication deadline missed and/or collection or publication skipped and/or ICR expired for more than one year.\n- Moderate Risk: Typical or intended publication date missed and/or collection or publication delayed; ICR expired up to one year.\n- No Known Issue: Data published on time or as expected and ICR active or renewed before expiration.\n\n### Data Quality\n- Gone: Data collection and publication has been terminated.\n- High Risk: Reductions in granularity, timeliness, or frequency.\n- Moderate Risk: Potential or emerging risk to granularity, timeliness, or frequency.\n- No Known Issue: Maintained or improved granularity, timeliness, or frequency.\n\n### Statutory Context\n- Gone: N/A\n- High Risk: Statutory authorization is vague and/or there are alternative data collections that could serve as substitutes and/or no known programmatic use.\n- Moderate Risk: Not explicitly required by statute but required for the implementation of a state or federal program, and there are no alternative data collections that could serve as substitutes.\n- No Known Issue: Statutorily required and/or statutory authorization is explicitly named and it is clear what has to be collected, and there aren't alternative data collections that could serve as substitutes and/or required for implementation of a federal program.\n\n### Staffing and Funding\n- Gone: All of the staff in the division or agency are gone and/or all funding has been terminated.\n- High Risk: 40% or more of staff lost, and/or 1,000 or more staff lost, and/or budget cut by 20% or more, and/or leadership removed.\n- Moderate Risk: 10\u201339% of staff lost, and/or 500\u2013999 staff lost, and/or budget cut by 10\u201319%, and/or threatened change in leadership.\n- No Known Issue: Less than 10% of staff lost and less than 10% of budget cut and no known change in leadership.\n\n### Policy\n- Gone: Data collection and publication has been terminated.\n- High Risk: Presidential Action-driven information collection request (ICR); negative policy note on site; other significant changes in accordance with Administration priorities.\n- Moderate Risk: Proposed or pending changes; statements by administration officials suggesting a change is being considered or planned.\n- No Known Issue: No notable changes since January 2025 affecting what data is collected and published.\n\nFor each category, concisely list the evidence and supporting sources that would support each risk level. Then indicate which risk level you find most appropriate and why.\n\nConclude with a simple summary of risk levels:\nHistorical Data Availability: <level>\nFuture Data Availability: <level>\nData Quality: <level>\nStatutory Context: <level>\nStaffing and Funding: <level>\nPolicy: <level>"
+    },
+    {
+      "role": "assistant",
+      "content": "# Risk Assessment: Consumer Price Index (CPI), Bureau of Labor Statistics (BLS)\n\n**Research date:** around October 2026.\n\n**Checking your description first:** The title, description and URL you gave are accurate. The CPI is published by the Bureau of Labor Statistics in the Department of Labor, at bls.gov/cpi. A few details are worth adding:\n- **Statutory authority:** The general authority is 29 U.S.C. 1 and 2.\n- **Index families:** BLS publishes the CPI-U (all urban consumers), the CPI-W (urban wage earners and clerical workers) and the C-CPI-U (\"chained\" CPI).\n- **Geography:** Indexes cover the U.S., 4 regions, 9 divisions and 23 metro areas.\n- **Collections behind it:** Prices come from the Commodities and Services Survey (OMB control number 1220-0039). Rents come from the Housing Survey (OMB 1220-0163). Spending weights come from the Consumer Expenditure Surveys (OMB 1220-0050).\n\n**Summary of the overall picture:** The CPI is not at risk of being eliminated. It is the most protected series in the federal statistical system. The concerns are about **quality and continuity**:\n- October 2025 is a permanent hole in the series.\n- Price collection was cut back for lack of staff.\n- BLS lost about a fifth of its staff.\n- The commissioner was fired.\n- A proposal to move BLS into the Commerce Department is still pending.\n\nThe past data is intact, and a new commissioner from BLS's own career staff was confirmed in August 2026. I could not confirm whether the 2025 collection cuts have since been reversed. Checking the CPI notices page and the monthly imputation table should be the first follow-up.\n\n---\n\n## 1. Historical Data Availability\n\n**Evidence pointing to No Known Issue**\n- I found no reports of past CPI series, news releases or files being removed or changed. BLS keeps its archive of news releases (e.g., bls.gov/news.release/archives/cpi_12182025.htm) and its bulk download files (download.bls.gov/pub/time.series/cu/).\n- BLS is still adding documentation about older data. For example, a 2026 Monthly Labor Review article examines alternative ways the October 2025 housing data could have been estimated. ([BLS MLR](https://www.bls.gov/opub/mlr/2026/article/counterfactual-imputation-approaches-for-the-housing-component-of-the-october-2025-cpi.htm))\n\n**Evidence pointing to Moderate Risk (a caveat, not a removal)**\n- There are **no October 2025 values** for the all-items index or the index excluding food and energy, because the government shutdown prevented collection. November 2025 one-month percent changes are also missing. BLS says it \"cannot provide specific guidance to data users for navigating the missing October observations.\" ([BLS lapse page](https://www.bls.gov/bls/2025-lapse-revised-release-dates.htm))\n- These values were never collected, so they were not removed. That makes this a future-availability and quality issue, not a historical one.\n\n**Rating: No Known Issue.** Data published before the current cycle is still available and unaltered. Archivists should still record the October 2025 gap in their metadata. Independent copies of past values with publication dates exist on FRED/ALFRED (St. Louis Fed).\n\n---\n\n## 2. Future Data Availability\n\n**Evidence pointing to High Risk**\n- **Collection and publication were skipped.** The shutdown ran from October 1 to November 12, 2025. BLS collected no October 2025 survey data, cannot collect it after the fact, and cancelled the October CPI release. This was the first time in the program's history. ([BLS FAQ](https://www.bls.gov/cpi/additional-resources/2025-federal-government-shutdown-impact-cpi-faq.htm); [Reuters](https://www.reuters.com/world/us/us-cancels-release-cpi-report-october-because-government-shutdown-2025-11-21/))\n\n**Evidence pointing to Moderate Risk**\n- The November 2025 CPI came out December 18, 2025, about 10 days late.\n- A second funding lapse in early 2026 pushed the January 2026 CPI from February 11 to February 13. ([BLS](https://www.bls.gov/bls/2025-lapse-revised-release-dates.htm))\n- The Consumer Expenditure Survey was not collected in October and November 2025. This affects the 2025 chained CPI revisions and the 2027 CPI weights. BLS is filling the gap by adjusting survey weights. ([BLS](https://www.bls.gov/cpi/additional-resources/2025-federal-government-shutdown-impact-cpi.htm))\n\n**Evidence pointing to No Known Issue**\n- Releases since early 2026 appear to be on schedule. The 2026 weight update was released as planned on February 13, 2026.\n- The paperwork approvals (ICRs) are being renewed normally:\n  - Housing Survey ICR: submitted to OMB in March 2025. ([90 FR 11554](https://www.federalregister.gov/documents/2025/03/07/2025-03679/agency-information-collection-activities-submission-for-omb-review-consumer-price-index-housing))\n  - Commodities and Services ICR: renewal proposed April 30, 2026 and submitted to OMB August 19, 2026, with comments due September 18, 2026. ([91 FR 53664](https://www.federalregister.gov/documents/2026/08/19/2026-16895/agency-information-collection-activities-submission-for-omb-review-consumer-price-index-commodities)) Its final approval should be confirmed on reginfo.gov.\n\n**Rating: High Risk.** Read literally, the rubric puts \"collection or publication skipped\" at High Risk, and October 2025 was skipped. The cause was a lapse in funding, not a decision to end the program, and publication has returned to its normal schedule. A reasonable reviewer could rate this Moderate.\n\n---\n\n## 3. Data Quality\n\n**Evidence pointing to High Risk**\n- In April 2025 BLS stopped collecting CPI data entirely in Lincoln, NE and Provo, UT, and in June 2025 in Buffalo, NY. On average about 15% of the sample was suspended in the other 72 areas, affecting both the price and rent surveys. ([BLS notice](https://www.bls.gov/cpi/notices/2025/collection-reduction.htm); [BLS more info](https://www.bls.gov/cpi/notices/2025/more-information-collection-reduction.htm))\n- BLS has had to estimate more missing prices from other areas. Among estimated prices, the share filled in from a different area or category rose to 36% in August 2025, from 9% in February 2025. That is the highest since the series began in 2019. ([Bloomberg](https://www.bloomberg.com/news/articles/2025-09-11/bls-leans-more-on-second-best-option-for-filling-in-cpi-blanks); [BLS imputation table](https://www.bls.gov/cpi/tables/imputation.htm))\n- For October 2025, BLS simply carried forward the last known rents. Rent and owners' equivalent rent showed zero change that month, and 12-month changes were understated until April 2026.\n- BLS says metro-level and detailed item indexes are more volatile, and it did not measure the effect at that level.\n\n**Mitigating evidence**\n- BLS simulated the cuts back to 2019. The national all-items 12-month change differed from the published figure by less than 0.01 percentage point on average.\n\n**Rating: High Risk.** Geographic and sample coverage has been reduced in practice, even though the national headline number appears to be largely unaffected.\n\n---\n\n## 4. Statutory Context\n\n**Evidence pointing to No Known Issue**\n- BLS's general authority is 29 U.S.C. 1 and 2. Several federal laws name the CPI directly in their formulas:\n  - Social Security cost-of-living adjustments use the CPI-W (42 U.S.C. 415(i)).\n  - Federal income tax brackets and the standard deduction use the C-CPI-U (26 U.S.C. 1(f)).\n  - Federal civil service and military retirement adjustments.\n  - Poverty guidelines (42 U.S.C. 9902).\n  - School lunch reimbursement uses the \"Food away from home\" index.\n- BLS's own ICR states the CPI affects more than 100 million people through laws, including over 67 million Social Security beneficiaries and over 41 million SNAP recipients. ([FR 2026-08377](https://www.govinfo.gov/content/pkg/FR-2026-04-30/pdf/2026-08408.pdf))\n- The Administration's own budget says BLS will prioritize \"Principal Federal Economic Indicators, required by statute, or in use in current law.\" The CPI meets all three tests.\n- There is no real substitute. The PCE price index from the Bureau of Economic Analysis is built partly from CPI data, and private indexes are not written into law.\n\n**Rating: No Known Issue.**\n\n---\n\n## 5. Staffing and Funding\n\n**Evidence pointing to High Risk**\n- **Leadership removed:** President Trump fired Commissioner Erika McEntarfer on August 1, 2025 after a jobs report he disliked. About a third of senior career positions were vacant afterward. ([Bloomberg Law](https://news.bloomberglaw.com/daily-labor-report/bls-leadership-vacuum-extends-beyond-head-as-key-roles-sit-empty))\n- **Staff losses:** BLS lost an estimated 20\u201322% of staff since FY2024, through the hiring freeze, deferred resignations and firing of probationary employees. ([ASA \"Nation's Data at Risk\"](https://www.amstat.org/docs/default-source/amstat-documents/the-nations-data-at-risk-2025/bureau-of-labor-statistics.pdf))\n- **Proposed cuts:** The FY2026 request cut BLS by $56M (8%) and 168 staff positions, including $19.2M and 69 positions from Prices and Cost of Living. ([DOL CBJ FY26](https://www.dol.gov/sites/dolgov/files/general/budget/2026/CBJ-2026-V3-01.pdf)) The FY2027 request is $40.5M (5.7%) below FY2026 enacted and would make the staffing cuts permanent. ([DOL CBJ FY27](https://www.dol.gov/sites/dolgov/files/general/budget/2027/CBJ-2026-V3-01.pdf))\n\n**Evidence pointing to lower risk**\n- **Congress rejected the cuts.** FY2026 enacted funding is $708.5M, slightly above FY2025's $703.95M. The House FY2027 bill provides $716.5M. ([PAA](https://www.populationassociation.org/blogs/paa-web2/2026/06/16/house-appropriations-committee-advances-fiscal-yea); [ASA](https://community.amstat.org/sciencepolicy/blogs/steve-pierson/2026/04/03/fy27-statistical-agency-budget-developments))\n- **Permanent leadership restored:** Brett Matsumoto, a BLS inflation economist since 2015, was confirmed 51\u201347 on August 7, 2026 and took office August 11. He pledged that changes to methods would be approved by career staff and announced in advance. ([BLS](https://www.bls.gov/bls/senior_staff/matsumoto.htm); [Reuters/MarketScreener](https://www.marketscreener.com/news/veteran-economist-insider-matsumoto-wins-senate-approval-as-bls-commissioner-ce7f50d3d98cf621))\n- **Staffing tracker:** The USAJobs tracker you suggested loads its data dynamically and is scheduled to be archived. I could not pull BLS-specific figures from it.\n\n**Rating: High Risk.** Leadership was removed and about 20% of staff are gone, which meets the rubric thresholds. A large share of those losses were price collectors. The enacted budget and the new commissioner reduce the risk going forward.\n\n---\n\n## 6. Policy\n\n**Evidence pointing to Moderate Risk**\n- The FY2026 and FY2027 budgets propose merging BLS, the Census Bureau and BEA into one statistical agency at the Commerce Department. Congress has not adopted the proposal. The House committee was polite but deferred to the authorizing committees. ([FY27 Appendix](https://www.whitehouse.gov/wp-content/uploads/2026/04/com_fy2027.pdf); [H. Rpt. 119-271](https://www.congress.gov/119/crpt/hrpt271/CRPT-119hrpt271.pdf))\n- In September 2025 the Labor Department's Inspector General opened a review of how BLS collects and reports the CPI, the Producer Price Index and the jobs data. (ASA)\n- Political attacks on BLS's credibility followed the commissioner's firing. The first replacement nominee, E.J. Antoni, had floated suspending the monthly jobs report, which is a different BLS release. His nomination was later withdrawn (this detail is from my background knowledge; I did not re-verify it in this research).\n\n**Evidence pointing to No Known Issue**\n- I found no Presidential Action-driven ICR for the CPI and no negative policy note on the CPI site.\n- The CPI renewals are routine extensions.\n- The collection cuts are described as resource-driven, not policy-driven.\n- Reuters reports no evidence of data manipulation.\n\n**Rating: Moderate Risk.** There are proposed and pending structural changes and active political scrutiny, but no adopted change to what the CPI collects or publishes.\n\n---\n\n## Notes for preservationists and data users\n- **What to capture:** the bulk download files at download.bls.gov/pub/time.series/cu/ (the CPI database files), the release archives, the methods handbook chapter, and the notices and imputation tables.\n- **Automated downloads:** BLS blocks automated requests that don't identify the user. Use the official API (api.bls.gov) or send a user-agent header with contact details.\n- **Version history:** ALFRED keeps a record of which values were published when, which is useful for documenting the October 2025 gap and later revisions.\n- **Things to watch:**\n  - OMB approval of the Commodities and Services ICR (1220-0039).\n  - The imputation share in the monthly imputation table.\n  - Whether collection in Lincoln, Provo and Buffalo resumes.\n  - FY2027 appropriations and any shutdown.\n  - Congressional action on the Commerce merger.\n\n---\n\n## Summary of risk levels\n- Historical Data Availability: **No Known Issue**\n- Future Data Availability: **High Risk**\n- Data Quality: **High Risk**\n- Statutory Context: **No Known Issue**\n- Staffing and Funding: **High Risk**\n- Policy: **Moderate Risk**"
+    },
+    {
+      "role": "user",
+      "content": "Emit a session_metadata YAML block reporting: current date, model identifier, knowledge cutoff, surface, whether memory is enabled, whether custom preferences or styles are active, all tools and MCP servers available, which tools were actually called in this session, and whether attachments were present. Mark any field not directly observable as unknown rather than inferring it."
+    },
+    {
+      "role": "assistant",
+      "content": "```yaml\nsession_metadata:\n  current_date: unknown  # No system clock or date was given. The earlier report's \"around October 2026\" was a guess based on the dates of search results, so it isn't a confirmed date.\n  model_identifier: unknown  # I'm Claude, made by Anthropic, but the exact model version doesn't appear anywhere in this session.\n  knowledge_cutoff: unknown  # Not stated in this session.\n  surface: unknown  # Nothing in this session shows whether this is the API, the app or another interface.\n  memory_enabled: unknown\n  custom_preferences_or_styles_active: unknown  # None are visible, but I can't confirm that none are set.\n  tools_available:\n    - name: openrouter_web_search\n      description: Web search that returns ranked excerpts\n    - name: openrouter_web_fetch\n      description: Fetches the full text of a web page or PDF from a URL\n  mcp_servers_available: unknown  # The two tools above are listed as plain functions, and no MCP server is identified.\n  tools_called_this_session:\n    - name: openrouter_web_search\n      called: true\n      context: Earlier turns (dataset research and risk assessment), many queries\n    - name: openrouter_web_fetch\n      called: true\n      context: Earlier turns, including https://usajobs-tracker.abigailhaddad.com\n  tools_called_this_turn: none\n  attachments_present: false  # No files or attachments appear in this conversation.\n```"
+    }
+  ]
+}

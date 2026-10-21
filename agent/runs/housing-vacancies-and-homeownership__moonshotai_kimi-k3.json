@@ -1,0 +1,1190 @@
+{
+  "dataset": {
+    "key": "housing-vacancies-and-homeownership",
+    "title": "Housing Vacancies and Homeownership"
+  },
+  "model": "moonshotai/kimi-k3",
+  "harness": "openrouter tools",
+  "context": "full: each turn's whole output is carried into the next",
+  "search_tool": {
+    "engine": "exa",
+    "max_results": 10,
+    "excluded_domains": [
+      "dataindex.us"
+    ]
+  },
+  "fetch_tool": {
+    "engine": "openrouter",
+    "blocked_domains": [
+      "dataindex.us"
+    ],
+    "max_content_tokens": 10000
+  },
+  "reasoning": "effort high",
+  "catalog": {
+    "fetched_at": "2026-10-09T01:07:42Z",
+    "entry": {
+      "id": "moonshotai/kimi-k3",
+      "canonical_slug": "moonshotai/kimi-k3-20260715",
+      "hugging_face_id": "moonshotai/Kimi-K3",
+      "name": "MoonshotAI: Kimi K3",
+      "created": 1784215858,
+      "description": "Kimi K3 is a 2.8T parameter open-weight multimodal reasoning model from Moonshot AI. It is suited for complex coding, knowledge work, and long-horizon agentic workflows, and is particularly strong at...",
+      "context_length": 1048576,
+      "architecture": {
+        "modality": "text+image+video->text",
+        "input_modalities": [
+          "text",
+          "image",
+          "video"
+        ],
+        "output_modalities": [
+          "text"
+        ],
+        "tokenizer": "Other",
+        "instruct_type": null
+      },
+      "pricing": {
+        "prompt": "0.00000076",
+        "completion": "0.000013",
+        "input_cache_read": "0.0000004"
+      },
+      "top_provider": {
+        "context_length": 1048576,
+        "max_completion_tokens": 943718,
+        "is_moderated": false
+      },
+      "per_request_limits": null,
+      "supported_parameters": [
+        "frequency_penalty",
+        "include_reasoning",
+        "logit_bias",
+        "logprobs",
+        "max_tokens",
+        "min_p",
+        "presence_penalty",
+        "reasoning",
+        "reasoning_effort",
+        "repetition_penalty",
+        "response_format",
+        "seed",
+        "stop",
+        "structured_outputs",
+        "temperature",
+        "tool_choice",
+        "tools",
+        "top_k",
+        "top_logprobs",
+        "top_p"
+      ],
+      "default_parameters": {
+        "temperature": null,
+        "top_p": 0.95,
+        "top_k": null,
+        "frequency_penalty": null,
+        "presence_penalty": null,
+        "repetition_penalty": null
+      },
+      "supported_voices": null,
+      "knowledge_cutoff": null,
+      "expiration_date": null,
+      "links": {
+        "details": "/api/v1/models/moonshotai/kimi-k3-20260715/endpoints"
+      },
+      "benchmarks": {
+        "design_arena": [
+          {
+            "arena": "agents",
+            "category": "agenticgamedev",
+            "elo": 1252,
+            "win_rate": 55,
+            "rank": 3
+          },
+          {
+            "arena": "agents",
+            "category": "androidnative",
+            "elo": 1262,
+            "win_rate": 55.4,
+            "rank": 5
+          },
+          {
+            "arena": "agents",
+            "category": "fullstack",
+            "elo": 1313,
+            "win_rate": 61.8,
+            "rank": 2
+          },
+          {
+            "arena": "agents",
+            "category": "godotgamedev",
+            "elo": 1223,
+            "win_rate": 48.2,
+            "rank": 14
+          },
+          {
+            "arena": "agents",
+            "category": "htmlslides",
+            "elo": 1256,
+            "win_rate": 59.6,
+            "rank": 2
+          },
+          {
+            "arena": "agents",
+            "category": "mobileapps",
+            "elo": 1263,
+            "win_rate": 56.9,
+            "rank": 4
+          },
+          {
+            "arena": "agents",
+            "category": "python-pptxslides",
+            "elo": 1273,
+            "win_rate": 59.2,
+            "rank": 4
+          },
+          {
+            "arena": "agents",
+            "category": "webapps",
+            "elo": 1285,
+            "win_rate": 59.1,
+            "rank": 4
+          },
+          {
+            "arena": "models",
+            "category": "3d",
+            "elo": 1395,
+            "win_rate": 67.6,
+            "rank": 4
+          },
+          {
+            "arena": "models",
+            "category": "codecategories",
+            "elo": 1368,
+            "win_rate": 63,
+            "rank": 2
+          },
+          {
+            "arena": "models",
+            "category": "dataviz",
+            "elo": 1353,
+            "win_rate": 63.1,
+            "rank": 4
+          },
+          {
+            "arena": "models",
+            "category": "gamedev",
+            "elo": 1370,
+            "win_rate": 61.3,
+            "rank": 5
+          },
+          {
+            "arena": "models",
+            "category": "svg",
+            "elo": 1304,
+            "win_rate": 59.6,
+            "rank": 4
+          },
+          {
+            "arena": "models",
+            "category": "uicomponent",
+            "elo": 1355,
+            "win_rate": 61.5,
+            "rank": 4
+          },
+          {
+            "arena": "models",
+            "category": "website",
+            "elo": 1341,
+            "win_rate": 59.8,
+            "rank": 2
+          }
+        ],
+        "artificial_analysis": {
+          "intelligence_index": 43.6,
+          "coding_index": 76.2,
+          "agentic_index": 50
+        }
+      },
+      "reasoning": {
+        "mandatory": false,
+        "default_enabled": true,
+        "supported_efforts": [
+          "max",
+          "high",
+          "low"
+        ],
+        "default_effort": "max"
+      }
+    }
+  },
+  "upstream": [
+    "moonshotai"
+  ],
+  "trial": 0,
+  "terminate_reason": "completed",
+  "max_tokens": 32768,
+  "started_at": "2026-10-09T01:07:42Z",
+  "prompts": {
+    "research": "#data research\nI am researching a federal dataset. Find out everything you can about this dataset, such as who publishes it, under what authority or mandate, its history, its typical users, and its benefits to the public. Be sure your research comprehensively covers each of those perspectives, as well as any others that you discover or seem useful. I believe this is accurate information, but please check:\n\nDataset title: Housing Vacancies and Homeownership\nDescription: The Housing Vacancies and Homeownership provides current information on the rental and homeowner vacancy rates, and characteristics of units available for occupancy. Data is gathered from the Housing Vacancy Survey (HVS) in conjunction with the Current Population Survey (CPS).\n\nReturn a complete report on everything that a preservationist, data librarian, data scientist, or policy activist might want to know about this data.",
+    "assessment": "# Dataset risk assessment\nI would like your help in assessing the likelihood that this data will be changed or removed from its primary location, and that users will no longer be able to access accurate and reliable copies of it, based on the rubric below.\n\n## Sources for context\nTo help assess the rubric categories, perform additional research on the data, the agency, the data's topics and typical users, covering topics such as proposed regulatory or funding changes, recent news, and political commentary. Use whatever resources you find useful, including the Federal Register (https://www.federalregister.gov) and the federal staffing tracker at https://usajobs-tracker.abigailhaddad.com.\n\n## Rubric\nThis rubric is divided up into categories. Each category is divided up into risk levels. In your output, please select the appropriate risk level for each category based on your research.\n\n### Historical Data Availability\n- Gone: Data files prior to the current year or cycle are no longer publicly available.\n- High Risk: Some data files prior to the current year or cycle are removed.\n- Moderate Risk: Some data elements that exist in the dataset prior to the current year or cycle are removed.\n- No Known Issue: Data prior to the current year or cycle remain accessible with no known alterations.\n\n### Future Data Availability\n- Gone: Data collection and publication has been terminated.\n- High Risk: Statutory publication deadline missed and/or collection or publication skipped and/or ICR expired for more than one year.\n- Moderate Risk: Typical or intended publication date missed and/or collection or publication delayed; ICR expired up to one year.\n- No Known Issue: Data published on time or as expected and ICR active or renewed before expiration.\n\n### Data Quality\n- Gone: Data collection and publication has been terminated.\n- High Risk: Reductions in granularity, timeliness, or frequency.\n- Moderate Risk: Potential or emerging risk to granularity, timeliness, or frequency.\n- No Known Issue: Maintained or improved granularity, timeliness, or frequency.\n\n### Statutory Context\n- Gone: N/A\n- High Risk: Statutory authorization is vague and/or there are alternative data collections that could serve as substitutes and/or no known programmatic use.\n- Moderate Risk: Not explicitly required by statute but required for the implementation of a state or federal program, and there are no alternative data collections that could serve as substitutes.\n- No Known Issue: Statutorily required and/or statutory authorization is explicitly named and it is clear what has to be collected, and there aren't alternative data collections that could serve as substitutes and/or required for implementation of a federal program.\n\n### Staffing and Funding\n- Gone: All of the staff in the division or agency are gone and/or all funding has been terminated.\n- High Risk: 40% or more of staff lost, and/or 1,000 or more staff lost, and/or budget cut by 20% or more, and/or leadership removed.\n- Moderate Risk: 10\u201339% of staff lost, and/or 500\u2013999 staff lost, and/or budget cut by 10\u201319%, and/or threatened change in leadership.\n- No Known Issue: Less than 10% of staff lost and less than 10% of budget cut and no known change in leadership.\n\n### Policy\n- Gone: Data collection and publication has been terminated.\n- High Risk: Presidential Action-driven information collection request (ICR); negative policy note on site; other significant changes in accordance with Administration priorities.\n- Moderate Risk: Proposed or pending changes; statements by administration officials suggesting a change is being considered or planned.\n- No Known Issue: No notable changes since January 2025 affecting what data is collected and published.\n\nFor each category, concisely list the evidence and supporting sources that would support each risk level. Then indicate which risk level you find most appropriate and why.\n\nConclude with a simple summary of risk levels:\nHistorical Data Availability: <level>\nFuture Data Availability: <level>\nData Quality: <level>\nStatutory Context: <level>\nStaffing and Funding: <level>\nPolicy: <level>",
+    "session_metadata": "Emit a session_metadata YAML block reporting: current date, model identifier, knowledge cutoff, surface, whether memory is enabled, whether custom preferences or styles are active, all tools and MCP servers available, which tools were actually called in this session, and whether attachments were present. Mark any field not directly observable as unknown rather than inferring it."
+  },
+  "turns": {
+    "research": {
+      "request": {
+        "model": "moonshotai/kimi-k3",
+        "max_output_tokens": 32768,
+        "tools": [
+          {
+            "type": "openrouter:web_search",
+            "parameters": {
+              "engine": "exa",
+              "max_results": 10,
+              "excluded_domains": [
+                "dataindex.us"
+              ]
+            }
+          },
+          {
+            "type": "openrouter:web_fetch",
+            "parameters": {
+              "engine": "openrouter",
+              "blocked_domains": [
+                "dataindex.us"
+              ],
+              "max_content_tokens": 10000
+            }
+          }
+        ],
+        "cache_control": {
+          "type": "ephemeral",
+          "ttl": "1h"
+        },
+        "session_id": "housing-vacancies-and-homeownership-moonshotai/kimi-k3-t0-2026-10-09T01:07:42Z",
+        "stop_server_tools_when": [
+          {
+            "type": "step_count_is",
+            "step_count": 200
+          }
+        ],
+        "reasoning": {
+          "effort": "high"
+        },
+        "provider": {
+          "order": [
+            "moonshotai"
+          ],
+          "allow_fallbacks": false
+        }
+      },
+      "response_meta": {
+        "id": "gen-1791508062-GTOuFsk2hUjf4DoGYRbJ",
+        "object": "response",
+        "created_at": 1791508062,
+        "model": "moonshotai/kimi-k3",
+        "status": "completed",
+        "completed_at": 1791508228,
+        "error": null,
+        "incomplete_details": null,
+        "tools": [],
+        "tool_choice": "auto",
+        "parallel_tool_calls": true,
+        "max_output_tokens": 32768,
+        "temperature": 1,
+        "top_p": 1,
+        "presence_penalty": 0,
+        "frequency_penalty": 0,
+        "top_logprobs": 0,
+        "max_tool_calls": null,
+        "metadata": {},
+        "background": false,
+        "previous_response_id": null,
+        "service_tier": "auto",
+        "truncation": "disabled",
+        "store": false,
+        "instructions": null,
+        "text": {
+          "format": {
+            "type": "text"
+          }
+        },
+        "reasoning": {
+          "effort": "high"
+        },
+        "safety_identifier": null,
+        "prompt_cache_key": null,
+        "prompt_cache_options": null,
+        "usage": {
+          "input_tokens": 40612,
+          "input_tokens_details": {
+            "cached_tokens": 22784
+          },
+          "output_tokens": 4941,
+          "output_tokens_details": {
+            "reasoning_tokens": 1123
+          },
+          "total_tokens": 45553,
+          "cost": 0.16943419999999998,
+          "cost_details": {
+            "upstream_inference_cost": 0.1344342,
+            "upstream_inference_input_cost": 0.0603192,
+            "upstream_inference_output_cost": 0.074115
+          },
+          "server_tool_use_details": {
+            "web_search_requests": 6,
+            "tool_calls_requested": 6,
+            "tool_calls_executed": 6
+          }
+        }
+      },
+      "requests": [
+        {
+          "input_tokens": 40612,
+          "input_tokens_details": {
+            "cached_tokens": 22784
+          },
+          "output_tokens": 4941,
+          "output_tokens_details": {
+            "reasoning_tokens": 1123
+          },
+          "total_tokens": 45553,
+          "cost": 0.16943419999999998,
+          "cost_details": {
+            "upstream_inference_cost": 0.1344342,
+            "upstream_inference_input_cost": 0.0603192,
+            "upstream_inference_output_cost": 0.074115
+          },
+          "server_tool_use_details": {
+            "web_search_requests": 6,
+            "tool_calls_requested": 6,
+            "tool_calls_executed": 6
+          }
+        }
+      ],
+      "searches": 6,
+      "fetches": 0,
+      "tool_items": [
+        {
+          "type": "openrouter:web_search",
+          "id": "st_tmp_f6ma06kig0l",
+          "status": "completed",
+          "action": {
+            "type": "search",
+            "query": "Housing Vacancies and Homeownership Census Bureau dataset Housing Vacancy Survey HVS",
+            "sources": [
+              {
+                "type": "url",
+                "url": "https://www.census.gov/housing/hvs/data/"
+              },
+              {
+                "type": "url",
+                "url": "https://www.census.gov/housing/hvs/data/rates.html"
+              },
+              {
+                "type": "url",
+                "url": "https://www.census.gov/housing/hvs/data/index.html"
+              },
+              {
+                "type": "url",
+                "url": "https://www.census.gov/housing/hvs/data/detailed_tables.html"
+              },
+              {
+                "type": "url",
+                "url": "https://www.census.gov/housing/hvs/data/faq.html"
+              },
+              {
+                "type": "url",
+                "url": "https://www.census.gov/housing/hvs/data/prevann.html"
+              },
+              {
+                "type": "url",
+                "url": "https://www.census.gov/housing/hvs/data/histtabs.html"
+              },
+              {
+                "type": "url",
+                "url": "https://www.census.gov/housing/hvs/"
+              },
+              {
+                "type": "url",
+                "url": "https://www.census.gov/housing/hvs/data/q122ind.html"
+              },
+              {
+                "type": "url",
+                "url": "https://www.census.gov/housing/hvs/data/reports.html"
+              }
+            ]
+          }
+        },
+        {
+          "type": "openrouter:web_search",
+          "id": "st_tmp_rvyk7tys9wb",
+          "status": "completed",
+          "action": {
+            "type": "search",
+            "query": "Housing Vacancy Survey history methodology Current Population Survey supplement Census Bureau",
+            "sources": [
+              {
+                "type": "url",
+                "url": "https://www.census.gov/about/history/historical-censuses-and-surveys/census-programs-surveys/housing/housing-vacancy-survey.html"
+              },
+              {
+                "type": "url",
+                "url": "https://www.census.gov/housing/hvs/data/faq.html"
+              },
+              {
+                "type": "url",
+                "url": "https://www.census.gov/housing/hvs/methodology/index.html"
+              },
+              {
+                "type": "url",
+                "url": "https://www.census.gov/topics/housing/guidance/vacancy-fact-sheet.html"
+              },
+              {
+                "type": "url",
+                "url": "https://www2.census.gov/programs-surveys/econ/events/business-economy/02-26-2014/transcript_hvs.pdf"
+              },
+              {
+                "type": "url",
+                "url": "https://www.census.gov/housing/hvs/files/annual24/ann24src.pdf"
+              },
+              {
+                "type": "url",
+                "url": "https://www.census.gov/housing/hvs/files/annual96/ann96src.txt"
+              },
+              {
+                "type": "url",
+                "url": "https://www.census.gov/housing/hvs/data/histtabs.html"
+              },
+              {
+                "type": "url",
+                "url": "https://www.census.gov/housing/hvs/files/qtr210/q210src.html"
+              },
+              {
+                "type": "url",
+                "url": "https://www.census.gov/housing/hvs/files/qtr126/source_26q1.pdf"
+              }
+            ]
+          }
+        },
+        {
+          "type": "openrouter:web_search",
+          "id": "st_tmp_a2ruv7ko05p",
+          "status": "completed",
+          "action": {
+            "type": "search",
+            "query": "Housing Vacancy Survey authority Title 13 U.S. Code mandate OMB approval number rental vacancy rate leading economic indicator",
+            "sources": [
+              {
+                "type": "url",
+                "url": "https://omb.report/icr/202606-0607-001/doc/original/169461800.pdf"
+              },
+              {
+                "type": "url",
+                "url": "https://thefederalregister.org/documents/2026-11293/agency-information-collection-activities-submission-to-the-office-of-management-and-budget-omb-for-review-and-approval-c"
+              },
+              {
+                "type": "url",
+                "url": "https://www.census.gov/about/history/historical-censuses-and-surveys/census-programs-surveys/housing/housing-vacancy-survey.html"
+              },
+              {
+                "type": "url",
+                "url": "https://www.reginfo.gov/public/do/DownloadDocument?objectID=99583501"
+              },
+              {
+                "type": "url",
+                "url": "https://www.federalregister.gov/documents/2022/12/16/2022-27273/agency-information-collection-activities-submission-to-the-office-of-management-and-budget-omb-for"
+              },
+              {
+                "type": "url",
+                "url": "https://omb.report/omb/0607-0179"
+              },
+              {
+                "type": "url",
+                "url": "https://omb.report/icr/201704-0607-001/doc/72779501.pdf"
+              },
+              {
+                "type": "url",
+                "url": "https://www.govinfo.gov/content/pkg/FR-2014-06-13/pdf/2014-13897.pdf"
+              },
+              {
+                "type": "url",
+                "url": "https://omb.report/icr/200804-0607-002/doc/6747302.pdf"
+              },
+              {
+                "type": "url",
+                "url": "https://omb.report/icr/202303-0607-002"
+              }
+            ]
+          }
+        },
+        {
+          "type": "openrouter:web_search",
+          "id": "st_tmp_az4tks3rfzn",
+          "status": "completed",
+          "action": {
+            "type": "search",
+            "query": "CPS Housing Vacancy Survey microdata public use files FRED homeownership rate series data users",
+            "sources": [
+              {
+                "type": "url",
+                "url": "https://www.census.gov/housing/hvs/data/index.html"
+              },
+              {
+                "type": "url",
+                "url": "https://fred.stlouisfed.org/release?rid=144&soid=19"
+              },
+              {
+                "type": "url",
+                "url": "https://www2.census.gov/programs-surveys/cps/methodology/PublicUseDocumentation_final.pdf"
+              },
+              {
+                "type": "url",
+                "url": "https://www.census.gov/housing/hvs/data/faq.html"
+              },
+              {
+                "type": "url",
+                "url": "https://www.census.gov/housing/hvs/files/annual25/Documentation.pdf"
+              },
+              {
+                "type": "url",
+                "url": "https://www.census.gov/housing/hvs/"
+              },
+              {
+                "type": "url",
+                "url": "https://www.census.gov/housing/hvs/methodology/index.html"
+              },
+              {
+                "type": "url",
+                "url": "https://www.census.gov/housing/hvs/data/reports.html"
+              },
+              {
+                "type": "url",
+                "url": "https://www.census.gov/housing/hvs/data/detailed_tables.html"
+              },
+              {
+                "type": "url",
+                "url": "https://www.census.gov/housing/hvs/data/histtabs.html"
+              }
+            ]
+          }
+        },
+        {
+          "type": "openrouter:web_search",
+          "id": "st_tmp_rix56uypelh",
+          "status": "completed",
+          "action": {
+            "type": "search",
+            "query": "Housing Vacancy Survey 2020 COVID-19 data collection impact nonresponse bias Census Bureau warning",
+            "sources": [
+              {
+                "type": "url",
+                "url": "https://www.census.gov/housing/hvs/files/annual20/ann20src.pdf"
+              },
+              {
+                "type": "url",
+                "url": "https://www.census.gov/housing/hvs/files/qtr221/impact_coronavirus_21q2.pdf"
+              },
+              {
+                "type": "url",
+                "url": "https://www.census.gov/library/working-papers/2021/demo/SEHSD-WP2021-04.html"
+              },
+              {
+                "type": "url",
+                "url": "https://www.census.gov/library/working-papers/2022/demo/SEHSD-WP2022-11.html"
+              },
+              {
+                "type": "url",
+                "url": "https://www.census.gov/housing/hvs/files/qtr320/source_20q3.pdf"
+              },
+              {
+                "type": "url",
+                "url": "https://www.census.gov/housing/hvs/"
+              },
+              {
+                "type": "url",
+                "url": "https://www.census.gov/content/dam/Census/library/working-papers/2020/demo/sehsd-wp2020-10.pdf."
+              },
+              {
+                "type": "url",
+                "url": "https://www.census.gov/housing/hvs/files/qtr421/source_21q4.pdf"
+              },
+              {
+                "type": "url",
+                "url": "https://www.census.gov/housing/hvs/files/annual21/ann21src.pdf"
+              },
+              {
+                "type": "url",
+                "url": "https://www.census.gov/housing/hvs/files/qtr223/source_23q2.pdf"
+              }
+            ]
+          }
+        },
+        {
+          "type": "openrouter:web_search",
+          "id": "st_tmp_crdx186mnn",
+          "status": "completed",
+          "action": {
+            "type": "search",
+            "query": "Housing Vacancy Survey 2025 government shutdown release delayed homeownership vacancy rates quarterly"
+          }
+        }
+      ],
+      "ended": "answered",
+      "seconds": 165.6
+    },
+    "assessment": {
+      "request": {
+        "model": "moonshotai/kimi-k3",
+        "max_output_tokens": 32768,
+        "tools": [
+          {
+            "type": "openrouter:web_search",
+            "parameters": {
+              "engine": "exa",
+              "max_results": 10,
+              "excluded_domains": [
+                "dataindex.us"
+              ]
+            }
+          },
+          {
+            "type": "openrouter:web_fetch",
+            "parameters": {
+              "engine": "openrouter",
+              "blocked_domains": [
+                "dataindex.us"
+              ],
+              "max_content_tokens": 10000
+            }
+          }
+        ],
+        "cache_control": {
+          "type": "ephemeral",
+          "ttl": "1h"
+        },
+        "session_id": "housing-vacancies-and-homeownership-moonshotai/kimi-k3-t0-2026-10-09T01:07:42Z",
+        "stop_server_tools_when": [
+          {
+            "type": "step_count_is",
+            "step_count": 200
+          }
+        ],
+        "reasoning": {
+          "effort": "high"
+        },
+        "provider": {
+          "order": [
+            "moonshotai"
+          ],
+          "allow_fallbacks": false
+        }
+      },
+      "response_meta": {
+        "id": "gen-1791508228-uB9xLPPW6XfidaLhHdNT",
+        "object": "response",
+        "created_at": 1791508228,
+        "model": "moonshotai/kimi-k3",
+        "status": "completed",
+        "completed_at": 1791508419,
+        "error": null,
+        "incomplete_details": null,
+        "tools": [],
+        "tool_choice": "auto",
+        "parallel_tool_calls": true,
+        "max_output_tokens": 32768,
+        "temperature": 1,
+        "top_p": 1,
+        "presence_penalty": 0,
+        "frequency_penalty": 0,
+        "top_logprobs": 0,
+        "max_tool_calls": null,
+        "metadata": {},
+        "background": false,
+        "previous_response_id": null,
+        "service_tier": "auto",
+        "truncation": "disabled",
+        "store": false,
+        "instructions": null,
+        "text": {
+          "format": {
+            "type": "text"
+          }
+        },
+        "reasoning": {
+          "effort": "high"
+        },
+        "safety_identifier": null,
+        "prompt_cache_key": null,
+        "prompt_cache_options": null,
+        "usage": {
+          "input_tokens": 70511,
+          "input_tokens_details": {
+            "cached_tokens": 44288
+          },
+          "output_tokens": 5597,
+          "output_tokens_details": {
+            "reasoning_tokens": 2614
+          },
+          "total_tokens": 76108,
+          "cost": 0.2109104,
+          "cost_details": {
+            "upstream_inference_cost": 0.1759104,
+            "upstream_inference_input_cost": 0.0919554,
+            "upstream_inference_output_cost": 0.083955
+          },
+          "server_tool_use_details": {
+            "web_search_requests": 5,
+            "tool_calls_requested": 6,
+            "tool_calls_executed": 6
+          }
+        }
+      },
+      "requests": [
+        {
+          "input_tokens": 70511,
+          "input_tokens_details": {
+            "cached_tokens": 44288
+          },
+          "output_tokens": 5597,
+          "output_tokens_details": {
+            "reasoning_tokens": 2614
+          },
+          "total_tokens": 76108,
+          "cost": 0.2109104,
+          "cost_details": {
+            "upstream_inference_cost": 0.1759104,
+            "upstream_inference_input_cost": 0.0919554,
+            "upstream_inference_output_cost": 0.083955
+          },
+          "server_tool_use_details": {
+            "web_search_requests": 5,
+            "tool_calls_requested": 6,
+            "tool_calls_executed": 6
+          }
+        }
+      ],
+      "searches": 5,
+      "fetches": 1,
+      "tool_items": [
+        {
+          "type": "openrouter:web_search",
+          "id": "st_tmp_p21qwhbusal",
+          "status": "completed",
+          "action": {
+            "type": "search",
+            "query": "Census Bureau layoffs staff reductions RIF 2025 2026 DOGE current surveys division",
+            "sources": [
+              {
+                "type": "url",
+                "url": "https://apnews.com/article/census-bureau-doge-federal-surveys-fe560e377be69e913660a6d90c1ee419"
+              },
+              {
+                "type": "url",
+                "url": "https://www.npr.org/2025/04/17/nx-s1-5349435/us-census-bureau-data-decennial"
+              },
+              {
+                "type": "url",
+                "url": "https://www.govexec.com/workforce/2025/07/census-has-long-struggled-staffing-shortages-employees-say-trump-making-it-worse/406840/"
+              },
+              {
+                "type": "url",
+                "url": "https://news.bloomberglaw.com/daily-labor-report/census-bureau-hit-with-layoffs-as-100-get-notices-in-shutdown"
+              },
+              {
+                "type": "url",
+                "url": "https://thecensusproject.org/2025/10/14/government-shutdown-rifs-impact-u-s-census-bureau/"
+              },
+              {
+                "type": "url",
+                "url": "https://www.washingtonpost.com/politics/2025/05/23/census-bureau-doge-federal-surveys/73615954-378b-11f0-9c9e-0db2d748bea7_story.html"
+              },
+              {
+                "type": "url",
+                "url": "https://www.govexec.com/workforce/2026/07/staffing-cuts-are-leaving-federal-statistical-agencies-stretched-thin/415104/"
+              },
+              {
+                "type": "url",
+                "url": "https://apnews.com/article/census-bureau-statistical-agencies-data-government-803993ba9d2ab70c2395d2d4bcde3ddd"
+              },
+              {
+                "type": "url",
+                "url": "https://www.gao.gov/products/gao-26-108583"
+              },
+              {
+                "type": "url",
+                "url": "https://federalnewsnetwork.com/big-data/2025/12/bedrock-federal-data-sets-are-disappearing-as-statistical-agencies-face-upheaval/"
+              }
+            ]
+          }
+        },
+        {
+          "type": "openrouter:web_search",
+          "id": "st_tmp_ilzfcpetm4",
+          "status": "completed",
+          "action": {
+            "type": "search",
+            "query": "Housing Vacancy Survey quarterly release 2025 government shutdown delayed homeownership vacancy rates",
+            "sources": [
+              {
+                "type": "url",
+                "url": "https://www.census.gov/housing/hvs/files/qtr425/source_25q4.pdf"
+              },
+              {
+                "type": "url",
+                "url": "https://www.census.gov/housing/hvs/files/qtr325/Q325press.pdf"
+              },
+              {
+                "type": "url",
+                "url": "http://census.gov/housing/hvs/files/qtr225/Q225press.pdf"
+              },
+              {
+                "type": "url",
+                "url": "https://www.census.gov/housing/hvs/files/qtr425/Q425press.pdf"
+              },
+              {
+                "type": "url",
+                "url": "https://www.census.gov/housing/hvs/data/reports.html"
+              },
+              {
+                "type": "url",
+                "url": "https://www.census.gov/housing/hvs/current/index.html"
+              },
+              {
+                "type": "url",
+                "url": "https://www.census.gov/housing/hvs/data/faq.html"
+              },
+              {
+                "type": "url",
+                "url": "https://www.census.gov/housing/hvs/files/qtr126/source_26q1.pdf"
+              },
+              {
+                "type": "url",
+                "url": "https://www.census.gov/housing/hvs/files/qtr125/Q125press.pdf"
+              },
+              {
+                "type": "url",
+                "url": "https://www.census.gov/housing/hvs/files/qtr424/Q424press.pdf"
+              }
+            ]
+          }
+        },
+        {
+          "type": "openrouter:web_search",
+          "id": "st_tmp_bgnqlqwwkee",
+          "status": "completed",
+          "action": {
+            "type": "search",
+            "query": "Census Bureau director nominee 2025 2026 Trump administration leadership acting director",
+            "sources": [
+              {
+                "type": "url",
+                "url": "https://www.census.gov/about/leadership/director.html"
+              },
+              {
+                "type": "url",
+                "url": "https://apnews.com/article/us-census-bureau-commerce-trump-e87407373e9cfe507374664a6d86f643"
+              },
+              {
+                "type": "url",
+                "url": "https://www.npr.org/2025/09/19/nx-s1-5288846/trump-census-bureau-director-george-cook"
+              },
+              {
+                "type": "url",
+                "url": "https://www.congress.gov/crs-product/IF11845"
+              },
+              {
+                "type": "url",
+                "url": "https://www.census.gov/newsroom/bios/george-cook.html"
+              },
+              {
+                "type": "url",
+                "url": "https://en.wikipedia.org/wiki/Director_of_the_United_States_Census_Bureau"
+              },
+              {
+                "type": "url",
+                "url": "https://www.npr.org/2025/01/30/nx-s1-5258393/census-bureau-director-robert-santos"
+              },
+              {
+                "type": "url",
+                "url": "https://www.commerce.senate.gov/wp-content/uploads/media/doc/Democratic%20QFRs%20for%20Ms.%20Meyer_pdf.pdf"
+              },
+              {
+                "type": "url",
+                "url": "https://www.census.gov/about/leadership.html"
+              },
+              {
+                "type": "url",
+                "url": "https://www.commerce.senate.gov/wp-content/uploads/meetings/138811FE-6614-4927-904A-88D6E0A7260A/9.17.25_Joyce%20Meyer%20Opening%20Statement.pdf"
+              }
+            ]
+          }
+        },
+        {
+          "type": "openrouter:web_search",
+          "id": "st_tmp_d2tpvip4a9b",
+          "status": "completed",
+          "action": {
+            "type": "search",
+            "query": "Census Bureau FY2026 budget appropriations cut Current Population Survey funding Census Project",
+            "sources": [
+              {
+                "type": "url",
+                "url": "https://www.congress.gov/crs-product/IF13105"
+              },
+              {
+                "type": "url",
+                "url": "https://thecensusproject.org/2025/06/30/department-of-commerce-releases-fiscal-year-2026-census-budget-details/"
+              },
+              {
+                "type": "url",
+                "url": "https://thecensusproject.org/2025/09/11/fiscal-year-2026-house-commerce-justice-science-appropriations-bill-advances/"
+              },
+              {
+                "type": "url",
+                "url": "https://thecensusproject.org/2026/01/07/congress-unveils-fiscal-year-2026-funding-proposal-for-u-s-census-bureau/"
+              },
+              {
+                "type": "url",
+                "url": "https://thecensusproject.org/2026/01/19/fiscal-year-2026-funding-for-census-bureau-resolved/"
+              },
+              {
+                "type": "url",
+                "url": "https://cossa.org/wp-content/uploads/2026/01/FY-2026-Final-CJS-Appropriations-Analysis.pdf"
+              },
+              {
+                "type": "url",
+                "url": "https://www.cbpp.org/research/poverty-and-inequality/federal-data-are-disappearing-as-statistical-agencies-face-budget"
+              },
+              {
+                "type": "url",
+                "url": "https://cossa.org/wp-content/uploads/2025/11/Census-Project-FY26-CJS-Letter.pdf"
+              },
+              {
+                "type": "url",
+                "url": "https://thecensusproject.org/wp-content/uploads/2025/04/Census-Project-Sign-on-Letter-re-FY2026-4-3-2025.pdf"
+              },
+              {
+                "type": "url",
+                "url": "https://thecensusproject.org/wp-content/uploads/2025/09/CensusProjectCo-DirectorLettertoHouseCJSPreMarkup9-8-25.pdf"
+              }
+            ]
+          }
+        },
+        {
+          "type": "openrouter:web_fetch",
+          "id": "st_tmp_ksjp8knniss",
+          "status": "incomplete",
+          "url": "https://omb.report/omb/0607-0179",
+          "httpStatus": 403,
+          "error": "HTTP 403: Forbidden"
+        },
+        {
+          "type": "openrouter:web_search",
+          "id": "st_tmp_7yphrspj1y",
+          "status": "completed",
+          "action": {
+            "type": "search",
+            "query": "Current Population Survey changes 2025 2026 Trump administration race ethnicity data questions citizenship statistical agencies policy",
+            "sources": [
+              {
+                "type": "url",
+                "url": "https://www.govinfo.gov/content/pkg/FR-2025-06-27/html/2025-11855.htm"
+              },
+              {
+                "type": "url",
+                "url": "https://www.everycrsreport.com/files/2026-09-14_IN12304_2894d95e97fa1ae3a023a43abeb43d840f6f5d0b.pdf"
+              },
+              {
+                "type": "url",
+                "url": "https://www.census.gov/about/our-research/race-ethnicity/standards-updates.html"
+              },
+              {
+                "type": "url",
+                "url": "https://www2.census.gov/about/partners/cac/sac/meetings/2024-09/presentation-implementation-race-ethnicity-standards.pdf"
+              },
+              {
+                "type": "url",
+                "url": "https://www.nber.org/system/files/working_papers/w32812/w32812.pdf"
+              },
+              {
+                "type": "url",
+                "url": "https://www.npr.org/2026/02/05/nx-s1-5584085/census-citizenship-question"
+              },
+              {
+                "type": "url",
+                "url": "https://www2.census.gov/programs-surveys/cps/techdocs/cpsmar26.pdf"
+              },
+              {
+                "type": "url",
+                "url": "https://talkingpointsmemo.com/news/trump-admin-2030-census-rule"
+              },
+              {
+                "type": "url",
+                "url": "https://www.bls.gov/cps/methods/population-controls/population-control-adjustments-2026.pdf"
+              },
+              {
+                "type": "url",
+                "url": "https://www.kff.org/racial-equity-and-health-policy/proposed-changes-to-demographic-data-collection-in-the-census-could-impact-efforts-to-address-health-and-health-care-disparities/"
+              }
+            ]
+          }
+        }
+      ],
+      "ended": "answered",
+      "seconds": 191.1
+    },
+    "session_metadata": {
+      "request": {
+        "model": "moonshotai/kimi-k3",
+        "max_output_tokens": 32768,
+        "tools": [
+          {
+            "type": "openrouter:web_search",
+            "parameters": {
+              "engine": "exa",
+              "max_results": 10,
+              "excluded_domains": [
+                "dataindex.us"
+              ]
+            }
+          },
+          {
+            "type": "openrouter:web_fetch",
+            "parameters": {
+              "engine": "openrouter",
+              "blocked_domains": [
+                "dataindex.us"
+              ],
+              "max_content_tokens": 10000
+            }
+          }
+        ],
+        "cache_control": {
+          "type": "ephemeral",
+          "ttl": "1h"
+        },
+        "session_id": "housing-vacancies-and-homeownership-moonshotai/kimi-k3-t0-2026-10-09T01:07:42Z",
+        "stop_server_tools_when": [
+          {
+            "type": "step_count_is",
+            "step_count": 200
+          }
+        ],
+        "reasoning": {
+          "effort": "high"
+        },
+        "provider": {
+          "order": [
+            "moonshotai"
+          ],
+          "allow_fallbacks": false
+        }
+      },
+      "response_meta": {
+        "id": "gen-1791508419-8bDtWsf4zilBlPtTxE3h",
+        "object": "response",
+        "created_at": 1791508419,
+        "model": "moonshotai/kimi-k3",
+        "status": "completed",
+        "completed_at": 1791508470,
+        "error": null,
+        "incomplete_details": null,
+        "tools": [],
+        "tool_choice": "auto",
+        "parallel_tool_calls": true,
+        "max_output_tokens": 32768,
+        "temperature": 1,
+        "top_p": 1,
+        "presence_penalty": 0,
+        "frequency_penalty": 0,
+        "top_logprobs": 0,
+        "max_tool_calls": null,
+        "metadata": {},
+        "background": false,
+        "previous_response_id": null,
+        "service_tier": "auto",
+        "truncation": "disabled",
+        "store": false,
+        "instructions": null,
+        "text": {
+          "format": {
+            "type": "text"
+          }
+        },
+        "reasoning": {
+          "effort": "high"
+        },
+        "safety_identifier": null,
+        "prompt_cache_key": null,
+        "prompt_cache_options": null,
+        "usage": {
+          "input_tokens": 10575,
+          "input_tokens_details": {
+            "cached_tokens": 6144
+          },
+          "output_tokens": 1557,
+          "output_tokens_details": {
+            "reasoning_tokens": 1400
+          },
+          "total_tokens": 12132,
+          "cost": 0.0384912,
+          "cost_details": {
+            "upstream_inference_cost": 0.0384912,
+            "upstream_inference_input_cost": 0.0151362,
+            "upstream_inference_output_cost": 0.023355
+          }
+        }
+      },
+      "requests": [
+        {
+          "input_tokens": 10575,
+          "input_tokens_details": {
+            "cached_tokens": 6144
+          },
+          "output_tokens": 1557,
+          "output_tokens_details": {
+            "reasoning_tokens": 1400
+          },
+          "total_tokens": 12132,
+          "cost": 0.0384912,
+          "cost_details": {
+            "upstream_inference_cost": 0.0384912,
+            "upstream_inference_input_cost": 0.0151362,
+            "upstream_inference_output_cost": 0.023355
+          }
+        }
+      ],
+      "searches": 0,
+      "fetches": 0,
+      "tool_items": [],
+      "ended": "answered",
+      "seconds": 50.5
+    }
+  },
+  "messages": [
+    {
+      "role": "user",
+      "content": "#data research\nI am researching a federal dataset. Find out everything you can about this dataset, such as who publishes it, under what authority or mandate, its history, its typical users, and its benefits to the public. Be sure your research comprehensively covers each of those perspectives, as well as any others that you discover or seem useful. I believe this is accurate information, but please check:\n\nDataset title: Housing Vacancies and Homeownership\nDescription: The Housing Vacancies and Homeownership provides current information on the rental and homeowner vacancy rates, and characteristics of units available for occupancy. Data is gathered from the Housing Vacancy Survey (HVS) in conjunction with the Current Population Survey (CPS).\n\nReturn a complete report on everything that a preservationist, data librarian, data scientist, or policy activist might want to know about this data."
+    },
+    {
+      "role": "assistant",
+      "content": "I'll research this dataset thoroughly. Let me start with several searches.Good start. Let me dig into the legal authority, data users/uses, microdata access, and any recent developments.I have a strong foundation. Let me check a few more details: data quality events (COVID-19, government shutdowns), microdata access, and preservation context.# Research Report: Housing Vacancies and Homeownership (CPS/HVS)\n\n## 1. Verification of Your Description\n\nYour title and description are accurate. The U.S. Census Bureau describes the dataset almost exactly as you wrote it:\n\n> \"The Housing Vacancies and Homeownership provides current information on the rental and homeowner vacancy rates, and characteristics of units available for occupancy.\"\n\nThe one nuance worth adding: the product's data come from two intertwined instruments \u2014 the **Current Population Survey (CPS)**, which supplies the sample frame and tenure data for occupied units, and the **Housing Vacancy Survey (HVS)**, a supplement of the CPS that interviews about vacant units. The product is therefore usually cited as **CPS/HVS**.\n\n---\n\n## 2. Publisher, Authority, and Mandate\n\n**Publisher:** U.S. Census Bureau (Demographic Programs directorate, within the Department of Commerce). Homepage: census.gov/housing/hvs.\n\n**Legal authority:**\n- **Title 13, U.S. Code, Section 182** \u2014 the primary authorizing statute (13 U.S.C. \u00a7 182 authorizes the Secretary of Commerce to conduct surveys necessary to furnish current data on subjects covered by the censuses).\n- **Title 29, U.S.C. Section 1/2** \u2014 cited as co-authority (reflecting the CPS's labor-statistics origins; the CPS itself is a joint Census Bureau/Bureau of Labor Statistics enterprise, though HVS is a Census-only supplement).\n- Confidentiality protections under **Title 13, Sections 9 and 214** \u2014 responses are protected by law and cannot be released in identifiable form.\n- Paperwork Reduction Act clearance: **OMB Control Number 0607-0179**. Per the most recent renewal cycle (approved June 2023, ICR 202303-0607-002), the collection was approved through June 30, 2026, with a renewal notice published in the Federal Register in 2026 (91 FR 34214). Estimated burden: ~78,000 responses annually, ~3 minutes per response, ~3,900 burden hours/year, at a reported annual cost to the federal government of roughly **$875,000** \u2014 remarkably inexpensive for a survey feeding a national economic indicator.\n\n**Why it exists (the practical mandate):** The Census Bureau's supporting statements to OMB state the federal government \"needs current data on the rental vacancy rate (a component of the index of leading economic indicators), homeowner vacancy rate, and homeownership rate to assess the economic climate with regard to housing affordability\" and to enable housing officials to evaluate the housing supply. The HVS is the **only** source of quarterly statistics on rental vacancy and homeownership rates for the U.S., the four census regions, all 50 states plus DC, and the 75 largest metropolitan statistical areas (MSAs).\n\n---\n\n## 3. History\n\n- **1940:** The CPS began as the \"Monthly Report of Unemployment\" under the Work Projects Administration; transferred to the Census Bureau in 1942, eventually renamed the Current Population Survey.\n- **1956:** The Housing Vacancy Survey began as a CPS supplement, introducing two new national measures: the **rental vacancy rate** and the **homeowner vacancy rate**. Quarterly vacancy series in the historical tables run back to 1956; monthly household estimates back to 1955.\n- **1960:** Housing-unit definitions were updated; the **homeownership rate** series is published from 1960 (quarterly series from 1964) onward.\n- **1994:** Major modernization \u2014 the CPS/HVS became fully computerized (CASIC/CAPI collection) and was reweighted to 1990 census controls. The Bureau cautions about comparing pre- and post-1994 data.\n- **2003 (Q1):** Housing inventory estimates began being controlled to independent housing-unit estimates (based on Census 2000, updated with building permits, housing loss estimates, and administrative records). This control-vintage procedure continues today.\n- **Sample redesigns:** New samples are drawn after each decennial census and phased in over ~15 months (e.g., April 2004\u2013June 2005 from Census 2000; a new Census 2020\u2013based sample began phasing in **April 2025**, completing by July 2026).\n- **Revisions:** Entire historical series of housing-inventory estimates are periodically revised to new \"vintage\" independent controls (e.g., the Vintage 2025 revision in 2026 revised estimates back to Q2 2020; data prior to Q2 2000 have never been revised). **This is crucial for preservationists: the published time series is a moving target \u2014 the same historical quarter can carry different values in different vintages.**\n- **COVID-19 (2020\u20132021):** In-person interviewing was suspended March 20, 2020, and gradually reinstated from July through fall 2020. Census working papers (SEHSD-WP2021-04, SEHSD-WP2022-11) documented that the shift to telephone-only collection depressed identification of vacant units, causing vacancy rates to be **underestimated** and the Q2 2020 homeownership rate to show a **historically large, likely spurious spike**. The Bureau advises caution with 2020\u20132021 estimates; each affected quarter's release carries a \"Source and Accuracy\" caveat.\n\n---\n\n## 4. Methodology\n\n- **Sample:** A multistage stratified probability sample of about **72,000 housing units** (occupied and vacant) drawn from the CPS frame, covering all 50 states and DC. Roughly 61,200 occupied units are eligible for interview monthly; ~10,800 additional units are visited and found vacant or otherwise not interviewed; about half of those are vacant units interviewed for the HVS. Institutionalized populations (prisons, nursing homes) are excluded.\n- **Rotation:** The classic CPS **4-8-4 design** \u2014 in sample 4 consecutive months, out 8 months, back in 4 months, then permanently retired. This provides month-to-month and year-over-year continuity while limiting respondent burden.\n- **Timing:** Fieldwork occurs during the calendar week containing the **19th of the month**; questions refer to the week containing the **12th**. Data are collected monthly but published quarterly.\n- **Respondent rule:** Occupied units complete the CPS; for vacant units, the HVS interviews the \"most knowledgeable respondent\" \u2014 an owner, property manager, real estate agent, HOA/rental company employee, or even a neighbor. All vacant-unit interviews are conducted in person.\n- **Instrument:** Fully computerized questionnaire (CAPI/CATI). Core items: vacancy status (for rent; for sale only; rented/sold but not yet occupied; held off market \u2014 seasonal, occasional use, usual residence elsewhere, or \"other\"), plus unit characteristics \u2014 number of rooms/bedrooms, year structure built, units in structure, duration of vacancy, monthly asking rent, asking sale price.\n- **Weighting:** HVS is weighted to **housing units**, not population (a key difference from the CPS ASEC; household counts between the two do not match). Weights include noninterview adjustment for occupied units and ratio estimation to independent housing-unit control totals. Notably, the methodology **assumes all vacant units are identified** \u2014 there is no nonresponse adjustment component for vacant units, which is the source of the COVID-era bias described above.\n- **Seasonal adjustment:** Only the homeownership rate is published in seasonally adjusted form (from 1980).\n\n---\n\n## 5. Data Products, Formats, and Access\n\n| Product | Frequency | Content |\n|---|---|---|\n| **Quarterly press release + detailed tables** | Released ~end of January, April, July, October | Vacancy and homeownership rates (US, regions, states, 75 largest MSAs), housing inventory estimates, characteristics of vacant units (Tables 1\u201311+) |\n| **Annual Statistics** | February (for prior year) | Broader demographic detail: homeownership by age of householder, family status, race/ethnicity, income |\n| **Historical tables** | Continuous | Quarterly rental/homeowner vacancy rates from 1956; inventory estimates from 1965; homeownership from 1964; margins of error |\n| **State/MSA rate tables** | Quarterly/annual | Tables 1\u20136 series, rates by state and 75 largest MSAs, generally 2005\u2013present |\n| **CSV files** | With annual/quarterly releases | Machine-readable versions of tables (e.g., rvr_state_25.csv, hor_race_25.csv), with a published table-to-CSV crosswalk |\n| **FRED** | Updated each release | St. Louis Fed hosts the series (e.g., USRHOWN homeownership rate, rental vacancy) with API access |\n| **Census API** | Yes | HVS is among Census Bureau indicators exposed via the API |\n\n**Microdata:** This is an important limitation. There is **no dedicated public-use HVS microdata file** of vacant units. Tenure-related variables for interviewed households are embedded in CPS monthly public-use files, but detailed vacant-unit microdata is available only through restricted channels (internal Census research, e.g., Federal Statistical Research Data Centers). The FAQ states that all publicly available HVS data are on the website, and \u2014 notably for data librarians \u2014 the FAQ explicitly says **\"No\" formal metadata are available** beyond the website documentation.\n\n**Documentation:** Each release includes Definitions and Source & Accuracy statements (with standard errors, nonsampling error discussion, and a cumulative \"Historical CPS/HVS Changes\" log \u2014 an invaluable provenance record for preservation).\n\n---\n\n## 6. Users and Uses\n\nDocumented users (from OMB supporting statements and Federal Register notices):\n\n- **Federal economic agencies:** The rental vacancy rate is a component of the **Conference Board's Index of Leading Economic Indicators** (published under Department of Commerce auspices). Used by the **Bureau of Economic Analysis** (residential investment/GDP inputs), **Federal Reserve Board**, **Treasury**, **OMB**, and the **White House Council of Economic Advisers**.\n- **HUD:** Housing supply and affordability assessment; program evaluation.\n- **Congressional staff, policy analysts, program and budget managers:** Evaluating number/characteristics of units available for occupancy and the suitability of housing initiatives.\n- **Private sector:** National Association of Home Builders, realtors, mortgage lenders, real estate investors, market analysts (e.g., for multifamily development decisions).\n- **Researchers and journalists:** Homeownership gaps by race/ethnicity and age (the quarterly Table 16/19 series is the standard source for reporting on the Black\u2013white homeownership gap), housing-market tightness, gentrification and vacancy studies.\n- **Forecasters:** As a gauge of the current economic climate.\n\n---\n\n## 7. Benefits to the Public\n\n1. **Timeliness with depth:** The only quarterly vacancy/homeownership source at national, state, and major-metro level; the ACS and AHS are annual or biennial and slower to release.\n2. **Long, consistent time series:** ~70 years of vacancy rates enable analysis across business cycles, the 2008 foreclosure crisis, and the COVID housing boom.\n3. **Equity monitoring:** Quarterly homeownership by race/ethnicity and age is the primary instrument for tracking fair-housing progress.\n4. **Macroeconomic signaling:** Feeds the leading economic indicator index, affecting monetary/fiscal policy deliberations.\n5. **Low burden, low cost:** ~$875K/year, 3 minutes per respondent \u2014 a high-value, low-friction federal statistic.\n6. **Free, open access:** All tabulations, CSVs, graphs, and documentation are free; mirrored in FRED with an open API.\n\n---\n\n## 8. Limitations and Caveats (for data scientists)\n\n- **Sampling error is material at state/MSA level**; the Bureau publishes margins of error and cautions on quarter-to-quarter state changes.\n- **No sub-state/MSA geography:** No county, tract, or ZIP data (use decennial census/ACS instead). No housing-unit estimates by state/MSA.\n- **Multi-family vacancy rates are national only** in HVS; regional multi-family rates come from the biennial American Housing Survey.\n- **Weighting quirk:** Assumes all nonresponding units are occupied \u2014 biases vacancy estimates downward when vacant-unit identification degrades (demonstrated in 2020\u20132021).\n- **Vintage revisions:** Housing-inventory levels (and derived rates in some cases) are revised when new control vintages arrive; analysts should record the vintage they used.\n- **Series breaks:** 1994 computerization; decennial sample redesigns; definition changes (1960 housing unit definition; \"other vacant\" breakout added 2012). The Source & Accuracy \"Historical Changes\" sections document these.\n- **Differences vs. ACS/AHS:** Census publishes explicit comparison guidance; estimates differ because of weighting (households vs. housing units), reference periods, and methodology.\n\n---\n\n## 9. Preservationist / Data Librarian Notes\n\n- **Primary archive:** census.gov/housing/hvs (data, prior releases back decades, historical tables), plus www2.census.gov/programs-surveys/... file trees with legacy .txt/.xls/.pdf sources (e.g., ann96src.txt from 1996).\n- **Risks:** (a) vintage-based revision overwrites \u2014 preserving dated snapshots of historical tables is essential; (b) no formal structured metadata (per the FAQ), so preservation should capture the PDF Definitions and Source & Accuracy files alongside data; (c) releases can be disrupted by lapses in appropriations or public-health emergencies, as 2020 demonstrated; (d) content is scattered across Excel, CSV, PDF, TXT, and HTML with inconsistent schemas across eras \u2014 a documented CSV crosswalk exists only for recent releases.\n- **Redundant copies:** FRED mirrors headline series; ALFRED (FRED's archival sibling) retains **vintage** data, making it the best off-the-shelf source for point-in-time historical values.\n- **Key provenance documents to capture:** quarterly Source & Accuracy PDFs, annual Source & Accuracy (with the \"Historical CPS/HVS Changes\" log), COVID impact working papers, OMB ICR supporting statements (reginfo.gov / omb.report under control 0607-0179), and Federal Register notices.\n- **Recommended citation practice:** Cite release quarter/year, vintage of controls, and access date.\n\n---\n\n## 10. Related/Complementary Datasets\n\n- **American Community Survey (ACS):** annual vacancy/homeownership down to ZIP/tract level.\n- **American Housing Survey (AHS, HUD-sponsored, Census-conducted):** biennial, deep housing-quality characteristics, multifamily vacancy by region and selected MSAs.\n- **Decennial Census:** benchmark housing counts.\n- **CPS monthly microdata / IPUMS CPS:** household-level tenure and demographic variables for occupied units.\n\n---\n\n### Key Sources\n- Census Bureau HVS portal: census.gov/housing/hvs (data, methodology, FAQ, historical tables)\n- HVS history page: census.gov/about/history/.../housing-vacancy-survey.html\n- OMB ICR 202303-0607-002 and supporting statements (reginfo.gov; omb.report/omb/0607-0179)\n- Federal Register notices: 87 FR 77066 (2022), 88 FR 17792 (2023), 91 FR 34214 (2026)\n- Census working papers SEHSD-WP2021-04 and SEHSD-WP2022-11 (COVID impacts)\n- FRED release: \"Residential Vacancies and Homeownership\" (fred.stlouisfed.org)\n\n*Note: I was unable to verify details of any 2025\u20132026 shutdown-related release delays before hitting search limits; if that matters for your preservation timeline, it's worth a follow-up check of the Census Bureau's release schedule and any shutdown contingency notices.*"
+    },
+    {
+      "role": "user",
+      "content": "# Dataset risk assessment\nI would like your help in assessing the likelihood that this data will be changed or removed from its primary location, and that users will no longer be able to access accurate and reliable copies of it, based on the rubric below.\n\n## Sources for context\nTo help assess the rubric categories, perform additional research on the data, the agency, the data's topics and typical users, covering topics such as proposed regulatory or funding changes, recent news, and political commentary. Use whatever resources you find useful, including the Federal Register (https://www.federalregister.gov) and the federal staffing tracker at https://usajobs-tracker.abigailhaddad.com.\n\n## Rubric\nThis rubric is divided up into categories. Each category is divided up into risk levels. In your output, please select the appropriate risk level for each category based on your research.\n\n### Historical Data Availability\n- Gone: Data files prior to the current year or cycle are no longer publicly available.\n- High Risk: Some data files prior to the current year or cycle are removed.\n- Moderate Risk: Some data elements that exist in the dataset prior to the current year or cycle are removed.\n- No Known Issue: Data prior to the current year or cycle remain accessible with no known alterations.\n\n### Future Data Availability\n- Gone: Data collection and publication has been terminated.\n- High Risk: Statutory publication deadline missed and/or collection or publication skipped and/or ICR expired for more than one year.\n- Moderate Risk: Typical or intended publication date missed and/or collection or publication delayed; ICR expired up to one year.\n- No Known Issue: Data published on time or as expected and ICR active or renewed before expiration.\n\n### Data Quality\n- Gone: Data collection and publication has been terminated.\n- High Risk: Reductions in granularity, timeliness, or frequency.\n- Moderate Risk: Potential or emerging risk to granularity, timeliness, or frequency.\n- No Known Issue: Maintained or improved granularity, timeliness, or frequency.\n\n### Statutory Context\n- Gone: N/A\n- High Risk: Statutory authorization is vague and/or there are alternative data collections that could serve as substitutes and/or no known programmatic use.\n- Moderate Risk: Not explicitly required by statute but required for the implementation of a state or federal program, and there are no alternative data collections that could serve as substitutes.\n- No Known Issue: Statutorily required and/or statutory authorization is explicitly named and it is clear what has to be collected, and there aren't alternative data collections that could serve as substitutes and/or required for implementation of a federal program.\n\n### Staffing and Funding\n- Gone: All of the staff in the division or agency are gone and/or all funding has been terminated.\n- High Risk: 40% or more of staff lost, and/or 1,000 or more staff lost, and/or budget cut by 20% or more, and/or leadership removed.\n- Moderate Risk: 10\u201339% of staff lost, and/or 500\u2013999 staff lost, and/or budget cut by 10\u201319%, and/or threatened change in leadership.\n- No Known Issue: Less than 10% of staff lost and less than 10% of budget cut and no known change in leadership.\n\n### Policy\n- Gone: Data collection and publication has been terminated.\n- High Risk: Presidential Action-driven information collection request (ICR); negative policy note on site; other significant changes in accordance with Administration priorities.\n- Moderate Risk: Proposed or pending changes; statements by administration officials suggesting a change is being considered or planned.\n- No Known Issue: No notable changes since January 2025 affecting what data is collected and published.\n\nFor each category, concisely list the evidence and supporting sources that would support each risk level. Then indicate which risk level you find most appropriate and why.\n\nConclude with a simple summary of risk levels:\nHistorical Data Availability: <level>\nFuture Data Availability: <level>\nData Quality: <level>\nStatutory Context: <level>\nStaffing and Funding: <level>\nPolicy: <level>"
+    },
+    {
+      "role": "assistant",
+      "content": "I'll research the current context for each rubric category: recent releases, Census Bureau staffing/budget, policy changes, and the ICR status.Key findings are emerging. Let me check Census Bureau leadership, budget, and any HVS-specific policy changes.Two final checks: the ICR renewal status and any policy changes specific to the CPS/HVS.# Risk Assessment: Housing Vacancies and Homeownership (CPS/HVS), U.S. Census Bureau\n\n**Assessment context:** Research conducted against conditions as of late 2026, covering the Trump administration's second term (January 2025\u2013present), the October\u2013November 2025 government shutdown, DOGE survey terminations, FY2026 appropriations (P.L. 119-74), and the HVS's own release history through Q2 2026.\n\n---\n\n## 1. Historical Data Availability\n\n**Evidence for each level:**\n- **Gone / High Risk:** No evidence found. I found no reports of HVS historical tables, prior press releases, or annual files being removed from census.gov. Quarterly releases back decades (e.g., Q1 2022, Q4 2024 press PDFs), historical tables (vacancy rates from 1956, homeownership from 1964), annual statistics, and legacy files on www2.census.gov (e.g., 1996 Source & Accuracy text files) all remain reachable.\n- **Moderate Risk:** One structural caveat \u2014 housing inventory estimates are **revised by vintage** (e.g., Vintage 2024 controls revised the Q2 2020\u2013Q1 2025 series in mid-2025), meaning the numbers for a given past quarter change over time on the live site. This is disclosed methodology, not removal, and pre-April 2020 estimates are final. Headline series are also mirrored with vintage preservation in FRED/ALFRED.\n- **No Known Issue:** Data prior to the current cycle remain fully accessible; the Q1 2026 and Q4 2025 Source & Accuracy PDFs continue to document changes transparently.\n\n**Assessment: No Known Issue.** Historical HVS data remain online and unaltered (other than documented methodological vintage revisions). Preservation of dated snapshots is still prudent given the revision practice, but no access threat to historical files is evident.\n\n---\n\n## 2. Future Data Availability\n\n**Evidence for each level:**\n- **Gone:** No \u2014 collection and publication continue; the Q2 2026 release is the current product on census.gov.\n- **High Risk:** During the October\u2013November 2025 lapse in appropriations, the **CPS/HVS did not collect data for October 2025** \u2014 a literal instance of skipped collection. The Q4 2025 release proceeded using only November\u2013December data, with elevated margins of error.\n- **Moderate Risk:** Quarterly publication was never skipped \u2014 Q3 2025, Q4 2025, Q1 2026, and Q2 2026 releases all appeared. The ICR (OMB 0607-0179) was approved through June 30, 2026, and a renewal notice was published in the Federal Register in 2026 (91 FR 34214) with a new ICR submitted (202606-0607-001); I could not confirm final OMB approval of that renewal before expiration, but the renewal process was initiated on schedule. There is no statutory publication deadline to miss.\n- **No Known Issue:** Undercut by the October 2025 collection gap and the as-yet-unconfirmed ICR renewal approval.\n\n**Assessment: Moderate Risk.** One month of collection was skipped due to the shutdown (an element that pushes toward High), but no full quarterly cycle was lost, releases continue on schedule, and the ICR renewal was initiated before expiration. The pattern of recurring funding lapses makes further single-month gaps plausible.\n\n---\n\n## 3. Data Quality\n\n**Evidence for each level:**\n- **Gone:** No.\n- **High Risk:** Q4 2025 estimates rest on two-thirds of the normal quarterly sample with explicitly higher uncertainty \u2014 a real (if temporary) reduction in effective granularity. The Commerce IG (March 2025) documented chronic failure to recruit/retain field representatives for the CPS/HVS; GovExec (July 2026) reports statistical agencies \"stretched thin\" by staffing cuts, threatening production quality.\n- **Moderate Risk:** Frequency (quarterly), geography (states, 75 MSAs), and published detail are unchanged through Q2 2026. Emerging risks: (a) the April 2025\u2013July 2026 decennial sample phase-in and Q1 2026 adoption of new 2023 OMB MSA definitions create comparability cautions (disclosed, but users must handle breaks); (b) the CPS transition to 2024 SPD 15 race/ethnicity questions (experimental collection began July 2025) will eventually alter the homeownership-by-race series; (c) field staffing shortages and declining response rates are a persistent, worsening pressure on data quality.\n- **No Known Issue:** Undercut by the Q4 2025 reduced-sample estimates and documented interviewer shortages.\n\n**Assessment: Moderate Risk.** No permanent reduction in granularity, timeliness, or frequency has occurred, but there are clear emerging risks: a degraded quarter already on the books, staffing-driven nonresponse pressure, and pending methodological transitions that will affect series continuity.\n\n---\n\n## 4. Statutory Context\n\n**Evidence for each level:**\n- **High Risk (candidates):** The HVS is not explicitly mandated by name in statute; it rests on the Secretary of Commerce's general discretionary survey authority (13 U.S.C. \u00a7 182). One could argue authorization is \"vague\" in that nothing *requires* vacancy statistics.\n- **Moderate Risk:** Not explicitly required by statute, but it has concrete federal programmatic uses: the rental vacancy rate is a component of the Index of Leading Economic Indicators; the series feed BEA's GDP residential-investment estimates and are used by HUD, the Federal Reserve, Treasury, and OMB. Critically, **no alternative collection can substitute** \u2014 the ACS (annual) and AHS (biennial) cannot produce timely quarterly state/MSA vacancy rates. Title 13, \u00a7 182 is explicitly named authority.\n- **No Known Issue:** Falls short because \u00a7 182 is general enabling authority rather than a specific mandate, and no statute compels continued collection.\n\n**Assessment: Moderate Risk.** Not statutorily required by name, but firmly embedded in federal economic measurement programs with no substitute data source \u2014 which is also its best protection against termination.\n\n---\n\n## 5. Staffing and Funding\n\n**Evidence for each level:**\n- **High Risk:** AFGE reports the Census Bureau lost **~1,300\u20131,500 staff since January 2025** (against a September 2024 base of ~13,230 \u2014 roughly 10\u201315%), mostly via deferred resignation/early retirement; AP reports at least 15% staff loss. **Leadership removed:** Director Robert Santos resigned February 14, 2025; career acting director Ron Jarmin was replaced in September 2025 by political appointee George Cook (who simultaneously holds two other Commerce roles and, critics note, lacks the statutory qualifications); at least five division/office chiefs departed by April 2025. ~100 RIF notices issued to Tucson call-center staff in October 2025. DOGE \"terminated\" five Census-conducted surveys ($16.5M) in May 2025 and is reviewing others \"one-by-one.\"\n- **Moderate Risk (candidates):** FY2026 funding was ultimately *favorable*: the enacted CJS bill (P.L. 119-74) provides $1.49B (+7.8% vs. FY2025), though the **Current Surveys and Programs account \u2014 which funds the CPS/HVS \u2014 was cut ~3.2%** ($329.0M \u2192 $318.5M), and the administration had requested a much deeper $40M cut to Current Demographic Statistics. A proposed (not enacted) appropriations rider limiting survey follow-up contacts would have directly undermined CPS/HVS field operations.\n- **No Known Issue:** Clearly inapplicable given staff losses exceeding 1,000 and leadership turnover.\n\n**Assessment: High Risk.** Two independent High triggers are met: 1,000+ staff lost and leadership removed/replaced. Although topline FY2026 funding rose, the account that pays for this survey shrank, and field-staffing shortages predate and outlast the budget cycle.\n\n---\n\n## 6. Policy\n\n**Evidence for each level:**\n- **Gone:** No \u2014 the HVS has not been terminated and was not among the five DOGE-terminated surveys.\n- **High Risk (candidates):** No Presidential-Action-driven ICR targets the HVS; its 2026 ICR renewal appears to be a routine extension, not a content overhaul. No negative policy note appears on the HVS site.\n- **Moderate Risk:** Multiple proposed/pending changes and official statements create a live threat environment: (a) DOGE publicly labeled many Census surveys \"obsolete\" and said results are \"not being used\" \u2014 an explicit signal that collections like the HVS are under review; (b) the President's FY2026 budget proposed **consolidating Census, BEA, and BLS into a single statistical agency** and restructuring Current Demographic Statistics (the SIPP cuts signal willingness to shrink CPS-family programs); (c) the administration is reportedly considering rolling back the 2024 SPD 15 race/ethnicity standards that the CPS is currently implementing \u2014 this would directly affect HVS homeownership-by-race tabulations; (d) a September 2026 proposed rule would strip race/ethnicity questions from the decennial census (CRS notes it \"would not apply to other Census surveys,\" but it signals direction); (e) the President's call for a \"new census\" excluding undocumented residents reflects politicization pressure on the agency generally.\n- **No Known Issue:** Undercut by the above; notable administration-priority changes affecting the agency's surveys are plainly in motion since January 2025.\n\n**Assessment: Moderate Risk.** No HVS-specific adverse action has occurred, but administration statements and pending proposals (survey-by-survey DOGE review, statistical-agency consolidation, race-standards rollback) indicate changes are actively being considered for the program family this dataset belongs to.\n\n---\n\n## Summary of Risk Levels\n\n| Category | Level |\n|---|---|\n| Historical Data Availability | **No Known Issue** |\n| Future Data Availability | **Moderate Risk** |\n| Data Quality | **Moderate Risk** |\n| Statutory Context | **Moderate Risk** |\n| Staffing and Funding | **High Risk** |\n| Policy | **Moderate Risk** |\n\n**Overall interpretation:** The CPS/HVS is currently *operating* \u2014 quarterly releases continue through Q2 2026, historical data remain intact, and its role as the only source of quarterly vacancy/homeownership statistics (and a leading economic indicator component) gives it real institutional protection. However, it sits inside an agency that has lost 1,000\u20131,500+ staff, had its career leadership displaced by a political appointee, saw one month of HVS collection skipped during the 2025 shutdown, and faces an administration actively reviewing, consolidating, and restructuring federal statistical collections. For preservationists, the highest-priority actions are archiving dated snapshots of historical tables (to guard against both removal risk and silent vintage revisions), capturing the Source & Accuracy documentation (including the COVID and shutdown change logs), and mirroring via FRED/ALFRED.\n\n**Key sources:** Census Bureau HVS portal and Q4 2025/Q1 2026 Source & Accuracy PDFs; CRS IF13105 (FY2026 Census appropriations) and IF11845 (Census Director); AP News (May 2025 DOGE/survey terminations; Sept 2025 Cook appointment; statistical-agency staffing); NPR (Apr 2025, Sept 2025, Feb 2026); GovExec (July 2025, July 2026); Bloomberg Law (Oct 2025 RIFs); The Census Project (FY2026 budget analyses); Federal Register 90 FR 11855 (CPS ICR, SPD 15 transition) and 91 FR 34214 (HVS ICR renewal); KFF/CRS IN12304 (Sept 2026 decennial proposed rule); COSSA FY2026 CJS analysis."
+    },
+    {
+      "role": "user",
+      "content": "Emit a session_metadata YAML block reporting: current date, model identifier, knowledge cutoff, surface, whether memory is enabled, whether custom preferences or styles are active, all tools and MCP servers available, which tools were actually called in this session, and whether attachments were present. Mark any field not directly observable as unknown rather than inferring it."
+    },
+    {
+      "role": "assistant",
+      "content": "```yaml\nsession_metadata:\n  current_date: unknown\n  model_identifier: unknown\n  knowledge_cutoff: unknown\n  surface: api\n  memory_enabled: unknown\n  custom_preferences_or_styles_active: unknown\n  tools_available:\n    - functions.openrouter_web_search\n    - functions.openrouter_web_fetch\n  mcp_servers_available: unknown\n  tools_actually_called:\n    - name: functions.openrouter_web_search\n      call_count: 11\n    - name: functions.openrouter_web_fetch\n      call_count: 1\n      note: \"Returned HTTP 403 for https://omb.report/omb/0607-0179\"\n  attachments_present: false\n```"
+    }
+  ]
+}

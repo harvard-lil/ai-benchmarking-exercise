@@ -15,6 +15,7 @@ it; without either, scoring is skipped and everything else still runs.
 
 from __future__ import annotations
 
+import csv
 import json
 import re
 import shutil
@@ -40,6 +41,7 @@ PRICES = {
     "claude-haiku-4-5-20251001": (1.00, 5.00, 0.1),
     "claude-sonnet-5": (2.00, 10.00, 0.1),
     "claude-opus-5-5": (4.00, 20.00, 0.05),
+    "claude-opus-5.5": (4.00, 20.00, 0.05),  # OpenRouter's id for the same model
     "claude-opus-5": (5.00, 25.00, 0.1),
 }
 SEARCH_USD = 0.01
@@ -233,32 +235,108 @@ def trail(record: dict) -> tuple[list, list]:
     return queries, fetched
 
 
-def answer_key_contact(record: dict) -> tuple[list, bool]:
-    """Whether a run touched the Data Index, in two strengths.
+def answer_key_contact(record: dict) -> tuple[list, list, bool]:
+    """Whether a run touched the Data Index, in three strengths.
 
     A visit is any URL on the Data Index's domain that the agent fetched or
-    that a search returned to it: those are the agent reading the answer key.
-    A mention is the domain named anywhere else, such as a news article that
-    cites the Data Index, or the agent's own reply. Mentions are worth knowing
-    about but are not leaks."""
-    visits, text = [], []
+    that a search returned to it: the agent reading the answer key. An attempt
+    is a fetch of that domain that the block refused, recorded with an error:
+    the agent asked for the page and never saw it. A mention is the domain
+    named anywhere else, such as a news article that cites the Data Index, or
+    the agent's own reply. Only visits are leaks."""
+    visits, attempts, text = [], [], []
 
-    def walk(node, key=""):
+    def walk(node, key="", refused=False):
         if isinstance(node, dict):
+            refused = refused or bool(node.get("error"))
             for k, v in node.items():
-                walk(v, k)
+                walk(v, k, refused)
         elif isinstance(node, list):
             for v in node:
-                walk(v, key)
+                walk(v, key, refused)
         elif isinstance(node, str) and "dataindex.us" in node:
             host = urlparse(node).netloc.lower() if key in ("url", "uri") else ""
             if host == "dataindex.us" or host.endswith(".dataindex.us"):
-                visits.append(node)
+                (attempts if refused else visits).append(node)
             else:
                 text.append(node)
 
     walk([record["turns"], record["messages"]])
-    return sorted(set(visits)), bool(text)
+    return sorted(set(visits)), sorted(set(attempts)), bool(text)
+
+
+def effort_sent(record: dict) -> str:
+    """The reasoning effort in the request, as logged with each turn."""
+    for t in record["turns"].values():
+        effort = ((t.get("request") or {}).get("reasoning") or {}).get("effort")
+        if effort:
+            return effort
+    return "default"
+
+
+def reasoning_total(record: dict) -> int:
+    total = 0
+    for t in record["turns"].values():
+        usage = t["requests"][0] if t.get("requests") else {}
+        usage = usage.get("raw", usage)
+        total += (usage.get("output_tokens_details") or {}).get("reasoning_tokens") or 0
+    return total
+
+
+def write_summaries(rows: list) -> None:
+    """Two files to copy off the machine: summary.csv, one row per run, and
+    summary.md, one table row per model plus mean error by dataset."""
+    if not rows:
+        return
+    with open(RUNS / "summary.csv", "w", newline="") as handle:
+        fields = [k for k in rows[0] if not k.startswith("_")]
+        writer = csv.DictWriter(handle, fieldnames=fields, extrasaction="ignore")
+        writer.writeheader()
+        writer.writerows(rows)
+
+    by_model = defaultdict(list)
+    for row in rows:
+        by_model[row["model"]].append(row)
+
+    def stat(values, fn, fmt):
+        return fmt.format(fn(values)) if values else "n/a"
+
+    lines = ["# Background agent results", "",
+             "Averages are per run, one run per dataset. Error is distance on the rubric "
+             "scale (No Known Issue 0, Moderate 1, High 2, Gone 3); bias is positive when "
+             "the agent rates data safer than the Data Index.", "",
+             "| Model | Runs | Failed | Matches | Mean error | Median | Max | Bias | "
+             "Cost / dataset | Total cost | Minutes / dataset | Searches | Fetches | Effort | Reasoning tokens |",
+             "| --- | ---: | ---: | ---: | ---: | ---: | ---: | ---: | ---: | ---: | ---: | ---: | ---: | --- | ---: |"]
+    for model, rs in sorted(by_model.items()):
+        gaps = [g for r in rs for g in r["_gaps"]]
+        errors = [abs(g) for g in gaps]
+        matches, scored = sum(r["matches"] for r in rs), sum(r["scored"] for r in rs)
+        n = len(rs)
+        lines.append(
+            f"| {model} | {n} | {sum(r['failed'] for r in rs)} | "
+            f"{matches}/{scored} ({matches / scored:.0%}) | " if scored else
+            f"| {model} | {n} | {sum(r['failed'] for r in rs)} | unscored | ")
+        lines[-1] += (
+            f"{stat(errors, statistics.mean, '{:.2f}')} | {stat(errors, statistics.median, '{:g}')} | "
+            f"{stat(errors, max, '{}')} | {stat(gaps, statistics.mean, '{:+.2f}')} | "
+            f"${sum(r['cost'] for r in rs) / n:.2f} | ${sum(r['cost'] for r in rs):.2f} | "
+            f"{sum(r['seconds'] for r in rs) / n / 60:.1f} | {sum(r['searches'] for r in rs) / n:.1f} | "
+            f"{sum(r['fetches'] for r in rs) / n:.1f} | {', '.join(sorted({r['effort'] for r in rs}))} | "
+            f"{sum(r['reasoning_tokens'] for r in rs) / n:,.0f} |")
+
+    datasets = sorted({r["dataset"] for r in rows})
+    lines += ["", "## Mean error by dataset", "",
+              "| Dataset | " + " | ".join(sorted(by_model)) + " |",
+              "| --- |" + " ---: |" * len(by_model)]
+    for ds in datasets:
+        cells = []
+        for model in sorted(by_model):
+            hit = [r for r in by_model[model] if r["dataset"] == ds and r["mean_error"] != ""]
+            cells.append(f"{hit[0]['mean_error']:.2f}" if hit else "n/a")
+        lines.append(f"| {ds} | " + " | ".join(cells) + " |")
+    (RUNS / "summary.md").write_text("\n".join(lines) + "\n")
+    print(f"wrote {(RUNS / 'summary.md').relative_to(HERE)} and {(RUNS / 'summary.csv').relative_to(HERE)}")
 
 
 def main() -> int:
@@ -272,6 +350,7 @@ def main() -> int:
     ground_truth = load_ground_truth()
 
     agent_results = defaultdict(dict)
+    run_rows = []
     summary = defaultdict(lambda: {"runs": 0, "failed": 0, "leaked": 0, "scored": 0, "match": 0, "off": 0,
                                    "safer": 0, "riskier": 0, "cost": 0.0, "gaps": [],
                                    "searches": 0, "fetches": 0})
@@ -292,7 +371,7 @@ def main() -> int:
         harness = record.get("harness", "anthropic tools")
         arm = f"{model} via {harness}"
         failure = record.get("terminate_reason", "completed") != "completed"
-        visits, mentioned = answer_key_contact(record)
+        visits, attempts, mentioned = answer_key_contact(record)
         leaked = bool(visits)
 
         print(f"\n{key}  {model}  trial {trial}  {harness}  {seconds}")
@@ -302,6 +381,8 @@ def main() -> int:
             print(f"   LEAK: the agent reached the Data Index: {', '.join(visits)[:200]}")
         elif mentioned:
             print("   note: dataindex.us is mentioned in a page or the reply, but never visited")
+        if attempts and not leaked:
+            print(f"   note: the agent tried to fetch the Data Index and was blocked: {', '.join(attempts)[:200]}")
         if record.get("search_tool"):
             print(f"   search: {json.dumps(record['search_tool'])}")
         if record.get("reasoning"):
@@ -368,6 +449,23 @@ def main() -> int:
         elif ground_truth:
             print("   vs Data Index: no entry for this dataset")
 
+        gaps = [gap for *_, gap in score(levels, ground_truth[key])] if key in ground_truth else []
+        run_rows.append({
+            "model": model, "harness": harness, "dataset": key, "trial": trial,
+            "failed": int(failure), "effort": effort_sent(record),
+            **{k: levels[k] or "" for k in CATEGORIES},
+            "matches": sum(1 for g in gaps if g == 0),
+            "scored": sum(1 for k in CATEGORIES if (ground_truth.get(key, {}).get(k) or {}).get("level")),
+            "levels_off": sum(abs(g) for g in gaps),
+            "mean_error": round(statistics.mean(abs(g) for g in gaps), 3) if gaps else "",
+            "bias": round(statistics.mean(gaps), 3) if gaps else "",
+            "cost": billed or 0.0,
+            "seconds": round(sum(t.get("seconds", 0) for t in record["turns"].values()), 1),
+            "searches": max(len(queries), total["searches"]), "fetches": fetches,
+            "reasoning_tokens": reasoning_total(record),
+            "_gaps": gaps,
+        })
+
         if trial != 0 or failure:
             continue  # the site shows trial 0 of a completed run
         agent_results[model][key] = {
@@ -386,6 +484,7 @@ def main() -> int:
         print(f"      error: {distance_stats(s['gaps'])}"
               + (f" · {unrated} unrated, left out of the error" if unrated else ""))
 
+    write_summaries([{k: v for k, v in r.items()} for r in run_rows])
     for model, results in agent_results.items():
         out = RUNS / f"agent_results__{model.replace('/', '_')}.js"
         out.write_text("const AGENT_RESULTS = " + json.dumps(results, indent=2) + ";\n")

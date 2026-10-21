@@ -252,7 +252,9 @@ def finished(path: Path) -> bool:
 def main() -> int:
     parser = argparse.ArgumentParser()
     parser.add_argument("datasets", nargs="*", help="dataset keys; default nhis")
-    parser.add_argument("--all", action="store_true")
+    selection = parser.add_mutually_exclusive_group()
+    selection.add_argument("--all", action="store_true", help="every dataset")
+    selection.add_argument("--experts", action="store_true", help="the experts session datasets")
     parser.add_argument("--model", default="anthropic/claude-sonnet-5",
                         help="an OpenRouter model id, as listed on openrouter.ai/models")
     parser.add_argument(
@@ -266,13 +268,22 @@ def main() -> int:
     )
     parser.add_argument("--force", action="store_true", help="re-run finished datasets")
     args = parser.parse_args()
+    if args.datasets and (args.all or args.experts):
+        parser.error("name datasets or pass --all/--experts, not both")
 
     load_env(HERE / ".env")
     if not os.environ.get("OPENROUTER_API_KEY"):
         sys.exit("OPENROUTER_API_KEY is not set")
 
     by_key = {d["key"]: d for d in PROMPTS["datasets"]}
-    wanted = list(by_key) if args.all else (args.datasets or ["nhis"])
+    if args.all:
+        wanted = list(by_key)
+    elif args.experts:
+        wanted = [k for k, d in by_key.items() if d.get("expert")]
+        if not wanted:
+            sys.exit("prompts.json has no experts datasets; regenerate it with node agent/dump_prompts.mjs")
+    else:
+        wanted = args.datasets or ["nhis"]
     unknown = [k for k in wanted if k not in by_key]
     if unknown:
         sys.exit(f"unknown dataset(s): {', '.join(unknown)}")

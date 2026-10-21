@@ -26,6 +26,7 @@ vm.runInContext(
     .map(([key, d]) => ({
       key,
       title: d.title,
+      expert: !!d.expert,
       research: stepOnePrompt(d),
       assessment: stepTwoPrompt(CATEGORY_ORDER),
     })),

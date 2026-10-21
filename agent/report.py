@@ -1,77 +1,58 @@
 #!/usr/bin/env python
-"""Price, parse and score the transcripts run.py wrote.
-
-    python agent/report.py            # every run in agent/runs
-    python agent/report.py nhis       # one dataset
-
-Prints, per run: tokens, cost as billed and cost had nothing been cached, the
-rubric levels parsed from the assessment turn, agreement with America's Data
-Index, and the search trail. Ends with a per-model summary. Writes one
-runs/agent_results__<model>.js per model, the AGENT_RESULTS block for js/site.js.
-
-Ground truth is read from js/data-index.js. Needs node on the PATH to evaluate
-it; without either, scoring is skipped and everything else still runs.
-"""
+"""Price, parse and score the transcripts written by run.py."""
 
 from __future__ import annotations
 
+import argparse
 import csv
 import json
 import re
 import shutil
+import statistics
 import subprocess
 import sys
-import statistics
 from collections import defaultdict
 from pathlib import Path
 from urllib.parse import urlparse
 
-HERE = Path(__file__).parent
-RUNS = HERE / "runs"
-DATA_INDEX_JS = HERE.parent / "js" / "data-index.js"
-PROMPTS = json.loads((HERE / "prompts.json").read_text())
+AGENT_DIR = Path(__file__).parent
+RUNS_DIR = AGENT_DIR / "runs"
+DATA_INDEX_JS = AGENT_DIR.parent / "js" / "data-index.js"
+PROMPTS = json.loads((AGENT_DIR / "prompts.json").read_text())
 CATEGORIES = PROMPTS["categories"]
 CATEGORY_NAMES = PROMPTS["category_names"]
+DATA_INDEX_DOMAIN = "dataindex.us"
 
-# (input, output) USD per million tokens, and the cache-read multiplier, from
-# each model's page on platform.claude.com. Cache writes bill at 1.25x input for
-# the 5-minute TTL and 2x for the 1-hour TTL. Web search is $10 per 1,000
-# searches; web fetch is tokens only. Opus 5 is unverified.
-PRICES = {
-    "claude-haiku-4-5-20251001": (1.00, 5.00, 0.1),
-    "claude-sonnet-5": (2.00, 10.00, 0.1),
-    "claude-opus-5-5": (4.00, 20.00, 0.05),
-    "claude-opus-5.5": (4.00, 20.00, 0.05),  # OpenRouter's id for the same model
-    "claude-opus-5": (5.00, 25.00, 0.1),
+# USD per million input and output tokens, for the uncached-cost estimate.
+PRICES_PER_MILLION = {
+    "claude-haiku-4-5-20251001": (1.00, 5.00),
+    "claude-sonnet-5": (2.00, 10.00),
+    "claude-opus-5": (5.00, 25.00),
+    "claude-opus-5-5": (4.00, 20.00),
+    "claude-opus-5.5": (4.00, 20.00),
 }
-SEARCH_USD = 0.01
-WRITE_5M, WRITE_1H = 1.25, 2.0
+SEARCH_PRICE = 0.01
 
-LEVEL_PATTERN = "|".join(re.escape(level) for level in PROMPTS["levels"])
-CANONICAL = {level.lower(): level for level in PROMPTS["levels"]}
-
-# Order of the levels, used to measure how far apart two ratings are. A miss
-# where the agent's rank is lower than the Data Index's rated the data safer.
-RANK = {"No Known Issue": 0, "Moderate Risk": 1, "High Risk": 2, "Gone": 3}
+LEVEL_REGEX = "|".join(re.escape(level) for level in PROMPTS["levels"])
+CANONICAL_LEVELS = {level.lower(): level for level in PROMPTS["levels"]}
+LEVEL_RANK = {"No Known Issue": 0, "Moderate Risk": 1, "High Risk": 2, "Gone": 3}
 
 
-def distance_stats(gaps: list) -> str:
-    """Error as distance on the rubric scale, No Known Issue 0 to Gone 3: how
-    many levels each rating sits from the Data Index's. Bias is the signed
-    mean, positive when the agent rates data safer than the Data Index does."""
+def format_error_stats(gaps: list[int]) -> str:
+    """Distance from the Data Index in rubric levels; positive bias means rated safer."""
     if not gaps:
         return "no rated categories"
-    errors = [abs(g) for g in gaps]
-    return (f"mean {statistics.mean(errors):.2f} · median {statistics.median(errors):g} · "
-            f"max {max(errors)} · min {min(errors)} levels · bias {statistics.mean(gaps):+.2f} "
-            f"(n={len(gaps)})")
+    errors = [abs(gap) for gap in gaps]
+    return (
+        f"mean {statistics.mean(errors):.2f} · median {statistics.median(errors):g} · "
+        f"max {max(errors)} · min {min(errors)} levels · bias {statistics.mean(gaps):+.2f} "
+        f"(n={len(gaps)})"
+    )
 
 
 def load_ground_truth() -> dict:
-    """DATA_INDEX from js/data-index.js, evaluated by node so the JavaScript
-    object literal never has to be parsed by hand. Empty if unavailable."""
     if not DATA_INDEX_JS.exists():
-        print(f"no {DATA_INDEX_JS.relative_to(HERE.parent)}, skipping scoring")
+        print(f"no {DATA_INDEX_JS.relative_to(AGENT_DIR.parent)}, skipping scoring")
         return {}
     if not shutil.which("node"):
         print("node not found, skipping scoring")
@@ -90,207 +71,228 @@ def load_ground_truth() -> dict:
     return json.loads(result.stdout)
 
 
-def totals(record: dict) -> dict:
-    """Sum every billed request across the run's three turns."""
-    keys = (
-        "input_tokens",
-        "output_tokens",
-        "cache_read_input_tokens",
-        "cache_creation_input_tokens",
+def sum_usage(record: dict) -> dict:
+    """Token, tool and cost totals across every request in the run.
+
+    OpenRouter's input_tokens includes cache reads and writes, so they are
+    subtracted to leave uncached input."""
+    totals = dict.fromkeys(
+        ("input_tokens", "cache_read_tokens", "cache_write_tokens", "output_tokens",
+         "searches", "fetches"),
+        0,
     )
-    total = dict.fromkeys(keys, 0)
-    total["write_1h"] = 0
-    total["searches"] = 0
-    total["fetches"] = 0
-    total["billed"] = 0.0
+    totals["billed"] = 0.0
     for turn in record["turns"].values():
-        # The OpenRouter path counts its searches and fetches per turn.
-        total["searches"] += turn.get("searches", 0)
-        total["fetches"] += turn.get("fetches", 0)
+        totals["searches"] += turn["searches"]
+        totals["fetches"] += turn["fetches"]
         for usage in turn["requests"]:
-            # Earlier OpenRouter runs saved OpenRouter's usage under "raw".
-            usage = usage.get("raw", usage)
-            if "cache_read_input_tokens" in usage:
-                # Anthropic's field names, from the earlier Anthropic-tools runs.
-                read = usage.get("cache_read_input_tokens") or 0
-                write = usage.get("cache_creation_input_tokens") or 0
-                total["input_tokens"] += usage.get("input_tokens") or 0
-                breakdown = usage.get("cache_creation") or {}
-                total["write_1h"] += breakdown.get("ephemeral_1h_input_tokens") or 0
-            else:
-                # OpenRouter's field names. Its input_tokens includes cached
-                # tokens, so they are taken out to get uncached input.
-                details = usage.get("input_tokens_details") or {}
-                read = details.get("cached_tokens") or 0
-                write = details.get("cache_write_tokens") or 0
-                total["input_tokens"] += max((usage.get("input_tokens") or 0) - read - write, 0)
-            total["cache_read_input_tokens"] += read
-            total["cache_creation_input_tokens"] += write
-            total["output_tokens"] += usage.get("output_tokens") or 0
-            server = usage.get("server_tool_use") or {}
-            total["searches"] += server.get("web_search_requests") or 0
-            # OpenRouter reports what it actually billed for each request.
-            total["billed"] += usage.get("cost") or 0.0
-    return total
+            details = usage.get("input_tokens_details") or {}
+            cache_read = details.get("cached_tokens") or 0
+            cache_write = details.get("cache_write_tokens") or 0
+            totals["input_tokens"] += max((usage.get("input_tokens") or 0) - cache_read - cache_write, 0)
+            totals["cache_read_tokens"] += cache_read
+            totals["cache_write_tokens"] += cache_write
+            totals["output_tokens"] += usage.get("output_tokens") or 0
+            totals["billed"] += usage.get("cost") or 0.0
+    return totals
 
 
-def cost(model: str, total: dict, cached: bool) -> float | None:
-    """Spend in USD, as billed, or as it would have been with no cache hits.
-
-    Writes the API attributes to the 1-hour TTL are priced at 2x. Any write it
-    does not attribute to either TTL is priced at the 5-minute rate, the lower
-    of the two, so this can undercount slightly rather than overcount."""
-    # OpenRouter ids carry a provider prefix, as in anthropic/claude-sonnet-5.
-    model = model.split("/")[-1]
-    if model not in PRICES:
+def uncached_cost(model: str, totals: dict) -> float | None:
+    """What the run would have cost with no cache hits, for models with known prices."""
+    prices = PRICES_PER_MILLION.get(model.split("/")[-1])
+    if prices is None:
         return None
-    rate_in, rate_out, read_rate = PRICES[model]
-    read = total["cache_read_input_tokens"]
-    write = total["cache_creation_input_tokens"]
-    write_1h = min(total["write_1h"], write)
-    if cached:
-        billable_in = (
-            total["input_tokens"]
-            + read_rate * read
-            + WRITE_1H * write_1h
-            + WRITE_5M * (write - write_1h)
-        )
-    else:
-        billable_in = total["input_tokens"] + read + write
+    input_price, output_price = prices
+    all_input = totals["input_tokens"] + totals["cache_read_tokens"] + totals["cache_write_tokens"]
     return round(
-        billable_in / 1e6 * rate_in
-        + total["output_tokens"] / 1e6 * rate_out
-        + total["searches"] * SEARCH_USD,
+        all_input / 1e6 * input_price
+        + totals["output_tokens"] / 1e6 * output_price
+        + totals["searches"] * SEARCH_PRICE,
         2,
     )
 
 
-def assistant_text(record: dict, turn_index: int) -> str:
-    """Text of the nth assistant message: 0 research, 1 assessment, 2 metadata."""
-    replies = [m for m in record["messages"] if m["role"] == "assistant"]
-    if turn_index >= len(replies):
-        return ""  # the run failed before this reply
-    content = replies[turn_index]["content"]
-    if isinstance(content, str):
-        return content  # OpenRouter replies are plain text
-    return "".join(b.get("text", "") for b in content if b["type"] == "text")
+def assistant_reply(record: dict, turn_index: int) -> str:
+    """The nth reply: 0 research, 1 assessment, 2 session metadata."""
+    replies = [m["content"] for m in record["messages"] if m["role"] == "assistant"]
+    return replies[turn_index] if turn_index < len(replies) else ""
 
 
-def parse_levels(text: str) -> dict:
-    """The six summary lines the prompt asks for. Models format them differently:
-    plain `Category: Level`, bold, or a markdown table row `| Category | Level |`.
-    The separator is whatever sits between the two, so match on that. The last
-    match per category wins, since the summary follows the per-category discussion."""
+def parse_levels(assessment: str) -> dict[str, str | None]:
+    """The closing summary's level per category, as `Name: Level`, bold, or a table row.
+
+    The last match wins, since the summary follows the per-category discussion."""
     levels = {}
     for key in CATEGORIES:
-        pattern = (
-            rf"{re.escape(CATEGORY_NAMES[key])}\**\s*[:|]\s*\**\s*({LEVEL_PATTERN})"
-        )
-        found = re.findall(pattern, text, flags=re.IGNORECASE)
-        levels[key] = CANONICAL[found[-1].lower()] if found else None
+        pattern = rf"{re.escape(CATEGORY_NAMES[key])}\**\s*[:|]\s*\**\s*({LEVEL_REGEX})"
+        found = re.findall(pattern, assessment, flags=re.IGNORECASE)
+        levels[key] = CANONICAL_LEVELS[found[-1].lower()] if found else None
     return levels
 
 
-def score(levels: dict, truth: dict) -> list:
-    """(category, agent level, Data Index level, gap) for every category both
-    rated. gap is Data Index rank minus agent rank: positive means the agent
-    rated the data safer than the Data Index did."""
-    rows = []
+def score_against_index(levels: dict, truth: dict) -> list[tuple[str, str, str, int]]:
+    """(category, agent level, Data Index level, gap) where both rated; positive gap is safer."""
+    scored = []
     for key in CATEGORIES:
-        agent = levels.get(key)
-        index = CANONICAL.get(str((truth.get(key) or {}).get("level", "")).lower())
-        if agent and index:
-            rows.append((key, agent, index, RANK[index] - RANK[agent]))
-    return rows
+        agent_level = levels.get(key)
+        index_level = CANONICAL_LEVELS.get(str((truth.get(key) or {}).get("level", "")).lower())
+        if agent_level and index_level:
+            scored.append((key, agent_level, index_level, LEVEL_RANK[index_level] - LEVEL_RANK[agent_level]))
+    return scored
 
 
-def evidence(text: str, key: str) -> str:
-    """The assessment's section for one category: its heading to the next."""
+def rated_category_count(truth: dict) -> int:
+    return sum(1 for key in CATEGORIES if (truth.get(key) or {}).get("level"))
+
+
+def category_evidence(assessment: str, key: str) -> str:
+    """The assessment's section for one category, from its heading to the next."""
     pattern = rf"^#+[^\n]*{re.escape(CATEGORY_NAMES[key])}[^\n]*\n(.*?)(?=^#+ |\Z)"
-    match = re.search(pattern, text, flags=re.MULTILINE | re.DOTALL | re.IGNORECASE)
+    match = re.search(pattern, assessment, flags=re.MULTILINE | re.DOTALL | re.IGNORECASE)
     return match.group(1).strip() if match else ""
 
 
-def trail(record: dict) -> tuple[list, list]:
-    """Queries searched and URLs fetched, in order."""
-    queries, fetched = [], []
-    # OpenRouter path: the search and fetch items saved with each turn.
+def search_trail(record: dict) -> tuple[list[str], list[str]]:
+    queries, fetched_urls = [], []
     for turn in record["turns"].values():
         for item in turn.get("tool_items", []):
             if item.get("type") == "openrouter:web_search":
                 queries.append((item.get("action") or {}).get("query"))
             elif item.get("type") == "openrouter:web_fetch":
-                fetched.append(item.get("url"))
-    for message in record["messages"]:
-        if isinstance(message["content"], str):
-            continue
-        for block in message["content"]:
-            if block["type"] != "server_tool_use":
-                continue
-            value = block.get("input") or {}
-            if block["name"] == "web_search":
-                queries.append(value.get("query"))
-            elif block["name"] == "web_fetch":
-                fetched.append(value.get("url"))
-    return queries, fetched
+                fetched_urls.append(item.get("url"))
+    return queries, fetched_urls
 
 
-def answer_key_contact(record: dict) -> tuple[list, list, bool]:
-    """Whether a run touched the Data Index, in three strengths.
+def data_index_contact(record: dict) -> tuple[list[str], list[str], bool]:
+    """Visits (a leak), blocked fetch attempts, and whether the domain is merely mentioned."""
+    visits, blocked, mentions = [], [], []
 
-    A visit is any URL on the Data Index's domain that the agent fetched or
-    that a search returned to it: the agent reading the answer key. An attempt
-    is a fetch of that domain that the block refused, recorded with an error:
-    the agent asked for the page and never saw it. A mention is the domain
-    named anywhere else, such as a news article that cites the Data Index, or
-    the agent's own reply. Only visits are leaks."""
-    visits, attempts, text = [], [], []
-
-    def walk(node, key="", refused=False):
+    def walk(node, field_name="", refused=False):
         if isinstance(node, dict):
             refused = refused or bool(node.get("error"))
-            for k, v in node.items():
-                walk(v, k, refused)
+            for name, value in node.items():
+                walk(value, name, refused)
         elif isinstance(node, list):
-            for v in node:
-                walk(v, key, refused)
-        elif isinstance(node, str) and "dataindex.us" in node:
-            host = urlparse(node).netloc.lower() if key in ("url", "uri") else ""
-            if host == "dataindex.us" or host.endswith(".dataindex.us"):
-                (attempts if refused else visits).append(node)
+            for value in node:
+                walk(value, field_name, refused)
+        elif isinstance(node, str) and DATA_INDEX_DOMAIN in node:
+            host = urlparse(node).netloc.lower() if field_name in ("url", "uri") else ""
+            if host == DATA_INDEX_DOMAIN or host.endswith("." + DATA_INDEX_DOMAIN):
+                (blocked if refused else visits).append(node)
             else:
-                text.append(node)
+                mentions.append(node)
 
     walk([record["turns"], record["messages"]])
-    return sorted(set(visits)), sorted(set(attempts)), bool(text)
+    return sorted(set(visits)), sorted(set(blocked)), bool(mentions)
 
 
-def effort_sent(record: dict) -> str:
-    """The reasoning effort in the request, as logged with each turn."""
-    for t in record["turns"].values():
-        effort = ((t.get("request") or {}).get("reasoning") or {}).get("effort")
+def reasoning_effort(record: dict) -> str:
+    for turn in record["turns"].values():
+        effort = ((turn.get("request") or {}).get("reasoning") or {}).get("effort")
         if effort:
             return effort
     return "default"
 
 
-def reasoning_total(record: dict) -> int:
-    total = 0
-    for t in record["turns"].values():
-        usage = t["requests"][0] if t.get("requests") else {}
-        usage = usage.get("raw", usage)
-        total += (usage.get("output_tokens_details") or {}).get("reasoning_tokens") or 0
-    return total
+def turn_reasoning_tokens(turn: dict) -> int | None:
+    usage = turn["requests"][0] if turn.get("requests") else {}
+    return (usage.get("output_tokens_details") or {}).get("reasoning_tokens")
 
 
-def write_summaries(rows: list) -> None:
-    """Two files to copy off the machine: summary.csv, one row per run, and
-    summary.md, one table row per model plus mean error by dataset."""
+def print_run(record: dict, totals: dict, levels: dict, trail: tuple, contact: tuple,
+              billed: float, uncached: float | None) -> None:
+    key, model = record["dataset"]["key"], record["model"]
+    seconds = " · ".join(f"{label} {turn['seconds']}s" for label, turn in record["turns"].items())
+    print(f"\n{key}  {model}  trial {record.get('trial', 0)}  {record['harness']}  {seconds}")
+
+    if record["terminate_reason"] != "completed":
+        print(f"   FAILED: {record['terminate_reason'][:200]}")
+    visits, blocked, mentioned = contact
+    if visits:
+        print(f"   LEAK: the agent reached the Data Index: {', '.join(visits)[:200]}")
+    else:
+        if mentioned:
+            print("   note: dataindex.us is mentioned in a page or the reply, but never visited")
+        if blocked:
+            print(f"   note: the agent tried to fetch the Data Index and was blocked: {', '.join(blocked)[:200]}")
+
+    print(f"   search: {json.dumps(record['search_tool'])}")
+    catalog_entry = record["catalog"].get("entry")
+    accepted = catalog_entry.get("reasoning") if isinstance(catalog_entry, dict) else None
+    per_turn = []
+    for label, turn in record["turns"].items():
+        tokens = turn_reasoning_tokens(turn)
+        applied = (turn.get("response_meta") or {}).get("reasoning")
+        per_turn.append(f"{label} {'?' if tokens is None else tokens}"
+                        + (f" {json.dumps(applied)}" if applied else ""))
+    print(f"   reasoning: {record['reasoning']} · catalog: {json.dumps(accepted)}")
+    print(f"   reasoning tokens: {' · '.join(per_turn)}")
+
+    print(
+        f"   tokens: {totals['input_tokens']:,} in · "
+        f"{totals['cache_read_tokens']:,} cache read · "
+        f"{totals['cache_write_tokens']:,} cache write · "
+        f"{totals['output_tokens']:,} out · {totals['searches']} searches"
+    )
+    print(f"   cost: ${billed} as billed" + (f" · ${uncached} if uncached" if uncached is not None else ""))
+    print("   levels: " + "  ".join(f"{key}={levels[key] or '?'}" for key in CATEGORIES))
+    unparsed = [key for key in CATEGORIES if not levels[key]]
+    if unparsed:
+        print(f"   could not parse: {', '.join(unparsed)}")
+    queries, fetched_urls = trail
+    print(f"   trail: {len(queries)} searches, {len(fetched_urls)} fetches")
+
+
+def print_scoring(scored: list, rated_count: int) -> None:
+    gaps = [gap for *_, gap in scored]
+    matches = gaps.count(0)
+    print(f"   vs Data Index: {matches}/{rated_count} match · {sum(map(abs, gaps))} levels off · "
+          f"{sum(gap > 0 for gap in gaps)} rated safer, {sum(gap < 0 for gap in gaps)} rated riskier")
+    print(f"   error: {format_error_stats(gaps)}")
+    for category, agent_level, index_level, gap in scored:
+        if gap:
+            print(f"      {category}: {agent_level}, Data Index {index_level}")
+    if len(scored) < rated_count:
+        print(f"   {rated_count - len(scored)} categories unrated, scored as misses")
+
+
+def print_model_summaries(rows: list[dict]) -> None:
+    by_model = defaultdict(list)
+    for row in rows:
+        by_model[row["model"]].append(row)
+
+    print("\nby model")
+    for model, model_rows in sorted(by_model.items()):
+        run_count = len(model_rows)
+        gaps = [gap for row in model_rows for gap in row["_gaps"]]
+        matches = sum(row["matches"] for row in model_rows)
+        rated = sum(row["scored"] for row in model_rows)
+        failed = sum(row["failed"] for row in model_rows)
+        leaked = sum(row["_leaked"] for row in model_rows)
+
+        match_rate = f"{matches}/{rated} ({matches / rated:.0%})" if rated else "unscored"
+        flags = (f" ({failed} failed)" if failed else "") + (
+            f" ({leaked} reached the Data Index)" if leaked else "")
+        print(
+            f"   {model}: {run_count} runs{flags} · match {match_rate} · "
+            f"{sum(row['levels_off'] for row in model_rows)} levels off · "
+            f"{sum(gap > 0 for gap in gaps)} safer, {sum(gap < 0 for gap in gaps)} riskier · "
+            f"${sum(row['cost'] for row in model_rows) / run_count:.2f} avg · "
+            f"{sum(row['searches'] for row in model_rows) / run_count:.0f} searches, "
+            f"{sum(row['fetches'] for row in model_rows) / run_count:.0f} fetches avg"
+        )
+        unrated = rated - len(gaps)
+        print(f"      error: {format_error_stats(gaps)}"
+              + (f" · {unrated} unrated, left out of the error" if unrated else ""))
+
+
+def write_summaries(rows: list[dict]) -> None:
+    """summary.csv, one row per run, and summary.md, one row per model plus error by dataset."""
     if not rows:
         return
-    with open(RUNS / "summary.csv", "w", newline="") as handle:
-        fields = [k for k in rows[0] if not k.startswith("_")]
-        writer = csv.DictWriter(handle, fieldnames=fields, extrasaction="ignore")
+    with open(RUNS_DIR / "summary.csv", "w", newline="") as handle:
+        public_fields = [name for name in rows[0] if not name.startswith("_")]
+        writer = csv.DictWriter(handle, fieldnames=public_fields, extrasaction="ignore")
         writer.writeheader()
         writer.writerows(rows)
 
@@ -298,197 +300,132 @@ def write_summaries(rows: list) -> None:
     for row in rows:
         by_model[row["model"]].append(row)
 
-    def stat(values, fn, fmt):
-        return fmt.format(fn(values)) if values else "n/a"
+    def format_stat(values, function, template):
+        return template.format(function(values)) if values else "n/a"
 
-    lines = ["# Background agent results", "",
-             "Averages are per run, one run per dataset. Error is distance on the rubric "
-             "scale (No Known Issue 0, Moderate 1, High 2, Gone 3); bias is positive when "
-             "the agent rates data safer than the Data Index.", "",
-             "| Model | Runs | Failed | Matches | Mean error | Median | Max | Bias | "
-             "Cost / dataset | Total cost | Minutes / dataset | Searches | Fetches | Effort | Reasoning tokens |",
-             "| --- | ---: | ---: | ---: | ---: | ---: | ---: | ---: | ---: | ---: | ---: | ---: | ---: | --- | ---: |"]
-    for model, rs in sorted(by_model.items()):
-        gaps = [g for r in rs for g in r["_gaps"]]
-        errors = [abs(g) for g in gaps]
-        matches, scored = sum(r["matches"] for r in rs), sum(r["scored"] for r in rs)
-        n = len(rs)
+    lines = [
+        "# Background agent results", "",
+        "Averages are per run, one run per dataset. Error is distance on the rubric "
+        "scale (No Known Issue 0, Moderate 1, High 2, Gone 3); bias is positive when "
+        "the agent rates data safer than the Data Index.", "",
+        "| Model | Runs | Failed | Matches | Mean error | Median | Max | Bias | "
+        "Cost / dataset | Total cost | Minutes / dataset | Searches | Fetches | Effort | Reasoning tokens |",
+        "| --- | ---: | ---: | ---: | ---: | ---: | ---: | ---: | ---: | ---: | ---: | ---: | ---: | --- | ---: |",
+    ]
+    for model, model_rows in sorted(by_model.items()):
+        run_count = len(model_rows)
+        gaps = [gap for row in model_rows for gap in row["_gaps"]]
+        errors = [abs(gap) for gap in gaps]
+        matches = sum(row["matches"] for row in model_rows)
+        rated = sum(row["scored"] for row in model_rows)
+        total_cost = sum(row["cost"] for row in model_rows)
+        match_cell = f"{matches}/{rated} ({matches / rated:.0%})" if rated else "unscored"
+        efforts = ", ".join(sorted({row["effort"] for row in model_rows}))
         lines.append(
-            f"| {model} | {n} | {sum(r['failed'] for r in rs)} | "
-            f"{matches}/{scored} ({matches / scored:.0%}) | " if scored else
-            f"| {model} | {n} | {sum(r['failed'] for r in rs)} | unscored | ")
-        lines[-1] += (
-            f"{stat(errors, statistics.mean, '{:.2f}')} | {stat(errors, statistics.median, '{:g}')} | "
-            f"{stat(errors, max, '{}')} | {stat(gaps, statistics.mean, '{:+.2f}')} | "
-            f"${sum(r['cost'] for r in rs) / n:.2f} | ${sum(r['cost'] for r in rs):.2f} | "
-            f"{sum(r['seconds'] for r in rs) / n / 60:.1f} | {sum(r['searches'] for r in rs) / n:.1f} | "
-            f"{sum(r['fetches'] for r in rs) / n:.1f} | {', '.join(sorted({r['effort'] for r in rs}))} | "
-            f"{sum(r['reasoning_tokens'] for r in rs) / n:,.0f} |")
+            f"| {model} | {run_count} | {sum(row['failed'] for row in model_rows)} | {match_cell} | "
+            f"{format_stat(errors, statistics.mean, '{:.2f}')} | "
+            f"{format_stat(errors, statistics.median, '{:g}')} | "
+            f"{format_stat(errors, max, '{}')} | "
+            f"{format_stat(gaps, statistics.mean, '{:+.2f}')} | "
+            f"${total_cost / run_count:.2f} | ${total_cost:.2f} | "
+            f"{sum(row['seconds'] for row in model_rows) / run_count / 60:.1f} | "
+            f"{sum(row['searches'] for row in model_rows) / run_count:.1f} | "
+            f"{sum(row['fetches'] for row in model_rows) / run_count:.1f} | {efforts} | "
+            f"{sum(row['reasoning_tokens'] for row in model_rows) / run_count:,.0f} |"
+        )
 
-    datasets = sorted({r["dataset"] for r in rows})
-    lines += ["", "## Mean error by dataset", "",
-              "| Dataset | " + " | ".join(sorted(by_model)) + " |",
-              "| --- |" + " ---: |" * len(by_model)]
-    for ds in datasets:
+    models = sorted(by_model)
+    lines += [
+        "", "## Mean error by dataset", "",
+        "| Dataset | " + " | ".join(models) + " |",
+        "| --- |" + " ---: |" * len(models),
+    ]
+    for dataset in sorted({row["dataset"] for row in rows}):
         cells = []
-        for model in sorted(by_model):
-            hit = [r for r in by_model[model] if r["dataset"] == ds and r["mean_error"] != ""]
-            cells.append(f"{hit[0]['mean_error']:.2f}" if hit else "n/a")
-        lines.append(f"| {ds} | " + " | ".join(cells) + " |")
-    (RUNS / "summary.md").write_text("\n".join(lines) + "\n")
-    print(f"wrote {(RUNS / 'summary.md').relative_to(HERE)} and {(RUNS / 'summary.csv').relative_to(HERE)}")
+        for model in models:
+            hits = [row for row in by_model[model] if row["dataset"] == dataset and row["mean_error"] != ""]
+            cells.append(f"{hits[0]['mean_error']:.2f}" if hits else "n/a")
+        lines.append(f"| {dataset} | " + " | ".join(cells) + " |")
+
+    (RUNS_DIR / "summary.md").write_text("\n".join(lines) + "\n")
+    print(f"wrote {(RUNS_DIR / 'summary.md').relative_to(AGENT_DIR)} and "
+          f"{(RUNS_DIR / 'summary.csv').relative_to(AGENT_DIR)}")
+
+
+def write_agent_results(agent_results: dict) -> None:
+    """One AGENT_RESULTS block per model, ready to paste into js/site.js."""
+    for model, results in agent_results.items():
+        path = RUNS_DIR / f"agent_results__{model.replace('/', '_')}.js"
+        path.write_text("const AGENT_RESULTS = " + json.dumps(results, indent=2) + ";\n")
+        print(f"wrote {path.relative_to(AGENT_DIR)}")
 
 
 def main() -> int:
-    wanted = set(sys.argv[1:])
-    records = [json.loads(p.read_text()) for p in sorted(RUNS.glob("*__*.json"))]
-    # Files written by an earlier version of run.py have no "turns" key.
-    records = [r for r in records if "turns" in r]
-    records = [r for r in records if not wanted or r["dataset"]["key"] in wanted]
+    parser = argparse.ArgumentParser(description=__doc__)
+    parser.add_argument("datasets", nargs="*", help="dataset keys; default every run")
+    args = parser.parse_args()
+
+    records = [json.loads(path.read_text()) for path in sorted(RUNS_DIR.glob("*__*.json"))]
+    records = [r for r in records if not args.datasets or r["dataset"]["key"] in args.datasets]
     if not records:
         sys.exit("no runs found")
     ground_truth = load_ground_truth()
 
+    rows = []
     agent_results = defaultdict(dict)
-    run_rows = []
-    summary = defaultdict(lambda: {"runs": 0, "failed": 0, "leaked": 0, "scored": 0, "match": 0, "off": 0,
-                                   "safer": 0, "riskier": 0, "cost": 0.0, "gaps": [],
-                                   "searches": 0, "fetches": 0})
     for record in records:
         key, model = record["dataset"]["key"], record["model"]
-        total = totals(record)
-        assessment = assistant_text(record, 1)
-        levels = parse_levels(assessment)
-        queries, fetched = trail(record)
-        seconds = " · ".join(f"{k} {t['seconds']}s" for k, t in record["turns"].items())
-        # Prefer the provider's own bill; fall back to the price table.
-        billed = round(total["billed"], 2) if total["billed"] else cost(model, total, True)
-        uncached = cost(model, total, False)
         trial = record.get("trial", 0)
-        # The same model through a different harness is a different arm: keep
-        # the earlier Anthropic-native runs apart from OpenRouter runs.
-        # Runs from before the move to OpenRouter used Anthropic's own tools.
-        harness = record.get("harness", "anthropic tools")
-        arm = f"{model} via {harness}"
-        failure = record.get("terminate_reason", "completed") != "completed"
-        visits, attempts, mentioned = answer_key_contact(record)
-        leaked = bool(visits)
+        failed = record["terminate_reason"] != "completed"
+        totals = sum_usage(record)
+        billed = round(totals["billed"], 2)
+        assessment = assistant_reply(record, 1)
+        levels = parse_levels(assessment)
+        trail = search_trail(record)
+        contact = data_index_contact(record)
 
-        print(f"\n{key}  {model}  trial {trial}  {harness}  {seconds}")
-        if failure:
-            print(f"   FAILED: {record['terminate_reason'][:200]}")
-        if leaked:
-            print(f"   LEAK: the agent reached the Data Index: {', '.join(visits)[:200]}")
-        elif mentioned:
-            print("   note: dataindex.us is mentioned in a page or the reply, but never visited")
-        if attempts and not leaked:
-            print(f"   note: the agent tried to fetch the Data Index and was blocked: {', '.join(attempts)[:200]}")
-        if record.get("search_tool"):
-            print(f"   search: {json.dumps(record['search_tool'])}")
-        if record.get("reasoning"):
-            entry = (record.get("catalog") or {}).get("entry")
-            accepts = entry.get("reasoning") if isinstance(entry, dict) else None
-            per_turn = []
-            for label, t in record["turns"].items():
-                # The usage count covers the whole turn. OpenRouter's audit
-                # record covers only one model call of it, so it is the fallback.
-                usage = t["requests"][0] if t.get("requests") else {}
-                usage = usage.get("raw", usage)
-                tokens = (usage.get("output_tokens_details") or {}).get("reasoning_tokens")
-                if tokens is None:
-                    tokens = (t.get("generation") or {}).get("native_tokens_reasoning", "?")
-                applied = (t.get("response_meta") or {}).get("reasoning")
-                per_turn.append(f"{label} {tokens}" + (f" {json.dumps(applied)}" if applied else ""))
-            print(f"   reasoning: {record['reasoning']} · catalog: {json.dumps(accepts)}")
-            print(f"   reasoning tokens: {' · '.join(per_turn)}")
-        print(
-            f"   tokens: {total['input_tokens']:,} in · "
-            f"{total['cache_read_input_tokens']:,} cache read · "
-            f"{total['cache_creation_input_tokens']:,} cache write · "
-            f"{total['output_tokens']:,} out · {total['searches']} searches"
-        )
-        print(f"   cost: ${billed} as billed"
-              + (f" · ${uncached} if uncached" if uncached is not None else ""))
-        print("   levels: " + "  ".join(f"{k}={levels[k] or '?'}" for k in CATEGORIES))
-        missing = [k for k in CATEGORIES if not levels[k]]
-        if missing:
-            print(f"   could not parse: {', '.join(missing)}")
-        print(f"   trail: {len(queries)} searches, {len(fetched)} fetches")
-        fetches = max(len(fetched), total["fetches"])
+        print_run(record, totals, levels, trail, contact, billed, uncached_cost(model, totals))
 
-        s = summary[arm]
-        s["runs"] += 1
-        s["failed"] += failure
-        s["leaked"] += leaked
-        s["cost"] += billed or 0.0
-        s["searches"] += max(len(queries), total["searches"])
-        s["fetches"] += fetches
-        if key in ground_truth:
-            rows = score(levels, ground_truth[key])
-            # Every category the Data Index rates counts, so a failed run or an
-            # unrated category scores as a miss: no gain from not answering.
-            truth_cats = sum(1 for k in CATEGORIES if (ground_truth[key].get(k) or {}).get("level"))
-            matches = sum(1 for *_, gap in rows if gap == 0)
-            off = sum(abs(gap) for *_, gap in rows)
-            safer = sum(1 for *_, gap in rows if gap > 0)
-            riskier = sum(1 for *_, gap in rows if gap < 0)
-            print(f"   vs Data Index: {matches}/{truth_cats} match · {off} levels off · "
-                  f"{safer} rated safer, {riskier} rated riskier")
-            print(f"   error: {distance_stats([gap for *_, gap in rows])}")
-            for cat, agent, index, gap in rows:
-                if gap:
-                    print(f"      {cat}: {agent}, Data Index {index}")
-            s["scored"] += truth_cats
-            if len(rows) < truth_cats:
-                print(f"   {truth_cats - len(rows)} categories unrated, scored as misses")
-            s["match"] += matches
-            s["off"] += off
-            s["gaps"].extend(gap for *_, gap in rows)
-            s["safer"] += safer
-            s["riskier"] += riskier
+        truth = ground_truth.get(key)
+        scored = score_against_index(levels, truth) if truth else []
+        rated_count = rated_category_count(truth) if truth else 0
+        if truth:
+            print_scoring(scored, rated_count)
         elif ground_truth:
             print("   vs Data Index: no entry for this dataset")
 
-        gaps = [gap for *_, gap in score(levels, ground_truth[key])] if key in ground_truth else []
-        run_rows.append({
-            "model": model, "harness": harness, "dataset": key, "trial": trial,
-            "failed": int(failure), "effort": effort_sent(record),
-            **{k: levels[k] or "" for k in CATEGORIES},
-            "matches": sum(1 for g in gaps if g == 0),
-            "scored": sum(1 for k in CATEGORIES if (ground_truth.get(key, {}).get(k) or {}).get("level")),
-            "levels_off": sum(abs(g) for g in gaps),
-            "mean_error": round(statistics.mean(abs(g) for g in gaps), 3) if gaps else "",
+        gaps = [gap for *_, gap in scored]
+        rows.append({
+            "model": model,
+            "harness": record["harness"],
+            "dataset": key,
+            "trial": trial,
+            "failed": int(failed),
+            "effort": reasoning_effort(record),
+            **{category: levels[category] or "" for category in CATEGORIES},
+            "matches": gaps.count(0),
+            "scored": rated_count,
+            "levels_off": sum(map(abs, gaps)),
+            "mean_error": round(statistics.mean(map(abs, gaps)), 3) if gaps else "",
             "bias": round(statistics.mean(gaps), 3) if gaps else "",
-            "cost": billed or 0.0,
-            "seconds": round(sum(t.get("seconds", 0) for t in record["turns"].values()), 1),
-            "searches": max(len(queries), total["searches"]), "fetches": fetches,
-            "reasoning_tokens": reasoning_total(record),
+            "cost": billed,
+            "seconds": round(sum(turn.get("seconds", 0) for turn in record["turns"].values()), 1),
+            "searches": totals["searches"],
+            "fetches": totals["fetches"],
+            "reasoning_tokens": sum(turn_reasoning_tokens(turn) or 0 for turn in record["turns"].values()),
             "_gaps": gaps,
+            "_leaked": bool(contact[0]),
         })
 
-        if trial != 0 or failure:
-            continue  # the site shows trial 0 of a completed run
-        agent_results[model][key] = {
-            k: {"level": levels[k], "evidence": evidence(assessment, k)} for k in CATEGORIES
-        }
+        if trial == 0 and not failed:
+            agent_results[model][key] = {
+                category: {"level": levels[category], "evidence": category_evidence(assessment, category)}
+                for category in CATEGORIES
+            }
 
-    print("\nby model and harness")
-    for arm, s in sorted(summary.items()):
-        rate = f"{s['match']}/{s['scored']} ({s['match'] / s['scored']:.0%})" if s["scored"] else "unscored"
-        failed = f" ({s['failed']} failed)" if s["failed"] else ""
-        failed += f" ({s['leaked']} reached the Data Index)" if s["leaked"] else ""
-        print(f"   {arm}: {s['runs']} runs{failed} · match {rate} · {s['off']} levels off · "
-              f"{s['safer']} safer, {s['riskier']} riskier · ${s['cost'] / s['runs']:.2f} avg · "
-              f"{s['searches'] / s['runs']:.0f} searches, {s['fetches'] / s['runs']:.0f} fetches avg")
-        unrated = s["scored"] - len(s["gaps"])
-        print(f"      error: {distance_stats(s['gaps'])}"
-              + (f" · {unrated} unrated, left out of the error" if unrated else ""))
-
-    write_summaries([{k: v for k, v in r.items()} for r in run_rows])
-    for model, results in agent_results.items():
-        out = RUNS / f"agent_results__{model.replace('/', '_')}.js"
-        out.write_text("const AGENT_RESULTS = " + json.dumps(results, indent=2) + ";\n")
-        print(f"wrote {out.relative_to(HERE)}")
+    print_model_summaries(rows)
+    write_summaries(rows)
+    write_agent_results(agent_results)
     return 0
 
 

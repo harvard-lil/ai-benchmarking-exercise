@@ -515,52 +515,17 @@ const CATEGORY_ORDER = [
   "policy",
 ];
 
-/* ---------- Background agent results ----------
-   The rubric values the background agent reached, keyed by dataset then category.
-   These are the agent's side of the comparison on results.html: hardcoded output
-   from a run we control, not anything a participant types in.
+/* ---------- Background agent results ---------- */
 
-   THESE ARE MOCK VALUES. Flip AGENT_RESULTS_ARE_MOCK to false once the real run
-   replaces them — it drives a placeholder warning on the results page, so the
-   numbers are never read as real while the flag is true. `evidence` is optional;
-   the real run logs its reasoning, so fill it in when it exists. */
-
-const AGENT_RESULTS_ARE_MOCK = true;
-
-const AGENT_RESULTS = {
-  nhis: {
-    historical: { level: "Moderate Risk" },
-    future: { level: "High Risk" },
-    quality: { level: "Moderate Risk" },
-    statutory: { level: "No Known Issue" },
-    staffing: { level: "High Risk" },
-    policy: { level: "Moderate Risk" },
-  },
-  ahs: {
-    historical: { level: "No Known Issue" },
-    future: { level: "Moderate Risk" },
-    quality: { level: "Moderate Risk" },
-    statutory: { level: "Moderate Risk" },
-    staffing: { level: "Moderate Risk" },
-    policy: { level: "No Known Issue" },
-  },
-  hifld: {
-    historical: { level: "High Risk" },
-    future: { level: "High Risk" },
-    quality: { level: "Moderate Risk" },
-    statutory: { level: "High Risk" },
-    staffing: { level: "Moderate Risk" },
-    policy: { level: "High Risk" },
-  },
-};
+const AGENT = typeof AGENT_RESULTS !== "undefined" ? AGENT_RESULTS : {};
 
 /* A dataset with no run yet reads as empty rather than as agreement. */
 function agentResult(s, k) {
   const key = s.dataset || "nhis";
-  return (AGENT_RESULTS[key] || {})[k] || {};
+  return (AGENT[key] || {})[k] || {};
 }
 function hasAgentRun(s) {
-  return !!AGENT_RESULTS[s.dataset || "nhis"];
+  return !!AGENT[s.dataset || "nhis"];
 }
 
 /* Rubric text. Wording merged from the Assessment Rubric slide and
@@ -1891,11 +1856,7 @@ function renderComparison(el, s) {
        <p>The background agent hasn't assessed
        <strong>${esc(datasetFromState(s).title)}</strong> yet, so its column is empty.
        ${expert ? "Your own ratings, with and without your agent, still compare." : "Your own ratings and the Data Index's still compare."}</p></div>`
-    : AGENT_RESULTS_ARE_MOCK
-      ? `<div class="callout"><p class="callout-title">Placeholder values</p>
-         <p>The background agent's column below is stand-in data while the real run is
-         prepared. Don't read anything into it yet.</p></div>`
-      : "";
+    : "";
 
   el.innerHTML = `
     ${notice}
@@ -1919,9 +1880,6 @@ function comparisonText(s) {
   const expert = isExpert();
   const entry = dataIndexEntry(s);
   const lines = ["# Comparison", "", `Dataset: ${d.title || "(not set)"}`];
-  if (AGENT_RESULTS_ARE_MOCK && hasAgentRun(s)) {
-    lines.push("Note: the background agent's values below are placeholders.");
-  }
   if (!expert && entry && entry.updated) {
     lines.push(
       `Data Index values as checked on ${entry.updated}. More at ` +

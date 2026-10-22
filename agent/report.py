@@ -33,8 +33,11 @@ PRICES_PER_MILLION = {
 }
 SEARCH_PRICE = 0.01
 
-LEVEL_REGEX = "|".join(re.escape(level) for level in PROMPTS["levels"])
 CANONICAL_LEVELS = {level.lower(): level for level in PROMPTS["levels"]}
+LEVEL_ALIASES = {"high": "High Risk", "moderate": "Moderate Risk"}
+LEVEL_REGEX = (
+    "(?:" + "|".join(re.escape(level) for level in [*PROMPTS["levels"], *LEVEL_ALIASES]) + r")\b"
+)
 LEVEL_RANK = {"No Known Issue": 0, "Moderate Risk": 1, "High Risk": 2, "Gone": 3}
 
 
@@ -126,7 +129,11 @@ def parse_levels(assessment: str) -> dict[str, str | None]:
     for key in CATEGORIES:
         pattern = rf"{re.escape(CATEGORY_NAMES[key])}\**\s*[:|]\s*\**\s*({LEVEL_REGEX})"
         found = re.findall(pattern, assessment, flags=re.IGNORECASE)
-        levels[key] = CANONICAL_LEVELS[found[-1].lower()] if found else None
+        if found:
+            matched = found[-1].lower()
+            levels[key] = CANONICAL_LEVELS.get(matched) or LEVEL_ALIASES[matched]
+        else:
+            levels[key] = None
     return levels
 
 
